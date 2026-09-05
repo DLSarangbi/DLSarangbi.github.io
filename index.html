@@ -1,5 +1,31 @@
-<title>SermonDesk</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SermonDesk — Sermon manager for preachers</title>
 <meta name="description" content="A local-first sermon manager for preachers. Write once and get a manuscript, an outline, a podium screen, and a handout. Every sermon stays a plain file on your own computer.">
+<link rel="canonical" href="https://sarangbi.co/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#EFEFEA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131413" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SermonDesk">
+<meta property="og:url" content="https://sarangbi.co/">
+<meta property="og:title" content="SermonDesk — Sermon manager for preachers">
+<meta property="og:description" content="Write the sermon once and get a manuscript, an outline, a podium screen, and a handout. Every sermon stays a plain file on your own computer, offline.">
+<meta property="og:image" content="https://sarangbi.co/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SermonDesk — write the sermon once.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SermonDesk — Sermon manager for preachers">
+<meta name="twitter:description" content="Write the sermon once and get a manuscript, an outline, a podium screen, and a handout. Every sermon stays a plain file on your own computer, offline.">
+<meta name="twitter:image" content="https://sarangbi.co/og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -105,6 +131,11 @@
     font-weight: 600;
   }
   .wordmark span { color: var(--oxblood); }
+
+  /* On a narrow phone the masthead stacks rather than crowding its two ends. */
+  @media (max-width: 460px) {
+    .masthead .wrap { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+  }
 
   /* ---- hero ---- */
 
@@ -340,7 +371,9 @@
     }
   }
 </style>
+</head>
 
+<body>
 <header class="masthead">
   <div class="wrap">
     <div class="wordmark">Sermon<span>Desk</span></div>
@@ -528,7 +561,8 @@
       <h2>One price. Everything included.</h2>
       <p>
         Fourteen days free first. The trial takes a card and turns into a paid subscription at the
-        end of it unless you cancel, and cancelling takes two clicks from your receipt.
+        end of it unless you cancel, and cancelling takes two clicks from your receipt. One
+        subscription works on up to three of your own computers — your desk, your laptop, the study.
       </p>
     </div>
 
@@ -636,9 +670,9 @@
 
       <h3 id="terms">Terms</h3>
       <p>
-        A subscription grants one person a licence to write with SermonDesk. Reading, searching,
-        printing, and preaching sermons you have already written continues to work whether or not
-        you have a subscription, including after it ends.
+        A subscription grants one person a licence to write with SermonDesk, on up to three of their
+        own computers. Reading, searching, printing, and preaching sermons you have already written
+        continues to work whether or not you have a subscription, including after it ends.
       </p>
       <p>
         The sermons you write are your own work and nothing in this licence claims any interest in
@@ -672,3 +706,5 @@
     <p>&copy; 2026 Davis Lor. Made for preachers, in one pair of hands.</p>
   </div>
 </footer>
+</body>
+</html>
