@@ -89,7 +89,7 @@
   }
 
   .wrap {
-    max-width: 62rem;
+    max-width: 66rem;
     margin: 0 auto;
     padding: 0 var(--gutter);
   }
@@ -212,6 +212,34 @@
     max-width: 22ch;
   }
   .section-head p { margin-top: 1rem; color: var(--muted); }
+
+  /* On a wide screen each section becomes two columns: the heading sits in a
+     left rail and the content fills the rest, so the page uses its width
+     instead of stranding everything in a narrow column on the left. Below the
+     breakpoint it all stacks, which is the single-column reading order. */
+  @media (min-width: 900px) {
+    section > .wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+      column-gap: clamp(2.5rem, 5vw, 4.5rem);
+      row-gap: 2rem;
+      align-items: start;
+    }
+    .section-head {
+      grid-column: 1;
+      margin-bottom: 0;
+      position: sticky;
+      top: 2.5rem;
+    }
+    section > .wrap > :not(.section-head) { grid-column: 2; }
+    /* Four specimens read best two-up in the content column. */
+    .plates { grid-template-columns: repeat(2, 1fr); }
+    /* The one section with no content column is a full-width statement. */
+    .section--statement > .wrap { display: block; }
+    .section--statement .section-head { position: static; }
+    .section--statement .section-head h2 { max-width: 18ch; }
+    .section--statement .section-head p { max-width: 44rem; font-size: 1.1875rem; }
+  }
 
   /* ---- the four plates ---- */
 
@@ -539,7 +567,7 @@
   </div>
 </section>
 
-<section>
+<section class="section--statement">
   <div class="wrap">
     <div class="section-head">
       <p class="rubric">If you stop paying</p>
