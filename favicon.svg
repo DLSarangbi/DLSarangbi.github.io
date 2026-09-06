@@ -1,4 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6.5" fill="#7C2A2E"/>
-  <text x="16" y="23" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="600" fill="#EFEFEA" text-anchor="middle">S</text>
+  <!-- The app icon (build/icon.svg) at favicon size: the same gradient, the
+       same corner ratio, and the same S, but full bleed, since a tab icon
+       has no neighbours to keep its distance from. -->
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#883539"/>
+      <stop offset="1" stop-color="#6E2226"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7.2" fill="url(#ground)"/>
+  <text x="16" y="23.6" font-family="Georgia, 'Times New Roman', serif" font-size="23" font-weight="600" fill="#EFEFEA" text-anchor="middle">S</text>
 </svg>
