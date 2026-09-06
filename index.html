@@ -252,49 +252,97 @@
   .plate h3 { font-size: 1.0625rem; }
   .plate p { font-size: 0.9375rem; color: var(--muted); margin-top: 0.35rem; }
 
-  /* Specimens: miniature pages set in real type, not grey placeholder bars. */
+  /* Specimens: honest previews of what SermonDesk makes — a block-structured
+     manuscript, an outline, the podium screen, and a printed handout — in real
+     type rather than grey placeholder bars. Uniform 4:3 cards, so the grid
+     lines up. */
   .specimen {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 3;
     background: var(--panel);
     border: 1px solid var(--rule);
-    padding: 0.9rem;
+    border-radius: 3px;
+    padding: 0.85rem 0.95rem;
     overflow: hidden;
-    font-size: 0.3125rem;
-    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.5625rem;
+    line-height: 1.4;
   }
-  .specimen b { display: block; font-weight: 600; font-size: 0.4375rem; }
-  .specimen i { font-style: normal; color: var(--oxblood); font-family: var(--mono); }
-  .specimen .line {
+  .spec-block { border-left: 2px solid var(--oxblood); padding-left: 0.5rem; }
+  .spec-block--scripture { border-left-color: var(--muted); }
+  .spec-label {
     display: block;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.22;
-    margin: 0.28rem 0;
+    font-family: var(--mono);
+    font-size: 0.4375rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    margin-bottom: 0.2rem;
   }
-  .specimen .line.short { width: 62%; }
-  .specimen .line.mid { width: 84%; }
+  .spec-label--scripture { color: var(--muted); }
+  .spec-head {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  .spec-body { display: block; font-family: var(--serif); color: var(--muted); margin-top: 0.15rem; }
 
-  .specimen--outline { aspect-ratio: 4 / 3; }
+  .specimen--outline .spec-title {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--ink);
+  }
+  .specimen--outline .spec-ref {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.4375rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    margin: 0.1rem 0 0.2rem;
+  }
+  .spec-item { display: block; color: var(--ink); }
+  .spec-item span { color: var(--oxblood); font-family: var(--mono); margin-right: 0.4rem; }
+
   .specimen--podium {
-    aspect-ratio: 16 / 10;
     background: var(--screen);
     color: var(--screen-ink);
     border-color: var(--screen);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1rem;
+    justify-content: space-between;
   }
-  .specimen--podium b { font-size: 0.75rem; line-height: 1.25; }
-  .specimen--podium .timer {
+  .specimen--podium .spec-label { color: var(--screen-ink); opacity: 0.5; margin: 0; }
+  .specimen--podium .spec-podium-head {
+    font-family: var(--serif);
+    font-size: 1.0625rem;
+    line-height: 1.15;
+    color: var(--screen-ink);
+  }
+  .specimen--podium .spec-timer {
     font-family: var(--mono);
     font-size: 0.5rem;
-    opacity: 0.7;
-    margin-top: 0.5rem;
+    opacity: 0.55;
     font-variant-numeric: tabular-nums;
   }
-  .specimen--handout b { font-size: 0.625rem; }
-  .specimen--handout .line { margin: 0.5rem 0; opacity: 0.3; height: 1.5px; }
+
+  .specimen--handout { background: #FBFBF8; border-color: var(--rule); }
+  .specimen--handout .spec-ref {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.4375rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7C2A2E;
+    margin-bottom: 0.15rem;
+  }
+  .specimen--handout .spec-body { color: #46473F; }
+  .specimen--handout .spec-head { color: #191A18; font-size: 0.6875rem; margin-top: 0.15rem; }
+  .spec-rule { display: block; height: 1px; background: #191A18; opacity: 0.18; margin-top: 0.25rem; }
 
   /* ---- file detail ---- */
 
@@ -439,12 +487,15 @@
     <div class="plates">
       <figure class="plate" style="margin:0">
         <div class="specimen">
-          <b>The River That Keeps Going</b>
-          <i>Romans 8:28</i>
-          <span class="line"></span><span class="line"></span><span class="line mid"></span>
-          <span class="line"></span><span class="line short"></span>
-          <span class="line"></span><span class="line mid"></span><span class="line"></span>
-          <span class="line short"></span>
+          <div class="spec-block">
+            <span class="spec-label">&sect; Point</span>
+            <span class="spec-head">The banks are a mercy</span>
+            <span class="spec-body">No single day of water moves the stone, and yet the canyon is there.</span>
+          </div>
+          <div class="spec-block spec-block--scripture">
+            <span class="spec-label spec-label--scripture">&ldquo; Romans 8:28 &middot; ESV</span>
+            <span class="spec-body">And we know that for those who love God all things work together for good.</span>
+          </div>
         </div>
         <figcaption>
           <h3>Manuscript</h3>
@@ -454,13 +505,11 @@
 
       <figure class="plate" style="margin:0">
         <div class="specimen specimen--outline">
-          <b>The River That Keeps Going</b>
-          <i>1. The water does not ask</i>
-          <span class="line mid"></span>
-          <i>2. The banks are a mercy</i>
-          <span class="line short"></span>
-          <i>3. Where it is going</i>
-          <span class="line mid"></span>
+          <span class="spec-title">The River That Keeps Going</span>
+          <span class="spec-ref">Romans 8:28 &middot; ESV</span>
+          <span class="spec-item"><span>1</span>The water does not ask</span>
+          <span class="spec-item"><span>2</span>The banks are a mercy</span>
+          <span class="spec-item"><span>3</span>Where it is going</span>
         </div>
         <figcaption>
           <h3>Outline</h3>
@@ -470,8 +519,9 @@
 
       <figure class="plate" style="margin:0">
         <div class="specimen specimen--podium">
-          <b>The banks are a mercy</b>
-          <div class="timer">18:24 &nbsp;/&nbsp; 30:00</div>
+          <span class="spec-label">&ldquo; Romans 8:28</span>
+          <span class="spec-podium-head">The banks are a mercy</span>
+          <span class="spec-timer">18:24 &nbsp;/&nbsp; 30:00</span>
         </div>
         <figcaption>
           <h3>Podium screen</h3>
@@ -481,9 +531,11 @@
 
       <figure class="plate" style="margin:0">
         <div class="specimen specimen--handout">
-          <b>For your week</b>
-          <span class="line"></span><span class="line mid"></span>
-          <span class="line"></span><span class="line short"></span>
+          <span class="spec-ref">Romans 8:28 &middot; ESV</span>
+          <span class="spec-body">And we know that for those who love God all things work together for good.</span>
+          <span class="spec-head">Reflect this week</span>
+          <span class="spec-rule"></span>
+          <span class="spec-rule"></span>
         </div>
         <figcaption>
           <h3>Handout</h3>
