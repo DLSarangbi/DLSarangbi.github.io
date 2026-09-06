@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SermonDesk: Sermon manager for preachers</title>
-<meta name="description" content="A local-first sermon manager for preachers. Write once and get a manuscript, an outline, a podium screen, and a handout. Every sermon stays a plain file on your own computer.">
+<meta name="description" content="An offline sermon manager for preachers. Write once and get a manuscript, an outline, a podium screen, and a handout. Every sermon stays a plain file on your own computer.">
 <link rel="canonical" href="https://sarangbi.co/">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#EFEFEA" media="(prefers-color-scheme: light)">
@@ -306,8 +306,24 @@
     color: var(--oxblood);
     margin: 0.1rem 0 0.2rem;
   }
-  .spec-item { display: block; color: var(--ink); }
-  .spec-item span { color: var(--oxblood); font-family: var(--mono); margin-right: 0.4rem; }
+  .spec-item {
+    display: grid;
+    grid-template-columns: 5.5em 1fr;
+    gap: 0 0.4rem;
+    padding: 0.15rem 0;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .spec-item span {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 0.4375rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-top: 0.12rem;
+  }
 
   .specimen--podium {
     background: var(--screen);
@@ -315,21 +331,38 @@
     border-color: var(--screen);
     justify-content: space-between;
   }
-  .specimen--podium .spec-label { color: var(--screen-ink); opacity: 0.5; margin: 0; }
+  .specimen--podium .spec-podium-bar {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 0.5rem;
+    opacity: 0.55;
+    font-variant-numeric: tabular-nums;
+  }
+  .specimen--podium .spec-podium-next {
+    display: flex;
+    gap: 0.4rem;
+    align-items: baseline;
+    font-family: var(--serif);
+    font-size: 0.5625rem;
+    opacity: 0.6;
+  }
+  .specimen--podium .spec-podium-next span {
+    font-family: var(--mono);
+    font-size: 0.4375rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
   .specimen--podium .spec-podium-head {
     font-family: var(--serif);
     font-size: 1.0625rem;
     line-height: 1.15;
     color: var(--screen-ink);
   }
-  .specimen--podium .spec-timer {
-    font-family: var(--mono);
-    font-size: 0.5rem;
-    opacity: 0.55;
-    font-variant-numeric: tabular-nums;
-  }
+  .specimen--podium .spec-timer { font-variant-numeric: tabular-nums; }
 
-  .specimen--handout { background: #FBFBF8; border-color: var(--rule); }
+  .specimen--handout { background: #FBFBF8; border-color: var(--rule); gap: 0.3rem; }
+  .specimen--handout .spec-lead { border-left: 2px solid #333333; padding-left: 0.4rem; font-style: italic; }
   .specimen--handout .spec-ref {
     display: block;
     font-family: var(--mono);
@@ -340,7 +373,23 @@
     margin-bottom: 0.15rem;
   }
   .specimen--handout .spec-body { color: #46473F; }
-  .specimen--handout .spec-head { color: #191A18; font-size: 0.6875rem; margin-top: 0.15rem; }
+  .specimen--handout .spec-head {
+    color: #191A18;
+    font-size: 0.6875rem;
+    margin-top: 0.15rem;
+    padding-top: 0.3rem;
+    border-top: 1px solid #191A18;
+  }
+  .specimen--handout .spec-question { display: block; color: #46473F; }
+  .specimen--handout .spec-notes {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.4375rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7A7B72;
+    margin-top: 0.2rem;
+  }
   .spec-rule { display: block; height: 1px; background: #191A18; opacity: 0.18; margin-top: 0.25rem; }
 
   /* ---- file detail ---- */
@@ -505,34 +554,39 @@
       <figure class="plate" style="margin:0">
         <div class="specimen specimen--outline">
           <span class="spec-title">The River That Keeps Going</span>
-          <span class="spec-ref">Romans 8:28 &middot; ESV</span>
-          <span class="spec-item"><span>1</span>The water does not ask</span>
-          <span class="spec-item"><span>2</span>The banks are a mercy</span>
-          <span class="spec-item"><span>3</span>Where it is going</span>
+          <span class="spec-ref">Romans 8:28 &middot; August 23, 2026</span>
+          <span class="spec-item"><span>Point</span>The water does not ask</span>
+          <span class="spec-item"><span>Scripture</span>Romans 8:28 &middot; ESV</span>
+          <span class="spec-item"><span>Point</span>The banks are a mercy</span>
+          <span class="spec-item"><span>Application</span>Where it is going</span>
         </div>
         <figcaption>
           <h3>Outline</h3>
-          <p>A half sheet, at a glance.</p>
+          <p>Every block cut to its heading and first line.</p>
         </figcaption>
       </figure>
 
       <figure class="plate" style="margin:0">
         <div class="specimen specimen--podium">
-          <span class="spec-label">&ldquo; Romans 8:28</span>
+          <span class="spec-podium-bar"><span>3 / 7</span><span class="spec-timer">18:24</span></span>
           <span class="spec-podium-head">The banks are a mercy</span>
-          <span class="spec-timer">18:24 &nbsp;/&nbsp; 30:00</span>
+          <span class="spec-podium-next"><span>Next</span>Where it is going</span>
         </div>
         <figcaption>
           <h3>Podium screen</h3>
-          <p>Fullscreen, large type, a timer you can read.</p>
+          <p>Fullscreen, one block at a time, a timer you can read.</p>
         </figcaption>
       </figure>
 
       <figure class="plate" style="margin:0">
         <div class="specimen specimen--handout">
-          <span class="spec-ref">Romans 8:28 &middot; ESV</span>
-          <span class="spec-body">And we know that for those who love God all things work together for good.</span>
-          <span class="spec-head">Reflect this week</span>
+          <div class="spec-lead">
+            <span class="spec-ref">Romans 8:28 &middot; ESV</span>
+            <span class="spec-body">And we know that for those who love God all things work together for good.</span>
+          </div>
+          <span class="spec-head">Questions to take home</span>
+          <span class="spec-question">1. Where has the water been slow this year?</span>
+          <span class="spec-notes">Notes</span>
           <span class="spec-rule"></span>
           <span class="spec-rule"></span>
         </div>
