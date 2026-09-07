@@ -516,7 +516,7 @@
     </p>
     <div class="hero-actions">
       <a class="button" href="#pricing">See pricing</a>
-      <span class="price-inline">$12.99/month or $119.99/year &middot; 14 days free</span>
+      <span class="price-inline">$12.99/month or $119.99/year &middot; free during the beta</span>
     </div>
   </div>
 </div>
@@ -689,8 +689,8 @@
       <p class="rubric">Pricing</p>
       <h2>One price. Everything included.</h2>
       <p>
-        Fourteen days free first. The trial takes a card and becomes a subscription unless you
-        cancel, which takes two clicks. One subscription covers up to three of your own computers.
+        One subscription covers up to three of your own computers. Cancelling takes two clicks.
+        While SermonDesk is in beta there is no checkout and nothing to pay: email for a key.
       </p>
     </div>
 
@@ -700,6 +700,19 @@
       store is live, swap both href values for the monthly and yearly buy
       links, and set CHECKOUT_URL in src/shared/billing.ts to the same yearly
       link so the app's Subscribe button matches this page.
+
+      The trial wording comes back at the same time, and only if the store's
+      subscription is set up with a fourteen-day trial. The sentences that
+      were here, to restore then:
+        hero:    "$12.99/month or $119.99/year · 14 days free"
+        pricing: "Fourteen days free first. The trial takes a card and becomes
+                  a subscription unless you cancel, which takes two clicks."
+        refunds: "Refunds are not offered as a matter of course; the fourteen
+                  free days are why. Write a real sermon, print the handout,
+                  take it to the pulpit, and cancel before the trial ends if
+                  it is not for you. Nothing is charged until then."
+      A page that promises a trial nobody can start is worse than one that
+      does not mention it.
     -->
 
     <div class="tiers">
@@ -761,9 +774,9 @@
         paid for. Cancel on the 2nd and you keep the rest of the month, the last Sunday included.
       </p>
       <p>
-        Refunds are not offered as a matter of course; the fourteen free days are why. Write a real
-        sermon, print the handout, take it to the pulpit, and cancel before the trial ends if it
-        is not for you. Nothing is charged until then.
+        Refunds are not offered as a matter of course. Try it before you pay: write a real sermon,
+        print the handout, take it to the pulpit, and subscribe only if it is for you. Nothing is
+        charged during the beta.
       </p>
       <p>
         If something is genuinely broken, or you were charged unexpectedly, email and it will be
