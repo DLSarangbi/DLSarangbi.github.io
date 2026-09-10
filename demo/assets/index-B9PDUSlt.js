@@ -12623,17 +12623,20 @@ const DEFAULT_APP_SETTINGS = {
 function canWrite(status) {
   return status.state === "active" || status.state === "stale" || status.state === "grace";
 }
+function canPreach(status) {
+  return canWrite(status);
+}
 const days = (count2) => `${count2} day${count2 === 1 ? "" : "s"}`;
 function licenseMessage(status) {
   switch (status.state) {
     case "unlicensed":
-      return "Enter a licence key to write. Every sermon already here still opens, searches, and prints.";
+      return "Enter a licence key to write and to preach. Every sermon already here still opens, searches, and prints.";
     case "stale":
       return status.daysRemaining === null ? "SermonDesk has not been able to check your subscription." : `SermonDesk has not been able to check your subscription. Connect to the internet within ${days(status.daysRemaining)}.`;
     case "grace":
       return status.daysRemaining === null ? "Your subscription needs attention." : `Your subscription needs attention, full access continues for ${days(status.daysRemaining)}.`;
     case "read_only":
-      return "Read-only. Your sermons are all still here: open, search, print, and preach them any time.";
+      return "Read-only. Your sermons are all still here: open, search, and print them any time. Writing and the podium need a subscription.";
     case "active":
       return null;
   }
@@ -75711,6 +75714,7 @@ function App() {
     }
   }, [openSermon, refreshList]);
   const writable = !license || canWrite(license);
+  const preachable = !license || canPreach(license);
   const fileReason = open2 ? whyReadOnly(open2.sermon) : null;
   const editable = writable && fileReason === null;
   const transcribeRecording = reactExports$1.useCallback(async () => {
@@ -75936,6 +75940,10 @@ function App() {
           onChanged: onSermonChanged,
           onPreach: (current, path) => {
             setOpen({ sermon: current, filePath: path });
+            if (!preachable) {
+              setLicenseOpen(true);
+              return;
+            }
             setPodium(current);
           },
           onDuplicate: (path) => void duplicateSermon(path),
