@@ -74960,7 +74960,7 @@ function LicenseNotice({ status, onChanged, onEnterKey }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "notice__message", children: message }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "notice__actions", children: [
       actions.includes("subscribe") && CHECKOUT_URL,
-      actions.includes("get-key") && KEY_REQUEST_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => open(KEY_REQUEST_URL), title: "Opens an email to ask for a key. Until checkout opens, keys are free.", children: "Get a key" }),
+      actions.includes("get-key") && KEY_REQUEST_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => open(KEY_REQUEST_URL), title: "Opens an email to ask for a key, which is how keys are handed out until checkout opens.", children: "Get a key" }),
       actions.includes("manage") && MANAGE_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => open(MANAGE_URL), children: "Manage subscription" }),
       actions.includes("check-again") && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", disabled: busy, onClick: () => void checkAgain(), children: busy ? "Checking…" : "Check again" }),
       actions.includes("enter-key") && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: onEnterKey, children: "Enter key…" })
@@ -75011,7 +75011,7 @@ function LicenseSheet({ onChanged, onClose }) {
       }
     ),
     keyRequest && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "sheet__hint", children: [
-      "No key yet? Until checkout opens they are free:",
+      "No key yet? Until checkout opens,",
       " ",
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => window.open(keyRequest, "_blank", "noopener"), children: "ask for one by email" }),
       "."
