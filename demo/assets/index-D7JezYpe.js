@@ -73696,6 +73696,19 @@ function Picture({ block }) {
     block.content && /* @__PURE__ */ jsxRuntimeExports.jsx("figcaption", { children: block.content })
   ] });
 }
+function ordinal(paragraphs2, at2) {
+  const level = paragraphs2[at2]?.level ?? 0;
+  let count2 = 0;
+  for (let i2 = at2; i2 >= 0; i2 -= 1) {
+    const other = paragraphs2[i2];
+    if (!other) break;
+    const otherLevel = other.level ?? 0;
+    if (otherLevel > level) continue;
+    if (otherLevel < level || other.list !== "number") break;
+    count2 += 1;
+  }
+  return count2;
+}
 function Card({ blocks, scale, showNotes }) {
   const block = blocks[0];
   if (!block) return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "podium__slide" });
@@ -73760,7 +73773,7 @@ function Manuscript({
                     ...level > 0 || paragraph.list ? { marginLeft: `${(level + (paragraph.list ? 1 : 0)) * 1.2}em` } : {}
                   },
                   children: [
-                    paragraph.list && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__marker", "aria-hidden": "true", children: paragraph.list === "bullet" ? "•" : "–" }),
+                    paragraph.list && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__marker", "aria-hidden": "true", children: paragraph.list === "bullet" ? "•" : `${ordinal(paragraphs2, at2)}.` }),
                     /* @__PURE__ */ jsxRuntimeExports.jsx(Styled, { spans })
                   ]
                 }
@@ -73889,7 +73902,7 @@ function ReadyScreen({ sermon, sections, reading, targetMinutes, themeClass, ove
     /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__exit", onClick: onExit, title: "Leave podium mode (Esc)", children: "Esc" })
   ] });
 }
-function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, targetMinutes, stepsTaken, themeClass, onUsePace, onExit }) {
+function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, targetMinutes, themeClass, onUsePace, onExit }) {
   const remaining = targetSeconds - elapsed;
   const over = remaining < 0;
   const pointsSeconds = sections.filter((item) => item.point).reduce((sum, item) => sum + had[item.index], 0);
@@ -73908,7 +73921,7 @@ function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, t
   };
   const leave = (preached) => onExit({ ...preached ? { preached: true, minutes: Math.max(1, Math.round(elapsed / 60)) } : {}, ...adjusted ? { plan: plan() } : {} });
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `${themeClass} podium--ready`, role: "presentation", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__end", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__ready-kick", children: stepsTaken > 1 ? "Preached" : "Ended" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__ready-kick", children: "Finished" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "podium__ready-title", children: sermon.title || "Untitled sermon" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__ready-meta", children: [sermon.primaryPassage, formatDate$1(sermon.datePreached)].filter(Boolean).join(" · ") }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "podium__end-big", children: [
@@ -74028,11 +74041,12 @@ function SheetSwitch({ label, note, on: on3, onChange }) {
 }
 function KeyHelp() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__help", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "space / → / PageDown / clicker: next paragraph" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "← / PageUp / right-click / the left edge: back" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "space / Enter / → / PageDown / clicker: next paragraph" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "← / Backspace / PageUp / right-click / the left edge: back" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "swipe, or the buttons at the foot, on a touchscreen" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "↓ / ↑: next or previous point" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "1 2 3: jump to a point" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Home / End: the first or the last paragraph" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "m / o / c: manuscript, outline, cards" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "r: the rail" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "+ / − / Ctrl+wheel / pinch: text size" }),
@@ -74040,7 +74054,8 @@ function KeyHelp() {
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "t: light or dark" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "p: pause timer" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "[ / ]: sermon length, five minutes at a time" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Esc: leave podium mode" })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "?: this sheet" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Esc: finish, to the summary" })
   ] });
 }
 function Rail({ sections, current, spentIn, onPick, onBump }) {
@@ -74051,13 +74066,15 @@ function Rail({ sections, current, spentIn, onPick, onBump }) {
       const had = spentIn(item.index);
       const fill = item.plannedSeconds > 0 ? Math.min(1, had / item.plannedSeconds) : 0;
       const state = item.index === current ? " podium__rail-point--on" : item.index < current ? " podium__rail-point--done" : "";
-      return /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: `podium__rail-point${state}`, onClick: () => onPick(item.index), title: `Go to ${item.heading}`, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__rail-num", children: number ? `${roman(number)}.` : "" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__rail-title", children: item.heading }),
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `podium__rail-point${state}`, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "podium__rail-go", onClick: () => onPick(item.index), title: `Go to ${item.heading}`, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__rail-num", children: number ? `${roman(number)}.` : "" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__rail-title", children: item.heading })
+        ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "podium__rail-min", children: [
-          item.index === current && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "podium__rail-adjust", onClick: (event) => event.stopPropagation(), children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { role: "button", title: "A minute less for this point, for now", onClick: () => onBump(item.index, -1), children: "−" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { role: "button", title: "A minute more for this point, for now", onClick: () => onBump(item.index, 1), children: "+" })
+          item.index === current && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "podium__rail-adjust", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", title: "A minute less for this point, for now", "aria-label": "A minute less for this point", onClick: () => onBump(item.index, -1), children: "−" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", title: "A minute more for this point, for now", "aria-label": "A minute more for this point", onClick: () => onBump(item.index, 1), children: "+" })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__rail-track", children: /* @__PURE__ */ jsxRuntimeExports.jsx("i", { className: had > item.plannedSeconds && item.plannedSeconds > 0 ? "podium__rail-fill podium__rail-fill--over" : "podium__rail-fill", style: { width: `${fill * 100}%` } }) }),
           item.index < current ? `${clock$1(had)} · done` : item.index === current ? `${clock$1(had)} of ${clock$1(item.plannedSeconds)}` : `${Math.max(1, Math.round(item.plannedSeconds / 60))} min`
@@ -74143,7 +74160,6 @@ function PodiumView({ sermon, onExit }) {
   }, [sections]);
   const [pulse, setPulse] = reactExports$1.useState(false);
   const warned = reactExports$1.useRef({ five: false, time: false });
-  const [stepsTaken, setStepsTaken] = reactExports$1.useState(0);
   const [position, setPosition] = reactExports$1.useState({ block: 0, paragraph: 0 });
   const [elapsed, setElapsed] = reactExports$1.useState(0);
   const [running, setRunning] = reactExports$1.useState(true);
@@ -74198,7 +74214,6 @@ function PodiumView({ sermon, onExit }) {
       const target = steps[Math.min(Math.max(0, index2), Math.max(0, steps.length - 1))];
       if (target) {
         setPosition({ block: target.block, paragraph: target.paragraph });
-        setStepsTaken((n2) => n2 + 1);
       }
     },
     [steps]
@@ -74439,7 +74454,6 @@ function PodiumView({ sermon, onExit }) {
         pace: settings.pace,
         bumps,
         targetMinutes,
-        stepsTaken,
         themeClass,
         onUsePace: (pace) => changeSettings({ pace }),
         onExit

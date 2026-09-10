@@ -7941,8 +7941,6 @@ select.field {
 
 .podium__rail-point {
   text-align: left;
-  color: inherit;
-  cursor: pointer;
   opacity: .5;
   border-radius: .5rem;
   grid-template-columns: 1.7rem 1fr;
@@ -7950,6 +7948,17 @@ select.field {
   gap: .15rem .5rem;
   padding: .6rem .75rem .6rem 0;
   display: grid;
+}
+
+.podium__rail-go {
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  display: contents;
+}
+
+.podium__rail-go:focus-visible .podium__rail-title {
+  text-decoration: underline;
 }
 
 .podium__rail-point:hover {
@@ -7979,6 +7988,7 @@ select.field {
 }
 
 .podium__rail-min {
+  cursor: default;
   opacity: .7;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
@@ -8432,19 +8442,23 @@ select.field {
   display: inline-flex;
 }
 
-.podium__rail-adjust span {
+.podium__rail-adjust button {
+  color: inherit;
+  font: inherit;
   cursor: pointer;
+  background: none;
   border: 1px solid #80808059;
   border-radius: .25rem;
   justify-content: center;
   align-items: center;
   width: 1.15rem;
   height: 1.15rem;
+  padding: 0;
   font-size: .75rem;
   display: inline-flex;
 }
 
-.podium__rail-adjust span:hover {
+.podium__rail-adjust button:hover, .podium__rail-adjust button:focus-visible {
   background-color: #80808040;
 }
 
