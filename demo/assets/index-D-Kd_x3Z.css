@@ -2841,6 +2841,47 @@ select.field {
   padding: 12px 16px;
 }
 
+.cloud-card--still {
+  cursor: default;
+}
+
+.cloud-card--still:hover {
+  border-color: var(--border-subtle);
+}
+
+.cloud-card--connected {
+  border-color: var(--accent);
+  cursor: default;
+}
+
+.cloud-card--connected .cloud-card__where {
+  color: var(--accent);
+}
+
+.cloud-card--current {
+  border-color: var(--accent);
+  cursor: default;
+}
+
+.cloud-card__actions {
+  flex: none;
+  gap: 6px;
+  margin-left: auto;
+  display: flex;
+}
+
+.welcome__continue {
+  flex: none;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.welcome__status {
+  color: var(--ink-muted);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
 .cloud-card--own .button {
   flex: none;
   margin-left: auto;

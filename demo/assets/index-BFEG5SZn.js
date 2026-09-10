@@ -13400,20 +13400,46 @@ function shortFolder(path) {
   const parts = path.split(/[\\/]+/).filter(Boolean);
   return parts.slice(-2).join(" › ") || path;
 }
-function SetupScreen({ folder, cloudFolders, error, onChooseFolder, onUseCloudFolder }) {
+function SetupScreen({
+  folder,
+  cloudFolders,
+  error,
+  status,
+  onChooseFolder,
+  onUseCloudFolder,
+  onConnectCloudFolder,
+  onDisconnectCloudFolder,
+  onContinue
+}) {
   const missing = folder?.path && !folder.exists;
+  const current = folder?.path && folder.exists ? folder : null;
   const found2 = new Map(cloudFolders.map((cloud) => [cloud.provider, cloud]));
+  const home = current ? cloudFolders.find((cloud) => current.path?.startsWith(cloud.path)) : void 0;
   const providers = [...CLOUD_PROVIDERS.filter((p2) => found2.has(p2)), ...CLOUD_PROVIDERS.filter((p2) => !found2.has(p2))];
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "welcome", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "topbar topbar--bare", "aria-hidden": "true" }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "welcome__body", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "welcome__hero", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "welcome__mark", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { size: 32, strokeWidth: 1.5 }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "setup__title", children: "Welcome to SermonDesk" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "welcome__lede", children: "Your sermons live as plain files in a folder you choose. Nothing is uploaded, and everything works with the wifi down." })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "setup__title", children: current ? "Welcome back" : "Welcome to SermonDesk" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "welcome__lede", children: current ? "Your sermons are where you left them. Go on in, or change where they live first." : "Your sermons live as plain files in a folder you choose. Nothing is uploaded, and everything works with the wifi down." })
+      ] }),
+      current && /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "welcome__choose", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "welcome__kicker", children: "Your sermons" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "cloud-card cloud-card--current", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__badge", children: home ? providerIcon(home.provider) : /* @__PURE__ */ jsxRuntimeExports.jsx(Folder, { size: 22, strokeWidth: 1.6 }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "cloud-card__text", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__name", children: home ? `In ${home.provider}, synced on your own account` : "In a folder of your own" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__where selectable", title: current.path ?? "", children: current.path })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "button button--primary welcome__continue", autoFocus: true, onClick: onContinue, children: [
+            "Continue",
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 16, strokeWidth: 2 })
+          ] })
+        ] })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "welcome__choose", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "welcome__kicker", children: "Where should your sermons live?" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "welcome__kicker", children: current ? "Keep them in sync" : "Where should your sermons live?" }),
         missing && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "welcome__warning selectable", children: [
           "Last used: ",
           folder?.path,
@@ -13421,20 +13447,43 @@ function SetupScreen({ folder, cloudFolders, error, onChooseFolder, onUseCloudFo
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "welcome__grid", children: providers.map((provider) => {
           const cloud = found2.get(provider);
+          const connected = Boolean(cloud && current && current.path?.startsWith(cloud.path));
+          if (!current) {
+            return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "button",
+              {
+                type: "button",
+                className: cloud ? "cloud-card" : "cloud-card cloud-card--off",
+                title: cloud ? cloud.path : `${provider} was not found on this computer. Choose its folder yourself if you have it.`,
+                onClick: () => cloud ? onUseCloudFolder(provider) : onChooseFolder(),
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__badge", children: providerIcon(provider) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "cloud-card__text", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__name", children: provider }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__where", children: cloud ? cloud.path : "Not set up on this computer" })
+                  ] }),
+                  cloud && /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 16, strokeWidth: 1.6, className: "cloud-card__go" })
+                ]
+              },
+              provider
+            );
+          }
           return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "button",
+            "div",
             {
-              type: "button",
-              className: cloud ? "cloud-card" : "cloud-card cloud-card--off",
-              title: cloud ? cloud.path : `${provider} was not found on this computer. Choose its folder yourself if you have it.`,
-              onClick: () => cloud ? onUseCloudFolder(provider) : onChooseFolder(),
+              className: connected ? "cloud-card cloud-card--connected" : cloud ? "cloud-card cloud-card--still" : "cloud-card cloud-card--off cloud-card--still",
+              title: cloud ? cloud.path : `${provider} was not found on this computer.`,
               children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__badge", children: providerIcon(provider) }),
                 /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "cloud-card__text", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__name", children: provider }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__where", children: cloud ? cloud.path : "Not set up on this computer" })
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__where", children: connected ? "Connected" : cloud ? cloud.path : "Not set up on this computer" })
                 ] }),
-                cloud && /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 16, strokeWidth: 1.6, className: "cloud-card__go" })
+                connected && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", title: "Move the sermons out to a folder you choose. The copy here goes to the Recycle Bin.", onClick: onDisconnectCloudFolder, children: "Disconnect…" }) }),
+                cloud && !connected && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "cloud-card__actions", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small button--primary", title: `Move your sermons into a SermonDesk folder in ${provider} and switch to it`, onClick: () => onConnectCloudFolder(provider), children: "Connect" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", title: `Switch to a SermonDesk folder already synced in ${provider}, as on a second computer. Nothing is moved.`, onClick: () => onUseCloudFolder(provider), children: "Use" })
+                ] })
               ]
             },
             provider
@@ -13444,11 +13493,11 @@ function SetupScreen({ folder, cloudFolders, error, onChooseFolder, onUseCloudFo
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__badge cloud-card__badge--plain", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Folder, { size: 22, strokeWidth: 1.6 }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "cloud-card__text", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__name", children: "A folder of your own" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__where", children: "Anywhere on this computer, or a drive you plug in" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__where", children: current ? "Switch to another folder as it is; nothing is moved" : "Anywhere on this computer, or a drive you plug in" })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onChooseFolder, children: folder?.path ? "Choose another folder…" : "Choose folder…" })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "welcome__note", children: "Choosing a service makes a SermonDesk folder inside it, and your sermons are backed up and synced on your own account, with nothing stored by us. On a second computer the same choice finds the sermons you already have." })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "welcome__note", children: current ? "Connect moves your sermons into a service and switches to it, with the old folder sent to the Recycle Bin; Disconnect moves them back out. Use switches to a SermonDesk folder already synced there, as on a second computer." : "Choosing a service makes a SermonDesk folder inside it, and your sermons are backed up and synced on your own account, with nothing stored by us. On a second computer the same choice finds the sermons you already have." })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "welcome__promises", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
@@ -13473,6 +13522,7 @@ function SetupScreen({ folder, cloudFolders, error, onChooseFolder, onUseCloudFo
           ] })
         ] })
       ] }),
+      status && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "welcome__status", role: "status", children: status }),
       error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "app-error selectable", children: error })
     ] })
   ] });
@@ -75589,6 +75639,7 @@ function App() {
   const [importing, setImporting] = reactExports$1.useState(null);
   const [error, setError] = reactExports$1.useState(null);
   const [loading, setLoading] = reactExports$1.useState(true);
+  const [atDoor, setAtDoor] = reactExports$1.useState(() => !document.documentElement.classList.contains("demo"));
   reactExports$1.useEffect(() => {
     void window.api.getAppSettings().then((settings) => {
       applyThemePreference(settings.theme);
@@ -75910,15 +75961,19 @@ function App() {
       }
     }
   ) : null;
-  if (!folder?.path || !folder.exists) {
+  if (!folder?.path || !folder.exists || atDoor) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
       SetupScreen,
       {
         folder,
         cloudFolders,
         error,
+        status: importing,
         onChooseFolder: () => void chooseFolder(),
-        onUseCloudFolder: (provider) => void useCloudFolder(provider)
+        onUseCloudFolder: (provider) => void useCloudFolder(provider),
+        onConnectCloudFolder: (provider) => void moveLibrary(() => window.api.connectCloudFolder(provider), `into ${provider}`),
+        onDisconnectCloudFolder: () => void moveLibrary(() => window.api.disconnectCloudFolder(), "to the folder you chose"),
+        onContinue: () => setAtDoor(false)
       }
     );
   }
