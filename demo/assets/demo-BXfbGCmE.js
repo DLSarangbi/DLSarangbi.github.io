@@ -505,13 +505,9 @@ const demoApi = {
     podium = { ...podium, ...next };
     return { ...podium };
   },
-  setPodiumMode: async (active) => {
-    try {
-      if (active && !document.fullscreenElement) await document.documentElement.requestFullscreen();
-      if (!active && document.fullscreenElement) await document.exitFullscreen();
-    } catch {
-    }
-  },
+  // The podium fills the window it is in and stays there: a visitor's
+  // whole screen is not the page's to take.
+  setPodiumMode: async () => void 0,
   exportPdf: async (html) => {
     printInTab(html);
     return { status: "cancelled" };
