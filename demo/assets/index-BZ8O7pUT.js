@@ -12476,6 +12476,38 @@ function requireClient() {
   return client.exports;
 }
 var clientExports = requireClient();
+const STACKS = {
+  Palatino: "'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif",
+  "Palatino Linotype": "'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif",
+  "Book Antiqua": "'Book Antiqua', 'Palatino Linotype', Palatino, Georgia, serif",
+  "Iowan Old Style": "'Iowan Old Style', 'Palatino Linotype', Georgia, serif",
+  Georgia: "Georgia, 'Iowan Old Style', serif",
+  Cambria: "Cambria, Charter, Georgia, serif",
+  Charter: "Charter, Cambria, Georgia, serif",
+  Garamond: "Garamond, 'EB Garamond', 'Times New Roman', serif",
+  Baskerville: "Baskerville, 'Baskerville Old Face', Georgia, serif",
+  "Times New Roman": "'Times New Roman', Times, serif",
+  Times: "Times, 'Times New Roman', serif",
+  "Segoe UI": "'Segoe UI Variable Text', 'Segoe UI', system-ui, sans-serif",
+  Calibri: "Calibri, Carlito, 'Segoe UI', sans-serif",
+  Helvetica: "Helvetica, Arial, sans-serif",
+  "Helvetica Neue": "'Helvetica Neue', Helvetica, Arial, sans-serif",
+  Arial: "Arial, Helvetica, sans-serif",
+  "Gill Sans": "'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif",
+  "Gill Sans MT": "'Gill Sans MT', 'Gill Sans', 'Trebuchet MS', sans-serif"
+};
+const LEGACY_FONTS = { serif: "Palatino Linotype", sans: "Segoe UI" };
+const DEFAULT_PAGE_FONT = "Palatino Linotype";
+function pageFont(value) {
+  const name = value ? LEGACY_FONTS[value] ?? value : DEFAULT_PAGE_FONT;
+  const known = STACKS[name];
+  return { name, stack: known ?? `'${name.replace(/'/g, "\\'")}', ${genericOf(name)}` };
+}
+function genericOf(name) {
+  if (/mono|code|courier|consol/i.test(name)) return "monospace";
+  if (/sans|arial|helvetica|verdana|tahoma|segoe|calibri|gothic|grotesk|inter|roboto|open sans|lato|ui\b/i.test(name)) return "sans-serif";
+  return "serif";
+}
 const STYLE_NAMES = ["title", "heading", "body", "quote", "verse", "small", "label", "note", "footnote"];
 function isParagraphStyle(value) {
   return value === "quote" || value === "verse" || value === "small";
@@ -12596,7 +12628,7 @@ const SNIPPET_MARK_CLOSE = "";
 const DEFAULT_EDITOR_SETTINGS = {
   fontScale: 1,
   zoomFit: true,
-  font: "Palatino Linotype",
+  font: DEFAULT_PAGE_FONT,
   lineSpacing: 1.5,
   paper: "letter",
   orientation: "portrait",
@@ -12653,6 +12685,11 @@ function bannerActions(status, links) {
   return actions;
 }
 const SERMON_FILE_VERSION = 1;
+const UNTITLED_SERMON = "Untitled sermon";
+const UNTITLED_POINT = "Untitled point";
+function isoDate(date = /* @__PURE__ */ new Date()) {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+}
 const BASE_TEXT_SIZE = 12;
 const TEXT_SIZES = [8, 9, 10, 11, 12, 14, 16, 18, 20, 24, 28, 36, 48, 72];
 const MIN_TEXT_SIZE = 6;
@@ -13789,7 +13826,7 @@ function sectionsOf(blocks, pace = SPEAKING_WORDS_PER_MINUTE) {
         point: block.type === "point" ? block : null,
         first: index2,
         end: blocks.length,
-        heading: block.type === "point" ? block.heading?.trim() || "Untitled point" : "Before the first point",
+        heading: block.type === "point" ? block.heading?.trim() || UNTITLED_POINT : "Before the first point",
         plannedSeconds: 0,
         planned: false,
         words: 0
@@ -14100,7 +14137,7 @@ function renderOutlineHtml(sermon, page, options = DEFAULT_OUTLINE_OPTIONS) {
       const text = lineFor$1(block);
       return text ? [`<div class="line" data-open="${escapeHtml(block.id)}"><span class="tag">${tag}</span><span>${escapeHtml(text)}</span></div>`] : [];
     }).join("\n");
-    const heading = point ? escapeHtml(blockHeading(point)?.trim() || "Untitled point") : "Before the first point";
+    const heading = point ? escapeHtml(blockHeading(point)?.trim() || UNTITLED_POINT) : "Before the first point";
     const tools = point ? `<span class="tools" aria-hidden="true"><span class="tool" role="button" data-move="up" data-id="${escapeHtml(point.id)}" title="Move this point up, with everything under it">&#8593;</span><span class="tool" role="button" data-move="down" data-id="${escapeHtml(point.id)}" title="Move this point down, with everything under it">&#8595;</span></span>` : "";
     const minutes = options.minutes && shown > 0 ? `<span class="min${set ? " min--set" : ""}" title="${set ? "Planned by hand" : "Estimated from the words"}">${shown} min</span>` : '<span class="min"></span>';
     const keyHtml = key ? `<p class="key${key.marked ? "" : " key--stand-in"}">${key.spans.map((span) => spanHtml(span, PLAIN)).join("")}</p>` : "";
@@ -14217,7 +14254,7 @@ function renderHandoutHtml(sermon, options, page) {
       const key = pointsAs === "key" ? keyLine(block) : null;
       const line = key ? `<p class="key">${key.spans.map((span) => spanHtml(span, flags)).join("")}</p>` : "";
       return `<section class="block point"${alignAttr(block)}>
-  <h2>${num2}${escapeHtml(heading?.trim() || "Untitled point")}</h2>
+  <h2>${num2}${escapeHtml(heading?.trim() || UNTITLED_POINT)}</h2>
   ${line}
   ${ruled ? rules(options.largePrint ? 2 : 3) : ""}
 </section>`;
@@ -66247,38 +66284,6 @@ function fromEditorBlocks(blocks) {
 function isSermonBlockType(type) {
   return SERMON_TYPES.has(type);
 }
-const STACKS = {
-  Palatino: "'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif",
-  "Palatino Linotype": "'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif",
-  "Book Antiqua": "'Book Antiqua', 'Palatino Linotype', Palatino, Georgia, serif",
-  "Iowan Old Style": "'Iowan Old Style', 'Palatino Linotype', Georgia, serif",
-  Georgia: "Georgia, 'Iowan Old Style', serif",
-  Cambria: "Cambria, Charter, Georgia, serif",
-  Charter: "Charter, Cambria, Georgia, serif",
-  Garamond: "Garamond, 'EB Garamond', 'Times New Roman', serif",
-  Baskerville: "Baskerville, 'Baskerville Old Face', Georgia, serif",
-  "Times New Roman": "'Times New Roman', Times, serif",
-  Times: "Times, 'Times New Roman', serif",
-  "Segoe UI": "'Segoe UI Variable Text', 'Segoe UI', system-ui, sans-serif",
-  Calibri: "Calibri, Carlito, 'Segoe UI', sans-serif",
-  Helvetica: "Helvetica, Arial, sans-serif",
-  "Helvetica Neue": "'Helvetica Neue', Helvetica, Arial, sans-serif",
-  Arial: "Arial, Helvetica, sans-serif",
-  "Gill Sans": "'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif",
-  "Gill Sans MT": "'Gill Sans MT', 'Gill Sans', 'Trebuchet MS', sans-serif"
-};
-const LEGACY_FONTS = { serif: "Palatino Linotype", sans: "Segoe UI" };
-const DEFAULT_PAGE_FONT = "Palatino Linotype";
-function pageFont(value) {
-  const name = value ? LEGACY_FONTS[value] ?? value : DEFAULT_PAGE_FONT;
-  const known = STACKS[name];
-  return { name, stack: known ?? `'${name.replace(/'/g, "\\'")}', ${genericOf(name)}` };
-}
-function genericOf(name) {
-  if (/mono|code|courier|consol/i.test(name)) return "monospace";
-  if (/sans|arial|helvetica|verdana|tahoma|segoe|calibri|gothic|grotesk|inter|roboto|open sans|lato|ui\b/i.test(name)) return "sans-serif";
-  return "serif";
-}
 function useIsDark() {
   const [dark, setDark] = reactExports$1.useState(() => document.documentElement.classList.contains("dark"));
   reactExports$1.useEffect(() => {
@@ -72120,10 +72125,7 @@ function tellingDate(iso) {
   const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
   return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { year: "numeric", month: "short", day: "numeric" });
 }
-const today = () => {
-  const now = /* @__PURE__ */ new Date();
-  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
-};
+const today = () => isoDate();
 function PreachingLog({ draft, writable, onMeta }) {
   const [adding, setAdding] = reactExports$1.useState(false);
   const [date, setDate] = reactExports$1.useState(today);
@@ -72443,7 +72445,7 @@ function HistorySheet({ draft, filePath, onRestore, onPutBack, onClose }) {
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "history__head", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "sheet__title", style: { margin: 0 }, children: "History" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "history__sub", children: [
-        draft.title || "Untitled sermon",
+        draft.title || UNTITLED_SERMON,
         " · kept in the folder, one copy per day it was worked on"
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "history__esc", children: "Esc closes" })
@@ -73848,7 +73850,7 @@ function ReadyScreen({ sermon, sections, reading, targetMinutes, themeClass, ove
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `${themeClass} podium--ready`, role: "presentation", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__ready", onClick: onBegin, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__ready-kick", children: "Ready to preach" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "podium__ready-title", children: sermon.title || "Untitled sermon" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "podium__ready-title", children: sermon.title || UNTITLED_SERMON }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__ready-meta", children: [sermon.primaryPassage, formatDate$1(sermon.datePreached), points2 > 0 ? `${points2} point${points2 === 1 ? "" : "s"}` : "", minutes > 0 ? `about ${minutes} minute${minutes === 1 ? "" : "s"} of a ${targetMinutes}-minute length` : ""].filter(Boolean).join(" · ") }),
       points2 > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("ol", { className: "podium__ready-points", "aria-label": "The points", children: sections.filter((item) => item.point).map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "podium__ready-num", children: [
@@ -73922,7 +73924,7 @@ function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, t
   const leave = (preached) => onExit({ ...preached ? { preached: true, minutes: Math.max(1, Math.round(elapsed / 60)) } : {}, ...adjusted ? { plan: plan() } : {} });
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `${themeClass} podium--ready`, role: "presentation", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__end", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__ready-kick", children: "Finished" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "podium__ready-title", children: sermon.title || "Untitled sermon" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "podium__ready-title", children: sermon.title || UNTITLED_SERMON }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__ready-meta", children: [sermon.primaryPassage, formatDate$1(sermon.datePreached)].filter(Boolean).join(" · ") }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "podium__end-big", children: [
       clock$1(elapsed),
@@ -76333,7 +76335,7 @@ function App() {
   );
   const createSermon = reactExports$1.useCallback(async () => {
     try {
-      const { filePath } = await window.api.createSermon("Untitled sermon");
+      const { filePath } = await window.api.createSermon(UNTITLED_SERMON);
       await refreshList();
       await openSermon(filePath);
     } catch (cause) {
@@ -76490,8 +76492,7 @@ function App() {
       sermon: podium,
       onExit: (result) => {
         if ((result?.preached || result?.plan) && open2) {
-          const today2 = /* @__PURE__ */ new Date();
-          const iso = `${today2.getFullYear()}-${String(today2.getMonth() + 1).padStart(2, "0")}-${String(today2.getDate()).padStart(2, "0")}`;
+          const iso = isoDate();
           const plan = result.plan;
           const blocks = plan ? podium.blocks.map((block) => block.type === "point" && plan.minutes[block.id] ? { ...block, minutes: plan.minutes[block.id] } : block) : podium.blocks;
           const telling = result.preached ? { date: iso, ...lastChurch ? { church: lastChurch } : {}, ...result.minutes ? { minutes: result.minutes } : {} } : null;

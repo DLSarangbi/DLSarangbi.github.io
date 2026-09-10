@@ -1,12 +1,17 @@
-import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, a as DEFAULT_EDITOR_SETTINGS, b as bookByNumber, c as flattenForSearch, d as SNIPPET_MARK_OPEN, e as SNIPPET_MARK_CLOSE, g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-D7JezYpe.js";
+import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, a as DEFAULT_EDITOR_SETTINGS, b as bookByNumber, c as flattenForSearch, d as SNIPPET_MARK_OPEN, e as SNIPPET_MARK_CLOSE, g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-BZ8O7pUT.js";
+function daysFromToday(days) {
+  const date = /* @__PURE__ */ new Date();
+  date.setDate(date.getDate() + days);
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+}
 const DEMO_SERIES = [
   {
     id: "series-letters",
     name: "Summer in the Letters",
     description: "Galatians, Romans, and 1 Peter, one Sunday each, then Ephesians and James to close the summer",
     planned: [
-      { id: "plan-eph", title: "Seated With Him", passage: "Ephesians 2:1-10", date: "2026-09-06" },
-      { id: "plan-jas", title: "Doers of the Word", passage: "James 1:19-27", date: "2026-09-13" }
+      { id: "plan-eph", title: "Seated With Him", passage: "Ephesians 2:1-10", date: daysFromToday(5) },
+      { id: "plan-jas", title: "Doers of the Word", passage: "James 1:19-27", date: daysFromToday(12) }
     ]
   }
 ];
@@ -17,7 +22,7 @@ const DEMO_ILLUSTRATIONS = [
     body: 'A teacher of thirty-one years: "Every September they are new, even when I am not."',
     source: "A conversation after a funeral",
     tags: ["faithfulness"],
-    createdAt: "2026-08-20T09:00:00.000Z"
+    createdAt: `${daysFromToday(-20)}T09:00:00.000Z`
   },
   {
     id: "story-nets",
@@ -25,7 +30,7 @@ const DEMO_ILLUSTRATIONS = [
     body: "The fisherman who mended nets every evening, whether or not the day had caught anything.",
     source: "My grandfather",
     tags: ["hope", "work"],
-    createdAt: "2026-06-01T09:00:00.000Z"
+    createdAt: `${daysFromToday(-100)}T09:00:00.000Z`
   }
 ];
 const SEEDS = [
@@ -49,7 +54,7 @@ const SEEDS = [
   {
     title: "When All Things Work Together",
     primaryPassage: "Romans 8:28-39",
-    datePreached: "2026-08-23",
+    datePreached: daysFromToday(-17),
     status: "preached",
     seriesId: "series-letters",
     tags: ["suffering", "providence"],
@@ -60,14 +65,14 @@ const SEEDS = [
       { type: "reflection", content: "Where have you seen providence at work in a hard year?" }
     ],
     preachings: [
-      { date: "2025-03-02", church: "Hope Chapel", minutes: 29 },
-      { date: "2026-08-23", church: "Grace Fellowship", minutes: 32 }
+      { date: daysFromToday(-556), church: "Hope Chapel", minutes: 29 },
+      { date: daysFromToday(-17), church: "Grace Fellowship", minutes: 32 }
     ]
   },
   {
     title: "A Living Hope",
     primaryPassage: "1 Peter 1:3-9",
-    datePreached: "2026-06-14",
+    datePreached: daysFromToday(-87),
     status: "preached",
     seriesId: "series-letters",
     tags: ["hope", "resurrection"],
@@ -81,7 +86,7 @@ const SEEDS = [
   {
     title: "The Shepherd Who Goes Looking",
     primaryPassage: "Luke 15:1-7",
-    datePreached: "2026-05-03",
+    datePreached: daysFromToday(-129),
     status: "preached",
     tags: ["grace", "parables"],
     blocks: [
@@ -93,7 +98,7 @@ const SEEDS = [
   {
     title: "Salt That Keeps Its Taste",
     primaryPassage: "Matthew 5:13-16",
-    datePreached: "2026-03-22",
+    datePreached: daysFromToday(-171),
     status: "preached",
     tags: ["witness"],
     blocks: [
@@ -110,7 +115,7 @@ function pathFor(sermon) {
 }
 function seedSermons() {
   return SEEDS.map((seed, n) => {
-    const stamp = `${seed.datePreached ?? "2026-08-30"}T09:00:00.000Z`;
+    const stamp = `${seed.datePreached ?? daysFromToday(-10)}T09:00:00.000Z`;
     return {
       id: `demo-${n + 1}`,
       fileVersion: SERMON_FILE_VERSION,
@@ -284,7 +289,7 @@ let illustrations = clone(DEMO_ILLUSTRATIONS);
 let shapes = [];
 let views = [
   { id: "view-romans", name: "Romans", query: { book: 45 } },
-  { id: "view-preached", name: "Preached this year", query: { status: "preached", from: "2026-01-01" } }
+  { id: "view-preached", name: "Preached this year", query: { status: "preached", from: `${(/* @__PURE__ */ new Date()).getFullYear()}-01-01` } }
 ];
 let appSettings = { ...DEFAULT_APP_SETTINGS };
 let editorSettings = clone(DEFAULT_EDITOR_SETTINGS);
