@@ -576,6 +576,23 @@ const demoApi = {
 window.api = demoApi;
 document.documentElement.classList.add("demo");
 applyThemePreference("system");
+let touched = false;
+const settle = () => {
+  touched = true;
+};
+window.addEventListener("pointerdown", settle, { once: true, capture: true });
+window.addEventListener("keydown", settle, { once: true, capture: true });
+document.addEventListener("focusin", (event) => {
+  if (!touched && event.target instanceof HTMLElement) event.target.blur();
+});
+const scrollIntoView = Element.prototype.scrollIntoView;
+Element.prototype.scrollIntoView = function(arg) {
+  if (touched) scrollIntoView.call(this, arg);
+};
+const focus = HTMLElement.prototype.focus;
+HTMLElement.prototype.focus = function(options) {
+  focus.call(this, touched ? options : { ...options, preventScroll: true });
+};
 const container = document.getElementById("root");
 if (!container) throw new Error("Root element missing from demo.html");
 clientExports.createRoot(container).render(

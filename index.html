@@ -8,14 +8,13 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="18edf99">
+<meta name="sermondesk-source" content="d3d7fc9">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#EFEFEA" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#131413" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-<!-- Open Graph / social sharing -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SermonDesk">
 <meta property="og:url" content="https://sarangbi.co/">
@@ -32,342 +31,87 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
 
 <style>
-  /* Light palette, defined on bare :root so the un-stamped default resolves. */
+  /*
+    One picture and few words. The app is the page's only image; everything
+    else is a sentence that says something the window cannot: where the files
+    live, what happens when you stop paying, what it costs, what it does not do.
+  */
   :root {
-    --paper:      #EFEFEA;
-    --panel:      #E7E7E0;
-    --ink:        #191A18;
-    --muted:      #5E5F58;
-    --rule:       #D3D3CA;
-    --oxblood:    #7C2A2E;
-    --oxblood-lo: #9A4145;
-    --screen:     #1B1C1A;
-    --screen-ink: #E8E8E2;
-
+    --paper:   #F4F3EF;
+    --panel:   #ECEBE5;
+    --ink:     #1A1B18;
+    --muted:   #62635C;
+    --faint:   #9A9B92;
+    --rule:    #DAD9D0;
+    --oxblood: #7C2A2E;
     --serif: "Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
-    --mono:  "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
-
-    --measure: 34rem;
+    --sans: "Inter", "Segoe UI", system-ui, sans-serif;
     --gutter: clamp(1.25rem, 5vw, 4rem);
   }
-
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper:      #131413;
-      --panel:      #1B1C1A;
-      --ink:        #E8E8E2;
-      --muted:      #9C9D94;
-      --rule:       #2E302C;
-      --oxblood:    #C9787A;
-      --oxblood-lo: #D89496;
-      --screen:     #0B0C0B;
-      --screen-ink: #E8E8E2;
+      --paper:   #121311;
+      --panel:   #1B1C19;
+      --ink:     #E9E8E2;
+      --muted:   #A09F97;
+      --faint:   #6C6D65;
+      --rule:    #2C2D29;
+      --oxblood: #CF7F82;
     }
   }
-
   :root[data-theme="dark"] {
-    --paper:      #131413;
-    --panel:      #1B1C1A;
-    --ink:        #E8E8E2;
-    --muted:      #9C9D94;
-    --rule:       #2E302C;
-    --oxblood:    #C9787A;
-    --oxblood-lo: #D89496;
-    --screen:     #0B0C0B;
-    --screen-ink: #E8E8E2;
+    --paper:   #121311;
+    --panel:   #1B1C19;
+    --ink:     #E9E8E2;
+    --muted:   #A09F97;
+    --faint:   #6C6D65;
+    --rule:    #2C2D29;
+    --oxblood: #CF7F82;
   }
 
   * { box-sizing: border-box; }
-
   body {
     margin: 0;
     background: var(--paper);
     color: var(--ink);
     font-family: var(--serif);
-    font-size: 1.0625rem;
-    line-height: 1.65;
+    font-size: 1.125rem;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
-
-  .wrap {
-    max-width: 66rem;
-    margin: 0 auto;
-    padding: 0 var(--gutter);
-  }
-
-  p { margin: 0; max-width: var(--measure); }
-  h1, h2, h3 { margin: 0; text-wrap: balance; font-weight: 500; }
-
-  a { color: var(--oxblood); text-decoration-thickness: 1px; text-underline-offset: 2px; }
-  a:hover { color: var(--oxblood-lo); }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--oxblood); }
   :focus-visible { outline: 2px solid var(--oxblood); outline-offset: 3px; }
+  h1, h2, h3, p { margin: 0; }
+  h1, h2, h3 { font-weight: 400; text-wrap: balance; letter-spacing: -0.015em; }
 
-  /* A rubric: the small mono label that sits above a movement. */
-  .rubric {
-    font-family: var(--mono);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 0;
-  }
+  .wrap { max-width: 78rem; margin: 0 auto; padding: 0 var(--gutter); }
+  .narrow { max-width: 38rem; }
 
-  /* ---- masthead ---- */
-
-  .masthead {
-    border-bottom: 1px solid var(--rule);
-    padding: 1.5rem 0;
-  }
-  .masthead .wrap {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .wordmark {
-    font-size: 1.0625rem;
-    letter-spacing: 0.02em;
-    font-weight: 600;
-  }
+  /* The head: a name, a price, a download. */
+  .head { padding: 1.5rem 0; }
+  .head .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .wordmark { font-size: 1.125rem; font-weight: 500; letter-spacing: 0.01em; text-decoration: none; }
   .wordmark span { color: var(--oxblood); }
+  .head nav { display: flex; gap: 1.5rem; font-size: 0.9375rem; color: var(--muted); }
+  .head nav a { text-decoration: none; }
 
-  /* On a narrow phone the masthead stacks rather than crowding its two ends. */
-  @media (max-width: 460px) {
-    .masthead .wrap { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
-  }
-
-  /* ---- hero ---- */
-
-  .hero { padding: clamp(3.5rem, 9vw, 6.5rem) 0 clamp(2.5rem, 6vw, 4rem); }
-
-  .hero h1 {
-    font-size: clamp(2.5rem, 7vw, 4.25rem);
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-    font-weight: 400;
-    max-width: 15ch;
-    margin: 1.5rem 0 0;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--oxblood);
-  }
-
-  .lede {
-    font-size: 1.1875rem;
-    line-height: 1.6;
-    color: var(--muted);
-    margin-top: 1.75rem;
-    max-width: 40rem;
-  }
-
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-top: 2.5rem;
-  }
-
-  .button {
-    display: inline-block;
-    font-family: var(--mono);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 0.85rem 1.5rem;
-    background: var(--oxblood);
-    color: #FBFBF8;
-    border: 1px solid var(--oxblood);
-  }
-  .button:hover { background: var(--oxblood-lo); border-color: var(--oxblood-lo); color: #FBFBF8; }
-
-  .button--quiet {
-    background: transparent;
-    color: var(--ink);
-    border-color: var(--rule);
-  }
-  .button--quiet:hover { background: transparent; border-color: var(--ink); color: var(--ink); }
-
-  .price-inline {
-    font-family: var(--mono);
-    font-size: 0.8125rem;
-    color: var(--muted);
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* ---- sections ---- */
-
-  section { padding: clamp(3rem, 7vw, 5rem) 0; border-top: 1px solid var(--rule); }
-
-  .section-head { margin-bottom: 2.5rem; }
-  .section-head h2 {
-    font-size: clamp(1.5rem, 3.2vw, 2rem);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin-top: 0.75rem;
-    max-width: 22ch;
-  }
-  .section-head p { margin-top: 1rem; color: var(--muted); }
-
-  /* On a wide screen each section becomes two columns: the heading sits in a
-     left rail and the content fills the rest, so the page uses its width
-     instead of stranding everything in a narrow column on the left. Below the
-     breakpoint it all stacks, which is the single-column reading order. */
-  @media (min-width: 900px) {
-    section > .wrap {
-      display: grid;
-      grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
-      column-gap: clamp(2.5rem, 5vw, 4.5rem);
-      row-gap: 2rem;
-      align-items: start;
-    }
-    .section-head {
-      grid-column: 1;
-      margin-bottom: 0;
-      position: sticky;
-      top: 2.5rem;
-    }
-    section > .wrap > :not(.section-head) { grid-column: 2; }
-    /* The one section with no content column is a full-width statement. */
-    .section--statement > .wrap { display: block; }
-    .section--statement .section-head { position: static; }
-    .section--statement .section-head h2 { max-width: 18ch; }
-    .section--statement .section-head p:not(.rubric) { max-width: 44rem; font-size: 1.1875rem; }
-  }
-
-  /* ---- file detail ---- */
-
-  .filecard {
-    background: var(--panel);
-    border: 1px solid var(--rule);
-    padding: 1.25rem 1.5rem;
-    margin-top: 2rem;
-    max-width: 44rem;
-    overflow-x: auto;
-  }
-  .filecard code {
-    font-family: var(--mono);
-    font-size: 0.8125rem;
-    white-space: pre;
-    display: block;
-    color: var(--muted);
-  }
-  .filecard code b { color: var(--ink); font-weight: 500; }
-
-  /* ---- two-column prose ---- */
-
-  .cols {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-    gap: 2.5rem 3rem;
-  }
-  .cols h3 { font-size: 1.125rem; margin-bottom: 0.5rem; }
-  .cols p { color: var(--muted); font-size: 0.9375rem; }
-
-  /* ---- honest list ---- */
-
-  .plain { list-style: none; padding: 0; margin: 0; max-width: var(--measure); }
-  .plain li {
-    padding: 0.85rem 0;
-    border-bottom: 1px solid var(--rule);
-    color: var(--muted);
-    font-size: 0.9375rem;
-  }
-  .plain li:first-child { border-top: 1px solid var(--rule); }
-  .plain b { color: var(--ink); font-weight: 500; }
-
-  /* ---- pricing ---- */
-
-  .tiers {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 1.5rem;
-    max-width: 44rem;
-  }
-  .tier {
-    border: 1px solid var(--rule);
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .tier--best { border-color: var(--oxblood); }
-  .tier .amount {
-    font-size: 2.25rem;
-    letter-spacing: -0.02em;
-    font-variant-numeric: tabular-nums;
-    line-height: 1.1;
-  }
-  .tier .per { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
-  .tier .note { font-size: 0.9375rem; color: var(--muted); margin-top: 0.25rem; }
-  .tier .button { margin-top: auto; text-align: center; }
-
-  /* ---- policies ---- */
-
-  .policy { max-width: var(--measure); }
-  .policy h3 {
-    font-size: 1.0625rem;
-    margin-top: 2.25rem;
-    margin-bottom: 0.6rem;
-    scroll-margin-top: 2rem;
-  }
-  .policy h3:first-of-type { margin-top: 0; }
-  .policy p + p { margin-top: 0.85rem; }
-  .policy p { color: var(--muted); font-size: 0.9375rem; }
-
-  footer {
-    border-top: 1px solid var(--rule);
-    padding: 2.5rem 0 4rem;
-    color: var(--muted);
-    font-size: 0.875rem;
-  }
-  footer .wrap { display: grid; gap: 0.75rem; }
-  footer p { max-width: 46rem; }
-
-  /* Quiet entrance for the hero only. */
-  @media (prefers-reduced-motion: no-preference) {
-    .hero > .wrap > * {
-      animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
-    }
-    .hero > .wrap > :nth-child(2) { animation-delay: 0.06s; }
-    .hero > .wrap > :nth-child(3) { animation-delay: 0.12s; }
-    .hero > .wrap > :nth-child(4) { animation-delay: 0.18s; }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(0.6rem); }
-      to   { opacity: 1; transform: none; }
-    }
-  }
-
-  /* ---- the app on the page ---- */
-
-  /* The hero spans the page: a line, then the desk itself. */
-  .hero .wrap { max-width: 78rem; }
-  .hero-top {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 1.5rem 3rem;
-    align-items: end;
-  }
-  .hero-top .lede { margin-top: 0; }
-  @media (max-width: 900px) { .hero-top { grid-template-columns: minmax(0, 1fr); } }
-
-  /* The window the app runs in. On a phone the film stands in for it. */
+  /* The one picture. */
+  .hero { padding: clamp(2rem, 6vw, 4.5rem) 0 0; }
+  .hero h1 { font-size: clamp(2.25rem, 5.5vw, 3.75rem); line-height: 1.05; max-width: 16ch; }
+  .hero h1 em { font-style: italic; color: var(--oxblood); }
+  .hero .lede { margin-top: 1rem; font-size: 1.1875rem; color: var(--muted); max-width: 44rem; }
   .stage {
     position: relative;
-    margin-top: 2.5rem;
+    margin-top: 2.25rem;
     aspect-ratio: 16 / 10;
     border: 1px solid var(--rule);
-    border-radius: 8px;
+    border-radius: 6px;
     background: var(--panel);
-    box-shadow: 0 30px 60px -30px rgb(25 26 24 / 0.45), 0 2px 6px rgb(25 26 24 / 0.08);
+    box-shadow: 0 40px 70px -40px rgb(26 27 24 / 0.5), 0 1px 3px rgb(26 27 24 / 0.08);
     overflow: hidden;
   }
   .stage iframe, .stage video { display: block; width: 100%; height: 100%; border: 0; }
@@ -377,381 +121,184 @@
     .stage--live { display: none; }
     .stage--film { display: block; }
   }
-
-  .try {
+  .under {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem 0.6rem;
-    margin-top: 1rem;
-    font-family: var(--mono);
-    font-size: 0.75rem;
+    justify-content: space-between;
+    gap: 0.5rem 2rem;
+    margin-top: 0.85rem;
+    font-size: 0.9375rem;
     color: var(--muted);
   }
-  .try span { padding: 0.35rem 0.7rem; border: 1px dashed var(--muted); border-radius: 999px; color: var(--ink); }
-  .try kbd { font-family: var(--mono); padding: 0 0.3em; border: 1px solid var(--rule); border-radius: 3px; }
-  @media (max-width: 900px), (pointer: coarse) { .try { display: none; } }
+  .under b { font-weight: 500; color: var(--ink); }
+  @media (max-width: 900px), (pointer: coarse) { .under .try { display: none; } }
 
-  /* The pulpit: the page's one dark band, because the pulpit is one. */
-  .pulpit {
-    background: var(--screen);
-    color: var(--screen-ink);
-    border-top: 0;
+  /* The words: one column, wide rules, nothing boxed. */
+  .words { padding: clamp(4rem, 9vw, 7rem) 0 0; }
+  .word {
+    display: grid;
+    grid-template-columns: minmax(0, 18rem) minmax(0, 38rem);
+    column-gap: clamp(2rem, 6vw, 6rem);
+    row-gap: 0.75rem;
+    padding: clamp(2rem, 4vw, 3rem) 0;
+    border-top: 1px solid var(--rule);
   }
-  .pulpit .section-head h2, .pulpit .section-head p { color: inherit; }
-  .pulpit .section-head p { opacity: 0.78; }
-  .pulpit .rubric { color: rgb(232 232 226 / 0.55); }
-  .shot {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-    border: 1px solid var(--rule);
-  }
-  .pulpit .shot { border-color: #2a2b2f; box-shadow: 0 40px 80px -40px rgb(0 0 0 / 0.9); }
+  .word h2 { font-size: clamp(1.5rem, 2.6vw, 1.875rem); line-height: 1.2; }
+  .word p { color: var(--muted); }
+  .word p + p { margin-top: 0.85rem; }
+  .word ul { margin: 0; padding: 0; list-style: none; color: var(--muted); }
+  .word li { padding: 0.55rem 0; border-top: 1px solid var(--rule); }
+  .word li:first-child { border-top: 0; padding-top: 0; }
+  .word li b { color: var(--ink); font-weight: 500; }
+  @media (max-width: 800px) { .word { grid-template-columns: minmax(0, 1fr); } }
 
-  /* The library: three claims beside the coverage sheet. */
-  .claims { display: grid; gap: 1.5rem; }
-  .claims h3 { font-size: 1.125rem; margin-bottom: 0.35rem; }
-  .claims p { color: var(--muted); font-size: 0.9375rem; }
-  .library-shot { margin-top: 2rem; }
+  /* The price: two numbers, two buttons, no tiers. */
+  .price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1.5rem; font-variant-numeric: tabular-nums; }
+  .price .amount { font-size: clamp(1.75rem, 3.5vw, 2.5rem); line-height: 1.1; color: var(--ink); }
+  .price .per { color: var(--muted); }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
+  .button {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid var(--oxblood);
+    border-radius: 4px;
+    background: var(--oxblood);
+    color: #FBFBF8;
+    font-family: var(--sans);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .button:hover { color: #FBFBF8; filter: brightness(1.08); }
+  .button--quiet { background: transparent; color: var(--ink); border-color: var(--rule); }
+  .button--quiet:hover { color: var(--ink); border-color: var(--ink); filter: none; }
+
+  /* The policies: the same words as ever, set smaller, at the end. */
+  .policies { padding: clamp(3rem, 7vw, 5rem) 0 4rem; font-size: 0.9375rem; }
+  .policies .word { padding-top: 0; border-top: 0; }
+  .policies h3 { font-size: 1.0625rem; font-weight: 500; margin: 1.75rem 0 0.4rem; scroll-margin-top: 2rem; }
+  .policies h3:first-child { margin-top: 0; }
+  .policies p { color: var(--muted); }
+  .policies p + p { margin-top: 0.6rem; }
+  footer { padding: 0 0 4rem; color: var(--faint); font-size: 0.875rem; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero > .wrap > * { animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) backwards; }
+    .hero > .wrap > :nth-child(2) { animation-delay: 0.05s; }
+    .hero > .wrap > :nth-child(3) { animation-delay: 0.1s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: none; } }
+  }
 </style>
 </head>
 
 <body>
-<header class="masthead">
+<header class="head">
   <div class="wrap">
-    <div class="wordmark">Sermon<span>Desk</span></div>
-    <p class="rubric">Windows &middot; Offline &middot; Beta</p>
+    <a class="wordmark" href="/">Sermon<span>Desk</span></a>
+    <nav>
+      <a href="#price">$12.99 a month</a>
+      <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest">Download for Windows</a>
+    </nav>
   </div>
 </header>
 
 <div class="hero">
   <div class="wrap">
-    <div class="hero-top">
-      <div>
-        <p class="rubric">Sermon manager for preachers</p>
-        <h1>Write the sermon <em>once.</em></h1>
-      </div>
-      <div>
-        <p class="lede">
-          This is the app, running on this page with a few sermons in it. Type in it, paste a verse,
-          press Preach. Nothing you do here is saved; your real sermons live in a folder on your own
-          computer.
-        </p>
-        <div class="hero-actions">
-          <a class="button" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest">Download for Windows</a>
-          <a class="price-inline" href="#pricing">$12.99/month or $119.99/year &middot; free during the beta</a>
-        </div>
-      </div>
-    </div>
-
+    <h1>Write the sermon <em>once.</em></h1>
+    <p class="lede">A manuscript, an outline, a podium screen, and a handout from one draft, kept as plain files on your own computer. This is the app, running here with a few sermons in it. Nothing you do on this page is saved.</p>
     <div class="stage stage--live">
       <iframe src="demo/" title="SermonDesk, live on this page, with a demo library. Nothing is saved." loading="lazy"></iframe>
     </div>
     <div class="stage stage--film">
       <video src="demo.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A 66-second film of SermonDesk: the library, writing a sermon, the previews, and the podium"></video>
     </div>
-    <p class="try">
-      Things to try:
-      <span>Paste a verse and watch it file itself</span>
-      <span>Type <kbd>/</kbd> and choose Point</span>
-      <span>Press Outline, then Handout</span>
-      <span>Open the Outline tab to see what else touches Romans 8</span>
-      <span>Press <b>Preach</b></span>
+    <p class="under">
+      <span class="try">Try: paste a verse and watch it file itself &middot; type <b>/</b> for a point &middot; press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b></span>
+      <span>Windows &middot; works offline</span>
     </p>
   </div>
 </div>
 
-<section class="pulpit">
+<main class="words">
   <div class="wrap">
-    <div class="section-head">
-      <p class="rubric">Press Preach</p>
-      <h2>A screen for the pulpit, not a document with the zoom turned up.</h2>
-      <p>
-        The paragraph in hand is lit and the rest recedes. A clock counts toward the length you
-        planned and pulses softly with five minutes left. Space moves on. Esc ends on a card that
-        says how long each point actually took, and asks whether to keep those minutes as the plan.
-        It keeps the display awake, and it works with the wifi down.
-      </p>
-    </div>
-    <img class="shot" src="podium.jpg" width="1600" height="900" alt="The podium screen: dark, the current paragraph bright, the rail of points at the left, the clock at the top right" loading="lazy">
-  </div>
-</section>
-
-<section class="section--statement">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="rubric">One sermon, four uses</p>
-      <h2>The same words, set for the job.</h2>
-      <p>
-        Write in blocks: point, scripture, illustration, application, reflection, private note.
-        Each knows where it belongs: a reflection question on the handout, a private note on the
-        podium, never both. Press Manuscript, Outline, and Handout in the window above and watch
-        the same sermon change its clothes.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <p class="rubric">The library</p>
-      <h2>A filing cabinet that knows what a passage is.</h2>
-    </div>
-    <div>
-      <div class="claims">
-        <div>
-          <h3>Type Romans 8 and get every sermon that touched it.</h3>
-          <p>Including the ones that only quoted a verse in passing. Rom 8:28, romans 8.28, and Romans 8 all land in the same rows, and the line above the list says what it read.</p>
-        </div>
-        <div>
-          <h3>Where you have preached, and where you have not.</h3>
-          <p>The whole canon, a cell for every chapter, lit where a sermon touched it. The dark books are the ones never opened. Press one to see its sermons.</p>
-        </div>
-        <div>
-          <h3>The library speaks up.</h3>
-          <p>Open a sermon and see what else touches its chapter, where else you told that story, and the rest of its series.</p>
-        </div>
-      </div>
-      <img class="shot library-shot" src="coverage.jpg" width="1600" height="1000" alt="The coverage sheet: every book of the Bible in three columns, a cell for each chapter, lit where a sermon touched it" loading="lazy">
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <p class="rubric">Where your sermons live</p>
-      <h2>In a folder. On your computer. Readable without this app.</h2>
-      <p>
-        Not a database of mine. One file per sermon, in a folder you choose. Point it at Dropbox or
-        OneDrive for backup and sync on your own account. A file written by any version opens in
-        every later one, and a later version's file is never harmed by an earlier one.
-      </p>
-    </div>
-
-    <div class="filecard">
-      <code>Sermons/
-  2026/
-    <b>2026-08-23-romans-8-the-river.json</b>
-    2026-08-16-psalm-23-the-table.json
-    2026-08-09-john-3-the-wind.json</code>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <p class="rubric">The parts worth having</p>
-      <h2>Built for the week you actually have.</h2>
-    </div>
-
-    <div class="cols">
+    <div class="word">
+      <h2>Your sermons are files, in a folder you choose.</h2>
       <div>
-        <h3>The large print handout</h3>
-        <p>
-          One checkbox: 17pt, double spaced. For the people in your pews who can no longer follow
-          small type, and the elders who carry handouts to the homebound.
-        </p>
-      </div>
-      <div>
-        <h3>The way out, built in</h3>
-        <p>
-          Export everything as Markdown: one readable file per sermon, in a folder you choose, no
-          licence asked. If SermonDesk vanished tomorrow, nothing of yours would be trapped.
-        </p>
-      </div>
-      <div>
-        <h3>Bring what you already wrote</h3>
-        <p>
-          Import from Word and Google Docs, a whole Takeout folder at once. Ten years in Docs is
-          no reason to stay there.
-        </p>
-      </div>
-      <div>
-        <h3>Any translation you preach from</h3>
-        <p>
-          No Bible ships with SermonDesk, on purpose. Paste a verse from wherever you read it; it is
-          filed with the reference and version. Which translation you preach is your business.
-        </p>
+        <p>One readable file per sermon. Not a database of mine. Point the folder at Dropbox or OneDrive and you have backup and sync on your own account, with nothing stored by us. A file written by any version opens in every later one. Export everything as Markdown at any time, no licence asked.</p>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section--statement">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="rubric">If you stop paying</p>
-      <h2>You keep every sermon you ever wrote.</h2>
-      <p>
-        SermonDesk goes read only. You can still open, search, print, and preach all of it, for as
-        long as you own the computer. A subscription buys the ability to write, never access to
-        what you have already written. That was yours before you paid, and it stays yours after.
-      </p>
+    <div class="word">
+      <h2>The library knows what a passage is.</h2>
+      <div>
+        <p>Type Romans 8 and get every sermon that touched it, including the ones that only quoted a verse in passing. Open a sermon and see what else touches its chapter, where else you told that story, and the rest of its series. A map of the whole canon shows the chapters you have preached and the books you never have.</p>
+      </div>
     </div>
-  </div>
-</section>
 
-<section id="pricing">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="rubric">Pricing</p>
+    <div class="word">
+      <h2>If you stop paying, you keep every sermon.</h2>
+      <div>
+        <p>The app goes read only. Open, search, print, and preach all of it, for as long as you own the computer. A subscription buys the ability to write, never access to what you already wrote.</p>
+      </div>
+    </div>
+
+    <div class="word" id="price">
       <h2>One price. Everything included.</h2>
-      <p>
-        One subscription covers up to three of your own computers. Cancelling takes two clicks.
-        While SermonDesk is in beta there is no checkout and nothing to pay: email for a key.
-      </p>
-    </div>
-
-    <!--
-      REPLACE BEFORE LAUNCH: the two Subscribe links below are mailto while
-      SermonDesk is in beta and no checkout exists. Once the Lemon Squeezy
-      store is live, swap both href values for the monthly and yearly buy
-      links, and set CHECKOUT_URL in src/shared/billing.ts to the same yearly
-      link so the app's Subscribe button matches this page.
-
-      The trial wording comes back at the same time, and only if the store's
-      subscription is set up with a fourteen-day trial. The sentences that
-      were here, to restore then:
-        hero:    "$12.99/month or $119.99/year · 14 days free"
-        pricing: "Fourteen days free first. The trial takes a card and becomes
-                  a subscription unless you cancel, which takes two clicks."
-        refunds: "Refunds are not offered as a matter of course; the fourteen
-                  free days are why. Write a real sermon, print the handout,
-                  take it to the pulpit, and cancel before the trial ends if
-                  it is not for you. Nothing is charged until then."
-      A page that promises a trial nobody can start is worse than one that
-      does not mention it.
-    -->
-
-    <div class="tiers">
-      <div class="tier">
-        <p class="rubric">Monthly</p>
-        <div class="amount">$12.99</div>
-        <div class="per">per month</div>
-        <p class="note">Every feature. Cancel any time.</p>
-        <a class="button button--quiet" href="mailto:davislor@sarangbi.co?subject=SermonDesk%20monthly">Subscribe</a>
-      </div>
-      <div class="tier tier--best">
-        <p class="rubric">Yearly &middot; saves $36</p>
-        <div class="amount">$119.99</div>
-        <div class="per">per year</div>
-        <p class="note">The same, billed once a year.</p>
-        <a class="button" href="mailto:davislor@sarangbi.co?subject=SermonDesk%20yearly">Subscribe</a>
+      <div>
+        <p class="price"><span class="amount">$12.99</span><span class="per">a month, or</span><span class="amount">$119.99</span><span class="per">a year</span></p>
+        <p>One person, up to three of their own computers. Cancel in two clicks. Checkout opens when the store is approved; until then, email for a key and your first year is free.</p>
+        <div class="buttons">
+          <a class="button" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest">Download for Windows</a>
+          <a class="button button--quiet" href="mailto:davislor@sarangbi.co?subject=SermonDesk%20key">Email for a key</a>
+        </div>
       </div>
     </div>
 
-    <p style="margin-top:1.5rem; color:var(--muted); font-size:0.9375rem; max-width:44rem">
-      In beta: checkout is not open yet. Email for a key, and download the Windows installer from
-      <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest">the releases page</a>.
-      Pastors who use it before launch get their first year free.
-    </p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <p class="rubric">Plainly</p>
+    <div class="word">
       <h2>What it does not do yet.</h2>
-      <p>Better read here than found out after paying.</p>
+      <ul>
+        <li><b>Windows only, for now.</b> A Mac version is built and tested on every change, but not yet signed or released.</li>
+        <li><b>The installer is unsigned,</b> so Windows shows a SmartScreen warning the first time.</li>
+        <li><b>No phone or tablet version</b>, and none planned. This is a desk tool.</li>
+        <li><b>No cloud of mine.</b> Use Dropbox or OneDrive for that.</li>
+        <li><b>It checks the subscription when it starts</b>, at most once a day, sending only the licence key, and looks for an update every six hours. Writing works offline for thirty days; reading and printing, forever.</li>
+      </ul>
     </div>
-    <ul class="plain">
-      <li><b>Windows only, for now.</b> A Mac version is built and tested on every change, but not yet signed or released. Do not buy this for a Mac yet.</li>
-      <li><b>In beta.</b> Installers are unsigned, so Windows shows a SmartScreen warning the first time.</li>
-      <li><b>No phone or tablet version</b>, and none planned. This is a desk tool.</li>
-      <li><b>No cloud sync of mine.</b> Use Dropbox or OneDrive for that.</li>
-      <li><b>It checks the subscription when it starts</b>, at most once a day, sending only the licence key, and looks for an update every six hours. Writing works offline for thirty days; reading and printing, forever.</li>
-    </ul>
   </div>
-</section>
+</main>
 
-<section id="policies">
+<section class="policies" id="policies">
   <div class="wrap">
-    <div class="section-head">
-      <p class="rubric">Terms, refunds, and privacy</p>
-      <h2>The short version, which is also the whole version.</h2>
-    </div>
+    <div class="word">
+      <h2>Terms, refunds, and privacy: the short version, which is also the whole version.</h2>
+      <div>
+        <h3 id="refunds">Cancelling, and refunds</h3>
+        <p>Cancel, change a card, or recover a lost key from the billing page linked in your receipt. It signs you in by emailed link. No password, no account to keep.</p>
+        <p>Cancelling stops the next charge; the subscription runs to the end of the period you have paid for. Cancel on the 2nd and you keep the rest of the month, the last Sunday included.</p>
+        <p>Refunds are not offered as a matter of course. Try it before you pay: write a real sermon, print the handout, take it to the pulpit, and subscribe only if it is for you. Nothing is charged until checkout opens.</p>
+        <p>If something is genuinely broken, or you were charged unexpectedly, email and it will be put right. Where local law gives you a right to a refund, that right stands regardless of anything here.</p>
+        <p>After a subscription ends the app becomes read only. Every sermon you wrote stays on your computer: openable, searchable, printable, permanently.</p>
 
-    <div class="policy">
-      <h3 id="refunds">Cancelling, and refunds</h3>
-      <p>
-        Cancel, change a card, or recover a lost key from the billing page linked in your receipt.
-        It signs you in by emailed link. No password, no account to keep.
-      </p>
-      <p>
-        Cancelling stops the next charge; the subscription runs to the end of the period you have
-        paid for. Cancel on the 2nd and you keep the rest of the month, the last Sunday included.
-      </p>
-      <p>
-        Refunds are not offered as a matter of course. Try it before you pay: write a real sermon,
-        print the handout, take it to the pulpit, and subscribe only if it is for you. Nothing is
-        charged during the beta.
-      </p>
-      <p>
-        If something is genuinely broken, or you were charged unexpectedly, email and it will be
-        put right. Where local law gives you a right to a refund, that right stands regardless of
-        anything here.
-      </p>
-      <p>
-        After a subscription ends the app becomes read only. Every sermon you wrote stays on your
-        computer: openable, searchable, printable, permanently.
-      </p>
+        <h3 id="privacy">Privacy</h3>
+        <p>No account, no password, nothing to sign up for. Your sermons are written to your own disk and never uploaded, read, or transmitted. They are not backed up by us either. That is the other side of the same promise.</p>
+        <p>The app makes two kinds of network request. One checks whether your licence key is valid, sending only the key, nothing about you or your sermons. The other checks for a new version. No analytics, no telemetry, no crash reporting, no tracking. The demo on this page keeps nothing and sends nothing.</p>
+        <p>When you buy, Lemon Squeezy handles your name, email, and payment details under their own privacy policy. We receive your email and what you bought, and use it to send your key and reach you about the software. We do not sell or share it.</p>
 
-      <h3 id="privacy">Privacy</h3>
-      <p>
-        No account, no password, nothing to sign up for. Your sermons are written to your own disk and never
-        uploaded, read, or transmitted. They are not backed up by us either. That is the other
-        side of the same promise.
-      </p>
-      <p>
-        The app makes two kinds of network request. One checks whether your licence key is valid,
-        sending only the key, nothing about you or your sermons. The other checks for a new
-        version. No analytics, no telemetry, no crash reporting, no tracking.
-      </p>
-      <p>
-        When you buy, Lemon Squeezy handles your name, email, and payment details under their own
-        privacy policy. We receive your email and what you bought, and use it to send your key and
-        reach you about the software. We do not sell or share it.
-      </p>
+        <h3 id="terms">Terms</h3>
+        <p>A subscription grants one person a licence to write with SermonDesk, on up to three of their own computers. Reading, searching, printing, and preaching what you have already written works with or without a subscription, including after it ends.</p>
+        <p>The sermons you write are your own; nothing here claims any interest in them. The software is provided as is, without warranty. It is a tool, not the only copy of anything. Keep the folder somewhere that gets backed up.</p>
+        <p>Features may change and defects are likely while the software is young. If a change leaves it unusable for you, say so and it will be put right.</p>
 
-      <h3 id="terms">Terms</h3>
-      <p>
-        A subscription grants one person a licence to write with SermonDesk, on up to three of their
-        own computers. Reading, searching, printing, and preaching what you have already written
-        works with or without a subscription, including after it ends.
-      </p>
-      <p>
-        The sermons you write are your own; nothing here claims any interest in them. The software
-        is provided as is, without warranty. It is a tool, not the only copy of anything. Keep the
-        folder somewhere that gets backed up.
-      </p>
-      <p>
-        This is a beta. Features may change and defects are likely. If a change leaves it unusable
-        for you, say so and it will be put right.
-      </p>
-
-      <h3 id="contact">Contact</h3>
-      <p>
-        Built and supported by Sarangbi. Email
-        <a href="mailto:davislor@sarangbi.co">davislor@sarangbi.co</a>.
-      </p>
+        <h3 id="contact">Contact</h3>
+        <p>Built and supported by Sarangbi. Email <a href="mailto:davislor@sarangbi.co">davislor@sarangbi.co</a>.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p class="rubric">SermonDesk</p>
-    <p>
-      Payments are processed by Lemon Squeezy, the merchant of record for all orders, who handle
-      billing and sales tax.
-    </p>
-    <p>&copy; 2026 Sarangbi. Made for preachers.</p>
+    <p>Payments are processed by Lemon Squeezy, the merchant of record for all orders, who handle billing and sales tax. &copy; 2026 Sarangbi. Made for preachers.</p>
   </div>
 </footer>
 </body>
