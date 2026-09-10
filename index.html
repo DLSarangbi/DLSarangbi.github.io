@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="23561c4">
+<meta name="sermondesk-source" content="b26f2b4">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#EFEFEA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#131413" media="(prefers-color-scheme: dark)">
@@ -498,6 +498,76 @@
       to   { opacity: 1; transform: none; }
     }
   }
+
+  /* ---- the app on the page ---- */
+
+  /* The hero spans the page: a line, then the desk itself. */
+  .hero .wrap { max-width: 78rem; }
+  .hero-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.5rem 3rem;
+    align-items: end;
+  }
+  .hero-top .lede { margin-top: 0; }
+  @media (max-width: 900px) { .hero-top { grid-template-columns: minmax(0, 1fr); } }
+
+  /* The window the app runs in. On a phone the film stands in for it. */
+  .stage {
+    position: relative;
+    margin-top: 2.5rem;
+    aspect-ratio: 16 / 10;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: var(--panel);
+    box-shadow: 0 30px 60px -30px rgb(25 26 24 / 0.45), 0 2px 6px rgb(25 26 24 / 0.08);
+    overflow: hidden;
+  }
+  .stage iframe, .stage video { display: block; width: 100%; height: 100%; border: 0; }
+  .stage video { object-fit: cover; }
+  .stage--film { display: none; }
+  @media (max-width: 900px), (pointer: coarse) {
+    .stage--live { display: none; }
+    .stage--film { display: block; }
+  }
+
+  .try {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.6rem;
+    margin-top: 1rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .try span { padding: 0.35rem 0.7rem; border: 1px dashed var(--muted); border-radius: 999px; color: var(--ink); }
+  .try kbd { font-family: var(--mono); padding: 0 0.3em; border: 1px solid var(--rule); border-radius: 3px; }
+  @media (max-width: 900px), (pointer: coarse) { .try { display: none; } }
+
+  /* The pulpit: the page's one dark band, because the pulpit is one. */
+  .pulpit {
+    background: var(--screen);
+    color: var(--screen-ink);
+    border-top: 0;
+  }
+  .pulpit .section-head h2, .pulpit .section-head p { color: inherit; }
+  .pulpit .section-head p { opacity: 0.78; }
+  .pulpit .rubric { color: rgb(232 232 226 / 0.55); }
+  .shot {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--rule);
+  }
+  .pulpit .shot { border-color: #2a2b2f; box-shadow: 0 40px 80px -40px rgb(0 0 0 / 0.9); }
+
+  /* The library: three claims beside the coverage sheet. */
+  .claims { display: grid; gap: 1.5rem; }
+  .claims h3 { font-size: 1.125rem; margin-bottom: 0.35rem; }
+  .claims p { color: var(--muted); font-size: 0.9375rem; }
+  .library-shot { margin-top: 2rem; }
 </style>
 </head>
 
@@ -511,18 +581,55 @@
 
 <div class="hero">
   <div class="wrap">
-    <p class="rubric">Sermon manager for preachers</p>
-    <h1>Write the sermon <em>once.</em></h1>
-    <p class="lede">
-      One draft becomes a manuscript, an outline, a fullscreen podium screen, and a handout.
-      Every sermon is a plain file on your own computer. Nothing depends on the network.
-    </p>
-    <div class="hero-actions">
-      <a class="button" href="#pricing">See pricing</a>
-      <span class="price-inline">$12.99/month or $119.99/year &middot; free during the beta</span>
+    <div class="hero-top">
+      <div>
+        <p class="rubric">Sermon manager for preachers</p>
+        <h1>Write the sermon <em>once.</em></h1>
+      </div>
+      <div>
+        <p class="lede">
+          This is the app, running on this page with a few sermons in it. Type in it, paste a verse,
+          press Preach. Nothing you do here is saved; your real sermons live in a folder on your own
+          computer, and one draft there becomes a manuscript, an outline, a podium screen, and a handout.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest">Download for Windows</a>
+          <a class="price-inline" href="#pricing">$12.99/month or $119.99/year &middot; free during the beta</a>
+        </div>
+      </div>
     </div>
+
+    <div class="stage stage--live">
+      <iframe src="demo/" title="SermonDesk, live on this page, with a demo library. Nothing is saved." loading="lazy" allow="fullscreen"></iframe>
+    </div>
+    <div class="stage stage--film">
+      <video src="demo.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A 66-second film of SermonDesk: the library, writing a sermon, the previews, and the podium"></video>
+    </div>
+    <p class="try">
+      Things to try:
+      <span>Paste a verse and watch it file itself</span>
+      <span>Type <kbd>/</kbd> and choose Point</span>
+      <span>Open Outline to see what else touches Romans 8</span>
+      <span>Press <b>Preach</b></span>
+    </p>
   </div>
 </div>
+
+<section class="pulpit">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="rubric">Press Preach</p>
+      <h2>A screen for the pulpit, not a document with the zoom turned up.</h2>
+      <p>
+        The paragraph in hand is lit and the rest recedes. A clock counts toward the length you
+        planned and pulses softly with five minutes left. Space moves on. Esc ends on a card that
+        says how long each point actually took, and asks whether to keep those minutes as the plan.
+        It keeps the display awake, and it works with the wifi down.
+      </p>
+    </div>
+    <img class="shot" src="podium.jpg" width="1600" height="900" alt="The podium screen: dark, the current paragraph bright, the rail of points at the left, the clock at the top right" loading="lazy">
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -606,12 +713,38 @@
 <section>
   <div class="wrap">
     <div class="section-head">
+      <p class="rubric">The library</p>
+      <h2>A filing cabinet that knows what a passage is.</h2>
+    </div>
+    <div>
+      <div class="claims">
+        <div>
+          <h3>Type Romans 8 and get every sermon that touched it.</h3>
+          <p>Including the ones that only quoted a verse in passing. Rom 8:28, romans 8.28, and Romans 8 all land in the same rows, and the line above the list says what it read.</p>
+        </div>
+        <div>
+          <h3>Where you have preached, and where you have not.</h3>
+          <p>The whole canon, a cell for every chapter, lit where a sermon touched it. The dark books are the ones never opened. Press one to see its sermons.</p>
+        </div>
+        <div>
+          <h3>The library speaks up.</h3>
+          <p>Open a sermon and see what else touches its chapter, where else you told that story, and the rest of its series.</p>
+        </div>
+      </div>
+      <img class="shot library-shot" src="coverage.jpg" width="1600" height="1000" alt="The coverage sheet: every book of the Bible in three columns, a cell for each chapter, lit where a sermon touched it" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
       <p class="rubric">Where your sermons live</p>
       <h2>In a folder. On your computer. Readable without this app.</h2>
       <p>
         Not a database of mine. One file per sermon, in a folder you choose. Point it at Dropbox or
-        OneDrive for backup and sync on your own account. If SermonDesk vanished tomorrow, nothing
-        of yours would be trapped.
+        OneDrive for backup and sync on your own account. A file written by any version opens in
+        every later one, and a later version's file is never harmed by an earlier one.
       </p>
     </div>
 
@@ -641,10 +774,10 @@
         </p>
       </div>
       <div>
-        <h3>Search that knows what a passage is</h3>
+        <h3>The way out, built in</h3>
         <p>
-          Type "Romans 8" and find every sermon that touched it, down to a verse quoted in passing.
-          "Rom 8:28", "romans 8.28", "Romans 8", all the same.
+          Export everything as Markdown: one readable file per sermon, in a folder you choose, no
+          licence asked. If SermonDesk vanished tomorrow, nothing of yours would be trapped.
         </p>
       </div>
       <div>
