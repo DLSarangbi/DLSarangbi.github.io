@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="3c8ca1c">
+<meta name="sermondesk-source" content="18edf99">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#EFEFEA" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#131413" media="(prefers-color-scheme: dark)">
@@ -236,165 +236,12 @@
       top: 2.5rem;
     }
     section > .wrap > :not(.section-head) { grid-column: 2; }
-    /* Four specimens read best two-up in the content column. */
-    .plates { grid-template-columns: repeat(2, 1fr); }
     /* The one section with no content column is a full-width statement. */
     .section--statement > .wrap { display: block; }
     .section--statement .section-head { position: static; }
     .section--statement .section-head h2 { max-width: 18ch; }
-    .section--statement .section-head p { max-width: 44rem; font-size: 1.1875rem; }
+    .section--statement .section-head p:not(.rubric) { max-width: 44rem; font-size: 1.1875rem; }
   }
-
-  /* ---- the four plates ---- */
-
-  .plates {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-    gap: 2rem;
-  }
-  .plate figcaption { margin-top: 1rem; }
-  .plate h3 { font-size: 1.0625rem; }
-  .plate p { font-size: 0.9375rem; color: var(--muted); margin-top: 0.35rem; }
-
-  /* Specimens: honest previews of what SermonDesk makes. A manuscript with its
-     blocks, an outline, the podium screen, and a printed handout, in real type
-     rather than grey placeholder bars. Uniform 4:3 cards, so the grid lines up. */
-  .specimen {
-    aspect-ratio: 4 / 3;
-    background: var(--panel);
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    padding: 0.85rem 0.95rem;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-size: 0.5625rem;
-    line-height: 1.4;
-  }
-  .spec-block { border-left: 2px solid var(--oxblood); padding-left: 0.5rem; }
-  .spec-block--scripture { border-left-color: var(--muted); }
-  .spec-label {
-    display: block;
-    font-family: var(--mono);
-    font-size: 0.4375rem;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--oxblood);
-    margin-bottom: 0.2rem;
-  }
-  .spec-label--scripture { color: var(--muted); }
-  .spec-head {
-    display: block;
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: 0.75rem;
-    line-height: 1.2;
-    color: var(--ink);
-  }
-  .spec-body { display: block; font-family: var(--serif); color: var(--muted); margin-top: 0.15rem; }
-
-  .specimen--outline .spec-title {
-    display: block;
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: 0.75rem;
-    color: var(--ink);
-  }
-  .specimen--outline .spec-ref {
-    display: block;
-    font-family: var(--mono);
-    font-size: 0.4375rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--oxblood);
-    margin: 0.1rem 0 0.2rem;
-  }
-  .spec-item {
-    display: grid;
-    grid-template-columns: 5.5em 1fr;
-    gap: 0 0.4rem;
-    padding: 0.15rem 0;
-    border-bottom: 1px solid var(--rule);
-    color: var(--ink);
-    font-weight: 600;
-  }
-  .spec-item span {
-    color: var(--muted);
-    font-family: var(--mono);
-    font-weight: 500;
-    font-size: 0.4375rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding-top: 0.12rem;
-  }
-
-  .specimen--podium {
-    background: var(--screen);
-    color: var(--screen-ink);
-    border-color: var(--screen);
-    justify-content: space-between;
-  }
-  .specimen--podium .spec-podium-bar {
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--mono);
-    font-size: 0.5rem;
-    opacity: 0.55;
-    font-variant-numeric: tabular-nums;
-  }
-  .specimen--podium .spec-podium-next {
-    display: flex;
-    gap: 0.4rem;
-    align-items: baseline;
-    font-family: var(--serif);
-    font-size: 0.5625rem;
-    opacity: 0.6;
-  }
-  .specimen--podium .spec-podium-next span {
-    font-family: var(--mono);
-    font-size: 0.4375rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .specimen--podium .spec-podium-head {
-    font-family: var(--serif);
-    font-size: 1.0625rem;
-    line-height: 1.15;
-    color: var(--screen-ink);
-  }
-  .specimen--podium .spec-timer { font-variant-numeric: tabular-nums; }
-
-  .specimen--handout { background: #FBFBF8; border-color: var(--rule); gap: 0.3rem; }
-  .specimen--handout .spec-lead { border-left: 2px solid #333333; padding-left: 0.4rem; font-style: italic; }
-  .specimen--handout .spec-ref {
-    display: block;
-    font-family: var(--mono);
-    font-size: 0.4375rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #7C2A2E;
-    margin-bottom: 0.15rem;
-  }
-  .specimen--handout .spec-body { color: #46473F; }
-  .specimen--handout .spec-head {
-    color: #191A18;
-    font-size: 0.6875rem;
-    margin-top: 0.15rem;
-    padding-top: 0.3rem;
-    border-top: 1px solid #191A18;
-  }
-  .specimen--handout .spec-question { display: block; color: #46473F; }
-  .specimen--handout .spec-notes {
-    display: block;
-    font-family: var(--mono);
-    font-size: 0.4375rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #7A7B72;
-    margin-top: 0.2rem;
-  }
-  .spec-rule { display: block; height: 1px; background: #191A18; opacity: 0.18; margin-top: 0.25rem; }
 
   /* ---- file detail ---- */
 
@@ -590,7 +437,7 @@
         <p class="lede">
           This is the app, running on this page with a few sermons in it. Type in it, paste a verse,
           press Preach. Nothing you do here is saved; your real sermons live in a folder on your own
-          computer, and one draft there becomes a manuscript, an outline, a podium screen, and a handout.
+          computer.
         </p>
         <div class="hero-actions">
           <a class="button" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest">Download for Windows</a>
@@ -609,7 +456,8 @@
       Things to try:
       <span>Paste a verse and watch it file itself</span>
       <span>Type <kbd>/</kbd> and choose Point</span>
-      <span>Open Outline to see what else touches Romans 8</span>
+      <span>Press Outline, then Handout</span>
+      <span>Open the Outline tab to see what else touches Romans 8</span>
       <span>Press <b>Preach</b></span>
     </p>
   </div>
@@ -631,7 +479,7 @@
   </div>
 </section>
 
-<section>
+<section class="section--statement">
   <div class="wrap">
     <div class="section-head">
       <p class="rubric">One sermon, four uses</p>
@@ -639,73 +487,9 @@
       <p>
         Write in blocks: point, scripture, illustration, application, reflection, private note.
         Each knows where it belongs: a reflection question on the handout, a private note on the
-        podium, never both.
+        podium, never both. Press Manuscript, Outline, and Handout in the window above and watch
+        the same sermon change its clothes.
       </p>
-    </div>
-
-    <div class="plates">
-      <figure class="plate" style="margin:0">
-        <div class="specimen">
-          <div class="spec-block">
-            <span class="spec-label">&sect; Point</span>
-            <span class="spec-head">The banks are a mercy</span>
-            <span class="spec-body">No single day of water moves the stone, and yet the canyon is there.</span>
-          </div>
-          <div class="spec-block spec-block--scripture">
-            <span class="spec-label spec-label--scripture">&ldquo; Romans 8:28 &middot; ESV</span>
-            <span class="spec-body">And we know that for those who love God all things work together for good.</span>
-          </div>
-        </div>
-        <figcaption>
-          <h3>Manuscript</h3>
-          <p>Every word, as you wrote it.</p>
-        </figcaption>
-      </figure>
-
-      <figure class="plate" style="margin:0">
-        <div class="specimen specimen--outline">
-          <span class="spec-title">The River That Keeps Going</span>
-          <span class="spec-ref">Romans 8:28 &middot; August 23, 2026</span>
-          <span class="spec-item"><span>Point</span>The water does not ask</span>
-          <span class="spec-item"><span>Scripture</span>Romans 8:28 &middot; ESV</span>
-          <span class="spec-item"><span>Point</span>The banks are a mercy</span>
-          <span class="spec-item"><span>Application</span>Where it is going</span>
-        </div>
-        <figcaption>
-          <h3>Outline</h3>
-          <p>Every block cut to its heading and first line.</p>
-        </figcaption>
-      </figure>
-
-      <figure class="plate" style="margin:0">
-        <div class="specimen specimen--podium">
-          <span class="spec-podium-bar"><span>3 / 7</span><span class="spec-timer">18:24</span></span>
-          <span class="spec-podium-head">The banks are a mercy</span>
-          <span class="spec-podium-next"><span>Next</span>Where it is going</span>
-        </div>
-        <figcaption>
-          <h3>Podium screen</h3>
-          <p>Fullscreen, one block at a time, a timer you can read.</p>
-        </figcaption>
-      </figure>
-
-      <figure class="plate" style="margin:0">
-        <div class="specimen specimen--handout">
-          <div class="spec-lead">
-            <span class="spec-ref">Romans 8:28 &middot; ESV</span>
-            <span class="spec-body">And we know that for those who love God all things work together for good.</span>
-          </div>
-          <span class="spec-head">Questions to take home</span>
-          <span class="spec-question">1. Where has the water been slow this year?</span>
-          <span class="spec-notes">Notes</span>
-          <span class="spec-rule"></span>
-          <span class="spec-rule"></span>
-        </div>
-        <figcaption>
-          <h3>Handout</h3>
-          <p>For the pews. Large print when it matters.</p>
-        </figcaption>
-      </figure>
     </div>
   </div>
 </section>
@@ -778,13 +562,6 @@
         <p>
           Export everything as Markdown: one readable file per sermon, in a folder you choose, no
           licence asked. If SermonDesk vanished tomorrow, nothing of yours would be trapped.
-        </p>
-      </div>
-      <div>
-        <h3>Your illustrations, findable</h3>
-        <p>
-          Keep the stories you tell, and see where you have told each one. No more repeating the
-          same illustration to the same congregation.
         </p>
       </div>
       <div>
@@ -888,7 +665,7 @@
       <li><b>In beta.</b> Installers are unsigned, so Windows shows a SmartScreen warning the first time.</li>
       <li><b>No phone or tablet version</b>, and none planned. This is a desk tool.</li>
       <li><b>No cloud sync of mine.</b> Use Dropbox or OneDrive for that.</li>
-      <li><b>It checks the subscription when it starts</b>, at most once a day, sending only the licence key. Writing works offline for thirty days; reading and printing, forever.</li>
+      <li><b>It checks the subscription when it starts</b>, at most once a day, sending only the licence key, and looks for an update every six hours. Writing works offline for thirty days; reading and printing, forever.</li>
     </ul>
   </div>
 </section>
