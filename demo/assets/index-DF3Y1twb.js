@@ -74690,6 +74690,8 @@ function PreferencesWindow({
   onEnterKey,
   onChooseFolder,
   onUseCloudFolder,
+  onConnectCloudFolder,
+  onDisconnectCloudFolder,
   onClose
 }) {
   const [tab, setTab] = reactExports$1.useState(initialTab);
@@ -74820,7 +74822,7 @@ function PreferencesWindow({
           Row,
           {
             label: folder.path ?? "Not chosen",
-            hint: folder.path && !folder.exists ? "Not available right now. If it lives in a cloud folder, it may still be syncing." : "Every sermon is a plain file in here. Moving the folder does not move the files: copy them across first if you want them along.",
+            hint: folder.path && !folder.exists ? "Not available right now. If it lives in a cloud folder, it may still be syncing." : "Every sermon is a plain file in here. Change… switches to another folder as it is, moving nothing; to take the sermons along, connect or disconnect below.",
             children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", onClick: onChooseFolder, children: "Change…" })
           }
         ) }),
@@ -74831,12 +74833,13 @@ function PreferencesWindow({
             Row,
             {
               label: provider,
-              hint: current ? "Your sermons are in here now." : cloud ? cloud.path : "Not set up on this computer.",
+              hint: current ? "Your sermons are in here now, synced on your own account. Disconnect moves them out to a folder you choose; the copy here goes to the Recycle Bin." : cloud ? `${cloud.path}. Connect moves your sermons into a SermonDesk folder here and switches to it; Use switches to a SermonDesk folder already synced here, as on a second computer.` : "Not set up on this computer.",
               children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "prefs__inline", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "prefs__glyph", children: providerIcon(provider, 18) }),
-                cloud && !current && /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "button button--small", onClick: () => onUseCloudFolder(provider), children: [
-                  "Use ",
-                  provider
+                current && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", onClick: onDisconnectCloudFolder, children: "Disconnect…" }),
+                cloud && !current && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small button--primary", onClick: () => onConnectCloudFolder(provider), children: "Connect" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", onClick: () => onUseCloudFolder(provider), children: "Use" })
                 ] })
               ] })
             },
@@ -75696,6 +75699,28 @@ function App() {
     },
     [refreshList]
   );
+  const moveLibrary = reactExports$1.useCallback(
+    async (move, where) => {
+      setImporting("Moving your sermons…");
+      try {
+        const result = await move();
+        if (result.status !== "moved") {
+          setImporting(null);
+          return;
+        }
+        setFolder(result.folder);
+        setOpen(null);
+        setCloudFolders(await window.api.listCloudFolders());
+        await refreshList();
+        setImporting(`Moved ${result.files} file${result.files === 1 ? "" : "s"} ${where}. The old folder is in the Recycle Bin.`);
+        setTimeout(() => setImporting(null), 8e3);
+      } catch (cause) {
+        setError(cause instanceof Error ? cause.message : String(cause));
+        setImporting(null);
+      }
+    },
+    [refreshList]
+  );
   const openSermon = reactExports$1.useCallback(async (filePath) => {
     try {
       setOpen({ sermon: await window.api.readSermon(filePath), filePath });
@@ -76058,6 +76083,14 @@ function App() {
           onUseCloudFolder: (provider) => {
             closePreferences();
             void useCloudFolder(provider);
+          },
+          onConnectCloudFolder: (provider) => {
+            closePreferences();
+            void moveLibrary(() => window.api.connectCloudFolder(provider), `into ${provider}`);
+          },
+          onDisconnectCloudFolder: () => {
+            closePreferences();
+            void moveLibrary(() => window.api.disconnectCloudFolder(), "to the folder you chose");
           },
           license,
           onLicenseChanged: setLicense,

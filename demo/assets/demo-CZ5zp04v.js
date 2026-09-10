@@ -1,4 +1,4 @@
-import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, a as DEFAULT_EDITOR_SETTINGS, b as bookByNumber, c as flattenForSearch, d as SNIPPET_MARK_OPEN, e as SNIPPET_MARK_CLOSE, g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-CrjlKK4j.js";
+import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, a as DEFAULT_EDITOR_SETTINGS, b as bookByNumber, c as flattenForSearch, d as SNIPPET_MARK_OPEN, e as SNIPPET_MARK_CLOSE, g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-DF3Y1twb.js";
 const DEMO_SERIES = [{ id: "series-letters", name: "Summer in the Letters", description: "Galatians, Romans, and 1 Peter, one Sunday each" }];
 const DEMO_ILLUSTRATIONS = [
   {
@@ -434,6 +434,8 @@ const demoApi = {
   chooseSermonFolder: async () => ({ status: "cancelled" }),
   listCloudFolders: async () => [],
   useCloudFolder: async () => ({ status: "cancelled" }),
+  connectCloudFolder: async () => ({ status: "cancelled" }),
+  disconnectCloudFolder: async () => ({ status: "cancelled" }),
   getLibraryStatus: async () => ({ sermonCount: sermons.size, failures: [], lastReindexMs: 0 }),
   listSermons: async () => [...sermons.entries()].sort(([, a], [, b]) => byDate(a, b)).map(([path, s]) => summary(s, path)),
   readSermon: async (path) => {
