@@ -14018,7 +14018,7 @@ function outlineSections(sermon, options) {
   }
   return sections;
 }
-const ROMAN = [
+const ROMAN$1 = [
   [1e3, "M"],
   [900, "CM"],
   [500, "D"],
@@ -14033,13 +14033,13 @@ const ROMAN = [
   [4, "IV"],
   [1, "I"]
 ];
-function numeral(index2, style2) {
+function numeral$1(index2, style2) {
   if (style2 === "none") return "";
   if (style2 === "arabic") return `${index2}.`;
   if (style2 === "letters") return `${String.fromCharCode(64 + (index2 - 1) % 26 + 1)}.`;
   let n2 = index2;
   let out = "";
-  for (const [value, glyph] of ROMAN) {
+  for (const [value, glyph] of ROMAN$1) {
     while (n2 >= value) {
       out += glyph;
       n2 -= value;
@@ -14073,7 +14073,7 @@ function renderOutlineHtml(sermon, page, options = DEFAULT_OUTLINE_OPTIONS) {
       number += 1;
       counts.points += 1;
     }
-    const num = point ? numeral(number, options.numbering) : "";
+    const num = point ? numeral$1(number, options.numbering) : "";
     const key = point && options.keyLine ? keyLine(point) : null;
     const lines = section.under.filter((block) => {
       if (block.type === "scripture") return options.passages;
@@ -72116,6 +72116,77 @@ function ViewPreview({ html, title, page, onOpen, onMove, onClipped }) {
   ) }) });
 }
 const STATUSES = ["draft", "ready", "preached", "archived"];
+function tellingDate(iso) {
+  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
+  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { year: "numeric", month: "short", day: "numeric" });
+}
+const today = () => {
+  const now = /* @__PURE__ */ new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+};
+function PreachingLog({ draft, writable, onMeta }) {
+  const [adding, setAdding] = reactExports$1.useState(false);
+  const [date, setDate] = reactExports$1.useState(today);
+  const [church, setChurch] = reactExports$1.useState("");
+  const [churches, setChurches] = reactExports$1.useState([]);
+  reactExports$1.useEffect(() => {
+    void window.api.listChurches().then(setChurches).catch(() => setChurches([]));
+  }, [adding]);
+  const tellings = draft.preachings ?? [];
+  const keep2 = (next) => {
+    const sorted = [...next].sort((a2, b2) => a2.date.localeCompare(b2.date));
+    const latest = sorted[sorted.length - 1]?.date ?? null;
+    onMeta({
+      preachings: sorted.length ? sorted : void 0,
+      ...latest ? { datePreached: latest, ...draft.status === "draft" || draft.status === "ready" ? { status: "preached" } : {} } : {}
+    });
+  };
+  const add = () => {
+    if (!date) return;
+    const named = church.trim();
+    keep2([...tellings.filter((entry) => !(entry.date === date && (entry.church ?? "") === named)), { date, ...named ? { church: named } : {} }]);
+    setAdding(false);
+    setChurch("");
+    setDate(today());
+  };
+  if (tellings.length === 0 && !adding) {
+    return writable ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "editor-log__add link", title: "Note a time this was preached: the date, and where", onClick: () => setAdding(true), children: "Add a preaching" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, {});
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "editor-log", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-field__label", children: "Preached" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "editor-log__list", children: [
+      tellings.map((entry, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "editor-log__row", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+          tellingDate(entry.date),
+          entry.church ? ` · ${entry.church}` : ""
+        ] }),
+        entry.minutes ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "editor-log__minutes", children: [
+          entry.minutes,
+          " min"
+        ] }) : null,
+        writable && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "editor-log__remove", "aria-label": `Take the ${tellingDate(entry.date)} preaching off the log`, onClick: () => keep2(tellings.filter((_, i2) => i2 !== index2)), children: /* @__PURE__ */ jsxRuntimeExports.jsx(X$5, { size: 11, strokeWidth: 2.2 }) })
+      ] }, `${entry.date}-${index2}`)),
+      writable && !adding && /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link editor-log__add", onClick: () => setAdding(true), children: "Add a preaching" }) }),
+      adding && /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "form",
+        {
+          className: "editor-log__form",
+          onSubmit: (event) => {
+            event.preventDefault();
+            add();
+          },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "date", className: "field", "aria-label": "Date preached", value: date, onChange: (event) => setDate(event.target.value) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { className: "field selectable", "aria-label": "Church", placeholder: "Church, if you keep track", list: "editor-log__churches", value: church, onChange: (event) => setChurch(event.target.value) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("datalist", { id: "editor-log__churches", children: churches.map((row) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: row.name }, row.name)) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", className: "button button--small button--primary", disabled: !date, children: "Add" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => setAdding(false), children: "Cancel" })
+          ]
+        }
+      ) })
+    ] })
+  ] });
+}
 function SermonHeader({
   draft,
   writable,
@@ -72224,7 +72295,8 @@ function SermonHeader({
           }
         )
       ] })
-    ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(PreachingLog, { draft, writable, onMeta })
   ] });
 }
 function diffWords(before, after) {
@@ -72287,9 +72359,9 @@ function blockKey(block) {
   return `${block.type}|${blockHeading(block) ?? ""}|${body}`;
 }
 function versionLabel(version) {
-  const today = /* @__PURE__ */ new Date();
+  const today2 = /* @__PURE__ */ new Date();
   const date = /* @__PURE__ */ new Date(`${version.date}T00:00:00`);
-  const days2 = Math.round((today.setHours(0, 0, 0, 0) - date.getTime()) / 864e5);
+  const days2 = Math.round((today2.setHours(0, 0, 0, 0) - date.getTime()) / 864e5);
   const named = days2 === 0 ? "Today" : days2 === 1 ? "Yesterday" : date.toLocaleDateString(void 0, { weekday: "long", day: "numeric", month: "long" });
   return version.time ? `${named}, ${version.time}` : named;
 }
@@ -73834,7 +73906,7 @@ function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, t
     }
     return { minutes, ...targetMinutes !== null && targetMinutes !== (sermon.lengthMinutes ?? null) ? { lengthMinutes: targetMinutes } : {} };
   };
-  const leave = (preached) => onExit({ ...preached ? { preached: true } : {}, ...adjusted ? { plan: plan() } : {} });
+  const leave = (preached) => onExit({ ...preached ? { preached: true, minutes: Math.max(1, Math.round(elapsed / 60)) } : {}, ...adjusted ? { plan: plan() } : {} });
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `${themeClass} podium--ready`, role: "presentation", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__end", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__ready-kick", children: stepsTaken > 1 ? "Preached" : "Ended" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "podium__ready-title", children: sermon.title || "Untitled sermon" }),
@@ -75087,7 +75159,7 @@ function SeriesSheet({ onClose, onSaved }) {
   const persist = async (next) => {
     setSeries(next);
     try {
-      const saved = await window.api.saveSeries(next.map(({ id, name, description }) => ({ id, name, description })));
+      const saved = await window.api.saveSeries(next.map(({ id, name, description, planned, retired }) => ({ id, name, description, ...planned?.length ? { planned } : {}, ...retired ? { retired: true } : {} })));
       setSeries(saved);
       onSaved();
     } catch (cause) {
@@ -75097,7 +75169,7 @@ function SeriesSheet({ onClose, onSaved }) {
   const add = () => {
     const name = newName.trim();
     if (!name) return;
-    void persist([...series, { id: crypto.randomUUID(), name, description: "", sermonCount: 0 }]);
+    void persist([...series, { id: crypto.randomUUID(), name, description: "", sermonCount: 0, planned: [], retired: false }]);
     setNewName("");
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { title: "Series", ariaLabel: "Edit series", onClose, children: [
@@ -75162,6 +75234,234 @@ function SeriesSheet({ onClose, onSaved }) {
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--primary", onClick: add, disabled: !newName.trim(), children: "Add" })
     ] }),
+    error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__error selectable", children: error }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: "Done" }) })
+  ] });
+}
+const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"];
+const numeral = (n2) => ROMAN[n2 - 1] ?? String(n2);
+function when$1(iso) {
+  if (!iso) return "";
+  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
+  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { month: "short", day: "numeric" });
+}
+function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
+  const [all, setAll] = reactExports$1.useState([]);
+  const [hits, setHits] = reactExports$1.useState([]);
+  const [title, setTitle] = reactExports$1.useState("");
+  const [date, setDate] = reactExports$1.useState("");
+  const [passage, setPassage] = reactExports$1.useState("");
+  const [error, setError] = reactExports$1.useState(null);
+  const load = () => {
+    void window.api.listSeries().then(setAll).catch(() => setAll([]));
+    void window.api.queryLibrary({ seriesId, limit: 1e3 }).then(setHits).catch(() => setHits([]));
+  };
+  reactExports$1.useEffect(load, [seriesId]);
+  const series = all.find((entry) => entry.id === seriesId) ?? null;
+  const preached = reactExports$1.useMemo(() => [...hits].sort((a2, b2) => (a2.datePreached ?? "9999").localeCompare(b2.datePreached ?? "9999")), [hits]);
+  const planned = series?.planned ?? [];
+  const persist = async (next) => {
+    try {
+      const saved = await window.api.saveSeries(all.map((entry) => ({ id: entry.id, name: entry.name, description: entry.description, ...entry.retired ? { retired: true } : {}, ...entry.id === seriesId ? next.length ? { planned: next } : {} : entry.planned?.length ? { planned: entry.planned } : {} })));
+      setAll(saved);
+      onSaved();
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : String(cause));
+    }
+  };
+  const add = () => {
+    const name = title.trim();
+    if (!name) return;
+    void persist([...planned, { id: crypto.randomUUID(), title: name, ...date ? { date } : {}, ...passage.trim() ? { passage: passage.trim() } : {} }]);
+    setTitle("");
+    setDate("");
+    setPassage("");
+  };
+  const passages = [...new Set(hits.map((hit) => hit.primaryPassage).filter((p2) => Boolean(p2)))];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { title: series?.name ?? "Series", ariaLabel: "The series: its sermons in order, and the ones still to write", onClose, className: "series-page", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "sheet__lead series-page__kicker", children: [
+      preached.filter((hit) => hit.status === "preached").length,
+      " preached · ",
+      preached.filter((hit) => hit.status !== "preached").length,
+      " in draft · ",
+      planned.length,
+      " planned",
+      series?.retired ? " · retired from the chip row" : ""
+    ] }),
+    series?.description && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", children: series.description }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("ol", { className: "series-page__list", children: [
+      preached.map((hit, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "series-page__row", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__num", children: numeral(index2 + 1) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "series-page__open", onClick: () => onOpen(hit.filePath), title: "Open this sermon", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: hit.title || "Untitled" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("small", { children: [
+            hit.primaryPassage ?? "No passage yet",
+            hit.status !== "preached" ? ` · ${hit.status}` : ""
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__when", children: when$1(hit.datePreached) })
+      ] }, hit.id)),
+      planned.map((plan, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "series-page__row series-page__row--planned", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__num", children: numeral(preached.length + index2 + 1) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "series-page__open", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: plan.title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: [plan.passage, plan.date ? `planned for ${when$1(plan.date)}` : "not yet dated"].filter(Boolean).join(" · ") })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "series-page__acts", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", title: "Start writing it: a draft in this series, with the title and passage filled in", onClick: () => onWrite(plan), children: "Write it" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: "Take it off the plan", onClick: () => void persist(planned.filter((entry) => entry.id !== plan.id)), children: "Remove" })
+        ] })
+      ] }, plan.id)),
+      preached.length === 0 && planned.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "sermon-list__empty", children: "Nothing in this series yet. Plan the next below, or set a sermon's series in its header." })
+    ] }),
+    passages.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "series-page__passages", children: [
+      "Passages: ",
+      passages.join(" · ")
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "form",
+      {
+        className: "series-page__add",
+        onSubmit: (event) => {
+          event.preventDefault();
+          add();
+        },
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "filters__label", children: "Add the next" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "series-page__fields", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { className: "field selectable", "aria-label": "Title of the next sermon", placeholder: "Title", value: title, onChange: (event) => setTitle(event.target.value) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { className: "field selectable", "aria-label": "Its passage", placeholder: "Passage, if known", value: passage, onChange: (event) => setPassage(event.target.value) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "date", className: "field", "aria-label": "Planned for", value: date, onChange: (event) => setDate(event.target.value) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", className: "button button--small button--primary", disabled: !title.trim(), children: "Plan it" })
+          ] })
+        ]
+      }
+    ),
+    error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__error selectable", children: error }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: "Done" }) })
+  ] });
+}
+function TidySheet({ onClose, onChanged }) {
+  const [tags, setTags] = reactExports$1.useState([]);
+  const [series, setSeries] = reactExports$1.useState([]);
+  const [renaming, setRenaming] = reactExports$1.useState(null);
+  const [newName, setNewName] = reactExports$1.useState("");
+  const [busy, setBusy] = reactExports$1.useState(null);
+  const [note, setNote] = reactExports$1.useState(null);
+  const [error, setError] = reactExports$1.useState(null);
+  const load = () => {
+    void window.api.listTags().then(setTags).catch(() => setTags([]));
+    void window.api.listSeries().then(setSeries).catch(() => setSeries([]));
+  };
+  reactExports$1.useEffect(load, []);
+  const twins = reactExports$1.useMemo(() => {
+    const groups = /* @__PURE__ */ new Map();
+    for (const tag of tags) {
+      const key = tag.name.toLowerCase().replace(/[\s_-]+/g, " ").trim();
+      groups.set(key, [...groups.get(key) ?? [], tag]);
+    }
+    const out = /* @__PURE__ */ new Map();
+    for (const group of groups.values()) {
+      if (group.length < 2) continue;
+      const keeper = [...group].sort((a2, b2) => b2.sermonCount - a2.sermonCount || a2.name.localeCompare(b2.name))[0];
+      for (const tag of group) if (tag.name !== keeper.name) out.set(tag.name, keeper);
+    }
+    return out;
+  }, [tags]);
+  const rename = async (from2, to) => {
+    const target = to.trim();
+    if (!target || target === from2) return;
+    setBusy(from2);
+    setError(null);
+    try {
+      const changed = await window.api.renameTag(from2, target);
+      setNote(`${changed} sermon${changed === 1 ? "" : "s"} now carr${changed === 1 ? "ies" : "y"} “${target}” instead of “${from2}”.`);
+      setRenaming(null);
+      setNewName("");
+      load();
+      onChanged();
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : String(cause));
+    } finally {
+      setBusy(null);
+    }
+  };
+  const retire = async (entry, retired) => {
+    setError(null);
+    try {
+      const saved = await window.api.saveSeries(series.map((row) => ({ id: row.id, name: row.name, description: row.description, ...row.planned?.length ? { planned: row.planned } : {}, ...(row.id === entry.id ? retired : row.retired) ? { retired: true } : {} })));
+      setSeries(saved);
+      onChanged();
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : String(cause));
+    }
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { title: "Tidy", ariaLabel: "Tidy tags and series", onClose, className: "tidy", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", children: "Renaming or merging a tag rewrites it in every sermon that carries it. Retiring a series only takes its chip out of the row; its sermons and its page stay." }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "tidy__heading", children: [
+      "Tags · ",
+      tags.length,
+      twins.size > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "tidy__twins", children: [
+        twins.size,
+        " look like twins"
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "tidy__list", children: [
+      tags.map((tag) => {
+        const keeper = twins.get(tag.name);
+        return /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: keeper ? "tidy__row tidy__row--twin" : "tidy__row", children: renaming === tag.name ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "form",
+          {
+            className: "tidy__rename",
+            onSubmit: (event) => {
+              event.preventDefault();
+              void rename(tag.name, newName);
+            },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("input", { className: "field selectable", "aria-label": `New name for ${tag.name}`, value: newName, autoFocus: true, onChange: (event) => setNewName(event.target.value) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", className: "button button--small button--primary", disabled: !newName.trim() || newName.trim() === tag.name || busy !== null, children: "Rename" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => setRenaming(null), children: "Keep" })
+            ]
+          }
+        ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tidy__name", children: tag.name }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tidy__count", children: tag.sermonCount }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "tidy__acts", children: [
+            keeper && /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "button button--small", disabled: busy !== null, title: `Every sermon tagged “${tag.name}” is tagged “${keeper.name}” instead`, onClick: () => void rename(tag.name, keeper.name), children: [
+              "Merge into ",
+              keeper.name
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                type: "button",
+                className: "link",
+                disabled: busy !== null,
+                onClick: () => {
+                  setRenaming(tag.name);
+                  setNewName(tag.name);
+                },
+                children: "Rename"
+              }
+            )
+          ] })
+        ] }) }, tag.name);
+      }),
+      tags.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "sermon-list__empty", children: "No tags yet." })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "tidy__heading", children: [
+      "Series · ",
+      series.length
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "tidy__list", children: [
+      series.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: entry.retired ? "tidy__row tidy__row--retired" : "tidy__row", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tidy__name", children: entry.name }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tidy__count", children: entry.sermonCount }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tidy__acts", children: entry.retired ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => void retire(entry, false), children: "Bring back" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: "Take its chip out of the library's row; nothing else changes", onClick: () => void retire(entry, true), children: "Retire" }) })
+      ] }, entry.id)),
+      series.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "sermon-list__empty", children: "No series yet." })
+    ] }),
+    note && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", role: "status", children: note }),
     error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__error selectable", children: error }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: "Done" }) })
   ] });
@@ -75244,11 +75544,26 @@ function formatDate(iso) {
   const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
   return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { year: "numeric", month: "short", day: "numeric" });
 }
-function monthOf(iso) {
-  if (!iso) return "Undated";
-  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
-  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { year: "numeric", month: "long" });
+const UNDATED = "Undated";
+function yearOf(iso) {
+  return iso && /^\d{4}/.test(iso) ? iso.slice(0, 4) : UNDATED;
 }
+function monthOf(iso) {
+  if (!iso) return UNDATED;
+  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
+  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { month: "long" });
+}
+const VIEW_KEYS = ["text", "book", "chapter", "seriesId", "tag", "status", "from", "to", "church"];
+function narrowingOf(query) {
+  const out = {};
+  for (const key of VIEW_KEYS) {
+    const value = query[key];
+    if (value !== void 0 && value !== "" && value !== null) out[key] = value;
+    else if (key === "seriesId" && value === null) out.seriesId = null;
+  }
+  return out;
+}
+const sameNarrowing = (a2, b2) => JSON.stringify(narrowingOf(a2)) === JSON.stringify(narrowingOf(b2));
 const MARKED = new RegExp(`(${SNIPPET_MARK_OPEN}[^${SNIPPET_MARK_CLOSE}]*${SNIPPET_MARK_CLOSE})`, "g");
 function Snippet({ text }) {
   const parts = text.split(MARKED);
@@ -75262,9 +75577,10 @@ function Chip({
   label,
   count: count2,
   title,
+  className,
   onClick
 }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: on3 ? "chip chip--on" : "chip", "aria-pressed": on3, title: title ?? (on3 ? `Stop narrowing by ${label}` : `Narrow to ${label}`), onClick, children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: [on3 ? "chip chip--on" : "chip", className].filter(Boolean).join(" "), "aria-pressed": on3, title: title ?? (on3 ? `Stop narrowing by ${label}` : `Narrow to ${label}`), onClick, children: [
     icon,
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip__label", children: label }),
     count2 !== void 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip__count", children: count2 }),
@@ -75275,11 +75591,14 @@ function LibraryColumn({
   openPath,
   onOpen,
   onManageSeries,
+  onOpenSeries,
+  onTidy,
   onCoverage,
   bookPick,
   onImport,
   writable,
   revision,
+  sermons,
   series,
   tags,
   stories
@@ -75293,10 +75612,16 @@ function LibraryColumn({
   const [chapter, setChapter] = reactExports$1.useState("");
   const [from2, setFrom] = reactExports$1.useState("");
   const [to, setTo] = reactExports$1.useState("");
+  const [church, setChurch] = reactExports$1.useState("");
+  const [churches, setChurches] = reactExports$1.useState([]);
   const [hits, setHits] = reactExports$1.useState([]);
   const [passage, setPassage] = reactExports$1.useState(null);
   const [failures, setFailures] = reactExports$1.useState([]);
   const [showFailures, setShowFailures] = reactExports$1.useState(false);
+  const [views, setViews] = reactExports$1.useState([]);
+  const [viewName, setViewName] = reactExports$1.useState("");
+  const [openYears, setOpenYears] = reactExports$1.useState(() => /* @__PURE__ */ new Set());
+  const yearRefs = reactExports$1.useRef(/* @__PURE__ */ new Map());
   reactExports$1.useEffect(() => {
     if (!bookPick) return;
     setBook(bookPick.book);
@@ -75315,14 +75640,17 @@ function LibraryColumn({
     if (order !== "date") next.sort = order;
     if (scope === "drafts") next.status = "draft";
     if (scope === "preached") next.status = "preached";
+    if (scope === "archived") next.status = "archived";
+    if (scope === "all") next.hideArchived = true;
     if (seriesId) next.seriesId = seriesId;
     if (tag) next.tag = tag;
     if (book !== "") next.book = book;
     if (book !== "" && chapter.trim()) next.chapter = Number(chapter);
     if (from2) next.from = from2;
     if (to) next.to = to;
+    if (church) next.church = church;
     return next;
-  }, [text, scope, seriesId, tag, book, chapter, from2, to, order]);
+  }, [text, scope, seriesId, tag, book, chapter, from2, to, church, order]);
   const chooseOrder = (next) => {
     setOrder(next);
     try {
@@ -75353,8 +75681,10 @@ function LibraryColumn({
   }, [query, revision, scope]);
   reactExports$1.useEffect(() => {
     void window.api.getLibraryStatus().then((state) => setFailures(state.failures)).catch(() => setFailures([]));
+    void window.api.listViews().then(setViews).catch(() => setViews([]));
+    void window.api.listChurches().then(setChurches).catch(() => setChurches([]));
   }, [revision]);
-  const narrowed = Boolean(seriesId || tag || book !== "" || from2 || to);
+  const narrowed = Boolean(seriesId || tag || book !== "" || from2 || to || church);
   const clearFilters = reactExports$1.useCallback(() => {
     setSeriesId(null);
     setTag(null);
@@ -75362,7 +75692,43 @@ function LibraryColumn({
     setChapter("");
     setFrom("");
     setTo("");
+    setChurch("");
   }, []);
+  const applyView = reactExports$1.useCallback((view) => {
+    const q2 = view.query;
+    setText(q2.text ?? "");
+    setScope(q2.status === "draft" ? "drafts" : q2.status === "preached" ? "preached" : q2.status === "archived" ? "archived" : "all");
+    setSeriesId(q2.seriesId ?? null);
+    setTag(q2.tag ?? null);
+    setBook(q2.book ?? "");
+    setChapter(q2.chapter !== void 0 ? String(q2.chapter) : "");
+    setFrom(q2.from ?? "");
+    setTo(q2.to ?? "");
+    setChurch(q2.church ?? "");
+  }, []);
+  const clearAll = reactExports$1.useCallback(() => {
+    setText("");
+    setScope("all");
+    clearFilters();
+  }, [clearFilters]);
+  const activeView = reactExports$1.useMemo(() => views.find((view) => sameNarrowing(view.query, query)) ?? null, [views, query]);
+  const canSave = Object.keys(narrowingOf(query)).length > 0 && activeView === null;
+  const saveView = async () => {
+    const name = viewName.trim();
+    if (!name) return;
+    const next = [...views, { id: crypto.randomUUID(), name, query: narrowingOf(query), sermonCount: hits.length }];
+    setViewName("");
+    try {
+      setViews(await window.api.saveViews(next.map(({ id, name: n2, query: q2 }) => ({ id, name: n2, query: q2 }))));
+    } catch {
+    }
+  };
+  const forgetView = async (id) => {
+    try {
+      setViews(await window.api.saveViews(views.filter((view) => view.id !== id).map(({ id: i2, name, query: q2 }) => ({ id: i2, name, query: q2 }))));
+    } catch {
+    }
+  };
   const sentence = reactExports$1.useMemo(() => {
     const parts = [];
     const seriesName = series.find((entry) => entry.id === seriesId)?.name;
@@ -75372,26 +75738,81 @@ function LibraryColumn({
     if (from2 && to) parts.push(`between ${from2} and ${to}`);
     else if (from2) parts.push(`since ${from2}`);
     else if (to) parts.push(`before ${to}`);
+    if (church) parts.push(`preached at ${church}`);
     if (text.trim()) parts.push(passage ? `touching ${passage}, or saying so` : `saying “${text.trim()}”`);
-    const noun = scope === "drafts" ? "draft" : scope === "preached" ? "preached sermon" : "sermon";
+    const noun = scope === "drafts" ? "draft" : scope === "preached" ? "preached sermon" : scope === "archived" ? "archived sermon" : "sermon";
     const count2 = hits.length === 0 ? "No" : String(hits.length);
     return `${count2} ${noun}${hits.length === 1 ? "" : "s"}${parts.length ? ` ${parts.join(", ")}` : ""}`;
-  }, [hits.length, series, seriesId, tag, book, chapter, from2, to, text, passage, scope]);
-  const groups = reactExports$1.useMemo(() => {
-    if (text.trim() || order !== "date") return [{ label: null, hits }];
+  }, [hits.length, series, seriesId, tag, book, chapter, from2, to, church, text, passage, scope]);
+  const byYear = !text.trim() && order === "date";
+  const totals = reactExports$1.useMemo(() => {
+    const counts = /* @__PURE__ */ new Map();
+    for (const sermon of sermons) counts.set(yearOf(sermon.datePreached), (counts.get(yearOf(sermon.datePreached)) ?? 0) + 1);
+    return counts;
+  }, [sermons]);
+  const years = reactExports$1.useMemo(() => {
+    if (!byYear) return [];
     const out = [];
     for (const hit of hits) {
+      const year = yearOf(hit.datePreached);
+      let group = out[out.length - 1];
+      if (!group || group.year !== year) {
+        group = { year, total: totals.get(year) ?? 0, months: [], hits: 0 };
+        out.push(group);
+      }
+      group.hits++;
       const label = monthOf(hit.datePreached);
-      const last = out[out.length - 1];
-      if (last && last.label === label) last.hits.push(hit);
-      else out.push({ label, hits: [hit] });
+      const month = group.months[group.months.length - 1];
+      if (month && month.label === label) month.hits.push(hit);
+      else group.months.push({ label, hits: [hit] });
     }
     return out;
-  }, [hits, text, order]);
+  }, [hits, byYear, totals]);
+  const rail = reactExports$1.useMemo(() => [...totals.keys()].filter((year) => year !== UNDATED).sort((a2, b2) => b2.localeCompare(a2)), [totals]);
+  const hitYears = reactExports$1.useMemo(() => new Set(years.map((group) => group.year)), [years]);
+  reactExports$1.useEffect(() => {
+    const newest = years.find((group) => group.year !== UNDATED)?.year;
+    setOpenYears((open2) => {
+      if (newest && ![...open2].some((year) => hitYears.has(year))) return /* @__PURE__ */ new Set([...open2, newest]);
+      return open2;
+    });
+  }, [years, hitYears]);
+  const isOpen = (year) => year === UNDATED || openYears.has(year);
+  const toggleYear = (year) => setOpenYears((open2) => {
+    const next = new Set(open2);
+    if (next.has(year)) next.delete(year);
+    else next.add(year);
+    return next;
+  });
+  const jumpTo = (year) => {
+    setOpenYears((open2) => /* @__PURE__ */ new Set([...open2, year]));
+    requestAnimationFrame(() => yearRefs.current.get(year)?.scrollIntoView({ block: "start", behavior: "smooth" }));
+  };
   const shownTags = tags.slice(0, TAG_CHIPS);
   const moreTags = tags.slice(TAG_CHIPS);
   const chipTags = tag && !shownTags.some((entry) => entry.name === tag) ? [tags.find((entry) => entry.name === tag), ...shownTags] : shownTags;
-  const behindMore = (book !== "" ? 1 : 0) + (from2 || to ? 1 : 0) + (tag && moreTags.some((entry) => entry.name === tag) ? 1 : 0);
+  const behindMore = (book !== "" ? 1 : 0) + (from2 || to ? 1 : 0) + (church ? 1 : 0) + (tag && moreTags.some((entry) => entry.name === tag) ? 1 : 0);
+  const item = (hit) => {
+    const active = hit.filePath === openPath;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "button",
+      {
+        type: "button",
+        className: active ? "sermon-list__item sermon-list__item--active" : "sermon-list__item",
+        onClick: () => onOpen(hit.filePath),
+        onContextMenu: (event) => {
+          event.preventDefault();
+          void window.api.revealSermon(hit.filePath);
+        },
+        title: "Right-click to show the file on disk",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-list__item-title", children: hit.title || "Untitled" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-list__item-meta", children: rowMeta(hit) }),
+          hit.snippet && /* @__PURE__ */ jsxRuntimeExports.jsx(Snippet, { text: hit.snippet })
+        ]
+      }
+    ) }, hit.id);
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "cell cell--side-body library", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__top", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "search", children: [
@@ -75426,7 +75847,20 @@ function LibraryColumn({
     ] }),
     scope === "stories" ? /* @__PURE__ */ jsxRuntimeExports.jsx(IllustrationsPanel, { writable, canInsert: stories.canInsert, onInsert: stories.onInsert, draft: null, refreshKey: revision, filter: text }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__chips", children: [
-        series.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        views.map((view) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Chip,
+          {
+            on: activeView?.id === view.id,
+            className: "chip--view",
+            icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 12, strokeWidth: 1.8 }),
+            label: view.name,
+            count: view.sermonCount,
+            title: activeView?.id === view.id ? `Stop showing ${view.name}` : `Show ${view.name}, a view you saved`,
+            onClick: () => activeView?.id === view.id ? clearAll() : applyView(view)
+          },
+          view.id
+        )),
+        series.filter((entry) => !entry.retired || seriesId === entry.id).map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx(
           Chip,
           {
             on: seriesId === entry.id,
@@ -75488,6 +75922,18 @@ function LibraryColumn({
                   /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "date", className: "field", "aria-label": "To", value: to, onChange: (event) => setTo(event.target.value) })
                 ] })
               ] }),
+              churches.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "filters__field", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "filters__label", children: "Preached at" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { className: "field", "aria-label": "Church", value: church, onChange: (event) => setChurch(event.target.value), children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Anywhere" }),
+                  churches.map((row) => /* @__PURE__ */ jsxRuntimeExports.jsxs("option", { value: row.name, children: [
+                    row.name,
+                    " (",
+                    row.sermonCount,
+                    ")"
+                  ] }, row.name))
+                ] })
+              ] }),
               moreTags.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "filters__field", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "filters__label", children: "More tags" }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "library__chips library__chips--bare", children: moreTags.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -75504,15 +75950,51 @@ function LibraryColumn({
                   entry.name
                 )) })
               ] }),
+              writable && canSave && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "form",
+                {
+                  className: "filters__field filters__save",
+                  onSubmit: (event) => {
+                    event.preventDefault();
+                    void saveView().then(close2);
+                  },
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "filters__label", children: "Save this view" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "filters__pair", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("input", { className: "field selectable", "aria-label": "Name for this view", placeholder: "Funerals, Advent, Romans…", value: viewName, onChange: (event) => setViewName(event.target.value) }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", className: "button button--small", disabled: !viewName.trim(), children: "Save" })
+                    ] })
+                  ]
+                }
+              ),
               /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "filters__actions", children: [
                 narrowed && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
                   clearFilters();
                   close2();
                 }, children: "Clear filters" }),
+                writable && activeView && /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "link", onClick: () => {
+                  void forgetView(activeView.id);
+                  close2();
+                }, children: [
+                  "Forget the view “",
+                  activeView.name,
+                  "”"
+                ] }),
+                scope === "archived" ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
+                  setScope("all");
+                  close2();
+                }, children: "Back from the archive" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: "Sermons put away with the Archived status: out of the list, never gone", onClick: () => {
+                  setScope("archived");
+                  close2();
+                }, children: "Show archived sermons" }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
                   close2();
                   onManageSeries();
                 }, children: "Edit series…" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: "Merge or rename tags across every sermon; retire series from this row", onClick: () => {
+                  close2();
+                  onTidy();
+                }, children: "Tidy tags and series…" }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
                   close2();
                   onCoverage();
@@ -75532,47 +76014,75 @@ function LibraryColumn({
           }
         )
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__list", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__order", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "library__count", children: hits.length > 0 || text || narrowed || scope !== "all" ? sentence : "" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { className: "library__sort", "aria-label": "Sort", title: "The order of the list", value: order, onChange: (event) => chooseOrder(event.target.value), children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "date", children: "Newest first" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "title", children: "By title" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "edited", children: "Last edited" })
-          ] })
-        ] }),
-        failures.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__failures", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "library__failures-summary", onClick: () => setShowFailures((open2) => !open2), children: failures.length === 1 ? "1 file could not be read" : `${failures.length} files could not be read` }),
-          showFailures && /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "library__failures-list", children: failures.map((failure) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "library__failures-item", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => void window.api.revealSermon(failure.path), title: "Show the file on disk", children: failure.path.split(/[\\/]/).pop() }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "library__failures-reason selectable", children: failure.reason })
-          ] }, failure.path)) })
-        ] }),
-        groups.map((group, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__group", children: [
-          group.label && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "library__group-title", children: group.label }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "sermon-list", children: group.hits.map((hit) => {
-            const active = hit.filePath === openPath;
-            return /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              "button",
-              {
-                type: "button",
-                className: active ? "sermon-list__item sermon-list__item--active" : "sermon-list__item",
-                onClick: () => onOpen(hit.filePath),
-                onContextMenu: (event) => {
-                  event.preventDefault();
-                  void window.api.revealSermon(hit.filePath);
-                },
-                title: "Right-click to show the file on disk",
-                children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-list__item-title", children: hit.title || "Untitled" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-list__item-meta", children: rowMeta(hit) }),
-                  hit.snippet && /* @__PURE__ */ jsxRuntimeExports.jsx(Snippet, { text: hit.snippet })
-                ]
-              }
-            ) }, hit.id);
-          }) })
-        ] }, group.label ?? index2)),
-        hits.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sermon-list__empty", children: text || narrowed || scope !== "all" ? "Nothing matches. Try fewer filters." : "No sermons yet. Press New to start your first one. It saves itself as you write." })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: byYear && rail.length > 1 ? "library__body library__body--rail" : "library__body", children: [
+        byYear && rail.length > 1 && /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "library__rail", "aria-label": "Years", children: rail.map((year) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            className: [
+              "library__rail-year",
+              openYears.has(year) && hitYears.has(year) ? "library__rail-year--open" : "",
+              hitYears.has(year) ? "" : "library__rail-year--none"
+            ].filter(Boolean).join(" "),
+            title: `${year}: ${totals.get(year) ?? 0} sermon${totals.get(year) === 1 ? "" : "s"}${hitYears.has(year) ? "" : ", none in this list"}`,
+            onClick: () => jumpTo(year),
+            children: year.slice(2)
+          },
+          year
+        )) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__list", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__order", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "library__count", children: [
+              hits.length > 0 || text || narrowed || scope !== "all" ? sentence : "",
+              seriesId && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link library__series-link", title: "The series as a page: its sermons in order, and the ones still to write", onClick: () => onOpenSeries(seriesId), children: "Open the series ›" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { className: "library__sort", "aria-label": "Sort", title: "The order of the list", value: order, onChange: (event) => chooseOrder(event.target.value), children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "date", children: "Newest first" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "title", children: "By title" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "edited", children: "Last edited" })
+            ] })
+          ] }),
+          failures.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__failures", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "library__failures-summary", onClick: () => setShowFailures((open2) => !open2), children: failures.length === 1 ? "1 file could not be read" : `${failures.length} files could not be read` }),
+            showFailures && /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "library__failures-list", children: failures.map((failure) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "library__failures-item", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => void window.api.revealSermon(failure.path), title: "Show the file on disk", children: failure.path.split(/[\\/]/).pop() }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "library__failures-reason selectable", children: failure.reason })
+            ] }, failure.path)) })
+          ] }),
+          byYear ? years.map((group) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "div",
+            {
+              className: "library__year",
+              ref: (node) => {
+                if (node) yearRefs.current.set(group.year, node);
+                else yearRefs.current.delete(group.year);
+              },
+              children: [
+                group.year === UNDATED ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "library__group-title", children: UNDATED }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  "button",
+                  {
+                    type: "button",
+                    className: isOpen(group.year) ? "library__year-head library__year-head--open" : "library__year-head",
+                    "aria-expanded": isOpen(group.year),
+                    title: isOpen(group.year) ? `Fold ${group.year} away` : `Show ${group.year}`,
+                    onClick: () => toggleYear(group.year),
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 12, strokeWidth: 2, className: "library__year-chevron", "aria-hidden": "true" }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "library__year-name", children: group.year }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "library__year-count", children: group.hits === group.total ? `${group.total}` : `${group.hits} of ${group.total}` })
+                    ]
+                  }
+                ),
+                isOpen(group.year) && group.months.map((month) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__group", children: [
+                  group.year !== UNDATED && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "library__group-title", children: month.label }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "sermon-list", children: month.hits.map(item) })
+                ] }, month.label))
+              ]
+            },
+            group.year
+          )) : hits.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "library__group", children: /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "sermon-list", children: hits.map(item) }) }),
+          hits.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sermon-list__empty", children: text || narrowed || scope !== "all" ? "Nothing matches. Try fewer filters." : "No sermons yet. Press New to start your first one. It saves itself as you write." })
+        ] })
       ] })
     ] })
   ] }) });
@@ -75615,11 +76125,14 @@ function App() {
   const [folder, setFolder] = reactExports$1.useState(null);
   const [cloudFolders, setCloudFolders] = reactExports$1.useState([]);
   const [sermons, setSermons] = reactExports$1.useState([]);
+  const [lastChurch, setLastChurch] = reactExports$1.useState(null);
   const [series, setSeries] = reactExports$1.useState([]);
   const [tags, setTags] = reactExports$1.useState([]);
   const [open2, setOpen] = reactExports$1.useState(null);
   const [revision, setRevision] = reactExports$1.useState(0);
   const [seriesOpen, setSeriesOpen] = reactExports$1.useState(false);
+  const [seriesPage, setSeriesPage] = reactExports$1.useState(null);
+  const [tidyOpen, setTidyOpen] = reactExports$1.useState(false);
   const [coverageOpen, setCoverageOpen] = reactExports$1.useState(false);
   const [bookPick, setBookPick] = reactExports$1.useState(null);
   const [prefsOpen, setPrefsOpen] = reactExports$1.useState(false);
@@ -75693,8 +76206,9 @@ function App() {
     [sidebarWidth]
   );
   const refreshList = reactExports$1.useCallback(async () => {
-    const [list, seriesRows, tagRows] = await Promise.all([window.api.listSermons(), window.api.listSeries(), window.api.listTags()]);
+    const [list, seriesRows, tagRows, churches] = await Promise.all([window.api.listSermons(), window.api.listSeries(), window.api.listTags(), window.api.listChurches().catch(() => [])]);
     setSermons(list);
+    setLastChurch(churches[0]?.name ?? null);
     setSeries(seriesRows);
     setTags(tagRows);
     setRevision((n2) => n2 + 1);
@@ -75780,6 +76294,29 @@ function App() {
       setError(cause instanceof Error ? cause.message : String(cause));
     }
   }, []);
+  const writePlanned = reactExports$1.useCallback(
+    async (seriesId, plan) => {
+      try {
+        const { filePath } = await window.api.createSermon(plan.title, { seriesId, ...plan.passage ? { primaryPassage: plan.passage } : {} });
+        const rows = await window.api.listSeries();
+        await window.api.saveSeries(
+          rows.map((row) => ({
+            id: row.id,
+            name: row.name,
+            description: row.description,
+            ...row.retired ? { retired: true } : {},
+            ...(row.id === seriesId ? row.planned.filter((entry) => entry.id !== plan.id) : row.planned).length ? { planned: row.id === seriesId ? row.planned.filter((entry) => entry.id !== plan.id) : row.planned } : {}
+          }))
+        );
+        setSeriesPage(null);
+        await refreshList();
+        await openSermon(filePath);
+      } catch (cause) {
+        setError(cause instanceof Error ? cause.message : String(cause));
+      }
+    },
+    [openSermon, refreshList]
+  );
   const createSermon = reactExports$1.useCallback(async () => {
     try {
       const { filePath } = await window.api.createSermon("Untitled sermon");
@@ -75939,15 +76476,17 @@ function App() {
       sermon: podium,
       onExit: (result) => {
         if ((result?.preached || result?.plan) && open2) {
-          const today = /* @__PURE__ */ new Date();
-          const iso = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+          const today2 = /* @__PURE__ */ new Date();
+          const iso = `${today2.getFullYear()}-${String(today2.getMonth() + 1).padStart(2, "0")}-${String(today2.getDate()).padStart(2, "0")}`;
           const plan = result.plan;
           const blocks = plan ? podium.blocks.map((block) => block.type === "point" && plan.minutes[block.id] ? { ...block, minutes: plan.minutes[block.id] } : block) : podium.blocks;
+          const telling = result.preached ? { date: iso, ...lastChurch ? { church: lastChurch } : {}, ...result.minutes ? { minutes: result.minutes } : {} } : null;
           const updated = {
             ...podium,
             blocks,
             ...plan?.lengthMinutes ? { lengthMinutes: plan.lengthMinutes } : {},
-            ...result.preached ? { status: "preached", datePreached: iso } : {}
+            ...result.preached ? { status: "preached", datePreached: iso } : {},
+            ...telling ? { preachings: [...(podium.preachings ?? []).filter((entry) => entry.date !== iso), telling] } : {}
           };
           setOpen({ sermon: updated, filePath: open2.filePath });
           setReopened((count2) => count2 + 1);
@@ -75990,11 +76529,14 @@ function App() {
             openPath: open2?.filePath ?? null,
             onOpen: (path) => void openSermon(path),
             onManageSeries: () => setSeriesOpen(true),
+            onOpenSeries: setSeriesPage,
+            onTidy: () => setTidyOpen(true),
             onCoverage: () => setCoverageOpen(true),
             bookPick,
             onImport: (folderMode) => void runImport(folderMode),
             writable,
             revision,
+            sermons,
             series,
             tags,
             stories: { canInsert: writable && open2 !== null && commands !== null, onInsert: (illustration) => commands?.insertIllustration(illustration) }
@@ -76171,6 +76713,20 @@ function App() {
           }
         }
       ),
+      seriesPage && /* @__PURE__ */ jsxRuntimeExports.jsx(
+        SeriesPage,
+        {
+          seriesId: seriesPage,
+          onClose: () => setSeriesPage(null),
+          onOpen: (path) => {
+            setSeriesPage(null);
+            void openSermon(path);
+          },
+          onWrite: (plan) => void writePlanned(seriesPage, plan),
+          onSaved: () => void refreshList()
+        }
+      ),
+      tidyOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(TidySheet, { onClose: () => setTidyOpen(false), onChanged: () => void refreshList() }),
       seriesOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(
         SeriesSheet,
         {
