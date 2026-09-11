@@ -12653,7 +12653,7 @@ const DEFAULT_APP_SETTINGS = {
   formatting: "inspector"
 };
 function canWrite(status) {
-  return status.state === "active" || status.state === "stale" || status.state === "grace";
+  return status.state === "active" || status.state === "stale";
 }
 function canPreach(status) {
   return canWrite(status);
@@ -12665,8 +12665,6 @@ function licenseMessage(status) {
       return "Enter a licence key to write and to preach. Every sermon already here still opens, searches, and prints.";
     case "stale":
       return status.daysRemaining === null ? "SermonDesk has not been able to check your subscription." : `SermonDesk has not been able to check your subscription. Connect to the internet within ${days(status.daysRemaining)}.`;
-    case "grace":
-      return status.daysRemaining === null ? "Your subscription needs attention." : `Your subscription needs attention, full access continues for ${days(status.daysRemaining)}.`;
     case "read_only":
       return "Read-only. Your sermons are all still here: open, search, and print them any time. Writing and the podium need a subscription.";
     case "active":
@@ -74779,8 +74777,6 @@ function describeLicense(status) {
       return status.expiresAt ? `Active, renews ${new Date(status.expiresAt).toLocaleDateString(void 0, { year: "numeric", month: "long", day: "numeric" })}.` : "Active.";
     case "stale":
       return "Active, but not confirmed for a while. Connect to the internet when you can.";
-    case "grace":
-      return "Lapsed. Full access continues for a short while.";
     case "read_only":
       return "Read-only. Every sermon still opens, searches, prints, and preaches.";
     case "unlicensed":
@@ -75095,8 +75091,7 @@ function LicenseNotice({ status, onChanged, onEnterKey }) {
       setBusy(false);
     }
   };
-  const tone = status.state === "grace" ? "notice notice--warn" : "notice";
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: tone, role: "status", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "notice", role: "status", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Info, { size: 14, strokeWidth: 1.7 }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "notice__message", children: message }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "notice__actions", children: [
