@@ -75100,7 +75100,7 @@ function LicenseNotice({ status, onChanged, onEnterKey }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Info, { size: 14, strokeWidth: 1.7 }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "notice__message", children: message }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "notice__actions", children: [
-      actions.includes("subscribe") && CHECKOUT_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => open(CHECKOUT_URL), children: "Subscribe" }),
+      actions.includes("subscribe") && CHECKOUT_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => open(CHECKOUT_URL), title: "Opens the checkout in your browser; the key arrives by email.", children: "Buy a key" }),
       actions.includes("get-key") && KEY_REQUEST_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => open(KEY_REQUEST_URL), title: "Opens an email to ask for a key, which is how keys are handed out while there is no checkout.", children: "Get a key" }),
       actions.includes("manage") && MANAGE_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => open(MANAGE_URL), children: "Manage subscription" }),
       actions.includes("check-again") && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", disabled: busy, onClick: () => void checkAgain(), children: busy ? "Checking…" : "Check again" }),
@@ -75154,9 +75154,9 @@ function LicenseSheet({ onChanged, onClose }) {
     /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "sheet__hint", children: [
       "No key yet?",
       " ",
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => window.open(checkout, "_blank", "noopener"), children: "Subscribe" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => window.open(checkout, "_blank", "noopener"), children: "Buy one" }),
       " ",
-      "in your browser, and one arrives by email."
+      "in your browser, and it arrives by email."
     ] }),
     error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__error selectable", children: error }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sheet__actions", children: [
