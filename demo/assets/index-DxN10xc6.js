@@ -12676,7 +12676,7 @@ function licenseMessage(status) {
 function bannerActions(status, links) {
   if (status.state === "active") return [];
   const actions = [];
-  if (links.keyRequest && status.state === "unlicensed") actions.push("get-key");
+  actions.push("subscribe");
   if (status.lastCheckedAt) {
     actions.push("manage");
     actions.push("check-again");
@@ -74755,7 +74755,7 @@ function StylesTab({ styles, onChange }) {
     ] })
   ] });
 }
-const CHECKOUT_URL = null;
+const CHECKOUT_URL = "https://sarangbi.lemonsqueezy.com/checkout/buy/58a09bd1-6ce5-48c1-bd92-9d39316682b8";
 const MANAGE_URL = "https://app.lemonsqueezy.com/my-orders";
 const SUPPORT_EMAIL = "davislor@sarangbi.co";
 const KEY_REQUEST_URL = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent("SermonDesk licence key")}`;
@@ -75080,7 +75080,7 @@ function LicenseNotice({ status, onChanged, onEnterKey }) {
   const [busy, setBusy] = reactExports$1.useState(false);
   const [error, setError] = reactExports$1.useState(null);
   const message = licenseMessage(status);
-  const actions = bannerActions(status, { keyRequest: KEY_REQUEST_URL });
+  const actions = bannerActions(status);
   if (!message) return null;
   const checkAgain = async () => {
     setBusy(true);
@@ -75100,8 +75100,8 @@ function LicenseNotice({ status, onChanged, onEnterKey }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Info, { size: 14, strokeWidth: 1.7 }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "notice__message", children: message }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "notice__actions", children: [
-      actions.includes("subscribe") && CHECKOUT_URL,
-      actions.includes("get-key") && KEY_REQUEST_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => open(KEY_REQUEST_URL), title: "Opens an email to ask for a key, which is how keys are handed out until checkout opens.", children: "Get a key" }),
+      actions.includes("subscribe") && CHECKOUT_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => open(CHECKOUT_URL), children: "Subscribe" }),
+      actions.includes("get-key") && KEY_REQUEST_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => open(KEY_REQUEST_URL), title: "Opens an email to ask for a key, which is how keys are handed out while there is no checkout.", children: "Get a key" }),
       actions.includes("manage") && MANAGE_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => open(MANAGE_URL), children: "Manage subscription" }),
       actions.includes("check-again") && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", disabled: busy, onClick: () => void checkAgain(), children: busy ? "Checking…" : "Check again" }),
       actions.includes("enter-key") && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: onEnterKey, children: "Enter key…" })
@@ -75113,7 +75113,7 @@ function LicenseSheet({ onChanged, onClose }) {
   const [key, setKey] = reactExports$1.useState("");
   const [busy, setBusy] = reactExports$1.useState(false);
   const [error, setError] = reactExports$1.useState(null);
-  const keyRequest = KEY_REQUEST_URL;
+  const checkout = CHECKOUT_URL;
   const activate = async () => {
     setBusy(true);
     setError(null);
@@ -75151,11 +75151,12 @@ function LicenseSheet({ onChanged, onClose }) {
         }
       }
     ),
-    keyRequest && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "sheet__hint", children: [
-      "No key yet? Until checkout opens,",
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "sheet__hint", children: [
+      "No key yet?",
       " ",
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => window.open(keyRequest, "_blank", "noopener"), children: "ask for one by email" }),
-      "."
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => window.open(checkout, "_blank", "noopener"), children: "Subscribe" }),
+      " ",
+      "in your browser, and one arrives by email."
     ] }),
     error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__error selectable", children: error }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sheet__actions", children: [

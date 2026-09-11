@@ -1,4 +1,4 @@
-import { g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-BZ8O7pUT.js";
+import { g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-DxN10xc6.js";
 applyThemePreference("system");
 if (navigator.userAgent.includes("Macintosh")) document.documentElement.classList.add("mac");
 const container = document.getElementById("root");

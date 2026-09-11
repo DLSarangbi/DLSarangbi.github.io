@@ -1,4 +1,4 @@
-import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, a as DEFAULT_EDITOR_SETTINGS, b as bookByNumber, c as flattenForSearch, d as SNIPPET_MARK_OPEN, e as SNIPPET_MARK_CLOSE, g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-BZ8O7pUT.js";
+import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, a as DEFAULT_EDITOR_SETTINGS, b as bookByNumber, c as flattenForSearch, d as SNIPPET_MARK_OPEN, e as SNIPPET_MARK_CLOSE, g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-DxN10xc6.js";
 function daysFromToday(days) {
   const date = /* @__PURE__ */ new Date();
   date.setDate(date.getDate() + days);
