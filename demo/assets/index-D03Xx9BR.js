@@ -13435,6 +13435,26 @@ function shortFolder(path) {
   const parts = path.split(/[\\/]+/).filter(Boolean);
   return parts.slice(-2).join(" › ") || path;
 }
+function binName(mac2) {
+  return mac2 ? "the Trash" : "the Recycle Bin";
+}
+const MODIFIERS = { Alt: "⌥", Shift: "⇧", Ctrl: "⌘" };
+const NAMED = { plus: "+", minus: "−", comma: ",", backslash: "\\", Enter: "↩" };
+const CHORD = /\bCtrl\+(?:Alt\+|Shift\+)*(?:plus|minus|comma|backslash|Enter|Tab|[A-Za-z0-9](?![A-Za-z])|[\\=,<>+-])/g;
+function macChord(chord) {
+  if (chord === "Ctrl+Y") return "⇧⌘Z";
+  const parts = chord.split("+");
+  const key = parts[parts.length - 1] ?? "";
+  const held = parts.slice(0, -1);
+  const glyphs = ["Alt", "Shift", "Ctrl"].filter((name) => held.includes(name)).map((name) => MODIFIERS[name]);
+  return `${glyphs.join("")}${NAMED[key] ?? key.toUpperCase()}`;
+}
+function shortcut(text, mac2) {
+  return mac2 ? text.replace(CHORD, macChord) : text;
+}
+const IS_MAC = navigator.userAgent.includes("Macintosh");
+const BIN = binName(IS_MAC);
+const keys$2 = (label) => shortcut(label, IS_MAC);
 function SetupScreen({
   folder,
   cloudFolders,
@@ -13514,7 +13534,7 @@ function SetupScreen({
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__name", children: provider }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__where", children: connected ? "Connected" : cloud ? cloud.path : "Not set up on this computer" })
                 ] }),
-                connected && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", title: "Move the sermons out to a folder you choose. The copy here goes to the Recycle Bin.", onClick: onDisconnectCloudFolder, children: "Disconnect…" }) }),
+                connected && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", title: `Move the sermons out to a folder you choose. The copy here goes to ${BIN}.`, onClick: onDisconnectCloudFolder, children: "Disconnect…" }) }),
                 cloud && !connected && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "cloud-card__actions", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small button--primary", title: `Move your sermons into a SermonDesk folder in ${provider} and switch to it`, onClick: () => onConnectCloudFolder(provider), children: "Connect" }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", title: `Switch to a SermonDesk folder already synced in ${provider}, as on a second computer. Nothing is moved.`, onClick: () => onUseCloudFolder(provider), children: "Use" })
@@ -13532,7 +13552,7 @@ function SetupScreen({
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onChooseFolder, children: folder?.path ? "Choose another folder…" : "Choose folder…" })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "welcome__note", children: current ? "Connect moves your sermons into a service and switches to it, with the old folder sent to the Recycle Bin; Disconnect moves them back out. Use switches to a SermonDesk folder already synced there, as on a second computer." : "Choosing a service makes a SermonDesk folder inside it, and your sermons are backed up and synced on your own account, with nothing stored by us. On a second computer the same choice finds the sermons you already have." })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "welcome__note", children: current ? `Connect moves your sermons into a service and switches to it, with the old folder sent to ${BIN}; Disconnect moves them back out. Use switches to a SermonDesk folder already synced there, as on a second computer.` : "Choosing a service makes a SermonDesk folder inside it, and your sermons are backed up and synced on your own account, with nothing stored by us. On a second computer the same choice finds the sermons you already have." })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "welcome__promises", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
@@ -31418,8 +31438,8 @@ var ExtensionManager = class {
       }
       if (addKeyboardShortcuts) {
         const bindings = Object.fromEntries(
-          Object.entries(addKeyboardShortcuts()).map(([shortcut, method]) => {
-            return [shortcut, () => method({ editor })];
+          Object.entries(addKeyboardShortcuts()).map(([shortcut2, method]) => {
+            return [shortcut2, () => method({ editor })];
           })
         );
         defaultBindings = { ...defaultBindings, ...bindings };
@@ -65058,7 +65078,7 @@ function slashItems(actions, shapes = []) {
       key: "footnote",
       group: "Insert",
       label: "Footnote",
-      hint: "A source or an aside at the foot of the page (Ctrl+Alt+F)",
+      hint: keys$2("A source or an aside at the foot of the page (Ctrl+Alt+F)"),
       marker: "¹",
       aliases: ["footnote", "source", "citation", "reference", "cite"],
       run: () => actions.insertFootnote()
@@ -65067,7 +65087,7 @@ function slashItems(actions, shapes = []) {
       key: "margin",
       group: "Insert",
       label: "Note in the margin",
-      hint: "A note to yourself beside this paragraph, never in the sermon (Ctrl+Alt+M)",
+      hint: keys$2("A note to yourself beside this paragraph, never in the sermon (Ctrl+Alt+M)"),
       marker: "✎",
       aliases: ["margin", "note", "comment", "remind", "aside"],
       run: () => actions.addMarginNote()
@@ -65076,7 +65096,7 @@ function slashItems(actions, shapes = []) {
       key: "pagebreak",
       group: "Insert",
       label: "Page break",
-      hint: "Start this block on a fresh printed page (Ctrl+Enter)",
+      hint: keys$2("Start this block on a fresh printed page (Ctrl+Enter)"),
       marker: "⤓",
       aliases: ["page", "break", "new page", "fresh page"],
       run: () => actions.togglePageBreak()
@@ -68113,6 +68133,10 @@ function useReplaceMatches(editor, report) {
     [editor, report]
   );
 }
+function letterOf(event) {
+  if (/^[a-z]$/i.test(event.key)) return event.key.toLowerCase();
+  return /^Key([A-Z])$/.exec(event.code)?.[1]?.toLowerCase() ?? "";
+}
 function useEditorShortcuts({
   hidden: hidden2,
   writable,
@@ -68154,22 +68178,23 @@ function useEditorShortcuts({
       if (!(event.ctrlKey || event.metaKey)) return;
       const target = event.target;
       if (target instanceof Element && target !== document.body && !target.closest(".cell--main, .cell--insp-body")) return;
-      if (event.altKey && !event.shiftKey && event.key.toLowerCase() === "f") {
+      const pressed = letterOf(event);
+      if (event.altKey && !event.shiftKey && pressed === "f") {
         if (!(event.target instanceof Element) || !event.target.closest(".bn-editor")) return;
         event.preventDefault();
         insertFootnote();
-      } else if (event.altKey && !event.shiftKey && event.key.toLowerCase() === "k") {
+      } else if (event.altKey && !event.shiftKey && pressed === "k") {
         if (!(event.target instanceof Element) || !event.target.closest(".bn-editor")) return;
         event.preventDefault();
         toggleKeyLine();
-      } else if (event.altKey && !event.shiftKey && event.key.toLowerCase() === "m") {
+      } else if (event.altKey && !event.shiftKey && pressed === "m") {
         if (!(event.target instanceof Element) || !event.target.closest(".bn-editor")) return;
         event.preventDefault();
         addMarginNote();
-      } else if (event.altKey && !event.shiftKey && ["q", "v", "s"].includes(event.key.toLowerCase())) {
+      } else if (event.altKey && !event.shiftKey && ["q", "v", "s"].includes(pressed)) {
         if (!(event.target instanceof Element) || !event.target.closest(".bn-editor")) return;
         event.preventDefault();
-        setParagraphStyle({ q: "quote", v: "verse", s: "small" }[event.key.toLowerCase()]);
+        setParagraphStyle({ q: "quote", v: "verse", s: "small" }[pressed]);
       } else if (event.shiftKey && !event.altKey && event.key.toLowerCase() === "n") {
         if (!(event.target instanceof Element) || !event.target.closest(".bn-editor")) return;
         event.preventDefault();
@@ -69494,7 +69519,11 @@ function MoreMenu({ actions, writable }) {
           action();
         };
         return confirming ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "menu__confirm", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Move this sermon to the Recycle Bin?" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+            "Move this sermon to ",
+            BIN,
+            "?"
+          ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "menu__hint", children: "It can be restored from there." }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "menu__confirm-actions", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small button--danger", onClick: () => run3(actions.onDelete), children: "Delete" }),
@@ -69513,9 +69542,12 @@ function MoreMenu({ actions, writable }) {
             "Transcribe a recording…",
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "menu__hint", children: "A preached sermon's audio or video, as a new draft, on this machine" })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "menu__item menu__item--danger", disabled: !writable, title: writable ? "To the Recycle Bin" : "Read-only", onClick: () => setConfirming(true), children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "menu__item menu__item--danger", disabled: !writable, title: writable ? `To ${BIN}` : "Read-only", onClick: () => setConfirming(true), children: [
             "Delete…",
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "menu__hint", children: "To the Recycle Bin" })
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "menu__hint", children: [
+              "To ",
+              BIN
+            ] })
           ] })
         ] });
       }
@@ -69565,7 +69597,7 @@ function ShareMenu({
           /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "menu__item menu__item--row", onClick: () => run3(onPrint), children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Printer, { size: 15, strokeWidth: 1.7 }),
             "Print…",
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "menu__key", children: "Ctrl+P" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "menu__key", children: keys$2("Ctrl+P") })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "menu__item menu__item--row", onClick: () => run3(() => onExportPdf()), children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(FileDown, { size: 15, strokeWidth: 1.7 }),
@@ -69636,7 +69668,7 @@ function ChangeList({
         " ",
         count2 === 1 ? "1 change" : `${count2} changes`
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "changes__hint", children: direction === "undo" ? "Ctrl+Z undoes one at a time" : "Ctrl+Y redoes one at a time" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "changes__hint", children: direction === "undo" ? keys$2("Ctrl+Z undoes one at a time") : keys$2("Ctrl+Y redoes one at a time") })
     ] })
   ] });
 }
@@ -69658,7 +69690,7 @@ function UndoRedo({
         {
           type: "button",
           className: "tool tool--word tool--fold-4",
-          title: last ? `Undo: ${last.label} (Ctrl+Z)` : "Nothing to undo",
+          title: last ? keys$2(`Undo: ${last.label} (Ctrl+Z)`) : "Nothing to undo",
           "aria-label": "Undo",
           disabled: !canUndo,
           onMouseDown: (event) => event.preventDefault(),
@@ -69688,7 +69720,7 @@ function UndoRedo({
         {
           type: "button",
           className: "tool tool--word tool--fold-4",
-          title: next ? `Redo: ${next.label} (Ctrl+Y)` : "Nothing to redo",
+          title: next ? keys$2(`Redo: ${next.label} (Ctrl+Y)`) : "Nothing to redo",
           "aria-label": "Redo",
           disabled: !canRedo,
           onMouseDown: (event) => event.preventDefault(),
@@ -69748,7 +69780,7 @@ function Toolbar({
         {
           type: "button",
           className: sidebarFolded ? "tool" : "tool tool--active",
-          title: sidebarFolded ? "Show the library (Ctrl+\\)" : "Hide the library (Ctrl+\\)",
+          title: sidebarFolded ? keys$2("Show the library (Ctrl+\\)") : keys$2("Hide the library (Ctrl+\\)"),
           "aria-label": sidebarFolded ? "Show the sidebar" : "Hide the sidebar",
           "aria-pressed": !sidebarFolded,
           onClick: onToggleSidebar,
@@ -69756,7 +69788,7 @@ function Toolbar({
         }
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word tool--fold-4", title: "New sermon (Ctrl+N)", "aria-label": "New sermon", disabled: !sermon.writable, onClick: onCreate, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word tool--fold-4", title: keys$2("New sermon (Ctrl+N)"), "aria-label": "New sermon", disabled: !sermon.writable, onClick: onCreate, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(FilePlus, { size: 18, strokeWidth: 1.6 }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: "New" })
       ] }),
@@ -69766,7 +69798,7 @@ function Toolbar({
           {
             type: "button",
             className: saveState === "dirty" || saveState === "saving" ? "tool tool--word tool--fold-4 tool--unsaved" : "tool tool--word tool--fold-4",
-            title: saveState === "dirty" ? "Save now (Ctrl+S). The sermon saves itself a moment after every change; this saves it this instant." : saveState === "saving" ? "Saving…" : "Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).",
+            title: saveState === "dirty" ? keys$2("Save now (Ctrl+S). The sermon saves itself a moment after every change; this saves it this instant.") : saveState === "saving" ? "Saving…" : keys$2("Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S)."),
             "aria-label": "Save",
             disabled: !sermon.writable,
             onMouseDown: (event) => event.preventDefault(),
@@ -69793,7 +69825,7 @@ function Toolbar({
               }, children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx(Save, { size: 15, strokeWidth: 1.7 }),
                 "Save now",
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "menu__key", children: "Ctrl+S" })
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "menu__key", children: keys$2("Ctrl+S") })
               ] }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "menu__item menu__item--row", title: "A fresh draft with everything this one has", onClick: () => {
                 close2();
@@ -69864,7 +69896,7 @@ function Toolbar({
         {
           type: "button",
           className: dictation.active ? "tool tool--word tool--fold-1 tool--active" : "tool tool--word tool--fold-1",
-          title: dictation.active ? "Finish dictating (Ctrl+Shift+D)" : "Dictate: the page listens and writes what you say (Ctrl+Shift+D)",
+          title: dictation.active ? keys$2("Finish dictating (Ctrl+Shift+D)") : keys$2("Dictate: the page listens and writes what you say (Ctrl+Shift+D)"),
           "aria-label": "Dictate",
           "aria-pressed": dictation.active,
           disabled: !editing,
@@ -69881,7 +69913,7 @@ function Toolbar({
         {
           type: "button",
           className: "tool tool--word tool--fold-1",
-          title: "Find in this sermon (Ctrl+F)",
+          title: keys$2("Find in this sermon (Ctrl+F)"),
           "aria-label": "Find",
           disabled: view !== "write" || !commands,
           onMouseDown: (event) => event.preventDefault(),
@@ -69902,7 +69934,7 @@ function Toolbar({
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__preach-word", children: "Preach" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "tool", title: "Preferences: the folder, the look, spelling, the podium, printing, the licence (Ctrl+,)", "aria-label": "Preferences", onClick: sermon.onPreferences, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Settings, { size: 16, strokeWidth: 1.6 }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "tool", title: keys$2("Preferences: the folder, the look, spelling, the podium, printing, the licence (Ctrl+,)"), "aria-label": "Preferences", onClick: sermon.onPreferences, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Settings, { size: 16, strokeWidth: 1.6 }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
         {
@@ -70219,7 +70251,7 @@ function Choice({
 function SizeStepper({ value, disabled, onPick, onStep }) {
   const input = useSizeInput(value, onPick);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stepper stepper--size", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: "Shrink text (Ctrl+Shift+<)", "aria-label": "Shrink text", disabled, onMouseDown: (event) => event.preventDefault(), onClick: () => onStep(-1), children: "−" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2("Shrink text (Ctrl+Shift+<)"), "aria-label": "Shrink text", disabled, onMouseDown: (event) => event.preventDefault(), onClick: () => onStep(-1), children: "−" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "input",
       {
@@ -70248,7 +70280,7 @@ function SizeStepper({ value, disabled, onPick, onStep }) {
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("datalist", { id: "text-sizes", children: TEXT_SIZES.map((size2) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: size2 }, size2)) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: "Grow text (Ctrl+Shift+>)", "aria-label": "Grow text", disabled, onMouseDown: (event) => event.preventDefault(), onClick: () => onStep(1), children: "+" })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2("Grow text (Ctrl+Shift+>)"), "aria-label": "Grow text", disabled, onMouseDown: (event) => event.preventDefault(), onClick: () => onStep(1), children: "+" })
   ] });
 }
 function SizeList({ value, disabled, onPick }) {
@@ -70545,9 +70577,9 @@ function HomeTab({
   const textRows = /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
       [
-        ["bold", "B", "Bold (Ctrl+B)", "format-bar__glyph--bold"],
-        ["italic", "I", "Italic (Ctrl+I)", "format-bar__glyph--italic"],
-        ["underline", "U", "Underline (Ctrl+U)", "format-bar__glyph--underline"],
+        ["bold", "B", keys$2("Bold (Ctrl+B)"), "format-bar__glyph--bold"],
+        ["italic", "I", keys$2("Italic (Ctrl+I)"), "format-bar__glyph--italic"],
+        ["underline", "U", keys$2("Underline (Ctrl+U)"), "format-bar__glyph--underline"],
         ["strike", "S", "Strikethrough", "format-bar__glyph--strike"]
       ].map(([style2, glyph, title, glyphClass]) => /* @__PURE__ */ jsxRuntimeExports.jsx(
         Small,
@@ -70561,8 +70593,8 @@ function HomeTab({
         style2
       )),
       /* @__PURE__ */ jsxRuntimeExports.jsx(SizeList, { value: sizeNow, disabled: !editing, onPick: (size2) => run3((c2) => c2.setSize(size2)) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: "Grow text (Ctrl+Shift+>)", disabled: !editing, onClick: () => run3((c2) => c2.stepSize(1)), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "grow" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: "Shrink text (Ctrl+Shift+<)", disabled: !editing, onClick: () => run3((c2) => c2.stepSize(-1)), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "shrink" }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2("Grow text (Ctrl+Shift+>)"), disabled: !editing, onClick: () => run3((c2) => c2.stepSize(1)), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "grow" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2("Shrink text (Ctrl+Shift+<)"), disabled: !editing, onClick: () => run3((c2) => c2.stepSize(-1)), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "shrink" }) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -70590,7 +70622,7 @@ function HomeTab({
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Small,
         {
-          title: "Superscript (Ctrl+Shift+=)",
+          title: keys$2("Superscript (Ctrl+Shift+=)"),
           active: active.styles["script"] === "super",
           disabled: !editing,
           onClick: () => run3((c2) => c2.toggleScript("super")),
@@ -70603,7 +70635,7 @@ function HomeTab({
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Small,
         {
-          title: "Subscript (Ctrl+Shift+-)",
+          title: keys$2("Subscript (Ctrl+Shift+-)"),
           active: active.styles["script"] === "sub",
           disabled: !editing,
           onClick: () => run3((c2) => c2.toggleScript("sub")),
@@ -70653,10 +70685,10 @@ function HomeTab({
     ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
       [
-        ["left", "alignLeft", "Align left (Ctrl+L)"],
-        ["center", "alignCenter", "Centre (Ctrl+E)"],
-        ["right", "alignRight", "Align right (Ctrl+R)"],
-        ["justify", "alignJustify", "Justify (Ctrl+J)"]
+        ["left", "alignLeft", keys$2("Align left (Ctrl+L)")],
+        ["center", "alignCenter", keys$2("Centre (Ctrl+E)")],
+        ["right", "alignRight", keys$2("Align right (Ctrl+R)")],
+        ["justify", "alignJustify", keys$2("Justify (Ctrl+J)")]
       ].map(([align, icon, title]) => /* @__PURE__ */ jsxRuntimeExports.jsx(
         Small,
         {
@@ -70748,7 +70780,7 @@ function HomeTab({
       }
     ) })
   ] });
-  const findButton = /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "find", large: true }), label: "Find", title: "Find in this sermon (Ctrl+F)", disabled: view !== "write" || !commands, onClick: () => run3((c2) => c2.toggleFind()) });
+  const findButton = /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "find", large: true }), label: "Find", title: keys$2("Find in this sermon (Ctrl+F)"), disabled: view !== "write" || !commands, onClick: () => run3((c2) => c2.toggleFind()) });
   const libraryButtons = /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       Large,
@@ -70777,19 +70809,19 @@ function HomeTab({
   ] });
   const pageRows = /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: "Zoom out (Ctrl+minus)", onClick: () => onLook(zoomStep(zoom, -0.1)), children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "format-bar__glyph format-bar__glyph--small", children: "A" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2("Zoom out (Ctrl+minus)"), onClick: () => onLook(zoomStep(zoom, -0.1)), children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "format-bar__glyph format-bar__glyph--small", children: "A" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
         {
           type: "button",
           className: "format-bar__value ribbon__value",
-          title: "Fit the page to the window (Ctrl+0)",
+          title: keys$2("Fit the page to the window (Ctrl+0)"),
           onMouseDown: (event) => event.preventDefault(),
           onClick: () => onLook({ zoomFit: true }),
           children: zoomLabel(look, zoom)
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: "Zoom in (Ctrl+plus)", onClick: () => onLook(zoomStep(zoom, 0.1)), children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "format-bar__glyph format-bar__glyph--large", children: "A" }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2("Zoom in (Ctrl+plus)"), onClick: () => onLook(zoomStep(zoom, 0.1)), children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "format-bar__glyph format-bar__glyph--large", children: "A" }) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(FontSelect, { className: "format-bar__select", font: look.font, style: { maxWidth: "7.5rem" }, onChange: (font) => onLook({ font }) }),
@@ -70814,8 +70846,8 @@ function HomeTab({
   }) });
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: "Undo", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: "Undo (Ctrl+Z)", label: collapsed >= FOLD_DROP_LABELS ? void 0 : "Undo", disabled: !editing, onClick: () => run3((c2) => c2.undo()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "undo" }) }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: "Redo (Ctrl+Y)", label: collapsed >= FOLD_DROP_LABELS ? void 0 : "Redo", disabled: !editing, onClick: () => run3((c2) => c2.redo()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "redo" }) }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2("Undo (Ctrl+Z)"), label: collapsed >= FOLD_DROP_LABELS ? void 0 : "Undo", disabled: !editing, onClick: () => run3((c2) => c2.undo()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "undo" }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2("Redo (Ctrl+Y)"), label: collapsed >= FOLD_DROP_LABELS ? void 0 : "Redo", disabled: !editing, onClick: () => run3((c2) => c2.redo()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "redo" }) }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
     collapsed >= FOLD_TEXT ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: "Font", icon: "text", compact: collapsed >= FOLD_DROP_LABELS, children: textRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: "Font", children: textRows }),
@@ -71427,7 +71459,7 @@ function FormatPane({ editing, run: run3, commands, active, look, onLook, zoom, 
           {
             type: "button",
             className: "button button--small",
-            title: active.marginNote ? "Open the note in the margin beside this paragraph" : "A note to yourself beside this paragraph, never in the sermon (Ctrl+Alt+M)",
+            title: active.marginNote ? "Open the note in the margin beside this paragraph" : keys$2("A note to yourself beside this paragraph, never in the sermon (Ctrl+Alt+M)"),
             disabled: !editing || !active.canStyle,
             onMouseDown: (event) => event.preventDefault(),
             onClick: () => run3((c2) => c2.addMarginNote()),
@@ -71437,7 +71469,7 @@ function FormatPane({ editing, run: run3, commands, active, look, onLook, zoom, 
             ]
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint insp-row__hint--line", children: active.marginNote ? "This paragraph has one" : "Ctrl+Alt+M" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint insp-row__hint--line", children: active.marginNote ? "This paragraph has one" : keys$2("Ctrl+Alt+M") })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: "Key line", wrap: true, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -71445,7 +71477,7 @@ function FormatPane({ editing, run: run3, commands, active, look, onLook, zoom, 
           {
             type: "button",
             className: active.keyLine ? "button button--small button--on" : "button button--small",
-            title: active.keyLine ? "This sentence is the key line; press to take it off (Ctrl+Alt+K)" : "Make the sentence at the caret the key line: what the outline and the handout carry for this point (Ctrl+Alt+K)",
+            title: active.keyLine ? keys$2("This sentence is the key line; press to take it off (Ctrl+Alt+K)") : keys$2("Make the sentence at the caret the key line: what the outline and the handout carry for this point (Ctrl+Alt+K)"),
             "aria-pressed": active.keyLine,
             disabled: !editing || !active.canStyle,
             onMouseDown: (event) => event.preventDefault(),
@@ -71456,7 +71488,7 @@ function FormatPane({ editing, run: run3, commands, active, look, onLook, zoom, 
             ]
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint insp-row__hint--line", children: active.keyLine ? "On the outline and the handout" : "Ctrl+Alt+K" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint insp-row__hint--line", children: active.keyLine ? "On the outline and the handout" : keys$2("Ctrl+Alt+K") })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: "Story", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
@@ -71482,16 +71514,16 @@ function FormatPane({ editing, run: run3, commands, active, look, onLook, zoom, 
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "itb-group itb-group--fill", children: [
         [
-          ["bold", /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: "B" }, "b"), "Bold (Ctrl+B)"],
-          ["italic", /* @__PURE__ */ jsxRuntimeExports.jsx("i", { children: "I" }, "i"), "Italic (Ctrl+I)"],
-          ["underline", /* @__PURE__ */ jsxRuntimeExports.jsx("u", { children: "U" }, "u"), "Underline (Ctrl+U)"],
+          ["bold", /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: "B" }, "b"), keys$2("Bold (Ctrl+B)")],
+          ["italic", /* @__PURE__ */ jsxRuntimeExports.jsx("i", { children: "I" }, "i"), keys$2("Italic (Ctrl+I)")],
+          ["underline", /* @__PURE__ */ jsxRuntimeExports.jsx("u", { children: "U" }, "u"), keys$2("Underline (Ctrl+U)")],
           ["strike", /* @__PURE__ */ jsxRuntimeExports.jsx("s", { children: "S" }, "s"), "Strikethrough"]
         ].map(([style2, glyph, title]) => /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { on: Boolean(active.styles[style2]), title, disabled: !editing, onClick: () => run3((c2) => c2.toggleStyle(style2)), children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "itb__serif", children: glyph }) }, style2)),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { on: active.styles["script"] === "super", title: "Superscript (Ctrl+Shift+=)", disabled: !editing, onClick: () => run3((c2) => c2.toggleScript("super")), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "itb__serif", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { on: active.styles["script"] === "super", title: keys$2("Superscript (Ctrl+Shift+=)"), disabled: !editing, onClick: () => run3((c2) => c2.toggleScript("super")), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "itb__serif", children: [
           "x",
           /* @__PURE__ */ jsxRuntimeExports.jsx("sup", { children: "2" })
         ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { on: active.styles["script"] === "sub", title: "Subscript (Ctrl+Shift+-)", disabled: !editing, onClick: () => run3((c2) => c2.toggleScript("sub")), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "itb__serif", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { on: active.styles["script"] === "sub", title: keys$2("Subscript (Ctrl+Shift+-)"), disabled: !editing, onClick: () => run3((c2) => c2.toggleScript("sub")), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "itb__serif", children: [
           "x",
           /* @__PURE__ */ jsxRuntimeExports.jsx("sub", { children: "2" })
         ] }) })
@@ -71612,10 +71644,10 @@ function FormatPane({ editing, run: run3, commands, active, look, onLook, zoom, 
           value: ["left", "center", "right", "justify"].includes(active.align) ? active.align : "left",
           onChange: (align) => run3((c2) => c2.setAlign(align)),
           options: [
-            { value: "left", label: "Align left (Ctrl+L)", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignStart, { size: 14, strokeWidth: 1.7 }) },
-            { value: "center", label: "Centre (Ctrl+E)", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignCenter, { size: 14, strokeWidth: 1.7 }) },
-            { value: "right", label: "Align right (Ctrl+R)", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignEnd, { size: 14, strokeWidth: 1.7 }) },
-            { value: "justify", label: "Justify (Ctrl+J)", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignJustify, { size: 14, strokeWidth: 1.7 }) }
+            { value: "left", label: keys$2("Align left (Ctrl+L)"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignStart, { size: 14, strokeWidth: 1.7 }) },
+            { value: "center", label: keys$2("Centre (Ctrl+E)"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignCenter, { size: 14, strokeWidth: 1.7 }) },
+            { value: "right", label: keys$2("Align right (Ctrl+R)"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignEnd, { size: 14, strokeWidth: 1.7 }) },
+            { value: "justify", label: keys$2("Justify (Ctrl+J)"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignJustify, { size: 14, strokeWidth: 1.7 }) }
           ]
         }
       ) }),
@@ -71654,9 +71686,9 @@ function FormatPane({ editing, run: run3, commands, active, look, onLook, zoom, 
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: "Page", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: "Zoom", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stepper", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: "Zoom out (Ctrl+minus)", "aria-label": "Zoom out", onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, -0.1)), children: "−" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__value", title: "Fit the page to the window (Ctrl+0)", onMouseDown: (event) => event.preventDefault(), onClick: () => onLook({ zoomFit: true }), children: zoomLabel(look, zoom) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: "Zoom in (Ctrl+plus)", "aria-label": "Zoom in", onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, 0.1)), children: "+" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2("Zoom out (Ctrl+minus)"), "aria-label": "Zoom out", onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, -0.1)), children: "−" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__value", title: keys$2("Fit the page to the window (Ctrl+0)"), onMouseDown: (event) => event.preventDefault(), onClick: () => onLook({ zoomFit: true }), children: zoomLabel(look, zoom) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2("Zoom in (Ctrl+plus)"), "aria-label": "Zoom in", onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, 0.1)), children: "+" })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(PageLineSpacingSelect, { value: look.lineSpacing, title: "Line spacing for the page", onChange: (lineSpacing) => onLook({ lineSpacing }) })
       ] }),
@@ -71979,7 +72011,7 @@ function PrintPane({
     /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "insp-section", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "insp-section__title", children: "On paper" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row insp-row--buttons", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "button button--small", onClick: onPrint, title: "Straight to the printer's own dialog (Ctrl+P)", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "button button--small", onClick: onPrint, title: keys$2("Straight to the printer's own dialog (Ctrl+P)"), children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Printer, { size: 13, strokeWidth: 1.8 }),
           " Print…"
         ] }),
@@ -73363,6 +73395,15 @@ function EditorPane({
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [print, dictation.toggle, view, dictation]);
+  reactExports$1.useEffect(
+    () => window.api.onMenuCommand((command2) => {
+      if (document.querySelector(".podium")) return;
+      if (command2 === "save") void doc2.saveNow();
+      else if (command2 === "print") void print();
+      else if (command2 === "find" && view === "write") commands?.toggleFind();
+    }),
+    [doc2, print, view, commands]
+  );
   const editing = writable && view === "write" && commands !== null;
   const run3 = reactExports$1.useCallback(
     (action) => {
@@ -74965,7 +75006,7 @@ function PreferencesWindow({
             Row,
             {
               label: provider,
-              hint: current ? "Your sermons are in here now, synced on your own account. Disconnect moves them out to a folder you choose; the copy here goes to the Recycle Bin." : cloud ? `${cloud.path}. Connect moves your sermons into a SermonDesk folder here and switches to it; Use switches to a SermonDesk folder already synced here, as on a second computer.` : "Not set up on this computer.",
+              hint: current ? `Your sermons are in here now, synced on your own account. Disconnect moves them out to a folder you choose; the copy here goes to ${BIN}.` : cloud ? `${cloud.path}. Connect moves your sermons into a SermonDesk folder here and switches to it; Use switches to a SermonDesk folder already synced here, as on a second computer.` : "Not set up on this computer.",
               children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "prefs__inline", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "prefs__glyph", children: providerIcon(provider, 18) }),
                 current && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", onClick: onDisconnectCloudFolder, children: "Disconnect…" }),
@@ -76125,7 +76166,7 @@ function AppMenu({
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", role: "menuitem", className: "menu__item", title: "One Markdown file per sermon, readable anywhere, in a folder you choose", onClick: () => run3(onExport), children: "Export everything as Markdown…" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "menu__item", onClick: () => run3(onPreferences), children: [
         "Preferences…",
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "menu__hint", children: "Folder, appearance, spelling, podium, printing, licence (Ctrl+,)" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "menu__hint", children: keys$2("Folder, appearance, spelling, podium, printing, licence (Ctrl+,)") })
       ] })
     ] });
   } });
@@ -76286,7 +76327,7 @@ function App() {
         setOpen(null);
         setCloudFolders(await window.api.listCloudFolders());
         await refreshList();
-        setImporting(`Moved ${result.files} file${result.files === 1 ? "" : "s"} ${where}. The old folder is in the Recycle Bin.`);
+        setImporting(`Moved ${result.files} file${result.files === 1 ? "" : "s"} ${where}. The old folder is in ${BIN}.`);
         setTimeout(() => setImporting(null), 8e3);
       } catch (cause) {
         setError(cause instanceof Error ? cause.message : String(cause));
@@ -76411,6 +76452,18 @@ function App() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [createSermon, podium, folder, writable, sidebarFolded, foldSidebar]);
+  reactExports$1.useEffect(
+    () => window.api.onMenuCommand((command2) => {
+      if (podium) return;
+      if (command2 === "preferences") {
+        setPrefsTab("general");
+        setPrefsOpen(true);
+      } else if (command2 === "new" && folder?.exists && writable) {
+        void createSermon();
+      }
+    }),
+    [podium, folder, writable, createSermon]
+  );
   const duplicateSermon = reactExports$1.useCallback(
     async (filePath) => {
       try {
@@ -76606,14 +76659,14 @@ function App() {
             {
               type: "button",
               className: sidebarFolded ? "tool" : "tool tool--active",
-              title: sidebarFolded ? "Show the library (Ctrl+\\)" : "Hide the library (Ctrl+\\)",
+              title: sidebarFolded ? keys$2("Show the library (Ctrl+\\)") : keys$2("Hide the library (Ctrl+\\)"),
               "aria-label": sidebarFolded ? "Show the sidebar" : "Hide the sidebar",
               "aria-pressed": !sidebarFolded,
               onClick: () => foldSidebar(!sidebarFolded),
               children: /* @__PURE__ */ jsxRuntimeExports.jsx(PanelLeft, { size: 16, strokeWidth: 1.6 })
             }
           ),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--labelled", title: "New sermon (Ctrl+N)", "aria-label": "New sermon", disabled: !writable, onClick: () => void createSermon(), children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--labelled", title: keys$2("New sermon (Ctrl+N)"), "aria-label": "New sermon", disabled: !writable, onClick: () => void createSermon(), children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(FilePlus, { size: 17, strokeWidth: 1.6 }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__label", children: "New" })
           ] }),
@@ -76753,6 +76806,7 @@ export {
   App as A,
   BOOKS as B,
   DEFAULT_APP_SETTINGS as D,
+  IS_MAC as I,
   LAST_VERSE_SENTINEL as L,
   SERMON_FILE_VERSION as S,
   DEFAULT_EDITOR_SETTINGS as a,

@@ -1,6 +1,6 @@
-import { g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-6AMTNdfd.js";
+import { g as applyThemePreference, I as IS_MAC, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-D03Xx9BR.js";
 applyThemePreference("system");
-if (navigator.userAgent.includes("Macintosh")) document.documentElement.classList.add("mac");
+if (IS_MAC) document.documentElement.classList.add("mac");
 const container = document.getElementById("root");
 if (!container) throw new Error("Root element missing from index.html");
 clientExports.createRoot(container).render(

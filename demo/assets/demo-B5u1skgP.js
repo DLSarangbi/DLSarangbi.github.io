@@ -1,4 +1,4 @@
-import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, a as DEFAULT_EDITOR_SETTINGS, b as bookByNumber, c as flattenForSearch, d as SNIPPET_MARK_OPEN, e as SNIPPET_MARK_CLOSE, g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-6AMTNdfd.js";
+import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, a as DEFAULT_EDITOR_SETTINGS, b as bookByNumber, c as flattenForSearch, d as SNIPPET_MARK_OPEN, e as SNIPPET_MARK_CLOSE, g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-D03Xx9BR.js";
 function daysFromToday(days) {
   const date = /* @__PURE__ */ new Date();
   date.setDate(date.getDate() + days);
@@ -625,6 +625,8 @@ const demoApi = {
     libraryListeners.add(callback);
     return () => libraryListeners.delete(callback);
   },
+  // No menu bar around the demo: the page is a frame on a web page.
+  onMenuCommand: () => unsubscribe(),
   onSermonFileChanged: () => unsubscribe(),
   onLicenseChanged: () => unsubscribe(),
   replaceMisspelling: async () => void 0,
