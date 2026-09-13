@@ -1,4 +1,4 @@
-import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, a as DEFAULT_EDITOR_SETTINGS, b as bookByNumber, c as flattenForSearch, d as SNIPPET_MARK_OPEN, e as SNIPPET_MARK_CLOSE, g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-D03Xx9BR.js";
+import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, a as DEFAULT_EDITOR_SETTINGS, b as bookByNumber, c as flattenForSearch, d as SNIPPET_MARK_OPEN, e as SNIPPET_MARK_CLOSE, g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-2aSon0yY.js";
 function daysFromToday(days) {
   const date = /* @__PURE__ */ new Date();
   date.setDate(date.getDate() + days);
@@ -433,6 +433,59 @@ function coverage() {
     return { book: book.number, sermons: entry.sermons.size, chapters: [...entry.chapters].sort((a, b) => a - b), last: entry.last };
   });
 }
+function coverageMap(church) {
+  const cells = /* @__PURE__ */ new Map();
+  for (const sermon of sermons.values()) {
+    const tellings = (sermon.preachings ?? []).filter((p) => !church || p.church?.toLowerCase() === church.toLowerCase());
+    if (church && tellings.length === 0) continue;
+    const last = church ? tellings.map((p) => p.date).sort().pop() ?? null : sermon.datePreached ?? null;
+    for (const range of ranges(sermon)) {
+      const total = bookByNumber(range.book)?.chapters ?? 0;
+      if (!total) continue;
+      for (let chapter = Math.max(1, range.chapterStart); chapter <= Math.min(range.chapterEnd, total); chapter++) {
+        const key = `${range.book}:${chapter}`;
+        const cell = cells.get(key) ?? { book: range.book, chapter, sermons: /* @__PURE__ */ new Map(), last: null };
+        cell.sermons.set(sermon.id, { title: sermon.title || "Untitled", last });
+        if (last && (!cell.last || last > cell.last)) cell.last = last;
+        cells.set(key, cell);
+      }
+    }
+  }
+  const planned = [];
+  for (const entry of series) {
+    if (entry.retired) continue;
+    for (const plan of entry.planned ?? []) {
+      for (const range of parseReference(plan.passage ?? "")) {
+        const total = bookByNumber(range.book)?.chapters ?? 0;
+        for (let chapter = Math.max(1, range.chapterStart); chapter <= Math.min(range.chapterEnd, total); chapter++) {
+          planned.push({ book: range.book, chapter, series: entry.name, title: plan.title, date: plan.date ?? null });
+        }
+      }
+    }
+  }
+  const churches = /* @__PURE__ */ new Map();
+  for (const sermon of sermons.values()) {
+    for (const p of sermon.preachings ?? []) {
+      if (!p.church) continue;
+      const row = churches.get(p.church.toLowerCase()) ?? { name: p.church, sermonCount: 0, last: "" };
+      row.sermonCount += 1;
+      if (p.date > row.last) row.last = p.date;
+      churches.set(p.church.toLowerCase(), row);
+    }
+  }
+  return {
+    cells: [...cells.values()].sort((a, b) => a.book - b.book || a.chapter - b.chapter).map((cell) => ({
+      book: cell.book,
+      chapter: cell.chapter,
+      sermons: cell.sermons.size,
+      last: cell.last,
+      titles: [...cell.sermons.values()].sort((a, b) => (b.last ?? "").localeCompare(a.last ?? "")).slice(0, 3).map((s) => s.title)
+    })),
+    planned,
+    churches: [...churches.values()].sort((a, b) => b.last.localeCompare(a.last)),
+    church
+  };
+}
 const seriesRows = () => series.map((entry) => ({ ...entry, planned: clone(entry.planned ?? []), retired: entry.retired === true, sermonCount: [...sermons.values()].filter((s) => s.seriesId === entry.id).length })).sort((a, b) => a.name.localeCompare(b.name));
 const tagRows = () => {
   const counts = /* @__PURE__ */ new Map();
@@ -503,6 +556,7 @@ const demoApi = {
   readPassage: async (text) => describeReference(text),
   relatedSermons: async (sermonId) => related(sermonId),
   coverage: async () => coverage(),
+  coverageMap: async (church) => coverageMap(church),
   listSeries: async () => seriesRows(),
   listViews: async () => views.map((view) => ({ ...clone(view), sermonCount: query({ ...view.query, limit: 1e5 }).length })),
   saveViews: async (next) => {

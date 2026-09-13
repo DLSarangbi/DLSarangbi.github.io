@@ -28,9 +28,9 @@ function requireReactJsxRuntime_production() {
   hasRequiredReactJsxRuntime_production = 1;
   var REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment");
   function jsxProd(type, config, maybeKey) {
-    var key = null;
-    void 0 !== maybeKey && (key = "" + maybeKey);
-    void 0 !== config.key && (key = "" + config.key);
+    var key2 = null;
+    void 0 !== maybeKey && (key2 = "" + maybeKey);
+    void 0 !== config.key && (key2 = "" + config.key);
     if ("key" in config) {
       maybeKey = {};
       for (var propName in config)
@@ -40,7 +40,7 @@ function requireReactJsxRuntime_production() {
     return {
       $$typeof: REACT_ELEMENT_TYPE,
       type,
-      key,
+      key: key2,
       ref: void 0 !== config ? config : null,
       props: maybeKey
     };
@@ -117,12 +117,12 @@ function requireReact_production() {
   function noop4() {
   }
   var ReactSharedInternals = { H: null, A: null, T: null, S: null }, hasOwnProperty = Object.prototype.hasOwnProperty;
-  function ReactElement(type, key, props) {
+  function ReactElement(type, key2, props) {
     var refProp = props.ref;
     return {
       $$typeof: REACT_ELEMENT_TYPE,
       type,
-      key,
+      key: key2,
       ref: void 0 !== refProp ? refProp : null,
       props
     };
@@ -133,9 +133,9 @@ function requireReact_production() {
   function isValidElement(object) {
     return "object" === typeof object && null !== object && object.$$typeof === REACT_ELEMENT_TYPE;
   }
-  function escape(key) {
+  function escape(key2) {
     var escaperLookup = { "=": "=0", ":": "=2" };
-    return "$" + key.replace(/[=:]/g, function(match) {
+    return "$" + key2.replace(/[=:]/g, function(match) {
       return escaperLookup[match];
     });
   }
@@ -340,9 +340,9 @@ function requireReact_production() {
       throw Error(
         "The argument must be a React element, but you passed " + element + "."
       );
-    var props = assign({}, element.props), key = element.key;
+    var props = assign({}, element.props), key2 = element.key;
     if (null != config)
-      for (propName in void 0 !== config.key && (key = "" + config.key), config)
+      for (propName in void 0 !== config.key && (key2 = "" + config.key), config)
         !hasOwnProperty.call(config, propName) || "key" === propName || "__self" === propName || "__source" === propName || "ref" === propName && void 0 === config.ref || (props[propName] = config[propName]);
     var propName = arguments.length - 2;
     if (1 === propName) props.children = children;
@@ -351,7 +351,7 @@ function requireReact_production() {
         childArray[i2] = arguments[i2 + 2];
       props.children = childArray;
     }
-    return ReactElement(element.type, key, props);
+    return ReactElement(element.type, key2, props);
   };
   react_production.createContext = function(defaultValue) {
     defaultValue = {
@@ -370,9 +370,9 @@ function requireReact_production() {
     return defaultValue;
   };
   react_production.createElement = function(type, config, children) {
-    var propName, props = {}, key = null;
+    var propName, props = {}, key2 = null;
     if (null != config)
-      for (propName in void 0 !== config.key && (key = "" + config.key), config)
+      for (propName in void 0 !== config.key && (key2 = "" + config.key), config)
         hasOwnProperty.call(config, propName) && "key" !== propName && "__self" !== propName && "__source" !== propName && (props[propName] = config[propName]);
     var childrenLength = arguments.length - 2;
     if (1 === childrenLength) props.children = children;
@@ -384,7 +384,7 @@ function requireReact_production() {
     if (type && type.defaultProps)
       for (propName in childrenLength = type.defaultProps, childrenLength)
         void 0 === props[propName] && (props[propName] = childrenLength[propName]);
-    return ReactElement(type, key, props);
+    return ReactElement(type, key2, props);
   };
   react_production.createRef = function() {
     return { current: null };
@@ -805,10 +805,10 @@ function requireReactDom_production() {
     findDOMNode: null
   }, REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal");
   function createPortal$1(children, containerInfo, implementation) {
-    var key = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : null;
+    var key2 = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : null;
     return {
       $$typeof: REACT_PORTAL_TYPE,
-      key: null == key ? null : "" + key,
+      key: null == key2 ? null : "" + key2,
       children,
       containerInfo,
       implementation
@@ -822,10 +822,10 @@ function requireReactDom_production() {
   }
   reactDom_production.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = Internals;
   reactDom_production.createPortal = function(children, container) {
-    var key = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : null;
+    var key2 = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : null;
     if (!container || 1 !== container.nodeType && 9 !== container.nodeType && 11 !== container.nodeType)
       throw Error(formatProdErrorMessage(299));
-    return createPortal$1(children, container, null, key);
+    return createPortal$1(children, container, null, key2);
   };
   reactDom_production.flushSync = function(fn2) {
     var previousTransition = ReactSharedInternals.T, previousUpdatePriority = Internals.p;
@@ -2261,8 +2261,8 @@ function requireReactDomClient_production() {
   var KeyboardEventInterface = assign({}, UIEventInterface, {
     key: function(nativeEvent) {
       if (nativeEvent.key) {
-        var key = normalizeKey[nativeEvent.key] || nativeEvent.key;
-        if ("Unidentified" !== key) return key;
+        var key2 = normalizeKey[nativeEvent.key] || nativeEvent.key;
+        if ("Unidentified" !== key2) return key2;
       }
       return "keypress" === nativeEvent.type ? (nativeEvent = getEventCharCode(nativeEvent), 13 === nativeEvent ? "Enter" : String.fromCharCode(nativeEvent)) : "keydown" === nativeEvent.type || "keyup" === nativeEvent.type ? translateToKey[nativeEvent.keyCode] || "Unidentified" : "";
     },
@@ -2643,9 +2643,9 @@ function requireReactDomClient_production() {
     return 3 === sourceFiber.tag ? sourceFiber.stateNode : null;
   }
   var emptyContextObject = {};
-  function FiberNode(tag, pendingProps, key, mode) {
+  function FiberNode(tag, pendingProps, key2, mode) {
     this.tag = tag;
-    this.key = key;
+    this.key = key2;
     this.sibling = this.child = this.return = this.stateNode = this.type = this.elementType = null;
     this.index = 0;
     this.refCleanup = this.ref = null;
@@ -2657,8 +2657,8 @@ function requireReactDomClient_production() {
     this.childLanes = this.lanes = 0;
     this.alternate = null;
   }
-  function createFiberImplClass(tag, pendingProps, key, mode) {
-    return new FiberNode(tag, pendingProps, key, mode);
+  function createFiberImplClass(tag, pendingProps, key2, mode) {
+    return new FiberNode(tag, pendingProps, key2, mode);
   }
   function shouldConstruct(Component) {
     Component = Component.prototype;
@@ -2696,7 +2696,7 @@ function requireReactDomClient_production() {
     });
     return workInProgress2;
   }
-  function createFiberFromTypeAndProps(type, key, pendingProps, owner, mode, lanes) {
+  function createFiberFromTypeAndProps(type, key2, pendingProps, owner, mode, lanes) {
     var fiberTag = 0;
     owner = type;
     if ("function" === typeof type) shouldConstruct(type) && (fiberTag = 1);
@@ -2709,19 +2709,19 @@ function requireReactDomClient_production() {
     else
       a: switch (type) {
         case REACT_ACTIVITY_TYPE:
-          return type = createFiberImplClass(31, pendingProps, key, mode), type.elementType = REACT_ACTIVITY_TYPE, type.lanes = lanes, type;
+          return type = createFiberImplClass(31, pendingProps, key2, mode), type.elementType = REACT_ACTIVITY_TYPE, type.lanes = lanes, type;
         case REACT_FRAGMENT_TYPE:
-          return createFiberFromFragment(pendingProps.children, mode, lanes, key);
+          return createFiberFromFragment(pendingProps.children, mode, lanes, key2);
         case REACT_STRICT_MODE_TYPE:
           fiberTag = 8;
           mode |= 24;
           break;
         case REACT_PROFILER_TYPE:
-          return type = createFiberImplClass(12, pendingProps, key, mode | 2), type.elementType = REACT_PROFILER_TYPE, type.lanes = lanes, type;
+          return type = createFiberImplClass(12, pendingProps, key2, mode | 2), type.elementType = REACT_PROFILER_TYPE, type.lanes = lanes, type;
         case REACT_SUSPENSE_TYPE:
-          return type = createFiberImplClass(13, pendingProps, key, mode), type.elementType = REACT_SUSPENSE_TYPE, type.lanes = lanes, type;
+          return type = createFiberImplClass(13, pendingProps, key2, mode), type.elementType = REACT_SUSPENSE_TYPE, type.lanes = lanes, type;
         case REACT_SUSPENSE_LIST_TYPE:
-          return type = createFiberImplClass(19, pendingProps, key, mode), type.elementType = REACT_SUSPENSE_LIST_TYPE, type.lanes = lanes, type;
+          return type = createFiberImplClass(19, pendingProps, key2, mode), type.elementType = REACT_SUSPENSE_LIST_TYPE, type.lanes = lanes, type;
         default:
           if ("object" === typeof type && null !== type)
             switch (type.$$typeof) {
@@ -2748,14 +2748,14 @@ function requireReactDomClient_production() {
           );
           owner = null;
       }
-    key = createFiberImplClass(fiberTag, pendingProps, key, mode);
-    key.elementType = type;
-    key.type = owner;
-    key.lanes = lanes;
-    return key;
+    key2 = createFiberImplClass(fiberTag, pendingProps, key2, mode);
+    key2.elementType = type;
+    key2.type = owner;
+    key2.lanes = lanes;
+    return key2;
   }
-  function createFiberFromFragment(elements, mode, lanes, key) {
-    elements = createFiberImplClass(7, elements, key, mode);
+  function createFiberFromFragment(elements, mode, lanes, key2) {
+    elements = createFiberImplClass(7, elements, key2, mode);
     elements.lanes = lanes;
     return elements;
   }
@@ -2991,34 +2991,34 @@ function requireReactDomClient_production() {
     var fiber = workInProgress2.child;
     null !== fiber && (fiber.return = workInProgress2);
     for (; null !== fiber; ) {
-      var list = fiber.dependencies;
-      if (null !== list) {
+      var list2 = fiber.dependencies;
+      if (null !== list2) {
         var nextFiber = fiber.child;
-        list = list.firstContext;
-        a: for (; null !== list; ) {
-          var dependency = list;
-          list = fiber;
+        list2 = list2.firstContext;
+        a: for (; null !== list2; ) {
+          var dependency = list2;
+          list2 = fiber;
           for (var i2 = 0; i2 < contexts.length; i2++)
             if (dependency.context === contexts[i2]) {
-              list.lanes |= renderLanes2;
-              dependency = list.alternate;
+              list2.lanes |= renderLanes2;
+              dependency = list2.alternate;
               null !== dependency && (dependency.lanes |= renderLanes2);
               scheduleContextWorkOnParentPath(
-                list.return,
+                list2.return,
                 renderLanes2,
                 workInProgress2
               );
               forcePropagateEntireTree || (nextFiber = null);
               break a;
             }
-          list = dependency.next;
+          list2 = dependency.next;
         }
       } else if (18 === fiber.tag) {
         nextFiber = fiber.return;
         if (null === nextFiber) throw Error(formatProdErrorMessage(341));
         nextFiber.lanes |= renderLanes2;
-        list = nextFiber.alternate;
-        null !== list && (list.lanes |= renderLanes2);
+        list2 = nextFiber.alternate;
+        null !== list2 && (list2.lanes |= renderLanes2);
         scheduleContextWorkOnParentPath(nextFiber, renderLanes2, workInProgress2);
         nextFiber = null;
       } else nextFiber = fiber.child;
@@ -3377,13 +3377,13 @@ function requireReactDomClient_production() {
       current.return = returnFiber;
       return current;
     }
-    function updateFragment(returnFiber, current, fragment, lanes, key) {
+    function updateFragment(returnFiber, current, fragment, lanes, key2) {
       if (null === current || 7 !== current.tag)
         return current = createFiberFromFragment(
           fragment,
           returnFiber.mode,
           lanes,
-          key
+          key2
         ), current.return = returnFiber, current;
       current = useFiber(current, fragment);
       current.return = returnFiber;
@@ -3436,20 +3436,20 @@ function requireReactDomClient_production() {
       return null;
     }
     function updateSlot(returnFiber, oldFiber, newChild, lanes) {
-      var key = null !== oldFiber ? oldFiber.key : null;
+      var key2 = null !== oldFiber ? oldFiber.key : null;
       if ("string" === typeof newChild && "" !== newChild || "number" === typeof newChild || "bigint" === typeof newChild)
-        return null !== key ? null : updateTextNode(returnFiber, oldFiber, "" + newChild, lanes);
+        return null !== key2 ? null : updateTextNode(returnFiber, oldFiber, "" + newChild, lanes);
       if ("object" === typeof newChild && null !== newChild) {
         switch (newChild.$$typeof) {
           case REACT_ELEMENT_TYPE:
-            return newChild.key === key ? updateElement(returnFiber, oldFiber, newChild, lanes) : null;
+            return newChild.key === key2 ? updateElement(returnFiber, oldFiber, newChild, lanes) : null;
           case REACT_PORTAL_TYPE:
-            return newChild.key === key ? updatePortal(returnFiber, oldFiber, newChild, lanes) : null;
+            return newChild.key === key2 ? updatePortal(returnFiber, oldFiber, newChild, lanes) : null;
           case REACT_LAZY_TYPE:
             return newChild = resolveLazy(newChild), updateSlot(returnFiber, oldFiber, newChild, lanes);
         }
         if (isArrayImpl(newChild) || getIteratorFn(newChild))
-          return null !== key ? null : updateFragment(returnFiber, oldFiber, newChild, lanes, null);
+          return null !== key2 ? null : updateFragment(returnFiber, oldFiber, newChild, lanes, null);
         if ("function" === typeof newChild.then)
           return updateSlot(
             returnFiber,
@@ -3600,10 +3600,10 @@ function requireReactDomClient_production() {
         switch (newChild.$$typeof) {
           case REACT_ELEMENT_TYPE:
             a: {
-              for (var key = newChild.key; null !== currentFirstChild; ) {
-                if (currentFirstChild.key === key) {
-                  key = newChild.type;
-                  if (key === REACT_FRAGMENT_TYPE) {
+              for (var key2 = newChild.key; null !== currentFirstChild; ) {
+                if (currentFirstChild.key === key2) {
+                  key2 = newChild.type;
+                  if (key2 === REACT_FRAGMENT_TYPE) {
                     if (7 === currentFirstChild.tag) {
                       deleteRemainingChildren(
                         returnFiber,
@@ -3617,7 +3617,7 @@ function requireReactDomClient_production() {
                       returnFiber = lanes;
                       break a;
                     }
-                  } else if (currentFirstChild.elementType === key || "object" === typeof key && null !== key && key.$$typeof === REACT_LAZY_TYPE && resolveLazy(key) === currentFirstChild.type) {
+                  } else if (currentFirstChild.elementType === key2 || "object" === typeof key2 && null !== key2 && key2.$$typeof === REACT_LAZY_TYPE && resolveLazy(key2) === currentFirstChild.type) {
                     deleteRemainingChildren(
                       returnFiber,
                       currentFirstChild.sibling
@@ -3650,8 +3650,8 @@ function requireReactDomClient_production() {
             return placeSingleChild(returnFiber);
           case REACT_PORTAL_TYPE:
             a: {
-              for (key = newChild.key; null !== currentFirstChild; ) {
-                if (currentFirstChild.key === key)
+              for (key2 = newChild.key; null !== currentFirstChild; ) {
+                if (currentFirstChild.key === key2)
                   if (4 === currentFirstChild.tag && currentFirstChild.stateNode.containerInfo === newChild.containerInfo && currentFirstChild.stateNode.implementation === newChild.implementation) {
                     deleteRemainingChildren(
                       returnFiber,
@@ -3689,9 +3689,9 @@ function requireReactDomClient_production() {
             lanes
           );
         if (getIteratorFn(newChild)) {
-          key = getIteratorFn(newChild);
-          if ("function" !== typeof key) throw Error(formatProdErrorMessage(150));
-          newChild = key.call(newChild);
+          key2 = getIteratorFn(newChild);
+          if ("function" !== typeof key2) throw Error(formatProdErrorMessage(150));
+          newChild = key2.call(newChild);
           return reconcileChildrenIterator(
             returnFiber,
             currentFirstChild,
@@ -5399,8 +5399,8 @@ function requireReactDomClient_production() {
     var ref = workInProgress2.ref;
     if ("ref" in nextProps) {
       var propsWithoutRef = {};
-      for (var key in nextProps)
-        "ref" !== key && (propsWithoutRef[key] = nextProps[key]);
+      for (var key2 in nextProps)
+        "ref" !== key2 && (propsWithoutRef[key2] = nextProps[key2]);
     } else propsWithoutRef = nextProps;
     prepareToReadContext(workInProgress2);
     nextProps = renderWithHooks(
@@ -5411,10 +5411,10 @@ function requireReactDomClient_production() {
       ref,
       renderLanes2
     );
-    key = checkDidRenderIdHook();
+    key2 = checkDidRenderIdHook();
     if (null !== current && !didReceiveUpdate)
       return bailoutHooks(current, workInProgress2, renderLanes2), bailoutOnAlreadyFinishedWork(current, workInProgress2, renderLanes2);
-    isHydrating && key && pushMaterializedTreeId(workInProgress2);
+    isHydrating && key2 && pushMaterializedTreeId(workInProgress2);
     workInProgress2.flags |= 1;
     reconcileChildren(current, workInProgress2, nextProps, renderLanes2);
     return workInProgress2.child;
@@ -10169,8 +10169,8 @@ function requireReactDomClient_production() {
     clientText = normalizeMarkupForTextOrAttribute(clientText);
     return normalizeMarkupForTextOrAttribute(serverText) === clientText ? true : false;
   }
-  function setProp(domElement, tag, key, value, props, prevValue) {
-    switch (key) {
+  function setProp(domElement, tag, key2, value, props, prevValue) {
+    switch (key2) {
       case "children":
         "string" === typeof value ? "body" === tag || "textarea" === tag && "" === value || setTextContent(domElement, value) : ("number" === typeof value || "bigint" === typeof value) && "body" !== tag && setTextContent(domElement, "" + value);
         break;
@@ -10185,7 +10185,7 @@ function requireReactDomClient_production() {
       case "viewBox":
       case "width":
       case "height":
-        setValueForKnownAttribute(domElement, key, value);
+        setValueForKnownAttribute(domElement, key2, value);
         break;
       case "style":
         setValueForStyles(domElement, value, prevValue);
@@ -10197,27 +10197,27 @@ function requireReactDomClient_production() {
         }
       case "src":
       case "href":
-        if ("" === value && ("a" !== tag || "href" !== key)) {
-          domElement.removeAttribute(key);
+        if ("" === value && ("a" !== tag || "href" !== key2)) {
+          domElement.removeAttribute(key2);
           break;
         }
         if (null == value || "function" === typeof value || "symbol" === typeof value || "boolean" === typeof value) {
-          domElement.removeAttribute(key);
+          domElement.removeAttribute(key2);
           break;
         }
         value = sanitizeURL("" + value);
-        domElement.setAttribute(key, value);
+        domElement.setAttribute(key2, value);
         break;
       case "action":
       case "formAction":
         if ("function" === typeof value) {
           domElement.setAttribute(
-            key,
+            key2,
             "javascript:throw new Error('A React form was unexpectedly submitted. If you called form.submit() manually, consider using form.requestSubmit() instead. If you\\'re trying to use event.stopPropagation() in a submit event handler, consider also calling event.preventDefault().')"
           );
           break;
         } else
-          "function" === typeof prevValue && ("formAction" === key ? ("input" !== tag && setProp(domElement, tag, "name", props.name, props, null), setProp(
+          "function" === typeof prevValue && ("formAction" === key2 ? ("input" !== tag && setProp(domElement, tag, "name", props.name, props, null), setProp(
             domElement,
             tag,
             "formEncType",
@@ -10240,11 +10240,11 @@ function requireReactDomClient_production() {
             null
           )) : (setProp(domElement, tag, "encType", props.encType, props, null), setProp(domElement, tag, "method", props.method, props, null), setProp(domElement, tag, "target", props.target, props, null)));
         if (null == value || "symbol" === typeof value || "boolean" === typeof value) {
-          domElement.removeAttribute(key);
+          domElement.removeAttribute(key2);
           break;
         }
         value = sanitizeURL("" + value);
-        domElement.setAttribute(key, value);
+        domElement.setAttribute(key2, value);
         break;
       case "onClick":
         null != value && (domElement.onclick = noop$12);
@@ -10259,10 +10259,10 @@ function requireReactDomClient_production() {
         if (null != value) {
           if ("object" !== typeof value || !("__html" in value))
             throw Error(formatProdErrorMessage(61));
-          key = value.__html;
-          if (null != key) {
+          key2 = value.__html;
+          if (null != key2) {
             if (null != props.children) throw Error(formatProdErrorMessage(60));
-            domElement.innerHTML = key;
+            domElement.innerHTML = key2;
           }
         }
         break;
@@ -10286,11 +10286,11 @@ function requireReactDomClient_production() {
           domElement.removeAttribute("xlink:href");
           break;
         }
-        key = sanitizeURL("" + value);
+        key2 = sanitizeURL("" + value);
         domElement.setAttributeNS(
           "http://www.w3.org/1999/xlink",
           "xlink:href",
-          key
+          key2
         );
         break;
       case "contentEditable":
@@ -10301,7 +10301,7 @@ function requireReactDomClient_production() {
       case "externalResourcesRequired":
       case "focusable":
       case "preserveAlpha":
-        null != value && "function" !== typeof value && "symbol" !== typeof value ? domElement.setAttribute(key, "" + value) : domElement.removeAttribute(key);
+        null != value && "function" !== typeof value && "symbol" !== typeof value ? domElement.setAttribute(key2, "" + value) : domElement.removeAttribute(key2);
         break;
       case "inert":
       case "allowFullScreen":
@@ -10326,21 +10326,21 @@ function requireReactDomClient_production() {
       case "scoped":
       case "seamless":
       case "itemScope":
-        value && "function" !== typeof value && "symbol" !== typeof value ? domElement.setAttribute(key, "") : domElement.removeAttribute(key);
+        value && "function" !== typeof value && "symbol" !== typeof value ? domElement.setAttribute(key2, "") : domElement.removeAttribute(key2);
         break;
       case "capture":
       case "download":
-        true === value ? domElement.setAttribute(key, "") : false !== value && null != value && "function" !== typeof value && "symbol" !== typeof value ? domElement.setAttribute(key, value) : domElement.removeAttribute(key);
+        true === value ? domElement.setAttribute(key2, "") : false !== value && null != value && "function" !== typeof value && "symbol" !== typeof value ? domElement.setAttribute(key2, value) : domElement.removeAttribute(key2);
         break;
       case "cols":
       case "rows":
       case "size":
       case "span":
-        null != value && "function" !== typeof value && "symbol" !== typeof value && !isNaN(value) && 1 <= value ? domElement.setAttribute(key, value) : domElement.removeAttribute(key);
+        null != value && "function" !== typeof value && "symbol" !== typeof value && !isNaN(value) && 1 <= value ? domElement.setAttribute(key2, value) : domElement.removeAttribute(key2);
         break;
       case "rowSpan":
       case "start":
-        null == value || "function" === typeof value || "symbol" === typeof value || isNaN(value) ? domElement.removeAttribute(key) : domElement.setAttribute(key, value);
+        null == value || "function" === typeof value || "symbol" === typeof value || isNaN(value) ? domElement.removeAttribute(key2) : domElement.setAttribute(key2, value);
         break;
       case "popover":
         listenToNonDelegatedEvent("beforetoggle", domElement);
@@ -10426,12 +10426,12 @@ function requireReactDomClient_production() {
       case "textContent":
         break;
       default:
-        if (!(2 < key.length) || "o" !== key[0] && "O" !== key[0] || "n" !== key[1] && "N" !== key[1])
-          key = aliases.get(key) || key, setValueForAttribute(domElement, key, value);
+        if (!(2 < key2.length) || "o" !== key2[0] && "O" !== key2[0] || "n" !== key2[1] && "N" !== key2[1])
+          key2 = aliases.get(key2) || key2, setValueForAttribute(domElement, key2, value);
     }
   }
-  function setPropOnCustomElement(domElement, tag, key, value, props, prevValue) {
-    switch (key) {
+  function setPropOnCustomElement(domElement, tag, key2, value, props, prevValue) {
+    switch (key2) {
       case "style":
         setValueForStyles(domElement, value, prevValue);
         break;
@@ -10439,10 +10439,10 @@ function requireReactDomClient_production() {
         if (null != value) {
           if ("object" !== typeof value || !("__html" in value))
             throw Error(formatProdErrorMessage(61));
-          key = value.__html;
-          if (null != key) {
+          key2 = value.__html;
+          if (null != key2) {
             if (null != props.children) throw Error(formatProdErrorMessage(60));
-            domElement.innerHTML = key;
+            domElement.innerHTML = key2;
           }
         }
         break;
@@ -10467,14 +10467,14 @@ function requireReactDomClient_production() {
       case "textContent":
         break;
       default:
-        if (!registrationNameDependencies.hasOwnProperty(key))
+        if (!registrationNameDependencies.hasOwnProperty(key2))
           a: {
-            if ("o" === key[0] && "n" === key[1] && (props = key.endsWith("Capture"), tag = key.slice(2, props ? key.length - 7 : void 0), prevValue = domElement[internalPropsKey] || null, prevValue = null != prevValue ? prevValue[key] : null, "function" === typeof prevValue && domElement.removeEventListener(tag, prevValue, props), "function" === typeof value)) {
-              "function" !== typeof prevValue && null !== prevValue && (key in domElement ? domElement[key] = null : domElement.hasAttribute(key) && domElement.removeAttribute(key));
+            if ("o" === key2[0] && "n" === key2[1] && (props = key2.endsWith("Capture"), tag = key2.slice(2, props ? key2.length - 7 : void 0), prevValue = domElement[internalPropsKey] || null, prevValue = null != prevValue ? prevValue[key2] : null, "function" === typeof prevValue && domElement.removeEventListener(tag, prevValue, props), "function" === typeof value)) {
+              "function" !== typeof prevValue && null !== prevValue && (key2 in domElement ? domElement[key2] = null : domElement.hasAttribute(key2) && domElement.removeAttribute(key2));
               domElement.addEventListener(tag, value, props);
               break a;
             }
-            key in domElement ? domElement[key] = value : true === value ? domElement.setAttribute(key, "") : setValueForAttribute(domElement, key, value);
+            key2 in domElement ? domElement[key2] = value : true === value ? domElement.setAttribute(key2, "") : setValueForAttribute(domElement, key2, value);
           }
     }
   }
@@ -11286,29 +11286,29 @@ function requireReactDomClient_production() {
       ) + '"]', "string" === typeof options2.imageSizes && (preloadSelector += '[imagesizes="' + escapeSelectorAttributeValueInsideDoubleQuotes(
         options2.imageSizes
       ) + '"]')) : preloadSelector += '[href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href) + '"]' : preloadSelector += '[href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href) + '"]';
-      var key = preloadSelector;
+      var key2 = preloadSelector;
       switch (as) {
         case "style":
-          key = getStyleKey(href);
+          key2 = getStyleKey(href);
           break;
         case "script":
-          key = getScriptKey(href);
+          key2 = getScriptKey(href);
       }
-      preloadPropsMap.has(key) || (href = assign(
+      preloadPropsMap.has(key2) || (href = assign(
         {
           rel: "preload",
           href: "image" === as && options2 && options2.imageSrcSet ? void 0 : href,
           as
         },
         options2
-      ), preloadPropsMap.set(key, href), null !== ownerDocument.querySelector(preloadSelector) || "style" === as && ownerDocument.querySelector(getStylesheetSelectorFromKey(key)) || "script" === as && ownerDocument.querySelector(getScriptSelectorFromKey(key)) || (as = ownerDocument.createElement("link"), setInitialProperties(as, "link", href), markNodeAsHoistable(as), ownerDocument.head.appendChild(as)));
+      ), preloadPropsMap.set(key2, href), null !== ownerDocument.querySelector(preloadSelector) || "style" === as && ownerDocument.querySelector(getStylesheetSelectorFromKey(key2)) || "script" === as && ownerDocument.querySelector(getScriptSelectorFromKey(key2)) || (as = ownerDocument.createElement("link"), setInitialProperties(as, "link", href), markNodeAsHoistable(as), ownerDocument.head.appendChild(as)));
     }
   }
   function preloadModule(href, options2) {
     previousDispatcher.m(href, options2);
     var ownerDocument = globalDocument;
     if (ownerDocument && href) {
-      var as = options2 && "string" === typeof options2.as ? options2.as : "script", preloadSelector = 'link[rel="modulepreload"][as="' + escapeSelectorAttributeValueInsideDoubleQuotes(as) + '"][href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href) + '"]', key = preloadSelector;
+      var as = options2 && "string" === typeof options2.as ? options2.as : "script", preloadSelector = 'link[rel="modulepreload"][as="' + escapeSelectorAttributeValueInsideDoubleQuotes(as) + '"][href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href) + '"]', key2 = preloadSelector;
       switch (as) {
         case "audioworklet":
         case "paintworklet":
@@ -11316,9 +11316,9 @@ function requireReactDomClient_production() {
         case "sharedworker":
         case "worker":
         case "script":
-          key = getScriptKey(href);
+          key2 = getScriptKey(href);
       }
-      if (!preloadPropsMap.has(key) && (href = assign({ rel: "modulepreload", href }, options2), preloadPropsMap.set(key, href), null === ownerDocument.querySelector(preloadSelector))) {
+      if (!preloadPropsMap.has(key2) && (href = assign({ rel: "modulepreload", href }, options2), preloadPropsMap.set(key2, href), null === ownerDocument.querySelector(preloadSelector))) {
         switch (as) {
           case "audioworklet":
           case "paintworklet":
@@ -11326,7 +11326,7 @@ function requireReactDomClient_production() {
           case "sharedworker":
           case "worker":
           case "script":
-            if (ownerDocument.querySelector(getScriptSelectorFromKey(key)))
+            if (ownerDocument.querySelector(getScriptSelectorFromKey(key2)))
               return;
         }
         as = ownerDocument.createElement("link");
@@ -11340,13 +11340,13 @@ function requireReactDomClient_production() {
     previousDispatcher.S(href, precedence, options2);
     var ownerDocument = globalDocument;
     if (ownerDocument && href) {
-      var styles = getResourcesFromRoot(ownerDocument).hoistableStyles, key = getStyleKey(href);
+      var styles = getResourcesFromRoot(ownerDocument).hoistableStyles, key2 = getStyleKey(href);
       precedence = precedence || "default";
-      var resource = styles.get(key);
+      var resource = styles.get(key2);
       if (!resource) {
         var state = { loading: 0, preload: null };
         if (resource = ownerDocument.querySelector(
-          getStylesheetSelectorFromKey(key)
+          getStylesheetSelectorFromKey(key2)
         ))
           state.loading = 5;
         else {
@@ -11354,7 +11354,7 @@ function requireReactDomClient_production() {
             { rel: "stylesheet", href, "data-precedence": precedence },
             options2
           );
-          (options2 = preloadPropsMap.get(key)) && adoptPreloadPropsForStylesheet(href, options2);
+          (options2 = preloadPropsMap.get(key2)) && adoptPreloadPropsForStylesheet(href, options2);
           var link = resource = ownerDocument.createElement("link");
           markNodeAsHoistable(link);
           setInitialProperties(link, "link", href);
@@ -11377,7 +11377,7 @@ function requireReactDomClient_production() {
           count: 1,
           state
         };
-        styles.set(key, resource);
+        styles.set(key2, resource);
       }
     }
   }
@@ -11385,26 +11385,26 @@ function requireReactDomClient_production() {
     previousDispatcher.X(src, options2);
     var ownerDocument = globalDocument;
     if (ownerDocument && src) {
-      var scripts = getResourcesFromRoot(ownerDocument).hoistableScripts, key = getScriptKey(src), resource = scripts.get(key);
-      resource || (resource = ownerDocument.querySelector(getScriptSelectorFromKey(key)), resource || (src = assign({ src, async: true }, options2), (options2 = preloadPropsMap.get(key)) && adoptPreloadPropsForScript(src, options2), resource = ownerDocument.createElement("script"), markNodeAsHoistable(resource), setInitialProperties(resource, "link", src), ownerDocument.head.appendChild(resource)), resource = {
+      var scripts = getResourcesFromRoot(ownerDocument).hoistableScripts, key2 = getScriptKey(src), resource = scripts.get(key2);
+      resource || (resource = ownerDocument.querySelector(getScriptSelectorFromKey(key2)), resource || (src = assign({ src, async: true }, options2), (options2 = preloadPropsMap.get(key2)) && adoptPreloadPropsForScript(src, options2), resource = ownerDocument.createElement("script"), markNodeAsHoistable(resource), setInitialProperties(resource, "link", src), ownerDocument.head.appendChild(resource)), resource = {
         type: "script",
         instance: resource,
         count: 1,
         state: null
-      }, scripts.set(key, resource));
+      }, scripts.set(key2, resource));
     }
   }
   function preinitModuleScript(src, options2) {
     previousDispatcher.M(src, options2);
     var ownerDocument = globalDocument;
     if (ownerDocument && src) {
-      var scripts = getResourcesFromRoot(ownerDocument).hoistableScripts, key = getScriptKey(src), resource = scripts.get(key);
-      resource || (resource = ownerDocument.querySelector(getScriptSelectorFromKey(key)), resource || (src = assign({ src, async: true, type: "module" }, options2), (options2 = preloadPropsMap.get(key)) && adoptPreloadPropsForScript(src, options2), resource = ownerDocument.createElement("script"), markNodeAsHoistable(resource), setInitialProperties(resource, "link", src), ownerDocument.head.appendChild(resource)), resource = {
+      var scripts = getResourcesFromRoot(ownerDocument).hoistableScripts, key2 = getScriptKey(src), resource = scripts.get(key2);
+      resource || (resource = ownerDocument.querySelector(getScriptSelectorFromKey(key2)), resource || (src = assign({ src, async: true, type: "module" }, options2), (options2 = preloadPropsMap.get(key2)) && adoptPreloadPropsForScript(src, options2), resource = ownerDocument.createElement("script"), markNodeAsHoistable(resource), setInitialProperties(resource, "link", src), ownerDocument.head.appendChild(resource)), resource = {
         type: "script",
         instance: resource,
         count: 1,
         state: null
-      }, scripts.set(key, resource));
+      }, scripts.set(key2, resource));
     }
   }
   function getResource(type, currentProps, pendingProps, currentResource) {
@@ -11474,8 +11474,8 @@ function requireReactDomClient_production() {
   function getStyleKey(href) {
     return 'href="' + escapeSelectorAttributeValueInsideDoubleQuotes(href) + '"';
   }
-  function getStylesheetSelectorFromKey(key) {
-    return 'link[rel="stylesheet"][' + key + "]";
+  function getStylesheetSelectorFromKey(key2) {
+    return 'link[rel="stylesheet"][' + key2 + "]";
   }
   function stylesheetPropsFromRawProps(rawProps) {
     return assign({}, rawProps, {
@@ -11483,18 +11483,18 @@ function requireReactDomClient_production() {
       precedence: null
     });
   }
-  function preloadStylesheet(ownerDocument, key, preloadProps, state) {
-    ownerDocument.querySelector('link[rel="preload"][as="style"][' + key + "]") ? state.loading = 1 : (key = ownerDocument.createElement("link"), state.preload = key, key.addEventListener("load", function() {
+  function preloadStylesheet(ownerDocument, key2, preloadProps, state) {
+    ownerDocument.querySelector('link[rel="preload"][as="style"][' + key2 + "]") ? state.loading = 1 : (key2 = ownerDocument.createElement("link"), state.preload = key2, key2.addEventListener("load", function() {
       return state.loading |= 1;
-    }), key.addEventListener("error", function() {
+    }), key2.addEventListener("error", function() {
       return state.loading |= 2;
-    }), setInitialProperties(key, "link", preloadProps), markNodeAsHoistable(key), ownerDocument.head.appendChild(key));
+    }), setInitialProperties(key2, "link", preloadProps), markNodeAsHoistable(key2), ownerDocument.head.appendChild(key2));
   }
   function getScriptKey(src) {
     return '[src="' + escapeSelectorAttributeValueInsideDoubleQuotes(src) + '"]';
   }
-  function getScriptSelectorFromKey(key) {
-    return "script[async]" + key;
+  function getScriptSelectorFromKey(key2) {
+    return "script[async]" + key2;
   }
   function acquireResource(hoistableRoot, resource, props) {
     resource.count++;
@@ -11643,8 +11643,8 @@ function requireReactDomClient_production() {
   function suspendResource(state, hoistableRoot, resource, props) {
     if ("stylesheet" === resource.type && ("string" !== typeof props.media || false !== matchMedia(props.media).matches) && 0 === (resource.state.loading & 4)) {
       if (null === resource.instance) {
-        var key = getStyleKey(props.href), instance = hoistableRoot.querySelector(
-          getStylesheetSelectorFromKey(key)
+        var key2 = getStyleKey(props.href), instance = hoistableRoot.querySelector(
+          getStylesheetSelectorFromKey(key2)
         );
         if (instance) {
           hoistableRoot = instance._p;
@@ -11656,7 +11656,7 @@ function requireReactDomClient_production() {
         }
         instance = hoistableRoot.ownerDocument || hoistableRoot;
         props = stylesheetPropsFromRawProps(props);
-        (key = preloadPropsMap.get(key)) && adoptPreloadPropsForStylesheet(props, key);
+        (key2 = preloadPropsMap.get(key2)) && adoptPreloadPropsForStylesheet(props, key2);
         instance = instance.createElement("link");
         markNodeAsHoistable(instance);
         var linkInstance = instance;
@@ -12206,8 +12206,8 @@ function requireReactDomClient_production() {
     }
     return true;
   }
-  function attemptReplayContinuousQueuedEventInMap(queuedEvent, key, map2) {
-    attemptReplayContinuousQueuedEvent(queuedEvent) && map2.delete(key);
+  function attemptReplayContinuousQueuedEventInMap(queuedEvent, key2, map2) {
+    attemptReplayContinuousQueuedEvent(queuedEvent) && map2.delete(key2);
   }
   function replayUnblockedEvents() {
     hasScheduledReplayAttempt = false;
@@ -13009,17 +13009,17 @@ const createLucideIcon = (iconName, iconNode) => {
   Component.displayName = toPascalCase(iconName);
   return Component;
 };
-const __iconNode$P = [
+const __iconNode$Q = [
   ["path", { d: "M12 5v14", key: "s699le" }],
   ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
 ];
-const ArrowDown = createLucideIcon("arrow-down", __iconNode$P);
-const __iconNode$O = [
+const ArrowDown = createLucideIcon("arrow-down", __iconNode$Q);
+const __iconNode$P = [
   ["path", { d: "m5 12 7-7 7 7", key: "hav0vg" }],
   ["path", { d: "M12 19V5", key: "x0mq9r" }]
 ];
-const ArrowUp = createLucideIcon("arrow-up", __iconNode$O);
-const __iconNode$N = [
+const ArrowUp = createLucideIcon("arrow-up", __iconNode$P);
+const __iconNode$O = [
   ["path", { d: "M10 2v8l3-3 3 3V2", key: "sqw3rj" }],
   [
     "path",
@@ -13029,8 +13029,8 @@ const __iconNode$N = [
     }
   ]
 ];
-const BookMarked = createLucideIcon("book-marked", __iconNode$N);
-const __iconNode$M = [
+const BookMarked = createLucideIcon("book-marked", __iconNode$O);
+const __iconNode$N = [
   ["path", { d: "M12 5v16", key: "1f6ucr" }],
   [
     "path",
@@ -13040,8 +13040,8 @@ const __iconNode$M = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$M);
-const __iconNode$L = [
+const BookOpen = createLucideIcon("book-open", __iconNode$N);
+const __iconNode$M = [
   [
     "path",
     {
@@ -13052,38 +13052,38 @@ const __iconNode$L = [
   ["path", { d: "m3.3 7 8.7 5 8.7-5", key: "g66t2b" }],
   ["path", { d: "M12 22V12", key: "d0xqtd" }]
 ];
-const Box$1 = createLucideIcon("box", __iconNode$L);
-const __iconNode$K = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("check", __iconNode$K);
-const __iconNode$J = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$J);
-const __iconNode$I = [
+const Box$1 = createLucideIcon("box", __iconNode$M);
+const __iconNode$L = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("check", __iconNode$L);
+const __iconNode$K = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$K);
+const __iconNode$J = [
   ["path", { d: "M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z", key: "p7xjir" }]
 ];
-const Cloud = createLucideIcon("cloud", __iconNode$I);
-const __iconNode$H = [
+const Cloud = createLucideIcon("cloud", __iconNode$J);
+const __iconNode$I = [
   ["path", { d: "M17.5 12a1 1 0 1 1 0 9H9.006a7 7 0 1 1 6.702-9z", key: "44yre2" }],
   ["path", { d: "M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61", key: "leugyv" }]
 ];
-const Cloudy = createLucideIcon("cloudy", __iconNode$H);
-const __iconNode$G = [
+const Cloudy = createLucideIcon("cloudy", __iconNode$I);
+const __iconNode$H = [
   ["rect", { width: "14", height: "14", x: "8", y: "8", rx: "2", ry: "2", key: "17jyea" }],
   ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
 ];
-const Copy = createLucideIcon("copy", __iconNode$G);
-const __iconNode$F = [
+const Copy = createLucideIcon("copy", __iconNode$H);
+const __iconNode$G = [
   ["path", { d: "M12 15V3", key: "m9g1x1" }],
   ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }],
   ["path", { d: "m7 10 5 5 5-5", key: "brsn70" }]
 ];
-const Download = createLucideIcon("download", __iconNode$F);
-const __iconNode$E = [
+const Download = createLucideIcon("download", __iconNode$G);
+const __iconNode$F = [
   ["circle", { cx: "12", cy: "12", r: "1", key: "41hilf" }],
   ["circle", { cx: "19", cy: "12", r: "1", key: "1wjl8i" }],
   ["circle", { cx: "5", cy: "12", r: "1", key: "1pcz8c" }]
 ];
-const Ellipsis = createLucideIcon("ellipsis", __iconNode$E);
-const __iconNode$D = [
+const Ellipsis = createLucideIcon("ellipsis", __iconNode$F);
+const __iconNode$E = [
   [
     "path",
     {
@@ -13093,8 +13093,8 @@ const __iconNode$D = [
   ],
   ["path", { d: "m5.082 11.09 8.828 8.828", key: "1wx5vj" }]
 ];
-const Eraser = createLucideIcon("eraser", __iconNode$D);
-const __iconNode$C = [
+const Eraser = createLucideIcon("eraser", __iconNode$E);
+const __iconNode$D = [
   [
     "path",
     {
@@ -13106,8 +13106,8 @@ const __iconNode$C = [
   ["path", { d: "M12 18v-6", key: "17g6i2" }],
   ["path", { d: "m9 15 3 3 3-3", key: "1npd3o" }]
 ];
-const FileDown = createLucideIcon("file-down", __iconNode$C);
-const __iconNode$B = [
+const FileDown = createLucideIcon("file-down", __iconNode$D);
+const __iconNode$C = [
   [
     "path",
     {
@@ -13119,8 +13119,8 @@ const __iconNode$B = [
   ["path", { d: "M9 15h6", key: "cctwl0" }],
   ["path", { d: "M12 18v-6", key: "17g6i2" }]
 ];
-const FilePlus = createLucideIcon("file-plus", __iconNode$B);
-const __iconNode$A = [
+const FilePlus = createLucideIcon("file-plus", __iconNode$C);
+const __iconNode$B = [
   [
     "path",
     {
@@ -13133,8 +13133,8 @@ const __iconNode$A = [
   ["path", { d: "M16 13H8", key: "t4e002" }],
   ["path", { d: "M16 17H8", key: "z1uh3a" }]
 ];
-const FileText = createLucideIcon("file-text", __iconNode$A);
-const __iconNode$z = [
+const FileText = createLucideIcon("file-text", __iconNode$B);
+const __iconNode$A = [
   [
     "path",
     {
@@ -13143,7 +13143,15 @@ const __iconNode$z = [
     }
   ]
 ];
-const Folder = createLucideIcon("folder", __iconNode$z);
+const Folder = createLucideIcon("folder", __iconNode$A);
+const __iconNode$z = [
+  ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }],
+  ["path", { d: "M3 9h18", key: "1pudct" }],
+  ["path", { d: "M3 15h18", key: "5xshup" }],
+  ["path", { d: "M9 3v18", key: "fh3hqa" }],
+  ["path", { d: "M15 3v18", key: "14nvp0" }]
+];
+const Grid3x3 = createLucideIcon("grid-3x3", __iconNode$z);
 const __iconNode$y = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M12 16v-4", key: "1dtifu" }],
@@ -13444,10 +13452,10 @@ const CHORD = /\bCtrl\+(?:Alt\+|Shift\+)*(?:plus|minus|comma|backslash|Enter|Tab
 function macChord(chord) {
   if (chord === "Ctrl+Y") return "⇧⌘Z";
   const parts = chord.split("+");
-  const key = parts[parts.length - 1] ?? "";
+  const key2 = parts[parts.length - 1] ?? "";
   const held = parts.slice(0, -1);
   const glyphs = ["Alt", "Shift", "Ctrl"].filter((name) => held.includes(name)).map((name) => MODIFIERS[name]);
-  return `${glyphs.join("")}${NAMED[key] ?? key.toUpperCase()}`;
+  return `${glyphs.join("")}${NAMED[key2] ?? key2.toUpperCase()}`;
 }
 function shortcut(text, mac2) {
   return mac2 ? text.replace(CHORD, macChord) : text;
@@ -13708,8 +13716,8 @@ function visible$1(sermon, view) {
 function lineFor$1(block) {
   const heading = blockHeading(block);
   if (heading && heading.trim()) return heading.trim();
-  const key = keyLine(block);
-  return key ? key.spans.map((span) => span.text).join("") : "";
+  const key2 = keyLine(block);
+  return key2 ? key2.spans.map((span) => span.text).join("") : "";
 }
 function alignAttr(block) {
   const spaced = block.type === "table" || block.type === "image" || block.type === "scripture" ? null : block;
@@ -14129,7 +14137,7 @@ function renderOutlineHtml(sermon, page, options = DEFAULT_OUTLINE_OPTIONS) {
       counts.points += 1;
     }
     const num = point ? numeral$1(number, options.numbering) : "";
-    const key = point && options.keyLine ? keyLine(point) : null;
+    const key2 = point && options.keyLine ? keyLine(point) : null;
     const lines = section.under.filter((block) => {
       if (block.type === "scripture") return options.passages;
       if (block.type === "illustration") return options.stories;
@@ -14158,7 +14166,7 @@ function renderOutlineHtml(sermon, page, options = DEFAULT_OUTLINE_OPTIONS) {
     const heading = point ? escapeHtml(blockHeading(point)?.trim() || UNTITLED_POINT) : "Before the first point";
     const tools = point ? `<span class="tools" aria-hidden="true"><span class="tool" role="button" data-move="up" data-id="${escapeHtml(point.id)}" title="Move this point up, with everything under it">&#8593;</span><span class="tool" role="button" data-move="down" data-id="${escapeHtml(point.id)}" title="Move this point down, with everything under it">&#8595;</span></span>` : "";
     const minutes = options.minutes && shown > 0 ? `<span class="min${set ? " min--set" : ""}" title="${set ? "Planned by hand" : "Estimated from the words"}">${shown} min</span>` : '<span class="min"></span>';
-    const keyHtml = key ? `<p class="key${key.marked ? "" : " key--stand-in"}">${key.spans.map((span) => spanHtml(span, PLAIN)).join("")}</p>` : "";
+    const keyHtml = key2 ? `<p class="key${key2.marked ? "" : " key--stand-in"}">${key2.spans.map((span) => spanHtml(span, PLAIN)).join("")}</p>` : "";
     return `<li class="item${point ? "" : " item--intro"}"${point ? ` data-open="${escapeHtml(point.id)}"` : ""}>
   <span class="num">${num}</span>
   <span class="head">${heading}${tools}</span>
@@ -14269,8 +14277,8 @@ function renderHandoutHtml(sermon, options, page) {
     if (block.type === "point" && pointsAs !== "full") {
       pointNumber += 1;
       const num2 = pointCount > 1 ? `<span class="n">${pointNumber}.</span>` : "";
-      const key = pointsAs === "key" ? keyLine(block) : null;
-      const line = key ? `<p class="key">${key.spans.map((span) => spanHtml(span, flags)).join("")}</p>` : "";
+      const key2 = pointsAs === "key" ? keyLine(block) : null;
+      const line = key2 ? `<p class="key">${key2.spans.map((span) => spanHtml(span, flags)).join("")}</p>` : "";
       return `<section class="block point"${alignAttr(block)}>
   <h2>${num2}${escapeHtml(heading?.trim() || UNTITLED_POINT)}</h2>
   ${line}
@@ -14835,27 +14843,27 @@ function OrderedMap(content) {
 }
 OrderedMap.prototype = {
   constructor: OrderedMap,
-  find: function(key) {
+  find: function(key2) {
     for (var i2 = 0; i2 < this.content.length; i2 += 2)
-      if (this.content[i2] === key) return i2;
+      if (this.content[i2] === key2) return i2;
     return -1;
   },
   // :: (string) → ?any
   // Retrieve the value stored under `key`, or return undefined when
   // no such key exists.
-  get: function(key) {
-    var found2 = this.find(key);
+  get: function(key2) {
+    var found2 = this.find(key2);
     return found2 == -1 ? void 0 : this.content[found2 + 1];
   },
   // :: (string, any, ?string) → OrderedMap
   // Create a new map by replacing the value of `key` with a new
   // value, or adding a binding to the end of the map. If `newKey` is
   // given, the key of the binding will be replaced with that key.
-  update: function(key, value, newKey) {
-    var self = newKey && newKey != key ? this.remove(newKey) : this;
-    var found2 = self.find(key), content = self.content.slice();
+  update: function(key2, value, newKey) {
+    var self = newKey && newKey != key2 ? this.remove(newKey) : this;
+    var found2 = self.find(key2), content = self.content.slice();
     if (found2 == -1) {
-      content.push(newKey || key, value);
+      content.push(newKey || key2, value);
     } else {
       content[found2 + 1] = value;
       if (newKey) content[found2] = newKey;
@@ -14864,8 +14872,8 @@ OrderedMap.prototype = {
   },
   // :: (string) → OrderedMap
   // Return a map with the given key removed, if it existed.
-  remove: function(key) {
-    var found2 = this.find(key);
+  remove: function(key2) {
+    var found2 = this.find(key2);
     if (found2 == -1) return this;
     var content = this.content.slice();
     content.splice(found2, 2);
@@ -14873,23 +14881,23 @@ OrderedMap.prototype = {
   },
   // :: (string, any) → OrderedMap
   // Add a new key to the start of the map.
-  addToStart: function(key, value) {
-    return new OrderedMap([key, value].concat(this.remove(key).content));
+  addToStart: function(key2, value) {
+    return new OrderedMap([key2, value].concat(this.remove(key2).content));
   },
   // :: (string, any) → OrderedMap
   // Add a new key to the end of the map.
-  addToEnd: function(key, value) {
-    var content = this.remove(key).content.slice();
-    content.push(key, value);
+  addToEnd: function(key2, value) {
+    var content = this.remove(key2).content.slice();
+    content.push(key2, value);
     return new OrderedMap(content);
   },
   // :: (string, string, any) → OrderedMap
   // Add a key after the given key. If `place` is not found, the new
   // key is added to the end.
-  addBefore: function(place, key, value) {
-    var without = this.remove(key), content = without.content.slice();
+  addBefore: function(place, key2, value) {
+    var without = this.remove(key2), content = without.content.slice();
     var found2 = without.find(place);
-    content.splice(found2 == -1 ? content.length : found2, 0, key, value);
+    content.splice(found2 == -1 ? content.length : found2, 0, key2, value);
     return new OrderedMap(content);
   },
   // :: ((key: string, value: any))
@@ -14929,8 +14937,8 @@ OrderedMap.prototype = {
   // Turn ordered map into a plain object.
   toObject: function() {
     var result = {};
-    this.forEach(function(key, value) {
-      result[key] = value;
+    this.forEach(function(key2, value) {
+      result[key2] = value;
     });
     return result;
   },
@@ -20604,15 +20612,15 @@ class Transaction extends Transform {
   Store a metadata property in this transaction, keyed either by
   name or by plugin.
   */
-  setMeta(key, value) {
-    this.meta[typeof key == "string" ? key : key.key] = value;
+  setMeta(key2, value) {
+    this.meta[typeof key2 == "string" ? key2 : key2.key] = value;
     return this;
   }
   /**
   Retrieve a metadata property for a given name or plugin.
   */
-  getMeta(key) {
-    return this.meta[typeof key == "string" ? key : key.key];
+  getMeta(key2) {
+    return this.meta[typeof key2 == "string" ? key2 : key2.key];
   }
   /**
   Returns true if this transaction doesn't contain any metadata,
@@ -21518,20 +21526,20 @@ function liftToOuterList(state, dispatch, itemType, range) {
   return true;
 }
 function liftOutOfList(state, dispatch, range) {
-  let tr2 = state.tr, list = range.parent;
+  let tr2 = state.tr, list2 = range.parent;
   for (let pos = range.end, i2 = range.endIndex - 1, e4 = range.startIndex; i2 > e4; i2--) {
-    pos -= list.child(i2).nodeSize;
+    pos -= list2.child(i2).nodeSize;
     tr2.delete(pos - 1, pos + 1);
   }
   let $start = tr2.doc.resolve(range.start), item = $start.nodeAfter;
   if (tr2.mapping.map(range.end) != range.start + $start.nodeAfter.nodeSize)
     return false;
-  let atStart = range.startIndex == 0, atEnd = range.endIndex == list.childCount;
+  let atStart = range.startIndex == 0, atEnd = range.endIndex == list2.childCount;
   let parent = $start.node(-1), indexBefore = $start.index(-1);
-  if (!parent.canReplace(indexBefore + (atStart ? 0 : 1), indexBefore + 1, item.content.append(atEnd ? Fragment.empty : Fragment.from(list))))
+  if (!parent.canReplace(indexBefore + (atStart ? 0 : 1), indexBefore + 1, item.content.append(atEnd ? Fragment.empty : Fragment.from(list2))))
     return false;
   let start = $start.pos, end = start + item.nodeSize;
-  tr2.step(new ReplaceAroundStep(start - (atStart ? 1 : 0), end + (atEnd ? 1 : 0), start + 1, end - 1, new Slice((atStart ? Fragment.empty : Fragment.from(list.copy(Fragment.empty))).append(atEnd ? Fragment.empty : Fragment.from(list.copy(Fragment.empty))), atStart ? 0 : 1, atEnd ? 0 : 1), atStart ? 0 : 1));
+  tr2.step(new ReplaceAroundStep(start - (atStart ? 1 : 0), end + (atEnd ? 1 : 0), start + 1, end - 1, new Slice((atStart ? Fragment.empty : Fragment.from(list2.copy(Fragment.empty))).append(atEnd ? Fragment.empty : Fragment.from(list2.copy(Fragment.empty))), atStart ? 0 : 1, atEnd ? 0 : 1), atStart ? 0 : 1));
   dispatch(tr2.scrollIntoView());
   return true;
 }
@@ -21668,11 +21676,11 @@ function hasBlockDesc(dom) {
 const selectionCollapsed = function(domSel) {
   return domSel.focusNode && isEquivalentPosition(domSel.focusNode, domSel.focusOffset, domSel.anchorNode, domSel.anchorOffset);
 };
-function keyEvent(keyCode, key) {
+function keyEvent(keyCode, key2) {
   let event = document.createEvent("Event");
   event.initEvent("keydown", true, true);
   event.keyCode = keyCode;
-  event.key = event.code = key;
+  event.key = event.code = key2;
   return event;
 }
 function deepActiveElement(doc2) {
@@ -27399,14 +27407,14 @@ function objectIncludes(object1, object2, options = { strict: true }) {
   if (!keys2.length) {
     return true;
   }
-  return keys2.every((key) => {
+  return keys2.every((key2) => {
     if (options.strict) {
-      return object2[key] === object1[key];
+      return object2[key2] === object1[key2];
     }
-    if (isRegExp(object2[key])) {
-      return object2[key].test(object1[key]);
+    if (isRegExp(object2[key2])) {
+      return object2[key2].test(object1[key2]);
     }
-    return object2[key] === object1[key];
+    return object2[key2] === object1[key2];
   });
 }
 function findMarkInSet(marks, type, attributes = {}) {
@@ -27844,7 +27852,7 @@ var insertDefaultBlock = (options = {}) => ({ tr: tr2, dispatch, editor }) => {
     return false;
   }
   const validAttrKeys = Object.keys(defaultType.spec.attrs || {});
-  const filteredAttrs = attrs ? Object.fromEntries(Object.entries(attrs).filter(([key]) => validAttrKeys.includes(key))) : {};
+  const filteredAttrs = attrs ? Object.fromEntries(Object.entries(attrs).filter(([key2]) => validAttrKeys.includes(key2))) : {};
   let node;
   if (content) {
     const parsed = createNodeFromContent(content, editor.schema);
@@ -27960,9 +27968,9 @@ function normalizeKeyName(name) {
 }
 var keyboardShortcut = (name) => ({ editor, view, tr: tr2, dispatch }) => {
   const keys2 = normalizeKeyName(name).split(/-(?!$)/);
-  const key = keys2.find((item) => !["Alt", "Ctrl", "Meta", "Shift"].includes(item));
+  const key2 = keys2.find((item) => !["Alt", "Ctrl", "Meta", "Shift"].includes(item));
   const event = new KeyboardEvent("keydown", {
-    key: key === "Space" ? " " : key,
+    key: key2 === "Space" ? " " : key2,
     altKey: keys2.includes("Alt"),
     ctrlKey: keys2.includes("Ctrl"),
     metaKey: keys2.includes("Meta"),
@@ -28420,27 +28428,27 @@ function parseStyleEntries(styles) {
 function mergeAttributes(...objects) {
   return objects.filter((item) => !!item).reduce((items, item) => {
     const mergedAttributes = { ...items };
-    Object.entries(item).forEach(([key, value]) => {
-      const exists = mergedAttributes[key];
+    Object.entries(item).forEach(([key2, value]) => {
+      const exists = mergedAttributes[key2];
       if (!exists) {
-        mergedAttributes[key] = value;
+        mergedAttributes[key2] = value;
         return;
       }
-      if (key === "class") {
+      if (key2 === "class") {
         const valueClasses = value ? String(value).split(" ") : [];
-        const existingClasses = mergedAttributes[key] ? mergedAttributes[key].split(" ") : [];
+        const existingClasses = mergedAttributes[key2] ? mergedAttributes[key2].split(" ") : [];
         const insertClasses = valueClasses.filter(
           (valueClass) => !existingClasses.includes(valueClass)
         );
-        mergedAttributes[key] = [...existingClasses, ...insertClasses].join(" ");
-      } else if (key === "style") {
+        mergedAttributes[key2] = [...existingClasses, ...insertClasses].join(" ");
+      } else if (key2 === "style") {
         const styleMap = new Map([
-          ...parseStyleEntries(mergedAttributes[key]),
+          ...parseStyleEntries(mergedAttributes[key2]),
           ...parseStyleEntries(value)
         ]);
-        mergedAttributes[key] = Array.from(styleMap.entries()).map(([property, val]) => `${property}: ${val}`).join("; ");
+        mergedAttributes[key2] = Array.from(styleMap.entries()).map(([property, val]) => `${property}: ${val}`).join("; ");
       } else {
-        mergedAttributes[key] = value;
+        mergedAttributes[key2] = value;
       }
     });
     return mergedAttributes;
@@ -28499,8 +28507,8 @@ function injectExtensionAttributesToParseRule(parseRule, extensionAttributes) {
 function cleanUpSchemaItem(data) {
   return Object.fromEntries(
     // @ts-ignore
-    Object.entries(data).filter(([key, value]) => {
-      if (key === "attrs" && isEmptyObject(value)) {
+    Object.entries(data).filter(([key2, value]) => {
+      if (key2 === "attrs" && isEmptyObject(value)) {
         return false;
       }
       return value !== null && value !== void 0;
@@ -28775,8 +28783,8 @@ function getAttributes(state, typeOrName) {
 function removeDuplicates(array, by = JSON.stringify) {
   const seen2 = {};
   return array.filter((item) => {
-    const key = by(item);
-    return Object.prototype.hasOwnProperty.call(seen2, key) ? false : seen2[key] = true;
+    const key2 = by(item);
+    return Object.prototype.hasOwnProperty.call(seen2, key2) ? false : seen2[key2] = true;
   });
 }
 function simplifyChangedRanges(changes) {
@@ -29166,8 +29174,8 @@ var setMark = (typeOrName, attributes = {}) => ({ tr: tr2, state, dispatch }) =>
   }
   return canSetMark(state, tr2, type);
 };
-var setMeta = (key, value) => ({ tr: tr2 }) => {
-  tr2.setMeta(key, value);
+var setMeta = (key2, value) => ({ tr: tr2 }) => {
+  tr2.setMeta(key2, value);
   return true;
 };
 var setNode = (typeOrName, attributes = {}) => ({ state, dispatch, chain }) => {
@@ -29401,40 +29409,40 @@ function areListTypesCompatible(typeA, typeB) {
   return normalizeListType(typeA) === normalizeListType(typeB);
 }
 var joinListBackwards = (tr2, listType) => {
-  const list = findParentNode((node) => node.type === listType)(tr2.selection);
-  if (!list) {
+  const list2 = findParentNode((node) => node.type === listType)(tr2.selection);
+  if (!list2) {
     return true;
   }
-  const before = tr2.doc.resolve(Math.max(0, list.pos - 1)).before(list.depth);
+  const before = tr2.doc.resolve(Math.max(0, list2.pos - 1)).before(list2.depth);
   if (before === void 0) {
     return true;
   }
   const nodeBefore = tr2.doc.nodeAt(before);
-  const canJoinBackwards = list.node.type === (nodeBefore == null ? void 0 : nodeBefore.type) && canJoin(tr2.doc, list.pos);
+  const canJoinBackwards = list2.node.type === (nodeBefore == null ? void 0 : nodeBefore.type) && canJoin(tr2.doc, list2.pos);
   if (!canJoinBackwards) {
     return true;
   }
-  if (!areListTypesCompatible(list.node.attrs.type, nodeBefore == null ? void 0 : nodeBefore.attrs.type)) {
+  if (!areListTypesCompatible(list2.node.attrs.type, nodeBefore == null ? void 0 : nodeBefore.attrs.type)) {
     return true;
   }
-  tr2.join(list.pos);
+  tr2.join(list2.pos);
   return true;
 };
 var joinListForwards = (tr2, listType) => {
-  const list = findParentNode((node) => node.type === listType)(tr2.selection);
-  if (!list) {
+  const list2 = findParentNode((node) => node.type === listType)(tr2.selection);
+  if (!list2) {
     return true;
   }
-  const after = tr2.doc.resolve(list.start).after(list.depth);
+  const after = tr2.doc.resolve(list2.start).after(list2.depth);
   if (after === void 0) {
     return true;
   }
   const nodeAfter = tr2.doc.nodeAt(after);
-  const canJoinForwards = list.node.type === (nodeAfter == null ? void 0 : nodeAfter.type) && canJoin(tr2.doc, after);
+  const canJoinForwards = list2.node.type === (nodeAfter == null ? void 0 : nodeAfter.type) && canJoin(tr2.doc, after);
   if (!canJoinForwards) {
     return true;
   }
-  if (!areListTypesCompatible(list.node.attrs.type, nodeAfter == null ? void 0 : nodeAfter.attrs.type)) {
+  if (!areListTypesCompatible(list2.node.attrs.type, nodeAfter == null ? void 0 : nodeAfter.attrs.type)) {
     return true;
   }
   tr2.join(after);
@@ -29442,12 +29450,12 @@ var joinListForwards = (tr2, listType) => {
 };
 function createInnerSelectionForWholeDocList(tr2) {
   const doc2 = tr2.doc;
-  const list = doc2.firstChild;
-  if (!list) {
+  const list2 = doc2.firstChild;
+  if (!list2) {
     return null;
   }
   const $start = doc2.resolve(1);
-  const $end = doc2.resolve(list.nodeSize - 1);
+  const $end = doc2.resolve(list2.nodeSize - 1);
   return TextSelection.between($start, $end);
 }
 var toggleList = (listTypeOrName, itemTypeOrName, keepMarks, attributes = {}) => ({ editor, tr: tr2, state, dispatch, chain, commands, can }) => {
@@ -29877,8 +29885,8 @@ function filterOutOfRangeDecorations({
 }
 function widgetKeyOf(decoration) {
   var _a;
-  const key = (_a = decoration.spec) == null ? void 0 : _a.key;
-  return typeof key === "string" ? key : void 0;
+  const key2 = (_a = decoration.spec) == null ? void 0 : _a.key;
+  return typeof key2 === "string" ? key2 : void 0;
 }
 function isAttrStep(step) {
   return step.jsonID === "attr";
@@ -29947,9 +29955,9 @@ function getRebuildRanges(tr2, doc2) {
 function mapDecorationSet(set, mapping, doc2, widgetKeys) {
   return set.map(mapping, doc2, {
     onRemove: (removedSpec) => {
-      const key = removedSpec == null ? void 0 : removedSpec.key;
-      if (typeof key === "string") {
-        widgetKeys.delete(key);
+      const key2 = removedSpec == null ? void 0 : removedSpec.key;
+      if (typeof key2 === "string") {
+        widgetKeys.delete(key2);
       }
     }
   });
@@ -29968,8 +29976,8 @@ function mergeDecorationSets(doc2, decorationSetsByExtension) {
 function unionWidgetKeys(widgetKeysByExtension) {
   const merged = /* @__PURE__ */ new Set();
   for (const keys2 of Object.values(widgetKeysByExtension)) {
-    for (const key of keys2) {
-      merged.add(key);
+    for (const key2 of keys2) {
+      merged.add(key2);
     }
   }
   return merged;
@@ -30191,9 +30199,9 @@ var DecorationManager = class {
     for (const { from: from2, to } of ranges) {
       const stale = set.find(from2, to).filter((decoration) => rangeOwnsPosition({ position: decoration.from, from: from2, to, docSize }));
       for (const decoration of stale) {
-        const key = widgetKeyOf(decoration);
-        if (key) {
-          widgetKeys.delete(key);
+        const key2 = widgetKeyOf(decoration);
+        if (key2) {
+          widgetKeys.delete(key2);
         }
       }
       set = set.remove(stale);
@@ -30220,8 +30228,8 @@ var DecorationManager = class {
         name
       );
       set = set.add(newState.doc, pmDecorations);
-      for (const key of addedKeys) {
-        widgetKeys.add(key);
+      for (const key2 of addedKeys) {
+        widgetKeys.add(key2);
       }
     }
     return { set, widgetKeys };
@@ -30361,12 +30369,12 @@ function parseAttributes(attrString) {
   }
   const kvRegex = /([a-zA-Z][\w-]*)\s*=\s*(__QUOTED_\d+__)/g;
   const kvMatches = Array.from(tempString.matchAll(kvRegex));
-  kvMatches.forEach(([, key, quotedRef]) => {
+  kvMatches.forEach(([, key2, quotedRef]) => {
     var _a;
     const quotedIndex = parseInt(((_a = quotedRef.match(/__QUOTED_(\d+)__/)) == null ? void 0 : _a[1]) || "0", 10);
     const quotedValue = quotedStrings[quotedIndex];
     if (quotedValue) {
-      attributes[key] = quotedValue.slice(1, -1);
+      attributes[key2] = quotedValue.slice(1, -1);
     }
   });
   const cleanString = tempString.replace(/(?:^|\s)\.([\w-]+)/g, "").replace(/(?:^|\s)#([\w-]+)/g, "").replace(/([a-zA-Z][\w-]*)\s*=\s*__QUOTED_\d+__/g, "").trim();
@@ -30392,14 +30400,14 @@ function serializeAttributes(attributes) {
   if (attributes.id) {
     parts.push(`#${attributes.id}`);
   }
-  Object.entries(attributes).forEach(([key, value]) => {
-    if (key === "class" || key === "id") {
+  Object.entries(attributes).forEach(([key2, value]) => {
+    if (key2 === "class" || key2 === "id") {
       return;
     }
     if (value === true) {
-      parts.push(key);
+      parts.push(key2);
     } else if (value !== false && value != null) {
-      parts.push(`${key}="${String(value)}"`);
+      parts.push(`${key2}="${String(value)}"`);
     }
   });
   return parts.join(" ");
@@ -30420,9 +30428,9 @@ function createAtomBlockMarkdownSpec(options) {
       return attrs;
     }
     const filtered = {};
-    allowedAttributes.forEach((key) => {
-      if (key in attrs) {
-        filtered[key] = attrs[key];
+    allowedAttributes.forEach((key2) => {
+      if (key2 in attrs) {
+        filtered[key2] = attrs[key2];
       }
     });
     return filtered;
@@ -30485,9 +30493,9 @@ function createBlockMarkdownSpec(options) {
       return attrs;
     }
     const filtered = {};
-    allowedAttributes.forEach((key) => {
-      if (key in attrs) {
-        filtered[key] = attrs[key];
+    allowedAttributes.forEach((key2) => {
+      if (key2 in attrs) {
+        filtered[key2] = attrs[key2];
       }
     });
     return filtered;
@@ -30603,14 +30611,14 @@ function parseShortcodeAttributes(attrString) {
   const regex = /(\w+)=(?:"([^"]*)"|'([^']*)')/g;
   let match = regex.exec(attrString);
   while (match !== null) {
-    const [, key, doubleQuoted, singleQuoted] = match;
-    attributes[key] = doubleQuoted || singleQuoted;
+    const [, key2, doubleQuoted, singleQuoted] = match;
+    attributes[key2] = doubleQuoted || singleQuoted;
     match = regex.exec(attrString);
   }
   return attributes;
 }
 function serializeShortcodeAttributes(attrs) {
-  return Object.entries(attrs).filter(([, value]) => value !== void 0 && value !== null).map(([key, value]) => `${key}="${value}"`).join(" ");
+  return Object.entries(attrs).filter(([, value]) => value !== void 0 && value !== null).map(([key2, value]) => `${key2}="${value}"`).join(" ");
 }
 function createInlineMarkdownSpec(options) {
   const {
@@ -30814,11 +30822,11 @@ ${indentedChild}`;
 function mergeDeep(target, source) {
   const output = { ...target };
   if (isPlainObject(target) && isPlainObject(source)) {
-    Object.keys(source).forEach((key) => {
-      if (isPlainObject(source[key]) && isPlainObject(target[key])) {
-        output[key] = mergeDeep(target[key], source[key]);
+    Object.keys(source).forEach((key2) => {
+      if (isPlainObject(source[key2]) && isPlainObject(target[key2])) {
+        output[key2] = mergeDeep(target[key2], source[key2]);
       } else {
-        output[key] = source[key];
+        output[key2] = source[key2];
       }
     });
   }
@@ -32381,8 +32389,8 @@ var NodePos = class _NodePos {
           const nodeAttributes = currentNode.node.attrs;
           const attrKeys = Object.keys(attributes);
           for (let index2 = 0; index2 < attrKeys.length; index2 += 1) {
-            const key = attrKeys[index2];
-            if (nodeAttributes[key] !== attributes[key]) {
+            const key2 = attrKeys[index2];
+            if (nodeAttributes[key2] !== attributes[key2]) {
               break;
             }
           }
@@ -32409,7 +32417,7 @@ var NodePos = class _NodePos {
       }
       if (childPos.node.type.name === selector) {
         const doesAllAttributesMatch = attrKeys.every(
-          (key) => attributes[key] === childPos.node.attrs[key]
+          (key2) => attributes[key2] === childPos.node.attrs[key2]
         );
         if (doesAllAttributesMatch) {
           nodes.push(childPos);
@@ -32729,18 +32737,18 @@ var Editor = class extends EventEmitter {
         isDestroyed: false
       },
       {
-        get: (obj, key) => {
+        get: (obj, key2) => {
           if (this.editorView) {
-            return this.editorView[key];
+            return this.editorView[key2];
           }
-          if (key === "state") {
+          if (key2 === "state") {
             return this.editorState;
           }
-          if (key in obj) {
-            return Reflect.get(obj, key);
+          if (key2 in obj) {
+            return Reflect.get(obj, key2);
           }
           throw new Error(
-            `[tiptap error]: The editor view is not available. Cannot access view['${key}']. The editor may not be mounted yet.`
+            `[tiptap error]: The editor view is not available. Cannot access view['${key2}']. The editor may not be mounted yet.`
           );
         }
       }
@@ -33493,21 +33501,21 @@ let readFromCache;
 let addToCache;
 if (typeof WeakMap != "undefined") {
   let cache = /* @__PURE__ */ new WeakMap();
-  readFromCache = (key) => cache.get(key);
-  addToCache = (key, value) => {
-    cache.set(key, value);
+  readFromCache = (key2) => cache.get(key2);
+  addToCache = (key2, value) => {
+    cache.set(key2, value);
     return value;
   };
 } else {
   const cache = [];
   const cacheSize = 10;
   let cachePos = 0;
-  readFromCache = (key) => {
-    for (let i2 = 0; i2 < cache.length; i2 += 2) if (cache[i2] == key) return cache[i2 + 1];
+  readFromCache = (key2) => {
+    for (let i2 = 0; i2 < cache.length; i2 += 2) if (cache[i2] == key2) return cache[i2 + 1];
   };
-  addToCache = (key, value) => {
+  addToCache = (key2, value) => {
     if (cachePos == cacheSize) cachePos = 0;
-    cache[cachePos++] = key;
+    cache[cachePos++] = key2;
     return cache[cachePos++] = value;
   };
 }
@@ -39094,8 +39102,8 @@ function requireFastDeepEqual() {
       for (i2 = length; i2-- !== 0; )
         if (!Object.prototype.hasOwnProperty.call(b2, keys2[i2])) return false;
       for (i2 = length; i2-- !== 0; ) {
-        var key = keys2[i2];
-        if (!equal(a2[key], b2[key])) return false;
+        var key2 = keys2[i2];
+        if (!equal(a2[key2], b2[key2])) return false;
       }
       return true;
     }
@@ -39711,9 +39719,9 @@ var DecorationCache = class DecorationCache2 {
   }
 };
 function createHighlightPlugin({ parser, nodeTypes = ["code_block", "codeBlock"], languageExtractor = (node) => node.attrs.language }) {
-  const key = new PluginKey("prosemirror-highlight");
+  const key2 = new PluginKey("prosemirror-highlight");
   return new Plugin({
-    key,
+    key: key2,
     state: {
       init(_, instance) {
         const cache = new DecorationCache();
@@ -39748,7 +39756,7 @@ function createHighlightPlugin({ parser, nodeTypes = ["code_block", "codeBlock"]
         view.dispatch(tr2);
       };
       const check = () => {
-        const state = key.getState(view.state);
+        const state = key2.getState(view.state);
         for (const promise of state?.promises ?? []) {
           promises.add(promise);
           promise.then(() => {
@@ -39842,7 +39850,7 @@ function createParser(highlighter, options) {
 }
 function stringifyTokenStyle(token) {
   if (typeof token === "string") return token;
-  return Object.entries(token).map(([key, value]) => `${key}:${value}`).join(";");
+  return Object.entries(token).map(([key2, value]) => `${key2}:${value}`).join(";");
 }
 function Me$1(e4) {
   let t3 = Array.from(e4.classList).filter((e5) => !e5.startsWith("bn-")) || [];
@@ -45857,10 +45865,10 @@ function getNearestOverflowAncestor(node) {
   }
   return getNearestOverflowAncestor(parentNode2);
 }
-function getOverflowAncestors(node, list, traverseIframes) {
+function getOverflowAncestors(node, list2, traverseIframes) {
   var _node$ownerDocument2;
-  if (list === void 0) {
-    list = [];
+  if (list2 === void 0) {
+    list2 = [];
   }
   if (traverseIframes === void 0) {
     traverseIframes = true;
@@ -45870,9 +45878,9 @@ function getOverflowAncestors(node, list, traverseIframes) {
   const win = getWindow(scrollableAncestor);
   if (isBody) {
     const frameElement = getFrameElement(win);
-    return list.concat(win, win.visualViewport || [], isOverflowElement(scrollableAncestor) ? scrollableAncestor : [], frameElement && traverseIframes ? getOverflowAncestors(frameElement) : []);
+    return list2.concat(win, win.visualViewport || [], isOverflowElement(scrollableAncestor) ? scrollableAncestor : [], frameElement && traverseIframes ? getOverflowAncestors(frameElement) : []);
   } else {
-    return list.concat(scrollableAncestor, getOverflowAncestors(scrollableAncestor, [], traverseIframes));
+    return list2.concat(scrollableAncestor, getOverflowAncestors(scrollableAncestor, [], traverseIframes));
   }
 }
 function getFrameElement(win) {
@@ -45959,14 +45967,14 @@ function getSideList(side, isStart, rtl) {
 }
 function getOppositeAxisPlacements(placement, flipAlignment, direction, rtl) {
   const alignment = getAlignment(placement);
-  let list = getSideList(getSide(placement), direction === "start", rtl);
+  let list2 = getSideList(getSide(placement), direction === "start", rtl);
   if (alignment) {
-    list = list.map((side) => side + "-" + alignment);
+    list2 = list2.map((side) => side + "-" + alignment);
     if (flipAlignment) {
-      list = list.concat(list.map(getOppositeAlignmentPlacement));
+      list2 = list2.concat(list2.map(getOppositeAlignmentPlacement));
     }
   }
-  return list;
+  return list2;
 }
 function getOppositePlacement(placement) {
   const side = getSide(placement);
@@ -46540,13 +46548,13 @@ const getTabbableOptions = () => ({
   )
 });
 function getTabbableIn(container, dir) {
-  const list = tabbable$1(container, getTabbableOptions());
-  const len = list.length;
+  const list2 = tabbable$1(container, getTabbableOptions());
+  const len = list2.length;
   if (len === 0) return;
   const active = activeElement(getDocument$1(container));
-  const index2 = list.indexOf(active);
+  const index2 = list2.indexOf(active);
   const nextIndex = index2 === -1 ? dir === 1 ? 0 : len - 1 : index2 + dir;
-  return list[nextIndex];
+  return list2[nextIndex];
 }
 function getNextTabbable(referenceElement) {
   return getTabbableIn(getDocument$1(referenceElement).body, 1) || referenceElement;
@@ -48127,11 +48135,11 @@ function deepEqual(a2, b2) {
       }
     }
     for (i2 = length; i2-- !== 0; ) {
-      const key = keys2[i2];
-      if (key === "_owner" && a2.$$typeof) {
+      const key2 = keys2[i2];
+      if (key2 === "_owner" && a2.$$typeof) {
         continue;
       }
-      if (!deepEqual(a2[key], b2[key])) {
+      if (!deepEqual(a2[key2], b2[key2])) {
         return false;
       }
     }
@@ -50289,27 +50297,27 @@ function mergeProps(userProps, propsList, elementKey) {
         return acc;
       }
       Object.entries(props).forEach((_ref) => {
-        let [key, value] = _ref;
-        if (isItem && [ACTIVE_KEY, SELECTED_KEY].includes(key)) {
+        let [key2, value] = _ref;
+        if (isItem && [ACTIVE_KEY, SELECTED_KEY].includes(key2)) {
           return;
         }
-        if (key.indexOf("on") === 0) {
-          if (!map2.has(key)) {
-            map2.set(key, []);
+        if (key2.indexOf("on") === 0) {
+          if (!map2.has(key2)) {
+            map2.set(key2, []);
           }
           if (typeof value === "function") {
             var _map$get;
-            (_map$get = map2.get(key)) == null || _map$get.push(value);
-            acc[key] = function() {
+            (_map$get = map2.get(key2)) == null || _map$get.push(value);
+            acc[key2] = function() {
               var _map$get2;
               for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
                 args[_key] = arguments[_key];
               }
-              return (_map$get2 = map2.get(key)) == null ? void 0 : _map$get2.map((fn2) => fn2(...args)).find((val) => val !== void 0);
+              return (_map$get2 = map2.get(key2)) == null ? void 0 : _map$get2.map((fn2) => fn2(...args)).find((val) => val !== void 0);
             };
           }
         } else {
-          acc[key] = value;
+          acc[key2] = value;
         }
       });
       return acc;
@@ -50320,9 +50328,9 @@ function useInteractions(propsList) {
   if (propsList === void 0) {
     propsList = [];
   }
-  const referenceDeps = propsList.map((key) => key == null ? void 0 : key.reference);
-  const floatingDeps = propsList.map((key) => key == null ? void 0 : key.floating);
-  const itemDeps = propsList.map((key) => key == null ? void 0 : key.item);
+  const referenceDeps = propsList.map((key2) => key2 == null ? void 0 : key2.reference);
+  const floatingDeps = propsList.map((key2) => key2 == null ? void 0 : key2.floating);
+  const itemDeps = propsList.map((key2) => key2 == null ? void 0 : key2.item);
   const getReferenceProps = reactExports$1.useCallback(
     (userProps) => mergeProps(userProps, propsList, "reference"),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -50536,8 +50544,8 @@ function useTransitionStyles(context, props) {
     const initialStyles = execWithArgsOrReturn(initialRef.current, fnArgs);
     const closeStyles = execWithArgsOrReturn(closeRef.current, fnArgs);
     const commonStyles = execWithArgsOrReturn(commonRef.current, fnArgs);
-    const openStyles = execWithArgsOrReturn(openRef.current, fnArgs) || Object.keys(initialStyles).reduce((acc, key) => {
-      acc[key] = "";
+    const openStyles = execWithArgsOrReturn(openRef.current, fnArgs) || Object.keys(initialStyles).reduce((acc, key2) => {
+      acc[key2] = "";
       return acc;
     }, {});
     if (status === "initial") {
@@ -50942,11 +50950,11 @@ function requireReact() {
       for (i2 = length; i2-- !== 0; )
         if (!Object.prototype.hasOwnProperty.call(b2, keys2[i2])) return false;
       for (i2 = length; i2-- !== 0; ) {
-        var key = keys2[i2];
-        if (key === "_owner" && a2.$$typeof) {
+        var key2 = keys2[i2];
+        if (key2 === "_owner" && a2.$$typeof) {
           continue;
         }
-        if (!equal(a2[key], b2[key])) return false;
+        if (!equal(a2[key2], b2[key2])) return false;
       }
       return true;
     }
@@ -51539,11 +51547,11 @@ var PureEditorContent = class extends k$3.Component {
 };
 var EditorContentWithKey = reactExports$1.forwardRef(
   (props, ref) => {
-    const key = k$3.useMemo(() => {
+    const key2 = k$3.useMemo(() => {
       return Math.floor(Math.random() * 4294967295).toString();
     }, [props.editor]);
     return k$3.createElement(PureEditorContent, {
-      key,
+      key: key2,
       innerRef: ref,
       ...props
     });
@@ -51682,8 +51690,8 @@ var ReactRenderer = class {
     let changed = false;
     const keys2 = Object.keys(props);
     for (let i2 = 0; i2 < keys2.length; i2 += 1) {
-      const key = keys2[i2];
-      if (props[key] !== this.props[key]) {
+      const key2 = keys2[i2];
+      if (props[key2] !== this.props[key2]) {
         changed = true;
         break;
       }
@@ -51716,8 +51724,8 @@ var ReactRenderer = class {
    * Update the attributes of the element that holds the React component.
    */
   updateAttributes(attributes) {
-    Object.keys(attributes).forEach((key) => {
-      this.element.setAttribute(key, attributes[key]);
+    Object.keys(attributes).forEach((key2) => {
+      this.element.setAttribute(key2, attributes[key2]);
     });
   }
 };
@@ -56131,10 +56139,10 @@ function isObject(item) {
 function deepMerge(target, source) {
   const result = { ...target };
   const _source = source;
-  if (isObject(target) && isObject(source)) Object.keys(source).forEach((key) => {
-    if (isObject(_source[key])) if (!(key in target)) result[key] = _source[key];
-    else result[key] = deepMerge(result[key], _source[key]);
-    else result[key] = _source[key];
+  if (isObject(target) && isObject(source)) Object.keys(source).forEach((key2) => {
+    if (isObject(_source[key2])) if (!(key2 in target)) result[key2] = _source[key2];
+    else result[key2] = deepMerge(result[key2], _source[key2]);
+    else result[key2] = _source[key2];
   });
   return result;
 }
@@ -56186,8 +56194,8 @@ function createConverter(units, { shouldScale = false } = {}) {
 const rem = createConverter("rem", { shouldScale: true });
 const em = createConverter("em");
 function filterProps(props) {
-  return Object.keys(props).reduce((acc, key) => {
-    if (props[key] !== void 0) acc[key] = props[key];
+  return Object.keys(props).reduce((acc, key2) => {
+    if (props[key2] !== void 0) acc[key2] = props[key2];
     return acc;
   }, {});
 }
@@ -56786,9 +56794,9 @@ const EMPTY_CLASS_NAMES = {};
 function mergeClassNames(objects) {
   const merged = {};
   objects.forEach((obj) => {
-    Object.entries(obj).forEach(([key, value]) => {
-      if (merged[key]) merged[key] = clsx(merged[key], value);
-      else merged[key] = value;
+    Object.entries(obj).forEach(([key2, value]) => {
+      if (merged[key2]) merged[key2] = clsx(merged[key2], value);
+      else merged[key2] = value;
     });
   });
   return merged;
@@ -56806,13 +56814,13 @@ function resolveStyles({ theme, styles, props, stylesCtx }) {
 function isMantineColorScheme(value) {
   return value === "auto" || value === "dark" || value === "light";
 }
-function localStorageColorSchemeManager({ key = "mantine-color-scheme-value" } = {}) {
+function localStorageColorSchemeManager({ key: key2 = "mantine-color-scheme-value" } = {}) {
   let handleStorageEvent;
   return {
     get: (defaultValue) => {
       if (typeof window === "undefined") return defaultValue;
       try {
-        const storedColorScheme = window.localStorage.getItem(key);
+        const storedColorScheme = window.localStorage.getItem(key2);
         return isMantineColorScheme(storedColorScheme) ? storedColorScheme : defaultValue;
       } catch {
         return defaultValue;
@@ -56820,14 +56828,14 @@ function localStorageColorSchemeManager({ key = "mantine-color-scheme-value" } =
     },
     set: (value) => {
       try {
-        window.localStorage.setItem(key, value);
+        window.localStorage.setItem(key2, value);
       } catch (error) {
         console.warn("[@mantine/core] Local storage color scheme manager was unable to save color scheme.", error);
       }
     },
     subscribe: (onUpdate) => {
       handleStorageEvent = (event) => {
-        if (event.storageArea === window.localStorage && event.key === key) isMantineColorScheme(event.newValue) && onUpdate(event.newValue);
+        if (event.storageArea === window.localStorage && event.key === key2) isMantineColorScheme(event.newValue) && onUpdate(event.newValue);
       };
       window.addEventListener("storage", handleStorageEvent);
     },
@@ -56835,7 +56843,7 @@ function localStorageColorSchemeManager({ key = "mantine-color-scheme-value" } =
       window.removeEventListener("storage", handleStorageEvent);
     },
     clear: () => {
-      window.localStorage.removeItem(key);
+      window.localStorage.removeItem(key2);
     }
   };
 }
@@ -57883,14 +57891,14 @@ function removeDefaultVariables(input) {
     light: {},
     dark: {}
   };
-  keys(input.variables).forEach((key) => {
-    if (defaultCssVariables.variables[key] !== input.variables[key]) cleaned.variables[key] = input.variables[key];
+  keys(input.variables).forEach((key2) => {
+    if (defaultCssVariables.variables[key2] !== input.variables[key2]) cleaned.variables[key2] = input.variables[key2];
   });
-  keys(input.light).forEach((key) => {
-    if (defaultCssVariables.light[key] !== input.light[key]) cleaned.light[key] = input.light[key];
+  keys(input.light).forEach((key2) => {
+    if (defaultCssVariables.light[key2] !== input.light[key2]) cleaned.light[key2] = input.light[key2];
   });
-  keys(input.dark).forEach((key) => {
-    if (defaultCssVariables.dark[key] !== input.dark[key]) cleaned.dark[key] = input.dark[key];
+  keys(input.dark).forEach((key2) => {
+    if (defaultCssVariables.dark[key2] !== input.dark[key2]) cleaned.dark[key2] = input.dark[key2];
   });
   return cleaned;
 }
@@ -58104,10 +58112,10 @@ function getStyle({ theme, selector, options, props, stylesCtx, rootSelector, wi
 }
 function mergeVars(vars) {
   return vars.reduce((acc, current) => {
-    if (current) Object.keys(current).forEach((key) => {
-      acc[key] = {
-        ...acc[key],
-        ...filterProps(current[key])
+    if (current) Object.keys(current).forEach((key2) => {
+      acc[key2] = {
+        ...acc[key2],
+        ...filterProps(current[key2])
       };
     });
     return acc;
@@ -58170,9 +58178,9 @@ function useStyles({ name, classes, props, stylesCtx, className, style: style2, 
       props,
       stylesCtx
     });
-    for (const key of Object.keys(resolved)) resolvedThemeStyles[key] = {
-      ...resolvedThemeStyles[key],
-      ...resolved[key]
+    for (const key2 of Object.keys(resolved)) resolvedThemeStyles[key2] = {
+      ...resolvedThemeStyles[key2],
+      ...resolved[key2]
     };
   }
   const resolvedVars = mergeVars([
@@ -58670,7 +58678,7 @@ function getBaseValue(value) {
   return value;
 }
 function getBreakpointKeys(value) {
-  if (typeof value === "object" && value !== null) return keys(value).filter((key) => key !== "base");
+  if (typeof value === "object" && value !== null) return keys(value).filter((key2) => key2 !== "base");
   return [];
 }
 function getBreakpointValue(value, breakpoint) {
@@ -58759,14 +58767,14 @@ function polymorphicFactory(ui2) {
   Component.extend = identity;
   return Component;
 }
-function transformModKey(key) {
-  return `data-${(key.startsWith("data-") ? key.slice(5) : key).replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase()}`;
+function transformModKey(key2) {
+  return `data-${(key2.startsWith("data-") ? key2.slice(5) : key2).replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase()}`;
 }
 function getMod(props) {
-  return Object.keys(props).reduce((acc, key) => {
-    const value = props[key];
+  return Object.keys(props).reduce((acc, key2) => {
+    const value = props[key2];
     if (value === void 0 || value === "" || value === false || value === null) return acc;
-    acc[transformModKey(key)] = props[key];
+    acc[transformModKey(key2)] = props[key2];
     return acc;
   }, {});
 }
@@ -65354,9 +65362,9 @@ const PAGE_BREAK_PROP = { default: false };
 function shellShortcut(event) {
   if (event.key === "Escape") return true;
   if (!(event.ctrlKey || event.metaKey)) return false;
-  const key = event.key.toLowerCase();
-  if (event.shiftKey) return key === "f" || key === "d";
-  return key === "\\" || key === "," || key === "p" || key === "n" || key === "s";
+  const key2 = event.key.toLowerCase();
+  if (event.shiftKey) return key2 === "f" || key2 === "d";
+  return key2 === "\\" || key2 === "," || key2 === "p" || key2 === "n" || key2 === "s";
 }
 const MOVE_BLOCK_EVENT = "sermondesk:move-block";
 function moveOptions(editor, id) {
@@ -66030,7 +66038,7 @@ function blockNoteFromSpans(spans, fallback) {
     return fallback ? [{ type: "text", text: fallback, styles: {} }] : [];
   }
   return spans.flatMap((span) => {
-    const { highlight, color, size: size2, script, key, ...emphasis } = span.styles ?? {};
+    const { highlight, color, size: size2, script, key: key2, ...emphasis } = span.styles ?? {};
     const points2 = sizeInPoints(size2);
     const items = [];
     if (span.text !== "") {
@@ -66043,7 +66051,7 @@ function blockNoteFromSpans(spans, fallback) {
           ...color ? { textColor: color } : {},
           ...points2 !== null ? { size: String(points2) } : {},
           ...script ? { script } : {},
-          ...key ? { key: true } : {}
+          ...key2 ? { key: true } : {}
         }
       });
     }
@@ -66146,14 +66154,14 @@ function marginOf(props) {
 }
 function paragraphFromChild(child, level) {
   const spans = spansFromBlockNote(child.content);
-  const list = LIST_TYPES[child.type];
+  const list2 = LIST_TYPES[child.type];
   const align = readAlignment(child.props?.["textAlignment"]);
   const style2 = child.props?.["style"];
   const margin = marginOf(child.props);
   return {
     text: plainFromInline(spans),
     ...hasEmphasis(spans) ? { inline: spans } : {},
-    ...list ? { list } : {},
+    ...list2 ? { list: list2 } : {},
     ...level > 0 ? { level } : {},
     ...align ? { align } : {},
     ...isParagraphStyle(style2) ? { style: style2 } : {},
@@ -66293,8 +66301,8 @@ function fromEditorBlocks(blocks) {
         ...block.type === "illustration" && illustrationId ? { illustrationId } : {}
       });
     } else {
-      const list = LIST_TYPES[block.type];
-      result.push({ ...base2, type: "freeform", ...list ? { list } : {} });
+      const list2 = LIST_TYPES[block.type];
+      result.push({ ...base2, type: "freeform", ...list2 ? { list: list2 } : {} });
     }
   }
   return result;
@@ -66618,7 +66626,7 @@ function useFormatting({ editor, report, refreshActive, active }) {
     refreshActive();
   }, [editor, report, refreshActive]);
   const toggleList2 = reactExports$1.useCallback(
-    (list) => {
+    (list2) => {
       let block;
       try {
         block = editor.getTextCursorPosition().block;
@@ -66630,12 +66638,12 @@ function useFormatting({ editor, report, refreshActive, active }) {
         const children = block.children ?? [];
         editor.updateBlock(block, {
           content: [],
-          children: [{ type: list, content: block.content, children: [] }, ...children]
+          children: [{ type: list2, content: block.content, children: [] }, ...children]
         });
         const first2 = editor.getBlock(block.id)?.children?.[0];
         if (first2) editor.setTextCursorPosition(first2, "end");
       } else {
-        editor.updateBlock(block, { type: block.type === list ? "paragraph" : list });
+        editor.updateBlock(block, { type: block.type === list2 ? "paragraph" : list2 });
       }
       editor.focus();
       report();
@@ -66806,8 +66814,8 @@ function useFormatPainter({ editor, painterRef, report, refreshActive }) {
         script: ""
       });
       const styles = {};
-      for (const key of ["bold", "italic", "underline", "strike", "backgroundColor", "textColor", "size", "script"]) {
-        if (loaded2.styles[key]) styles[key] = loaded2.styles[key];
+      for (const key2 of ["bold", "italic", "underline", "strike", "backgroundColor", "textColor", "size", "script"]) {
+        if (loaded2.styles[key2]) styles[key2] = loaded2.styles[key2];
       }
       if (Object.keys(styles).length > 0) editor.addStyles(styles);
       for (const block of editor.getSelection()?.blocks ?? []) {
@@ -67717,7 +67725,7 @@ function stripWordMarker(spans) {
   }
   return null;
 }
-function walk(node, style2, pieces, list) {
+function walk(node, style2, pieces, list2) {
   if (node.nodeType !== Node.ELEMENT_NODE) {
     if (node.nodeType === Node.TEXT_NODE && (node.textContent ?? "").trim()) {
       const spans = [];
@@ -67751,7 +67759,7 @@ function walk(node, style2, pieces, list) {
   }
   if (tag === "UL" || tag === "OL") {
     const kind = tag === "UL" ? "bullet" : "number";
-    const level = list ? list.level + 1 : 0;
+    const level = list2 ? list2.level + 1 : 0;
     for (const child of Array.from(element.children)) walk(child, next, pieces, { kind, level });
     return;
   }
@@ -67772,11 +67780,11 @@ function walk(node, style2, pieces, list) {
         kind: "paragraph",
         spans: item,
         align: alignmentOf(element),
-        list: list?.kind ?? "bullet",
-        level: list?.level ?? 0
+        list: list2?.kind ?? "bullet",
+        level: list2?.level ?? 0
       });
     }
-    for (const sub of nested) walk(sub, next, pieces, list ?? { kind: "bullet", level: 0 });
+    for (const sub of nested) walk(sub, next, pieces, list2 ?? { kind: "bullet", level: 0 });
     return;
   }
   if (/^H[1-6]$/.test(tag)) {
@@ -67808,7 +67816,7 @@ function walk(node, style2, pieces, list) {
       });
       return;
     }
-    pieces.push({ kind: "paragraph", spans: paragraph, align: alignmentOf(element), ...list ? { list: list.kind, level: list.level } : {} });
+    pieces.push({ kind: "paragraph", spans: paragraph, align: alignmentOf(element), ...list2 ? { list: list2.kind, level: list2.level } : {} });
     return;
   }
   let loose = [];
@@ -67817,7 +67825,7 @@ function walk(node, style2, pieces, list) {
     const spans = [];
     for (const run3 of loose) collectRuns(run3, next, spans);
     const paragraph = tidy(spans);
-    if (paragraph.length > 0) pieces.push({ kind: "paragraph", spans: paragraph, ...list ? { list: list.kind, level: list.level } : {} });
+    if (paragraph.length > 0) pieces.push({ kind: "paragraph", spans: paragraph, ...list2 ? { list: list2.kind, level: list2.level } : {} });
     loose = [];
   };
   for (const child of Array.from(element.childNodes)) {
@@ -67826,7 +67834,7 @@ function walk(node, style2, pieces, list) {
       continue;
     }
     flushLoose();
-    walk(child, next, pieces, list);
+    walk(child, next, pieces, list2);
   }
   flushLoose();
 }
@@ -69436,7 +69444,7 @@ function AddBlockMenu({
     () => slashItems({
       addBlock: (type) => run3((c2) => c2.addBlock(type)),
       openLibrary: onLibrary,
-      toggleList: (list) => run3((c2) => c2.toggleList(list)),
+      toggleList: (list2) => run3((c2) => c2.toggleList(list2)),
       insertTable: (rows, cols) => run3((c2) => c2.insertTable(rows, cols)),
       insertPicture: () => run3((c2) => void c2.insertPicture()),
       insertFootnote: () => run3((c2) => c2.insertFootnote()),
@@ -71815,10 +71823,10 @@ function PrintPane({
           ["stories", "Illustrations", "Each illustration by its title"],
           ["applications", "Applications", "Each application by its heading or first sentence"],
           ["questions", "Questions", "The reflection questions, in italics"]
-        ].map(([key, label, title]) => /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "insp-check", title, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: outline[key], label, onChange: (next) => onOutline({ [key]: next }) }),
+        ].map(([key2, label, title]) => /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "insp-check", title, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: outline[key2], label, onChange: (next) => onOutline({ [key2]: next }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: label })
-        ] }, key)) })
+        ] }, key2)) })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__label", children: "Minutes" }),
@@ -72335,9 +72343,9 @@ function diffWords(before, after) {
   const tokens = (text) => text.split(/(\s+)/).filter((t3) => t3 !== "");
   return diffSequences(tokens(before), tokens(after), (t3) => t3);
 }
-function diffSequences(before, after, key) {
-  const a2 = before.map(key);
-  const b2 = after.map(key);
+function diffSequences(before, after, key2) {
+  const a2 = before.map(key2);
+  const b2 = after.map(key2);
   const lengths = Array.from({ length: a2.length + 1 }, () => new Array(b2.length + 1).fill(0));
   for (let i22 = a2.length - 1; i22 >= 0; i22 -= 1) {
     for (let j22 = b2.length - 1; j22 >= 0; j22 -= 1) {
@@ -72441,9 +72449,9 @@ function HistorySheet({ draft, filePath, onRestore, onPutBack, onClose }) {
   const [error, setError] = reactExports$1.useState(null);
   const [confirming, setConfirming] = reactExports$1.useState(false);
   reactExports$1.useEffect(() => {
-    window.api.listHistory({ id: draft.id, datePreached: draft.datePreached }).then((list) => {
-      setVersions(list);
-      setChosen(list[0] ?? null);
+    window.api.listHistory({ id: draft.id, datePreached: draft.datePreached }).then((list2) => {
+      setVersions(list2);
+      setChosen(list2[0] ?? null);
     }).catch((cause) => setError(String(cause)));
   }, [draft.id, draft.datePreached]);
   reactExports$1.useEffect(() => {
@@ -73838,7 +73846,7 @@ function Outline({
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__scroll podium__outline", style: { fontSize: `${scale}rem` }, children: [
     sections.map((section) => {
       const on3 = section.index === current;
-      const key = section.point ? keyLine(section.point) : null;
+      const key2 = section.point ? keyLine(section.point) : null;
       const number = section.point ? sections.filter((item) => item.point && item.index <= section.index).length : 0;
       return /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "section",
@@ -73852,7 +73860,7 @@ function Outline({
           children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__op-num", children: number ? `${roman(number)}.` : "" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "podium__op-head", children: section.heading }),
-            key && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__op-key", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Styled, { spans: key.spans }) }),
+            key2 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__op-key", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Styled, { spans: key2.spans }) }),
             blocks.slice(section.first + (section.point ? 1 : 0), section.end).map((block) => {
               if (block.type === "scripture") {
                 return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__op-line", children: [
@@ -75143,7 +75151,7 @@ function LicenseNotice({ status, onChanged, onEnterKey }) {
   ] });
 }
 function LicenseSheet({ onChanged, onClose }) {
-  const [key, setKey] = reactExports$1.useState("");
+  const [key2, setKey] = reactExports$1.useState("");
   const [busy, setBusy] = reactExports$1.useState(false);
   const [error, setError] = reactExports$1.useState(null);
   const checkout = CHECKOUT_URL;
@@ -75151,7 +75159,7 @@ function LicenseSheet({ onChanged, onClose }) {
     setBusy(true);
     setError(null);
     try {
-      const next = await window.api.activateLicense(key);
+      const next = await window.api.activateLicense(key2);
       onChanged(next);
       if (next.state === "active") onClose();
       else setError(next.lastError ?? "That key was not accepted.");
@@ -75173,14 +75181,14 @@ function LicenseSheet({ onChanged, onClose }) {
       "input",
       {
         className: "field field--large field--mono selectable",
-        value: key,
+        value: key2,
         placeholder: "Licence key",
         "aria-label": "Licence key",
         autoFocus: true,
         spellCheck: false,
         onChange: (event) => setKey(event.target.value),
         onKeyDown: (event) => {
-          if (event.key === "Enter" && key.trim() && !busy) void activate();
+          if (event.key === "Enter" && key2.trim() && !busy) void activate();
         }
       }
     ),
@@ -75194,7 +75202,7 @@ function LicenseSheet({ onChanged, onClose }) {
     error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__error selectable", children: error }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sheet__actions", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: "Cancel" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--primary", disabled: busy || !key.trim(), onClick: () => void activate(), children: busy ? "Checking…" : "Activate" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--primary", disabled: busy || !key2.trim(), onClick: () => void activate(), children: busy ? "Checking…" : "Activate" })
     ] })
   ] });
 }
@@ -75290,7 +75298,7 @@ function SeriesSheet({ onClose, onSaved }) {
 }
 const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"];
 const numeral = (n2) => ROMAN[n2 - 1] ?? String(n2);
-function when$1(iso) {
+function when(iso) {
   if (!iso) return "";
   const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
   return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { month: "short", day: "numeric" });
@@ -75349,13 +75357,13 @@ function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
             hit.status !== "preached" ? ` · ${hit.status}` : ""
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__when", children: when$1(hit.datePreached) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__when", children: when(hit.datePreached) })
       ] }, hit.id)),
       planned.map((plan, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "series-page__row series-page__row--planned", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__num", children: numeral(preached.length + index2 + 1) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "series-page__open", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: plan.title }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: [plan.passage, plan.date ? `planned for ${when$1(plan.date)}` : "not yet dated"].filter(Boolean).join(" · ") })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: [plan.passage, plan.date ? `planned for ${when(plan.date)}` : "not yet dated"].filter(Boolean).join(" · ") })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "series-page__acts", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", title: "Start writing it: a draft in this series, with the title and passage filled in", onClick: () => onWrite(plan), children: "Write it" }),
@@ -75407,8 +75415,8 @@ function TidySheet({ onClose, onChanged }) {
   const twins = reactExports$1.useMemo(() => {
     const groups = /* @__PURE__ */ new Map();
     for (const tag of tags) {
-      const key = tag.name.toLowerCase().replace(/[\s_-]+/g, " ").trim();
-      groups.set(key, [...groups.get(key) ?? [], tag]);
+      const key2 = tag.name.toLowerCase().replace(/[\s_-]+/g, " ").trim();
+      groups.set(key2, [...groups.get(key2) ?? [], tag]);
     }
     const out = /* @__PURE__ */ new Map();
     for (const group of groups.values()) {
@@ -75516,63 +75524,297 @@ function TidySheet({ onClose, onChanged }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: "Done" }) })
   ] });
 }
-const COLUMNS = [
-  ["Law", "History"],
-  ["Wisdom", "Prophets"],
-  ["Gospels and Acts", "Letters", "Revelation"]
+const COVERAGE_NAME = "Bible map";
+const TESTAMENTS = [
+  { name: "Old Testament", from: 1, to: 39 },
+  { name: "New Testament", from: 40, to: 66 }
 ];
-const DENSE = 40;
-function when(iso) {
+const key = (book, chapter) => `${book}:${chapter}`;
+function monthName(iso) {
   if (!iso) return "";
   const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
   return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { year: "numeric", month: "short" });
 }
-function CoverageSheet({ onClose, onPick }) {
-  const [rows, setRows] = reactExports$1.useState([]);
+function dayName(iso) {
+  if (!iso) return "";
+  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
+  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { year: "numeric", month: "short", day: "numeric" });
+}
+function age(iso) {
+  if (!iso) return "draft";
+  const months = (Date.now() - (/* @__PURE__ */ new Date(`${iso}T00:00:00`)).getTime()) / (30.44 * 864e5);
+  return months <= 12 ? "recent" : months <= 36 ? "mid" : "old";
+}
+function list(names) {
+  if (names.length <= 1) return names.join("");
+  return `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+}
+function CoverageSheet({ onClose, onPick, paper = "letter" }) {
+  const [church, setChurch] = reactExports$1.useState(null);
+  const [map2, setMap] = reactExports$1.useState(null);
   reactExports$1.useEffect(() => {
-    void window.api.coverage().then(setRows).catch(() => setRows([]));
-  }, []);
-  const byBook = reactExports$1.useMemo(() => new Map(rows.map((row) => [row.book, row])), [rows]);
-  const totals = reactExports$1.useMemo(() => {
-    const chapters = BOOKS.reduce((sum, book) => sum + book.chapters, 0);
-    const touched = rows.reduce((sum, row) => sum + row.chapters.length, 0);
-    return { books: rows.filter((row) => row.chapters.length > 0).length, chapters, touched };
-  }, [rows]);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { title: "Where you have preached", ariaLabel: "Coverage: what has been preached from, book by book", onClose, wide: true, className: "coverage", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__lead", children: totals.books === 0 ? "No sermon names a passage yet. Once one does, its chapters light up here." : `${totals.books} of 66 books, ${totals.touched.toLocaleString()} of ${totals.chapters.toLocaleString()} chapters. A lit cell is a chapter a sermon touched; press a book to see its sermons.` }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "coverage__columns", children: COLUMNS.map((names, column) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "coverage__column", children: SECTIONS.filter((section) => names.includes(section.name)).map((section) => /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "coverage__section", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "coverage__heading", children: section.name }),
-      BOOKS.filter((book) => book.number >= section.from && book.number <= section.to).map((book) => {
-        const row = byBook.get(book.number);
-        const touched = new Set(row?.chapters ?? []);
-        const count2 = row?.sermons ?? 0;
-        return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "button",
-          {
-            type: "button",
-            className: count2 ? "coverage__book" : "coverage__book coverage__book--none",
-            title: count2 ? `${count2} sermon${count2 === 1 ? "" : "s"} touching ${book.name}, ${touched.size} of ${book.chapters} chapter${book.chapters === 1 ? "" : "s"}` : `Nothing from ${book.name} yet`,
-            disabled: !count2,
-            onClick: () => onPick(book.number),
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "coverage__name", children: book.name }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "span",
-                {
-                  className: book.chapters > DENSE ? "coverage__chapters coverage__chapters--dense" : "coverage__chapters",
-                  "aria-hidden": "true",
-                  style: { "--chapters": book.chapters },
-                  children: Array.from({ length: book.chapters }, (_, i2) => /* @__PURE__ */ jsxRuntimeExports.jsx("i", { className: touched.has(i2 + 1) ? "coverage__chapter coverage__chapter--on" : "coverage__chapter" }, i2))
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "coverage__count", children: count2 ? `${count2} · ${when(row?.last ?? null) || "draft"}` : "" })
-            ]
-          },
-          book.number
-        );
+    let live = true;
+    void window.api.coverageMap(church).then((result) => {
+      if (live) setMap(result);
+    }).catch(() => {
+      if (live) setMap({ cells: [], planned: [], churches: [], church });
+    });
+    return () => {
+      live = false;
+    };
+  }, [church]);
+  const cells = reactExports$1.useMemo(() => new Map((map2?.cells ?? []).map((cell) => [key(cell.book, cell.chapter), cell])), [map2]);
+  const plans = reactExports$1.useMemo(() => {
+    const byKey = /* @__PURE__ */ new Map();
+    for (const plan of map2?.planned ?? []) {
+      const k2 = key(plan.book, plan.chapter);
+      byKey.set(k2, [...byKey.get(k2) ?? [], plan]);
+    }
+    return byKey;
+  }, [map2]);
+  const facts = reactExports$1.useMemo(() => {
+    const total = BOOKS.reduce((sum, book) => sum + book.chapters, 0);
+    const touchedBooks = BOOKS.filter((book) => (map2?.cells ?? []).some((cell) => cell.book === book.number));
+    const per = (from2, to) => ({
+      done: (map2?.cells ?? []).filter((cell) => cell.book >= from2 && cell.book <= to).length,
+      of: BOOKS.filter((book) => book.number >= from2 && book.number <= to).reduce((sum, book) => sum + book.chapters, 0)
+    });
+    const untouched = BOOKS.filter((book) => !touchedBooks.includes(book));
+    const longest = [...untouched].sort((a2, b2) => b2.chapters - a2.chapters)[0] ?? null;
+    const returned = [...map2?.cells ?? []].sort((a2, b2) => b2.sermons - a2.sermons)[0] ?? null;
+    const plannedChapters = new Set((map2?.planned ?? []).map((plan) => key(plan.book, plan.chapter)));
+    const plannedSeries = [...new Set((map2?.planned ?? []).map((plan) => plan.series))];
+    return {
+      total,
+      chapters: cells.size,
+      touchedBooks,
+      untouched,
+      longest,
+      returned: returned && returned.sermons > 1 ? returned : null,
+      plannedChapters: plannedChapters.size,
+      plannedSeries,
+      testaments: TESTAMENTS.map((t3) => ({ ...t3, ...per(t3.from, t3.to) })),
+      sections: SECTIONS.map((s2) => ({ name: s2.name, ...per(s2.from, s2.to) }))
+    };
+  }, [map2, cells]);
+  const bookName = (n2) => BOOKS[n2 - 1]?.name ?? "";
+  const describe2 = (book, chapter) => {
+    const cell = cells.get(key(book, chapter));
+    const planned = plans.get(key(book, chapter)) ?? [];
+    const parts = [`${bookName(book)} ${chapter}`];
+    if (cell) {
+      parts.push(`${cell.sermons} sermon${cell.sermons === 1 ? "" : "s"}${cell.last ? `, last ${monthName(cell.last)}` : ", a draft"}`);
+      parts.push(cell.titles.join(" · "));
+    }
+    for (const plan of planned) parts.push(`Planned in ${plan.series}: ${plan.title}${plan.date ? `, ${dayName(plan.date)}` : ""}`);
+    if (!cell && planned.length === 0) parts.push("Not yet");
+    return parts.join("\n");
+  };
+  const cellClass = (book, chapter) => {
+    const cell = cells.get(key(book, chapter));
+    const planned = plans.has(key(book, chapter));
+    const classes = ["coverage__cell"];
+    if (cell) classes.push("coverage__cell--on", `coverage__cell--${age(cell.last)}`);
+    if (planned) classes.push("coverage__cell--plan");
+    return classes.join(" ");
+  };
+  const print = () => {
+    void window.api.printHtml(printHtml(facts, cells, plans, church), { paper, orientation: "portrait", pageNumbers: false, title: COVERAGE_NAME });
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { title: COVERAGE_NAME, ariaLabel: `${COVERAGE_NAME}: every chapter preached from, planned, or not yet`, onClose, wide: true, className: "coverage", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "coverage__tools", children: [
+      map2 && map2.churches.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "coverage__church", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Preached at" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { className: "field", value: church ?? "", onChange: (event) => setChurch(event.target.value || null), "aria-label": "Narrow the map to one church", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Everywhere" }),
+          map2.churches.map((row) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: row.name, children: row.name }, row.name))
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: print, title: "The map on paper: a page for the study wall, or the elders", children: "Print…" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "coverage__eyebrow", children: church ? `What ${church} has heard` : "The whole Bible, a chapter a mark" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "coverage__line", "aria-hidden": "true", children: BOOKS.map(
+      (book) => Array.from({ length: book.chapters }, (_, i2) => {
+        const chapter = i2 + 1;
+        const cell = cells.get(key(book.number, chapter));
+        const planned = plans.has(key(book.number, chapter));
+        const classes = ["coverage__mark"];
+        if (book.number % 2 === 0) classes.push("coverage__mark--alt");
+        if (book.number === 40 && chapter === 1) classes.push("coverage__mark--nt");
+        if (cell) classes.push("coverage__mark--on", `coverage__mark--${age(cell.last)}`);
+        else if (planned) classes.push("coverage__mark--plan");
+        return /* @__PURE__ */ jsxRuntimeExports.jsx("i", { className: classes.join(" ") }, `${book.number}:${chapter}`);
       })
-    ] }, section.name)) }, column)) })
+    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "coverage__ends", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Genesis 1" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "coverage__legend", "aria-hidden": "true", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("i", { className: "coverage__cell coverage__cell--on coverage__cell--recent" }),
+          " this year"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("i", { className: "coverage__cell coverage__cell--on coverage__cell--mid" }),
+          " earlier"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("i", { className: "coverage__cell coverage__cell--on coverage__cell--old" }),
+          " long ago"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("i", { className: "coverage__cell coverage__cell--plan" }),
+          " planned"
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Revelation 22" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "coverage__sentence", children: facts.chapters === 0 ? church ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      "Nothing has been preached at ",
+      church,
+      " from a named passage yet."
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: "No sermon names a passage yet. The first one that does will mark its chapters here." }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("em", { children: [
+        facts.chapters.toLocaleString(),
+        " chapter",
+        facts.chapters === 1 ? "" : "s"
+      ] }),
+      " preached from, out of ",
+      facts.total.toLocaleString(),
+      " — in ",
+      list(facts.touchedBooks.map((b2) => b2.name)),
+      ".",
+      " ",
+      facts.untouched.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        "The other ",
+        facts.untouched.length,
+        " book",
+        facts.untouched.length === 1 ? "" : "s",
+        " ",
+        facts.untouched.length === 1 ? "is" : "are",
+        " still unmarked."
+      ] })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "coverage__notes", children: [
+      facts.longest && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+        "Longest untouched: ",
+        facts.longest.name,
+        ", ",
+        facts.longest.chapters,
+        " chapters."
+      ] }),
+      facts.returned && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+        "Most returned to: ",
+        bookName(facts.returned.book),
+        " ",
+        facts.returned.chapter,
+        ", ",
+        facts.returned.sermons,
+        " sermons."
+      ] }),
+      facts.plannedChapters > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+        facts.plannedChapters,
+        " chapter",
+        facts.plannedChapters === 1 ? "" : "s",
+        " planned in ",
+        list(facts.plannedSeries),
+        "."
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "coverage__testaments", children: TESTAMENTS.map((testament) => {
+      const totals = facts.testaments.find((t3) => t3.name === testament.name);
+      const sections = facts.sections.filter((s2) => SECTIONS.some((sec) => sec.name === s2.name && sec.from >= testament.from && sec.to <= testament.to));
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "coverage__testament-name", children: [
+          testament.name,
+          totals && /* @__PURE__ */ jsxRuntimeExports.jsxs("small", { children: [
+            totals.done,
+            " of ",
+            totals.of.toLocaleString(),
+            " chapters"
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "coverage__sections", children: sections.map((s2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+          s2.name,
+          " ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: s2.done })
+        ] }, s2.name)) }),
+        BOOKS.filter((book) => book.number >= testament.from && book.number <= testament.to).map((book) => {
+          const touched = (map2?.cells ?? []).filter((cell) => cell.book === book.number);
+          const on3 = touched.length > 0;
+          const last = touched.reduce((latest, cell) => cell.last && (!latest || cell.last > latest) ? cell.last : latest, null);
+          return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: on3 ? "coverage__book coverage__book--on" : "coverage__book", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "coverage__name", disabled: !on3, onClick: () => onPick(book.number), title: on3 ? `Show the sermons from ${book.name}` : `Nothing from ${book.name} yet`, children: [
+              book.name,
+              on3 && /* @__PURE__ */ jsxRuntimeExports.jsxs("small", { children: [
+                touched.length,
+                " of ",
+                book.chapters,
+                last ? ` · ${monthName(last)}` : ""
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "coverage__cells", children: Array.from({ length: book.chapters }, (_, i2) => {
+              const chapter = i2 + 1;
+              const cell = cells.get(key(book.number, chapter));
+              return /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
+                {
+                  type: "button",
+                  className: cellClass(book.number, chapter),
+                  title: describe2(book.number, chapter),
+                  "aria-label": describe2(book.number, chapter).replace(/\n/g, ", "),
+                  disabled: !cell,
+                  onClick: () => onPick(book.number, chapter)
+                },
+                chapter
+              );
+            }) })
+          ] }, book.number);
+        })
+      ] }, testament.name);
+    }) })
   ] });
+}
+function printHtml(facts, cells, plans, church) {
+  const esc = (s2) => s2.replace(/[&<>]/g, (c2) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c2] ?? c2);
+  const rows = (from2, to) => BOOKS.filter((b2) => b2.number >= from2 && b2.number <= to).map((b2) => {
+    const on3 = [...cells.values()].some((c2) => c2.book === b2.number);
+    const cellsHtml = Array.from({ length: b2.chapters }, (_, i2) => {
+      const c2 = cells.get(key(b2.number, i2 + 1));
+      const p2 = plans.has(key(b2.number, i2 + 1));
+      return `<i class="${c2 ? "on" : p2 ? "plan" : ""}"></i>`;
+    }).join("");
+    return `<div class="book${on3 ? " on" : ""}"><span class="name">${esc(b2.name)}</span><span class="cells">${cellsHtml}</span></div>`;
+  }).join("");
+  const when2 = (/* @__PURE__ */ new Date()).toLocaleDateString(void 0, { year: "numeric", month: "long", day: "numeric" });
+  return `<!doctype html><html><head><meta charset="utf-8"><title>${COVERAGE_NAME}</title><style>
+    @page { margin: 18mm 16mm; }
+    body { margin: 0; color: #1c1917; font: 11px/1.4 'Inter', 'Segoe UI', system-ui, sans-serif; }
+    h1 { margin: 0; font: 500 20px/1.2 'Iowan Old Style', 'Palatino Linotype', Georgia, serif; }
+    .sub { margin: 4px 0 14px; color: #78716c; }
+    .sentence { margin: 0 0 14px; max-width: 70ch; font: 400 13.5px/1.5 'Iowan Old Style', 'Palatino Linotype', Georgia, serif; }
+    .sentence em { color: #7c2a2e; }
+    .balance { margin: 0 0 14px; color: #78716c; }
+    .balance b { color: #1c1917; font-weight: 500; margin-right: 14px; }
+    .testaments { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+    h2 { margin: 0 0 6px; font: 500 13px/1.3 'Iowan Old Style', 'Palatino Linotype', Georgia, serif; }
+    .book { display: grid; grid-template-columns: 6.6em 1fr; gap: 8px; align-items: start; padding: 2px 0; color: #a8a29e; }
+    .book.on { color: #1c1917; }
+    .cells { display: flex; flex-wrap: wrap; gap: 1.5px; }
+    .cells i { display: block; width: 6px; height: 6px; border-radius: 1px; background: #e7e5e4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cells i.on { background: #7c2a2e; }
+    .cells i.plan { background: #fff; box-shadow: inset 0 0 0 1px #7c2a2e; }
+    .legend { margin-top: 12px; color: #78716c; }
+  </style></head><body>
+    <h1>${COVERAGE_NAME}</h1>
+    <p class="sub">${church ? `What ${esc(church)} has heard` : "Every chapter preached from"} · ${esc(when2)}</p>
+    <p class="sentence"><em>${facts.chapters.toLocaleString()} chapters</em> preached from, out of ${facts.total.toLocaleString()} — in ${esc(list(facts.touchedBooks.map((b2) => b2.name)))}. ${facts.untouched.length} books are still unmarked.</p>
+    <p class="balance">${facts.testaments.map((t3) => `<b>${esc(t3.name)}</b>${t3.done} of ${t3.of.toLocaleString()}`).join(" ")}</p>
+    <div class="testaments">
+      <div><h2>Old Testament</h2>${rows(1, 39)}</div>
+      <div><h2>New Testament</h2>${rows(40, 66)}</div>
+    </div>
+    <p class="legend">Filled: preached. Outlined: planned.</p>
+  </body></html>`;
 }
 const TAG_CHIPS = 6;
 const SORT_KEY = "sermondesk.library.sort";
@@ -75606,10 +75848,10 @@ function monthOf(iso) {
 const VIEW_KEYS = ["text", "book", "chapter", "seriesId", "tag", "status", "from", "to", "church"];
 function narrowingOf(query) {
   const out = {};
-  for (const key of VIEW_KEYS) {
-    const value = query[key];
-    if (value !== void 0 && value !== "" && value !== null) out[key] = value;
-    else if (key === "seriesId" && value === null) out.seriesId = null;
+  for (const key2 of VIEW_KEYS) {
+    const value = query[key2];
+    if (value !== void 0 && value !== "" && value !== null) out[key2] = value;
+    else if (key2 === "seriesId" && value === null) out.seriesId = null;
   }
   return out;
 }
@@ -75675,7 +75917,7 @@ function LibraryColumn({
   reactExports$1.useEffect(() => {
     if (!bookPick) return;
     setBook(bookPick.book);
-    setChapter("");
+    setChapter(bookPick.chapter ? String(bookPick.chapter) : "");
     setScope("all");
   }, [bookPick]);
   reactExports$1.useEffect(() => {
@@ -75865,19 +76107,59 @@ function LibraryColumn({
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "cell cell--side-body library", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__top", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "search", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { size: 14, strokeWidth: 1.8 }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__row", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "search", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { size: 14, strokeWidth: 1.8 }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              className: "search__input selectable",
+              value: text,
+              placeholder: scope === "stories" ? "Search your stories" : "Search every sermon",
+              "aria-label": "Search every sermon",
+              onChange: (event) => setText(event.target.value)
+            }
+          ),
+          text && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "search__clear", "aria-label": "Clear the search", onClick: () => setText(""), children: /* @__PURE__ */ jsxRuntimeExports.jsx(X$5, { size: 13, strokeWidth: 2 }) })
+        ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
+          PopoverButton,
           {
-            className: "search__input selectable",
-            value: text,
-            placeholder: scope === "stories" ? "Search your stories" : "Search every sermon",
-            "aria-label": "Search every sermon",
-            onChange: (event) => setText(event.target.value)
+            buttonClass: "library__more",
+            label: /* @__PURE__ */ jsxRuntimeExports.jsx(Ellipsis, { size: 16, strokeWidth: 1.8 }),
+            title: "Series, tags, the archive, and importing",
+            ariaLabel: "Library menu",
+            align: "right",
+            panelClass: "filters library__menu",
+            children: (close2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "filters__actions", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
+                close2();
+                onManageSeries();
+              }, children: "Edit series…" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: "Merge or rename tags across every sermon; retire series from this row", onClick: () => {
+                close2();
+                onTidy();
+              }, children: "Tidy tags and series…" }),
+              scope === "archived" ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
+                setScope("all");
+                close2();
+              }, children: "Back from the archive" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: "Sermons put away with the Archived status: out of the list, never gone", onClick: () => {
+                setScope("archived");
+                close2();
+              }, children: "Show archived sermons" }),
+              writable && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
+                  close2();
+                  onImport(false);
+                }, children: "Import Word files…" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: "Every .docx in the folder and its subfolders, as a Google Takeout export arrives", onClick: () => {
+                  close2();
+                  onImport(true);
+                }, children: "Import a folder…" })
+              ] })
+            ] })
           }
-        ),
-        text && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "search__clear", "aria-label": "Clear the search", onClick: () => setText(""), children: /* @__PURE__ */ jsxRuntimeExports.jsx(X$5, { size: 13, strokeWidth: 2 }) })
+        )
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Segmented,
@@ -75931,6 +76213,16 @@ function LibraryColumn({
           },
           entry.name
         )),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Chip,
+          {
+            on: false,
+            icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Grid3x3, { size: 12, strokeWidth: 1.8 }),
+            label: COVERAGE_NAME,
+            title: "The whole canon, a cell a chapter, lit where a sermon touched it. Pick a book there to narrow the list to it.",
+            onClick: onCoverage
+          }
+        ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           PopoverButton,
           {
@@ -76017,7 +76309,7 @@ function LibraryColumn({
                   ]
                 }
               ),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "filters__actions", children: [
+              (narrowed || writable && activeView) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "filters__actions", children: [
                 narrowed && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
                   clearFilters();
                   close2();
@@ -76029,35 +76321,6 @@ function LibraryColumn({
                   "Forget the view “",
                   activeView.name,
                   "”"
-                ] }),
-                scope === "archived" ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
-                  setScope("all");
-                  close2();
-                }, children: "Back from the archive" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: "Sermons put away with the Archived status: out of the list, never gone", onClick: () => {
-                  setScope("archived");
-                  close2();
-                }, children: "Show archived sermons" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
-                  close2();
-                  onManageSeries();
-                }, children: "Edit series…" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: "Merge or rename tags across every sermon; retire series from this row", onClick: () => {
-                  close2();
-                  onTidy();
-                }, children: "Tidy tags and series…" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
-                  close2();
-                  onCoverage();
-                }, children: "Where you have preached…" }),
-                writable && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
-                    close2();
-                    onImport(false);
-                  }, children: "Import Word files…" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: "Every .docx in the folder and its subfolders, as a Google Takeout export arrives", onClick: () => {
-                    close2();
-                    onImport(true);
-                  }, children: "Import a folder…" })
                 ] })
               ] })
             ] })
@@ -76131,7 +76394,15 @@ function LibraryColumn({
             },
             group.year
           )) : hits.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "library__group", children: /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "sermon-list", children: hits.map(item) }) }),
-          hits.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sermon-list__empty", children: text || narrowed || scope !== "all" ? "Nothing matches. Try fewer filters." : "No sermons yet. Press New to start your first one. It saves itself as you write." })
+          hits.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sermon-list__empty", children: text || narrowed || scope !== "all" ? "Nothing matches. Try fewer filters." : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+            "No sermons yet. Press New to start your first one; it saves itself as you write.",
+            writable && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+              " ",
+              "Or bring your old ones over:",
+              " ",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => onImport(false), children: "Import Word files…" })
+            ] })
+          ] }) })
         ] })
       ] })
     ] })
@@ -76256,8 +76527,8 @@ function App() {
     [sidebarWidth]
   );
   const refreshList = reactExports$1.useCallback(async () => {
-    const [list, seriesRows, tagRows, churches] = await Promise.all([window.api.listSermons(), window.api.listSeries(), window.api.listTags(), window.api.listChurches().catch(() => [])]);
-    setSermons(list);
+    const [list2, seriesRows, tagRows, churches] = await Promise.all([window.api.listSermons(), window.api.listSeries(), window.api.listTags(), window.api.listChurches().catch(() => [])]);
+    setSermons(list2);
     setLastChurch(churches[0]?.name ?? null);
     setSeries(seriesRows);
     setTags(tagRows);
@@ -76768,8 +77039,8 @@ function App() {
         CoverageSheet,
         {
           onClose: () => setCoverageOpen(false),
-          onPick: (book) => {
-            setBookPick({ book, nonce: Date.now() });
+          onPick: (book, chapter) => {
+            setBookPick({ book, chapter, nonce: Date.now() });
             setCoverageOpen(false);
           }
         }
