@@ -74755,8 +74755,6 @@ function StylesTab({ styles, onChange }) {
 }
 const CHECKOUT_URL = "https://sarangbi.lemonsqueezy.com/checkout/buy/58a09bd1-6ce5-48c1-bd92-9d39316682b8";
 const MANAGE_URL = "https://app.lemonsqueezy.com/my-orders";
-const SUPPORT_EMAIL = "davislor@sarangbi.co";
-const KEY_REQUEST_URL = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent("SermonDesk licence key")}`;
 const media = window.matchMedia("(prefers-color-scheme: dark)");
 let preference = "system";
 function paint() {
@@ -75096,7 +75094,6 @@ function LicenseNotice({ status, onChanged, onEnterKey }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "notice__message", children: message }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "notice__actions", children: [
       actions.includes("subscribe") && CHECKOUT_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => open(CHECKOUT_URL), title: "Opens the checkout in your browser; the key arrives by email.", children: "Buy a key" }),
-      actions.includes("get-key") && KEY_REQUEST_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: () => open(KEY_REQUEST_URL), title: "Opens an email to ask for a key, which is how keys are handed out while there is no checkout.", children: "Get a key" }),
       actions.includes("manage") && MANAGE_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => open(MANAGE_URL), children: "Manage subscription" }),
       actions.includes("check-again") && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", disabled: busy, onClick: () => void checkAgain(), children: busy ? "Checking…" : "Check again" }),
       actions.includes("enter-key") && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: onEnterKey, children: "Enter key…" })
