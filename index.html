@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="a20f591">
+<meta name="sermondesk-source" content="6eca0db">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
@@ -197,7 +197,8 @@
     <a class="wordmark" href="/">Sermon<span>Desk</span></a>
     <nav>
       <a href="#price">$12.99 a month</a>
-      <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe">Download for Windows</a>
+      <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
+      <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
     </nav>
   </div>
 </header>
@@ -252,7 +253,8 @@
              src/shared/billing.ts. -->
         <div class="buttons">
           <a class="button" href="https://sarangbi.lemonsqueezy.com/checkout/buy/58a09bd1-6ce5-48c1-bd92-9d39316682b8">Get SermonDesk</a>
-          <a class="button button--quiet" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe">Download for Windows</a>
+          <a class="button button--quiet" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
+          <a class="button button--quiet" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
         </div>
       </div>
     </div>
@@ -260,7 +262,7 @@
     <div class="word">
       <h2>What it does not do yet.</h2>
       <ul>
-        <li><b>Windows only, for now.</b> A Mac version is built and tested on every change, but not yet signed or released.</li>
+        <li><b>The Mac version needs Apple Silicon</b>: an M1 or later, which is every Mac sold since late 2020. The dictation engine has no build for Intel Macs, so rather than ship an app whose Dictate button could never work, there is no Intel version. An Intel Mac refuses the download with its own message.</li>
         <li><b>No phone or tablet version</b>, and none planned. This is a desk tool.</li>
         <li><b>No cloud of mine.</b> Your folder can live in iCloud Drive, Google Drive, OneDrive, or Dropbox, and they do the syncing.</li>
       </ul>
@@ -301,5 +303,21 @@
     <p>Payments are processed by Lemon Squeezy, the merchant of record for all orders, who handle billing and sales tax. &copy; 2026 Sarangbi.</p>
   </div>
 </footer>
+<!-- The page works without this. With it, a Mac reads its own name first
+     and the header link is the right one, so nobody is asked which file is
+     theirs. Browsers do not say whether a Mac is Intel or Apple Silicon, so
+     the words above say it instead. -->
+<script>
+  (function () {
+    var mac = /^Mac/.test(navigator.platform) || /Macintosh/.test(navigator.userAgent);
+    if (!mac) return;
+    document.querySelectorAll('[data-download="mac"]').forEach(function (a) {
+      var sibling = a.parentNode.querySelector('[data-download="windows"]');
+      if (sibling) a.parentNode.insertBefore(a, sibling);
+    });
+    var other = document.querySelector('.head nav [data-download="windows"]');
+    if (other) other.hidden = true;
+  })();
+</script>
 </body>
 </html>
