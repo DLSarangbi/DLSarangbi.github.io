@@ -77760,6 +77760,7 @@ function EditorPane({
   sidebarFolded,
   onToggleSidebar,
   initialView,
+  sceneView,
   formatting,
   onCreate,
   onTranscribe,
@@ -77769,6 +77770,9 @@ function EditorPane({
   const { draft, path, draftRef, pathRef } = doc2;
   const [series, setSeries] = reactExports$1.useState([]);
   const [view, setView] = reactExports$1.useState(initialView ?? "write");
+  reactExports$1.useEffect(() => {
+    if (sceneView) setView(sceneView.view);
+  }, [sceneView]);
   const [tab, setTab] = reactExports$1.useState("format");
   const [libraryDraft, setLibraryDraft] = reactExports$1.useState(null);
   const [handout, setHandout] = reactExports$1.useState(() => remembered("handout", DEFAULT_HANDOUT_OPTIONS));
@@ -81937,6 +81941,26 @@ function App() {
     if (scene === "preach") setPodium(open2.sermon);
     if (scene === "library" && narrow) setDrawerOpen(true);
   }, [scene, scenePlayed, open2, narrow]);
+  const [sceneView, setSceneView] = reactExports$1.useState(null);
+  reactExports$1.useEffect(() => {
+    const onScene = (event) => {
+      const next = event.detail;
+      if (!open2) return;
+      if (next === "preach") {
+        setPodium(open2.sermon);
+        return;
+      }
+      setPodium(null);
+      if (next === "library") {
+        if (narrow) setDrawerOpen(true);
+        else foldSidebar(false);
+        return;
+      }
+      if (next === "write" || next === "outline" || next === "handout") setSceneView({ view: next, nonce: Date.now() });
+    };
+    window.addEventListener("demo:scene", onScene);
+    return () => window.removeEventListener("demo:scene", onScene);
+  }, [open2, narrow, foldSidebar]);
   const showInspector = reactExports$1.useCallback(
     (next) => {
       if (narrow) {
@@ -82173,6 +82197,7 @@ function App() {
           sidebarFolded: !libraryShown,
           onToggleSidebar: toggleLibrary,
           initialView: scene === "outline" || scene === "handout" ? scene : void 0,
+          sceneView,
           formatting,
           onCreate: () => void createSermon(),
           onTranscribe: () => void transcribeRecording()

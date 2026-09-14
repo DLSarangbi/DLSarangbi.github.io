@@ -1,4 +1,4 @@
-import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, a as forgetInTags, b as bookByNumber, c as DEFAULT_EDITOR_SETTINGS, d as flattenForSearch, e as SNIPPET_MARK_OPEN, g as SNIPPET_MARK_CLOSE, h as applyThemePreference, i as clientExports, j as jsxRuntimeExports, k as reactExports, A as App } from "./index-CElxE0gS.js";
+import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, a as forgetInTags, b as bookByNumber, c as DEFAULT_EDITOR_SETTINGS, d as flattenForSearch, e as SNIPPET_MARK_OPEN, g as SNIPPET_MARK_CLOSE, h as applyThemePreference, i as clientExports, j as jsxRuntimeExports, k as reactExports, A as App } from "./index-Eo_nD3i-.js";
 const series$1 = [{ "id": "series-letters", "name": "Summer in the Letters", "description": "Galatians, Romans, and 1 Peter, one Sunday each, then Ephesians and James to close the summer", "planned": [{ "id": "plan-eph", "title": "Seated With Him", "passage": "Ephesians 2:1-10", "inDays": 5 }, { "id": "plan-jas", "title": "Doers of the Word", "passage": "James 1:19-27", "inDays": 12 }] }];
 const tags = { "groups": [{ "id": "theme", "name": "Theme", "tags": ["faithfulness", "hope", "grace", "suffering", "providence"] }, { "id": "kind", "name": "Kind", "tags": ["parables", "witness"] }], "pinned": [] };
 const illustrations$1 = [{ "id": "story-septembers", "title": "Thirty-one Septembers", "body": 'A teacher of thirty-one years: "Every September they are new, even when I am not."', "source": "A conversation after a funeral", "tags": ["faithfulness"], "daysAgo": 20 }, { "id": "story-nets", "title": "The mended nets", "body": "The fisherman who mended nets every evening, whether or not the day had caught anything.", "source": "My grandfather", "tags": ["hope", "work"], "daysAgo": 100 }];
@@ -674,8 +674,15 @@ const demoApi = {
 };
 window.api = demoApi;
 document.documentElement.classList.add("demo");
+const SCENES = ["library", "write", "outline", "handout", "preach"];
 const scene = new URLSearchParams(window.location.search).get("scene") ?? "";
-if (["library", "write", "outline", "handout", "preach"].includes(scene)) document.documentElement.dataset["scene"] = scene;
+if (SCENES.includes(scene)) document.documentElement.dataset["scene"] = scene;
+window.addEventListener("message", (event) => {
+  if (event.origin !== window.location.origin) return;
+  const next = event.data?.scene;
+  if (typeof next === "string" && SCENES.includes(next)) window.dispatchEvent(new CustomEvent("demo:scene", { detail: next }));
+});
+if (window.parent !== window) window.parent.postMessage({ demoReady: true }, window.location.origin);
 applyThemePreference("system");
 let touched = false;
 const settle = () => {

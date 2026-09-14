@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="8bc107e">
+<meta name="sermondesk-source" content="eb28465">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
@@ -339,24 +339,30 @@
   })();
 </script>
 <script>
-  // A scene chip opens the demo in the frame on that view. The app booting
-  // in the frame takes focus, and a focus inside a frame can pull the page
-  // around it, so the page is held where it was until the boot is over,
-  // unless the visitor scrolls it themselves meanwhile.
+  // A scene chip switches the demo in the frame to that view, in place, by
+  // message once the demo has said it is ready; before that, by opening
+  // the frame on the scene. Nothing reboots, so nothing takes focus and
+  // pulls the page down to the frame; and for the moment a view takes to
+  // mount, the page keeps its place anyway, unless the visitor scrolls it.
   (() => {
     const frame = document.getElementById('demo')
     const chips = [...document.querySelectorAll('.scenes button')]
+    let ready = false
     let hold = null
     const release = () => { hold = null }
+    window.addEventListener('message', (event) => {
+      if (event.origin === location.origin && event.data && event.data.demoReady) ready = true
+    })
     for (const event of ['wheel', 'touchmove', 'keydown']) window.addEventListener(event, release, { passive: true })
     window.addEventListener('scroll', () => { if (hold !== null && Math.abs(window.scrollY - hold) > 1) window.scrollTo({ top: hold, behavior: 'instant' }) }, { passive: true })
     for (const chip of chips) {
       chip.addEventListener('click', () => {
         for (const other of chips) other.setAttribute('aria-pressed', String(other === chip))
-        hold = window.scrollY
         chip.blur()
-        frame.src = 'demo/?scene=' + chip.dataset.scene
-        setTimeout(release, 8000)
+        hold = window.scrollY
+        if (ready && frame.contentWindow) frame.contentWindow.postMessage({ scene: chip.dataset.scene }, location.origin)
+        else frame.src = 'demo/?scene=' + chip.dataset.scene
+        setTimeout(release, ready ? 2500 : 8000)
       })
     }
   })()
