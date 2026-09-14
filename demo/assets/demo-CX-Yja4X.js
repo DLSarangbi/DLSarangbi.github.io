@@ -1,4 +1,4 @@
-import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, a as forgetInTags, b as bookByNumber, c as DEFAULT_EDITOR_SETTINGS, d as flattenForSearch, e as SNIPPET_MARK_OPEN, g as SNIPPET_MARK_CLOSE, h as applyThemePreference, i as clientExports, j as jsxRuntimeExports, k as reactExports, A as App } from "./index-D5k_mE-x.js";
+import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, a as forgetInTags, b as bookByNumber, c as DEFAULT_EDITOR_SETTINGS, d as flattenForSearch, e as SNIPPET_MARK_OPEN, g as SNIPPET_MARK_CLOSE, h as applyThemePreference, i as clientExports, j as jsxRuntimeExports, k as reactExports, A as App } from "./index-B2He7jFo.js";
 function daysFromToday(days) {
   const date = /* @__PURE__ */ new Date();
   date.setDate(date.getDate() + days);
@@ -369,6 +369,7 @@ function query(q) {
   const order = (list) => q.sort === "title" ? [...list].sort(([, a], [, b]) => a.title.localeCompare(b.title, void 0, { sensitivity: "base" })) : q.sort === "edited" ? [...list].sort(([, a], [, b]) => b.updatedAt.localeCompare(a.updatedAt)) : [...list].sort(([, a], [, b]) => byDate(a, b));
   const hit = ([path, s], withSnippet) => ({
     ...summary(s, path),
+    seriesId: s.seriesId,
     ...withSnippet && terms.length ? { snippet: snippet(s, terms) } : {}
   });
   if (!terms.length) return order(rows).map((row) => hit(row, false));

@@ -5680,6 +5680,17 @@ select.field {
   position: fixed;
 }
 
+.row-menu {
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface-raised);
+  box-shadow: var(--shadow-pop);
+  border-radius: 10px;
+  padding: 6px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .sermon-block {
   border-left: 0;
   width: 100%;
