@@ -16668,19 +16668,23 @@ function planPages(units, pageHeight) {
 }
 function planWithNotes(units, textHeight, notes, footPad, maxFoot = textHeight / 2) {
   let feet = [];
-  let plan = planPages(units, textHeight);
-  let placed = [];
-  for (let round2 = 0; round2 < 5; round2 += 1) {
-    plan = planPages(units, (k2) => textHeight - (feet[k2] ?? 0));
-    placed = notes.map((note, index2) => ({ pos: note.pos, page: pageAt(plan, note.pos), number: index2 + 1, note: note.note }));
-    const next = Array.from({ length: plan.pages }, () => 0);
+  const withFeet = () => {
+    const plan2 = planPages(units, (k2) => textHeight - (feet[k2] ?? 0));
+    const placed2 = notes.map((note, index2) => ({ pos: note.pos, page: pageAt(plan2, note.pos), number: index2 + 1, note: note.note }));
+    return { plan: plan2, placed: placed2 };
+  };
+  let { plan, placed } = withFeet();
+  for (let round2 = 0; round2 < 8; round2 += 1) {
+    const wanted = Array.from({ length: plan.pages }, () => 0);
     notes.forEach((note, index2) => {
       const page = placed[index2]?.page ?? 1;
-      next[page - 1] = (next[page - 1] ?? 0) + note.height;
+      wanted[page - 1] = (wanted[page - 1] ?? 0) + note.height;
     });
-    const padded = next.map((height) => height > 0 ? Math.min(maxFoot, height + footPad) : 0);
-    if (padded.length === feet.length && padded.every((h2, k2) => Math.abs(h2 - (feet[k2] ?? 0)) < EPS)) break;
-    feet = padded;
+    const padded = wanted.map((height) => height > 0 ? Math.min(maxFoot, height + footPad) : 0);
+    const next = Array.from({ length: Math.max(feet.length, padded.length) }, (_, k2) => Math.max(feet[k2] ?? 0, padded[k2] ?? 0));
+    if (next.length === feet.length && next.every((h2, k2) => Math.abs(h2 - (feet[k2] ?? 0)) < EPS)) break;
+    feet = next;
+    ({ plan, placed } = withFeet());
   }
   const trimmed = Array.from({ length: plan.pages }, (_, k2) => feet[k2] ?? 0);
   return {
@@ -73532,7 +73536,7 @@ function SermonEditor({
           children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "paper-stack", "aria-hidden": "true", children: Array.from({ length: plan.pages }, (_, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "paper", style: { top: index2 * (geometry.height + geometry.gap) }, children: [
               look.pageHeader && runningHead && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "paper__head", children: runningHead }),
-              (plan.feet[index2] ?? 0) > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "paper__foot", children: plan.notes.filter((note) => note.page === index2 + 1).map((note) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "paper__note", children: [
+              plan.notes.some((note) => note.page === index2 + 1) && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "paper__foot", children: plan.notes.filter((note) => note.page === index2 + 1).map((note) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "paper__note", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "paper__note-n", children: note.number }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: note.note ? /* @__PURE__ */ jsxRuntimeExports.jsx(NoteText, { text: note.note }) : " " })
               ] }, note.pos)) }),
