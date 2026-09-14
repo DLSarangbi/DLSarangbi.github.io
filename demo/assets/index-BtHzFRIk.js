@@ -72746,6 +72746,9 @@ function gapElement(state, brk, chrome2) {
   el.className = brk.forced ? "page-gap page-gap--forced" : "page-gap";
   el.contentEditable = "false";
   el.setAttribute("data-page", String(brk.page));
+  el.setAttribute("data-remainder", brk.remainder.toFixed(2));
+  el.setAttribute("data-foot", brk.foot.toFixed(2));
+  el.setAttribute("data-chrome", chrome2.toFixed(2));
   el.style.height = `${Math.max(0, brk.remainder + brk.foot + chrome2)}px`;
   if (brk.forced) {
     const label = document.createElement("span");
