@@ -1,132 +1,53 @@
-import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, a as forgetInTags, b as bookByNumber, c as DEFAULT_EDITOR_SETTINGS, d as flattenForSearch, e as SNIPPET_MARK_OPEN, g as SNIPPET_MARK_CLOSE, h as applyThemePreference, i as clientExports, j as jsxRuntimeExports, k as reactExports, A as App } from "./index-PB7fShKY.js";
+import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, a as forgetInTags, b as bookByNumber, c as DEFAULT_EDITOR_SETTINGS, d as flattenForSearch, e as SNIPPET_MARK_OPEN, g as SNIPPET_MARK_CLOSE, h as applyThemePreference, i as clientExports, j as jsxRuntimeExports, k as reactExports, A as App } from "./index-CElxE0gS.js";
+const series$1 = [{ "id": "series-letters", "name": "Summer in the Letters", "description": "Galatians, Romans, and 1 Peter, one Sunday each, then Ephesians and James to close the summer", "planned": [{ "id": "plan-eph", "title": "Seated With Him", "passage": "Ephesians 2:1-10", "inDays": 5 }, { "id": "plan-jas", "title": "Doers of the Word", "passage": "James 1:19-27", "inDays": 12 }] }];
+const tags = { "groups": [{ "id": "theme", "name": "Theme", "tags": ["faithfulness", "hope", "grace", "suffering", "providence"] }, { "id": "kind", "name": "Kind", "tags": ["parables", "witness"] }], "pinned": [] };
+const illustrations$1 = [{ "id": "story-septembers", "title": "Thirty-one Septembers", "body": 'A teacher of thirty-one years: "Every September they are new, even when I am not."', "source": "A conversation after a funeral", "tags": ["faithfulness"], "daysAgo": 20 }, { "id": "story-nets", "title": "The mended nets", "body": "The fisherman who mended nets every evening, whether or not the day had caught anything.", "source": "My grandfather", "tags": ["hope", "work"], "daysAgo": 100 }];
+const sermons$1 = [{ "title": "The Discipline of Returning", "primaryPassage": "Galatians 6:7-10", "daysAgo": null, "status": "draft", "seriesId": "series-letters", "tags": ["faithfulness", "attention"], "lengthMinutes": 30, "blocks": [{ "type": "point", "heading": "Rivers carve canyons slowly", "minutes": 12, "content": "No single day of water moves the stone, and yet the canyon is there." }, { "type": "illustration", "content": 'A teacher of thirty-one years: "Every September they are new, even when I am not."', "illustrationId": "story-septembers" }, { "type": "point", "heading": "The harvest comes in its season", "minutes": 10, "content": "Sowing is quiet work. Nobody applauds a seed." }, { "type": "scripture", "ref": "Galatians 6:9", "translation": "ESV", "text": "And let us not grow weary of doing good, for in due season we will reap, if we do not give up." }, { "type": "reflection", "content": "What have you been tempted to stop doing because it seemed to make no difference?" }, { "type": "note", "content": "Slow down through the second point. Last time it was rushed." }] }, { "title": "When All Things Work Together", "primaryPassage": "Romans 8:28-39", "daysAgo": 17, "status": "preached", "seriesId": "series-letters", "tags": ["suffering", "providence"], "blocks": [{ "type": "point", "heading": "God's purpose stands", "content": "Nothing in creation can separate us from the love of God." }, { "type": "scripture", "ref": "Romans 8:28", "translation": "ESV", "text": "And we know that for those who love God all things work together for good, for those who are called according to his purpose." }, { "type": "application", "content": "Name the hard year out loud, and name where God was in it." }, { "type": "reflection", "content": "Where have you seen providence at work in a hard year?" }], "preachings": [{ "daysAgo": 556, "church": "Hope Chapel", "minutes": 29 }, { "daysAgo": 17, "church": "Grace Fellowship", "minutes": 32 }] }, { "title": "A Living Hope", "occasion": "Easter", "primaryPassage": "1 Peter 1:3-9", "daysAgo": 87, "status": "preached", "seriesId": "series-letters", "tags": ["hope", "resurrection"], "blocks": [{ "type": "point", "heading": "Born again to a living hope", "content": "Through the resurrection of Jesus Christ from the dead." }, { "type": "point", "heading": "Kept by the power of God", "content": "An inheritance that does not fade." }, { "type": "scripture", "ref": "Romans 8:11", "translation": "ESV", "text": "If the Spirit of him who raised Jesus from the dead dwells in you, he who raised Christ Jesus from the dead will also give life to your mortal bodies through his Spirit who dwells in you." }, { "type": "illustration", "content": "The fisherman who mended nets every evening, whether or not the day had caught anything.", "illustrationId": "story-nets" }] }, { "title": "The Shepherd Who Goes Looking", "occasion": "Funeral", "primaryPassage": "Luke 15:1-7", "daysAgo": 129, "status": "preached", "tags": ["grace", "parables"], "blocks": [{ "type": "point", "heading": "Ninety-nine are not enough", "content": "The shepherd leaves what is safe for what is lost." }, { "type": "scripture", "ref": "Luke 15:4", "translation": "ESV", "text": "What man of you, having a hundred sheep, if he has lost one of them, does not leave the ninety-nine in the open country, and go after the one that is lost, until he finds it?" }, { "type": "application", "content": "Who has drifted from this room that nobody has gone after?" }] }, { "title": "Salt That Keeps Its Taste", "primaryPassage": "Matthew 5:13-16", "daysAgo": 171, "status": "preached", "tags": ["witness"], "blocks": [{ "type": "point", "heading": "Salt is for the food, not the shaker", "content": "A church that stays in the building has not yet been used." }, { "type": "illustration", "content": "The fisherman who mended nets every evening, whether or not the day had caught anything.", "illustrationId": "story-nets" }, { "type": "point", "heading": "Light is meant to be seen", "content": "Not to be admired: to help people find the door." }] }];
+const seeds = {
+  series: series$1,
+  tags,
+  illustrations: illustrations$1,
+  sermons: sermons$1
+};
 function daysFromToday(days) {
   const date = /* @__PURE__ */ new Date();
   date.setDate(date.getDate() + days);
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 }
-const DEMO_SERIES = [
-  {
-    id: "series-letters",
-    name: "Summer in the Letters",
-    description: "Galatians, Romans, and 1 Peter, one Sunday each, then Ephesians and James to close the summer",
-    planned: [
-      { id: "plan-eph", title: "Seated With Him", passage: "Ephesians 2:1-10", date: daysFromToday(5) },
-      { id: "plan-jas", title: "Doers of the Word", passage: "James 1:19-27", date: daysFromToday(12) }
-    ]
-  }
-];
-const DEMO_ILLUSTRATIONS = [
-  {
-    id: "story-septembers",
-    title: "Thirty-one Septembers",
-    body: 'A teacher of thirty-one years: "Every September they are new, even when I am not."',
-    source: "A conversation after a funeral",
-    tags: ["faithfulness"],
-    createdAt: `${daysFromToday(-20)}T09:00:00.000Z`
-  },
-  {
-    id: "story-nets",
-    title: "The mended nets",
-    body: "The fisherman who mended nets every evening, whether or not the day had caught anything.",
-    source: "My grandfather",
-    tags: ["hope", "work"],
-    createdAt: `${daysFromToday(-100)}T09:00:00.000Z`
-  }
-];
-const SEEDS = [
-  {
-    title: "The Discipline of Returning",
-    primaryPassage: "Galatians 6:7-10",
-    datePreached: null,
-    status: "draft",
-    seriesId: "series-letters",
-    tags: ["faithfulness", "attention"],
-    lengthMinutes: 30,
-    blocks: [
-      { type: "point", heading: "Rivers carve canyons slowly", minutes: 12, content: "No single day of water moves the stone, and yet the canyon is there." },
-      { type: "illustration", content: 'A teacher of thirty-one years: "Every September they are new, even when I am not."', illustrationId: "story-septembers" },
-      { type: "point", heading: "The harvest comes in its season", minutes: 10, content: "Sowing is quiet work. Nobody applauds a seed." },
-      { type: "scripture", ref: "Galatians 6:9", translation: "ESV", text: "And let us not grow weary of doing good, for in due season we will reap, if we do not give up." },
-      { type: "reflection", content: "What have you been tempted to stop doing because it seemed to make no difference?" },
-      { type: "note", content: "Slow down through the second point. Last time it was rushed." }
-    ]
-  },
-  {
-    title: "When All Things Work Together",
-    primaryPassage: "Romans 8:28-39",
-    datePreached: daysFromToday(-17),
-    status: "preached",
-    seriesId: "series-letters",
-    tags: ["suffering", "providence"],
-    blocks: [
-      { type: "point", heading: "God's purpose stands", content: "Nothing in creation can separate us from the love of God." },
-      { type: "scripture", ref: "Romans 8:28", translation: "ESV", text: "And we know that for those who love God all things work together for good, for those who are called according to his purpose." },
-      { type: "application", content: "Name the hard year out loud, and name where God was in it." },
-      { type: "reflection", content: "Where have you seen providence at work in a hard year?" }
-    ],
-    preachings: [
-      { date: daysFromToday(-556), church: "Hope Chapel", minutes: 29 },
-      { date: daysFromToday(-17), church: "Grace Fellowship", minutes: 32 }
-    ]
-  },
-  {
-    title: "A Living Hope",
-    occasion: "Easter",
-    primaryPassage: "1 Peter 1:3-9",
-    datePreached: daysFromToday(-87),
-    status: "preached",
-    seriesId: "series-letters",
-    tags: ["hope", "resurrection"],
-    blocks: [
-      { type: "point", heading: "Born again to a living hope", content: "Through the resurrection of Jesus Christ from the dead." },
-      { type: "point", heading: "Kept by the power of God", content: "An inheritance that does not fade." },
-      { type: "scripture", ref: "Romans 8:11", translation: "ESV", text: "If the Spirit of him who raised Jesus from the dead dwells in you, he who raised Christ Jesus from the dead will also give life to your mortal bodies through his Spirit who dwells in you." },
-      { type: "illustration", content: "The fisherman who mended nets every evening, whether or not the day had caught anything.", illustrationId: "story-nets" }
-    ]
-  },
-  {
-    title: "The Shepherd Who Goes Looking",
-    occasion: "Funeral",
-    primaryPassage: "Luke 15:1-7",
-    datePreached: daysFromToday(-129),
-    status: "preached",
-    tags: ["grace", "parables"],
-    blocks: [
-      { type: "point", heading: "Ninety-nine are not enough", content: "The shepherd leaves what is safe for what is lost." },
-      { type: "scripture", ref: "Luke 15:4", translation: "ESV", text: "What man of you, having a hundred sheep, if he has lost one of them, does not leave the ninety-nine in the open country, and go after the one that is lost, until he finds it?" },
-      { type: "application", content: "Who has drifted from this room that nobody has gone after?" }
-    ]
-  },
-  {
-    title: "Salt That Keeps Its Taste",
-    primaryPassage: "Matthew 5:13-16",
-    datePreached: daysFromToday(-171),
-    status: "preached",
-    tags: ["witness"],
-    blocks: [
-      { type: "point", heading: "Salt is for the food, not the shaker", content: "A church that stays in the building has not yet been used." },
-      { type: "illustration", content: "The fisherman who mended nets every evening, whether or not the day had caught anything.", illustrationId: "story-nets" },
-      { type: "point", heading: "Light is meant to be seen", content: "Not to be admired: to help people find the door." }
-    ]
-  }
-];
+const SEEDS = seeds;
+const DEMO_SERIES = SEEDS.series.map((entry) => ({
+  id: entry.id,
+  name: entry.name,
+  description: entry.description,
+  ...entry.planned ? { planned: entry.planned.map((plan) => ({ id: plan.id, title: plan.title, ...plan.passage ? { passage: plan.passage } : {}, ...plan.inDays !== void 0 ? { date: daysFromToday(plan.inDays) } : {} })) } : {}
+}));
+const DEMO_TAGS = SEEDS.tags;
+const DEMO_ILLUSTRATIONS = SEEDS.illustrations.map((story) => ({
+  id: story.id,
+  title: story.title,
+  body: story.body,
+  source: story.source,
+  tags: story.tags,
+  createdAt: `${daysFromToday(-story.daysAgo)}T09:00:00.000Z`
+}));
 const slug = (title) => title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "untitled-sermon";
 function pathFor(sermon) {
   const date = sermon.datePreached ?? sermon.createdAt.slice(0, 10);
   return `Sermons/${date.slice(0, 4)}/${date}-${slug(sermon.title)}.json`;
 }
 function seedSermons() {
-  return SEEDS.map((seed, n) => {
-    const stamp = `${seed.datePreached ?? daysFromToday(-10)}T09:00:00.000Z`;
+  return SEEDS.sermons.map((seed, n) => {
+    const datePreached = seed.daysAgo === null ? null : daysFromToday(-seed.daysAgo);
+    const stamp = `${datePreached ?? daysFromToday(-10)}T09:00:00.000Z`;
     return {
       id: `demo-${n + 1}`,
       fileVersion: SERMON_FILE_VERSION,
       title: seed.title,
       seriesId: seed.seriesId ?? null,
       primaryPassage: seed.primaryPassage,
-      datePreached: seed.datePreached,
+      datePreached,
       ...seed.lengthMinutes ? { lengthMinutes: seed.lengthMinutes } : {},
-      ...seed.preachings ? { preachings: seed.preachings } : {},
+      ...seed.preachings ? { preachings: seed.preachings.map((telling) => ({ date: daysFromToday(-telling.daysAgo), church: telling.church, minutes: telling.minutes })) } : {},
       ...seed.occasion ? { occasion: seed.occasion } : {},
       status: seed.status,
       tags: seed.tags,
@@ -290,13 +211,7 @@ for (const sermon of seedSermons()) sermons.set(pathFor(sermon), sermon);
 let series = clone(DEMO_SERIES);
 let illustrations = clone(DEMO_ILLUSTRATIONS);
 let shapes = [];
-let tagsFile = {
-  groups: [
-    { id: "theme", name: "Theme", tags: ["faithfulness", "hope", "grace", "suffering", "providence"] },
-    { id: "kind", name: "Kind", tags: ["witness", "parables"] }
-  ],
-  pinned: []
-};
+let tagsFile = clone(DEMO_TAGS);
 let views = [
   { id: "view-romans", name: "Romans", query: { book: 45 } },
   { id: "view-preached", name: "Preached this year", query: { status: "preached", from: `${(/* @__PURE__ */ new Date()).getFullYear()}-01-01` } }
@@ -667,9 +582,9 @@ const demoApi = {
     let count = 0;
     for (const sermon of sermons.values()) {
       if (!sermon.tags.some((tag) => tag.toLowerCase() === from.toLowerCase())) continue;
-      const tags = sermon.tags.filter((tag) => tag.toLowerCase() !== from.toLowerCase());
-      if (!tags.some((tag) => tag.toLowerCase() === to.toLowerCase())) tags.push(to);
-      sermon.tags = tags;
+      const tags2 = sermon.tags.filter((tag) => tag.toLowerCase() !== from.toLowerCase());
+      if (!tags2.some((tag) => tag.toLowerCase() === to.toLowerCase())) tags2.push(to);
+      sermon.tags = tags2;
       count++;
     }
     tagsFile = renameInTags(tagsFile, from, to);

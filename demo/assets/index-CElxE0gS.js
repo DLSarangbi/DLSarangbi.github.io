@@ -81906,17 +81906,21 @@ function App() {
     void window.api.setAppSettings({ libraryCollapsed: next });
   }, []);
   reactExports$1.useEffect(() => {
-    const onResize = () => setWindowWidth(window.innerWidth);
+    const onResize = () => {
+      setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight);
+    };
     window.addEventListener("resize", onResize);
-    const query = window.matchMedia("(max-width: 699px)");
-    query.addEventListener("change", onResize);
+    const queries = [window.matchMedia("(max-width: 699px)"), window.matchMedia("(max-height: 479px)")];
+    for (const query of queries) query.addEventListener("change", onResize);
     return () => {
       window.removeEventListener("resize", onResize);
-      query.removeEventListener("change", onResize);
+      for (const query of queries) query.removeEventListener("change", onResize);
     };
   }, []);
   const roomForInspector = windowWidth >= (sidebarFolded ? 700 : 700 + sidebarWidth);
-  const narrow = windowWidth < 700;
+  const [windowHeight, setWindowHeight] = reactExports$1.useState(window.innerHeight);
+  const narrow = windowWidth < 700 || windowHeight < 480;
   const [drawerOpen, setDrawerOpen] = reactExports$1.useState(false);
   const [sheetOpen, setSheetOpen] = reactExports$1.useState(false);
   const toggleLibrary = reactExports$1.useCallback(() => {

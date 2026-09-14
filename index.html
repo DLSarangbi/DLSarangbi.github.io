@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="f4d0c95">
+<meta name="sermondesk-source" content="cfe82ab">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
@@ -108,6 +108,9 @@
     position: relative;
     margin-top: 2.25rem;
     aspect-ratio: 16 / 10;
+    /* Never taller than the screen it is on, less room for the words above. */
+    max-height: calc(100vh - 7rem);
+    min-height: 18rem;
     border: 1px solid var(--rule);
     border-radius: 6px;
     background: var(--panel);
@@ -115,10 +118,14 @@
     overflow: hidden;
   }
   .stage iframe { display: block; width: 100%; height: 100%; border: 0; }
-  /* On a phone the app folds to one column and the stage stands tall to
-     hold it, the way the phone's own screen is shaped. */
-  @media (max-width: 700px) {
+  /* On a phone held upright the app folds to one column and the stage
+     stands tall to hold it, the way the screen is shaped; held sideways,
+     or on any short window, the stage takes what height there is. */
+  @media (max-width: 700px) and (orientation: portrait) {
     .stage { aspect-ratio: 9 / 14; }
+  }
+  @media (max-height: 560px) {
+    .stage { aspect-ratio: auto; height: calc(100vh - 3rem); min-height: 0; }
   }
   /* The scenes: one view each, the app opened on it. */
   .scenes { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
@@ -137,7 +144,6 @@
     color: var(--muted);
   }
   .under b { font-weight: 500; color: var(--ink); }
-  @media (max-width: 900px), (pointer: coarse) { .under .try { display: none; } }
 
   /* The words: one column, wide rules, nothing boxed. */
   .words { padding: clamp(4rem, 9vw, 7rem) 0 0; }
