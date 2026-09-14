@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="cfe82ab">
+<meta name="sermondesk-source" content="8bc107e">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
@@ -339,14 +339,24 @@
   })();
 </script>
 <script>
-  // A scene chip opens the demo in the frame on that view.
+  // A scene chip opens the demo in the frame on that view. The app booting
+  // in the frame takes focus, and a focus inside a frame can pull the page
+  // around it, so the page is held where it was until the boot is over,
+  // unless the visitor scrolls it themselves meanwhile.
   (() => {
     const frame = document.getElementById('demo')
     const chips = [...document.querySelectorAll('.scenes button')]
+    let hold = null
+    const release = () => { hold = null }
+    for (const event of ['wheel', 'touchmove', 'keydown']) window.addEventListener(event, release, { passive: true })
+    window.addEventListener('scroll', () => { if (hold !== null && Math.abs(window.scrollY - hold) > 1) window.scrollTo({ top: hold, behavior: 'instant' }) }, { passive: true })
     for (const chip of chips) {
       chip.addEventListener('click', () => {
         for (const other of chips) other.setAttribute('aria-pressed', String(other === chip))
+        hold = window.scrollY
+        chip.blur()
         frame.src = 'demo/?scene=' + chip.dataset.scene
+        setTimeout(release, 8000)
       })
     }
   })()
