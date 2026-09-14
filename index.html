@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="e89c949">
+<meta name="sermondesk-source" content="fc3de18">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
@@ -114,13 +114,7 @@
     box-shadow: 0 40px 70px -40px rgb(26 27 24 / 0.5), 0 1px 3px rgb(26 27 24 / 0.08);
     overflow: hidden;
   }
-  .stage iframe, .stage video { display: block; width: 100%; height: 100%; border: 0; }
-  .stage video { object-fit: cover; }
-  .stage--film { display: none; }
-  @media (max-width: 900px), (pointer: coarse) {
-    .stage--live { display: none; }
-    .stage--film { display: block; }
-  }
+  .stage iframe { display: block; width: 100%; height: 100%; border: 0; }
   .under {
     display: flex;
     flex-wrap: wrap;
@@ -208,11 +202,8 @@
   <div class="wrap">
     <h1>Write the sermon <em>once.</em></h1>
     <p class="lede">A manuscript, an outline, a handout, and a podium screen from one draft, kept as plain files on your own computer. This is the app, running here with a few sermons in it.</p>
-    <div class="stage stage--live">
+    <div class="stage">
       <iframe src="demo/" title="SermonDesk, live on this page, with a demo library." loading="lazy"></iframe>
-    </div>
-    <div class="stage stage--film">
-      <video src="demo.mp4" autoplay muted loop playsinline preload="metadata" aria-label="An 88-second film of SermonDesk: the library, its tags, writing a sermon, the previews, and the podium"></video>
     </div>
     <p class="under">
       <span class="try">Try: paste a verse and watch it file itself &middot; type <b>/</b> for a point &middot; press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; press the <b>Bible map</b>, the grid beside the search</span>
