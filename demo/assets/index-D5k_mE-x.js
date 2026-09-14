@@ -12715,6 +12715,7 @@ function stepTextSize(from2, direction) {
 function tableText(rows) {
   return rows.map((row) => row.map((cell) => cell.text).join("	")).join("\n");
 }
+const OCCASIONS = ["Funeral", "Wedding", "Baptism", "Dedication", "Communion", "Advent", "Christmas", "Epiphany", "Lent", "Good Friday", "Easter", "Pentecost", "Thanksgiving"];
 const DEFAULT_VISIBILITY = {
   point: { manuscript: true, outline: true, podium: true, handout: true },
   scripture: { manuscript: true, outline: true, podium: true, handout: true },
@@ -68576,7 +68577,7 @@ function printBreaks(doc2, plan) {
     }
     let top = topDepth !== null ? $pos.node(topDepth) : null;
     let textNode = textDepth !== null ? $pos.node(textDepth) : null;
-    let offset2 = textDepth !== null ? $pos.parentOffset : 0;
+    let offset2 = textDepth !== null ? $pos.parent.textBetween(0, $pos.parentOffset, "", "").length : 0;
     if (!textNode) {
       const after = $pos.nodeAfter;
       if (!after) continue;
@@ -70677,9 +70678,8 @@ function HomeTab({
     ] })
   ] });
   const alignable = active.blockType !== "scripture";
-  const inPlainText = ["paragraph", "bulletListItem", "numberedListItem"].includes(active.blockType);
   const listable = active.blockType !== "scripture" && active.blockId !== null;
-  const breakable = !inPlainText && active.blockType !== "scripture" && active.blockId !== null;
+  const breakable = active.blockId !== null && !["paragraph", "bulletListItem", "numberedListItem"].includes(active.containerType);
   const paragraphRows = /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       ParagraphStyleSelect,
@@ -72164,6 +72164,88 @@ function tellingDate(iso) {
   return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { year: "numeric", month: "short", day: "numeric" });
 }
 const today = () => isoDate();
+const OFFERS = 6;
+function currentToken(text) {
+  const at2 = text.lastIndexOf(",") + 1;
+  return { at: at2, word: text.slice(at2).trim() };
+}
+function TagsField({
+  text,
+  writable,
+  onText,
+  onSettled
+}) {
+  const [known, setKnown] = reactExports$1.useState([]);
+  const [focused, setFocused] = reactExports$1.useState(false);
+  const [pick, setPick] = reactExports$1.useState(0);
+  const load = () => {
+    void window.api.listTags().then(setKnown).catch(() => setKnown([]));
+  };
+  reactExports$1.useEffect(() => window.api.onLibraryChanged(load), []);
+  const { at: at2, word } = currentToken(text);
+  const carried = text.slice(0, at2).split(",").map((entry) => entry.trim().toLowerCase()).filter(Boolean);
+  const offers = focused && writable && word ? known.filter((tag) => tag.name.toLowerCase().startsWith(word.toLowerCase()) && tag.name !== word && !carried.includes(tag.name.toLowerCase())).slice(0, OFFERS) : [];
+  const picked = Math.min(pick, Math.max(0, offers.length - 1));
+  const complete = (name) => {
+    onText(`${text.slice(0, at2)}${at2 > 0 ? " " : ""}${name}, `);
+    setPick(0);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "editor-field__host", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "input",
+      {
+        className: "editor-field__input selectable",
+        value: text,
+        placeholder: "suffering, providence",
+        readOnly: !writable,
+        onChange: (event) => {
+          onText(event.target.value);
+          setFocused(true);
+          setPick(0);
+        },
+        onFocus: () => {
+          setFocused(true);
+          load();
+        },
+        onBlur: () => {
+          setFocused(false);
+          onSettled();
+        },
+        onKeyDown: (event) => {
+          if (offers.length === 0) return;
+          if (event.key === "ArrowDown") {
+            event.preventDefault();
+            setPick((picked + 1) % offers.length);
+          } else if (event.key === "ArrowUp") {
+            event.preventDefault();
+            setPick((picked - 1 + offers.length) % offers.length);
+          } else if (event.key === "Enter" || event.key === "Tab") {
+            event.preventDefault();
+            complete(offers[picked].name);
+          } else if (event.key === "Escape") {
+            event.stopPropagation();
+            setFocused(false);
+          }
+        }
+      }
+    ),
+    offers.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "tagcomplete", role: "listbox", "aria-label": "Tags the library has", children: offers.map((tag, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "li",
+      {
+        role: "option",
+        "aria-selected": index2 === picked,
+        className: index2 === picked ? "tagcomplete__item tagcomplete__item--on" : "tagcomplete__item",
+        onMouseDown: (event) => event.preventDefault(),
+        onClick: () => complete(tag.name),
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tagcomplete__name", children: tag.name }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tagcomplete__count", children: tag.sermonCount })
+        ]
+      },
+      tag.name
+    )) })
+  ] });
+}
 function PreachingLog({ draft, writable, onMeta }) {
   const [adding, setAdding] = reactExports$1.useState(false);
   const [date, setDate] = reactExports$1.useState(today);
@@ -72226,6 +72308,71 @@ function PreachingLog({ draft, writable, onMeta }) {
       ) })
     ] })
   ] });
+}
+const ANOTHER = "…another";
+function OccasionField({ value, writable, onChange }) {
+  const [known, setKnown] = reactExports$1.useState([]);
+  const [typing, setTyping] = reactExports$1.useState(false);
+  const [word, setWord] = reactExports$1.useState("");
+  const load = () => {
+    void window.api.listOccasions().then(setKnown).catch(() => setKnown([]));
+  };
+  reactExports$1.useEffect(() => {
+    load();
+    return window.api.onLibraryChanged(load);
+  }, []);
+  const options = [];
+  for (const name of [...OCCASIONS, ...known.map((row) => row.name), value]) {
+    if (name && !options.some((seen2) => seen2.toLowerCase() === name.toLowerCase())) options.push(name);
+  }
+  const settle = () => {
+    setTyping(false);
+    onChange(word.trim());
+  };
+  if (typing) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "input",
+      {
+        className: "editor-field__input selectable",
+        "aria-label": "Occasion",
+        placeholder: "Youth Sunday",
+        value: word,
+        autoFocus: true,
+        maxLength: 60,
+        onChange: (event) => setWord(event.target.value),
+        onBlur: settle,
+        onKeyDown: (event) => {
+          if (event.key === "Enter") settle();
+          if (event.key === "Escape") {
+            event.stopPropagation();
+            setTyping(false);
+          }
+        }
+      }
+    );
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "select",
+    {
+      className: "editor-field__input",
+      "aria-label": "Occasion",
+      value,
+      disabled: !writable,
+      onChange: (event) => {
+        if (event.target.value === ANOTHER) {
+          setWord("");
+          setTyping(true);
+          return;
+        }
+        onChange(event.target.value);
+      },
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Any Sunday" }),
+        options.map((name) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: name, children: name }, name)),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: ANOTHER, children: "Another…" })
+      ]
+    }
+  );
 }
 function SermonHeader({
   draft,
@@ -72308,19 +72455,13 @@ function SermonHeader({
           }
         )
       ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "editor-field", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-field__label", children: "For" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(OccasionField, { value: draft.occasion ?? "", writable, onChange: (occasion) => onMeta({ occasion: occasion || void 0 }) })
+      ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "editor-field editor-field--wide", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-field__label", children: "Tags" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            className: "editor-field__input selectable",
-            value: tagText,
-            placeholder: "suffering, providence",
-            readOnly: !writable,
-            onChange: (event) => onTagText(event.target.value),
-            onBlur: onTagsSettled
-          }
-        )
+        /* @__PURE__ */ jsxRuntimeExports.jsx(TagsField, { text: tagText, writable, onText: onTagText, onSettled: onTagsSettled })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "editor-field", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-field__label", children: "Status" }),
@@ -75298,7 +75439,7 @@ function SeriesSheet({ onClose, onSaved }) {
 }
 const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"];
 const numeral = (n2) => ROMAN[n2 - 1] ?? String(n2);
-function when(iso) {
+function when$1(iso) {
   if (!iso) return "";
   const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
   return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { month: "short", day: "numeric" });
@@ -75357,13 +75498,13 @@ function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
             hit.status !== "preached" ? ` · ${hit.status}` : ""
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__when", children: when(hit.datePreached) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__when", children: when$1(hit.datePreached) })
       ] }, hit.id)),
       planned.map((plan, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "series-page__row series-page__row--planned", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__num", children: numeral(preached.length + index2 + 1) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "series-page__open", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: plan.title }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: [plan.passage, plan.date ? `planned for ${when(plan.date)}` : "not yet dated"].filter(Boolean).join(" · ") })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: [plan.passage, plan.date ? `planned for ${when$1(plan.date)}` : "not yet dated"].filter(Boolean).join(" · ") })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "series-page__acts", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", title: "Start writing it: a draft in this series, with the title and passage filled in", onClick: () => onWrite(plan), children: "Write it" }),
@@ -75399,8 +75540,151 @@ function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: "Done" }) })
   ] });
 }
+const EMPTY_TAGS = { groups: [], pinned: [] };
+function tagKey(name) {
+  return name.trim().toLowerCase();
+}
+function sameTag(a2, b2) {
+  return tagKey(a2) === tagKey(b2);
+}
+const cleanNames = (raw) => {
+  if (!Array.isArray(raw)) return [];
+  const seen2 = /* @__PURE__ */ new Set();
+  const out = [];
+  for (const entry of raw) {
+    if (typeof entry !== "string") continue;
+    const name = entry.trim().slice(0, 60);
+    if (!name || seen2.has(tagKey(name))) continue;
+    seen2.add(tagKey(name));
+    out.push(name);
+  }
+  return out;
+};
+function normaliseTags(raw) {
+  const source = raw && typeof raw === "object" ? raw : {};
+  const taken = /* @__PURE__ */ new Set();
+  const groups = [];
+  const ids = /* @__PURE__ */ new Set();
+  for (const entry of Array.isArray(source["groups"]) ? source["groups"] : []) {
+    if (!entry || typeof entry !== "object") continue;
+    const id = typeof entry["id"] === "string" ? entry["id"].trim() : "";
+    const name = typeof entry["name"] === "string" ? entry["name"].trim().slice(0, 40) : "";
+    if (!id || !name || ids.has(id)) continue;
+    ids.add(id);
+    const tags = cleanNames(entry["tags"]).filter((tag) => {
+      if (taken.has(tagKey(tag))) return false;
+      taken.add(tagKey(tag));
+      return true;
+    });
+    groups.push({ id, name, tags });
+  }
+  return { groups, pinned: cleanNames(source["pinned"]) };
+}
+function groupOf(file, tag) {
+  const key2 = tagKey(tag);
+  return file.groups.find((group) => group.tags.some((name) => tagKey(name) === key2)) ?? null;
+}
+function renameInTags(file, from2, to) {
+  const swap = (names) => {
+    const out = [];
+    for (const name of names) {
+      const next = sameTag(name, from2) ? to : name;
+      if (!out.some((seen2) => sameTag(seen2, next))) out.push(next);
+    }
+    return out;
+  };
+  const target = groupOf(file, to);
+  const source = groupOf(file, from2);
+  return {
+    groups: file.groups.map((group) => {
+      const tags = swap(group.tags);
+      if (target && source && target.id !== source.id && group.id === source.id) return { ...group, tags: tags.filter((name) => !sameTag(name, to)) };
+      return { ...group, tags };
+    }),
+    pinned: swap(file.pinned)
+  };
+}
+function assignGroup(file, tag, groupId) {
+  const name = tag.trim();
+  return {
+    ...file,
+    groups: file.groups.map((group) => {
+      const without = group.tags.filter((entry) => !sameTag(entry, name));
+      return group.id === groupId ? { ...group, tags: [...without, name] } : { ...group, tags: without };
+    })
+  };
+}
+function forgetInTags(file, tag) {
+  return setPinned(assignGroup(file, tag, null), tag, false);
+}
+function setPinned(file, tag, pinned) {
+  const name = tag.trim();
+  const without = file.pinned.filter((entry) => !sameTag(entry, name));
+  return { ...file, pinned: pinned ? [...without, name] : without };
+}
+function when(iso) {
+  if (!iso) return "";
+  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
+  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { year: "numeric", month: "short" });
+}
+function TagPage({ tag, onClose, onOpen, onTag, onChapter }) {
+  const [page, setPage] = reactExports$1.useState(null);
+  const [hits, setHits] = reactExports$1.useState([]);
+  const [tagsFile, setTagsFile] = reactExports$1.useState(EMPTY_TAGS);
+  reactExports$1.useEffect(() => {
+    void window.api.tagPage(tag).then(setPage).catch(() => setPage(null));
+    void window.api.queryLibrary({ tag, limit: 1e3 }).then(setHits).catch(() => setHits([]));
+    void window.api.readTags().then(setTagsFile).catch(() => setTagsFile(EMPTY_TAGS));
+  }, [tag]);
+  const preached = reactExports$1.useMemo(() => [...hits].sort((a2, b2) => (a2.datePreached ?? "9999").localeCompare(b2.datePreached ?? "9999")), [hits]);
+  const group = groupOf(tagsFile, tag);
+  const pinned = tagsFile.pinned.some((name2) => sameTag(name2, tag));
+  const name = page?.name ?? tag;
+  const count2 = page?.sermonCount ?? hits.length;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { title: name, ariaLabel: "The tag: its sermons, the tags that travel with it, and the chapters it was preached from", onClose, className: "series-page tag-page", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "sheet__lead series-page__kicker", children: [
+      count2,
+      " sermon",
+      count2 === 1 ? "" : "s",
+      group ? ` · in ${group.name}` : "",
+      pinned ? " · pinned to the row" : ""
+    ] }),
+    page && page.companions.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "tag-page__line", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tag-page__label", children: "Travels with" }),
+      page.companions.slice(0, 12).map((row) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tag-page__item", title: `${row.sermonCount} of these sermons also carry ${row.name}; press for its page`, onClick: () => onTag(row.name), children: [
+        row.name,
+        " ",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: row.sermonCount })
+      ] }, row.name))
+    ] }),
+    page && page.chapters.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "tag-page__line", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tag-page__label", children: "Preached from" }),
+      page.chapters.map((cell) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tag-page__item", title: `${cell.sermons} of these sermons touch ${cell.label}; press to narrow the library to it`, onClick: () => onChapter(cell.book, cell.chapter), children: [
+        cell.label,
+        " ",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: cell.sermons })
+      ] }, `${cell.book}:${cell.chapter}`))
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("ol", { className: "series-page__list", children: [
+      preached.map((hit) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "series-page__row series-page__row--tag", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "series-page__open", onClick: () => onOpen(hit.filePath), title: "Open this sermon", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: hit.title || "Untitled" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("small", { children: [
+            hit.primaryPassage ?? "No passage yet",
+            hit.status !== "preached" ? ` · ${hit.status}` : ""
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__when", children: when(hit.datePreached) })
+      ] }, hit.id)),
+      preached.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "sermon-list__empty", children: "No sermon carries this tag now." })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: "Done" }) })
+  ] });
+}
 function TidySheet({ onClose, onChanged }) {
   const [tags, setTags] = reactExports$1.useState([]);
+  const [tagsFile, setTagsFile] = reactExports$1.useState(EMPTY_TAGS);
+  const [newGroup, setNewGroup] = reactExports$1.useState("");
   const [series, setSeries] = reactExports$1.useState([]);
   const [renaming, setRenaming] = reactExports$1.useState(null);
   const [newName, setNewName] = reactExports$1.useState("");
@@ -75409,6 +75693,7 @@ function TidySheet({ onClose, onChanged }) {
   const [error, setError] = reactExports$1.useState(null);
   const load = () => {
     void window.api.listTags().then(setTags).catch(() => setTags([]));
+    void window.api.readTags().then(setTagsFile).catch(() => setTagsFile(EMPTY_TAGS));
     void window.api.listSeries().then(setSeries).catch(() => setSeries([]));
   };
   reactExports$1.useEffect(load, []);
@@ -75444,6 +75729,47 @@ function TidySheet({ onClose, onChanged }) {
       setBusy(null);
     }
   };
+  const keepTags = async (next) => {
+    setError(null);
+    try {
+      setTagsFile(await window.api.saveTags(next));
+      onChanged();
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : String(cause));
+    }
+  };
+  const addGroup = () => {
+    const name = newGroup.trim().slice(0, 40);
+    if (!name) return;
+    const stem = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "group";
+    let id = stem;
+    for (let n2 = 2; tagsFile.groups.some((group) => group.id === id); n2++) id = `${stem}-${n2}`;
+    setNewGroup("");
+    void keepTags({ ...tagsFile, groups: [...tagsFile.groups, { id, name, tags: [] }] });
+  };
+  const renameGroup = (id, name) => {
+    const next = name.trim().slice(0, 40);
+    const group = tagsFile.groups.find((entry) => entry.id === id);
+    if (!group || !next || next === group.name) return;
+    void keepTags({ ...tagsFile, groups: tagsFile.groups.map((entry) => entry.id === id ? { ...entry, name: next } : entry) });
+  };
+  const removeGroup = (id) => {
+    void keepTags({ ...tagsFile, groups: tagsFile.groups.filter((entry) => entry.id !== id) });
+  };
+  const promote = async (tag) => {
+    setBusy(tag);
+    setError(null);
+    try {
+      const marked = await window.api.promoteTag(tag);
+      setNote(`${marked} sermon${marked === 1 ? " is" : "s are"} now for ${tag}, and the tag is off ${marked === 1 ? "it" : "them"}.`);
+      load();
+      onChanged();
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : String(cause));
+    } finally {
+      setBusy(null);
+    }
+  };
   const retire = async (entry, retired) => {
     setError(null);
     try {
@@ -75455,7 +75781,11 @@ function TidySheet({ onClose, onChanged }) {
     }
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { title: "Tidy", ariaLabel: "Tidy tags and series", onClose, className: "tidy", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", children: "Renaming or merging a tag rewrites it in every sermon that carries it. Retiring a series only takes its chip out of the row; its sermons and its page stay." }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "sheet__hint", children: [
+      "Renaming or merging a tag rewrites it in every sermon that carries it, and so does making one an occasion: Funeral or Advent belongs in the byline, under ",
+      /* @__PURE__ */ jsxRuntimeExports.jsx("i", { children: "For" }),
+      ", not among the tags. A group or a pin changes only how the library shows the tag. Retiring a series only takes its chip out of the row; its sermons and its page stay."
+    ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "tidy__heading", children: [
       "Tags · ",
       tags.length,
@@ -75482,9 +75812,39 @@ function TidySheet({ onClose, onChanged }) {
             ]
           }
         ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tidy__name", children: tag.name }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "tidy__name", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                type: "button",
+                className: tagsFile.pinned.some((name) => sameTag(name, tag.name)) ? "tidy__pin tidy__pin--on" : "tidy__pin",
+                title: tagsFile.pinned.some((name) => sameTag(name, tag.name)) ? "Pinned to the library’s row; press to unpin" : "Pin to the library’s row, ahead of the most-used",
+                "aria-label": `Pin ${tag.name}`,
+                "aria-pressed": tagsFile.pinned.some((name) => sameTag(name, tag.name)),
+                disabled: busy !== null,
+                onClick: () => void keepTags(setPinned(tagsFile, tag.name, !tagsFile.pinned.some((name) => sameTag(name, tag.name)))),
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 13, strokeWidth: 1.8 })
+              }
+            ),
+            tag.name
+          ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tidy__count", children: tag.sermonCount }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "tidy__acts", children: [
+            tagsFile.groups.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "select",
+              {
+                className: "field tidy__group",
+                "aria-label": `Group for ${tag.name}`,
+                title: "The group whose chip holds this tag in the library",
+                value: groupOf(tagsFile, tag.name)?.id ?? "",
+                disabled: busy !== null,
+                onChange: (event) => void keepTags(assignGroup(tagsFile, tag.name, event.target.value || null)),
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "No group" }),
+                  tagsFile.groups.map((group) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: group.id, children: group.name }, group.id))
+                ]
+              }
+            ),
             keeper && /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "button button--small", disabled: busy !== null, title: `Every sermon tagged “${tag.name}” is tagged “${keeper.name}” instead`, onClick: () => void rename(tag.name, keeper.name), children: [
               "Merge into ",
               keeper.name
@@ -75501,11 +75861,61 @@ function TidySheet({ onClose, onChanged }) {
                 },
                 children: "Rename"
               }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                type: "button",
+                className: "link",
+                disabled: busy !== null,
+                title: `Every sermon tagged “${tag.name}” is marked for ${tag.name} in its byline instead, and the tag comes off. A sermon already for another occasion keeps the tag.`,
+                onClick: () => void promote(tag.name),
+                children: "Make an occasion"
+              }
             )
           ] })
         ] }) }, tag.name);
       }),
       tags.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "sermon-list__empty", children: "No tags yet." })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "tidy__heading", children: [
+      "Tag groups · ",
+      tagsFile.groups.length
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", children: "A group is one chip in the library’s row, Occasion say, opening to a list of its tags; one is chosen at a time, and the groups combine. Put a tag in a group from the list above." }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "tidy__list", children: [
+      tagsFile.groups.map((group) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "tidy__row", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            className: "field selectable tidy__groupname",
+            "aria-label": `Name of the ${group.name} group`,
+            defaultValue: group.name,
+            maxLength: 40,
+            onBlur: (event) => renameGroup(group.id, event.target.value),
+            onKeyDown: (event) => {
+              if (event.key === "Enter") event.currentTarget.blur();
+            }
+          },
+          `${group.id}:${group.name}`
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tidy__count", children: group.tags.length }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tidy__acts", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: "Its tags stay, in no group", onClick: () => removeGroup(group.id), children: "Remove" }) })
+      ] }, group.id)),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "tidy__row", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "form",
+        {
+          className: "tidy__rename",
+          onSubmit: (event) => {
+            event.preventDefault();
+            addGroup();
+          },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("input", { className: "field selectable", "aria-label": "A new group's name", placeholder: "A new group: Occasion, Audience, Theme", maxLength: 40, value: newGroup, onChange: (event) => setNewGroup(event.target.value) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", className: "button button--small", disabled: !newGroup.trim(), children: "Add group" })
+          ]
+        }
+      ) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "tidy__heading", children: [
       "Series · ",
@@ -75816,7 +76226,9 @@ function printHtml(facts, cells, plans, church) {
     <p class="legend">Filled: preached. Outlined: planned.</p>
   </body></html>`;
 }
-const TAG_CHIPS = 6;
+const ROW_TAGS = 6;
+const ROW_TAGS_WITH_GROUPS = 3;
+const FILTER_FROM = 12;
 const SORT_KEY = "sermondesk.library.sort";
 function readOrder() {
   try {
@@ -75845,12 +76257,14 @@ function monthOf(iso) {
   const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
   return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { month: "long" });
 }
-const VIEW_KEYS = ["text", "book", "chapter", "seriesId", "tag", "status", "from", "to", "church"];
+const VIEW_KEYS = ["text", "book", "chapter", "seriesId", "tag", "tags", "occasion", "status", "from", "to", "church"];
 function narrowingOf(query) {
   const out = {};
   for (const key2 of VIEW_KEYS) {
     const value = query[key2];
-    if (value !== void 0 && value !== "" && value !== null) out[key2] = value;
+    if (Array.isArray(value)) {
+      if (value.length) out.tags = value;
+    } else if (value !== void 0 && value !== "" && value !== null) out[key2] = value;
     else if (key2 === "seriesId" && value === null) out.seriesId = null;
   }
   return out;
@@ -75879,11 +76293,82 @@ function Chip({
     on3 && /* @__PURE__ */ jsxRuntimeExports.jsx(X$5, { size: 11, strokeWidth: 2.2, className: "chip__x" })
   ] });
 }
+function TagMenu({
+  name,
+  tags,
+  chosen,
+  onPick
+}) {
+  const [needle, setNeedle] = reactExports$1.useState("");
+  const listed = [...tags].sort((a2, b2) => a2.name.localeCompare(b2.name, void 0, { sensitivity: "base" }));
+  const shown = needle.trim() ? listed.filter((tag) => tag.name.toLowerCase().includes(needle.trim().toLowerCase())) : listed;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    PopoverButton,
+    {
+      buttonClass: chosen ? "chip chip--on chip--menu" : "chip chip--menu",
+      label: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Tag, { size: 12, strokeWidth: 1.8 }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip__label", children: chosen ? `${name}: ${chosen}` : name }),
+        chosen ? /* @__PURE__ */ jsxRuntimeExports.jsx(X$5, { size: 11, strokeWidth: 2.2, className: "chip__x", onClick: (event) => {
+          event.stopPropagation();
+          onPick(null);
+        } }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 11, strokeWidth: 2, className: "chip__caret" })
+      ] }),
+      title: chosen ? `${name}: ${chosen}. Press to choose another, or the × to clear.` : `Narrow to one of the ${name.toLowerCase()} tags`,
+      ariaLabel: name,
+      panelClass: "tagpick",
+      children: (close2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        tags.length > FILTER_FROM && /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            className: "field selectable tagpick__find",
+            placeholder: `Find a ${name.toLowerCase()} tag`,
+            "aria-label": `Find a ${name.toLowerCase()} tag`,
+            value: needle,
+            autoFocus: true,
+            onChange: (event) => setNeedle(event.target.value),
+            onKeyDown: (event) => {
+              event.stopPropagation();
+              if (event.key === "Enter" && shown.length === 1) {
+                onPick(shown[0].name);
+                setNeedle("");
+                close2();
+              }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tagpick__list", role: "listbox", children: [
+          shown.map((tag) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "button",
+            {
+              type: "button",
+              role: "option",
+              "aria-selected": chosen !== null && sameTag(chosen, tag.name),
+              className: chosen !== null && sameTag(chosen, tag.name) ? "tagpick__item tagpick__item--on" : "tagpick__item",
+              onClick: () => {
+                onPick(chosen !== null && sameTag(chosen, tag.name) ? null : tag.name);
+                setNeedle("");
+                close2();
+              },
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tagpick__name", children: tag.name }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tagpick__count", children: tag.sermonCount })
+              ]
+            },
+            tag.name
+          )),
+          shown.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "tagpick__none", children: "No tag says that." })
+        ] })
+      ] })
+    }
+  );
+}
 function LibraryColumn({
   openPath,
   onOpen,
   onManageSeries,
   onOpenSeries,
+  onOpenTag,
   onTidy,
   onCoverage,
   bookPick,
@@ -75899,13 +76384,16 @@ function LibraryColumn({
   const [scope, setScope] = reactExports$1.useState("all");
   const [order, setOrder] = reactExports$1.useState(readOrder);
   const [seriesId, setSeriesId] = reactExports$1.useState(null);
-  const [tag, setTag] = reactExports$1.useState(null);
+  const [chosen, setChosen] = reactExports$1.useState([]);
+  const [tagsFile, setTagsFile] = reactExports$1.useState(EMPTY_TAGS);
   const [book, setBook] = reactExports$1.useState("");
   const [chapter, setChapter] = reactExports$1.useState("");
   const [from2, setFrom] = reactExports$1.useState("");
   const [to, setTo] = reactExports$1.useState("");
   const [church, setChurch] = reactExports$1.useState("");
   const [churches, setChurches] = reactExports$1.useState([]);
+  const [occasion, setOccasion] = reactExports$1.useState("");
+  const [occasions, setOccasions] = reactExports$1.useState([]);
   const [hits, setHits] = reactExports$1.useState([]);
   const [passage, setPassage] = reactExports$1.useState(null);
   const [failures, setFailures] = reactExports$1.useState([]);
@@ -75924,8 +76412,11 @@ function LibraryColumn({
     if (seriesId && !series.some((entry) => entry.id === seriesId)) setSeriesId(null);
   }, [series, seriesId]);
   reactExports$1.useEffect(() => {
-    if (tag && !tags.some((entry) => entry.name === tag)) setTag(null);
-  }, [tags, tag]);
+    if (chosen.some((name) => !tags.some((entry) => sameTag(entry.name, name)))) setChosen((current) => current.filter((name) => tags.some((entry) => sameTag(entry.name, name))));
+  }, [tags, chosen]);
+  reactExports$1.useEffect(() => {
+    if (occasion && !occasions.some((row) => sameTag(row.name, occasion))) setOccasion("");
+  }, [occasions, occasion]);
   const query = reactExports$1.useMemo(() => {
     const next = {};
     if (text.trim()) next.text = text.trim();
@@ -75935,14 +76426,15 @@ function LibraryColumn({
     if (scope === "archived") next.status = "archived";
     if (scope === "all") next.hideArchived = true;
     if (seriesId) next.seriesId = seriesId;
-    if (tag) next.tag = tag;
+    if (chosen.length) next.tags = chosen;
+    if (occasion) next.occasion = occasion;
     if (book !== "") next.book = book;
     if (book !== "" && chapter.trim()) next.chapter = Number(chapter);
     if (from2) next.from = from2;
     if (to) next.to = to;
     if (church) next.church = church;
     return next;
-  }, [text, scope, seriesId, tag, book, chapter, from2, to, church, order]);
+  }, [text, scope, seriesId, chosen, occasion, book, chapter, from2, to, church, order]);
   const chooseOrder = (next) => {
     setOrder(next);
     try {
@@ -75975,11 +76467,14 @@ function LibraryColumn({
     void window.api.getLibraryStatus().then((state) => setFailures(state.failures)).catch(() => setFailures([]));
     void window.api.listViews().then(setViews).catch(() => setViews([]));
     void window.api.listChurches().then(setChurches).catch(() => setChurches([]));
+    void window.api.readTags().then(setTagsFile).catch(() => setTagsFile(EMPTY_TAGS));
+    void window.api.listOccasions().then(setOccasions).catch(() => setOccasions([]));
   }, [revision]);
-  const narrowed = Boolean(seriesId || tag || book !== "" || from2 || to || church);
+  const narrowed = Boolean(seriesId || chosen.length || occasion || book !== "" || from2 || to || church);
   const clearFilters = reactExports$1.useCallback(() => {
     setSeriesId(null);
-    setTag(null);
+    setChosen([]);
+    setOccasion("");
     setBook("");
     setChapter("");
     setFrom("");
@@ -75991,7 +76486,8 @@ function LibraryColumn({
     setText(q2.text ?? "");
     setScope(q2.status === "draft" ? "drafts" : q2.status === "preached" ? "preached" : q2.status === "archived" ? "archived" : "all");
     setSeriesId(q2.seriesId ?? null);
-    setTag(q2.tag ?? null);
+    setChosen([...q2.tags ?? [], ...q2.tag ? [q2.tag] : []]);
+    setOccasion(q2.occasion ?? "");
     setBook(q2.book ?? "");
     setChapter(q2.chapter !== void 0 ? String(q2.chapter) : "");
     setFrom(q2.from ?? "");
@@ -76025,7 +76521,8 @@ function LibraryColumn({
     const parts = [];
     const seriesName = series.find((entry) => entry.id === seriesId)?.name;
     if (seriesName) parts.push(`in ${seriesName}`);
-    if (tag) parts.push(`tagged ${tag}`);
+    if (chosen.length) parts.push(`tagged ${chosen.join(", ")}`);
+    if (occasion) parts.push(`for ${occasion}`);
     if (book !== "") parts.push(`touching ${bookByNumber(book)?.name ?? "the passage"}${chapter.trim() ? ` ${chapter.trim()}` : ""}`);
     if (from2 && to) parts.push(`between ${from2} and ${to}`);
     else if (from2) parts.push(`since ${from2}`);
@@ -76035,7 +76532,7 @@ function LibraryColumn({
     const noun = scope === "drafts" ? "draft" : scope === "preached" ? "preached sermon" : scope === "archived" ? "archived sermon" : "sermon";
     const count2 = hits.length === 0 ? "No" : String(hits.length);
     return `${count2} ${noun}${hits.length === 1 ? "" : "s"}${parts.length ? ` ${parts.join(", ")}` : ""}`;
-  }, [hits.length, series, seriesId, tag, book, chapter, from2, to, church, text, passage, scope]);
+  }, [hits.length, series, seriesId, chosen, occasion, book, chapter, from2, to, church, text, passage, scope]);
   const byYear = !text.trim() && order === "date";
   const totals = reactExports$1.useMemo(() => {
     const counts = /* @__PURE__ */ new Map();
@@ -76080,10 +76577,22 @@ function LibraryColumn({
     setOpenYears((open2) => /* @__PURE__ */ new Set([...open2, year]));
     requestAnimationFrame(() => yearRefs.current.get(year)?.scrollIntoView({ block: "start", behavior: "smooth" }));
   };
-  const shownTags = tags.slice(0, TAG_CHIPS);
-  const moreTags = tags.slice(TAG_CHIPS);
-  const chipTags = tag && !shownTags.some((entry) => entry.name === tag) ? [tags.find((entry) => entry.name === tag), ...shownTags] : shownTags;
-  const behindMore = (book !== "" ? 1 : 0) + (from2 || to ? 1 : 0) + (church ? 1 : 0) + (tag && moreTags.some((entry) => entry.name === tag) ? 1 : 0);
+  const inUse = (group) => tags.filter((entry) => group.tags.some((name) => sameTag(name, entry.name)));
+  const groups = tagsFile.groups.map((group) => ({ group, tags: inUse(group) })).filter((entry) => entry.tags.length > 0);
+  const ungrouped = tags.filter((entry) => groupOf(tagsFile, entry.name) === null);
+  const pinned = tagsFile.pinned.flatMap((name) => tags.filter((entry) => sameTag(entry.name, name)));
+  const rowTags = pinned.length > 0 ? pinned : tags.slice(0, groups.length > 0 ? ROW_TAGS_WITH_GROUPS : ROW_TAGS);
+  const chipTags = [...chosen.flatMap((name) => rowTags.some((entry) => sameTag(entry.name, name)) || groupOf(tagsFile, name) ? [] : tags.filter((entry) => sameTag(entry.name, name))), ...rowTags];
+  const isChosen = (name) => chosen.some((entry) => sameTag(entry, name));
+  const chosenIn = (group) => chosen.find((name) => (groupOf(tagsFile, name)?.id ?? null) === (group?.id ?? null)) ?? null;
+  const chooseTag = (name, group) => {
+    setChosen((current) => {
+      const kept = current.filter((entry) => (groupOf(tagsFile, entry)?.id ?? null) !== (group?.id ?? null));
+      return name ? [...kept, name] : kept;
+    });
+  };
+  const toggleTag = (name) => isChosen(name) ? chooseTag(null, groupOf(tagsFile, name)) : chooseTag(name, groupOf(tagsFile, name));
+  const behindMore = (book !== "" ? 1 : 0) + (from2 || to ? 1 : 0) + (church ? 1 : 0);
   const item = (hit) => {
     const active = hit.filePath === openPath;
     return /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -76122,6 +76631,17 @@ function LibraryColumn({
           ),
           text && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "search__clear", "aria-label": "Clear the search", onClick: () => setText(""), children: /* @__PURE__ */ jsxRuntimeExports.jsx(X$5, { size: 13, strokeWidth: 2 }) })
         ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            className: "library__more",
+            title: "Bible history: the chapters you have preached from",
+            "aria-label": COVERAGE_NAME,
+            onClick: onCoverage,
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(Grid3x3, { size: 16, strokeWidth: 1.8 })
+          }
+        ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           PopoverButton,
           {
@@ -76206,32 +76726,25 @@ function LibraryColumn({
         chipTags.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx(
           Chip,
           {
-            on: tag === entry.name,
+            on: isChosen(entry.name),
             icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Tag, { size: 12, strokeWidth: 1.8 }),
             label: entry.name,
-            onClick: () => setTag(tag === entry.name ? null : entry.name)
+            onClick: () => toggleTag(entry.name)
           },
           entry.name
         )),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Chip,
-          {
-            on: false,
-            icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Grid3x3, { size: 12, strokeWidth: 1.8 }),
-            label: COVERAGE_NAME,
-            title: "The whole canon, a cell a chapter, lit where a sermon touched it. Pick a book there to narrow the list to it.",
-            onClick: onCoverage
-          }
-        ),
+        occasions.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: "Occasion", tags: occasions, chosen: occasion || null, onPick: (name) => setOccasion(name ?? "") }),
+        groups.map(({ group, tags: members }) => /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: group.name, tags: members, chosen: chosenIn(group), onPick: (name) => chooseTag(name, group) }, group.id)),
+        ungrouped.length > 0 && (groups.length > 0 || ungrouped.length > rowTags.length) && /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: "Tags", tags: ungrouped, chosen: chosenIn(null), onPick: (name) => chooseTag(name, null) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           PopoverButton,
           {
             buttonClass: "chip chip--more",
             label: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(SlidersHorizontal, { size: 12, strokeWidth: 1.8 }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip__label", children: behindMore > 0 ? `${behindMore} more on` : moreTags.length > 0 ? `Passage, dates, ${moreTags.length} more tag${moreTags.length === 1 ? "" : "s"}` : "Passage, dates" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip__label", children: behindMore > 0 ? `${behindMore} more on` : "Passage, dates" })
             ] }),
-            title: "Passage, dates, and the rest of the tags",
+            title: "Passage, dates, and the church",
             ariaLabel: "More filters",
             active: behindMore > 0,
             panelClass: "filters",
@@ -76275,22 +76788,6 @@ function LibraryColumn({
                     ")"
                   ] }, row.name))
                 ] })
-              ] }),
-              moreTags.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "filters__field", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "filters__label", children: "More tags" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "library__chips library__chips--bare", children: moreTags.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  Chip,
-                  {
-                    on: tag === entry.name,
-                    icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Tag, { size: 12, strokeWidth: 1.8 }),
-                    label: entry.name,
-                    onClick: () => {
-                      setTag(tag === entry.name ? null : entry.name);
-                      close2();
-                    }
-                  },
-                  entry.name
-                )) })
               ] }),
               writable && canSave && /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "form",
@@ -76347,7 +76844,11 @@ function LibraryColumn({
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__order", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "library__count", children: [
               hits.length > 0 || text || narrowed || scope !== "all" ? sentence : "",
-              seriesId && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link library__series-link", title: "The series as a page: its sermons in order, and the ones still to write", onClick: () => onOpenSeries(seriesId), children: "Open the series ›" })
+              seriesId && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link library__series-link", title: "The series as a page: its sermons in order, and the ones still to write", onClick: () => onOpenSeries(seriesId), children: "Open the series ›" }),
+              chosen.map((name) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "link library__series-link", title: "The tag as a page: its sermons, the tags that travel with it, and the chapters it was preached from", onClick: () => onOpenTag(name), children: [
+                name,
+                " as a page ›"
+              ] }, name))
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { className: "library__sort", "aria-label": "Sort", title: "The order of the list", value: order, onChange: (event) => chooseOrder(event.target.value), children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "date", children: "Newest first" }),
@@ -76453,6 +76954,7 @@ function App() {
   const [revision, setRevision] = reactExports$1.useState(0);
   const [seriesOpen, setSeriesOpen] = reactExports$1.useState(false);
   const [seriesPage, setSeriesPage] = reactExports$1.useState(null);
+  const [tagPage, setTagPage] = reactExports$1.useState(null);
   const [tidyOpen, setTidyOpen] = reactExports$1.useState(false);
   const [coverageOpen, setCoverageOpen] = reactExports$1.useState(false);
   const [bookPick, setBookPick] = reactExports$1.useState(null);
@@ -76862,6 +77364,7 @@ function App() {
             onOpen: (path) => void openSermon(path),
             onManageSeries: () => setSeriesOpen(true),
             onOpenSeries: setSeriesPage,
+            onOpenTag: setTagPage,
             onTidy: () => setTidyOpen(true),
             onCoverage: () => setCoverageOpen(true),
             bookPick,
@@ -77059,6 +77562,22 @@ function App() {
         }
       ),
       tidyOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(TidySheet, { onClose: () => setTidyOpen(false), onChanged: () => void refreshList() }),
+      tagPage && /* @__PURE__ */ jsxRuntimeExports.jsx(
+        TagPage,
+        {
+          tag: tagPage,
+          onClose: () => setTagPage(null),
+          onOpen: (path) => {
+            setTagPage(null);
+            void openSermon(path);
+          },
+          onTag: setTagPage,
+          onChapter: (book, chapter) => {
+            setBookPick({ book, chapter, nonce: Date.now() });
+            setTagPage(null);
+          }
+        }
+      ),
       seriesOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(
         SeriesSheet,
         {
@@ -77080,14 +77599,17 @@ export {
   IS_MAC as I,
   LAST_VERSE_SENTINEL as L,
   SERMON_FILE_VERSION as S,
-  DEFAULT_EDITOR_SETTINGS as a,
+  forgetInTags as a,
   bookByNumber as b,
-  flattenForSearch as c,
-  SNIPPET_MARK_OPEN as d,
-  SNIPPET_MARK_CLOSE as e,
+  DEFAULT_EDITOR_SETTINGS as c,
+  flattenForSearch as d,
+  SNIPPET_MARK_OPEN as e,
   formatRange as f,
-  applyThemePreference as g,
-  clientExports as h,
+  SNIPPET_MARK_CLOSE as g,
+  applyThemePreference as h,
+  clientExports as i,
   jsxRuntimeExports as j,
-  reactExports$1 as r
+  reactExports$1 as k,
+  normaliseTags as n,
+  renameInTags as r
 };

@@ -1,4 +1,4 @@
-import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, a as DEFAULT_EDITOR_SETTINGS, b as bookByNumber, c as flattenForSearch, d as SNIPPET_MARK_OPEN, e as SNIPPET_MARK_CLOSE, g as applyThemePreference, h as clientExports, j as jsxRuntimeExports, r as reactExports, A as App } from "./index-2aSon0yY.js";
+import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, a as forgetInTags, b as bookByNumber, c as DEFAULT_EDITOR_SETTINGS, d as flattenForSearch, e as SNIPPET_MARK_OPEN, g as SNIPPET_MARK_CLOSE, h as applyThemePreference, i as clientExports, j as jsxRuntimeExports, k as reactExports, A as App } from "./index-D5k_mE-x.js";
 function daysFromToday(days) {
   const date = /* @__PURE__ */ new Date();
   date.setDate(date.getDate() + days);
@@ -71,6 +71,7 @@ const SEEDS = [
   },
   {
     title: "A Living Hope",
+    occasion: "Easter",
     primaryPassage: "1 Peter 1:3-9",
     datePreached: daysFromToday(-87),
     status: "preached",
@@ -85,6 +86,7 @@ const SEEDS = [
   },
   {
     title: "The Shepherd Who Goes Looking",
+    occasion: "Funeral",
     primaryPassage: "Luke 15:1-7",
     datePreached: daysFromToday(-129),
     status: "preached",
@@ -125,6 +127,7 @@ function seedSermons() {
       datePreached: seed.datePreached,
       ...seed.lengthMinutes ? { lengthMinutes: seed.lengthMinutes } : {},
       ...seed.preachings ? { preachings: seed.preachings } : {},
+      ...seed.occasion ? { occasion: seed.occasion } : {},
       status: seed.status,
       tags: seed.tags,
       createdAt: stamp,
@@ -287,6 +290,13 @@ for (const sermon of seedSermons()) sermons.set(pathFor(sermon), sermon);
 let series = clone(DEMO_SERIES);
 let illustrations = clone(DEMO_ILLUSTRATIONS);
 let shapes = [];
+let tagsFile = {
+  groups: [
+    { id: "theme", name: "Theme", tags: ["faithfulness", "hope", "grace", "suffering", "providence"] },
+    { id: "occasion", name: "Occasion", tags: ["witness", "parables"] }
+  ],
+  pinned: []
+};
 let views = [
   { id: "view-romans", name: "Romans", query: { book: 45 } },
   { id: "view-preached", name: "Preached this year", query: { status: "preached", from: `${(/* @__PURE__ */ new Date()).getFullYear()}-01-01` } }
@@ -352,7 +362,7 @@ function query(q) {
   const text = q.text?.trim().toLowerCase() ?? "";
   const terms = text ? text.split(/\s+/) : [];
   const asked = text ? parseReference(text) : [];
-  const rows = [...sermons.entries()].filter(([, s]) => q.status ? s.status === q.status : q.hideArchived ? s.status !== "archived" : true).filter(([, s]) => q.church ? (s.preachings ?? []).some((p) => p.church?.toLowerCase() === q.church.toLowerCase()) : true).filter(([, s]) => q.seriesId === null ? s.seriesId === null : q.seriesId !== void 0 ? s.seriesId === q.seriesId : true).filter(([, s]) => q.tag ? s.tags.some((tag) => tag.toLowerCase() === q.tag.toLowerCase()) : true).filter(([, s]) => q.from ? (s.datePreached ?? "") >= q.from : true).filter(([, s]) => q.to ? (s.datePreached ?? "") <= q.to && s.datePreached !== null : true).filter(([, s]) => {
+  const rows = [...sermons.entries()].filter(([, s]) => q.status ? s.status === q.status : q.hideArchived ? s.status !== "archived" : true).filter(([, s]) => q.church ? (s.preachings ?? []).some((p) => p.church?.toLowerCase() === q.church.toLowerCase()) : true).filter(([, s]) => q.seriesId === null ? s.seriesId === null : q.seriesId !== void 0 ? s.seriesId === q.seriesId : true).filter(([, s]) => [...q.tag ? [q.tag] : [], ...q.tags ?? []].every((wanted) => s.tags.some((tag) => tag.toLowerCase() === wanted.toLowerCase()))).filter(([, s]) => q.occasion?.trim() ? (s.occasion ?? "").toLowerCase() === q.occasion.trim().toLowerCase() : true).filter(([, s]) => q.from ? (s.datePreached ?? "") >= q.from : true).filter(([, s]) => q.to ? (s.datePreached ?? "") <= q.to && s.datePreached !== null : true).filter(([, s]) => {
     if (q.book === void 0) return true;
     return ranges(s).some((r) => r.book === q.book && (q.chapter === void 0 || r.chapterStart <= q.chapter && r.chapterEnd >= q.chapter));
   });
@@ -598,6 +608,60 @@ const demoApi = {
     }
     return [...seen.values()].map((row) => ({ name: row.name, sermonCount: row.sermons.size, last: row.last })).sort((a, b) => b.last.localeCompare(a.last));
   },
+  listOccasions: async () => {
+    const seen = /* @__PURE__ */ new Map();
+    for (const sermon of sermons.values()) {
+      const name = sermon.occasion?.trim();
+      if (!name) continue;
+      const row = seen.get(name.toLowerCase()) ?? { name, sermonCount: 0 };
+      row.sermonCount++;
+      seen.set(name.toLowerCase(), row);
+    }
+    return [...seen.values()].sort((a, b) => b.sermonCount - a.sermonCount || a.name.localeCompare(b.name));
+  },
+  tagPage: async (tag) => {
+    const key = tag.trim().toLowerCase();
+    const carrying = [...sermons.values()].filter((sermon) => sermon.tags.some((name) => name.toLowerCase() === key));
+    const companions = /* @__PURE__ */ new Map();
+    const chapters = /* @__PURE__ */ new Map();
+    for (const sermon of carrying) {
+      for (const name of sermon.tags) {
+        if (name.toLowerCase() === key) continue;
+        const row = companions.get(name.toLowerCase()) ?? { name, sermonCount: 0 };
+        row.sermonCount++;
+        companions.set(name.toLowerCase(), row);
+      }
+      for (const range of ranges(sermon)) {
+        const book = bookByNumber(range.book);
+        if (!book) continue;
+        for (let chapter = Math.max(1, range.chapterStart); chapter <= Math.min(range.chapterEnd, book.chapters); chapter++) {
+          const cell = chapters.get(`${range.book}:${chapter}`) ?? { book: range.book, chapter, label: `${book.name} ${chapter}`, sermons: 0, ids: /* @__PURE__ */ new Set() };
+          cell.ids.add(sermon.id);
+          chapters.set(`${range.book}:${chapter}`, cell);
+        }
+      }
+    }
+    return {
+      name: carrying.flatMap((sermon) => sermon.tags).find((name) => name.toLowerCase() === key) ?? tag.trim(),
+      sermonCount: carrying.length,
+      companions: [...companions.values()].sort((a, b) => b.sermonCount - a.sermonCount || a.name.localeCompare(b.name)),
+      chapters: [...chapters.values()].map(({ ids, ...cell }) => ({ ...cell, sermons: ids.size })).sort((a, b) => a.book - b.book || a.chapter - b.chapter)
+    };
+  },
+  promoteTag: async (tag) => {
+    const key = tag.trim().toLowerCase();
+    let marked = 0;
+    for (const sermon of sermons.values()) {
+      if (!sermon.tags.some((name) => name.toLowerCase() === key)) continue;
+      if (sermon.occasion && sermon.occasion.toLowerCase() !== key) continue;
+      sermon.occasion = sermon.tags.find((name) => name.toLowerCase() === key) ?? tag.trim();
+      sermon.tags = sermon.tags.filter((name) => name.toLowerCase() !== key);
+      marked++;
+    }
+    tagsFile = forgetInTags(tagsFile, tag);
+    changed();
+    return marked;
+  },
   renameTag: async (from, to) => {
     let count = 0;
     for (const sermon of sermons.values()) {
@@ -607,8 +671,14 @@ const demoApi = {
       sermon.tags = tags;
       count++;
     }
+    tagsFile = renameInTags(tagsFile, from, to);
     changed();
     return count;
+  },
+  readTags: async () => clone(tagsFile),
+  saveTags: async (next) => {
+    tagsFile = normaliseTags(next);
+    return clone(tagsFile);
   },
   revealSermon: async () => void 0,
   getPodiumSettings: async () => ({ ...podium }),

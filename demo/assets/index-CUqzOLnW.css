@@ -3067,6 +3067,89 @@ select.field {
   opacity: .8;
 }
 
+.chip--menu .chip__label {
+  max-width: 14rem;
+}
+
+.chip__caret {
+  opacity: .6;
+  transform: rotate(90deg);
+}
+
+.chip--menu.chip--active:not(.chip--on), .chip--menu.chip--active:not(.chip--on):hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+  background-color: var(--tint);
+}
+
+.tagpick {
+  white-space: normal;
+  flex-direction: column;
+  gap: 6px;
+  width: 16rem;
+  padding: 6px;
+  display: flex;
+}
+
+.tagpick__find {
+  height: 26px;
+  font-size: 12.5px;
+}
+
+.tagpick__list {
+  flex-direction: column;
+  max-height: 18rem;
+  display: flex;
+  overflow-y: auto;
+}
+
+.tagpick__item {
+  font: inherit;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 8px;
+  font-size: 12.5px;
+  display: flex;
+}
+
+.tagpick__item:hover {
+  background-color: var(--tint);
+}
+
+.tagpick__item--on, .tagpick__item--on:hover {
+  background-color: var(--tint);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.tagpick__name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.tagpick__count {
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+  flex: none;
+  font-size: 11px;
+}
+
+.tagpick__none {
+  color: var(--ink-faint);
+  margin: 0;
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
 .chip--more {
   color: var(--ink-muted);
   border-style: dashed;
@@ -3334,8 +3417,10 @@ select.field {
   flex-direction: column;
   gap: 10px;
   width: 20rem;
+  max-height: min(32rem, 70vh);
   padding: 10px;
   display: flex;
+  overflow-y: auto;
 }
 
 .filters__field {
@@ -5076,6 +5161,57 @@ select.field {
   min-width: 0;
 }
 
+.editor-field__host {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  position: relative;
+}
+
+.editor-field__host .editor-field__input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+.tagcomplete {
+  z-index: 30;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface-raised);
+  min-width: 12rem;
+  max-width: 20rem;
+  box-shadow: var(--shadow-pop);
+  border-radius: 8px;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+}
+
+.tagcomplete__item {
+  cursor: pointer;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px;
+  font-size: 12.5px;
+  display: flex;
+}
+
+.tagcomplete__item--on, .tagcomplete__item:hover {
+  background-color: var(--tint);
+  color: var(--accent);
+}
+
+.tagcomplete__count {
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+}
+
 .editor-body {
   background-color: var(--ground);
   flex: 1;
@@ -6689,6 +6825,45 @@ select.field {
   display: grid;
 }
 
+.series-page__row--tag {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.tag-page__line {
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  display: flex;
+}
+
+.tag-page__label {
+  color: var(--ink-faint);
+  margin-right: 2px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.tag-page__item {
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+.tag-page__item:hover {
+  text-decoration: underline;
+}
+
+.tag-page__item small {
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+}
+
 .tidy__heading {
   align-items: baseline;
   gap: 10px;
@@ -6752,6 +6927,46 @@ select.field {
 
 .tidy__rename .field {
   flex: 1;
+}
+
+.tidy__name {
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  display: flex;
+}
+
+.tidy__pin {
+  color: var(--ink-faint);
+  cursor: pointer;
+  background: none;
+  border: 0;
+  flex: none;
+  padding: 0;
+  display: inline-flex;
+}
+
+.tidy__pin:hover:not(:disabled) {
+  color: var(--ink);
+}
+
+.tidy__pin--on, .tidy__pin--on:hover:not(:disabled) {
+  color: var(--accent);
+}
+
+.tidy__pin--on svg {
+  fill: currentColor;
+}
+
+.tidy__group {
+  height: 24px;
+  padding: 0 6px;
+  font-size: 12px;
+}
+
+.tidy__groupname {
+  height: 26px;
+  font-size: 12.5px;
 }
 
 .sheet__backdrop:has(.coverage) {
