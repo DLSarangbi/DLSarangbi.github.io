@@ -1,4 +1,4 @@
-import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, a as forgetInTags, b as bookByNumber, c as DEFAULT_EDITOR_SETTINGS, d as flattenForSearch, e as SNIPPET_MARK_OPEN, g as SNIPPET_MARK_CLOSE, h as applyThemePreference, i as clientExports, j as jsxRuntimeExports, k as reactExports, A as App } from "./index-Pc5F7fl5.js";
+import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, a as forgetInTags, b as bookByNumber, c as DEFAULT_EDITOR_SETTINGS, d as flattenForSearch, e as SNIPPET_MARK_OPEN, g as SNIPPET_MARK_CLOSE, h as applyThemePreference, i as clientExports, j as jsxRuntimeExports, k as reactExports, A as App } from "./index-DNGDVEcW.js";
 function daysFromToday(days) {
   const date = /* @__PURE__ */ new Date();
   date.setDate(date.getDate() + days);
@@ -293,7 +293,7 @@ let shapes = [];
 let tagsFile = {
   groups: [
     { id: "theme", name: "Theme", tags: ["faithfulness", "hope", "grace", "suffering", "providence"] },
-    { id: "occasion", name: "Occasion", tags: ["witness", "parables"] }
+    { id: "kind", name: "Kind", tags: ["witness", "parables"] }
   ],
   pinned: []
 };
@@ -759,6 +759,8 @@ const demoApi = {
 };
 window.api = demoApi;
 document.documentElement.classList.add("demo");
+const scene = new URLSearchParams(window.location.search).get("scene") ?? "";
+if (["library", "write", "outline", "handout", "preach"].includes(scene)) document.documentElement.dataset["scene"] = scene;
 applyThemePreference("system");
 let touched = false;
 const settle = () => {

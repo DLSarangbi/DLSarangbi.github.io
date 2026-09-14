@@ -77759,6 +77759,7 @@ function EditorPane({
   onUpdateLater,
   sidebarFolded,
   onToggleSidebar,
+  initialView,
   formatting,
   onCreate,
   onTranscribe,
@@ -77767,7 +77768,7 @@ function EditorPane({
   const doc2 = useSermonDraft(sermon, filePath, writable, onChanged);
   const { draft, path, draftRef, pathRef } = doc2;
   const [series, setSeries] = reactExports$1.useState([]);
-  const [view, setView] = reactExports$1.useState("write");
+  const [view, setView] = reactExports$1.useState(initialView ?? "write");
   const [tab, setTab] = reactExports$1.useState("format");
   const [libraryDraft, setLibraryDraft] = reactExports$1.useState(null);
   const [handout, setHandout] = reactExports$1.useState(() => remembered("handout", DEFAULT_HANDOUT_OPTIONS));
@@ -81907,16 +81908,43 @@ function App() {
   reactExports$1.useEffect(() => {
     const onResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    const query = window.matchMedia("(max-width: 699px)");
+    query.addEventListener("change", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      query.removeEventListener("change", onResize);
+    };
   }, []);
   const roomForInspector = windowWidth >= (sidebarFolded ? 700 : 700 + sidebarWidth);
+  const narrow = windowWidth < 700;
+  const [drawerOpen, setDrawerOpen] = reactExports$1.useState(false);
+  const [sheetOpen, setSheetOpen] = reactExports$1.useState(false);
+  const toggleLibrary = reactExports$1.useCallback(() => {
+    if (narrow) {
+      setDrawerOpen((current) => !current);
+      setSheetOpen(false);
+    } else foldSidebar(!sidebarFolded);
+  }, [narrow, sidebarFolded, foldSidebar]);
+  const scene = document.documentElement.dataset["scene"] ?? "";
+  const [scenePlayed, setScenePlayed] = reactExports$1.useState(false);
+  reactExports$1.useEffect(() => {
+    if (scenePlayed || !open2) return;
+    setScenePlayed(true);
+    if (scene === "preach") setPodium(open2.sermon);
+    if (scene === "library" && narrow) setDrawerOpen(true);
+  }, [scene, scenePlayed, open2, narrow]);
   const showInspector = reactExports$1.useCallback(
     (next) => {
+      if (narrow) {
+        setSheetOpen(next);
+        if (next) setDrawerOpen(false);
+        return;
+      }
       setInspectorOpen(next);
       void window.api.setAppSettings({ inspectorOpen: next });
       if (next && !roomForInspector) foldSidebar(true);
     },
-    [roomForInspector, foldSidebar]
+    [narrow, roomForInspector, foldSidebar]
   );
   const startResize = reactExports$1.useCallback(
     (event) => {
@@ -81960,7 +81988,8 @@ function App() {
       if (!(event.ctrlKey || event.metaKey)) return;
       if (event.shiftKey && event.key.toLowerCase() === "f") {
         event.preventDefault();
-        if (sidebarFolded) foldSidebar(false);
+        if (narrow) setDrawerOpen(true);
+        else if (sidebarFolded) foldSidebar(false);
         const focus2 = () => document.querySelector(".library .search__input")?.focus();
         requestAnimationFrame(() => requestAnimationFrame(focus2));
         setTimeout(focus2, 80);
@@ -81973,7 +82002,7 @@ function App() {
         setPrefsOpen(true);
       } else if (event.key === "\\") {
         event.preventDefault();
-        foldSidebar(!sidebarFolded);
+        toggleLibrary();
       } else if (event.key.toLowerCase() === "n") {
         event.preventDefault();
         if (podium || !folder?.exists || !writable) return;
@@ -81982,7 +82011,7 @@ function App() {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [createSermon, podium, folder, writable, sidebarFolded, foldSidebar]);
+  }, [createSermon, podium, folder, writable, sidebarFolded, foldSidebar, narrow, toggleLibrary]);
   reactExports$1.useEffect(
     () => window.api.onMenuCommand((command2) => {
       if (podium) return;
@@ -82052,17 +82081,21 @@ function App() {
     );
   }
   const notice = fileReason ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "notice notice--warn", role: "status", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "notice__message", children: fileReason }) }) : license ? /* @__PURE__ */ jsxRuntimeExports.jsx(LicenseNotice, { status: license, onChanged: setLicense, onEnterKey: () => setLicenseOpen(true) }) : null;
-  const inspectorShown = open2 !== null && inspectorOpen && roomForInspector;
+  const inspectorShown = open2 !== null && (narrow ? sheetOpen : inspectorOpen && roomForInspector);
+  const libraryShown = narrow ? drawerOpen : !sidebarFolded;
   const cloudHome = cloudFolders.find((cloud) => folder.path?.startsWith(cloud.path));
-  const shellClass = ["shell", sidebarFolded ? "shell--no-side" : "", inspectorShown ? "" : "shell--no-insp"].filter(Boolean).join(" ");
+  const shellClass = ["shell", libraryShown ? "" : "shell--no-side", inspectorShown ? "" : "shell--no-insp", narrow ? "shell--narrow" : ""].filter(Boolean).join(" ");
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: shellClass, style: { "--c-side": `${sidebarWidth}px` }, inert: podium !== null, children: [
-      !sidebarFolded && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      libraryShown && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           LibraryColumn,
           {
             openPath: open2?.filePath ?? null,
-            onOpen: (path) => void openSermon(path),
+            onOpen: (path) => {
+              void openSermon(path);
+              if (narrow) setDrawerOpen(false);
+            },
             onManageSeries: () => setSeriesOpen(true),
             onOpenSeries: setSeriesPage,
             onOpenTag: setTagPage,
@@ -82080,7 +82113,7 @@ function App() {
             stories: { canInsert: writable && open2 !== null && commands !== null, onInsert: (illustration) => commands?.insertIllustration(illustration) }
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
+        !narrow && /* @__PURE__ */ jsxRuntimeExports.jsx(
           "div",
           {
             className: "shell__resizer",
@@ -82092,6 +82125,17 @@ function App() {
           }
         )
       ] }),
+      narrow && (drawerOpen || inspectorShown) && /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          className: "shell__scrim",
+          "aria-hidden": "true",
+          onClick: () => {
+            setDrawerOpen(false);
+            setSheetOpen(false);
+          }
+        }
+      ),
       open2 ? /* @__PURE__ */ jsxRuntimeExports.jsx(
         EditorPane,
         {
@@ -82122,8 +82166,9 @@ function App() {
           notice,
           update: updateShown,
           onUpdateLater: () => setUpdateLater(true),
-          sidebarFolded,
-          onToggleSidebar: () => foldSidebar(!sidebarFolded),
+          sidebarFolded: !libraryShown,
+          onToggleSidebar: toggleLibrary,
+          initialView: scene === "outline" || scene === "handout" ? scene : void 0,
           formatting,
           onCreate: () => void createSermon(),
           onTranscribe: () => void transcribeRecording()

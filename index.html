@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="fc3de18">
+<meta name="sermondesk-source" content="676a72b">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
@@ -115,6 +115,28 @@
     overflow: hidden;
   }
   .stage iframe { display: block; width: 100%; height: 100%; border: 0; }
+  /* On a phone the app gets the whole screen rather than a box: the stage
+     is a card that opens it, on the podium, which is the view a phone is. */
+  .stage--open { display: none; aspect-ratio: 16 / 8; border-color: transparent; }
+  .stage--open a {
+    position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem;
+    padding: 1.5rem; color: #fff; text-decoration: none;
+    background: linear-gradient(160deg, #8a3238, #5d1f24 60%, #3a1316);
+  }
+  .stage--open strong { font-size: 1.5rem; font-family: var(--serif, Georgia, serif); font-weight: 500; }
+  .stage--open span { font-size: 1rem; opacity: 0.85; }
+  .stage--open a::after { content: '\2192'; position: absolute; right: 1.5rem; bottom: 1.25rem; font-size: 1.5rem; opacity: 0.85; }
+  @media (max-width: 700px) {
+    .stage--live { display: none; }
+    .stage--open { display: block; }
+  }
+  /* The scenes: one view each, the app opened on it. */
+  .scenes { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
+  .scenes button {
+    font: inherit; font-size: 0.875rem; padding: 0.35rem 0.8rem; border-radius: 999px;
+    border: 1px solid var(--rule); background: var(--panel); color: var(--ink); cursor: pointer;
+  }
+  .scenes button[aria-pressed='true'] { border-color: var(--oxblood); color: var(--oxblood); }
   .under {
     display: flex;
     flex-wrap: wrap;
@@ -202,8 +224,21 @@
   <div class="wrap">
     <h1>Write the sermon <em>once.</em></h1>
     <p class="lede">A manuscript, an outline, a handout, and a podium screen from one draft, kept as plain files on your own computer. This is the app, running here with a few sermons in it.</p>
-    <div class="stage">
-      <iframe src="demo/" title="SermonDesk, live on this page, with a demo library." loading="lazy"></iframe>
+    <div class="stage stage--live">
+      <iframe id="demo" src="demo/" title="SermonDesk, live on this page, with a demo library." loading="lazy"></iframe>
+    </div>
+    <div class="stage stage--open">
+      <a id="open-demo" href="demo/?scene=preach">
+        <strong>Open the demo</strong>
+        <span>The app itself, on your whole screen, starting at the podium.</span>
+      </a>
+    </div>
+    <div class="scenes" role="group" aria-label="Open the demo on one view">
+      <button type="button" data-scene="library">Library</button>
+      <button type="button" data-scene="write" aria-pressed="true">Write</button>
+      <button type="button" data-scene="outline">Outline</button>
+      <button type="button" data-scene="handout">Handout</button>
+      <button type="button" data-scene="preach">Preach</button>
     </div>
     <p class="under">
       <span class="try">Try: paste a verse and watch it file itself &middot; type <b>/</b> for a point &middot; press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; press the <b>Bible map</b>, the grid beside the search</span>
@@ -312,6 +347,24 @@
       if (sibling) a.parentNode.insertBefore(a, sibling);
     });
   })();
+</script>
+<script>
+  // A scene chip opens the demo on that view: in the frame on a desk, and
+  // on a phone by pointing the card at it, since the frame is not shown.
+  (() => {
+    const frame = document.getElementById('demo')
+    const card = document.getElementById('open-demo')
+    const chips = [...document.querySelectorAll('.scenes button')]
+    for (const chip of chips) {
+      chip.addEventListener('click', () => {
+        const scene = chip.dataset.scene
+        for (const other of chips) other.setAttribute('aria-pressed', String(other === chip))
+        card.href = 'demo/?scene=' + scene
+        if (getComputedStyle(card.parentElement).display === 'none') frame.src = 'demo/?scene=' + scene
+        else card.click()
+      })
+    }
+  })()
 </script>
 </body>
 </html>

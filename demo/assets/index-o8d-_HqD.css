@@ -2579,6 +2579,38 @@ select.field {
   overflow: hidden auto;
 }
 
+.shell--narrow {
+  --side: 0px;
+  --insp: 0px;
+}
+
+.shell--narrow .cell--side-body, .shell--narrow .cell--insp-body {
+  top: var(--topbar-h);
+  z-index: 30;
+  box-shadow: var(--shadow-pop);
+  position: fixed;
+  bottom: 0;
+}
+
+.shell--narrow .cell--side-body {
+  border-right: 1px solid var(--border-subtle);
+  width: min(88vw, 340px);
+  left: 0;
+}
+
+.shell--narrow .cell--insp-body {
+  border-left: 1px solid var(--border-subtle);
+  width: min(88vw, 300px);
+  right: 0;
+}
+
+.shell__scrim {
+  inset: var(--topbar-h) 0 0 0;
+  z-index: 25;
+  background-color: #00000047;
+  position: fixed;
+}
+
 .shell__resizer {
   z-index: 5;
   cursor: col-resize;
@@ -3633,6 +3665,20 @@ select.field {
 @container (max-width: 570px) {
   .toolbar .tool-split--history, .toolbar .tool-split--history + .toolbar__sep {
     display: none;
+  }
+}
+
+@container (max-width: 470px) {
+  .toolbar .tool--word[aria-label="New sermon"], .toolbar .tool-split, .toolbar .tool-split + .toolbar__sep, .toolbar .popover-host:has( > [aria-label="Share"]) {
+    display: none;
+  }
+
+  .toolbar .tool--word {
+    padding: 0 5px;
+  }
+
+  .toolbar .segmented__item {
+    padding: 0 7px;
   }
 }
 
