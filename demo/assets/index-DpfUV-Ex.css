@@ -7785,6 +7785,7 @@ select.field {
   -webkit-user-select: none;
   user-select: none;
   grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
   display: grid;
   position: fixed;
   inset: 0;
@@ -7956,6 +7957,40 @@ select.field {
 
 .podium__exit:hover {
   opacity: .7;
+}
+
+@media (max-width: 700px) {
+  .podium__bar {
+    gap: .75rem;
+    padding: .75rem 1.25rem 0;
+    font-size: .75rem;
+  }
+
+  .podium__progress {
+    white-space: nowrap;
+  }
+
+  .podium__timer {
+    font-size: 1.25rem !important;
+  }
+
+  .podium__remaining, .podium__chip {
+    display: none;
+  }
+
+  .podium__stage {
+    flex: 1;
+    min-width: 0;
+    padding: 1.25rem;
+  }
+
+  .podium__slide {
+    max-width: min(46ch, 100%);
+  }
+
+  .podium--rail .podium__rail {
+    display: none;
+  }
 }
 
 .podium__margin {
@@ -8193,7 +8228,29 @@ select.field {
   font-weight: 600;
 }
 
+@media (max-width: 700px) {
+  .podium__ready {
+    padding: 1.25rem 1rem;
+    overflow-y: auto;
+  }
+
+  .podium__ready-title {
+    font-size: clamp(1.75rem, 9vw, 3.4rem);
+  }
+
+  .podium__ready-choices {
+    flex-direction: column;
+    align-self: stretch;
+    gap: .6rem;
+  }
+
+  .podium__choice {
+    width: auto;
+  }
+}
+
 .podium__layout {
+  min-width: 0;
   min-height: 0;
   display: flex;
   overflow: hidden;
@@ -8544,6 +8601,13 @@ select.field {
   margin-left: auto;
   margin-right: 3.5rem;
   font-size: .7rem;
+}
+
+@media (max-width: 700px) {
+  .podium__scroll {
+    padding: 1.25rem 1.25rem 40vh;
+    font-size: 1.25rem !important;
+  }
 }
 
 .podium__begin {

@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="676a72b">
+<meta name="sermondesk-source" content="f4d0c95">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
@@ -115,20 +115,10 @@
     overflow: hidden;
   }
   .stage iframe { display: block; width: 100%; height: 100%; border: 0; }
-  /* On a phone the app gets the whole screen rather than a box: the stage
-     is a card that opens it, on the podium, which is the view a phone is. */
-  .stage--open { display: none; aspect-ratio: 16 / 8; border-color: transparent; }
-  .stage--open a {
-    position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem;
-    padding: 1.5rem; color: #fff; text-decoration: none;
-    background: linear-gradient(160deg, #8a3238, #5d1f24 60%, #3a1316);
-  }
-  .stage--open strong { font-size: 1.5rem; font-family: var(--serif, Georgia, serif); font-weight: 500; }
-  .stage--open span { font-size: 1rem; opacity: 0.85; }
-  .stage--open a::after { content: '\2192'; position: absolute; right: 1.5rem; bottom: 1.25rem; font-size: 1.5rem; opacity: 0.85; }
+  /* On a phone the app folds to one column and the stage stands tall to
+     hold it, the way the phone's own screen is shaped. */
   @media (max-width: 700px) {
-    .stage--live { display: none; }
-    .stage--open { display: block; }
+    .stage { aspect-ratio: 9 / 14; }
   }
   /* The scenes: one view each, the app opened on it. */
   .scenes { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
@@ -224,14 +214,8 @@
   <div class="wrap">
     <h1>Write the sermon <em>once.</em></h1>
     <p class="lede">A manuscript, an outline, a handout, and a podium screen from one draft, kept as plain files on your own computer. This is the app, running here with a few sermons in it.</p>
-    <div class="stage stage--live">
+    <div class="stage">
       <iframe id="demo" src="demo/" title="SermonDesk, live on this page, with a demo library." loading="lazy"></iframe>
-    </div>
-    <div class="stage stage--open">
-      <a id="open-demo" href="demo/?scene=preach">
-        <strong>Open the demo</strong>
-        <span>The app itself, on your whole screen, starting at the podium.</span>
-      </a>
     </div>
     <div class="scenes" role="group" aria-label="Open the demo on one view">
       <button type="button" data-scene="library">Library</button>
@@ -349,19 +333,14 @@
   })();
 </script>
 <script>
-  // A scene chip opens the demo on that view: in the frame on a desk, and
-  // on a phone by pointing the card at it, since the frame is not shown.
+  // A scene chip opens the demo in the frame on that view.
   (() => {
     const frame = document.getElementById('demo')
-    const card = document.getElementById('open-demo')
     const chips = [...document.querySelectorAll('.scenes button')]
     for (const chip of chips) {
       chip.addEventListener('click', () => {
-        const scene = chip.dataset.scene
         for (const other of chips) other.setAttribute('aria-pressed', String(other === chip))
-        card.href = 'demo/?scene=' + scene
-        if (getComputedStyle(card.parentElement).display === 'none') frame.src = 'demo/?scene=' + scene
-        else card.click()
+        frame.src = 'demo/?scene=' + chip.dataset.scene
       })
     }
   })()
