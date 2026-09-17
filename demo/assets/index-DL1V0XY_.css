@@ -5864,6 +5864,28 @@ select.field {
   color: var(--ink);
 }
 
+.sermon-block__reads {
+  font-family: var(--font-sans);
+  color: var(--ink-muted);
+  margin-top: .125rem;
+  font-size: .6875rem;
+}
+
+.sermon-block__reads strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.sermon-block__reads--unread {
+  color: var(--accent);
+}
+
+@media print {
+  .sermon-block__reads {
+    display: none;
+  }
+}
+
 .sermon-block__body--scripture {
   font-style: italic;
   line-height: 1.6;

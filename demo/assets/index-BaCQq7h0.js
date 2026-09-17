@@ -69891,6 +69891,8 @@ function ScriptureFrame({
     setMenuOpen(true);
   };
   const versionRef = reactExports$1.useRef(null);
+  const reads = useReading(block.props.reference, editor.isEditable);
+  const [refFocused, setRefFocused] = reactExports$1.useState(false);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block", style: { borderColor: style2.accent }, children: [
     block.props.pageBreak && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__pagebreak", title: "Starts on a new page when printed", children: "Page break" }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__labelrow", children: [
@@ -69953,6 +69955,8 @@ function ScriptureFrame({
           placeholder: "Romans 8:28",
           "aria-label": "Reference",
           readOnly: !editor.isEditable,
+          onFocus: () => setRefFocused(true),
+          onBlur: () => setRefFocused(false),
           onChange: (event) => editor.updateBlock(block, { type: "scripture", props: { reference: event.target.value } }),
           onKeyDown: (event) => {
             if (!shellShortcut(event)) event.stopPropagation();
@@ -69985,7 +69989,45 @@ function ScriptureFrame({
         }
       )
     ] }),
+    editor.isEditable && /* @__PURE__ */ jsxRuntimeExports.jsx(ReadsAs, { reads, typed: block.props.reference, focused: refFocused }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__body sermon-block__body--serif sermon-block__body--scripture", children })
+  ] });
+}
+function useReading(reference, editable) {
+  const [reads, setReads] = reactExports$1.useState(null);
+  reactExports$1.useEffect(() => {
+    const text = reference.trim();
+    if (!editable || !text) {
+      setReads(null);
+      return;
+    }
+    let stale = false;
+    const timer = window.setTimeout(() => {
+      window.api.readPassage(text).then((result) => {
+        if (!stale) setReads(result);
+      }).catch(() => {
+        if (!stale) setReads(null);
+      });
+    }, 120);
+    return () => {
+      stale = true;
+      window.clearTimeout(timer);
+    };
+  }, [reference, editable]);
+  return reads;
+}
+const fold = (text) => text.toLowerCase().replace(/[^a-z0-9]/g, "");
+function ReadsAs({ reads, typed, focused }) {
+  const text = typed.trim();
+  if (!text) return null;
+  if (reads === null) {
+    if (focused) return null;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__reads sermon-block__reads--unread", role: "status", children: "Not a reference the library recognises" });
+  }
+  if (!focused || fold(reads) === fold(text)) return null;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__reads", role: "status", children: [
+    "Reads as ",
+    /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: reads })
   ] });
 }
 const scriptureBlock = Ai(

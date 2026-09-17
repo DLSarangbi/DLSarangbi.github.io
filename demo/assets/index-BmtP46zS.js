@@ -1,4 +1,4 @@
-import { h as applyThemePreference, I as IS_MAC, i as clientExports, j as jsxRuntimeExports, k as reactExports, A as App } from "./index-Eo_nD3i-.js";
+import { h as applyThemePreference, I as IS_MAC, i as clientExports, j as jsxRuntimeExports, k as reactExports, A as App } from "./index-BaCQq7h0.js";
 applyThemePreference("system");
 if (IS_MAC) document.documentElement.classList.add("mac");
 const container = document.getElementById("root");
