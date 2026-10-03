@@ -16946,228 +16946,6 @@ ${groupListBlocks(blocks).map((group) => {
   const endnotes = !paged && notes.length > 0 ? `<section class="endnotes">${notes.map((note) => `<div class="note"><span class="n">${note.number}</span><span>${noteHtml(note.note)}</span></div>`).join("")}</section>` : "";
   return documentShell(`${sermon.title}: manuscript`, styles, paged ? pageBoxes(body, notes, geometry.textHeight) : body + endnotes, page);
 }
-const MATCH = "find-match";
-const CURRENT = "find-current";
-const FIELD = "find-field";
-const FIELD_CURRENT = "find-field--current";
-const FIELDS = ".sermon-block__version";
-const SEARCHED = `${FIELDS}, .bn-inline-content`;
-function findMatches(root, query) {
-  const matches2 = [];
-  if (!query) return matches2;
-  const needle = query.toLowerCase();
-  for (const element of root.querySelectorAll(SEARCHED)) {
-    if (element instanceof HTMLInputElement) {
-      const lower2 = element.value.toLowerCase();
-      let from22 = lower2.indexOf(needle);
-      while (from22 !== -1) {
-        matches2.push({ kind: "field", input: element, start: from22, end: from22 + needle.length });
-        from22 = lower2.indexOf(needle, from22 + needle.length);
-      }
-      continue;
-    }
-    const paragraph = element;
-    const nodes = [];
-    const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT);
-    for (let node = walker.nextNode(); node; node = walker.nextNode()) nodes.push(node);
-    const text = nodes.map((node) => node.data).join("");
-    const lower = text.toLowerCase();
-    const locate = (offset2, end) => {
-      let seen2 = 0;
-      for (const node of nodes) {
-        const length = node.data.length;
-        if (offset2 < seen2 + length || end && offset2 === seen2 + length) return [node, offset2 - seen2];
-        seen2 += length;
-      }
-      return null;
-    };
-    let from2 = lower.indexOf(needle);
-    while (from2 !== -1) {
-      const start = locate(from2, false);
-      const finish = locate(from2 + needle.length, true);
-      if (start && finish) {
-        const range = document.createRange();
-        range.setStart(start[0], start[1]);
-        range.setEnd(finish[0], finish[1]);
-        matches2.push({ kind: "text", range });
-      }
-      from2 = lower.indexOf(needle, from2 + needle.length);
-    }
-  }
-  return matches2;
-}
-function paint$1(root, matches2, current) {
-  clear(root);
-  const registry = CSS.highlights;
-  const ranges = matches2.flatMap((match) => match.kind === "text" ? [match.range] : []);
-  if (registry) registry.set(MATCH, new Highlight(...ranges));
-  const active = matches2[current];
-  if (active?.kind === "text") registry?.set(CURRENT, new Highlight(active.range));
-  for (const match of matches2) if (match.kind === "field") match.input.classList.add(FIELD);
-  if (active?.kind === "field") active.input.classList.add(FIELD_CURRENT);
-}
-function clear(root) {
-  CSS.highlights?.delete(MATCH);
-  CSS.highlights?.delete(CURRENT);
-  for (const input of root?.querySelectorAll(`.${FIELD}, .${FIELD_CURRENT}`) ?? []) input.classList.remove(FIELD, FIELD_CURRENT);
-}
-function FindBar({ root, onClose, onReplace }) {
-  const [query, setQuery] = reactExports$1.useState("");
-  const [replacement, setReplacement] = reactExports$1.useState("");
-  const [current, setCurrent] = reactExports$1.useState(0);
-  const [count2, setCount] = reactExports$1.useState(0);
-  const [note, setNote] = reactExports$1.useState(null);
-  const inputRef = reactExports$1.useRef(null);
-  const matchesRef = reactExports$1.useRef([]);
-  reactExports$1.useEffect(() => inputRef.current?.focus(), []);
-  const refresh = reactExports$1.useCallback(
-    (index2) => {
-      const element = root();
-      const matches2 = element ? findMatches(element, query) : [];
-      matchesRef.current = matches2;
-      const clamped = matches2.length === 0 ? 0 : (index2 % matches2.length + matches2.length) % matches2.length;
-      setCount(matches2.length);
-      setCurrent(clamped);
-      paint$1(element, matches2, clamped);
-      const active = matches2[clamped];
-      if (active) {
-        const target = active.kind === "text" ? active.range.startContainer.parentElement : active.input;
-        target?.scrollIntoView({ block: "center" });
-      }
-    },
-    [query, root]
-  );
-  reactExports$1.useEffect(() => {
-    setNote(null);
-    refresh(0);
-  }, [refresh]);
-  reactExports$1.useEffect(() => {
-    const element = root();
-    if (!element) return;
-    let timer = null;
-    const observer = new MutationObserver(() => {
-      if (timer) clearTimeout(timer);
-      timer = setTimeout(() => refresh(current), 150);
-    });
-    observer.observe(element, { subtree: true, childList: true, characterData: true });
-    const onInput = () => {
-      if (timer) clearTimeout(timer);
-      timer = setTimeout(() => refresh(current), 150);
-    };
-    element.addEventListener("input", onInput, true);
-    return () => {
-      observer.disconnect();
-      element.removeEventListener("input", onInput, true);
-      if (timer) clearTimeout(timer);
-    };
-  }, [root, refresh, current]);
-  reactExports$1.useEffect(() => () => clear(root()), [root]);
-  const step = (delta) => refresh(current + delta);
-  const replace2 = (all) => {
-    if (!query || count2 === 0) return;
-    const changed = onReplace(query, replacement, current, all);
-    setNote(changed === 0 ? "Nothing replaced" : all ? `Replaced ${changed}` : null);
-    if (!all) setTimeout(() => refresh(current), 160);
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "find-bar", role: "search", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "find-bar__row", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "input",
-        {
-          ref: inputRef,
-          className: "field find-bar__input selectable",
-          value: query,
-          placeholder: "Find in this sermon",
-          onChange: (event) => setQuery(event.target.value),
-          onKeyDown: (event) => {
-            event.stopPropagation();
-            if (event.key === "Enter") step(event.shiftKey ? -1 : 1);
-            if (event.key === "Escape") onClose();
-          }
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "find-bar__count", children: query ? count2 === 0 ? "No matches" : `${current + 1} of ${count2}` : "" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "button",
-        {
-          type: "button",
-          className: "tool tool--small",
-          title: "Previous (Shift+Enter)",
-          "aria-label": "Previous match",
-          disabled: count2 === 0,
-          onMouseDown: (event) => event.preventDefault(),
-          onClick: () => step(-1),
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: "↑" })
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "button",
-        {
-          type: "button",
-          className: "tool tool--small",
-          title: "Next (Enter)",
-          "aria-label": "Next match",
-          disabled: count2 === 0,
-          onMouseDown: (event) => event.preventDefault(),
-          onClick: () => step(1),
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: "↓" })
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: onClose, title: "Close (Esc)", children: "Close" })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "find-bar__row", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "input",
-        {
-          className: "field find-bar__input selectable",
-          value: replacement,
-          placeholder: "Replace with",
-          onChange: (event) => setReplacement(event.target.value),
-          onKeyDown: (event) => {
-            event.stopPropagation();
-            if (event.key === "Enter") replace2(false);
-            if (event.key === "Escape") onClose();
-          }
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "button",
-        {
-          type: "button",
-          className: "button button--small",
-          disabled: count2 === 0,
-          onMouseDown: (event) => event.preventDefault(),
-          onClick: () => replace2(false),
-          title: "Replace this match and move to the next",
-          children: "Replace"
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "button",
-        {
-          type: "button",
-          className: "button button--small",
-          disabled: count2 === 0,
-          onMouseDown: (event) => event.preventDefault(),
-          onClick: () => replace2(true),
-          title: "Replace every match in the sermon",
-          children: "Replace all"
-        }
-      ),
-      note && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "find-bar__hint", children: note })
-    ] })
-  ] });
-}
-var __defProp = Object.defineProperty;
-var __exportAll = (all, no_symbols) => {
-  let target = {};
-  for (var name in all) __defProp(target, name, {
-    get: all[name],
-    enumerable: true
-  });
-  __defProp(target, Symbol.toStringTag, { value: "Module" });
-  return target;
-};
 function OrderedMap(content) {
   this.content = content;
 }
@@ -23277,6 +23055,315 @@ class PluginKey {
     return state[this.key];
   }
 }
+const ALL_SHOWN = { keyLine: true, passages: true, stories: true, applications: true, questions: true };
+const OutlineContext = reactExports$1.createContext({ on: false, open: /* @__PURE__ */ new Set(), toggle: () => {
+}, openAt: () => {
+}, lines: /* @__PURE__ */ new Map(), shown: ALL_SHOWN, density: "comfortable" });
+function kindShown(type, shown) {
+  if (type === "scripture") return shown.passages;
+  if (type === "illustration") return shown.stories;
+  if (type === "application") return shown.applications;
+  if (type === "reflection") return shown.questions;
+  return true;
+}
+const useOutline = () => reactExports$1.useContext(OutlineContext);
+function outlineLines(blocks, numbering) {
+  const lines = /* @__PURE__ */ new Map();
+  let points2 = 0;
+  for (const block of blocks) {
+    if (block.type === "table" || block.type === "image" || block.type === "freeform") continue;
+    const number = block.type === "point" ? numeral$1(++points2, numbering) : "";
+    const summary2 = block.type === "scripture" ? firstSentence(block.text) : keyLine(block)?.spans.map((span) => span.text).join("") ?? "";
+    lines.set(block.id, { numeral: number, summary: summary2.trim() });
+  }
+  return lines;
+}
+const KIND = "application/x-sermondesk-block";
+function useBlockDrag({ writable, stageRef, moveBlockTo }) {
+  const [line, setLine] = reactExports$1.useState(null);
+  reactExports$1.useEffect(() => {
+    if (!writable) return;
+    let dragging = null;
+    const onDragStart = (event) => {
+      const grip = event.target instanceof Element ? event.target.closest(".sermon-block__grip") : null;
+      const id = grip?.dataset["grip"];
+      if (!id || !event.dataTransfer) return;
+      event.stopPropagation();
+      dragging = id;
+      event.dataTransfer.setData(KIND, id);
+      event.dataTransfer.effectAllowed = "move";
+      const frame = grip?.closest(".sermon-block");
+      if (frame) event.dataTransfer.setDragImage(frame, 16, 16);
+    };
+    const target = (event) => {
+      const stage = stageRef.current;
+      if (!stage) return null;
+      const under = document.elementFromPoint(event.clientX, event.clientY);
+      const outer = under?.closest(".bn-editor > .bn-block-group > .bn-block-outer");
+      const id = outer?.dataset["id"];
+      if (!outer || !id || id === dragging) return null;
+      const rect = outer.getBoundingClientRect();
+      const origin = stage.getBoundingClientRect().top;
+      const before = event.clientY < rect.top + rect.height / 2;
+      return { top: (before ? rect.top : rect.bottom) - origin + stage.scrollTop, targetId: id, position: before ? "before" : "after" };
+    };
+    const onDragOver = (event) => {
+      if (!dragging || !event.dataTransfer?.types.includes(KIND)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      event.dataTransfer.dropEffect = "move";
+      const next = target(event);
+      setLine((current) => current?.targetId === next?.targetId && current?.position === next?.position && current?.top === next?.top ? current : next);
+    };
+    const onDrop = (event) => {
+      if (!dragging || !event.dataTransfer?.types.includes(KIND)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      const id = event.dataTransfer.getData(KIND) || dragging;
+      const landing = target(event);
+      dragging = null;
+      setLine(null);
+      if (landing) moveBlockTo(id, landing.targetId, landing.position);
+    };
+    const onDragEnd = () => {
+      dragging = null;
+      setLine(null);
+    };
+    window.addEventListener("dragstart", onDragStart, true);
+    window.addEventListener("dragover", onDragOver, true);
+    window.addEventListener("drop", onDrop, true);
+    window.addEventListener("dragend", onDragEnd, true);
+    return () => {
+      window.removeEventListener("dragstart", onDragStart, true);
+      window.removeEventListener("dragover", onDragOver, true);
+      window.removeEventListener("drop", onDrop, true);
+      window.removeEventListener("dragend", onDragEnd, true);
+    };
+  }, [writable, stageRef, moveBlockTo]);
+  return line;
+}
+const MATCH = "find-match";
+const CURRENT = "find-current";
+const FIELD = "find-field";
+const FIELD_CURRENT = "find-field--current";
+const FIELDS = ".sermon-block__version";
+const SEARCHED = `${FIELDS}, .bn-inline-content`;
+function findMatches(root, query) {
+  const matches2 = [];
+  if (!query) return matches2;
+  const needle = query.toLowerCase();
+  for (const element of root.querySelectorAll(SEARCHED)) {
+    if (element instanceof HTMLInputElement) {
+      const lower2 = element.value.toLowerCase();
+      let from22 = lower2.indexOf(needle);
+      while (from22 !== -1) {
+        matches2.push({ kind: "field", input: element, start: from22, end: from22 + needle.length });
+        from22 = lower2.indexOf(needle, from22 + needle.length);
+      }
+      continue;
+    }
+    const paragraph = element;
+    const nodes = [];
+    const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT);
+    for (let node = walker.nextNode(); node; node = walker.nextNode()) nodes.push(node);
+    const text = nodes.map((node) => node.data).join("");
+    const lower = text.toLowerCase();
+    const locate = (offset2, end) => {
+      let seen2 = 0;
+      for (const node of nodes) {
+        const length = node.data.length;
+        if (offset2 < seen2 + length || end && offset2 === seen2 + length) return [node, offset2 - seen2];
+        seen2 += length;
+      }
+      return null;
+    };
+    let from2 = lower.indexOf(needle);
+    while (from2 !== -1) {
+      const start = locate(from2, false);
+      const finish = locate(from2 + needle.length, true);
+      if (start && finish) {
+        const range = document.createRange();
+        range.setStart(start[0], start[1]);
+        range.setEnd(finish[0], finish[1]);
+        matches2.push({ kind: "text", range });
+      }
+      from2 = lower.indexOf(needle, from2 + needle.length);
+    }
+  }
+  return matches2;
+}
+function paint$1(root, matches2, current) {
+  clear(root);
+  const registry = CSS.highlights;
+  const ranges = matches2.flatMap((match) => match.kind === "text" ? [match.range] : []);
+  if (registry) registry.set(MATCH, new Highlight(...ranges));
+  const active = matches2[current];
+  if (active?.kind === "text") registry?.set(CURRENT, new Highlight(active.range));
+  for (const match of matches2) if (match.kind === "field") match.input.classList.add(FIELD);
+  if (active?.kind === "field") active.input.classList.add(FIELD_CURRENT);
+}
+function clear(root) {
+  CSS.highlights?.delete(MATCH);
+  CSS.highlights?.delete(CURRENT);
+  for (const input of root?.querySelectorAll(`.${FIELD}, .${FIELD_CURRENT}`) ?? []) input.classList.remove(FIELD, FIELD_CURRENT);
+}
+function FindBar({ root, onClose, onReplace }) {
+  const [query, setQuery] = reactExports$1.useState("");
+  const [replacement, setReplacement] = reactExports$1.useState("");
+  const [current, setCurrent] = reactExports$1.useState(0);
+  const [count2, setCount] = reactExports$1.useState(0);
+  const [note, setNote] = reactExports$1.useState(null);
+  const inputRef = reactExports$1.useRef(null);
+  const matchesRef = reactExports$1.useRef([]);
+  reactExports$1.useEffect(() => inputRef.current?.focus(), []);
+  const refresh = reactExports$1.useCallback(
+    (index2) => {
+      const element = root();
+      const matches2 = element ? findMatches(element, query) : [];
+      matchesRef.current = matches2;
+      const clamped = matches2.length === 0 ? 0 : (index2 % matches2.length + matches2.length) % matches2.length;
+      setCount(matches2.length);
+      setCurrent(clamped);
+      paint$1(element, matches2, clamped);
+      const active = matches2[clamped];
+      if (active) {
+        const target = active.kind === "text" ? active.range.startContainer.parentElement : active.input;
+        target?.scrollIntoView({ block: "center" });
+      }
+    },
+    [query, root]
+  );
+  reactExports$1.useEffect(() => {
+    setNote(null);
+    refresh(0);
+  }, [refresh]);
+  reactExports$1.useEffect(() => {
+    const element = root();
+    if (!element) return;
+    let timer = null;
+    const observer = new MutationObserver(() => {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => refresh(current), 150);
+    });
+    observer.observe(element, { subtree: true, childList: true, characterData: true });
+    const onInput = () => {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => refresh(current), 150);
+    };
+    element.addEventListener("input", onInput, true);
+    return () => {
+      observer.disconnect();
+      element.removeEventListener("input", onInput, true);
+      if (timer) clearTimeout(timer);
+    };
+  }, [root, refresh, current]);
+  reactExports$1.useEffect(() => () => clear(root()), [root]);
+  const step = (delta) => refresh(current + delta);
+  const replace2 = (all) => {
+    if (!query || count2 === 0) return;
+    const changed = onReplace(query, replacement, current, all);
+    setNote(changed === 0 ? "Nothing replaced" : all ? `Replaced ${changed}` : null);
+    if (!all) setTimeout(() => refresh(current), 160);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "find-bar", role: "search", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "find-bar__row", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          ref: inputRef,
+          className: "field find-bar__input selectable",
+          value: query,
+          placeholder: "Find in this sermon",
+          onChange: (event) => setQuery(event.target.value),
+          onKeyDown: (event) => {
+            event.stopPropagation();
+            if (event.key === "Enter") step(event.shiftKey ? -1 : 1);
+            if (event.key === "Escape") onClose();
+          }
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "find-bar__count", children: query ? count2 === 0 ? "No matches" : `${current + 1} of ${count2}` : "" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          className: "tool tool--small",
+          title: "Previous (Shift+Enter)",
+          "aria-label": "Previous match",
+          disabled: count2 === 0,
+          onMouseDown: (event) => event.preventDefault(),
+          onClick: () => step(-1),
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: "↑" })
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          className: "tool tool--small",
+          title: "Next (Enter)",
+          "aria-label": "Next match",
+          disabled: count2 === 0,
+          onMouseDown: (event) => event.preventDefault(),
+          onClick: () => step(1),
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: "↓" })
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: onClose, title: "Close (Esc)", children: "Close" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "find-bar__row", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          className: "field find-bar__input selectable",
+          value: replacement,
+          placeholder: "Replace with",
+          onChange: (event) => setReplacement(event.target.value),
+          onKeyDown: (event) => {
+            event.stopPropagation();
+            if (event.key === "Enter") replace2(false);
+            if (event.key === "Escape") onClose();
+          }
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          className: "button button--small",
+          disabled: count2 === 0,
+          onMouseDown: (event) => event.preventDefault(),
+          onClick: () => replace2(false),
+          title: "Replace this match and move to the next",
+          children: "Replace"
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          className: "button button--small",
+          disabled: count2 === 0,
+          onMouseDown: (event) => event.preventDefault(),
+          onClick: () => replace2(true),
+          title: "Replace every match in the sermon",
+          children: "Replace all"
+        }
+      ),
+      note && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "find-bar__hint", children: note })
+    ] })
+  ] });
+}
+var __defProp = Object.defineProperty;
+var __exportAll = (all, no_symbols) => {
+  let target = {};
+  for (var name in all) __defProp(target, name, {
+    get: all[name],
+    enumerable: true
+  });
+  __defProp(target, Symbol.toStringTag, { value: "Module" });
+  return target;
+};
 const deleteSelection$1 = (state, dispatch) => {
   if (state.selection.empty)
     return false;
@@ -66045,6 +66132,18 @@ var Z = reactExports$1.forwardRef((e4, t2) => {
 };
 const BUILT_IN_SHAPES = [
   {
+    id: "built-in:outline",
+    name: "Outline",
+    hint: "Five headings and nothing beneath, for working from the outline; the Outline tab opens to it",
+    blocks: [
+      { type: "point", heading: "First point" },
+      { type: "point", heading: "Second point" },
+      { type: "point", heading: "Third point" },
+      { type: "point", heading: "Fourth point" },
+      { type: "point", heading: "Fifth point" }
+    ]
+  },
+  {
     id: "built-in:three-points",
     name: "Three points",
     hint: "The usual template: three points, an application, and questions to take home",
@@ -66662,6 +66761,7 @@ function BlockTypeMenu({
 }
 function BlockFrame({
   type,
+  id,
   children,
   placeholder,
   onChangeType,
@@ -66675,6 +66775,11 @@ function BlockFrame({
 }) {
   const style2 = BLOCK_STYLES[type];
   const [menuOpen, setMenuOpen] = reactExports$1.useState(false);
+  const outline = useOutline();
+  const folded = outline.on && !outline.open.has(id);
+  const line = outline.lines.get(id);
+  const onSheet = !outline.on || kindShown(type, outline.shown);
+  const summaryShown = type === "point" ? outline.shown.keyLine : true;
   const [canMove, setCanMove] = reactExports$1.useState(null);
   const [canSplit2, setCanSplit] = reactExports$1.useState(null);
   const openMenu = () => {
@@ -66691,9 +66796,13 @@ function BlockFrame({
       className: "sermon-block",
       style: { borderColor: style2.accent, lineHeight, marginBottom },
       "data-line-spacing": lineSpacing || void 0,
+      "data-folded": folded || void 0,
+      "data-off-sheet": outline.on && !onSheet ? "" : void 0,
       children: [
         pageBreak && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__pagebreak", title: "Starts on a new page when printed", children: "Page break" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__labelrow", children: [
+          move && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-block__grip", draggable: true, "data-grip": id, title: "Drag to move this block, with everything in it", "aria-hidden": "true", contentEditable: false, children: "⋮⋮" }),
+          outline.on && line?.numeral && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-block__numeral", children: line.numeral }),
           onChangeType ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "button",
             {
@@ -66753,7 +66862,33 @@ function BlockFrame({
             }
           )
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__heading", "data-placeholder": placeholder, style: { textAlign }, children })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__heading", "data-placeholder": placeholder, style: { textAlign }, children }),
+        outline.on && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__fold", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              className: "sermon-block__disclosure",
+              title: folded ? "Open the body to write in it" : "Fold the body away",
+              "aria-expanded": !folded,
+              onMouseDown: (event) => event.preventDefault(),
+              onClick: () => outline.toggle(id),
+              children: folded ? "▸" : "▾"
+            }
+          ),
+          folded && onSheet && summaryShown && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "span",
+            {
+              className: "sermon-block__summary",
+              role: "button",
+              tabIndex: -1,
+              title: line?.summary ? "Open the body at this sentence; Ctrl+Alt+K there makes a sentence the key line" : "Open the body",
+              onMouseDown: (event) => event.preventDefault(),
+              onClick: () => line?.summary ? outline.openAt(id, line.summary) : outline.toggle(id),
+              children: line?.summary || "Nothing beneath yet"
+            }
+          )
+        ] })
       ]
     }
   );
@@ -66804,6 +66939,7 @@ const pointBlock = ea(
       BlockFrame,
       {
         type: "point",
+        id: block.id,
         placeholder: "What is this point?",
         align: block.props.align,
         pageBreak: block.props.pageBreak,
@@ -66837,6 +66973,7 @@ function proseBlock(type) {
         BlockFrame,
         {
           type,
+          id: block.id,
           placeholder: "Heading, if it wants one",
           align: block.props.align,
           pageBreak: block.props.pageBreak,
@@ -66974,6 +67111,8 @@ function ScriptureFrame({
     setCanMove(move ? move.can() : null);
     setMenuOpen(true);
   };
+  const outline = useOutline();
+  const folded = outline.on && !outline.open.has(block.id);
   const reference = referenceOf(block.content);
   const reading = useReading(reference, editor.isEditable);
   const reads = reading.reads;
@@ -67004,9 +67143,10 @@ function ScriptureFrame({
     }
     editor.focus();
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block", style: { borderColor: style2.accent }, children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block", style: { borderColor: style2.accent }, "data-folded": folded || void 0, "data-off-sheet": outline.on && !kindShown("scripture", outline.shown) ? "" : void 0, children: [
     block.props.pageBreak && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__pagebreak", title: "Starts on a new page when printed", children: "Page break" }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__labelrow", children: [
+      editor.isEditable && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-block__grip", draggable: true, "data-grip": block.id, title: "Drag to move this passage", "aria-hidden": "true", contentEditable: false, children: "⋮⋮" }),
       editor.isEditable ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
@@ -67076,7 +67216,11 @@ function ScriptureFrame({
         }
       )
     ] }),
-    editor.isEditable && /* @__PURE__ */ jsxRuntimeExports.jsx(ReadsAs, { reads, offered, typed: reference, focused: refFocused })
+    editor.isEditable && /* @__PURE__ */ jsxRuntimeExports.jsx(ReadsAs, { reads, offered, typed: reference, focused: refFocused }),
+    outline.on && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__fold", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "sermon-block__disclosure", title: folded ? "Open the verse" : "Fold the verse away", "aria-expanded": !folded, onMouseDown: (event) => event.preventDefault(), onClick: () => outline.toggle(block.id), children: folded ? "▸" : "▾" }),
+      folded && kindShown("scripture", outline.shown) && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-block__summary", role: "button", tabIndex: -1, title: "Open the verse", onMouseDown: (event) => event.preventDefault(), onClick: () => outline.toggle(block.id), children: outline.lines.get(block.id)?.summary || "No verse yet" })
+    ] })
   ] });
 }
 function useReading(reference, editable) {
@@ -68439,6 +68583,25 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
     },
     [editor, report]
   );
+  const moveBlockTo = reactExports$1.useCallback(
+    (id, targetId, position) => {
+      if (!writable || id === targetId) return;
+      const block = editor.document.find((entry) => entry.id === id);
+      const target = editor.document.find((entry) => entry.id === targetId);
+      if (!block || !target) return;
+      const words = Array.isArray(block.content) ? block.content.map((c2) => c2.text ?? "").join("") : "";
+      announceChange(words.trim() ? `Moved “${snippet(words, 28)}”` : "Moved a block");
+      editor.transact(() => {
+        editor.removeBlocks([block.id]);
+        editor.insertBlocks([block], target.id, position);
+      });
+      editor.setTextCursorPosition(block.id, "start");
+      editor.focus();
+      report();
+      refreshActive();
+    },
+    [editor, writable, report, refreshActive]
+  );
   const moveCurrent = reactExports$1.useCallback(
     (direction) => {
       let block;
@@ -68713,6 +68876,7 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
       canMove,
       moveBlock,
       moveCurrent,
+      moveBlockTo,
       moveSection,
       setPointMinutes,
       togglePageBreak,
@@ -68724,7 +68888,7 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
       insertIllustration,
       blockAsIllustration
     }),
-    [undo2, redo2, undoMany, redoMany, addBlock, setBlockType2, canMove, moveBlock, moveCurrent, moveSection, setPointMinutes, togglePageBreak, insertSermonBlocks, addShape, splitBlock2, joinBlockAbove, jumpTo, insertIllustration, blockAsIllustration]
+    [undo2, redo2, undoMany, redoMany, addBlock, setBlockType2, canMove, moveBlock, moveCurrent, moveBlockTo, moveSection, setPointMinutes, togglePageBreak, insertSermonBlocks, addShape, splitBlock2, joinBlockAbove, jumpTo, insertIllustration, blockAsIllustration]
   );
 }
 function useInsert({ editor, report }) {
@@ -69468,8 +69632,8 @@ function usePaste({ editor, writable, report, insertImageFiles, keepLineAfterTab
           if (pasted.blocks.some((b2) => b2.type !== "freeform")) {
             for (let parent = editor.getParentBlock(target); parent; parent = editor.getParentBlock(target)) target = parent;
           }
-          const empty2 = UNTYPED.has(target.type) && (target.content?.length ?? 0) === 0 && (target.children?.length ?? 0) === 0;
-          if (empty2) editor.replaceBlocks([target], blocks);
+          const empty22 = UNTYPED.has(target.type) && (target.content?.length ?? 0) === 0 && (target.children?.length ?? 0) === 0;
+          if (empty22) editor.replaceBlocks([target], blocks);
           else editor.insertBlocks(blocks, target, "after");
           keepLineAfterTable();
         }
@@ -69480,7 +69644,9 @@ function usePaste({ editor, writable, report, insertImageFiles, keepLineAfterTab
       event.stopPropagation();
       let top = block;
       for (let parent = editor.getParentBlock(top); parent; parent = editor.getParentBlock(top)) top = parent;
-      const emptyLine = top === block && !block.content?.length;
+      const empty2 = !block.content?.length;
+      const emptyLine = top === block && empty2;
+      if (top !== block && empty2 && block.type === "paragraph") editor.removeBlocks([block]);
       editor.insertBlocks(
         [
           {
@@ -69518,7 +69684,7 @@ function usePaste({ editor, writable, report, insertImageFiles, keepLineAfterTab
 }
 const headed = (type) => type === "scripture" || isSermonBlockType(type);
 const hasWords = (block) => Array.isArray(block.content) && block.content.length > 0;
-function useHeadingKeys({ editor, writable, report }) {
+function useHeadingKeys({ editor, writable, report, folded }) {
   reactExports$1.useEffect(() => {
     const caret = () => {
       let block;
@@ -69590,6 +69756,14 @@ function useHeadingKeys({ editor, writable, report }) {
       if (!headed(block.type)) return false;
       if (block.type === "scripture") {
         document.querySelector(`[data-id="${block.id}"] .sermon-block__version`)?.focus();
+        return true;
+      }
+      if (folded(block.id)) {
+        const props = block.props;
+        const frame = { align: props["align"] ?? "left", lineSpacing: props["lineSpacing"] ?? "", spaceAfter: props["spaceAfter"] ?? "" };
+        const made = editor.insertBlocks([{ type: block.type, props: frame, content: [], children: [{ type: "paragraph", content: [], children: [] }] }], block, "after")[0];
+        if (made) caretTo(made, "start");
+        report();
         return true;
       }
       const first2 = editor.getBlock(block.id)?.children?.[0];
@@ -69668,17 +69842,47 @@ function useHeadingKeys({ editor, writable, report }) {
       }
       return false;
     };
+    const topOf = (block) => {
+      let at2 = block;
+      for (let parent = editor.getParentBlock(at2); parent; parent = editor.getParentBlock(at2)) at2 = parent;
+      return at2;
+    };
+    const topNeighbour = (block, direction) => {
+      const top = topOf(block);
+      const index2 = editor.document.findIndex((entry) => entry.id === top.id);
+      return index2 < 0 ? void 0 : editor.document[index2 + direction];
+    };
+    const onArrow = (block, key2, atStart, atEnd) => {
+      const view = editor.prosemirrorView;
+      if (key2 === "ArrowDown" || key2 === "ArrowRight") {
+        if (!folded(block.id)) return false;
+        if (key2 === "ArrowDown" ? !view.endOfTextblock("down") : !atEnd) return false;
+        const next = topNeighbour(block, 1);
+        if (!next) return true;
+        caretTo(next, "start");
+        return true;
+      }
+      if (key2 === "ArrowUp" ? !view.endOfTextblock("up") : !atStart) return false;
+      const { parent } = siblingsOf(block);
+      if (parent) return false;
+      const previous = topNeighbour(block, -1);
+      if (!previous || !folded(previous.id)) return false;
+      caretTo(previous, "end");
+      return true;
+    };
     const onKeyDown = (event) => {
       if (!writable) return;
       if (event.ctrlKey || event.metaKey || event.altKey) return;
-      if (event.key !== "Enter" && event.key !== "Backspace" && event.key !== "Delete") return;
+      if (event.shiftKey && event.key.startsWith("Arrow")) return;
+      if (event.key !== "Enter" && event.key !== "Backspace" && event.key !== "Delete" && !["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) return;
       if (event.key === "Enter" && event.shiftKey) return;
       if (document.querySelector(".slash-menu")) return;
       if (event.target instanceof Element && event.target.closest("input, textarea")) return;
       const at2 = caret();
       if (!at2) return;
       let handled = false;
-      if (event.key === "Enter") handled = onEnter(at2.block);
+      if (event.key.startsWith("Arrow")) handled = onArrow(at2.block, event.key, at2.atStart, at2.atEnd);
+      else if (event.key === "Enter") handled = onEnter(at2.block);
       else if (event.key === "Backspace") handled = at2.atStart && onBackspace(at2.block);
       else handled = at2.atEnd && onDelete(at2.block);
       if (!handled) return;
@@ -69687,7 +69891,7 @@ function useHeadingKeys({ editor, writable, report }) {
     };
     window.addEventListener("keydown", onKeyDown, true);
     return () => window.removeEventListener("keydown", onKeyDown, true);
-  }, [editor, writable, report]);
+  }, [editor, writable, report, folded]);
 }
 function useReferenceTab({ editor, writable, report }) {
   reactExports$1.useEffect(() => {
@@ -70867,6 +71071,8 @@ function SermonEditor({
   look,
   onLook,
   hidden: hidden2,
+  outline,
+  outlineOptions,
   onCommands,
   onActive,
   onChanges,
@@ -70875,7 +71081,8 @@ function SermonEditor({
   runningHead,
   onPages,
   shapes,
-  onRemoveShape
+  onRemoveShape,
+  onStarter
 }) {
   const isDark = useIsDark();
   const [findOpen, setFindOpen] = reactExports$1.useState(false);
@@ -70936,7 +71143,8 @@ function SermonEditor({
   const margins = useMarginNotes({ editor, writable, report, stageRef });
   const geometry = paperGeometry(look.paper, look.margin, look.orientation);
   const [fitZoom, setFitZoom] = reactExports$1.useState(1);
-  const reserve = look.marginNotes && margins.placed.length > 0 && stageWidth >= NOTES_ROOM + 640 ? NOTES_ROOM : 0;
+  const notesOn = look.marginNotes && !outline;
+  const reserve = notesOn && margins.placed.length > 0 && stageWidth >= NOTES_ROOM + 640 ? NOTES_ROOM : 0;
   reactExports$1.useEffect(() => {
     const stage = pageRef.current?.parentElement;
     if (!stage) return;
@@ -70956,12 +71164,59 @@ function SermonEditor({
   reactExports$1.useEffect(() => margins.place(), [plan, zoom, margins.place]);
   const zoomRef = reactExports$1.useRef(zoom);
   zoomRef.current = zoom;
+  const [opened, setOpened] = reactExports$1.useState(() => /* @__PURE__ */ new Set());
+  const toggleOpened = reactExports$1.useCallback((id) => {
+    setOpened((current) => {
+      const next = new Set(current);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }, []);
+  const openAt = reactExports$1.useCallback(
+    (id, text) => {
+      setOpened((current) => new Set(current).add(id));
+      requestAnimationFrame(() => {
+        const plain = (block) => Array.isArray(block.content) ? block.content.map((span) => span.text ?? "").join("") : "";
+        const find = (blocks2) => {
+          for (const block of blocks2 ?? []) {
+            if (plain(block).includes(text)) return block;
+            const inner2 = find(block.children);
+            if (inner2) return inner2;
+          }
+          return void 0;
+        };
+        const body = editor.getBlock(id)?.children ?? [];
+        const line = find(body) ?? body[0];
+        if (!line) return;
+        editor.setTextCursorPosition(line.id, "start");
+        const view = editor.prosemirrorView;
+        const offset2 = Math.max(0, plain(line).indexOf(text));
+        const start = view.state.selection.$from.start();
+        view.dispatch(view.state.tr.setSelection(TextSelection.create(view.state.doc, start + offset2)));
+        editor.focus();
+      });
+    },
+    [editor]
+  );
+  const outlineValue = reactExports$1.useMemo(
+    () => ({
+      on: outline,
+      open: opened,
+      toggle: toggleOpened,
+      openAt,
+      lines: outlineLines(sermon.blocks, outlineOptions.numbering),
+      shown: { keyLine: outlineOptions.keyLine, passages: outlineOptions.passages, stories: outlineOptions.stories, applications: outlineOptions.applications, questions: outlineOptions.questions },
+      density: outlineOptions.density
+    }),
+    [outline, opened, toggleOpened, openAt, sermon.blocks, outlineOptions]
+  );
   reactExports$1.useEffect(() => {
     if (!hidden2) remeasure(editor.prosemirrorView);
-  }, [editor, hidden2, look.paper, look.margin, look.orientation, look.lineSpacing, look.font, look.styles, zoom]);
+  }, [editor, hidden2, look.paper, look.margin, look.orientation, look.lineSpacing, look.font, look.styles, zoom, outline, opened]);
   const drawnWidth = geometry.width * zoom;
   const inner = stageWidth - reserve;
-  const foldedNotes = !look.marginNotes || reserve === 0;
+  const foldedNotes = !notesOn || reserve === 0;
   const cardsLeft = inner / 2 + drawnWidth / 2 + 16;
   const markersLeft = inner / 2 + drawnWidth / 2 - geometry.margin * zoom + 8;
   reactExports$1.useEffect(() => {
@@ -70971,9 +71226,9 @@ function SermonEditor({
       zoom,
       breaks: breaksRef.current,
       notes: plan.notes.map((note) => ({ page: note.page, number: note.number, note: note.note })),
-      notesFolded: look.marginNotes && margins.placed.length > 0 && reserve === 0
+      notesFolded: notesOn && margins.placed.length > 0 && reserve === 0
     });
-  }, [caretPage, plan, zoom, onPages, look.marginNotes, margins.placed.length, reserve]);
+  }, [caretPage, plan, zoom, onPages, notesOn, margins.placed.length, reserve]);
   const painterRef = reactExports$1.useRef(null);
   const { active, refreshActive } = useActiveState(editor, painterRef);
   reactExports$1.useEffect(() => onActive(active), [active, onActive]);
@@ -70999,10 +71254,11 @@ function SermonEditor({
   const formatting = useFormatting({ editor, report, refreshActive, active });
   const { painting, armPainter } = useFormatPainter({ editor, painterRef, report, refreshActive });
   const blocks = useBlockOps({ editor, writable, report, refreshActive });
+  const dropLine = useBlockDrag({ writable, stageRef, moveBlockTo: blocks.moveBlockTo });
   const insert = useInsert({ editor, report });
   const context = useContextMenu({ editor, writable, canMove: blocks.canMove, moveBlock: blocks.moveBlock, report });
   usePaste({ editor, writable, report, insertImageFiles: insert.insertImageFiles, keepLineAfterTable: insert.keepLineAfterTable });
-  useHeadingKeys({ editor, writable, report });
+  useHeadingKeys({ editor, writable, report, folded: (id) => outline && !opened.has(id) });
   useReferenceTab({ editor, writable, report });
   const links = useLinks({ editor, writable, report });
   const caret = useCaretBlock({ editor, stageRef });
@@ -71102,7 +71358,7 @@ function SermonEditor({
   }, [blocks, insert, formatting, armPainter, replaceMatches, footnotes.insertFootnote, margins.addAtCaret, links.openCard, links.setLink, onCommands]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     findOpen && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "find-anchor", children: /* @__PURE__ */ jsxRuntimeExports.jsx(FindBar, { root: () => pageRef.current, onClose: () => setFindOpen(false), onReplace: replaceMatches }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "page-stage", ref: stageRef, style: { paddingRight: reserve }, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "page-stage", ref: stageRef, style: { paddingRight: reserve }, "data-outline": outline || void 0, "data-density": outline ? outlineOptions.density : void 0, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "div",
         {
@@ -71140,7 +71396,10 @@ function SermonEditor({
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "starter__shapes", children: [...shapes, ...BUILT_IN_SHAPES].map((shape) => {
                   const yours = !shape.id.startsWith("built-in:");
                   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "starter__shape", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "starter__shape-pick", title: shape.hint ?? describeShape(shape), onMouseDown: (event) => event.preventDefault(), onClick: () => applyStarter(shape), children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "starter__shape-pick", title: shape.hint ?? describeShape(shape), onMouseDown: (event) => event.preventDefault(), onClick: () => {
+                      applyStarter(shape);
+                      onStarter?.(shape);
+                    }, children: [
                       /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "starter__shape-name", children: [
                         shape.name,
                         yours && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "starter__tag", children: "Yours" })
@@ -71152,7 +71411,7 @@ function SermonEditor({
                 }) }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "starter__hint", children: "Any sermon can be kept as a template: Save as a template, under Save." })
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
+              /* @__PURE__ */ jsxRuntimeExports.jsx(OutlineContext.Provider, { value: outlineValue, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
                 ht,
                 {
                   editor,
@@ -71179,16 +71438,17 @@ function SermonEditor({
                     }
                   )
                 }
-              )
+              ) })
             ] })
           ]
         }
       ),
+      dropLine && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "drop-line", "aria-hidden": "true", style: { top: dropLine.top, left: inner / 2 - drawnWidth / 2 + geometry.margin * zoom, width: Math.max(0, drawnWidth - 2 * geometry.margin * zoom) } }),
       caret.block && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "focus-veil", "aria-hidden": "true", style: { top: 0, height: Math.max(0, caret.block.top) } }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "focus-veil", "aria-hidden": "true", style: { top: Math.max(0, caret.block.bottom), bottom: 0 } })
       ] }),
-      margins.placed.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(
+      !outline && margins.placed.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(
         MarginNotes,
         {
           notes: margins.placed,
@@ -71885,7 +72145,7 @@ function Toolbar({
           className: "tool tool--word tool--fold-1",
           title: keys$2("Find in this sermon (Ctrl+F)"),
           "aria-label": "Find",
-          disabled: view !== "write" || !commands,
+          disabled: view === "handout" || !commands,
           onMouseDown: (event) => event.preventDefault(),
           onClick: () => run2((c2) => c2.toggleFind()),
           children: [
@@ -72750,7 +73010,7 @@ function HomeTab({
       }
     ) })
   ] });
-  const findButton = /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "find", large: true }), label: "Find", title: keys$2("Find in this sermon (Ctrl+F)"), disabled: view !== "write" || !commands, onClick: () => run2((c2) => c2.toggleFind()) });
+  const findButton = /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "find", large: true }), label: "Find", title: keys$2("Find in this sermon (Ctrl+F)"), disabled: view === "handout" || !commands, onClick: () => run2((c2) => c2.toggleFind()) });
   const libraryButtons = /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       Large,
@@ -72937,12 +73197,13 @@ function Ribbon({
   outline,
   onOutline
 }) {
-  const editing = writable && view === "write" && commands !== null;
+  const onPage = view === "write" || view === "outline";
+  const editing = writable && onPage && commands !== null;
   const run2 = (action) => {
     if (commands) action(commands);
   };
   const [chosen, setChosen] = reactExports$1.useState("home");
-  const tab = view === "write" ? chosen : "view";
+  const tab = onPage ? chosen : "view";
   const { ribbonRef, bodyRef, collapsed, scale } = useRibbonFolding(tab, view);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "ribbon", ref: ribbonRef, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ribbon__tabs", role: "tablist", children: [
@@ -72958,7 +73219,7 @@ function Ribbon({
         onMouseDown: (event) => event.preventDefault(),
         onClick: () => {
           setChosen(id);
-          if (id === "home" && view !== "write") onView("write");
+          if (id === "home" && !onPage) onView("write");
         },
         children: label
       },
@@ -73802,6 +74063,7 @@ function PrintPane({
     ] }),
     view === "outline" && /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "insp-section", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "insp-section__title", children: "Outline" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "insp-hint", children: "On the sheet and on the Outline tab alike: a kind switched off is left off the sheet and steps back on screen, where it can still be opened and written." }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row insp-row--top", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__label", children: "Under each point" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "insp-row__body insp-row__body--stack", children: [
@@ -75437,6 +75699,14 @@ function EditorPane({
   const [series, setSeries] = reactExports$1.useState([]);
   const [view, setView] = reactExports$1.useState(initialView ?? "write");
   reactExports$1.useEffect(() => {
+    if (initialView) return;
+    const saved = remembered(`tab:${draft.id}`, { view: "write" }).view;
+    setView(saved === "outline" ? "outline" : "write");
+  }, [draft.id, initialView]);
+  reactExports$1.useEffect(() => {
+    if (view === "write" || view === "outline") remember(`tab:${draft.id}`, { view });
+  }, [view, draft.id]);
+  reactExports$1.useEffect(() => {
     if (sceneView) setView(sceneView.view);
   }, [sceneView]);
   const [tab, setTab] = reactExports$1.useState("format");
@@ -75528,8 +75798,9 @@ function EditorPane({
     },
     [commands, onInspector]
   );
+  const onPage = view === "write" || view === "outline";
   const previewHtml = reactExports$1.useMemo(
-    () => view === "write" ? "" : renderView(draft, PREVIEW_MODE[view], handout, look, breaksRef.current, notesRef.current, outlineShown),
+    () => view !== "handout" ? "" : renderView(draft, PREVIEW_MODE[view], handout, look, breaksRef.current, notesRef.current, outlineShown),
     [draft, view, handout, look, outlineShown]
   );
   const exportPdf = reactExports$1.useCallback(async (mode) => {
@@ -75565,7 +75836,7 @@ function EditorPane({
       if (document.querySelector(".podium")) return;
       if (event.shiftKey && event.key.toLowerCase() === "d") {
         event.preventDefault();
-        if (view === "write") dictation.toggle();
+        if (onPage) dictation.toggle();
         return;
       }
       if (event.shiftKey || event.key.toLowerCase() !== "p") return;
@@ -75574,17 +75845,17 @@ function EditorPane({
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [print, dictation.toggle, view, dictation]);
+  }, [print, dictation.toggle, onPage, dictation]);
   reactExports$1.useEffect(
     () => window.api.onMenuCommand((command2) => {
       if (document.querySelector(".podium")) return;
       if (command2 === "save") void doc2.saveNow();
       else if (command2 === "print") void print();
-      else if (command2 === "find" && view === "write") commands?.toggleFind();
+      else if (command2 === "find" && onPage) commands?.toggleFind();
     }),
-    [doc2, print, view, commands]
+    [doc2, print, onPage, commands]
   );
-  const editing = writable && view === "write" && commands !== null;
+  const editing = writable && onPage && commands !== null;
   const run2 = reactExports$1.useCallback(
     (action) => {
       if (commands) action(commands);
@@ -75690,7 +75961,7 @@ function EditorPane({
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-notice__text selectable", children: note }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => setNote(null), children: "Dismiss" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "editor-body", hidden: view !== "write", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "editor-body", hidden: !onPage, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         SermonEditor,
         {
           sermon: draft,
@@ -75699,7 +75970,9 @@ function EditorPane({
           onSaveNow: doc2.saveNow,
           look,
           onLook: updateLook,
-          hidden: view !== "write",
+          hidden: !onPage,
+          outline: view === "outline",
+          outlineOptions: outline,
           onCommands: setCommands,
           onActive: setActive2,
           onChanges: setChanges,
@@ -75707,6 +75980,9 @@ function EditorPane({
           runningHead,
           onPages,
           shapes,
+          onStarter: (shape) => {
+            if (shape.id === "built-in:outline") setView("outline");
+          },
           onRemoveShape: (id) => {
             void window.api.saveShapes(shapes.filter((shape) => shape.id !== id)).then(setShapes);
           },
@@ -75727,7 +76003,7 @@ function EditorPane({
         },
         `${draft.id}:${doc2.loaded}`
       ) }),
-      view !== "write" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "editor-body editor-body--preview", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      view === "handout" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "editor-body editor-body--preview", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         ViewPreview,
         {
           html: previewHtml,
@@ -75802,16 +76078,16 @@ function EditorPane({
         defaultLength: pulpit.length,
         onLength: (minutes2) => doc2.updateMeta(minutes2 === null ? { lengthMinutes: void 0 } : { lengthMinutes: minutes2 }),
         sermon: draft,
-        activeId: view === "write" ? active.blockId : null,
+        activeId: onPage ? active.blockId : null,
         onJump: (id) => {
-          if (view !== "write") setView("write");
+          if (!onPage) setView("write");
           commands?.jumpTo(id);
         },
         onOpenSermon,
         onLibrary: openLibrary,
         stories: {
           writable,
-          canInsert: writable && view === "write" && commands !== null,
+          canInsert: writable && onPage && commands !== null,
           onInsert: (illustration) => commands?.insertIllustration(illustration),
           draft: libraryDraft,
           refreshKey: draft.updatedAt
@@ -77384,7 +77660,12 @@ function TagChips({
     )),
     occasions.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: "Occasion", tags: occasions, chosen: occasion || null, onPick: (name) => setOccasion(name ?? "") }),
     groups.map(({ group, tags: members }) => /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: group.name, tags: members, chosen: chosenIn(group), onPick: (name) => chooseTag(name, group) }, group.id)),
-    ungrouped.length > 0 && (groups.length > 0 || ungrouped.length > rowTags.length) && /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: "Tags", tags: ungrouped, chosen: chosenIn(null), onPick: (name) => chooseTag(name, null) })
+    ungrouped.length > 0 && (groups.length > 0 || ungrouped.length > rowTags.length) && // A tag chosen that already rides in the row as its own chip is not
+    // named on this one too: one control for one choice.
+    /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: "Tags", tags: ungrouped, chosen: (() => {
+      const tag = chosenIn(null);
+      return tag !== null && chipTags.some((entry) => sameTag(entry.name, tag)) ? null : tag;
+    })(), onPick: (name) => chooseTag(name, null) })
   ] });
 }
 function Filters({ book, setBook, chapter, setChapter, from: from2, setFrom, to: to2, setTo, church, setChurch, churches, narrowed, clearFilters, writable, canSave, viewName, setViewName, saveView, activeView, forgetView }) {
@@ -77623,6 +77904,14 @@ function SermonList({ hits, sermons, byYear, openPath, onOpen, writable, series,
     return next;
   });
   const jumpTo = (year) => {
+    if (openYears.has(year)) {
+      setOpenYears((open2) => {
+        const next = new Set(open2);
+        next.delete(year);
+        return next;
+      });
+      return;
+    }
     setOpenYears((open2) => /* @__PURE__ */ new Set([...open2, year]));
     requestAnimationFrame(() => yearRefs.current.get(year)?.scrollIntoView({ block: "start", behavior: "smooth" }));
   };
@@ -77675,9 +77964,10 @@ function SermonList({ hits, sermons, byYear, openPath, onOpen, writable, series,
             openYears.has(year) && hitYears.has(year) ? "library__rail-year--open" : "",
             hitYears.has(year) ? "" : "library__rail-year--none"
           ].filter(Boolean).join(" "),
-          title: `${year}: ${totals.get(year) ?? 0} sermon${totals.get(year) === 1 ? "" : "s"}${hitYears.has(year) ? "" : ", none in this list"}`,
+          title: `${year}: ${totals.get(year) ?? 0} sermon${totals.get(year) === 1 ? "" : "s"}${hitYears.has(year) ? "" : ", none in this list"}${openYears.has(year) && hitYears.has(year) ? ". Press to fold it" : ""}`,
+          "aria-pressed": openYears.has(year) && hitYears.has(year),
           onClick: () => jumpTo(year),
-          children: year.slice(2)
+          children: year
         },
         year
       )) }),
@@ -78326,6 +78616,8 @@ const GROUPS = [
       { does: "The key line: the sentence the outline and the handout carry", chord: "Ctrl+Alt+K" },
       { does: "A note in the margin", chord: "Ctrl+Alt+M" },
       { does: "Start this block on a new page, or stop", chord: "Ctrl+Enter" },
+      { does: "On the Outline, from a heading: the next point", chord: "Enter" },
+      { does: "On the Outline, the line under a heading opens the body at that sentence", chord: "Click" },
       { does: "Split the point here: this line and the rest become a new point", chord: "Ctrl+Alt+Enter" },
       { does: "Join the point with the one above", chord: "Ctrl+Alt+Backspace" },
       { does: "The menu of blocks and things to insert", chord: "/" },
@@ -78850,10 +79142,10 @@ function SeriesSheet({ onClose, onSaved }) {
 }
 const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"];
 const numeral = (n2) => ROMAN[n2 - 1] ?? String(n2);
-function when$1(iso) {
+function when$1(iso, withYear) {
   if (!iso) return "";
   const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
-  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { month: "short", day: "numeric" });
+  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(void 0, { month: "short", day: "numeric", ...withYear ? { year: "numeric" } : {} });
 }
 function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
   const [all, setAll] = reactExports$1.useState([]);
@@ -78869,6 +79161,9 @@ function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
   reactExports$1.useEffect(load, [seriesId]);
   const series = all.find((entry) => entry.id === seriesId) ?? null;
   const preached = reactExports$1.useMemo(() => [...hits].sort((a2, b2) => (a2.datePreached ?? "9999").localeCompare(b2.datePreached ?? "9999")), [hits]);
+  const spansYears = reactExports$1.useMemo(() => new Set(preached.map((hit) => (hit.datePreached ?? "").slice(0, 4)).filter(Boolean)).size > 1, [preached]);
+  const archived = preached.filter((hit) => hit.status === "archived").length;
+  const drafting = preached.filter((hit) => hit.status !== "preached" && hit.status !== "archived").length;
   const planned = series?.planned ?? [];
   const persist = async (next) => {
     try {
@@ -78892,10 +79187,11 @@ function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
     /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "sheet__lead series-page__kicker", children: [
       preached.filter((hit) => hit.status === "preached").length,
       " preached · ",
-      preached.filter((hit) => hit.status !== "preached").length,
+      drafting,
       " in draft · ",
       planned.length,
       " planned",
+      archived > 0 ? ` · ${archived} archived` : "",
       series?.retired ? " · retired from the chip row" : ""
     ] }),
     series?.description && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", children: series.description }),
@@ -78909,13 +79205,13 @@ function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
             hit.status !== "preached" ? ` · ${hit.status}` : ""
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__when", children: when$1(hit.datePreached) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__when", children: when$1(hit.datePreached, spansYears) })
       ] }, hit.id)),
       planned.map((plan, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "series-page__row series-page__row--planned", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__num", children: numeral(preached.length + index2 + 1) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "series-page__open", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: plan.title }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: [plan.passage, plan.date ? `planned for ${when$1(plan.date)}` : "not yet dated"].filter(Boolean).join(" · ") })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: [plan.passage, plan.date ? `planned for ${when$1(plan.date, spansYears)}` : "not yet dated"].filter(Boolean).join(" · ") })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "series-page__acts", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", title: "Start writing it: a draft in this series, with the title and passage filled in", onClick: () => onWrite(plan), children: "Write it" }),

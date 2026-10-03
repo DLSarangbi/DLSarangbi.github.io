@@ -499,6 +499,11 @@
     text-decoration-line: underline;
   }
 
+  .\!outline {
+    outline-style: var(--tw-outline-style) !important;
+    outline-width: 1px !important;
+  }
+
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
@@ -3215,7 +3220,7 @@ select.field {
   flex: none;
   align-items: center;
   gap: 2px;
-  width: 34px;
+  width: 44px;
   padding: 10px 0;
   display: flex;
   overflow-y: auto;
@@ -3223,7 +3228,7 @@ select.field {
 
 .library__rail-year {
   font-variant-numeric: tabular-nums;
-  width: 26px;
+  width: 38px;
   color: var(--ink-muted);
   cursor: pointer;
   border-radius: 4px;
@@ -5785,6 +5790,101 @@ select.field {
   line-height: 2;
 }
 
+.page-stage[data-outline] .bn-block:has( > .react-renderer > .bn-block-content > .sermon-block[data-folded]) > .bn-block-group {
+  display: none;
+}
+
+.sermon-block__grip {
+  letter-spacing: -.15em;
+  color: var(--ink-muted);
+  opacity: 0;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+  flex: none;
+  margin-right: .375rem;
+  font-size: .7rem;
+  transition: opacity .12s;
+}
+
+.sermon-block:hover .sermon-block__grip, .page-stage[data-outline] .sermon-block__grip {
+  opacity: .7;
+}
+
+.sermon-block__grip:hover {
+  opacity: 1;
+}
+
+.sermon-block__grip:active {
+  cursor: grabbing;
+}
+
+.sermon-block__numeral {
+  font-family: var(--font-serif);
+  color: var(--accent);
+  -webkit-user-select: none;
+  user-select: none;
+  margin-right: .5rem;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.sermon-block__fold {
+  align-items: baseline;
+  gap: .375rem;
+  margin-top: .125rem;
+  display: flex;
+}
+
+.sermon-block__disclosure {
+  width: 1.1rem;
+  color: var(--ink-muted);
+  cursor: pointer;
+  background: none;
+  border: 0;
+  flex: none;
+  padding: 0;
+  font-size: .75rem;
+  line-height: 1;
+}
+
+.sermon-block__disclosure:hover {
+  color: var(--ink);
+}
+
+.sermon-block__summary {
+  font-family: var(--page-font, var(--font-serif));
+  color: var(--ink-muted);
+  cursor: pointer;
+  min-width: 0;
+  font-style: italic;
+}
+
+.sermon-block__summary:hover {
+  color: var(--ink);
+}
+
+.page-stage[data-outline] .sermon-block[data-off-sheet] {
+  opacity: .45;
+}
+
+.page-stage[data-outline] .sermon-block[data-off-sheet]:hover, .page-stage[data-outline] .sermon-block[data-off-sheet]:focus-within {
+  opacity: 1;
+}
+
+.page-stage[data-outline][data-density="compact"] .sermon-block {
+  margin-bottom: 0 !important;
+}
+
+.page-stage[data-outline][data-density="compact"] .sermon-block__heading, .page-stage[data-outline][data-density="compact"] .sermon-block__ref {
+  padding: 0;
+  font-size: 1rem;
+}
+
+.page-stage[data-outline][data-density="compact"] .sermon-block__fold {
+  margin-top: 0;
+}
+
 .page--painting .bn-editor {
   cursor: copy;
 }
@@ -6192,6 +6292,15 @@ select.field {
 
 .shell--focus .focus-veil {
   display: block;
+}
+
+.drop-line {
+  background-color: var(--accent);
+  pointer-events: none;
+  border-radius: 1px;
+  height: 2px;
+  margin-top: -1px;
+  position: absolute;
 }
 
 .key-line {
