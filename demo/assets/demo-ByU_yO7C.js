@@ -1,4 +1,4 @@
-import { S as SERMON_FILE_VERSION, f as formatRange, L as LAST_VERSE_SENTINEL, B as BOOKS, D as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, a as forgetInTags, b as bookByNumber, c as DEFAULT_EDITOR_SETTINGS, d as flattenForSearch, e as SNIPPET_MARK_OPEN, g as SNIPPET_MARK_CLOSE, h as applyThemePreference, i as clientExports, j as jsxRuntimeExports, k as reactExports, A as App } from "./index-CSnZ4mqz.js";
+import { S as SERMON_FILE_VERSION, L as LANGUAGES, B as BOOK_NAMES, f as foldText, D as DEFAULT_LANGUAGE, a as formatRange, b as LAST_VERSE_SENTINEL, c as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, d as forgetInTags, e as bookByNumber, g as DEFAULT_EDITOR_SETTINGS, h as BOOKS, i as flattenForSearch, j as SNIPPET_MARK_OPEN, k as SNIPPET_MARK_CLOSE, l as applyThemePreference, m as clientExports, o as jsxRuntimeExports, p as reactExports, A as App } from "./index-DJjMULTA.js";
 const series$1 = [{ "id": "series-letters", "name": "Summer in the Letters", "description": "Galatians, Romans, and 1 Peter, one Sunday each, then Ephesians and James to close the summer", "planned": [{ "id": "plan-eph", "title": "Seated With Him", "passage": "Ephesians 2:1-10", "inDays": 5 }, { "id": "plan-jas", "title": "Doers of the Word", "passage": "James 1:19-27", "inDays": 12 }] }];
 const tags = { "groups": [{ "id": "theme", "name": "Theme", "tags": ["faithfulness", "hope", "grace", "suffering", "providence"] }, { "id": "kind", "name": "Kind", "tags": ["parables", "witness"] }], "pinned": [] };
 const illustrations$1 = [{ "id": "story-septembers", "title": "Thirty-one Septembers", "body": 'A teacher of thirty-one years: "Every September they are new, even when I am not."', "source": "A conversation after a funeral", "tags": ["faithfulness"], "daysAgo": 20 }, { "id": "story-nets", "title": "The mended nets", "body": "The fisherman who mended nets every evening, whether or not the day had caught anything.", "source": "My grandfather", "tags": ["hope", "work"], "daysAgo": 100 }];
@@ -167,17 +167,18 @@ const SHORT = {
   rev: 66,
   re: 66
 };
-const fold = (text) => text.toLowerCase().replace(/[^a-z0-9]/g, "");
+const fold = foldText;
+const NAMES = LANGUAGES.flatMap((entry) => BOOK_NAMES[entry.code].map((name, index) => ({ key: fold(name), number: index + 1 })));
 function bookNumber(name) {
   const key = fold(name);
   if (!key) return null;
-  const exact = BOOKS.find((book) => fold(book.name) === key);
+  const exact = NAMES.find((entry) => entry.key === key);
   if (exact) return exact.number;
   if (key in SHORT) return SHORT[key];
-  const opening = BOOKS.filter((book) => fold(book.name).startsWith(key) && key.length >= 3);
-  return opening.length === 1 ? opening[0].number : null;
+  const opening = new Set(NAMES.filter((entry) => entry.key.startsWith(key) && key.length >= 3).map((entry) => entry.number));
+  return opening.size === 1 ? [...opening][0] : null;
 }
-const REFERENCE = /^\s*((?:[1-3]\s*)?[a-z]+(?:\s+(?:of\s+)?[a-z]+)*)\.?\s*(\d+)?(?:\s*[:.]\s*(\d+))?(?:\s*[-–]\s*(\d+)(?:\s*[:.]\s*(\d+))?)?\s*$/i;
+const REFERENCE = new RegExp("^\\s*((?:[1-3]\\s*\\.?\\s*)?\\p{L}+(?:[\\s.]+(?:of\\s+)?\\p{L}+)*)\\.?\\s*(\\d+)?(?:\\s*[:.,]\\s*(\\d+))?(?:\\s*[-–]\\s*(\\d+)(?:\\s*[:.,]\\s*(\\d+))?)?\\s*$", "iu");
 function parseReference(text) {
   const match = REFERENCE.exec(text);
   if (!match) return [];
@@ -194,9 +195,9 @@ function parseReference(text) {
   if (endA !== null && endB !== null) return [{ book, chapterStart: chapter, verseStart: verse, chapterEnd: endA, verseEnd: endB }];
   return [{ book, chapterStart: chapter, verseStart: verse, chapterEnd: chapter, verseEnd: endA ?? verse }];
 }
-function describeReference(text) {
+function describeReference(text, language = DEFAULT_LANGUAGE) {
   const ranges2 = parseReference(text);
-  return ranges2.length ? ranges2.map((range) => formatRange(range)).join(", ") : null;
+  return ranges2.length ? ranges2.map((range) => formatRange(range, language)).join(", ") : null;
 }
 function overlaps(a, b) {
   if (a.book !== b.book) return false;
@@ -479,7 +480,7 @@ const demoApi = {
     return { filePath: path, updatedAt };
   },
   queryLibrary: async (q) => query(q),
-  readPassage: async (text) => describeReference(text),
+  readPassage: async (text) => describeReference(text, appSettings.language),
   relatedSermons: async (sermonId) => related(sermonId),
   coverage: async () => coverage(),
   coverageMap: async (church) => coverageMap(church),
