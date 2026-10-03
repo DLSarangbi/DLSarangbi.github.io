@@ -69397,7 +69397,7 @@ function LinkCard({ anchor, url, onApply, onRemove, onClose }) {
   reactExports$1.useEffect(() => {
     const el = field.current;
     if (!el) return;
-    el.focus();
+    el.focus({ preventScroll: true });
     el.select();
   }, []);
   reactExports$1.useEffect(() => {
