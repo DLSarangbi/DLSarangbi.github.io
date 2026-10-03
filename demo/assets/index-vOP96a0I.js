@@ -14607,7 +14607,7 @@ function isListItemBlock(block) {
   return block.type === "freeform" && block.list !== void 0;
 }
 function displayParagraphs(block) {
-  const paragraphs2 = bodyParagraphs(block);
+  const paragraphs2 = bodyParagraphs(block).filter((paragraph, index2, all) => index2 > 0 || paragraph.text !== "" || all.length === 1);
   if (block.type !== "freeform" || !block.list) return paragraphs2;
   const [first2, ...rest] = paragraphs2;
   return [
@@ -14652,6 +14652,38 @@ function flattenBody(first2, rest) {
     return `${"  ".repeat(level)}${marker}${paragraph.text}`;
   });
   return [first2, ...lines].filter((line, index2) => index2 === 0 || line.trim() !== "").join("\n\n");
+}
+function headingAlignOf(block) {
+  if (block.type !== "point" && (block.type !== "illustration" && block.type !== "application" && block.type !== "reflection" && block.type !== "note")) return void 0;
+  const own = block.headingAlign;
+  if (own === "left") return void 0;
+  return own ?? block.align;
+}
+function withoutPreachersNotes(sermon) {
+  const blocks = sermon.blocks.filter((block) => block.type !== "note").map((block) => {
+    if (!("margin" in block) && !("paragraphs" in block)) return block;
+    const { margin: _margin, ...rest } = block;
+    const paragraphs2 = "paragraphs" in rest && rest.paragraphs ? rest.paragraphs.map(({ margin: _m, ...paragraph }) => paragraph) : void 0;
+    return { ...rest, ...paragraphs2 ? { paragraphs: paragraphs2 } : {} };
+  });
+  return { ...sermon, blocks };
+}
+function hasBoldWords(sermon) {
+  const bold = (spans) => (spans ?? []).some((span) => span.styles?.bold === true);
+  return sermon.blocks.some((block) => {
+    if (block.type === "note") return false;
+    if (block.type === "table") return block.rows.some((row) => row.some((cell) => bold(cell.inline)));
+    if (block.type === "scripture" || block.type === "image") return false;
+    return bold(block.inline) || (block.paragraphs ?? []).some((paragraph) => bold(paragraph.inline));
+  });
+}
+function reflectionQuestions(block) {
+  if (block.type !== "reflection") return [];
+  const heading = (block.heading ?? "").trim();
+  const body = displayParagraphs(block).filter((paragraph) => paragraph.text.trim() !== "");
+  const asks = heading !== "" && (heading.endsWith("?") || body.length === 0);
+  const first2 = asks ? [{ text: heading, ...block.headingInline && block.headingInline.length > 0 ? { inline: block.headingInline } : {} }] : [];
+  return [...first2, ...body];
 }
 function blockHeading(block) {
   if (block.type === "scripture") return block.ref;
@@ -15819,6 +15851,39 @@ function SetupScreen({
     ] })
   ] });
 }
+const PAPERS = ["letter", "a4", "half-letter", "a5", "legal"];
+const SPECS = {
+  letter: { label: "Letter", width: 8.5, height: 11, named: "Letter", css: "8.5in", cssHeight: "11in" },
+  a4: { label: "A4", width: 210 / 25.4, height: 297 / 25.4, named: "A4", css: "210mm", cssHeight: "297mm" },
+  "half-letter": { label: "Half Letter", width: 5.5, height: 8.5, css: "5.5in", cssHeight: "8.5in" },
+  a5: { label: "A5", width: 148 / 25.4, height: 210 / 25.4, named: "A5", css: "148mm", cssHeight: "210mm" },
+  legal: { label: "Legal", width: 8.5, height: 14, named: "Legal", css: "8.5in", cssHeight: "14in" }
+};
+const PAPER_LABELS = Object.fromEntries(PAPERS.map((paper) => [paper, SPECS[paper].label]));
+function sheetSize(paper, orientation = "portrait") {
+  const spec = SPECS[paper] ?? SPECS.letter;
+  const landscape = orientation === "landscape";
+  const width = landscape ? spec.height : spec.width;
+  const height = landscape ? spec.width : spec.height;
+  const cssWidth = landscape ? spec.cssHeight : spec.css;
+  const cssHeight = landscape ? spec.css : spec.cssHeight;
+  const pageRule = spec.named ? `${spec.named}${landscape ? " landscape" : ""}` : `${spec.css} ${spec.cssHeight}${landscape ? " landscape" : ""}`;
+  return { width, height, cssWidth, cssHeight, pageRule, small: paper === "half-letter" || paper === "a5" };
+}
+const LOOK_KEYS = ["font", "lineSpacing", "paper", "orientation", "margin", "pageNumbers", "pageHeader", "styles"];
+function pickLook(patch) {
+  const look = {};
+  for (const key2 of LOOK_KEYS) if (patch[key2] !== void 0) look[key2] = patch[key2];
+  return look;
+}
+function omitLook(patch) {
+  const rest = { ...patch };
+  for (const key2 of LOOK_KEYS) delete rest[key2];
+  return rest;
+}
+function lookFor(sermon, machine) {
+  return sermon.look ? { ...machine, ...sermon.look } : machine;
+}
 function UpdateNotice({ update, onInstall, onLater }) {
   const [busy, setBusy] = reactExports$1.useState(false);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "notice", role: "status", children: [
@@ -15947,6 +16012,15 @@ function metaLine(sermon) {
 function visible$1(sermon, view) {
   return sermon.blocks.filter((block) => isVisibleIn(block, view));
 }
+function headingAlignAttr(block) {
+  const align = headingAlignOf(block);
+  return align ? ` style="text-align: ${align}"` : "";
+}
+function headingHtml(block, flags) {
+  const rich = block.type !== "scripture" && block.type !== "table" && block.type !== "image" ? block.headingInline : void 0;
+  if (rich && rich.length > 0) return rich.map((span) => spanHtml(span, flags)).join("");
+  return escapeHtml(blockHeading(block) ?? "");
+}
 function lineFor$1(block) {
   const heading = blockHeading(block);
   if (heading && heading.trim()) return heading.trim();
@@ -15955,8 +16029,9 @@ function lineFor$1(block) {
 }
 function alignAttr(block) {
   const spaced = block.type === "table" || block.type === "image" || block.type === "scripture" ? null : block;
+  const headed2 = block.type === "point" || block.type === "illustration" || block.type === "application" || block.type === "reflection" || block.type === "note";
   const rules = [
-    ...block.align ? [`text-align: ${block.align}`] : [],
+    ...block.align && !headed2 ? [`text-align: ${block.align}`] : [],
     ...block.pageBreakBefore ? ["break-before: page"] : [],
     ...spaced?.lineSpacing ? [`line-height: ${spaced.lineSpacing}`] : [],
     ...spaced?.spaceAfter ? [`margin-bottom: ${0.7 + spaced.spaceAfter}em`] : []
@@ -16039,8 +16114,8 @@ ${nodesHtml(children, flags, cuts)}
         ...paragraph.align ? [`text-align: ${paragraph.align}`] : [],
         ...level > 0 ? [`margin-left: ${level * 1.5}em`] : []
       ];
-      const hasWords = spans.some((span) => span.text.trim() !== "");
-      if (!hasWords) continue;
+      const hasWords2 = spans.some((span) => span.text.trim() !== "");
+      if (!hasWords2) continue;
       const cls = paragraph.style ? ` class="${paragraph.style}"` : "";
       out.push(
         cutHtml(
@@ -16184,25 +16259,6 @@ function roman(index2) {
     }
   }
   return out;
-}
-const PAPERS = ["letter", "a4", "half-letter", "a5", "legal"];
-const SPECS = {
-  letter: { label: "Letter", width: 8.5, height: 11, named: "Letter", css: "8.5in", cssHeight: "11in" },
-  a4: { label: "A4", width: 210 / 25.4, height: 297 / 25.4, named: "A4", css: "210mm", cssHeight: "297mm" },
-  "half-letter": { label: "Half Letter", width: 5.5, height: 8.5, css: "5.5in", cssHeight: "8.5in" },
-  a5: { label: "A5", width: 148 / 25.4, height: 210 / 25.4, named: "A5", css: "148mm", cssHeight: "210mm" },
-  legal: { label: "Legal", width: 8.5, height: 14, named: "Legal", css: "8.5in", cssHeight: "14in" }
-};
-const PAPER_LABELS = Object.fromEntries(PAPERS.map((paper) => [paper, SPECS[paper].label]));
-function sheetSize(paper, orientation = "portrait") {
-  const spec = SPECS[paper] ?? SPECS.letter;
-  const landscape = orientation === "landscape";
-  const width = landscape ? spec.height : spec.width;
-  const height = landscape ? spec.width : spec.height;
-  const cssWidth = landscape ? spec.cssHeight : spec.css;
-  const cssHeight = landscape ? spec.css : spec.cssHeight;
-  const pageRule = spec.named ? `${spec.named}${landscape ? " landscape" : ""}` : `${spec.css} ${spec.cssHeight}${landscape ? " landscape" : ""}`;
-  return { width, height, cssWidth, cssHeight, pageRule, small: paper === "half-letter" || paper === "a5" };
 }
 const PRINT_FONT = "'Iowan Old Style', 'Palatino Linotype', Georgia, serif";
 const MARGIN_INCHES$1 = {
@@ -16392,7 +16448,7 @@ function renderOutlineHtml(sermon, page, options = DEFAULT_OUTLINE_OPTIONS) {
         return [`<div class="line" data-open="${escapeHtml(block.id)}"><span class="tag">${tag}</span><span class="ref">${ref}${version}</span></div>`];
       }
       if (block.type === "reflection") {
-        const questions = displayParagraphs(block).map((paragraph) => paragraph.text.trim()).filter(Boolean);
+        const questions = reflectionQuestions(block).map((paragraph) => paragraph.text.trim());
         counts.questions += questions.length;
         return questions.map(
           (question) => `<div class="line" data-open="${escapeHtml(block.id)}"><span class="tag">${tag}</span><em>${escapeHtml(question)}</em></div>`
@@ -16526,7 +16582,7 @@ function renderHandoutHtml(sermon, options, page) {
     if (block.type === "point") pointNumber += 1;
     const num = block.type === "point" && pointCount > 1 ? `<span class="n">${pointNumber}.</span>` : "";
     return `<section class="block"${alignAttr(block)}>
-  ${heading ? `<h2>${num}${escapeHtml(heading)}</h2>` : ""}
+  ${heading ? `<h2>${num}${headingHtml(block, flags)}</h2>` : ""}
   ${bodyHtml(block, flags)}
 </section>`;
   };
@@ -16613,7 +16669,7 @@ function renderHandoutHtml(sermon, options, page) {
   .half .notes { margin-top: 0.6em; }
   .half .rule { height: 1.6em; }
   @media print { .foot { position: fixed; bottom: 0; left: 0; right: 0; } }`;
-  const questionItems = questions.flatMap((block) => displayParagraphs(block)).filter((paragraph) => paragraph.text.trim() !== "").map((paragraph) => {
+  const questionItems = questions.flatMap((block) => reflectionQuestions(block)).map((paragraph) => {
     const spans = paragraph.inline?.length ? paragraph.inline : [{ text: paragraph.text }];
     return `<li>${spans.map((span) => spanHtml(span, plain)).join("")}</li>`;
   }).join("\n");
@@ -16715,7 +16771,7 @@ function planPages(units, pageHeight) {
       if (i2 >= lines.length) break;
       const opensPage2 = (from2 === 0 ? unit.top : lines[from2]?.top ?? 0) + shift2 <= pageStart() + EPS;
       if (lines.length - i2 < MIN_LINES) i2 = lines.length - MIN_LINES;
-      if (i2 - from2 < MIN_LINES) {
+      if (i2 - from2 < (from2 === 0 ? MIN_LINES + (unit.head ?? 0) : MIN_LINES)) {
         if (from2 === 0 && !opensPage2) {
           breakAt(unit.pos, unit.top, false);
           continue;
@@ -16883,7 +16939,7 @@ ${groupListBlocks(blocks).map((group) => {
     const inner = own ? new Map([...own].map(([index2, offsets]) => [index2, index2 === 0 ? offsets.filter((o2) => o2 > 0) : offsets])) : void 0;
     return `${start}${block.type === "note" ? " note" : ""}" data-id="${escapeHtml(block.id)}"${alignAttr(block)}>
   ${block.type === "note" ? '<div class="kind">Private note</div>' : ""}
-  ${heading ? `<h2>${escapeHtml(heading)}</h2>` : ""}
+  ${heading ? `<h2${headingAlignAttr(block)}>${headingHtml(block, flags)}</h2>` : ""}
   ${bodyHtml(block, flags, inner)}
 </section>`;
   }).join("\n")}`;
@@ -16894,8 +16950,8 @@ const MATCH = "find-match";
 const CURRENT = "find-current";
 const FIELD = "find-field";
 const FIELD_CURRENT = "find-field--current";
-const FIELDS$1 = ".sermon-block__heading, .sermon-block__ref";
-const SEARCHED = `${FIELDS$1}, .bn-inline-content`;
+const FIELDS = ".sermon-block__version";
+const SEARCHED = `${FIELDS}, .bn-inline-content`;
 function findMatches(root, query) {
   const matches2 = [];
   if (!query) return matches2;
@@ -66330,6 +66386,27 @@ function moveOptions(editor, id) {
   const index2 = editor.document.findIndex((entry) => entry.id === id);
   return { up: index2 > 0, down: index2 >= 0 && index2 < editor.document.length - 1 };
 }
+const SPLIT_BLOCK_EVENT = "sermondesk:split-block";
+const JOIN_BLOCK_EVENT = "sermondesk:join-block";
+function splitHandle(editor, id, type) {
+  return {
+    can: () => {
+      let inBody = false;
+      try {
+        const caret = editor.getTextCursorPosition().block;
+        const parent = editor.getParentBlock(caret);
+        inBody = caret.id !== id && parent?.id === id;
+      } catch {
+        inBody = false;
+      }
+      const index2 = editor.document.findIndex((entry) => entry.id === id);
+      const above = index2 > 0 ? editor.document[index2 - 1] : void 0;
+      return { split: inBody, join: above?.type === type };
+    },
+    onSplit: () => window.dispatchEvent(new CustomEvent(SPLIT_BLOCK_EVENT, { detail: { id } })),
+    onJoin: () => window.dispatchEvent(new CustomEvent(JOIN_BLOCK_EVENT, { detail: { id } }))
+  };
+}
 function moveHandle(editor, id) {
   return {
     can: () => moveOptions(editor, id),
@@ -66413,7 +66490,8 @@ function BlockTypeMenu({
   showTypes = true,
   spelling = null,
   pageBreak = null,
-  move = null
+  move = null,
+  split: split2 = null
 }) {
   const ref = reactExports$1.useRef(null);
   reactExports$1.useEffect(() => {
@@ -66528,6 +66606,26 @@ function BlockTypeMenu({
             ]
           }
         ),
+        split2 && (split2.split || split2.join) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "block-type-menu__move", children: [
+          split2.split && /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "block-type-menu__item block-type-menu__item--plain", onClick: split2.onSplit, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__marker", "aria-hidden": "true", children: "⤵" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "block-type-menu__label", children: [
+              "Split into a new ",
+              split2.label,
+              " here"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__hint", children: "From the line the caret is on to the end, with a heading still to write" })
+          ] }),
+          split2.join && /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "block-type-menu__item block-type-menu__item--plain", onClick: split2.onJoin, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__marker", "aria-hidden": "true", children: "⤴" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "block-type-menu__label", children: [
+              "Join with the ",
+              split2.label,
+              " above"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__hint", children: "Its words go on at the end of that one, its heading as a line of them" })
+          ] })
+        ] }),
         move && (move.up || move.down) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "block-type-menu__move", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "button",
@@ -66565,23 +66663,23 @@ function BlockTypeMenu({
 function BlockFrame({
   type,
   children,
-  heading,
-  onHeadingChange,
-  onHeadingDone,
-  headingPlaceholder,
+  placeholder,
   onChangeType,
   align = "left",
   pageBreak = false,
   lineSpacing = "",
   spaceAfter = "",
   onTogglePageBreak,
-  move
+  move,
+  split: split2
 }) {
   const style2 = BLOCK_STYLES[type];
   const [menuOpen, setMenuOpen] = reactExports$1.useState(false);
   const [canMove, setCanMove] = reactExports$1.useState(null);
+  const [canSplit2, setCanSplit] = reactExports$1.useState(null);
   const openMenu = () => {
     setCanMove(move ? move.can() : null);
+    setCanSplit(split2 ? split2.can() : null);
     setMenuOpen(true);
   };
   const textAlign = align === "center" || align === "right" || align === "justify" ? align : void 0;
@@ -66591,7 +66689,7 @@ function BlockFrame({
     "div",
     {
       className: "sermon-block",
-      style: { borderColor: style2.accent, textAlign, lineHeight, marginBottom },
+      style: { borderColor: style2.accent, lineHeight, marginBottom },
       "data-line-spacing": lineSpacing || void 0,
       children: [
         pageBreak && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__pagebreak", title: "Starts on a new page when printed", children: "Page break" }),
@@ -66639,59 +66737,66 @@ function BlockFrame({
                   setMenuOpen(false);
                   move.onMove(direction);
                 }
+              } : null,
+              split: split2 && canSplit2 ? {
+                ...canSplit2,
+                label: style2.label.toLowerCase(),
+                onSplit: () => {
+                  setMenuOpen(false);
+                  split2.onSplit();
+                },
+                onJoin: () => {
+                  setMenuOpen(false);
+                  split2.onJoin();
+                }
               } : null
             }
           )
         ] }),
-        onHeadingChange && /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            className: "sermon-block__heading",
-            spellCheck: true,
-            value: heading ?? "",
-            placeholder: headingPlaceholder ?? "Heading",
-            onChange: (event) => onHeadingChange(event.target.value),
-            onKeyDown: (event) => {
-              if (!shellShortcut(event)) event.stopPropagation();
-              if (event.key === "Enter" && onHeadingDone) {
-                event.preventDefault();
-                onHeadingDone();
-              }
-            }
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: style2.serif ? "sermon-block__body sermon-block__body--serif" : "sermon-block__body", children })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__heading", "data-placeholder": placeholder, style: { textAlign }, children })
       ]
     }
   );
 }
-function retype(editor, block, next) {
-  const align = String(block.props["align"] ?? block.props["textAlignment"] ?? "left");
-  const heading = String(block.props["heading"] ?? block.props["reference"] ?? "");
-  if (next === "paragraph") {
-    editor.updateBlock(block, { type: "paragraph", props: { textAlignment: align } });
-    return;
-  }
-  if (next === "scripture") {
-    editor.updateBlock(block, { type: "scripture", props: { reference: heading, translation: "" } });
-    return;
-  }
-  editor.updateBlock(block, {
-    type: next,
-    props: {
-      heading,
-      align,
-      pageBreak: block.props["pageBreak"] === true,
-      lineSpacing: String(block.props["lineSpacing"] ?? ""),
-      spaceAfter: String(block.props["spaceAfter"] ?? "")
-    }
-  });
-}
 const UNTYPED = /* @__PURE__ */ new Set(["paragraph", "bulletListItem", "numberedListItem"]);
+function copyOf(block) {
+  return { type: block.type, props: block.props, content: block.content, children: (block.children ?? []).map(copyOf) };
+}
+function retype(editor, block, next) {
+  const props = block.props;
+  const align = String(props["align"] ?? props["textAlignment"] ?? "left");
+  const content = block.content ?? [];
+  const children = block.children ?? [];
+  if (next === "paragraph") {
+    if (UNTYPED.has(block.type)) return;
+    const headingWords = Array.isArray(content) && content.length > 0;
+    editor.replaceBlocks(
+      [block],
+      [...headingWords ? [{ type: "paragraph", props: { textAlignment: align }, content, children: [] }] : [], ...children.map(copyOf)]
+    );
+    return;
+  }
+  const frame = next === "scripture" ? { translation: "", pageBreak: props["pageBreak"] === true } : {
+    align,
+    pageBreak: props["pageBreak"] === true,
+    lineSpacing: String(props["lineSpacing"] ?? ""),
+    spaceAfter: String(props["spaceAfter"] ?? "")
+  };
+  if (UNTYPED.has(block.type)) {
+    editor.updateBlock(block, {
+      type: next,
+      props: frame,
+      content: [],
+      children: [{ type: "paragraph", props: { textAlignment: align }, content, children: children.map(copyOf) }]
+    });
+    return;
+  }
+  editor.updateBlock(block, { type: next, props: frame });
+}
 const pointBlock = ea(
   {
     type: "point",
-    propSchema: { heading: { default: "" }, align: ALIGN_PROP, pageBreak: PAGE_BREAK_PROP, style: STYLE_PROP, margin: MARGIN_PROP, minutes: { default: "" }, ...SPACING_PROPS },
+    propSchema: { align: ALIGN_PROP, pageBreak: PAGE_BREAK_PROP, style: STYLE_PROP, margin: MARGIN_PROP, minutes: { default: "" }, ...SPACING_PROPS },
     content: "inline"
   },
   {
@@ -66699,32 +66804,25 @@ const pointBlock = ea(
       BlockFrame,
       {
         type: "point",
-        heading: block.props.heading,
+        placeholder: "What is this point?",
         align: block.props.align,
         pageBreak: block.props.pageBreak,
         lineSpacing: block.props.lineSpacing,
         spaceAfter: block.props.spaceAfter,
         onTogglePageBreak: editor.isEditable ? () => editor.updateBlock(block, { props: { pageBreak: !block.props.pageBreak } }) : void 0,
-        headingPlaceholder: "What is this point?",
-        onHeadingChange: (heading) => editor.updateBlock(block, { type: "point", props: { heading } }),
-        onHeadingDone: () => {
-          editor.setTextCursorPosition(block, "end");
-          editor.focus();
-        },
         onChangeType: editor.isEditable ? (next) => retype(editor, block, next) : void 0,
         move: editor.isEditable ? moveHandle(editor, block.id) : void 0,
+        split: editor.isEditable ? splitHandle(editor, block.id, "point") : void 0,
         children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: contentRef })
       }
     )
   }
 );
 function proseBlock(type) {
-  const style2 = BLOCK_STYLES[type];
   return ea(
     {
       type,
       propSchema: {
-        heading: { default: "" },
         illustrationId: { default: "" },
         align: ALIGN_PROP,
         pageBreak: PAGE_BREAK_PROP,
@@ -66739,24 +66837,15 @@ function proseBlock(type) {
         BlockFrame,
         {
           type,
-          heading: block.props.heading,
+          placeholder: "Heading, if it wants one",
           align: block.props.align,
           pageBreak: block.props.pageBreak,
           lineSpacing: block.props.lineSpacing,
           spaceAfter: block.props.spaceAfter,
           onTogglePageBreak: editor.isEditable ? () => editor.updateBlock(block, { props: { pageBreak: !block.props.pageBreak } }) : void 0,
-          headingPlaceholder: `${style2.label} heading (optional)`,
-          onHeadingChange: (heading) => (
-            // The cast is unavoidable: updateBlock is typed per concrete block
-            // type, and this factory is deliberately generic over five of them.
-            editor.updateBlock(block, { type, props: { heading } })
-          ),
-          onHeadingDone: () => {
-            editor.setTextCursorPosition(block, "end");
-            editor.focus();
-          },
           onChangeType: editor.isEditable ? (next) => retype(editor, block, next) : void 0,
           move: editor.isEditable ? moveHandle(editor, block.id) : void 0,
+          split: editor.isEditable ? splitHandle(editor, block.id, type) : void 0,
           children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: contentRef })
         }
       )
@@ -66866,6 +66955,12 @@ function completeBook(typed) {
   const book = BOOKS.find((entry) => entry.name.toLowerCase().startsWith(text));
   return book ? book.name : null;
 }
+function referenceOf(content) {
+  if (!Array.isArray(content)) return "";
+  return content.map(
+    (item) => item.type === "text" ? item.text ?? "" : Array.isArray(item.content) ? item.content.map((inner) => inner.text ?? "").join("") : ""
+  ).join("");
+}
 function ScriptureFrame({
   block,
   editor,
@@ -66879,13 +66974,36 @@ function ScriptureFrame({
     setCanMove(move ? move.can() : null);
     setMenuOpen(true);
   };
-  const versionRef = reactExports$1.useRef(null);
-  const reading = useReading(block.props.reference, editor.isEditable);
+  const reference = referenceOf(block.content);
+  const reading = useReading(reference, editor.isEditable);
   const reads = reading.reads;
-  const typedNow = block.props.reference.trim();
+  const typedNow = reference.trim();
   const completion = reading.forText === typedNow && reads && fold(reads) !== fold(typedNow) ? reads : completeBook(typedNow);
   const offered = completion && fold(completion) !== fold(typedNow) ? completion : null;
   const [refFocused, setRefFocused] = reactExports$1.useState(false);
+  reactExports$1.useEffect(() => {
+    const read = () => {
+      try {
+        setRefFocused(editor.getTextCursorPosition().block.id === block.id);
+      } catch {
+        setRefFocused(false);
+      }
+    };
+    read();
+    const off = editor.onSelectionChange(read);
+    return () => off?.();
+  }, [editor, block.id]);
+  const intoVerse = () => {
+    const first2 = editor.getBlock(block.id)?.children?.[0];
+    if (first2) {
+      editor.setTextCursorPosition(first2, "start");
+    } else {
+      editor.updateBlock(block, { children: [{ type: "paragraph", content: [], children: [] }] });
+      const created = editor.getBlock(block.id)?.children?.[0];
+      if (created) editor.setTextCursorPosition(created, "start");
+    }
+    editor.focus();
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block", style: { borderColor: style2.accent }, children: [
     block.props.pageBreak && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__pagebreak", title: "Starts on a new page when printed", children: "Page break" }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__labelrow", children: [
@@ -66923,9 +67041,7 @@ function ScriptureFrame({
             on: block.props.pageBreak,
             onToggle: () => {
               setMenuOpen(false);
-              editor.updateBlock(block, {
-                props: { pageBreak: !block.props.pageBreak }
-              });
+              editor.updateBlock(block, { props: { pageBreak: !block.props.pageBreak } });
             }
           } : null,
           move: move && canMove ? {
@@ -66939,55 +67055,28 @@ function ScriptureFrame({
       )
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__passage", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__ref", "data-offer": offered ?? void 0, "data-placeholder": "Romans 8:28", children }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         "input",
         {
-          className: "sermon-block__ref selectable",
-          spellCheck: true,
-          value: block.props.reference,
-          placeholder: "Romans 8:28",
-          "aria-label": "Reference",
-          readOnly: !editor.isEditable,
-          onFocus: () => setRefFocused(true),
-          onBlur: () => setRefFocused(false),
-          onChange: (event) => editor.updateBlock(block, { type: "scripture", props: { reference: event.target.value } }),
-          onKeyDown: (event) => {
-            if (!shellShortcut(event)) event.stopPropagation();
-            if (event.key === "Enter") {
-              event.preventDefault();
-              versionRef.current?.focus();
-            }
-            if (event.key === "Tab" && !event.shiftKey && offered && editor.isEditable) {
-              event.preventDefault();
-              editor.updateBlock(block, { type: "scripture", props: { reference: offered } });
-            }
-          }
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "input",
-        {
-          ref: versionRef,
           className: "sermon-block__version selectable",
           value: block.props.translation,
           placeholder: "ESV",
           "aria-label": "Version",
           size: 6,
           readOnly: !editor.isEditable,
-          onChange: (event) => editor.updateBlock(block, { type: "scripture", props: { translation: event.target.value } }),
+          onChange: (event) => editor.updateBlock(block, { props: { translation: event.target.value } }),
           onKeyDown: (event) => {
             if (!shellShortcut(event)) event.stopPropagation();
             if (event.key === "Enter") {
               event.preventDefault();
-              editor.setTextCursorPosition(block, "end");
-              editor.focus();
+              intoVerse();
             }
           }
         }
       )
     ] }),
-    editor.isEditable && /* @__PURE__ */ jsxRuntimeExports.jsx(ReadsAs, { reads, offered, typed: block.props.reference, focused: refFocused }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__body sermon-block__body--serif sermon-block__body--scripture", children })
+    editor.isEditable && /* @__PURE__ */ jsxRuntimeExports.jsx(ReadsAs, { reads, offered, typed: reference, focused: refFocused })
   ] });
 }
 function useReading(reference, editable) {
@@ -67013,7 +67102,7 @@ function useReading(reference, editable) {
   }, [reference, editable]);
   return reading;
 }
-const fold = (text) => text.toLowerCase().replace(/[^a-z0-9]/g, "");
+const fold = (text) => text.toLowerCase().replace(/[^a-z0-9]/g, "").replace(/^psalms/, "psalm");
 function ReadsAs({ reads, offered, typed, focused }) {
   const text = typed.trim();
   if (!text) return null;
@@ -67026,7 +67115,7 @@ function ReadsAs({ reads, offered, typed, focused }) {
     ] });
   }
   if (reads === null) {
-    if (focused || completeBook(text)) return null;
+    if (focused || completeBook(text) || !/[a-z]/i.test(text)) return null;
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__reads sermon-block__reads--unread", role: "status", children: "Not a reference the library recognises" });
   }
   return null;
@@ -67035,7 +67124,6 @@ const scriptureBlock = ea(
   {
     type: "scripture",
     propSchema: {
-      reference: { default: "" },
       translation: { default: "" },
       pageBreak: PAGE_BREAK_PROP
     },
@@ -67411,8 +67499,9 @@ function blocksToEditor(source) {
       return {
         id: block.id,
         type: "scripture",
-        props: { reference: block.ref, translation: block.translation, pageBreak: block.pageBreakBefore === true },
-        content: block.text ? [{ type: "text", text: block.text, styles: {} }] : []
+        props: { translation: block.translation, pageBreak: block.pageBreakBefore === true },
+        content: block.ref ? [{ type: "text", text: block.ref, styles: {} }] : [],
+        children: block.text ? [{ type: "paragraph", props: { textAlignment: "left", style: "", margin: "" }, content: [{ type: "text", text: block.text, styles: {} }], children: [] }] : []
       };
     }
     if (block.type === "table") {
@@ -67441,21 +67530,24 @@ function blocksToEditor(source) {
         content: block.content ? [{ type: "text", text: block.content, styles: {} }] : []
       };
     }
-    const [first2, ...rest] = bodyParagraphs(block);
-    const content = blockNoteFromSpans(first2?.inline ?? [], first2?.text ?? "");
-    const children = childrenFromParagraphs(rest);
+    const body = bodyParagraphs(block);
     if (block.type === "freeform") {
+      const [first2, ...rest] = body;
+      const content2 = blockNoteFromSpans(first2?.inline ?? [], first2?.text ?? "");
+      const children2 = childrenFromParagraphs(rest);
       const type = block.list === "bullet" ? "bulletListItem" : block.list === "number" ? "numberedListItem" : "paragraph";
-      return { id: block.id, type, props: { textAlignment: block.align ?? "left", style: block.style ?? "", margin: block.margin ?? "" }, content, children };
+      return { id: block.id, type, props: { textAlignment: block.align ?? "left", style: block.style ?? "", margin: block.margin ?? "" }, content: content2, children: children2 };
     }
+    const headingSpans = block.headingInline && block.headingInline.length > 0 ? block.headingInline : [{ text: block.heading ?? "" }];
+    const content = blockNoteFromSpans(headingSpans.filter((span) => span.text !== "" || span.note !== void 0), "");
+    const children = childrenFromParagraphs(body.filter((paragraph, index2) => index2 > 0 || paragraph.text !== "" || body.length === 1));
     const props = {
-      heading: block.heading ?? "",
-      align: block.align ?? "left",
+      align: headingAlignOf(block) ?? "left",
       pageBreak: block.pageBreakBefore === true,
       lineSpacing: block.lineSpacing ? String(block.lineSpacing) : "",
       spaceAfter: block.spaceAfter ? String(block.spaceAfter) : "",
-      style: block.style ?? "",
-      margin: block.margin ?? "",
+      style: "",
+      margin: "",
       minutes: block.type === "point" && block.minutes ? String(block.minutes) : ""
     };
     if (block.type === "illustration" && block.illustrationId) {
@@ -67558,11 +67650,11 @@ function fromEditorBlocks(blocks) {
     }
     if (block.type === "scripture") {
       const props = block.props ?? {};
-      const ref = String(props["reference"] ?? "");
+      const ref = plainFromInline(spansFromBlockNote(block.content)).trim();
       const pageBreak2 = block.props?.["pageBreak"] === true ? { pageBreakBefore: true } : {};
-      const beneath = [];
-      collectParagraphs(block.children, 0, beneath);
-      const text = bodyText(plainFromInline(spansFromBlockNote(block.content)), beneath);
+      const beneath2 = [];
+      collectParagraphs(block.children, 0, beneath2);
+      const text = beneath2.map((paragraph) => paragraph.text).join("\n\n");
       if (!ref && !text) continue;
       result.push({
         id,
@@ -67578,16 +67670,23 @@ function fromEditorBlocks(blocks) {
       });
       continue;
     }
-    const spans = spansFromBlockNote(block.content);
-    const first2 = plainFromInline(spans);
-    const rest = [];
-    collectParagraphs(block.children, 0, rest);
+    const typed = isSermonBlockType(block.type);
+    const ownSpans = spansFromBlockNote(block.content);
+    const beneath = [];
+    collectParagraphs(block.children, 0, beneath);
+    const headingSpans = typed ? ownSpans : [];
+    const heading = plainFromInline(headingSpans).trim();
+    const bodyFirst = typed ? beneath[0] && !beneath[0].list ? beneath.shift() : void 0 : void 0;
+    const spans = typed ? bodyFirst?.inline ?? [] : ownSpans;
+    const first2 = typed ? bodyFirst?.text ?? "" : plainFromInline(ownSpans);
+    const rest = beneath;
     const content = bodyText(first2, rest);
-    const heading = String(block.props?.["heading"] ?? "");
     const isList2 = block.type in LIST_TYPES;
     if (!content.trim() && !heading && !isList2) continue;
-    const align = readAlignment(block.props?.["align"] ?? block.props?.["textAlignment"]);
-    const style2 = block.props?.["style"];
+    const align = typed ? bodyFirst?.align : readAlignment(block.props?.["textAlignment"]);
+    const style2 = typed ? bodyFirst?.style : block.props?.["style"];
+    const margin = typed ? bodyFirst?.margin : marginOf(block.props);
+    const headingAlign = typed ? readAlignment(block.props?.["align"]) ?? (align ? "left" : void 0) : void 0;
     const base2 = {
       id,
       content,
@@ -67598,7 +67697,11 @@ function fromEditorBlocks(blocks) {
       ...align ? { align } : {},
       // Body is the absence of a style.
       ...isParagraphStyle(style2) ? { style: style2 } : {},
-      ...marginOf(block.props) ? { margin: marginOf(block.props) } : {}
+      ...margin ? { margin } : {}
+    };
+    const headingRich = {
+      ...hasEmphasis(headingSpans) ? { headingInline: headingSpans } : {},
+      ...headingAlign ? { headingAlign } : {}
     };
     const pageBreak = block.props?.["pageBreak"] === true ? { pageBreakBefore: true } : {};
     const lineSpacing = Number(block.props?.["lineSpacing"]);
@@ -67609,7 +67712,7 @@ function fromEditorBlocks(blocks) {
     };
     if (block.type === "point") {
       const minutes = clampMinutes(block.props?.["minutes"]);
-      result.push({ ...base2, ...pageBreak, ...spacing, type: "point", heading, ...minutes ? { minutes } : {} });
+      result.push({ ...base2, ...pageBreak, ...spacing, type: "point", heading, ...headingRich, ...minutes ? { minutes } : {} });
     } else if (PROSE_TYPES.has(block.type)) {
       const illustrationId = String(block.props?.["illustrationId"] ?? "");
       result.push({
@@ -67618,6 +67721,7 @@ function fromEditorBlocks(blocks) {
         ...spacing,
         type: block.type,
         ...heading ? { heading } : {},
+        ...headingRich,
         ...block.type === "illustration" && illustrationId ? { illustrationId } : {}
       });
     } else {
@@ -67649,6 +67753,7 @@ const IDLE_ACTIVE = {
   align: "left",
   paragraphStyle: null,
   canStyle: false,
+  canNote: false,
   marginNote: null,
   keyLine: false,
   link: null,
@@ -67682,12 +67787,21 @@ function useActiveState(editor, painterRef) {
       } catch {
       }
       const props = block.props;
-      const index2 = editor.document.findIndex((entry) => entry.id === block.id);
+      const headed2 = (type) => type === "scripture" || isSermonBlockType(type);
       let container = block;
-      while (container && !isSermonBlockType(container.type)) {
+      while (container && !headed2(container.type)) {
         container = editor.getParentBlock(container);
       }
-      const spacing = container?.props ?? {};
+      let top = block;
+      for (let parent2 = editor.getParentBlock(top); parent2; parent2 = editor.getParentBlock(top)) top = parent2;
+      const index2 = editor.document.findIndex((entry) => entry.id === top.id);
+      const line = headed2(block.type);
+      const parent = editor.getParentBlock(block);
+      const underHeaded = parent !== void 0 && headed2(parent.type);
+      const inPassage = container?.type === "scripture";
+      const listed = block.type === "bulletListItem" || block.type === "numberedListItem";
+      const spaced = container && container.type !== "scripture" ? container : void 0;
+      const spacing = spaced?.props ?? {};
       const lineSpacing = Number(spacing["lineSpacing"]);
       const spaceAfter = Number(spacing["spaceAfter"]);
       setActive2({
@@ -67697,16 +67811,19 @@ function useActiveState(editor, painterRef) {
         blockId: block.id,
         align: String(props["align"] ?? props["textAlignment"] ?? "left"),
         paragraphStyle: isParagraphStyle(props["style"]) ? props["style"] : null,
-        canStyle: block.type === "paragraph" || isSermonBlockType(block.type) && block.type !== "scripture",
+        canStyle: block.type === "paragraph" && !inPassage,
+        canNote: block.type === "paragraph" && !inPassage,
         marginNote: typeof props["margin"] === "string" && props["margin"].trim() !== "" ? props["margin"] : null,
         keyLine: styles["key"] === true,
         link,
         selectedWords,
         pageBreak: (container?.props ?? props)["pageBreak"] === true,
         canMove: { up: index2 > 0, down: index2 >= 0 && index2 < editor.document.length - 1 },
-        canIndent: editor.canNestBlock(),
-        canOutdent: editor.canUnnestBlock(),
-        canSpace: container !== void 0,
+        // A heading is not a step of an outline, and a body's paragraph
+        // never steps out of its block; a list item steps out of its list.
+        canIndent: !line && editor.canNestBlock(),
+        canOutdent: !line && (underHeaded ? listed : editor.canUnnestBlock()),
+        canSpace: spaced !== void 0,
         lineSpacing: spacing["lineSpacing"] && Number.isFinite(lineSpacing) ? lineSpacing : null,
         spaceAfter: spacing["spaceAfter"] && Number.isFinite(spaceAfter) ? spaceAfter : null,
         painting: painterRef.current !== null
@@ -67847,6 +67964,13 @@ function useFormatting({ editor, report, refreshActive, active }) {
     editor.focus();
     refreshActive();
   }, [editor, refreshActive]);
+  const inPassage = reactExports$1.useCallback(
+    (block) => {
+      const parent = editor.getParentBlock(block);
+      return parent?.type === "scripture";
+    },
+    [editor]
+  );
   const setAlign = reactExports$1.useCallback(
     (align) => {
       let block;
@@ -67855,7 +67979,7 @@ function useFormatting({ editor, report, refreshActive, active }) {
       } catch {
         return;
       }
-      if (block.type === "scripture") return;
+      if (block.type === "scripture" || inPassage(block)) return;
       const prop = UNTYPED.has(block.type) ? "textAlignment" : "align";
       announceChange(`Aligned ${align === "center" ? "centre" : align === "justify" ? "both edges" : align}`);
       editor.updateBlock(block, { props: { [prop]: align } });
@@ -67863,7 +67987,7 @@ function useFormatting({ editor, report, refreshActive, active }) {
       report();
       refreshActive();
     },
-    [editor, report, refreshActive]
+    [editor, inPassage, report, refreshActive]
   );
   const setParagraphStyle = reactExports$1.useCallback(
     (style2) => {
@@ -67873,14 +67997,14 @@ function useFormatting({ editor, report, refreshActive, active }) {
       } catch {
         return;
       }
-      if (block.type !== "paragraph" && (!isSermonBlockType(block.type) || block.type === "scripture")) return;
+      if (block.type !== "paragraph" || inPassage(block)) return;
       announceChange(`Set the style to ${style2 ? style2[0].toUpperCase() + style2.slice(1) : "Body"}`);
       editor.updateBlock(block, { props: { style: style2 ?? "" } });
       editor.focus();
       report();
       refreshActive();
     },
-    [editor, report, refreshActive]
+    [editor, inPassage, report, refreshActive]
   );
   const toggleKeyLine = reactExports$1.useCallback(() => {
     const view = editor.prosemirrorView;
@@ -67891,6 +68015,7 @@ function useFormatting({ editor, report, refreshActive, active }) {
     let { from: from2, to: to2 } = state.selection;
     const textblock = $from.parent;
     if (!textblock.isTextblock) return;
+    if (isSermonBlockType(textblock.type.name) || textblock.type.name === "scripture") return;
     if (from2 === to2) {
       const start = $from.start();
       const text = textblock.textContent;
@@ -67964,15 +68089,18 @@ function useFormatting({ editor, report, refreshActive, active }) {
       } catch {
         return;
       }
-      if (block.type === "scripture") return;
+      if (block.type === "scripture" || inPassage(block)) return;
       if (isSermonBlockType(block.type)) {
-        const children = block.children ?? [];
-        editor.updateBlock(block, {
-          content: [],
-          children: [{ type: list2, content: block.content, children: [] }, ...children]
-        });
         const first2 = editor.getBlock(block.id)?.children?.[0];
-        if (first2) editor.setTextCursorPosition(first2, "end");
+        if (first2 && UNTYPED.has(first2.type)) {
+          editor.updateBlock(first2, { type: first2.type === list2 ? "paragraph" : list2 });
+          editor.setTextCursorPosition(first2, "end");
+        } else {
+          const children = block.children ?? [];
+          editor.updateBlock(block, { children: [{ type: list2, content: [], children: [] }, ...children] });
+          const made = editor.getBlock(block.id)?.children?.[0];
+          if (made) editor.setTextCursorPosition(made, "end");
+        }
       } else {
         editor.updateBlock(block, { type: block.type === list2 ? "paragraph" : list2 });
       }
@@ -67980,22 +68108,45 @@ function useFormatting({ editor, report, refreshActive, active }) {
       report();
       refreshActive();
     },
-    [editor, report, refreshActive]
+    [editor, inPassage, report, refreshActive]
   );
+  const framed = reactExports$1.useCallback(() => {
+    let block;
+    try {
+      block = editor.getTextCursorPosition().block;
+    } catch {
+      return null;
+    }
+    const parent = editor.getParentBlock(block) ?? null;
+    const headed2 = (type) => type === "scripture" || isSermonBlockType(type);
+    return { line: headed2(block.type), parent: parent && headed2(parent.type) ? parent : null, block };
+  }, [editor]);
   const indent = reactExports$1.useCallback(() => {
+    if (framed()?.line) return;
     if (!editor.canNestBlock()) return;
     editor.nestBlock();
     editor.focus();
     report();
     refreshActive();
-  }, [editor, report, refreshActive]);
+  }, [editor, framed, report, refreshActive]);
   const outdent = reactExports$1.useCallback(() => {
+    const at2 = framed();
+    if (at2?.line) return;
+    if (at2?.parent) {
+      if (at2.block.type === "bulletListItem" || at2.block.type === "numberedListItem") {
+        editor.updateBlock(at2.block, { type: "paragraph" });
+        editor.focus();
+        report();
+        refreshActive();
+      }
+      return;
+    }
     if (!editor.canUnnestBlock()) return;
     editor.unnestBlock();
     editor.focus();
     report();
     refreshActive();
-  }, [editor, report, refreshActive]);
+  }, [editor, framed, report, refreshActive]);
   const containerBlock = reactExports$1.useCallback(() => {
     let block;
     try {
@@ -68207,46 +68358,39 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
         return;
       }
       const props = block.props;
-      const heading = typeof props?.["heading"] === "string" ? props["heading"] : "";
       const hasContent = (block.content?.length ?? 0) > 0;
+      const hasChildren = (block.children?.length ?? 0) > 0;
       const align = String(props?.["align"] ?? props?.["textAlignment"] ?? "left");
-      const propsFor = (existingHeading) => type === "scripture" ? { reference: existingHeading, translation: "" } : { heading: existingHeading, align };
-      let target = block;
+      const frame = () => type === "scripture" ? { translation: "" } : { align };
+      const fresh = () => ({ type, props: frame(), content: [], children: [{ type: "paragraph", content: [], children: [] }] });
       const name = BLOCK_STYLES[type].label;
       announceChange(type === "scripture" ? "Added Scripture" : `Added ${/^[aeiou]/i.test(name) ? "an" : "a"} ${name.toLowerCase()}`);
       let top = block;
       for (let parent = editor.getParentBlock(top); parent; parent = editor.getParentBlock(top)) top = parent;
+      let targetId = block.id;
       if (top !== block) {
-        editor.insertBlocks([{ type, props: propsFor("") }], top, "after");
+        editor.insertBlocks([fresh()], top, "after");
         if (UNTYPED.has(block.type) && !hasContent) editor.removeBlocks([block]);
         const index2 = editor.document.findIndex((entry) => entry.id === top.id);
-        const created = editor.document[index2 + 1];
-        if (created) {
-          target = created;
-          editor.setTextCursorPosition(created, "start");
-        }
-      } else if (UNTYPED.has(block.type) || !hasContent && !heading) {
-        editor.updateBlock(block, { type, props: propsFor(heading) });
-        editor.setTextCursorPosition(block, "end");
+        targetId = editor.document[index2 + 1]?.id ?? targetId;
+      } else if (UNTYPED.has(block.type)) {
+        editor.updateBlock(block, {
+          type,
+          props: frame(),
+          content: [],
+          children: [{ type: "paragraph", props: { textAlignment: align }, content: block.content, children: block.children ?? [] }]
+        });
+      } else if (!hasContent && !hasChildren) {
+        editor.updateBlock(block, { type, props: frame() });
       } else {
-        editor.insertBlocks([{ type, props: propsFor("") }], block, "after");
+        editor.insertBlocks([fresh()], block, "after");
         const index2 = editor.document.findIndex((entry) => entry.id === block.id);
-        const created = editor.document[index2 + 1];
-        if (created) {
-          target = created;
-          editor.setTextCursorPosition(created, "start");
-        }
+        targetId = editor.document[index2 + 1]?.id ?? targetId;
       }
+      const target = editor.getBlock(targetId);
+      if (target) editor.setTextCursorPosition(target, "start");
       editor.focus();
       report();
-      const field = type === "point" ? ".sermon-block__heading" : type === "scripture" ? ".sermon-block__ref" : null;
-      const targetHeading = target === block ? heading : "";
-      if (field && !targetHeading) {
-        const id = target.id;
-        requestAnimationFrame(() => {
-          document.querySelector(`[data-id="${id}"] ${field}`)?.focus();
-        });
-      }
     },
     [editor, report]
   );
@@ -68283,7 +68427,7 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
       const block = editor.document[index2];
       const neighbour = editor.document[direction === "up" ? index2 - 1 : index2 + 1];
       if (!block || !neighbour) return;
-      const words = String(block.props["heading"] ?? "") || (Array.isArray(block.content) ? block.content.map((c2) => c2.text ?? "").join("") : "");
+      const words = Array.isArray(block.content) ? block.content.map((c2) => c2.text ?? "").join("") : "";
       announceChange(words.trim() ? `Moved “${snippet(words, 28)}” ${direction}` : `Moved a block ${direction}`);
       editor.transact(() => {
         editor.removeBlocks([block.id]);
@@ -68303,6 +68447,7 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
       } catch {
         return;
       }
+      for (let parent = editor.getParentBlock(block); parent; parent = editor.getParentBlock(block)) block = parent;
       moveBlock(block.id, direction);
       refreshActive();
     },
@@ -68339,7 +68484,7 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
         placement = "after";
       }
       const blocks = ids.map((blockId2) => editor.getBlock(blockId2)).filter((block) => Boolean(block));
-      const heading = String(top[index2].props?.["heading"] ?? "");
+      const heading = (top[index2].content ?? []).map((span) => span.text ?? "").join("");
       announceChange(heading.trim() ? `Moved “${snippet(heading, 28)}” ${direction}, with what follows it` : `Moved a point ${direction}, with what follows it`);
       editor.transact(() => {
         editor.removeBlocks(ids);
@@ -68372,6 +68517,86 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
     window.addEventListener(MOVE_BLOCK_EVENT, onMove);
     return () => window.removeEventListener(MOVE_BLOCK_EVENT, onMove);
   }, [moveBlock, writable]);
+  const splitBlock2 = reactExports$1.useCallback(
+    (id) => {
+      if (!writable) return;
+      let caret;
+      try {
+        caret = editor.getTextCursorPosition().block;
+      } catch {
+        return;
+      }
+      const parent = editor.getParentBlock(caret);
+      if (!parent || !isSermonBlockType(parent.type) || id !== void 0 && parent.id !== id) return;
+      const body = editor.getBlock(parent.id)?.children ?? [];
+      const index2 = body.findIndex((entry) => entry.id === caret.id);
+      if (index2 < 0) return;
+      const rest = body.slice(index2);
+      const copies = rest.map(function copy2(block) {
+        return { type: block.type, props: block.props, content: block.content, children: (block.children ?? []).map(copy2) };
+      });
+      const props = parent.props;
+      const frame = { align: props["align"] ?? "left", lineSpacing: props["lineSpacing"] ?? "", spaceAfter: props["spaceAfter"] ?? "" };
+      announceChange(`Split the ${BLOCK_STYLES[parent.type]?.label.toLowerCase() ?? "block"} in two`);
+      let made;
+      editor.transact(() => {
+        editor.removeBlocks(rest.map((block) => block.id));
+        made = editor.insertBlocks([{ type: parent.type, props: frame, content: [], children: copies }], parent.id, "after")[0];
+      });
+      if (made) editor.setTextCursorPosition(made.id, "start");
+      editor.focus();
+      report();
+      refreshActive();
+    },
+    [editor, writable, report, refreshActive]
+  );
+  const joinBlockAbove = reactExports$1.useCallback(
+    (id) => {
+      if (!writable) return;
+      let block;
+      try {
+        block = editor.getTextCursorPosition().block;
+      } catch {
+        return;
+      }
+      for (let parent = editor.getParentBlock(block); parent; parent = editor.getParentBlock(block)) block = parent;
+      if (!isSermonBlockType(block.type) || id !== void 0 && block.id !== id) return;
+      const index2 = editor.document.findIndex((entry) => entry.id === block.id);
+      const above = index2 > 0 ? editor.document[index2 - 1] : void 0;
+      if (!above || above.type !== block.type) return;
+      const heading = Array.isArray(block.content) && block.content.length > 0 ? [{ type: "paragraph", props: { textAlignment: block.props["align"] ?? "left" }, content: block.content, children: [] }] : [];
+      const body = (editor.getBlock(block.id)?.children ?? []).map(function copy2(entry) {
+        return { type: entry.type, props: entry.props, content: entry.content, children: (entry.children ?? []).map(copy2) };
+      });
+      const moved = [...heading, ...body];
+      announceChange(`Joined two ${BLOCK_STYLES[block.type]?.label.toLowerCase() ?? "block"}s into one`);
+      let first2;
+      editor.transact(() => {
+        const existing = editor.getBlock(above.id)?.children ?? [];
+        if (moved.length > 0) {
+          const last = existing[existing.length - 1];
+          const inserted = last ? editor.insertBlocks(moved, last.id, "after") : (editor.updateBlock(above.id, { children: moved }), editor.getBlock(above.id)?.children ?? []);
+          first2 = inserted[0];
+        }
+        editor.removeBlocks([block.id]);
+      });
+      editor.setTextCursorPosition(first2?.id ?? above.id, first2 ? "start" : "end");
+      editor.focus();
+      report();
+      refreshActive();
+    },
+    [editor, writable, report, refreshActive]
+  );
+  reactExports$1.useEffect(() => {
+    const onSplit = (event) => splitBlock2(event.detail.id);
+    const onJoin = (event) => joinBlockAbove(event.detail.id);
+    window.addEventListener(SPLIT_BLOCK_EVENT, onSplit);
+    window.addEventListener(JOIN_BLOCK_EVENT, onJoin);
+    return () => {
+      window.removeEventListener(SPLIT_BLOCK_EVENT, onSplit);
+      window.removeEventListener(JOIN_BLOCK_EVENT, onJoin);
+    };
+  }, [splitBlock2, joinBlockAbove]);
   const insertSermonBlocks = reactExports$1.useCallback(
     (blocks, afterId, label) => {
       if (!writable || blocks.length === 0) return;
@@ -68468,8 +68693,12 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
     } catch {
       return null;
     }
-    const body = (block.content ?? []).map((span) => span.text ?? "").join("");
-    const title = String(block.props?.["heading"] ?? "");
+    let top = block;
+    for (let parent = editor.getParentBlock(top); parent && !isSermonBlockType(top.type); parent = editor.getParentBlock(top)) top = parent;
+    const words = (content) => Array.isArray(content) ? content.map((span) => span.text ?? "").join("") : "";
+    const typed = isSermonBlockType(top.type);
+    const title = typed ? words(top.content) : "";
+    const body = typed ? (top.children ?? []).map((child) => words(child.content)).filter((text) => text.trim()).join("\n\n") : words(top.content);
     if (!body.trim() && !title.trim()) return null;
     return { title, body };
   }, [editor]);
@@ -68489,11 +68718,13 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
       togglePageBreak,
       insertSermonBlocks,
       addShape,
+      splitBlock: splitBlock2,
+      joinBlockAbove,
       jumpTo,
       insertIllustration,
       blockAsIllustration
     }),
-    [undo2, redo2, undoMany, redoMany, addBlock, setBlockType2, canMove, moveBlock, moveCurrent, moveSection, setPointMinutes, togglePageBreak, insertSermonBlocks, addShape, jumpTo, insertIllustration, blockAsIllustration]
+    [undo2, redo2, undoMany, redoMany, addBlock, setBlockType2, canMove, moveBlock, moveCurrent, moveSection, setPointMinutes, togglePageBreak, insertSermonBlocks, addShape, splitBlock2, joinBlockAbove, jumpTo, insertIllustration, blockAsIllustration]
   );
 }
 function useInsert({ editor, report }) {
@@ -69254,8 +69485,9 @@ function usePaste({ editor, writable, report, insertImageFiles, keepLineAfterTab
         [
           {
             type: "scripture",
-            props: { reference: quotation.reference, translation: quotation.translation ?? "" },
-            content: [{ type: "text", text: quotation.text, styles: {} }]
+            props: { translation: quotation.translation ?? "" },
+            content: [{ type: "text", text: quotation.reference, styles: {} }],
+            children: [{ type: "paragraph", content: [{ type: "text", text: quotation.text, styles: {} }], children: [] }]
           }
         ],
         top,
@@ -69284,126 +69516,207 @@ function usePaste({ editor, writable, report, insertImageFiles, keepLineAfterTab
     };
   }, [editor, writable, report, insertImageFiles, keepLineAfterTable]);
 }
-function useEnterContinues({ editor, writable, report }) {
+const headed = (type) => type === "scripture" || isSermonBlockType(type);
+const hasWords = (block) => Array.isArray(block.content) && block.content.length > 0;
+function useHeadingKeys({ editor, writable, report }) {
   reactExports$1.useEffect(() => {
-    const caretAtEndOfBlock = () => {
-      const selection = window.getSelection();
-      if (!selection?.isCollapsed || selection.rangeCount === 0) return false;
-      const range = selection.getRangeAt(0);
-      const node = range.endContainer;
-      const element = node.nodeType === 1 ? node : node.parentElement;
-      const content = element?.closest(".bn-block-content");
-      if (!content) return false;
-      const remainder = range.cloneRange();
-      remainder.selectNodeContents(content);
-      remainder.setStart(range.endContainer, range.endOffset);
-      return remainder.toString().trim() === "";
+    const caret = () => {
+      let block;
+      try {
+        block = editor.getTextCursorPosition().block;
+      } catch {
+        return null;
+      }
+      const { selection } = editor.prosemirrorView.state;
+      if (!selection.empty) return null;
+      const { $from } = selection;
+      if (!$from.parent.isTextblock) return null;
+      return { block, atStart: $from.parentOffset === 0, atEnd: $from.parentOffset === $from.parent.content.size };
+    };
+    const siblingsOf = (block) => {
+      const parent = editor.getParentBlock(block) ?? null;
+      const siblings = parent ? editor.getBlock(parent.id)?.children : editor.document;
+      return { parent, siblings, index: siblings.findIndex((entry) => entry.id === block.id) };
+    };
+    const lastLine = (block) => {
+      let at2 = block;
+      for (let last = at2.children?.at(-1); last; last = at2.children?.at(-1)) at2 = last;
+      return at2;
+    };
+    const lineBefore = (block) => {
+      const { parent, siblings, index: index2 } = siblingsOf(block);
+      const previous = index2 > 0 ? siblings[index2 - 1] : void 0;
+      return previous ? lastLine(previous) : parent;
+    };
+    const lineAfter = (block) => {
+      const first2 = block.children?.[0];
+      if (first2) return first2;
+      for (let at2 = block; at2; ) {
+        const { parent, siblings, index: index2 } = siblingsOf(at2);
+        const next = index2 >= 0 ? siblings[index2 + 1] : void 0;
+        if (next) return next;
+        at2 = parent;
+      }
+      return null;
+    };
+    const caretTo = (block, placement) => {
+      try {
+        editor.setTextCursorPosition(block, placement);
+      } catch {
+      }
+      editor.focus();
+    };
+    const joinToPrevious = (block, previous) => {
+      if (!hasWords(block)) {
+        editor.removeBlocks([block]);
+        caretTo(previous, "end");
+        report();
+        return;
+      }
+      editor.setTextCursorPosition(previous, "end");
+      const view = editor.prosemirrorView;
+      const join2 = view.state.selection.from;
+      const content = [...previous.content ?? [], ...block.content ?? []];
+      const children = [...previous.children ?? [], ...block.children ?? []];
+      editor.transact(() => {
+        editor.updateBlock(previous, { content, children });
+        editor.removeBlocks([block]);
+      });
+      view.dispatch(view.state.tr.setSelection(TextSelection.create(view.state.doc, join2)));
+      editor.focus();
+      report();
+    };
+    const onEnter = (block) => {
+      if (!headed(block.type)) return false;
+      if (block.type === "scripture") {
+        document.querySelector(`[data-id="${block.id}"] .sermon-block__version`)?.focus();
+        return true;
+      }
+      const first2 = editor.getBlock(block.id)?.children?.[0];
+      if (first2 && first2.type === "paragraph" && !hasWords(first2)) {
+        caretTo(first2, "start");
+        return true;
+      }
+      const line = { type: "paragraph", content: [], children: [] };
+      if (first2) {
+        const made = editor.insertBlocks([line], first2, "before")[0];
+        if (made) caretTo(made, "start");
+      } else {
+        editor.updateBlock(block, { children: [line] });
+        const made = editor.getBlock(block.id)?.children?.[0];
+        if (made) caretTo(made, "start");
+      }
+      report();
+      return true;
+    };
+    const onBackspace = (block) => {
+      if (headed(block.type)) {
+        if (hasWords(block)) {
+          const before3 = lineBefore(block);
+          if (before3) caretTo(before3, "end");
+          return true;
+        }
+        const before2 = lineBefore(block);
+        const { parent: parent2, index: index22 } = siblingsOf(block);
+        const body = editor.getBlock(block.id)?.children ?? [];
+        retype(editor, block, "paragraph");
+        const now = parent2 ? editor.getBlock(parent2.id)?.children : editor.document;
+        const landing = body.length > 0 ? now?.[index22] : void 0;
+        if (landing) caretTo(landing, "start");
+        else if (before2) caretTo(before2, "end");
+        report();
+        return true;
+      }
+      if (block.type !== "paragraph") return false;
+      const { parent, siblings, index: index2 } = siblingsOf(block);
+      if (!parent || !headed(parent.type)) return false;
+      if (index2 === 0) {
+        if (!hasWords(block) && !block.children?.length) {
+          editor.removeBlocks([block]);
+          report();
+        }
+        caretTo(parent, "end");
+        return true;
+      }
+      const before = siblings[index2 - 1];
+      if (!before) return false;
+      const previous = lastLine(before);
+      if (!Array.isArray(previous.content) || headed(previous.type)) {
+        caretTo(previous, "end");
+        return true;
+      }
+      joinToPrevious(block, previous);
+      return true;
+    };
+    const onDelete = (block) => {
+      if (headed(block.type)) {
+        const body = editor.getBlock(block.id)?.children ?? [];
+        const first2 = body[0];
+        if (first2 === void 0) return true;
+        if (first2.type === "paragraph" && !hasWords(first2) && !first2.children?.length && body.length > 1) {
+          editor.removeBlocks([first2]);
+          report();
+          return true;
+        }
+        caretTo(first2, "start");
+        return true;
+      }
+      const after = lineAfter(block);
+      if (after && headed(after.type)) {
+        caretTo(after, "start");
+        return true;
+      }
+      return false;
     };
     const onKeyDown = (event) => {
-      if (event.key !== "Enter" || event.shiftKey || !writable) return;
-      if (event.ctrlKey || event.metaKey) return;
+      if (!writable) return;
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
+      if (event.key !== "Enter" && event.key !== "Backspace" && event.key !== "Delete") return;
+      if (event.key === "Enter" && event.shiftKey) return;
       if (document.querySelector(".slash-menu")) return;
       if (event.target instanceof Element && event.target.closest("input, textarea")) return;
-      if (!caretAtEndOfBlock()) return;
+      const at2 = caret();
+      if (!at2) return;
+      let handled = false;
+      if (event.key === "Enter") handled = onEnter(at2.block);
+      else if (event.key === "Backspace") handled = at2.atStart && onBackspace(at2.block);
+      else handled = at2.atEnd && onDelete(at2.block);
+      if (!handled) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    };
+    window.addEventListener("keydown", onKeyDown, true);
+    return () => window.removeEventListener("keydown", onKeyDown, true);
+  }, [editor, writable, report]);
+}
+function useReferenceTab({ editor, writable, report }) {
+  reactExports$1.useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key !== "Tab" || event.shiftKey || event.ctrlKey || event.metaKey || event.altKey) return;
+      if (event.target instanceof Element && event.target.closest("input, textarea")) return;
       let block;
       try {
         block = editor.getTextCursorPosition().block;
       } catch {
         return;
       }
-      const props = block.props;
-      const heading = block.type === "scripture" ? props?.["reference"] : props?.["heading"];
-      const hasWords = (block.content?.length ?? 0) > 0;
-      if (block.type === "scripture") {
-        if (typeof heading !== "string" || heading === "") return;
-      } else if (!isSermonBlockType(block.type) || !heading && !hasWords) {
+      if (block.type !== "scripture") return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const line = document.querySelector(`[data-id="${block.id}"] .sermon-block__ref`);
+      const offer = line?.dataset["offer"];
+      if (offer && writable) {
+        editor.updateBlock(block, { content: offer });
+        editor.setTextCursorPosition(block, "end");
+        editor.focus();
+        report();
         return;
       }
-      event.preventDefault();
-      event.stopPropagation();
-      if (block.type === "scripture") {
-        editor.insertBlocks([{ type: "paragraph" }], block, "after");
-        const index2 = editor.document.findIndex((entry) => entry.id === block.id);
-        const created = editor.document[index2 + 1];
-        if (created) editor.setTextCursorPosition(created, "start");
-      } else {
-        const children = block.children ?? [];
-        editor.updateBlock(block, {
-          children: [{ type: "paragraph", content: [], children: [] }, ...children]
-        });
-        const created = editor.getBlock(block.id)?.children?.[0];
-        if (created) editor.setTextCursorPosition(created, "start");
-      }
-      report();
+      document.querySelector(`[data-id="${block.id}"] .sermon-block__version`)?.focus();
     };
     window.addEventListener("keydown", onKeyDown, true);
     return () => window.removeEventListener("keydown", onKeyDown, true);
   }, [editor, writable, report]);
-}
-const FIELDS = ".sermon-block__heading, .sermon-block__ref";
-const LINES = ".bn-inline-content";
-function useHeadingArrows({ editor, hidden: hidden2 }) {
-  reactExports$1.useEffect(() => {
-    const stops = () => {
-      const page = editor.prosemirrorView.dom.closest(".bn-editor") ?? editor.prosemirrorView.dom;
-      return [...page.querySelectorAll(`${FIELDS}, ${LINES}`)];
-    };
-    const neighbour = (from2, direction) => {
-      const all = stops();
-      const index2 = all.indexOf(from2);
-      if (index2 < 0) return null;
-      return all[direction === "up" ? index2 - 1 : index2 + 1] ?? null;
-    };
-    const enterField = (field, direction) => {
-      field.focus();
-      const at2 = direction === "up" ? field.value.length : 0;
-      field.setSelectionRange(at2, at2);
-    };
-    const enterLine = (line, direction) => {
-      const view = editor.prosemirrorView;
-      const $at = view.state.doc.resolve(view.posAtDOM(line, 0));
-      const pos = direction === "up" ? $at.end() : $at.start();
-      view.dispatch(view.state.tr.setSelection(TextSelection.create(view.state.doc, pos)).scrollIntoView());
-      view.focus();
-    };
-    const step = (from2, direction) => {
-      const next = neighbour(from2, direction);
-      if (!next) return false;
-      if (next.matches(FIELDS)) enterField(next, direction);
-      else enterLine(next, direction);
-      return true;
-    };
-    const onKeyDown = (event) => {
-      if (hidden2) return;
-      if (event.key !== "ArrowUp" && event.key !== "ArrowDown") return;
-      if (event.shiftKey || event.ctrlKey || event.metaKey || event.altKey) return;
-      const direction = event.key === "ArrowUp" ? "up" : "down";
-      const target = event.target;
-      if (!(target instanceof HTMLElement) || !target.closest(".bn-editor")) return;
-      const field = target.matches(FIELDS) ? target : target.matches(".sermon-block__version") ? target.closest(".sermon-block__passage")?.querySelector(".sermon-block__ref") ?? null : null;
-      if (field) {
-        if (step(field, direction)) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        return;
-      }
-      if (target.closest("input, textarea")) return;
-      const view = editor.prosemirrorView;
-      if (!view.state.selection.empty || !view.endOfTextblock(direction)) return;
-      const { node } = view.domAtPos(view.state.selection.from);
-      const element = node instanceof HTMLElement ? node : node.parentElement;
-      const line = element?.closest(LINES);
-      if (!line) return;
-      const next = neighbour(line, direction);
-      if (!next?.matches(FIELDS)) return;
-      event.preventDefault();
-      event.stopPropagation();
-      enterField(next, direction);
-    };
-    window.addEventListener("keydown", onKeyDown, true);
-    return () => window.removeEventListener("keydown", onKeyDown, true);
-  }, [editor, hidden2]);
 }
 function readTypedLink(typed) {
   const text = typed.trim();
@@ -69568,12 +69881,7 @@ function LinkCard({ anchor, url, onApply, onRemove, onClose }) {
   ] });
 }
 const FIELD_OF = {
-  point: "heading",
-  illustration: "heading",
-  application: "heading",
-  reflection: "heading",
-  note: "heading",
-  scripture: "reference"
+  scripture: "translation"
 };
 function useReplaceMatches(editor, report) {
   return reactExports$1.useCallback(
@@ -69656,6 +69964,8 @@ function useEditorShortcuts({
   outdent,
   openFind,
   togglePageBreak,
+  splitBlock: splitBlock2,
+  joinBlockAbove,
   insertFootnote,
   addMarginNote,
   toggleKeyLine,
@@ -69686,7 +69996,15 @@ function useEditorShortcuts({
       const target = event.target;
       if (target instanceof Element && target !== document.body && !target.closest(".cell--main, .cell--insp-body")) return;
       const pressed = letterOf(event);
-      if (event.altKey && !event.shiftKey && pressed === "f") {
+      if (event.altKey && !event.shiftKey && event.key === "Enter") {
+        if (!(event.target instanceof Element) || !event.target.closest(".bn-editor")) return;
+        event.preventDefault();
+        splitBlock2();
+      } else if (event.altKey && !event.shiftKey && event.key === "Backspace") {
+        if (!(event.target instanceof Element) || !event.target.closest(".bn-editor")) return;
+        event.preventDefault();
+        joinBlockAbove();
+      } else if (event.altKey && !event.shiftKey && pressed === "f") {
         if (!(event.target instanceof Element) || !event.target.closest(".bn-editor")) return;
         event.preventDefault();
         insertFootnote();
@@ -69748,7 +70066,7 @@ function useEditorShortcuts({
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [nudgeScale, updateLook, stepSize, setAlign, setParagraphStyle, toggleScript, openFind, togglePageBreak, insertFootnote, addMarginNote, toggleKeyLine, editLink, hidden2]);
+  }, [nudgeScale, updateLook, stepSize, setAlign, setParagraphStyle, toggleScript, openFind, togglePageBreak, splitBlock2, joinBlockAbove, insertFootnote, addMarginNote, toggleKeyLine, editLink, hidden2]);
   reactExports$1.useEffect(() => {
     const onKeyDown = (event) => {
       if ((event.ctrlKey || event.metaKey) && !event.altKey && event.key.toLowerCase() === "s") {
@@ -69761,6 +70079,7 @@ function useEditorShortcuts({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [report, onSaveNow]);
 }
+const HEADED = /* @__PURE__ */ new Set(["point", "illustration", "application", "reflection", "note", "scripture"]);
 const UNIT_LINE = -1;
 function lineRects(content) {
   const rects = [];
@@ -69863,10 +70182,34 @@ function measurePage(view, origin, cache = /* @__PURE__ */ new Map()) {
   const units = [];
   const doc2 = view.state.doc;
   let containerPos = null;
+  let head = null;
+  const emit = (unit) => {
+    if (head && unit.pos < head.until) {
+      units.push({ ...unit, pos: head.unit.pos, top: head.unit.top, breakBefore: head.unit.breakBefore, lines: [...head.unit.lines, ...unit.lines], head: head.unit.lines.length });
+      head = null;
+      return;
+    }
+    if (head) {
+      units.push(head.unit);
+      head = null;
+    }
+    units.push(unit);
+  };
+  let containerSize = 0;
+  let containerHasBody = false;
   doc2.descendants((node, pos) => {
     if (node.type.name === "blockContainer") {
+      if (head && pos >= head.until) {
+        units.push(head.unit);
+        head = null;
+      }
       containerPos = pos;
       String(node.attrs["id"] ?? "");
+      containerSize = node.nodeSize;
+      containerHasBody = false;
+      node.forEach((child) => {
+        if (child.type.name === "blockGroup" && child.childCount > 0) containerHasBody = true;
+      });
       return true;
     }
     if (node.type.name === "blockGroup") return true;
@@ -69918,15 +70261,21 @@ function measurePage(view, origin, cache = /* @__PURE__ */ new Map()) {
         lines.push({ top: flow(rect.top), bottom: flow(rect.bottom), pos: index2 === 0 ? unitPos : rowPos });
       });
     }
-    units.push({
+    const unit = {
       pos: unitPos,
       top: flow(box.top),
       bottom: flow(box.bottom),
       lines,
       breakBefore
-    });
+    };
+    if (ownsContainer && containerPos !== null && containerHasBody && HEADED.has(node.type.name)) {
+      head = { unit, until: containerPos + containerSize };
+    } else {
+      emit(unit);
+    }
     return !isTable;
   });
+  if (head) units.push(head.unit);
   return { units, scale, cache: next };
 }
 const paginationKey = new PluginKey("sermonPagination");
@@ -70175,18 +70524,23 @@ function useStarter(editor, onBlocksChange) {
       announceChange(`Started from the template “${shape.name}”`);
       const { insertedBlocks } = editor.replaceBlocks(
         editor.document,
-        shape.blocks.map(
-          (block) => block.type === "scripture" ? { type: "scripture", props: { reference: block.heading, translation: "" } } : { type: block.type, props: { heading: block.heading } }
-        )
+        shape.blocks.map((block) => ({
+          type: block.type,
+          props: block.type === "scripture" ? { translation: "" } : {},
+          content: block.heading,
+          children: [{ type: "paragraph", content: [], children: [] }]
+        }))
       );
       setBlank(false);
       onBlocksChange(fromEditorBlocks(editor.document));
-      const first2 = insertedBlocks[0]?.id;
+      const first2 = insertedBlocks[0];
       if (!first2) return;
       requestAnimationFrame(() => {
-        const input = document.querySelector(`[data-id="${first2}"] .sermon-block__heading, [data-id="${first2}"] .sermon-block__ref`);
-        input?.focus();
-        input?.select();
+        editor.setTextCursorPosition(first2, "start");
+        const view = editor.prosemirrorView;
+        const $from = view.state.selection.$from;
+        view.dispatch(view.state.tr.setSelection(TextSelection.create(view.state.doc, $from.start(), $from.end())));
+        editor.focus();
       });
     },
     [editor, onBlocksChange]
@@ -70221,6 +70575,8 @@ function useFootnotes({ editor, writable, report }) {
   );
   const insertFootnote = reactExports$1.useCallback(() => {
     if (!writable) return;
+    const parent = editor.prosemirrorView.state.selection.$from.parent;
+    if (isSermonBlockType(parent.type.name) || parent.type.name === "scripture") return;
     announceChange("Added a footnote");
     editor.insertInlineContent([{ type: "footnote", props: { note: "" } }]);
     report();
@@ -70334,7 +70690,7 @@ function FootnoteCard({ anchor, number, heading, placeholder, note, onChange, on
   ] });
 }
 function canCarry(type) {
-  return type === "paragraph" || ["point", "illustration", "application", "reflection", "note"].includes(type);
+  return type === "paragraph";
 }
 function useMarginNotes({ editor, writable, report, stageRef }) {
   const [placed, setPlaced] = reactExports$1.useState([]);
@@ -70411,7 +70767,7 @@ function useMarginNotes({ editor, writable, report, stageRef }) {
     } catch {
       return;
     }
-    if (!canCarry(block.type)) return;
+    if (!canCarry(block.type) || editor.getParentBlock(block)?.type === "scripture") return;
     const current = String(block.props["margin"] ?? "");
     if (current === "") {
       announceChange("Added a note in the margin");
@@ -70614,9 +70970,10 @@ function SermonEditor({
       pages: plan.pages,
       zoom,
       breaks: breaksRef.current,
-      notes: plan.notes.map((note) => ({ page: note.page, number: note.number, note: note.note }))
+      notes: plan.notes.map((note) => ({ page: note.page, number: note.number, note: note.note })),
+      notesFolded: look.marginNotes && margins.placed.length > 0 && reserve === 0
     });
-  }, [caretPage, plan, zoom, onPages]);
+  }, [caretPage, plan, zoom, onPages, look.marginNotes, margins.placed.length, reserve]);
   const painterRef = reactExports$1.useRef(null);
   const { active, refreshActive } = useActiveState(editor, painterRef);
   reactExports$1.useEffect(() => onActive(active), [active, onActive]);
@@ -70645,8 +71002,8 @@ function SermonEditor({
   const insert = useInsert({ editor, report });
   const context = useContextMenu({ editor, writable, canMove: blocks.canMove, moveBlock: blocks.moveBlock, report });
   usePaste({ editor, writable, report, insertImageFiles: insert.insertImageFiles, keepLineAfterTable: insert.keepLineAfterTable });
-  useEnterContinues({ editor, writable, report });
-  useHeadingArrows({ editor, hidden: hidden2 });
+  useHeadingKeys({ editor, writable, report });
+  useReferenceTab({ editor, writable, report });
   const links = useLinks({ editor, writable, report });
   const caret = useCaretBlock({ editor, stageRef });
   reactExports$1.useEffect(() => caret.place(), [plan, zoom, caret.place]);
@@ -70666,6 +71023,8 @@ function SermonEditor({
     outdent: formatting.outdent,
     openFind,
     togglePageBreak: blocks.togglePageBreak,
+    splitBlock: () => blocks.splitBlock(),
+    joinBlockAbove: () => blocks.joinBlockAbove(),
     insertFootnote: footnotes.insertFootnote,
     addMarginNote: margins.addAtCaret,
     toggleKeyLine: formatting.toggleKeyLine,
@@ -70728,6 +71087,8 @@ function SermonEditor({
       replaceMatches,
       togglePageBreak: blocks.togglePageBreak,
       moveCurrent: blocks.moveCurrent,
+      splitBlock: () => blocks.splitBlock(),
+      joinBlockAbove: () => blocks.joinBlockAbove(),
       moveSection: blocks.moveSection,
       setPointMinutes: blocks.setPointMinutes,
       toggleKeyLine: formatting.toggleKeyLine,
@@ -70798,6 +71159,7 @@ function SermonEditor({
                   editable: writable,
                   theme: isDark ? "dark" : "light",
                   slashMenu: false,
+                  emojiPicker: false,
                   formattingToolbar: false,
                   linkToolbar: false,
                   sideMenu: false,
@@ -71202,9 +71564,13 @@ function ShareMenu({
             /* @__PURE__ */ jsxRuntimeExports.jsx(FileDown, { size: 15, strokeWidth: 1.7 }),
             "Export a PDF…"
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "menu__item menu__item--row", onClick: () => run2(onExportDocx), children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "menu__item menu__item--row", title: "Headings, lists, the passages, and the footnotes; nothing of the private notes or the margin", onClick: () => run2(() => onExportDocx(false)), children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(FileType, { size: 15, strokeWidth: 1.7 }),
             "Export to Word…"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "menu__item menu__item--row", title: "The same, with the private notes and the notes in the margin, for working on in Word", onClick: () => run2(() => onExportDocx(true)), children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(FileType, { size: 15, strokeWidth: 1.7 }),
+            "Export to Word with notes…"
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "menu__rule" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "block-type-menu__caption", children: "Also" }),
@@ -73016,9 +73382,9 @@ function Toggle({ on: on3, title, disabled, onClick, children }) {
     }
   );
 }
-function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, onLibrary }) {
+function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, notesFolded, onLibrary }) {
   const sizeNow = sizeUnderCaret(active.styles);
-  const isScripture = active.blockType === "scripture";
+  const isScripture = active.containerType === "scripture";
   const shown = active.containerType === "table" || active.containerType === "image" ? active.containerType : null;
   const typeValue = shown ?? (RETYPE_TYPES.includes(active.containerType) ? active.containerType : "paragraph");
   const breakable = active.blockId !== null && !["paragraph", "bulletListItem", "numberedListItem"].includes(active.containerType);
@@ -73070,7 +73436,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
             type: "button",
             className: "button button--small",
             title: active.marginNote ? "Open the note in the margin beside this paragraph" : keys$2("A note to yourself beside this paragraph, never in the sermon (Ctrl+Alt+M)"),
-            disabled: !editing || !active.canStyle,
+            disabled: !editing || !active.canNote,
             onMouseDown: (event) => event.preventDefault(),
             onClick: () => run2((c2) => c2.addMarginNote()),
             children: [
@@ -73314,23 +73680,20 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
       ] }) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: "Page", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: "Zoom", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stepper", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2("Zoom out (Ctrl+minus)"), "aria-label": "Zoom out", onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, -0.1)), children: "−" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__value", title: keys$2("Fit the page to the window (Ctrl+0)"), onMouseDown: (event) => event.preventDefault(), onClick: () => onLook({ zoomFit: true }), children: zoomLabel(look, zoom) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2("Zoom in (Ctrl+plus)"), "aria-label": "Zoom in", onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, 0.1)), children: "+" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(PageLineSpacingSelect, { value: look.lineSpacing, title: "Line spacing for the page", onChange: (lineSpacing) => onLook({ lineSpacing }) })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: "Paper", wrap: true, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(PaperSelect, { value: look.paper, title: "The sheet on screen and the sheet that prints", onChange: (paper) => onLook({ paper }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(OrientationSelect, { value: look.orientation, title: "Upright, or turned on its side", onChange: (orientation) => onLook({ orientation }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(MarginSelect, { value: look.margin, title: "The margins on screen and on paper", onChange: (margin) => onLook({ margin }) })
-      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: "Zoom", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stepper", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2("Zoom out (Ctrl+minus)"), "aria-label": "Zoom out", onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, -0.1)), children: "−" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__value", title: keys$2("Fit the page to the window (Ctrl+0)"), onMouseDown: (event) => event.preventDefault(), onClick: () => onLook({ zoomFit: true }), children: zoomLabel(look, zoom) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2("Zoom in (Ctrl+plus)"), "aria-label": "Zoom in", onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, 0.1)), children: "+" })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: "Spacing", children: /* @__PURE__ */ jsxRuntimeExports.jsx(PageLineSpacingSelect, { value: look.lineSpacing, title: "Line spacing for the page", onChange: (lineSpacing) => onLook({ lineSpacing }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: "Size", children: /* @__PURE__ */ jsxRuntimeExports.jsx(PaperSelect, { value: look.paper, title: "The sheet on screen and the sheet that prints", onChange: (paper) => onLook({ paper }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: "Turn", children: /* @__PURE__ */ jsxRuntimeExports.jsx(OrientationSelect, { value: look.orientation, title: "Upright, or turned on its side", onChange: (orientation) => onLook({ orientation }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: "Margins", children: /* @__PURE__ */ jsxRuntimeExports.jsx(MarginSelect, { value: look.margin, title: "The margins on screen and on paper", onChange: (margin) => onLook({ margin }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: "Notes", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: look.marginNotes, keepFocus: true, label: "Margin notes as cards beside the sheet; off folds them to markers", onChange: (next) => onLook({ marginNotes: next }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: "Beside the sheet" })
       ] }),
+      notesFolded && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "insp-warn", role: "status", children: "No room beside the sheet at this width, so the notes have folded to markers at their paragraphs. Hide the library or the inspector, or widen the window, and the cards come back." }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: "On paper", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: look.printMarginNotes, keepFocus: true, label: "Print the margin notes under their paragraphs", onChange: (next) => onLook({ printMarginNotes: next }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: "Notes under their paragraphs" })
@@ -73351,6 +73714,8 @@ function PrintPane({
   view,
   look,
   onLook,
+  ownLook,
+  onOwnLook,
   handout,
   onHandout,
   outline,
@@ -73438,7 +73803,7 @@ function PrintPane({
     view === "outline" && /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "insp-section", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "insp-section__title", children: "Outline" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row insp-row--top", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__label", children: "Under each" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__label", children: "Under each point" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "insp-row__body insp-row__body--stack", children: [
           ["keyLine", "Key line", "The key line of each point under its heading"],
           ["passages", "Passages", "Each passage by its reference"],
@@ -73458,7 +73823,7 @@ function PrintPane({
         ] })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__label", children: "Numbers" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__label", children: "Numbering" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "insp-row__body", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { className: "field", "aria-label": "Numbering", value: outline.numbering, onChange: (event) => onOutline({ numbering: event.target.value }), children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "roman", children: "I, II, III" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "arabic", children: "1, 2, 3" }),
@@ -73502,7 +73867,8 @@ function PrintPane({
           }
         ) })
       ] }),
-      clipped && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "insp-warn", role: "status", children: "The insert does not fit its half sheet, so its end is cut off. Leave something out below, put the points by heading, or choose a larger sheet." })
+      clipped && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "insp-warn", role: "status", children: "The insert does not fit its half sheet, so its end is cut off. Leave something out below, put the points by heading, or choose a larger sheet." }),
+      handout.layout === "blanks" && !hasBoldWords(sermon) && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "insp-warn", role: "status", children: "Nothing is bold yet, so this sheet has no blanks. Make bold the words to leave out, in a key line or wherever the sheet prints, and each becomes a gap." })
     ] }),
     view === "handout" && /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "insp-section", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "insp-section__title", children: "What goes in" }),
@@ -73607,6 +73973,13 @@ function PrintPane({
     /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "insp-section", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "insp-section__title", children: "Paper" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__label", children: "This sermon" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row__body", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: ownLook, label: "Keeps its own look", onChange: onOwnLook }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: ownLook ? "Its type, paper, and styles travel in its file" : "Follows this computer's look" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__label", children: "Size" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "insp-row__body", children: /* @__PURE__ */ jsxRuntimeExports.jsx(PaperSelect, { value: look.paper, onChange: (paper) => onLook({ paper }) }) })
       ] }),
@@ -73664,7 +74037,10 @@ function Inspector({
   active,
   look,
   onLook,
+  ownLook,
+  onOwnLook,
   zoom,
+  notesFolded,
   handout,
   onHandout,
   outline,
@@ -73701,8 +74077,8 @@ function Inspector({
         ]
       }
     ) }),
-    current === "format" && /* @__PURE__ */ jsxRuntimeExports.jsx(FormatPane, { editing, run: run2, commands, active, look, onLook, zoom, onLibrary }),
-    current === "print" && /* @__PURE__ */ jsxRuntimeExports.jsx(PrintPane, { view, look, onLook, handout, onHandout, outline, onOutline, onExportPdf, onPrint, sermon, run: run2, pace, onPace, defaultLength, onLength, clipped }),
+    current === "format" && /* @__PURE__ */ jsxRuntimeExports.jsx(FormatPane, { editing, run: run2, commands, active, look, onLook, zoom, notesFolded, onLibrary }),
+    current === "print" && /* @__PURE__ */ jsxRuntimeExports.jsx(PrintPane, { view, look, onLook, ownLook, onOwnLook, handout, onHandout, outline, onOutline, onExportPdf, onPrint, sermon, run: run2, pace, onPace, defaultLength, onLength, clipped }),
     current === "outline" && /* @__PURE__ */ jsxRuntimeExports.jsx(OutlinePanel, { sermon, activeId, onJump, onOpen: onOpenSermon }),
     current === "illustrations" && /* @__PURE__ */ jsxRuntimeExports.jsx(
       IllustrationsPanel,
@@ -75079,7 +75455,9 @@ function EditorPane({
     void window.api.setPodiumSettings({ pace });
   }, []);
   const outlineShown = reactExports$1.useMemo(() => ({ ...outline, pace: pulpit.pace, length: pulpit.length }), [outline, pulpit]);
-  const [look, setLook] = reactExports$1.useState(DEFAULT_EDITOR_SETTINGS);
+  const [machineLook, setMachineLook] = reactExports$1.useState(DEFAULT_EDITOR_SETTINGS);
+  const look = reactExports$1.useMemo(() => lookFor(draft, machineLook), [draft.look, machineLook]);
+  const ownLook = draft.look !== void 0;
   const [commands, setCommands] = reactExports$1.useState(null);
   const [active, setActive2] = reactExports$1.useState(IDLE_ACTIVE);
   const [changes, setChanges] = reactExports$1.useState(EMPTY_LOG);
@@ -75092,7 +75470,7 @@ function EditorPane({
     void window.api.listShapes().then(setShapes).catch(() => setShapes([]));
   }, []);
   reactExports$1.useEffect(loadShapes, [loadShapes, settingsRevision]);
-  const [pages, setPages] = reactExports$1.useState({ page: 1, pages: 1, zoom: 1, breaks: [], notes: [] });
+  const [pages, setPages] = reactExports$1.useState({ page: 1, pages: 1, zoom: 1, breaks: [], notes: [], notesFolded: false });
   const breaksRef = reactExports$1.useRef([]);
   const notesRef = reactExports$1.useRef([]);
   const onPages = reactExports$1.useCallback((info) => {
@@ -75114,16 +75492,31 @@ function EditorPane({
     field?.select();
   }, [sermon.id]);
   reactExports$1.useEffect(() => {
-    void window.api.getEditorSettings().then(setLook);
+    void window.api.getEditorSettings().then(setMachineLook);
   }, [settingsRevision]);
   reactExports$1.useEffect(() => {
     onCommands(commands);
     return () => onCommands(null);
   }, [commands, onCommands]);
-  const updateLook = reactExports$1.useCallback((patch) => {
-    setLook((current) => ({ ...current, ...patch }));
-    void window.api.setEditorSettings(patch).then(setLook);
-  }, []);
+  const updateLook = reactExports$1.useCallback(
+    (patch) => {
+      const own = draftRef.current.look;
+      const kept = own ? pickLook(patch) : {};
+      const rest = own ? omitLook(patch) : patch;
+      if (Object.keys(kept).length > 0) doc2.updateMeta({ look: { ...own, ...kept } });
+      if (Object.keys(rest).length > 0) {
+        setMachineLook((current) => ({ ...current, ...rest }));
+        void window.api.setEditorSettings(rest).then(setMachineLook);
+      }
+    },
+    [draftRef, doc2]
+  );
+  const setOwnLook = reactExports$1.useCallback(
+    (next) => {
+      doc2.updateMeta({ look: next ? pickLook(lookFor(draftRef.current, machineLook)) : void 0 });
+    },
+    [doc2, draftRef, machineLook]
+  );
   const openLibrary = reactExports$1.useCallback(
     (mode) => {
       if (mode === "save") {
@@ -75148,10 +75541,10 @@ function EditorPane({
       setNote(cause instanceof Error ? cause.message : String(cause));
     }
   }, [draftRef, view, handout, look, outlineShown]);
-  const exportDocx = reactExports$1.useCallback(async () => {
+  const exportDocx = reactExports$1.useCallback(async (withNotes = false) => {
     setNote(null);
     try {
-      const current = draftRef.current;
+      const current = withNotes ? draftRef.current : withoutPreachersNotes(draftRef.current);
       const result = await window.api.exportDocx(current, current.title || "sermon");
       if (result.status === "saved" && result.path) setNote(`Saved to ${result.path}`);
     } catch (cause) {
@@ -75241,7 +75634,7 @@ function EditorPane({
         inspectorOpen,
         onToggleInspector: () => onInspector(!inspectorOpen),
         onExportPdf: (mode) => void exportPdf(mode),
-        onExportDocx: () => void exportDocx(),
+        onExportDocx: (withNotes) => void exportDocx(withNotes),
         onPrint: () => void print(),
         sidebarFolded,
         onToggleSidebar,
@@ -75395,7 +75788,10 @@ function EditorPane({
         active,
         look,
         onLook: updateLook,
+        ownLook,
+        onOwnLook: setOwnLook,
         zoom: pages.zoom,
+        notesFolded: pages.notesFolded,
         handout,
         onHandout: (patch) => setHandout((current) => ({ ...current, ...patch })),
         outline,
@@ -77930,9 +78326,12 @@ const GROUPS = [
       { does: "The key line: the sentence the outline and the handout carry", chord: "Ctrl+Alt+K" },
       { does: "A note in the margin", chord: "Ctrl+Alt+M" },
       { does: "Start this block on a new page, or stop", chord: "Ctrl+Enter" },
+      { does: "Split the point here: this line and the rest become a new point", chord: "Ctrl+Alt+Enter" },
+      { does: "Join the point with the one above", chord: "Ctrl+Alt+Backspace" },
       { does: "The menu of blocks and things to insert", chord: "/" },
-      { does: "From a heading, on into the body", chord: "Enter" },
-      { does: "Through a heading and back, as through any line", chord: "↑ ↓" }
+      { does: "From a heading, on into the body; from a reference, on to the version", chord: "Enter" },
+      { does: "At the start of a body, back to its heading; on an empty heading, give the block up", chord: "Backspace" },
+      { does: "On a reference, what it reads as", chord: "Tab" }
     ]
   },
   {
@@ -78051,6 +78450,7 @@ function PreferencesWindow({
   const [tab, setTab] = reactExports$1.useState(initialTab);
   const [app, setApp] = reactExports$1.useState(DEFAULT_APP_SETTINGS);
   const [editor, setEditor] = reactExports$1.useState(DEFAULT_EDITOR_SETTINGS);
+  const [dictionary, setDictionary] = reactExports$1.useState(null);
   const [podium, setPodium] = reactExports$1.useState({ theme: "dark", fontScale: 1, targetMinutes: 30, showNotes: true, reading: "manuscript", rail: true, pace: 130, clock: "elapsed", pointTiming: true, nextLine: true, touchBar: true, keyLine: true, marks: true, warnFive: true, warnAtTime: true, warnPointOver: true });
   const [lengthText, setLengthText] = reactExports$1.useState("30");
   const [paceText, setPaceText] = reactExports$1.useState("130");
@@ -78063,6 +78463,7 @@ function PreferencesWindow({
   reactExports$1.useEffect(() => {
     void window.api.getAppSettings().then(setApp);
     void window.api.getEditorSettings().then(setEditor);
+    void window.api.listDictionary().then((words) => setDictionary(words.length)).catch(() => setDictionary(null));
     void window.api.getPodiumSettings().then((loaded2) => {
       setPodium(loaded2);
       setLengthText(String(loaded2.targetMinutes));
@@ -78171,6 +78572,14 @@ function PreferencesWindow({
           /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: "Curly quotes as you type", hint: "A straight quote curls, an apostrophe with it. Backspace straight after any of these puts back what you typed.", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: editor.smartQuotes, label: "Curly quotes as you type", onChange: (next) => updateEditor({ smartQuotes: next }) }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: "Dashes as you type", hint: "Two hyphens become an em dash.", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: editor.smartDashes, label: "Dashes as you type", onChange: (next) => updateEditor({ smartDashes: next }) }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: "Ellipses as you type", hint: "Three dots become one character, so they never split across a line.", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: editor.smartEllipsis, label: "Ellipses as you type", onChange: (next) => updateEditor({ smartEllipsis: next }) }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Row,
+            {
+              label: "Your own words",
+              hint: `Words added from the right-click menu are kept in dictionary.json beside the sermons, so they sync with them and reach every machine. Delete a line there to forget a word.${dictionary === null ? "" : dictionary === 0 ? " None yet." : ` ${dictionary} ${dictionary === 1 ? "word" : "words"} so far.`}`,
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", disabled: !folder.path || !folder.exists, onClick: () => void window.api.revealSermon(`${folder.path}/dictionary.json`), children: "Show file" })
+            }
+          ),
           /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: "Spelling language", hint: "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.", children: /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "field", "aria-label": "Spelling language", value: app.spellingLanguage, onChange: (event) => updateApp({ spellingLanguage: event.target.value }), children: languageOptions.map((code2) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: code2, children: languageName(code2) }, code2)) }) })
         ] })
       ] }),

@@ -5764,6 +5764,11 @@ select.field {
   padding-bottom: 0;
 }
 
+.bn-block:has( > .react-renderer > .bn-block-content[data-content-type="scripture"]) > .bn-block-group {
+  font-style: italic;
+  line-height: 1.6;
+}
+
 .bn-block:has( > .react-renderer > .bn-block-content > .sermon-block[data-line-spacing="1"]) > .bn-block-group {
   line-height: 1;
 }
@@ -5808,16 +5813,35 @@ select.field {
   font-weight: 600;
 }
 
-.sermon-block__heading:placeholder-shown {
+.sermon-block__heading:has(.bn-inline-content .ProseMirror-trailingBreak:only-child), .sermon-block__ref:has(.bn-inline-content .ProseMirror-trailingBreak:only-child) {
   font-family: var(--font-sans);
   font-size: .75rem;
   font-weight: 400;
 }
 
-.sermon-block__heading::placeholder {
+.sermon-block__heading .bn-inline-content, .sermon-block__ref .bn-inline-content {
+  font: inherit;
+  color: inherit;
+}
+
+.bn-block-content:is([data-content-type="point"], [data-content-type="illustration"], [data-content-type="application"], [data-content-type="reflection"], [data-content-type="note"], [data-content-type="scripture"]):after {
+  content: none !important;
+}
+
+.sermon-block__heading, .sermon-block__ref {
+  display: grid;
+}
+
+.sermon-block__heading > *, .sermon-block__ref > * {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.bn-editor[contenteditable="true"] .sermon-block__heading:has(.bn-inline-content .ProseMirror-trailingBreak:only-child):before, .bn-editor[contenteditable="true"] .sermon-block__ref:has(.bn-inline-content .ProseMirror-trailingBreak:only-child):before {
+  content: attr(data-placeholder);
   color: var(--ink-muted);
-  opacity: .65;
-  font-weight: 400;
+  pointer-events: none;
+  grid-area: 1 / 1;
 }
 
 .sermon-block__body, .sermon-block__body--serif {
@@ -5842,13 +5866,7 @@ select.field {
   font-weight: 600;
 }
 
-.sermon-block__ref:placeholder-shown {
-  font-family: var(--font-sans);
-  font-size: .75rem;
-  font-weight: 400;
-}
-
-.sermon-block__ref::placeholder, .sermon-block__version::placeholder {
+.sermon-block__version::placeholder {
   color: var(--ink-muted);
   opacity: .65;
   font-weight: 400;
@@ -6112,7 +6130,7 @@ select.field {
   font-family: var(--page-font, var(--font-serif));
 }
 
-.page .sermon-block__heading:not(:placeholder-shown), .page .sermon-block__ref:not(:placeholder-shown) {
+.page .sermon-block__heading:not(:has(.bn-inline-content .ProseMirror-trailingBreak:only-child)), .page .sermon-block__ref:not(:has(.bn-inline-content .ProseMirror-trailingBreak:only-child)) {
   font-family: var(--st-heading-font, var(--page-font, var(--font-serif)));
   font-size: var(--st-heading-size, 1.1em);
   font-weight: var(--st-heading-weight, 600);
