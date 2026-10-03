@@ -16892,11 +16892,25 @@ ${groupListBlocks(blocks).map((group) => {
 }
 const MATCH = "find-match";
 const CURRENT = "find-current";
-function textRanges(root, query) {
-  const ranges = [];
-  if (!query) return ranges;
+const FIELD = "find-field";
+const FIELD_CURRENT = "find-field--current";
+const FIELDS$1 = ".sermon-block__heading, .sermon-block__ref";
+const SEARCHED = `${FIELDS$1}, .bn-inline-content`;
+function findMatches(root, query) {
+  const matches2 = [];
+  if (!query) return matches2;
   const needle = query.toLowerCase();
-  for (const paragraph of root.querySelectorAll(".bn-inline-content")) {
+  for (const element of root.querySelectorAll(SEARCHED)) {
+    if (element instanceof HTMLInputElement) {
+      const lower2 = element.value.toLowerCase();
+      let from22 = lower2.indexOf(needle);
+      while (from22 !== -1) {
+        matches2.push({ kind: "field", input: element, start: from22, end: from22 + needle.length });
+        from22 = lower2.indexOf(needle, from22 + needle.length);
+      }
+      continue;
+    }
+    const paragraph = element;
     const nodes = [];
     const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT);
     for (let node = walker.nextNode(); node; node = walker.nextNode()) nodes.push(node);
@@ -16919,24 +16933,27 @@ function textRanges(root, query) {
         const range = document.createRange();
         range.setStart(start[0], start[1]);
         range.setEnd(finish[0], finish[1]);
-        ranges.push(range);
+        matches2.push({ kind: "text", range });
       }
       from2 = lower.indexOf(needle, from2 + needle.length);
     }
   }
-  return ranges;
+  return matches2;
 }
-function paint$1(ranges, current) {
+function paint$1(root, matches2, current) {
+  clear(root);
   const registry = CSS.highlights;
-  if (!registry) return;
-  registry.set(MATCH, new Highlight(...ranges));
-  const active = ranges[current];
-  if (active) registry.set(CURRENT, new Highlight(active));
-  else registry.delete(CURRENT);
+  const ranges = matches2.flatMap((match) => match.kind === "text" ? [match.range] : []);
+  if (registry) registry.set(MATCH, new Highlight(...ranges));
+  const active = matches2[current];
+  if (active?.kind === "text") registry?.set(CURRENT, new Highlight(active.range));
+  for (const match of matches2) if (match.kind === "field") match.input.classList.add(FIELD);
+  if (active?.kind === "field") active.input.classList.add(FIELD_CURRENT);
 }
-function clear() {
+function clear(root) {
   CSS.highlights?.delete(MATCH);
   CSS.highlights?.delete(CURRENT);
+  for (const input of root?.querySelectorAll(`.${FIELD}, .${FIELD_CURRENT}`) ?? []) input.classList.remove(FIELD, FIELD_CURRENT);
 }
 function FindBar({ root, onClose, onReplace }) {
   const [query, setQuery] = reactExports$1.useState("");
@@ -16945,20 +16962,20 @@ function FindBar({ root, onClose, onReplace }) {
   const [count2, setCount] = reactExports$1.useState(0);
   const [note, setNote] = reactExports$1.useState(null);
   const inputRef = reactExports$1.useRef(null);
-  const rangesRef = reactExports$1.useRef([]);
+  const matchesRef = reactExports$1.useRef([]);
   reactExports$1.useEffect(() => inputRef.current?.focus(), []);
   const refresh = reactExports$1.useCallback(
     (index2) => {
       const element = root();
-      const ranges = element ? textRanges(element, query) : [];
-      rangesRef.current = ranges;
-      const clamped = ranges.length === 0 ? 0 : (index2 % ranges.length + ranges.length) % ranges.length;
-      setCount(ranges.length);
+      const matches2 = element ? findMatches(element, query) : [];
+      matchesRef.current = matches2;
+      const clamped = matches2.length === 0 ? 0 : (index2 % matches2.length + matches2.length) % matches2.length;
+      setCount(matches2.length);
       setCurrent(clamped);
-      paint$1(ranges, clamped);
-      const active = ranges[clamped];
+      paint$1(element, matches2, clamped);
+      const active = matches2[clamped];
       if (active) {
-        const target = active.startContainer.parentElement;
+        const target = active.kind === "text" ? active.range.startContainer.parentElement : active.input;
         target?.scrollIntoView({ block: "center" });
       }
     },
@@ -16977,12 +16994,18 @@ function FindBar({ root, onClose, onReplace }) {
       timer = setTimeout(() => refresh(current), 150);
     });
     observer.observe(element, { subtree: true, childList: true, characterData: true });
+    const onInput = () => {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => refresh(current), 150);
+    };
+    element.addEventListener("input", onInput, true);
     return () => {
       observer.disconnect();
+      element.removeEventListener("input", onInput, true);
       if (timer) clearTimeout(timer);
     };
   }, [root, refresh, current]);
-  reactExports$1.useEffect(() => clear, []);
+  reactExports$1.useEffect(() => () => clear(root()), [root]);
   const step = (delta) => refresh(current + delta);
   const replace2 = (all) => {
     if (!query || count2 === 0) return;
@@ -17034,7 +17057,6 @@ function FindBar({ root, onClose, onReplace }) {
           children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: "↓" })
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "find-bar__hint", children: "Body text only" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: onClose, title: "Close (Esc)", children: "Close" })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "find-bar__row", children: [
@@ -66741,6 +66763,109 @@ function proseBlock(type) {
     }
   );
 }
+const SECTIONS = [
+  { name: "Law", from: 1, to: 5 },
+  { name: "History", from: 6, to: 17 },
+  { name: "Wisdom", from: 18, to: 22 },
+  { name: "Prophets", from: 23, to: 39 },
+  { name: "Gospels and Acts", from: 40, to: 44 },
+  { name: "Letters", from: 45, to: 65 },
+  { name: "Revelation", from: 66, to: 66 }
+];
+const BOOKS = [
+  { number: 1, osis: "Gen", name: "Genesis", chapters: 50 },
+  { number: 2, osis: "Exod", name: "Exodus", chapters: 40 },
+  { number: 3, osis: "Lev", name: "Leviticus", chapters: 27 },
+  { number: 4, osis: "Num", name: "Numbers", chapters: 36 },
+  { number: 5, osis: "Deut", name: "Deuteronomy", chapters: 34 },
+  { number: 6, osis: "Josh", name: "Joshua", chapters: 24 },
+  { number: 7, osis: "Judg", name: "Judges", chapters: 21 },
+  { number: 8, osis: "Ruth", name: "Ruth", chapters: 4 },
+  { number: 9, osis: "1Sam", name: "1 Samuel", chapters: 31 },
+  { number: 10, osis: "2Sam", name: "2 Samuel", chapters: 24 },
+  { number: 11, osis: "1Kgs", name: "1 Kings", chapters: 22 },
+  { number: 12, osis: "2Kgs", name: "2 Kings", chapters: 25 },
+  { number: 13, osis: "1Chr", name: "1 Chronicles", chapters: 29 },
+  { number: 14, osis: "2Chr", name: "2 Chronicles", chapters: 36 },
+  { number: 15, osis: "Ezra", name: "Ezra", chapters: 10 },
+  { number: 16, osis: "Neh", name: "Nehemiah", chapters: 13 },
+  { number: 17, osis: "Esth", name: "Esther", chapters: 10 },
+  { number: 18, osis: "Job", name: "Job", chapters: 42 },
+  { number: 19, osis: "Ps", name: "Psalms", chapters: 150 },
+  { number: 20, osis: "Prov", name: "Proverbs", chapters: 31 },
+  { number: 21, osis: "Eccl", name: "Ecclesiastes", chapters: 12 },
+  { number: 22, osis: "Song", name: "Song of Solomon", chapters: 8 },
+  { number: 23, osis: "Isa", name: "Isaiah", chapters: 66 },
+  { number: 24, osis: "Jer", name: "Jeremiah", chapters: 52 },
+  { number: 25, osis: "Lam", name: "Lamentations", chapters: 5 },
+  { number: 26, osis: "Ezek", name: "Ezekiel", chapters: 48 },
+  { number: 27, osis: "Dan", name: "Daniel", chapters: 12 },
+  { number: 28, osis: "Hos", name: "Hosea", chapters: 14 },
+  { number: 29, osis: "Joel", name: "Joel", chapters: 3 },
+  { number: 30, osis: "Amos", name: "Amos", chapters: 9 },
+  { number: 31, osis: "Obad", name: "Obadiah", chapters: 1 },
+  { number: 32, osis: "Jonah", name: "Jonah", chapters: 4 },
+  { number: 33, osis: "Mic", name: "Micah", chapters: 7 },
+  { number: 34, osis: "Nah", name: "Nahum", chapters: 3 },
+  { number: 35, osis: "Hab", name: "Habakkuk", chapters: 3 },
+  { number: 36, osis: "Zeph", name: "Zephaniah", chapters: 3 },
+  { number: 37, osis: "Hag", name: "Haggai", chapters: 2 },
+  { number: 38, osis: "Zech", name: "Zechariah", chapters: 14 },
+  { number: 39, osis: "Mal", name: "Malachi", chapters: 4 },
+  { number: 40, osis: "Matt", name: "Matthew", chapters: 28 },
+  { number: 41, osis: "Mark", name: "Mark", chapters: 16 },
+  { number: 42, osis: "Luke", name: "Luke", chapters: 24 },
+  { number: 43, osis: "John", name: "John", chapters: 21 },
+  { number: 44, osis: "Acts", name: "Acts", chapters: 28 },
+  { number: 45, osis: "Rom", name: "Romans", chapters: 16 },
+  { number: 46, osis: "1Cor", name: "1 Corinthians", chapters: 16 },
+  { number: 47, osis: "2Cor", name: "2 Corinthians", chapters: 13 },
+  { number: 48, osis: "Gal", name: "Galatians", chapters: 6 },
+  { number: 49, osis: "Eph", name: "Ephesians", chapters: 6 },
+  { number: 50, osis: "Phil", name: "Philippians", chapters: 4 },
+  { number: 51, osis: "Col", name: "Colossians", chapters: 4 },
+  { number: 52, osis: "1Thess", name: "1 Thessalonians", chapters: 5 },
+  { number: 53, osis: "2Thess", name: "2 Thessalonians", chapters: 3 },
+  { number: 54, osis: "1Tim", name: "1 Timothy", chapters: 6 },
+  { number: 55, osis: "2Tim", name: "2 Timothy", chapters: 4 },
+  { number: 56, osis: "Titus", name: "Titus", chapters: 3 },
+  { number: 57, osis: "Phlm", name: "Philemon", chapters: 1 },
+  { number: 58, osis: "Heb", name: "Hebrews", chapters: 13 },
+  { number: 59, osis: "Jas", name: "James", chapters: 5 },
+  { number: 60, osis: "1Pet", name: "1 Peter", chapters: 5 },
+  { number: 61, osis: "2Pet", name: "2 Peter", chapters: 3 },
+  { number: 62, osis: "1John", name: "1 John", chapters: 5 },
+  { number: 63, osis: "2John", name: "2 John", chapters: 1 },
+  { number: 64, osis: "3John", name: "3 John", chapters: 1 },
+  { number: 65, osis: "Jude", name: "Jude", chapters: 1 },
+  { number: 66, osis: "Rev", name: "Revelation", chapters: 22 }
+];
+new Map(BOOKS.map((b2) => [b2.osis.toLowerCase(), b2]));
+const BY_NUMBER = new Map(BOOKS.map((b2) => [b2.number, b2]));
+function bookByNumber(n2) {
+  return BY_NUMBER.get(n2);
+}
+function formatRange(range) {
+  const book = bookByNumber(range.book);
+  const name = book?.name ?? `Book ${range.book}`;
+  const wholeChapters = range.verseStart === 1 && range.verseEnd >= LAST_VERSE_SENTINEL;
+  if (range.chapterStart === range.chapterEnd) {
+    if (wholeChapters) return `${name} ${range.chapterStart}`;
+    if (range.verseStart === range.verseEnd) {
+      return `${name} ${range.chapterStart}:${range.verseStart}`;
+    }
+    return `${name} ${range.chapterStart}:${range.verseStart}-${range.verseEnd}`;
+  }
+  if (wholeChapters) return `${name} ${range.chapterStart}-${range.chapterEnd}`;
+  return `${name} ${range.chapterStart}:${range.verseStart}-${range.chapterEnd}:${range.verseEnd}`;
+}
+const LAST_VERSE_SENTINEL = 999;
+function completeBook(typed) {
+  const text = typed.trim().toLowerCase().replace(/\s+/g, " ");
+  if (text.length < 2 || /\d$/.test(text) || /[a-z]\s*\d/.test(text.replace(/^[1-3]\s*/, ""))) return null;
+  const book = BOOKS.find((entry) => entry.name.toLowerCase().startsWith(text));
+  return book ? book.name : null;
+}
 function ScriptureFrame({
   block,
   editor,
@@ -66755,7 +66880,11 @@ function ScriptureFrame({
     setMenuOpen(true);
   };
   const versionRef = reactExports$1.useRef(null);
-  const reads = useReading(block.props.reference, editor.isEditable);
+  const reading = useReading(block.props.reference, editor.isEditable);
+  const reads = reading.reads;
+  const typedNow = block.props.reference.trim();
+  const completion = reading.forText === typedNow && reads && fold(reads) !== fold(typedNow) ? reads : completeBook(typedNow);
+  const offered = completion && fold(completion) !== fold(typedNow) ? completion : null;
   const [refFocused, setRefFocused] = reactExports$1.useState(false);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block", style: { borderColor: style2.accent }, children: [
     block.props.pageBreak && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__pagebreak", title: "Starts on a new page when printed", children: "Page break" }),
@@ -66828,6 +66957,10 @@ function ScriptureFrame({
               event.preventDefault();
               versionRef.current?.focus();
             }
+            if (event.key === "Tab" && !event.shiftKey && offered && editor.isEditable) {
+              event.preventDefault();
+              editor.updateBlock(block, { type: "scripture", props: { reference: offered } });
+            }
           }
         }
       ),
@@ -66853,24 +66986,24 @@ function ScriptureFrame({
         }
       )
     ] }),
-    editor.isEditable && /* @__PURE__ */ jsxRuntimeExports.jsx(ReadsAs, { reads, typed: block.props.reference, focused: refFocused }),
+    editor.isEditable && /* @__PURE__ */ jsxRuntimeExports.jsx(ReadsAs, { reads, offered, typed: block.props.reference, focused: refFocused }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__body sermon-block__body--serif sermon-block__body--scripture", children })
   ] });
 }
 function useReading(reference, editable) {
-  const [reads, setReads] = reactExports$1.useState(null);
+  const [reading, setReading] = reactExports$1.useState({ reads: null, forText: "" });
   reactExports$1.useEffect(() => {
     const text = reference.trim();
     if (!editable || !text) {
-      setReads(null);
+      setReading({ reads: null, forText: text });
       return;
     }
     let stale = false;
     const timer = window.setTimeout(() => {
       window.api.readPassage(text).then((result) => {
-        if (!stale) setReads(result);
+        if (!stale) setReading({ reads: result, forText: text });
       }).catch(() => {
-        if (!stale) setReads(null);
+        if (!stale) setReading({ reads: null, forText: text });
       });
     }, 120);
     return () => {
@@ -66878,21 +67011,25 @@ function useReading(reference, editable) {
       window.clearTimeout(timer);
     };
   }, [reference, editable]);
-  return reads;
+  return reading;
 }
 const fold = (text) => text.toLowerCase().replace(/[^a-z0-9]/g, "");
-function ReadsAs({ reads, typed, focused }) {
+function ReadsAs({ reads, offered, typed, focused }) {
   const text = typed.trim();
   if (!text) return null;
+  if (focused && offered) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__reads", role: "status", children: [
+      "Reads as ",
+      /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: offered }),
+      " ",
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-block__reads-key", children: "Tab" })
+    ] });
+  }
   if (reads === null) {
-    if (focused) return null;
+    if (focused || completeBook(text)) return null;
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__reads sermon-block__reads--unread", role: "status", children: "Not a reference the library recognises" });
   }
-  if (!focused || fold(reads) === fold(text)) return null;
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__reads", role: "status", children: [
-    "Reads as ",
-    /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: reads })
-  ] });
+  return null;
 }
 const scriptureBlock = ea(
   {
@@ -67515,6 +67652,7 @@ const IDLE_ACTIVE = {
   marginNote: null,
   keyLine: false,
   link: null,
+  selectedWords: 0,
   pageBreak: false,
   canMove: { up: false, down: false },
   canIndent: false,
@@ -67537,8 +67675,10 @@ function useActiveState(editor, painterRef) {
       } catch {
       }
       let link = null;
+      let selectedWords = 0;
       try {
         link = editor.getSelectedLinkUrl() ?? null;
+        selectedWords = wordCount(editor.getSelectedText());
       } catch {
       }
       const props = block.props;
@@ -67561,6 +67701,7 @@ function useActiveState(editor, painterRef) {
         marginNote: typeof props["margin"] === "string" && props["margin"].trim() !== "" ? props["margin"] : null,
         keyLine: styles["key"] === true,
         link,
+        selectedWords,
         pageBreak: (container?.props ?? props)["pageBreak"] === true,
         canMove: { up: index2 > 0, down: index2 >= 0 && index2 < editor.document.length - 1 },
         canIndent: editor.canNestBlock(),
@@ -68515,103 +68656,6 @@ function useContextMenu({ editor, writable, canMove, moveBlock, report }) {
     [menu, close2, retypeFromMenu, togglePageBreak, move, replaceWord, learnWord]
   );
 }
-const SECTIONS = [
-  { name: "Law", from: 1, to: 5 },
-  { name: "History", from: 6, to: 17 },
-  { name: "Wisdom", from: 18, to: 22 },
-  { name: "Prophets", from: 23, to: 39 },
-  { name: "Gospels and Acts", from: 40, to: 44 },
-  { name: "Letters", from: 45, to: 65 },
-  { name: "Revelation", from: 66, to: 66 }
-];
-const BOOKS = [
-  { number: 1, osis: "Gen", name: "Genesis", chapters: 50 },
-  { number: 2, osis: "Exod", name: "Exodus", chapters: 40 },
-  { number: 3, osis: "Lev", name: "Leviticus", chapters: 27 },
-  { number: 4, osis: "Num", name: "Numbers", chapters: 36 },
-  { number: 5, osis: "Deut", name: "Deuteronomy", chapters: 34 },
-  { number: 6, osis: "Josh", name: "Joshua", chapters: 24 },
-  { number: 7, osis: "Judg", name: "Judges", chapters: 21 },
-  { number: 8, osis: "Ruth", name: "Ruth", chapters: 4 },
-  { number: 9, osis: "1Sam", name: "1 Samuel", chapters: 31 },
-  { number: 10, osis: "2Sam", name: "2 Samuel", chapters: 24 },
-  { number: 11, osis: "1Kgs", name: "1 Kings", chapters: 22 },
-  { number: 12, osis: "2Kgs", name: "2 Kings", chapters: 25 },
-  { number: 13, osis: "1Chr", name: "1 Chronicles", chapters: 29 },
-  { number: 14, osis: "2Chr", name: "2 Chronicles", chapters: 36 },
-  { number: 15, osis: "Ezra", name: "Ezra", chapters: 10 },
-  { number: 16, osis: "Neh", name: "Nehemiah", chapters: 13 },
-  { number: 17, osis: "Esth", name: "Esther", chapters: 10 },
-  { number: 18, osis: "Job", name: "Job", chapters: 42 },
-  { number: 19, osis: "Ps", name: "Psalms", chapters: 150 },
-  { number: 20, osis: "Prov", name: "Proverbs", chapters: 31 },
-  { number: 21, osis: "Eccl", name: "Ecclesiastes", chapters: 12 },
-  { number: 22, osis: "Song", name: "Song of Solomon", chapters: 8 },
-  { number: 23, osis: "Isa", name: "Isaiah", chapters: 66 },
-  { number: 24, osis: "Jer", name: "Jeremiah", chapters: 52 },
-  { number: 25, osis: "Lam", name: "Lamentations", chapters: 5 },
-  { number: 26, osis: "Ezek", name: "Ezekiel", chapters: 48 },
-  { number: 27, osis: "Dan", name: "Daniel", chapters: 12 },
-  { number: 28, osis: "Hos", name: "Hosea", chapters: 14 },
-  { number: 29, osis: "Joel", name: "Joel", chapters: 3 },
-  { number: 30, osis: "Amos", name: "Amos", chapters: 9 },
-  { number: 31, osis: "Obad", name: "Obadiah", chapters: 1 },
-  { number: 32, osis: "Jonah", name: "Jonah", chapters: 4 },
-  { number: 33, osis: "Mic", name: "Micah", chapters: 7 },
-  { number: 34, osis: "Nah", name: "Nahum", chapters: 3 },
-  { number: 35, osis: "Hab", name: "Habakkuk", chapters: 3 },
-  { number: 36, osis: "Zeph", name: "Zephaniah", chapters: 3 },
-  { number: 37, osis: "Hag", name: "Haggai", chapters: 2 },
-  { number: 38, osis: "Zech", name: "Zechariah", chapters: 14 },
-  { number: 39, osis: "Mal", name: "Malachi", chapters: 4 },
-  { number: 40, osis: "Matt", name: "Matthew", chapters: 28 },
-  { number: 41, osis: "Mark", name: "Mark", chapters: 16 },
-  { number: 42, osis: "Luke", name: "Luke", chapters: 24 },
-  { number: 43, osis: "John", name: "John", chapters: 21 },
-  { number: 44, osis: "Acts", name: "Acts", chapters: 28 },
-  { number: 45, osis: "Rom", name: "Romans", chapters: 16 },
-  { number: 46, osis: "1Cor", name: "1 Corinthians", chapters: 16 },
-  { number: 47, osis: "2Cor", name: "2 Corinthians", chapters: 13 },
-  { number: 48, osis: "Gal", name: "Galatians", chapters: 6 },
-  { number: 49, osis: "Eph", name: "Ephesians", chapters: 6 },
-  { number: 50, osis: "Phil", name: "Philippians", chapters: 4 },
-  { number: 51, osis: "Col", name: "Colossians", chapters: 4 },
-  { number: 52, osis: "1Thess", name: "1 Thessalonians", chapters: 5 },
-  { number: 53, osis: "2Thess", name: "2 Thessalonians", chapters: 3 },
-  { number: 54, osis: "1Tim", name: "1 Timothy", chapters: 6 },
-  { number: 55, osis: "2Tim", name: "2 Timothy", chapters: 4 },
-  { number: 56, osis: "Titus", name: "Titus", chapters: 3 },
-  { number: 57, osis: "Phlm", name: "Philemon", chapters: 1 },
-  { number: 58, osis: "Heb", name: "Hebrews", chapters: 13 },
-  { number: 59, osis: "Jas", name: "James", chapters: 5 },
-  { number: 60, osis: "1Pet", name: "1 Peter", chapters: 5 },
-  { number: 61, osis: "2Pet", name: "2 Peter", chapters: 3 },
-  { number: 62, osis: "1John", name: "1 John", chapters: 5 },
-  { number: 63, osis: "2John", name: "2 John", chapters: 1 },
-  { number: 64, osis: "3John", name: "3 John", chapters: 1 },
-  { number: 65, osis: "Jude", name: "Jude", chapters: 1 },
-  { number: 66, osis: "Rev", name: "Revelation", chapters: 22 }
-];
-new Map(BOOKS.map((b2) => [b2.osis.toLowerCase(), b2]));
-const BY_NUMBER = new Map(BOOKS.map((b2) => [b2.number, b2]));
-function bookByNumber(n2) {
-  return BY_NUMBER.get(n2);
-}
-function formatRange(range) {
-  const book = bookByNumber(range.book);
-  const name = book?.name ?? `Book ${range.book}`;
-  const wholeChapters = range.verseStart === 1 && range.verseEnd >= LAST_VERSE_SENTINEL;
-  if (range.chapterStart === range.chapterEnd) {
-    if (wholeChapters) return `${name} ${range.chapterStart}`;
-    if (range.verseStart === range.verseEnd) {
-      return `${name} ${range.chapterStart}:${range.verseStart}`;
-    }
-    return `${name} ${range.chapterStart}:${range.verseStart}-${range.verseEnd}`;
-  }
-  if (wholeChapters) return `${name} ${range.chapterStart}-${range.chapterEnd}`;
-  return `${name} ${range.chapterStart}:${range.verseStart}-${range.chapterEnd}:${range.verseEnd}`;
-}
-const LAST_VERSE_SENTINEL = 999;
 const VERSION_NAMES = {
   "english standard version": "ESV",
   "new international version": "NIV",
@@ -69523,6 +69567,14 @@ function LinkCard({ anchor, url, onApply, onRemove, onClose }) {
     ] })
   ] });
 }
+const FIELD_OF = {
+  point: "heading",
+  illustration: "heading",
+  application: "heading",
+  reflection: "heading",
+  note: "heading",
+  scripture: "reference"
+};
 function useReplaceMatches(editor, report) {
   return reactExports$1.useCallback(
     (query, replacement, index2, all) => {
@@ -69530,6 +69582,16 @@ function useReplaceMatches(editor, report) {
       const needle = query.toLowerCase();
       const hits = [];
       editor.prosemirrorState.doc.descendants((node, pos) => {
+        const attr2 = FIELD_OF[node.type.name];
+        if (attr2) {
+          const value = String(node.attrs[attr2] ?? "");
+          const lower2 = value.toLowerCase();
+          let at22 = lower2.indexOf(needle);
+          while (at22 !== -1) {
+            hits.push({ kind: "field", pos, node, attr: attr2, start: at22, end: at22 + needle.length });
+            at22 = lower2.indexOf(needle, at22 + needle.length);
+          }
+        }
         if (!node.isTextblock) return true;
         let text = "";
         const positions = [];
@@ -69548,7 +69610,7 @@ function useReplaceMatches(editor, report) {
         while (at2 !== -1) {
           const from2 = positions[at2];
           const last = positions[at2 + needle.length - 1];
-          if (from2 !== void 0 && last !== void 0) hits.push({ from: from2, to: last + 1 });
+          if (from2 !== void 0 && last !== void 0) hits.push({ kind: "text", from: from2, to: last + 1 });
           at2 = lower.indexOf(needle, at2 + needle.length);
         }
         return false;
@@ -69556,7 +69618,20 @@ function useReplaceMatches(editor, report) {
       const chosen = all ? hits : hits[index2] ? [hits[index2]] : [];
       if (chosen.length === 0) return 0;
       editor.transact((tr2) => {
-        for (const hit of [...chosen].reverse()) tr2.insertText(replacement, hit.from, hit.to);
+        const order = [...chosen].sort((a2, b2) => (b2.kind === "text" ? b2.from : b2.pos) - (a2.kind === "text" ? a2.from : a2.pos));
+        const fieldsDone = /* @__PURE__ */ new Set();
+        for (const hit of order) {
+          if (hit.kind === "text") {
+            tr2.insertText(replacement, hit.from, hit.to);
+            continue;
+          }
+          if (fieldsDone.has(hit.pos)) continue;
+          fieldsDone.add(hit.pos);
+          const stretches = order.filter((other) => other.kind === "field" && other.pos === hit.pos).sort((a2, b2) => b2.start - a2.start);
+          let value = String(hit.node.attrs[hit.attr] ?? "");
+          for (const stretch of stretches) value = value.slice(0, stretch.start) + replacement + value.slice(stretch.end);
+          tr2.setNodeMarkup(hit.pos, void 0, { ...hit.node.attrs, [hit.attr]: value });
+        }
       });
       report();
       return chosen.length;
@@ -72581,6 +72656,11 @@ function lineFor(text) {
 }
 function OutlinePanel({ sermon, activeId, onJump, onOpen }) {
   const related = useRelated(sermon.id);
+  const wordsByPoint = reactExports$1.useMemo(() => {
+    const counts = /* @__PURE__ */ new Map();
+    for (const section of sectionsOf(sermon.blocks)) if (section.point) counts.set(section.point.id, section.words);
+    return counts;
+  }, [sermon.blocks]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "outline-panel__list", children: [
       sermon.blocks.map((block) => {
@@ -72601,6 +72681,7 @@ function OutlinePanel({ sermon, activeId, onJump, onOpen }) {
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "outline-panel__line", children: line }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "outline-panel__kind", children: [
                 style2?.label ?? "Plain text",
+                block.type === "point" && wordsByPoint.has(block.id) && ` · ${(wordsByPoint.get(block.id) ?? 0).toLocaleString()} words`,
                 notes.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "outline-panel__note", title: notes.join("\n"), children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { size: 10, strokeWidth: 2 }),
                   lineFor(notes[0] ?? "")
@@ -75275,7 +75356,7 @@ function EditorPane({
           " of ",
           pages.pages
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-status__count", title: "Words in this sermon, and roughly how long it takes to preach", children: words === 0 ? "No words yet" : `${words.toLocaleString()} word${words === 1 ? "" : "s"} · about ${minutes} min` }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-status__count", title: active.selectedWords > 0 ? "The words chosen, of the words in this sermon" : "Words in this sermon, and roughly how long it takes to preach", children: active.selectedWords > 0 ? `${active.selectedWords.toLocaleString()} of ${words.toLocaleString()} words` : words === 0 ? "No words yet" : `${words.toLocaleString()} word${words === 1 ? "" : "s"} · about ${minutes} min` }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-status__path selectable", title: path, children: path.split(/[\\/]/).pop() }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: doc2.saveState === "error" ? "editor-status__save editor-status__save--error" : "editor-status__save", role: "status", title: saveLabel, children: [
           (doc2.saveState === "idle" || doc2.saveState === "saved") && /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { size: 12, strokeWidth: 2, "aria-hidden": "true" }),

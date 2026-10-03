@@ -6193,6 +6193,16 @@ select.field {
   padding: .05em 0;
 }
 
+.sermon-block__reads-key {
+  opacity: .7;
+  border: 1px solid;
+  border-radius: 3px;
+  margin-left: .4em;
+  padding: 0 .4em;
+  font-size: .85em;
+  display: inline-block;
+}
+
 .footnote-mark {
   counter-increment: footnote;
   font-family: var(--font-sans);
@@ -6720,6 +6730,15 @@ select.field {
   padding: .5rem 1.5rem 0;
   position: sticky;
   top: 0;
+}
+
+.find-field {
+  box-shadow: inset 0 0 0 2px #facc15bf;
+}
+
+.find-field--current {
+  background-color: #f59e0b38;
+  box-shadow: inset 0 0 0 2px #f59e0b;
 }
 
 .sheet__backdrop {
