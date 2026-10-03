@@ -14421,7 +14421,9 @@ const DEFAULT_EDITOR_SETTINGS = {
   styles: DEFAULT_STYLES,
   marginNotes: true,
   printMarginNotes: false,
-  smartTypography: true,
+  smartQuotes: true,
+  smartDashes: true,
+  smartEllipsis: true,
   microphone: "",
   church: "",
   footer: ""
@@ -14909,7 +14911,7 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
   }
   return Component;
 }
-const __iconData$S = {
+const __iconData$T = {
   name: "arrow-down",
   size: 24,
   node: [
@@ -14917,9 +14919,9 @@ const __iconData$S = {
     ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
   ]
 };
-__iconData$S.node;
-const ArrowDown = createLucideIcon(__iconData$S);
-const __iconData$R = {
+__iconData$T.node;
+const ArrowDown = createLucideIcon(__iconData$T);
+const __iconData$S = {
   name: "arrow-up",
   size: 24,
   node: [
@@ -14927,9 +14929,9 @@ const __iconData$R = {
     ["path", { d: "M12 19V5", key: "x0mq9r" }]
   ]
 };
-__iconData$R.node;
-const ArrowUp = createLucideIcon(__iconData$R);
-const __iconData$Q = {
+__iconData$S.node;
+const ArrowUp = createLucideIcon(__iconData$S);
+const __iconData$R = {
   name: "book-bookmark",
   size: 24,
   node: [
@@ -14950,9 +14952,9 @@ const __iconData$Q = {
   ],
   aliases: ["book-marked"]
 };
-__iconData$Q.node;
-const BookBookmark = createLucideIcon(__iconData$Q);
-const __iconData$P = {
+__iconData$R.node;
+const BookBookmark = createLucideIcon(__iconData$R);
+const __iconData$Q = {
   name: "book-open",
   size: 24,
   node: [
@@ -14966,9 +14968,9 @@ const __iconData$P = {
     ]
   ]
 };
-__iconData$P.node;
-const BookOpen = createLucideIcon(__iconData$P);
-const __iconData$O = {
+__iconData$Q.node;
+const BookOpen = createLucideIcon(__iconData$Q);
+const __iconData$P = {
   name: "box",
   size: 24,
   node: [
@@ -14983,30 +14985,30 @@ const __iconData$O = {
     ["path", { d: "M12 22V12", key: "d0xqtd" }]
   ]
 };
-__iconData$O.node;
-const Box$1 = createLucideIcon(__iconData$O);
-const __iconData$N = {
+__iconData$P.node;
+const Box$1 = createLucideIcon(__iconData$P);
+const __iconData$O = {
   name: "check",
   size: 24,
   node: [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]]
 };
-__iconData$N.node;
-const Check = createLucideIcon(__iconData$N);
-const __iconData$M = {
+__iconData$O.node;
+const Check = createLucideIcon(__iconData$O);
+const __iconData$N = {
   name: "chevron-right",
   size: 24,
   node: [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]]
 };
-__iconData$M.node;
-const ChevronRight = createLucideIcon(__iconData$M);
-const __iconData$L = {
+__iconData$N.node;
+const ChevronRight = createLucideIcon(__iconData$N);
+const __iconData$M = {
   name: "cloud",
   size: 24,
   node: [["path", { d: "M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z", key: "p7xjir" }]]
 };
-__iconData$L.node;
-const Cloud = createLucideIcon(__iconData$L);
-const __iconData$K = {
+__iconData$M.node;
+const Cloud = createLucideIcon(__iconData$M);
+const __iconData$L = {
   name: "cloudy",
   size: 24,
   node: [
@@ -15014,9 +15016,9 @@ const __iconData$K = {
     ["path", { d: "M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61", key: "leugyv" }]
   ]
 };
-__iconData$K.node;
-const Cloudy = createLucideIcon(__iconData$K);
-const __iconData$J = {
+__iconData$L.node;
+const Cloudy = createLucideIcon(__iconData$L);
+const __iconData$K = {
   name: "copy",
   size: 24,
   node: [
@@ -15024,9 +15026,9 @@ const __iconData$J = {
     ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
   ]
 };
-__iconData$J.node;
-const Copy = createLucideIcon(__iconData$J);
-const __iconData$I = {
+__iconData$K.node;
+const Copy = createLucideIcon(__iconData$K);
+const __iconData$J = {
   name: "download",
   size: 24,
   node: [
@@ -15035,9 +15037,9 @@ const __iconData$I = {
     ["path", { d: "m7 10 5 5 5-5", key: "brsn70" }]
   ]
 };
-__iconData$I.node;
-const Download = createLucideIcon(__iconData$I);
-const __iconData$H = {
+__iconData$J.node;
+const Download = createLucideIcon(__iconData$J);
+const __iconData$I = {
   name: "ellipsis",
   size: 24,
   node: [
@@ -15047,9 +15049,9 @@ const __iconData$H = {
   ],
   aliases: ["more-horizontal"]
 };
-__iconData$H.node;
-const Ellipsis = createLucideIcon(__iconData$H);
-const __iconData$G = {
+__iconData$I.node;
+const Ellipsis = createLucideIcon(__iconData$I);
+const __iconData$H = {
   name: "eraser",
   size: 24,
   node: [
@@ -15063,9 +15065,9 @@ const __iconData$G = {
     ["path", { d: "m5.082 11.09 8.828 8.828", key: "1wx5vj" }]
   ]
 };
-__iconData$G.node;
-const Eraser = createLucideIcon(__iconData$G);
-const __iconData$F = {
+__iconData$H.node;
+const Eraser = createLucideIcon(__iconData$H);
+const __iconData$G = {
   name: "file-down",
   size: 24,
   node: [
@@ -15081,9 +15083,9 @@ const __iconData$F = {
     ["path", { d: "m9 15 3 3 3-3", key: "1npd3o" }]
   ]
 };
-__iconData$F.node;
-const FileDown = createLucideIcon(__iconData$F);
-const __iconData$E = {
+__iconData$G.node;
+const FileDown = createLucideIcon(__iconData$G);
+const __iconData$F = {
   name: "file-plus",
   size: 24,
   node: [
@@ -15099,9 +15101,9 @@ const __iconData$E = {
     ["path", { d: "M12 18v-6", key: "17g6i2" }]
   ]
 };
-__iconData$E.node;
-const FilePlus = createLucideIcon(__iconData$E);
-const __iconData$D = {
+__iconData$F.node;
+const FilePlus = createLucideIcon(__iconData$F);
+const __iconData$E = {
   name: "file-text",
   size: 24,
   node: [
@@ -15118,9 +15120,9 @@ const __iconData$D = {
     ["path", { d: "M16 17H8", key: "z1uh3a" }]
   ]
 };
-__iconData$D.node;
-const FileText = createLucideIcon(__iconData$D);
-const __iconData$C = {
+__iconData$E.node;
+const FileText = createLucideIcon(__iconData$E);
+const __iconData$D = {
   name: "file-type",
   size: 24,
   node: [
@@ -15137,9 +15139,9 @@ const __iconData$C = {
     ["path", { d: "M9 13v-.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v.5", key: "qbrxap" }]
   ]
 };
-__iconData$C.node;
-const FileType = createLucideIcon(__iconData$C);
-const __iconData$B = {
+__iconData$D.node;
+const FileType = createLucideIcon(__iconData$D);
+const __iconData$C = {
   name: "folder",
   size: 24,
   node: [
@@ -15152,9 +15154,9 @@ const __iconData$B = {
     ]
   ]
 };
-__iconData$B.node;
-const Folder = createLucideIcon(__iconData$B);
-const __iconData$A = {
+__iconData$C.node;
+const Folder = createLucideIcon(__iconData$C);
+const __iconData$B = {
   name: "grid-3x3",
   size: 24,
   node: [
@@ -15166,9 +15168,9 @@ const __iconData$A = {
   ],
   aliases: ["grid", "grid-3-x-3"]
 };
-__iconData$A.node;
-const Grid3x3 = createLucideIcon(__iconData$A);
-const __iconData$z = {
+__iconData$B.node;
+const Grid3x3 = createLucideIcon(__iconData$B);
+const __iconData$A = {
   name: "info",
   size: 24,
   node: [
@@ -15177,9 +15179,9 @@ const __iconData$z = {
     ["path", { d: "M12 8h.01", key: "e9boi3" }]
   ]
 };
-__iconData$z.node;
-const Info = createLucideIcon(__iconData$z);
-const __iconData$y = {
+__iconData$A.node;
+const Info = createLucideIcon(__iconData$A);
+const __iconData$z = {
   name: "key-round",
   size: 24,
   node: [
@@ -15193,8 +15195,25 @@ const __iconData$y = {
     ["circle", { cx: "16.5", cy: "7.5", r: ".5", fill: "currentColor", key: "w0ekpg" }]
   ]
 };
+__iconData$z.node;
+const KeyRound = createLucideIcon(__iconData$z);
+const __iconData$y = {
+  name: "keyboard",
+  size: 24,
+  node: [
+    ["path", { d: "M10 8h.01", key: "1r9ogq" }],
+    ["path", { d: "M12 12h.01", key: "1mp3jc" }],
+    ["path", { d: "M14 8h.01", key: "1primd" }],
+    ["path", { d: "M16 12h.01", key: "1l6xoz" }],
+    ["path", { d: "M18 8h.01", key: "emo2bl" }],
+    ["path", { d: "M6 8h.01", key: "x9i8wu" }],
+    ["path", { d: "M7 16h10", key: "wp8him" }],
+    ["path", { d: "M8 12h.01", key: "czm47f" }],
+    ["rect", { width: "20", height: "16", x: "2", y: "4", rx: "2", key: "18n3k1" }]
+  ]
+};
 __iconData$y.node;
-const KeyRound = createLucideIcon(__iconData$y);
+const Keyboard = createLucideIcon(__iconData$y);
 const __iconData$x = {
   name: "layout-template",
   size: 24,
@@ -66222,7 +66241,7 @@ function filterSlashItems(items, query) {
     (item) => item.label.toLowerCase().includes(needle) || item.aliases.some((alias) => alias.toLowerCase().includes(needle))
   );
 }
-const GROUPS = ["Sermon", "Library", "Insert", "Shapes"];
+const GROUPS$1 = ["Sermon", "Library", "Insert", "Shapes"];
 function SlashMenu({ items, selectedIndex, onItemClick }) {
   const ref = reactExports$1.useRef(null);
   reactExports$1.useEffect(() => {
@@ -66240,7 +66259,7 @@ function SlashMenu({ items, selectedIndex, onItemClick }) {
       role: "listbox",
       "aria-label": "Add to the sermon",
       onMouseDown: (event) => event.preventDefault(),
-      children: GROUPS.map((group) => {
+      children: GROUPS$1.map((group) => {
         const members = items.filter((item) => item.group === group);
         if (members.length === 0) return null;
         return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "slash-menu__group", children: [
@@ -67125,22 +67144,22 @@ const changesExtension = Extension.create({
   }
 });
 const RULES = [
-  { find: /(?:^|[\s{[(<'"‘“])(")$/, replace: "“" },
-  { find: /"$/, replace: "”" },
-  { find: /(?:^|[\s{[(<'"‘“])(')$/, replace: "‘" },
-  { find: /'$/, replace: "’" },
-  { find: /--$/, replace: "—" },
-  { find: /\.\.\.$/, replace: "…" }
+  { find: /(?:^|[\s{[(<'"‘“])(")$/, replace: "“", kind: "quotes" },
+  { find: /"$/, replace: "”", kind: "quotes" },
+  { find: /(?:^|[\s{[(<'"‘“])(')$/, replace: "‘", kind: "quotes" },
+  { find: /'$/, replace: "’", kind: "quotes" },
+  { find: /--$/, replace: "—", kind: "dashes" },
+  { find: /\.\.\.$/, replace: "…", kind: "ellipsis" }
 ];
-function typographyExtension(enabled) {
+function typographyExtension(wanted) {
   return Extension.create({
     name: "sermondeskTypography",
     addInputRules() {
       return RULES.map(
-        ({ find, replace: replace2 }) => new InputRule$1({
+        ({ find, replace: replace2, kind }) => new InputRule$1({
           find,
           handler: ({ state, range, match }) => {
-            if (!enabled()) return null;
+            if (!wanted()[kind]) return null;
             const captured = match[1] ?? match[0];
             const start = range.from + match[0].lastIndexOf(captured);
             state.tr.insertText(replace2, start, range.to);
@@ -69389,6 +69408,53 @@ function useLinks({ editor, writable, report }) {
   );
   return { open: open2, openCard, close: close2, setLink };
 }
+function useCaretBlock({ editor, stageRef }) {
+  const [block, setBlock] = reactExports$1.useState(null);
+  const frame = reactExports$1.useRef(null);
+  const place = reactExports$1.useCallback(() => {
+    if (frame.current !== null) return;
+    frame.current = requestAnimationFrame(() => {
+      frame.current = null;
+      const stage = stageRef.current;
+      if (!stage) return;
+      let next = null;
+      try {
+        const view = editor.prosemirrorView;
+        const { node } = view.domAtPos(view.state.selection.from);
+        const element = node instanceof Element ? node : node.parentElement;
+        let outer = element?.closest(".bn-block-outer") ?? null;
+        for (; ; ) {
+          const above = outer?.parentElement?.closest(".bn-block-outer") ?? null;
+          if (!above) break;
+          outer = above;
+        }
+        if (outer) {
+          const origin = stage.getBoundingClientRect().top;
+          const rect = outer.getBoundingClientRect();
+          next = { top: rect.top - origin, bottom: rect.bottom - origin };
+        }
+      } catch {
+        next = null;
+      }
+      setBlock((current) => current && next && Math.abs(current.top - next.top) < 0.5 && Math.abs(current.bottom - next.bottom) < 0.5 ? current : next);
+    });
+  }, [editor, stageRef]);
+  reactExports$1.useEffect(() => {
+    place();
+    const offSelection = editor.onSelectionChange(() => place());
+    const offChange = editor.onChange(() => place());
+    const stage = stageRef.current;
+    const observer = stage ? new ResizeObserver(() => place()) : null;
+    if (stage && observer) observer.observe(stage);
+    return () => {
+      offSelection?.();
+      offChange?.();
+      observer?.disconnect();
+      if (frame.current !== null) cancelAnimationFrame(frame.current);
+    };
+  }, [editor, place, stageRef]);
+  return { block, place };
+}
 function LinkCard({ anchor, url, onApply, onRemove, onClose }) {
   const field = reactExports$1.useRef(null);
   const card = reactExports$1.useRef(null);
@@ -70424,7 +70490,7 @@ function SermonEditor({
         }
       },
       _tiptapOptions: {
-        extensions: [paginationExtension(hostRef.current), changesExtension, typographyExtension(() => lookRef.current.smartTypography)]
+        extensions: [paginationExtension(hostRef.current), changesExtension, typographyExtension(() => ({ quotes: lookRef.current.smartQuotes, dashes: lookRef.current.smartDashes, ellipsis: lookRef.current.smartEllipsis }))]
       }
     },
     // Rebuild the editor when a different sermon is opened; BlockNote does
@@ -70507,6 +70573,8 @@ function SermonEditor({
   useEnterContinues({ editor, writable, report });
   useHeadingArrows({ editor, hidden: hidden2 });
   const links = useLinks({ editor, writable, report });
+  const caret = useCaretBlock({ editor, stageRef });
+  reactExports$1.useEffect(() => caret.place(), [plan, zoom, caret.place]);
   const replaceMatches = useReplaceMatches(editor, report);
   const footnotes = useFootnotes({ editor, writable, report });
   const openFind = reactExports$1.useCallback(() => setFindOpen(true), []);
@@ -70679,6 +70747,10 @@ function SermonEditor({
           ]
         }
       ),
+      caret.block && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "focus-veil", "aria-hidden": "true", style: { top: 0, height: Math.max(0, caret.block.top) } }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "focus-veil", "aria-hidden": "true", style: { top: Math.max(0, caret.block.bottom), bottom: 0 } })
+      ] }),
       margins.placed.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(
         MarginNotes,
         {
@@ -70977,6 +71049,10 @@ function MoreMenu({ actions, writable }) {
             /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => setConfirming(false), children: "Keep it" })
           ] })
         ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "menu__item", onClick: () => run2(actions.onFocus), children: [
+            "Focus on the page",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "menu__hint", children: keys$2("The columns and the toolbar fold away until Escape (Ctrl+Shift+Enter)") })
+          ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "menu__item", onClick: () => run2(actions.onReveal), children: [
             "Show file",
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "menu__hint", children: "In its folder on disk" })
@@ -74891,6 +74967,7 @@ function EditorPane({
   onUpdateLater,
   sidebarFolded,
   onToggleSidebar,
+  onFocusMode,
   initialView,
   sceneView,
   formatting,
@@ -75069,6 +75146,7 @@ function EditorPane({
           onHistory: () => setHistoryOpen(true),
           onSaveShape: () => setShapeOpen(true),
           onTranscribe,
+          onFocus: onFocusMode,
           onDelete: () => {
             doc2.discardPending();
             onDelete(pathRef.current);
@@ -77728,6 +77806,95 @@ function StylesTab({ styles, onChange }) {
     ] })
   ] });
 }
+const GROUPS = [
+  {
+    title: "The sermon",
+    keys: [
+      { does: "A new sermon", chord: "Ctrl+N" },
+      { does: "Save now, rather than a second from now", chord: "Ctrl+S" },
+      { does: "Find and replace in this sermon", chord: "Ctrl+F" },
+      { does: "Search every sermon", chord: "Ctrl+Shift+F" },
+      { does: "Print the view showing", chord: "Ctrl+P" },
+      { does: "Dictate: the page listens, or stops", chord: "Ctrl+Shift+D" },
+      { does: "Show or hide the library", chord: "Ctrl+\\" },
+      { does: "Preferences", chord: "Ctrl+," },
+      { does: "Focus: the columns and the toolbar fold away until Escape", chord: "Ctrl+Shift+Enter" },
+      { does: "Undo", chord: "Ctrl+Z" },
+      { does: "Redo", chord: "Ctrl+Y" }
+    ]
+  },
+  {
+    title: "Writing",
+    keys: [
+      { does: "Bold", chord: "Ctrl+B" },
+      { does: "Italic", chord: "Ctrl+I" },
+      { does: "Underline", chord: "Ctrl+U" },
+      { does: "Strikethrough", chord: "Ctrl+Shift+S" },
+      { does: "Superscript", chord: "Ctrl+Shift+=" },
+      { does: "Subscript", chord: "Ctrl+Shift+-" },
+      { does: "Grow the text", chord: "Ctrl+Shift+>" },
+      { does: "Shrink the text", chord: "Ctrl+Shift+<" },
+      { does: "Align left", chord: "Ctrl+L" },
+      { does: "Centre", chord: "Ctrl+E" },
+      { does: "Align right", chord: "Ctrl+R" },
+      { does: "Justify", chord: "Ctrl+J" },
+      { does: "Body, the plain paragraph style", chord: "Ctrl+Shift+N" },
+      { does: "Quote", chord: "Ctrl+Alt+Q" },
+      { does: "Verse", chord: "Ctrl+Alt+V" },
+      { does: "Small", chord: "Ctrl+Alt+S" },
+      { does: "Indent a paragraph or a list item", chord: "Tab" },
+      { does: "Outdent it", chord: "Shift+Tab" },
+      { does: "A link on the words chosen", chord: "Ctrl+K" },
+      { does: "A footnote at the caret", chord: "Ctrl+Alt+F" },
+      { does: "The key line: the sentence the outline and the handout carry", chord: "Ctrl+Alt+K" },
+      { does: "A note in the margin", chord: "Ctrl+Alt+M" },
+      { does: "Start this block on a new page, or stop", chord: "Ctrl+Enter" },
+      { does: "The menu of blocks and things to insert", chord: "/" },
+      { does: "From a heading, on into the body", chord: "Enter" },
+      { does: "Through a heading and back, as through any line", chord: "↑ ↓" }
+    ]
+  },
+  {
+    title: "The page",
+    keys: [
+      { does: "Larger", chord: "Ctrl+plus" },
+      { does: "Smaller", chord: "Ctrl+minus" },
+      { does: "Fit the page to the window", chord: "Ctrl+0" }
+    ]
+  },
+  {
+    title: "At the pulpit",
+    keys: [
+      { does: "Next paragraph; next point on the outline; next card", chord: "→  PageDown  Space  Enter" },
+      { does: "Previous", chord: "←  PageUp  Backspace" },
+      { does: "Next or previous point", chord: "↓  ↑" },
+      { does: "Jump to a point", chord: "1 to 9" },
+      { does: "First, last", chord: "Home  End" },
+      { does: "Manuscript, outline, cards", chord: "M  O  C" },
+      { does: "The rail, the settings, light or dark, pause, the key reference", chord: "R  S  T  P  ?" },
+      { does: "Text size", chord: "+  −" },
+      { does: "Sermon length, five minutes at a time", chord: "[  ]" },
+      { does: "End the sermon", chord: "Esc" }
+    ]
+  }
+];
+function KeyboardTab() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: GROUPS.map((group) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__group", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__group-title", children: group.title }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__box", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "prefs__keys", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("th", { scope: "col", children: "Does" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("th", { scope: "col", children: "On Windows" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("th", { scope: "col", children: "On a Mac" })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { children: group.keys.map((key2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: key2.does }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("kbd", { children: shortcut(key2.chord, false) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("kbd", { children: shortcut(key2.chord, true) }) })
+      ] }, key2.does)) })
+    ] }) })
+  ] }, group.title)) });
+}
 const media = window.matchMedia("(prefers-color-scheme: dark)");
 let preference = "system";
 function paint() {
@@ -77766,6 +77933,7 @@ function languageName(code2) {
 const TABS = [
   { id: "general", label: "General", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Settings, { size: 22, strokeWidth: 1.5 }) },
   { id: "styles", label: "Styles", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Type, { size: 22, strokeWidth: 1.5 }) },
+  { id: "keys", label: "Keyboard", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Keyboard, { size: 22, strokeWidth: 1.5 }) },
   { id: "folder", label: "Folder", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Folder, { size: 22, strokeWidth: 1.5 }) },
   { id: "podium", label: "Podium", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Mic, { size: 22, strokeWidth: 1.5 }) },
   { id: "printing", label: "Printing", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Printer, { size: 22, strokeWidth: 1.5 }) },
@@ -77919,7 +78087,9 @@ function PreferencesWindow({
             /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "inspector", children: "Inspector beside the page" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "ribbon", children: "Ribbon above the page" })
           ] }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: "As you type", hint: "Straight quotes curl, two hyphens make a dash, and three dots an ellipsis. Backspace straight after puts the typed characters back.", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: editor.smartTypography, label: "Smart quotes and dashes", onChange: (next) => updateEditor({ smartTypography: next }) }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: "Curly quotes as you type", hint: "A straight quote curls, an apostrophe with it. Backspace straight after any of these puts back what you typed.", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: editor.smartQuotes, label: "Curly quotes as you type", onChange: (next) => updateEditor({ smartQuotes: next }) }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: "Dashes as you type", hint: "Two hyphens become an em dash.", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: editor.smartDashes, label: "Dashes as you type", onChange: (next) => updateEditor({ smartDashes: next }) }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: "Ellipses as you type", hint: "Three dots become one character, so they never split across a line.", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: editor.smartEllipsis, label: "Ellipses as you type", onChange: (next) => updateEditor({ smartEllipsis: next }) }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: "Spelling language", hint: "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.", children: /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "field", "aria-label": "Spelling language", value: app.spellingLanguage, onChange: (event) => updateApp({ spellingLanguage: event.target.value }), children: languageOptions.map((code2) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: code2, children: languageName(code2) }, code2)) }) })
         ] })
       ] }),
@@ -78009,6 +78179,7 @@ function PreferencesWindow({
         ] }) })
       ] }),
       tab === "styles" && /* @__PURE__ */ jsxRuntimeExports.jsx(StylesTab, { styles: editor.styles, onChange: (styles) => updateEditor({ styles }) }),
+      tab === "keys" && /* @__PURE__ */ jsxRuntimeExports.jsx(KeyboardTab, {}),
       tab === "printing" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(Group, { title: "Paper", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: "Size", hint: "Letter for the US, A4 for most others; Half Letter and A5 for a handout or the notes that fit inside a Bible; Legal for the long fold. A handout laid out for the wrong sheet loses its bottom line on every page.", children: /* @__PURE__ */ jsxRuntimeExports.jsx(PaperSelect, { value: editor.paper, onChange: (paper) => updateEditor({ paper }) }) }),
@@ -79007,6 +79178,12 @@ function useShellLayout(hasOpen) {
   const narrow = windowWidth < 700 || windowHeight < 480;
   const [drawerOpen, setDrawerOpen] = reactExports$1.useState(false);
   const [sheetOpen, setSheetOpen] = reactExports$1.useState(false);
+  const [focus2, setFocus] = reactExports$1.useState(false);
+  const toggleFocus = reactExports$1.useCallback(() => setFocus((current) => !current), []);
+  const leaveFocus = reactExports$1.useCallback(() => setFocus(false), []);
+  reactExports$1.useEffect(() => {
+    if (!hasOpen) setFocus(false);
+  }, [hasOpen]);
   const toggleLibrary = reactExports$1.useCallback(() => {
     if (narrow) {
       setDrawerOpen((current) => !current);
@@ -79060,9 +79237,9 @@ function useShellLayout(hasOpen) {
     },
     [sidebarWidth]
   );
-  const inspectorShown = hasOpen && (narrow ? sheetOpen : inspectorOpen && roomForInspector);
-  const libraryShown = narrow ? drawerOpen : !sidebarFolded;
-  const shellClass = ["shell", libraryShown ? "" : "shell--no-side", inspectorShown ? "" : "shell--no-insp", narrow ? "shell--narrow" : ""].filter(Boolean).join(" ");
+  const inspectorShown = hasOpen && !focus2 && (narrow ? sheetOpen : inspectorOpen && roomForInspector);
+  const libraryShown = !focus2 && (narrow ? drawerOpen : !sidebarFolded);
+  const shellClass = ["shell", libraryShown ? "" : "shell--no-side", inspectorShown ? "" : "shell--no-insp", narrow ? "shell--narrow" : "", focus2 ? "shell--focus" : ""].filter(Boolean).join(" ");
   const shellStyle = { "--c-side": `${sidebarWidth}px` };
   return {
     sidebarFolded,
@@ -79079,7 +79256,10 @@ function useShellLayout(hasOpen) {
     closeDrawer,
     closeOverlays,
     showInspector,
-    startResize
+    startResize,
+    focus: focus2,
+    toggleFocus,
+    leaveFocus
   };
 }
 function AppMenu({
@@ -79172,7 +79352,10 @@ function App() {
     closeDrawer,
     closeOverlays,
     showInspector,
-    startResize
+    startResize,
+    focus: focus2,
+    toggleFocus,
+    leaveFocus
   } = useShellLayout(open2 !== null);
   const [settingsRevision, setSettingsRevision] = reactExports$1.useState(0);
   const [commands, setCommands] = reactExports$1.useState(null);
@@ -79231,9 +79414,14 @@ function App() {
       if (event.shiftKey && event.key.toLowerCase() === "f") {
         event.preventDefault();
         openLibrary();
-        const focus2 = () => document.querySelector(".library .search__input")?.focus();
-        requestAnimationFrame(() => requestAnimationFrame(focus2));
-        setTimeout(focus2, 80);
+        const focus22 = () => document.querySelector(".library .search__input")?.focus();
+        requestAnimationFrame(() => requestAnimationFrame(focus22));
+        setTimeout(focus22, 80);
+        return;
+      }
+      if (event.shiftKey && event.key === "Enter") {
+        event.preventDefault();
+        if (open2) toggleFocus();
         return;
       }
       if (event.shiftKey) return;
@@ -79252,7 +79440,19 @@ function App() {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [createSermon, podium, folder, writable, openLibrary, toggleLibrary]);
+  }, [createSermon, podium, folder, writable, openLibrary, toggleLibrary, open2, toggleFocus]);
+  reactExports$1.useEffect(() => {
+    if (!focus2) return;
+    const onKeyDown = (event) => {
+      if (event.key !== "Escape") return;
+      if (document.querySelector(".podium, .sheet, .menu, .popover, .find-bar, .footnote-card, .link-card, .slash-menu, .block-type-menu, .prefs")) return;
+      event.preventDefault();
+      event.stopPropagation();
+      leaveFocus();
+    };
+    window.addEventListener("keydown", onKeyDown, true);
+    return () => window.removeEventListener("keydown", onKeyDown, true);
+  }, [focus2, leaveFocus]);
   reactExports$1.useEffect(
     () => window.api.onMenuCommand((command2) => {
       if (podium) return;
@@ -79403,6 +79603,7 @@ function App() {
           onUpdateLater: () => setUpdateLater(true),
           sidebarFolded: !libraryShown,
           onToggleSidebar: toggleLibrary,
+          onFocusMode: toggleFocus,
           initialView: scene === "outline" || scene === "handout" ? scene : void 0,
           sceneView,
           formatting,

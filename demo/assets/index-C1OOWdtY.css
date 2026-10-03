@@ -2749,6 +2749,14 @@ select.field {
   font-size: 13px;
 }
 
+.shell--focus {
+  --topbar-h: 22px;
+}
+
+.shell--focus .cell--toolbar > * {
+  visibility: hidden;
+}
+
 .welcome {
   height: 100%;
   padding: var(--topbar-h) 40px 40px;
@@ -6145,6 +6153,29 @@ select.field {
   cursor: text;
 }
 
+.focus-veil {
+  pointer-events: none;
+  background-color: var(--ground);
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+@supports (color: color-mix(in lab, red, red)) {
+  .focus-veil {
+    background-color: color-mix(in srgb, var(--ground) 64%, transparent);
+  }
+}
+
+.focus-veil {
+  transition: top .2s, height .2s;
+}
+
+.shell--focus .focus-veil {
+  display: block;
+}
+
 .key-line {
   background-color: var(--accent);
 }
@@ -7770,6 +7801,51 @@ select.field {
 .styles__actions {
   justify-content: flex-end;
   display: flex;
+}
+
+.prefs__keys {
+  border-collapse: collapse;
+  width: 100%;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.prefs__keys th {
+  text-align: left;
+  color: var(--ink-faint);
+  padding: 8px 14px 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.prefs__keys td {
+  border-top: 1px solid var(--border-subtle);
+  vertical-align: top;
+  padding: 6px 14px;
+}
+
+.prefs__keys td:first-child {
+  width: 55%;
+}
+
+.prefs__keys kbd {
+  border: 1px solid var(--border-subtle);
+  background-color: var(--ink);
+  border-radius: 4px;
+  padding: 1px 7px;
+  display: inline-block;
+}
+
+@supports (color: color-mix(in lab, red, red)) {
+  .prefs__keys kbd {
+    background-color: color-mix(in srgb, var(--ink) 5%, transparent);
+  }
+}
+
+.prefs__keys kbd {
+  white-space: nowrap;
+  font-family: inherit;
+  font-size: 12px;
 }
 
 .notice {
