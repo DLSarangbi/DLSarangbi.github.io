@@ -14723,6 +14723,11 @@ function keyLine(block) {
   return text ? { spans: [{ text }], marked: false } : null;
 }
 const SPEAKING_WORDS_PER_MINUTE = 130;
+function clampPace(pace) {
+  const value = Math.round(Number(pace));
+  if (!Number.isFinite(value)) return SPEAKING_WORDS_PER_MINUTE;
+  return Math.min(220, Math.max(80, value));
+}
 function clampMinutes(minutes) {
   const value = Math.round(Number(minutes));
   if (!Number.isFinite(value) || value <= 0) return null;
@@ -15704,6 +15709,10 @@ function shortFolder(path) {
   const parts = path.split(/[\\/]+/).filter(Boolean);
   return parts.slice(-2).join(" › ") || path;
 }
+function cloudWhere(cloud) {
+  if (cloud.provider === "iCloud Drive") return "Apple’s iCloud Drive on this computer";
+  return cloud.path.replace(/^(?:\/Users\/[^/]+|[A-Za-z]:\\Users\\[^\\]+|\/home\/[^/]+)(?=[/\\]|$)/, "~");
+}
 function binName(mac2) {
   return mac2 ? "the Trash" : "the Recycle Bin";
 }
@@ -15784,7 +15793,7 @@ function SetupScreen({
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__badge", children: providerIcon(provider) }),
                   /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "cloud-card__text", children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__name", children: provider }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__where", children: cloud ? cloud.path : "Not set up on this computer" })
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__where", children: cloud ? cloudWhere(cloud) : "Not set up on this computer" })
                   ] }),
                   cloud && /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 16, strokeWidth: 1.6, className: "cloud-card__go" })
                 ]
@@ -15801,7 +15810,7 @@ function SetupScreen({
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__badge", children: providerIcon(provider) }),
                 /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "cloud-card__text", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__name", children: provider }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__where", children: connected ? "Connected" : cloud ? cloud.path : "Not set up on this computer" })
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__where", children: connected ? "Connected" : cloud ? cloudWhere(cloud) : "Not set up on this computer" })
                 ] }),
                 connected && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "cloud-card__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", title: `Move the sermons out to a folder you choose. The copy here goes to ${BIN}.`, onClick: onDisconnectCloudFolder, children: "Disconnect…" }) }),
                 cloud && !connected && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "cloud-card__actions", children: [
@@ -69148,10 +69157,11 @@ function parsePastedScripture(raw) {
   if (!found2 || citationLine === -1) return null;
   const citation = lines[citationLine];
   const versionLine = lines.find((line, index2) => index2 !== citationLine && isVersionLine(line));
-  const translation = findTranslation(citation) ?? (versionLine ? findTranslation(versionLine) : null);
-  const before = citation.slice(0, found2.start);
-  const after = stripVersionLabels(citation.slice(found2.end));
-  const citationRemainder = (citationOnly ? stripVersionLabels(before) : before) + " " + after;
+  const translation = findTranslation(citationOnly ? citation : citation.slice(found2.end)) ?? (versionLine ? findTranslation(versionLine) : null);
+  const after = stripVersionLabels(citation.slice(found2.end)).replace(/[(\[]\s*[)\]]/g, "").replace(/^[\s,;:—–-]+/, "");
+  let before = citationOnly ? stripVersionLabels(citation.slice(0, found2.start)) : citation.slice(0, found2.start);
+  if (/^[\s)\]”"']*$/.test(after)) before = before.replace(/[\s(\[“"'—–-]+$/, "");
+  const citationRemainder = before + " " + after;
   const body = lines.map((line, index2) => index2 === citationLine ? citationRemainder : line).filter((line, index2) => index2 === citationLine || !isVersionLine(line)).join(" ");
   const text = body.replace(/https?:\/\/\S+/g, "").replace(/^[\s“”"'(\[]+/, "").replace(/[\s“”"'()\[\]]+$/, "").replace(/^\d{1,3}\s+(?=[A-Z“"'])/, "").replace(/\s{2,}/g, " ").trim();
   if (text.length < 20) return null;
@@ -76413,7 +76423,7 @@ function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, t
   const betweenHad = Math.max(0, elapsed - pointsSeconds);
   const preachedPace = paceOf(pointsWords, pointsSeconds);
   const signed = (seconds) => `${seconds < 0 ? "−" : "+"}${clock$1(Math.abs(seconds))}`;
-  const adjusted = Object.values(bumps).some((delta) => delta !== 0) || targetMinutes !== null && targetMinutes !== (sermon.lengthMinutes ?? null);
+  const adjusted = sections.some((item) => item.point && (bumps[item.index] ?? 0) !== 0) || targetMinutes !== null && targetMinutes !== (sermon.lengthMinutes ?? null);
   const plan = () => {
     const minutes = {};
     for (const item of sections) {
@@ -76473,7 +76483,7 @@ function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, t
       ] }),
       " · your estimates use ",
       pace,
-      preachedPace !== pace && /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "podium__end-button", onClick: () => onUsePace(preachedPace), children: [
+      preachedPace !== pace && clampPace(preachedPace) === preachedPace && /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "podium__end-button", onClick: () => onUsePace(preachedPace), children: [
         "Use ",
         preachedPace,
         " for estimates"
@@ -76816,6 +76826,11 @@ function PodiumView({ sermon, onExit }) {
   const setReading = reactExports$1.useCallback((reading) => changeSettings({ reading }), [changeSettings]);
   reactExports$1.useEffect(() => {
     const onKeyDown = (event) => {
+      if (showHelp && (event.key === "Escape" || event.key === "?")) {
+        event.preventDefault();
+        setShowHelp(false);
+        return;
+      }
       if (phase === "ready") {
         if (showSettings) {
           if (event.key === "Escape" || event.key === "s") {
@@ -76948,7 +76963,7 @@ function PodiumView({ sermon, onExit }) {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [phase, showSettings, begin, finish, next, previous, nextSection, previousSection, jumpSection, goTo, steps.length, onExit, adjustScale, adjustTarget, toggleTheme, togglePause, setReading, changeSettings]);
+  }, [phase, showSettings, begin, finish, next, previous, nextSection, previousSection, jumpSection, goTo, steps.length, onExit, adjustScale, adjustTarget, toggleTheme, togglePause, setReading, changeSettings, showHelp]);
   reactExports$1.useEffect(() => {
     if (phase !== "preaching") return;
     const current = document.querySelector('.podium [data-current="true"]');
@@ -78690,7 +78705,7 @@ function describeLicense(status) {
     case "read_only":
       return "Read-only. Every sermon still opens, searches, prints, and preaches.";
     case "unlicensed":
-      return "No key entered. Writing needs one; everything else works without it.";
+      return "No key entered. Writing and preaching need one; reading, searching, and printing work without it.";
   }
 }
 const languageNames = new Intl.DisplayNames(void 0, { type: "language", languageDisplay: "standard" });
@@ -78891,7 +78906,7 @@ function PreferencesWindow({
             Row,
             {
               label: provider,
-              hint: current ? `Your sermons are in here now, synced on your own account. Disconnect moves them out to a folder you choose; the copy here goes to ${BIN}.` : cloud ? `${cloud.path}. Connect moves your sermons into a SermonDesk folder here and switches to it; Use switches to a SermonDesk folder already synced here, as on a second computer.` : "Not set up on this computer.",
+              hint: current ? `Your sermons are in here now, synced on your own account. Disconnect moves them out to a folder you choose; the copy here goes to ${BIN}.` : cloud ? `${cloudWhere(cloud)}. Connect moves your sermons into a SermonDesk folder here and switches to it; Use switches to a SermonDesk folder already synced here, as on a second computer.` : "Not set up on this computer.",
               children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "prefs__inline", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "prefs__glyph", children: providerIcon(provider, 18) }),
                 current && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", onClick: onDisconnectCloudFolder, children: "Disconnect…" }),
@@ -78975,7 +78990,7 @@ function PreferencesWindow({
         ] })
       ] }),
       tab === "licence" && /* @__PURE__ */ jsxRuntimeExports.jsxs(Group, { title: "Subscription", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: describeLicense(license), hint: keyed ? "A key works on up to three computers." : "Writing needs a key; reading, searching, printing, and preaching never do.", children: !keyed && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small button--primary", onClick: onEnterKey, children: "Enter key…" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: describeLicense(license), hint: keyed ? "A key works on up to three computers." : "Writing and preaching need a key; reading, searching, and printing never do.", children: !keyed && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small button--primary", onClick: onEnterKey, children: "Enter key…" }) }),
         keyed && /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: "This computer", hint: confirmingDeactivate ? "Deactivate? The key is freed for another machine, and writing here needs a key again. Every sermon stays." : "Free the key for another computer.", children: confirmingDeactivate ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "prefs__inline", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small button--danger", disabled: busy, onClick: () => void deactivate(), children: busy ? "Deactivating…" : "Deactivate" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => setConfirmingDeactivate(false), children: "Keep it here" })
@@ -80427,7 +80442,8 @@ function App() {
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "app-empty", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-empty__mark", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(FilePlus, { size: 28, strokeWidth: 1.5 }) }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "app-empty__title", children: sermons.length === 0 ? "Start your first sermon" : "Nothing open" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "app-empty__hint", children: sermons.length === 0 ? "It saves itself as you write, as a plain file in your folder." : "Choose a sermon from the library, or start a new one." }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "app-empty__hint", children: sermons.length === 0 ? writable ? "It saves itself as you write, as a plain file in your folder." : "Writing needs a licence key. Enter yours, or buy one, and the first sermon is a press away." : "Choose a sermon from the library, or start a new one." }),
+            !writable && sermons.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--primary", onClick: () => setLicenseOpen(true), children: "Enter key…" }),
             writable && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--primary", onClick: () => void createSermon(), children: "New sermon" }),
               sermons.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "app-empty__import", children: [
