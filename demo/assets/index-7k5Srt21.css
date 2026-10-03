@@ -6135,6 +6135,16 @@ select.field {
   counter-reset: footnote;
 }
 
+.page .bn-editor a[href] {
+  color: inherit;
+  text-decoration: underline;
+  -webkit-text-decoration-color: var(--accent);
+  -webkit-text-decoration-color: var(--accent);
+  text-decoration-color: var(--accent);
+  text-underline-offset: 2px;
+  cursor: text;
+}
+
 .key-line {
   background-color: var(--accent);
 }
