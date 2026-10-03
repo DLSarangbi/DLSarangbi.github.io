@@ -15116,6 +15116,7 @@ function foldText(text) {
   return text.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
 }
 const es = {
+  "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Sigue el idioma de arriba cuando su diccionario está instalado, y puede elegirse aparte aquí. Usa el corrector ortográfico del sistema operativo; un idioma que no esté instalado allí no subrayará nada.",
   "The chosen version, against today’s draft": "La versión elegida, frente al borrador de hoy",
   "The same": "Igual",
   "1 block differs": "1 bloque difiere",
@@ -16475,7 +16476,6 @@ const es = {
   "Use {n} for estimates": "Usar {n} para las estimaciones",
   "Use the copy from disk": "Usar la copia del disco",
   "Use this folder": "Usar esta carpeta",
-  "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.": "Usa el corrector ortográfico integrado en el sistema operativo. Un idioma que no esté instalado allí no subrayará nada.",
   "Verse": "Versículo",
   "Version": "Versión",
   "Versions": "Versiones",
@@ -16545,6 +16545,7 @@ const es = {
   "Zoom out (Ctrl+minus)": "Alejar (Ctrl+minus)"
 };
 const ko = {
+  "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "사전이 설치되어 있으면 위의 언어를 따르며, 여기서 따로 설정할 수도 있습니다. 운영 체제에 내장된 맞춤법 검사기를 사용하므로, 설치되지 않은 언어에는 밑줄이 표시되지 않습니다.",
   "The chosen version, against today’s draft": "선택한 버전과 오늘 초안의 비교",
   "The same": "같음",
   "1 block differs": "블록 1개가 다름",
@@ -17904,7 +17905,6 @@ const ko = {
   "Use {n} for estimates": "예상 시간에 {n} 사용",
   "Use the copy from disk": "디스크의 사본 사용",
   "Use this folder": "이 폴더 사용",
-  "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.": "운영 체제에 내장된 맞춤법 검사기를 사용합니다. 거기에 설치되지 않은 언어는 아무것도 밑줄 치지 않습니다.",
   "Verse": "구절",
   "Version": "역본",
   "Versions": "버전 기록",
@@ -17974,6 +17974,7 @@ const ko = {
   "Zoom out (Ctrl+minus)": "축소 (Ctrl+minus)"
 };
 const pt$3 = {
+  "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Segue o idioma acima quando o dicionário dele está instalado, e pode ser definido à parte aqui. Usa o corretor ortográfico do sistema operacional; um idioma que não esteja instalado lá não sublinhará nada.",
   "The chosen version, against today’s draft": "A versão escolhida, comparada ao rascunho de hoje",
   "The same": "Igual",
   "1 block differs": "1 bloco difere",
@@ -19333,7 +19334,6 @@ const pt$3 = {
   "Use {n} for estimates": "Usar {n} nas estimativas",
   "Use the copy from disk": "Usar a cópia do disco",
   "Use this folder": "Usar esta pasta",
-  "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.": "Usa o corretor ortográfico do próprio sistema operacional. Um idioma que não esteja instalado nele não sublinha nada.",
   "Verse": "Versículo",
   "Version": "Versão",
   "Versions": "Versões",
@@ -19403,6 +19403,7 @@ const pt$3 = {
   "Zoom out (Ctrl+minus)": "Reduzir (Ctrl+minus)"
 };
 const fr$3 = {
+  "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Suit la langue ci-dessus quand son dictionnaire est installé, et peut être réglée à part ici. Utilise le correcteur orthographique du système d’exploitation ; une langue qui n’y est pas installée ne soulignera rien.",
   "The chosen version, against today’s draft": "La version choisie, comparée au brouillon d’aujourd’hui",
   "The same": "Identique",
   "1 block differs": "1 bloc diffère",
@@ -20762,7 +20763,6 @@ const fr$3 = {
   "Use {n} for estimates": "Utiliser {n} pour les estimations",
   "Use the copy from disk": "Utiliser la copie du disque",
   "Use this folder": "Utiliser ce dossier",
-  "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.": "Utilise le correcteur orthographique intégré au système. Une langue qui n’y est pas installée ne soulignera rien.",
   "Verse": "Verset",
   "Version": "Version",
   "Versions": "Versions",
@@ -20832,6 +20832,7 @@ const fr$3 = {
   "Zoom out (Ctrl+minus)": "Réduire (Ctrl+minus)"
 };
 const de$1 = {
+  "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Folgt der Sprache oben, wenn ihr Wörterbuch installiert ist, und lässt sich hier getrennt einstellen. Verwendet die Rechtschreibprüfung des Betriebssystems; eine dort nicht installierte Sprache unterstreicht nichts.",
   "The chosen version, against today’s draft": "Die gewählte Fassung, verglichen mit dem Entwurf von heute",
   "The same": "Gleich",
   "1 block differs": "1 Block weicht ab",
@@ -22191,7 +22192,6 @@ const de$1 = {
   "Use {n} for estimates": "{n} für Schätzungen verwenden",
   "Use the copy from disk": "Die Fassung von der Festplatte verwenden",
   "Use this folder": "Diesen Ordner verwenden",
-  "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.": "Verwendet die Rechtschreibprüfung des Betriebssystems. Eine Sprache, die dort nicht installiert ist, unterstreicht nichts.",
   "Verse": "Vers",
   "Version": "Version",
   "Versions": "Versionen",
@@ -22261,6 +22261,7 @@ const de$1 = {
   "Zoom out (Ctrl+minus)": "Verkleinern (Ctrl+minus)"
 };
 const zh = {
+  "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "在已安装相应词典时跟随上方的语言，也可在此单独设置。使用操作系统自带的拼写检查；未安装的语言不会标出任何内容。",
   "The chosen version, against today’s draft": "所选版本与今日草稿的对比",
   "The same": "相同",
   "1 block differs": "1个块有差异",
@@ -23620,7 +23621,6 @@ const zh = {
   "Use {n} for estimates": "按{n}估算",
   "Use the copy from disk": "使用磁盘上的副本",
   "Use this folder": "使用此文件夹",
-  "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.": "使用操作系统内置的拼写检查。系统中未安装的语言不会标出任何内容。",
   "Verse": "经节",
   "Version": "版本",
   "Versions": "版本",
@@ -23690,6 +23690,7 @@ const zh = {
   "Zoom out (Ctrl+minus)": "缩小 (Ctrl+minus)"
 };
 const ja = {
+  "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "辞書がインストールされていれば上の言語に従い、ここで別に設定することもできます。OSに組み込まれたスペルチェックを使うため、インストールされていない言語には下線が引かれません。",
   "The chosen version, against today’s draft": "選んだ版と今日の下書きの比較",
   "The same": "同じ",
   "1 block differs": "1ブロックが異なります",
@@ -25049,7 +25050,6 @@ const ja = {
   "Use {n} for estimates": "見積もりに {n} を使う",
   "Use the copy from disk": "ディスク上のコピーを使う",
   "Use this folder": "このフォルダを使う",
-  "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.": "オペレーティングシステム内蔵のスペルチェッカーを使います。そこにインストールされていない言語では何にも下線が付きません。",
   "Verse": "聖句",
   "Version": "バージョン",
   "Versions": "バージョン一覧",
@@ -25119,6 +25119,7 @@ const ja = {
   "Zoom out (Ctrl+minus)": "縮小 (Ctrl+minus)"
 };
 const tl = {
+  "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Sumusunod sa wikang nasa itaas kapag naka-install ang diksyunaryo nito, at maaaring itakda nang hiwalay dito. Gumagamit ng spellchecker ng operating system; ang wikang hindi naka-install doon ay walang sasalungguhitan.",
   "The chosen version, against today’s draft": "Ang napiling bersyon, kumpara sa draft ngayon",
   "The same": "Pareho",
   "1 block differs": "1 block ang naiiba",
@@ -26478,7 +26479,6 @@ const tl = {
   "Use {n} for estimates": "Gamitin ang {n} sa mga pagtaya",
   "Use the copy from disk": "Gamitin ang kopya mula sa disk",
   "Use this folder": "Gamitin ang folder na ito",
-  "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.": "Gumagamit ng spellchecker na nakapaloob sa operating system. Walang sasalungguhitan ang wikang hindi naka-install doon.",
   "Verse": "Bersikulo",
   "Version": "Bersyon",
   "Versions": "Mga bersyon",
@@ -26548,6 +26548,7 @@ const tl = {
   "Zoom out (Ctrl+minus)": "I-zoom out (Ctrl+minus)"
 };
 const id = {
+  "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Mengikuti bahasa di atas bila kamusnya terpasang, dan dapat diatur terpisah di sini. Memakai pemeriksa ejaan bawaan sistem operasi; bahasa yang tidak terpasang di sana tidak akan menggarisbawahi apa pun.",
   "The chosen version, against today’s draft": "Versi yang dipilih, dibandingkan dengan draf hari ini",
   "The same": "Sama",
   "1 block differs": "1 blok berbeda",
@@ -27907,7 +27908,6 @@ const id = {
   "Use {n} for estimates": "Gunakan {n} untuk perkiraan",
   "Use the copy from disk": "Gunakan salinan dari disk",
   "Use this folder": "Gunakan folder ini",
-  "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.": "Menggunakan pemeriksa ejaan bawaan sistem operasi. Bahasa yang tidak terpasang di sana tidak akan menggarisbawahi apa pun.",
   "Verse": "Ayat",
   "Version": "Versi",
   "Versions": "Semua versi",
@@ -27977,6 +27977,7 @@ const id = {
   "Zoom out (Ctrl+minus)": "Perkecil (Ctrl+minus)"
 };
 const ru = {
+  "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Следует за языком выше, если его словарь установлен, и может быть задан отдельно здесь. Использует проверку орфографии операционной системы; язык, который там не установлен, ничего не подчеркнёт.",
   "The chosen version, against today’s draft": "Выбранная версия в сравнении с сегодняшним черновиком",
   "The same": "Без отличий",
   "1 block differs": "1 блок отличается",
@@ -29336,7 +29337,6 @@ const ru = {
   "Use {n} for estimates": "Использовать {n} для оценок",
   "Use the copy from disk": "Взять копию с диска",
   "Use this folder": "Использовать эту папку",
-  "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.": "Использует проверку правописания, встроенную в операционную систему. Язык, который там не установлен, ничего не подчеркнёт.",
   "Verse": "Стих",
   "Version": "Версия",
   "Versions": "Версии",
@@ -29406,6 +29406,7 @@ const ru = {
   "Zoom out (Ctrl+minus)": "Уменьшить (Ctrl+minus)"
 };
 const sw = {
+  "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Hufuata lugha iliyo hapo juu kamusi yake ikiwa imesakinishwa, na inaweza kuwekwa tofauti hapa. Hutumia kikagua tahajia cha mfumo wa uendeshaji; lugha isiyosakinishwa humo haitapigia mstari chochote.",
   "The chosen version, against today’s draft": "Toleo lililochaguliwa, likilinganishwa na rasimu ya leo",
   "The same": "Sawa",
   "1 block differs": "Kipande 1 kinatofautiana",
@@ -30765,7 +30766,6 @@ const sw = {
   "Use {n} for estimates": "Tumia {n} kwa makadirio",
   "Use the copy from disk": "Tumia nakala ya kwenye diski",
   "Use this folder": "Tumia folda hii",
-  "Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything.": "Inatumia kikagua-tahajia kilichojengwa ndani ya mfumo wa uendeshaji. Lugha isiyosakinishwa humo haitapigia mstari chochote.",
   "Verse": "Mstari",
   "Version": "Toleo",
   "Versions": "Matoleo",
@@ -95684,7 +95684,7 @@ function PreferencesWindow({
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: t2("Language"), hint: t2("The words of the app, and the names of the books of the Bible as you type them and as the app writes them back. A reference typed in any language is read."), children: /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "field", "aria-label": t2("Language"), value: app.language, onChange: (event) => updateApp({ language: event.target.value }), children: LANGUAGES.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: entry.code, children: entry.name }, entry.code)) }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: t2("Spelling language"), hint: t2("Uses the spellchecker built into the operating system. A language that is not installed there will not underline anything."), children: /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "field", "aria-label": t2("Spelling language"), value: app.spellingLanguage, onChange: (event) => updateApp({ spellingLanguage: event.target.value }), children: languageOptions.map((code2) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: code2, children: languageName(code2) }, code2)) }) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: t2("Spelling language"), hint: t2("Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything."), children: /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "field", "aria-label": t2("Spelling language"), value: app.spellingLanguage, onChange: (event) => updateApp({ spellingLanguage: event.target.value }), children: languageOptions.map((code2) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: code2, children: languageName(code2) }, code2)) }) })
       ] })
     ] }),
     tab === "folder" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
