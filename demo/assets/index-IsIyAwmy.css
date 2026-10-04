@@ -4675,8 +4675,7 @@ select.field {
 }
 
 .timing-point__note {
-  overflow-wrap: anywhere;
-  min-width: 0;
+  overflow-wrap: normal;
   color: var(--ink-faint);
   font-size: 10.5px;
   line-height: 1.2;
