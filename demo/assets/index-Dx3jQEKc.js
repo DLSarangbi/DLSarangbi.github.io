@@ -21139,14 +21139,14 @@ const de$1 = {
   "Cancel": "Abbrechen",
   "Capitalize Each Word": "Jedes Wort groß",
   "Cards": "Karten",
-  "Case": "Groß-/Kleinschreibung",
+  "Case": "Groß/klein",
   "Centre": "Zentriert",
   "Centre (Ctrl+E)": "Zentriert (Ctrl+E)",
   "ch.": "Kap.",
   "Change a card, find a receipt, or cancel, in your browser.": "Karte ändern, Beleg finden oder kündigen, in Ihrem Browser.",
   "Change block type": "Blocktyp ändern",
   "Change case of the selected words": "Groß-/Kleinschreibung der markierten Wörter ändern",
-  "Change case…": "Groß-/Kleinschreibung ändern…",
+  "Change case…": "Ändern…",
   "Change what this block is": "Ändern, was dieser Block ist",
   "Change where this link goes (Ctrl+K)": "Ändern, wohin dieser Link führt (Ctrl+K)",
   "Change…": "Ändern…",
@@ -87717,17 +87717,19 @@ function useMarginNotes({ editor, writable, report, stageRef }) {
     },
     [editor, report]
   );
+  const anchorFor = reactExports$1.useCallback(
+    (id2) => {
+      const rect = editor.prosemirrorView.dom.querySelector(`.bn-block-outer[data-id="${CSS.escape(id2)}"]`)?.getBoundingClientRect();
+      return rect ? { left: Math.max(8, rect.right - 320), bottom: rect.top } : { left: 100, bottom: 100 };
+    },
+    [editor]
+  );
   const openCard = reactExports$1.useCallback(
     (id2) => {
       const element = editor.prosemirrorView.dom.querySelector(`.bn-block-outer[data-id="${CSS.escape(id2)}"] > .bn-block > .bn-block-content, .bn-block-outer[data-id="${CSS.escape(id2)}"] .bn-block-content`);
-      const rect = element?.getBoundingClientRect();
-      setOpen({
-        id: id2,
-        text: element?.dataset["margin"] ?? "",
-        anchor: rect ? { left: Math.max(8, rect.right - 320), bottom: rect.top } : { left: 100, bottom: 100 }
-      });
+      setOpen({ id: id2, text: element?.dataset["margin"] ?? "", anchor: anchorFor(id2) });
     },
-    [editor]
+    [editor, anchorFor]
   );
   const closeCard = reactExports$1.useCallback(() => setOpen(null), []);
   const clearFocus = reactExports$1.useCallback(() => setFocusId(null), []);
@@ -87755,7 +87757,7 @@ function useMarginNotes({ editor, writable, report, stageRef }) {
     if (note && note.text !== open2.text) setOpen({ ...open2, text: note.text });
     if (!note) setOpen(null);
   }, [placed, open2]);
-  return { placed, focusId, addAtCaret, setNote, remove, open: open2, openCard, closeCard, clearFocus, place };
+  return { placed, focusId, addAtCaret, setNote, remove, open: open2, openCard, anchorFor, closeCard, clearFocus, place };
 }
 const CARD_WIDTH = 200;
 const GAP = 8;
@@ -88239,7 +88241,7 @@ function SermonEditor({
       const id2 = margins.open?.id ?? margins.focusId ?? "";
       const note = margins.placed.find((n2) => n2.id === id2);
       if (!note) return null;
-      const anchor = margins.open?.anchor ?? { left: 100, bottom: 100 };
+      const anchor = margins.open?.anchor ?? margins.anchorFor(id2);
       return /* @__PURE__ */ jsxRuntimeExports.jsx(
         FootnoteCard,
         {

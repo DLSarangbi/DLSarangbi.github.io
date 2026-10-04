@@ -4520,16 +4520,16 @@ select.field {
 }
 
 .insp-row__label {
-  width: 62px;
+  width: 72px;
   color: var(--ink-muted);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   -webkit-hyphens: auto;
   hyphens: auto;
   flex: none;
 }
 
 :root:not([lang="en"]):not([lang="zh"]):not([lang="ja"]):not([lang="ko"]) .insp-row__label {
-  width: 86px;
+  width: 90px;
 }
 
 :root:not([lang="en"]):not([lang="zh"]):not([lang="ja"]):not([lang="ko"]) .inspector .segmented {
