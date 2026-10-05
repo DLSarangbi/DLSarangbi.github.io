@@ -16557,7 +16557,8 @@ const es = {
   "That is not one of this sermon’s kept versions.": "Esa no es una de las versiones guardadas de este sermón.",
   "That recording was not chosen with Transcribe a recording.": "Esa grabación no se eligió con «Transcribir una grabación».",
   "No sermon folder has been chosen yet.": "Todavía no se ha elegido una carpeta de sermones.",
-  "That file is not in the sermon folder.": "Ese archivo no está en la carpeta de sermones."
+  "That file is not in the sermon folder.": "Ese archivo no está en la carpeta de sermones.",
+  "That is not something the app can write.": "Eso no es algo que la aplicación pueda escribir."
 };
 const ko = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "사전이 설치되어 있으면 위의 언어를 따르며, 여기서 따로 설정할 수도 있습니다. 운영 체제에 내장된 맞춤법 검사기를 사용하므로, 설치되지 않은 언어에는 밑줄이 표시되지 않습니다.",
@@ -18001,7 +18002,8 @@ const ko = {
   "That is not one of this sermon’s kept versions.": "이 설교의 보관된 버전이 아닙니다.",
   "That recording was not chosen with Transcribe a recording.": "그 녹음은 “녹음 받아쓰기”로 선택된 것이 아닙니다.",
   "No sermon folder has been chosen yet.": "아직 설교 폴더를 고르지 않았습니다.",
-  "That file is not in the sermon folder.": "그 파일은 설교 폴더에 없습니다."
+  "That file is not in the sermon folder.": "그 파일은 설교 폴더에 없습니다.",
+  "That is not something the app can write.": "앱이 저장할 수 없는 내용입니다."
 };
 const pt$3 = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Segue o idioma acima quando o dicionário dele está instalado, e pode ser definido à parte aqui. Usa o corretor ortográfico do sistema operacional; um idioma que não esteja instalado lá não sublinhará nada.",
@@ -19445,7 +19447,8 @@ const pt$3 = {
   "That is not one of this sermon’s kept versions.": "Essa não é uma das versões guardadas deste sermão.",
   "That recording was not chosen with Transcribe a recording.": "Essa gravação não foi escolhida com «Transcrever uma gravação».",
   "No sermon folder has been chosen yet.": "Ainda não foi escolhida uma pasta de sermões.",
-  "That file is not in the sermon folder.": "Esse ficheiro não está na pasta de sermões."
+  "That file is not in the sermon folder.": "Esse ficheiro não está na pasta de sermões.",
+  "That is not something the app can write.": "Isso não é algo que o aplicativo possa gravar."
 };
 const fr$3 = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Suit la langue ci-dessus quand son dictionnaire est installé, et peut être réglée à part ici. Utilise le correcteur orthographique du système d’exploitation ; une langue qui n’y est pas installée ne soulignera rien.",
@@ -20889,7 +20892,8 @@ const fr$3 = {
   "That is not one of this sermon’s kept versions.": "Ce n’est pas l’une des versions conservées de ce sermon.",
   "That recording was not chosen with Transcribe a recording.": "Cet enregistrement n’a pas été choisi avec « Transcrire un enregistrement ».",
   "No sermon folder has been chosen yet.": "Aucun dossier de sermons n’a encore été choisi.",
-  "That file is not in the sermon folder.": "Ce fichier n’est pas dans le dossier de sermons."
+  "That file is not in the sermon folder.": "Ce fichier n’est pas dans le dossier de sermons.",
+  "That is not something the app can write.": "Ce n’est pas quelque chose que l’application peut écrire."
 };
 const de$1 = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Folgt der Sprache oben, wenn ihr Wörterbuch installiert ist, und lässt sich hier getrennt einstellen. Verwendet die Rechtschreibprüfung des Betriebssystems; eine dort nicht installierte Sprache unterstreicht nichts.",
@@ -22333,7 +22337,8 @@ const de$1 = {
   "That is not one of this sermon’s kept versions.": "Das ist keine der aufbewahrten Fassungen dieser Predigt.",
   "That recording was not chosen with Transcribe a recording.": "Diese Aufnahme wurde nicht über „Eine Aufnahme transkribieren“ gewählt.",
   "No sermon folder has been chosen yet.": "Es wurde noch kein Predigtordner gewählt.",
-  "That file is not in the sermon folder.": "Diese Datei liegt nicht im Predigtordner."
+  "That file is not in the sermon folder.": "Diese Datei liegt nicht im Predigtordner.",
+  "That is not something the app can write.": "Das kann die App nicht schreiben."
 };
 const zh = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "在已安装相应词典时跟随上方的语言，也可在此单独设置。使用操作系统自带的拼写检查；未安装的语言不会标出任何内容。",
@@ -23777,7 +23782,8 @@ const zh = {
   "That is not one of this sermon’s kept versions.": "这不是此讲章保留的版本之一。",
   "That recording was not chosen with Transcribe a recording.": "该录音不是通过“转写录音”选择的。",
   "No sermon folder has been chosen yet.": "尚未选择讲章文件夹。",
-  "That file is not in the sermon folder.": "该文件不在讲章文件夹中。"
+  "That file is not in the sermon folder.": "该文件不在讲章文件夹中。",
+  "That is not something the app can write.": "应用无法写入这项内容。"
 };
 const ja = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "辞書がインストールされていれば上の言語に従い、ここで別に設定することもできます。OSに組み込まれたスペルチェックを使うため、インストールされていない言語には下線が引かれません。",
@@ -25221,7 +25227,8 @@ const ja = {
   "That is not one of this sermon’s kept versions.": "それはこの説教の保存された版ではありません。",
   "That recording was not chosen with Transcribe a recording.": "その録音は「録音を文字起こし」で選ばれたものではありません。",
   "No sermon folder has been chosen yet.": "説教フォルダがまだ選ばれていません。",
-  "That file is not in the sermon folder.": "そのファイルは説教フォルダにありません。"
+  "That file is not in the sermon folder.": "そのファイルは説教フォルダにありません。",
+  "That is not something the app can write.": "これはアプリが書き込めるものではありません。"
 };
 const tl = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Sumusunod sa wikang nasa itaas kapag naka-install ang diksyunaryo nito, at maaaring itakda nang hiwalay dito. Gumagamit ng spellchecker ng operating system; ang wikang hindi naka-install doon ay walang sasalungguhitan.",
@@ -26665,7 +26672,8 @@ const tl = {
   "That is not one of this sermon’s kept versions.": "Hindi iyon isa sa mga itinabing bersyon ng sermong ito.",
   "That recording was not chosen with Transcribe a recording.": "Hindi pinili ang recording na iyon sa pamamagitan ng I-transcribe ang recording.",
   "No sermon folder has been chosen yet.": "Wala pang napipiling folder ng mga sermon.",
-  "That file is not in the sermon folder.": "Wala sa folder ng mga sermon ang file na iyon."
+  "That file is not in the sermon folder.": "Wala sa folder ng mga sermon ang file na iyon.",
+  "That is not something the app can write.": "Hindi iyan maisusulat ng app."
 };
 const id = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Mengikuti bahasa di atas bila kamusnya terpasang, dan dapat diatur terpisah di sini. Memakai pemeriksa ejaan bawaan sistem operasi; bahasa yang tidak terpasang di sana tidak akan menggarisbawahi apa pun.",
@@ -28109,7 +28117,8 @@ const id = {
   "That is not one of this sermon’s kept versions.": "Itu bukan salah satu versi tersimpan dari khotbah ini.",
   "That recording was not chosen with Transcribe a recording.": "Rekaman itu tidak dipilih lewat Transkripsikan rekaman.",
   "No sermon folder has been chosen yet.": "Folder khotbah belum dipilih.",
-  "That file is not in the sermon folder.": "Berkas itu tidak ada di folder khotbah."
+  "That file is not in the sermon folder.": "Berkas itu tidak ada di folder khotbah.",
+  "That is not something the app can write.": "Itu bukan sesuatu yang dapat ditulis aplikasi."
 };
 const ru = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Следует за языком выше, если его словарь установлен, и может быть задан отдельно здесь. Использует проверку орфографии операционной системы; язык, который там не установлен, ничего не подчеркнёт.",
@@ -29553,7 +29562,8 @@ const ru = {
   "That is not one of this sermon’s kept versions.": "Это не одна из сохранённых версий этой проповеди.",
   "That recording was not chosen with Transcribe a recording.": "Эта запись не была выбрана через «Расшифровать запись».",
   "No sermon folder has been chosen yet.": "Папка проповедей ещё не выбрана.",
-  "That file is not in the sermon folder.": "Этот файл не в папке проповедей."
+  "That file is not in the sermon folder.": "Этот файл не в папке проповедей.",
+  "That is not something the app can write.": "Это не то, что приложение может записать."
 };
 const sw = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Hufuata lugha iliyo hapo juu kamusi yake ikiwa imesakinishwa, na inaweza kuwekwa tofauti hapa. Hutumia kikagua tahajia cha mfumo wa uendeshaji; lugha isiyosakinishwa humo haitapigia mstari chochote.",
@@ -30997,7 +31007,8 @@ const sw = {
   "That is not one of this sermon’s kept versions.": "Hiyo si mojawapo ya matoleo yaliyohifadhiwa ya hubiri hili.",
   "That recording was not chosen with Transcribe a recording.": "Rekodi hiyo haikuchaguliwa kupitia Nakili rekodi.",
   "No sermon folder has been chosen yet.": "Hakuna folda ya mahubiri iliyochaguliwa bado.",
-  "That file is not in the sermon folder.": "Faili hiyo haimo kwenye folda ya mahubiri."
+  "That file is not in the sermon folder.": "Faili hiyo haimo kwenye folda ya mahubiri.",
+  "That is not something the app can write.": "Hicho si kitu ambacho programu inaweza kuandika."
 };
 const TABLES = { en: {}, es, ko, pt: pt$3, fr: fr$3, de: de$1, zh, ja, tl, id, ru, sw };
 function fill(text, vars) {
