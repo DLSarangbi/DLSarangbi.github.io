@@ -15582,7 +15582,11 @@ const es = {
   "Expository": "Expositivo",
   "Fast": "Rápido",
   "Fetching the voice, {percent}%…": "Descargando la voz, {percent}%…",
-  "Fetching the voice, 76 MB, once…": "Descargando la voz, 76 MB, una sola vez…",
+  "Fetching the voice, {size}, once…": "Descargando la voz, {size}, una sola vez…",
+  "Dictation voice": "Voz para dictar",
+  "Quicker": "Más rápida",
+  "Finer": "Más fina",
+  "Finer hears Chinese, Japanese and Korean far better and the rest a little; it is {fine} to fetch instead of {quick}, and about half the speed. Chinese, Japanese and Korean start on it.": "La más fina oye mucho mejor el chino, el japonés y el coreano, y un poco mejor los demás; ocupa {fine} de descarga en lugar de {quick} y va a la mitad de velocidad. El chino, el japonés y el coreano empiezan con ella.",
   "Fifth point": "Quinto punto",
   "File": "Archivo",
   "Fill in the blanks": "Rellenar los espacios",
@@ -16165,7 +16169,8 @@ const es = {
   "Saved to {path}": "Guardado en {path}",
   "Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).": "Guardado. El sermón se guarda solo un momento después de cada cambio; pulsa para guardarlo de nuevo (Ctrl+S).",
   "Saving…": "Guardando…",
-  "say “new paragraph”, “new point”, “full stop”": "di “new paragraph”, “new point”, “full stop”",
+  "say {commands}": "di {commands}",
+  "This voice hears {language}. English has its own, fetched the same way when English is chosen.": "Esta voz escucha {language}. El inglés tiene la suya, que se descarga del mismo modo cuando se elige inglés.",
   "saying “{text}”": "diciendo “{text}”",
   "Scope": "Alcance",
   "Screen": "Pantalla",
@@ -16542,7 +16547,17 @@ const es = {
   "Zoom in": "Acercar",
   "Zoom in (Ctrl+plus)": "Acercar (Ctrl+plus)",
   "Zoom out": "Alejar",
-  "Zoom out (Ctrl+minus)": "Alejar (Ctrl+minus)"
+  "Zoom out (Ctrl+minus)": "Alejar (Ctrl+minus)",
+  "The voice is not ready.": "La voz no está lista.",
+  "That file is not a picture the app can show.": "Ese archivo no es una imagen que la app pueda mostrar.",
+  "That is not a kind of picture the app can show.": "Ese tipo de imagen no se puede mostrar en la app.",
+  "That is the folder the sermons are in already.": "Esa ya es la carpeta donde están los sermones.",
+  "The new folder cannot be inside the current one.": "La nueva carpeta no puede estar dentro de la actual.",
+  "A tag needs a name.": "Una etiqueta necesita un nombre.",
+  "That is not one of this sermon’s kept versions.": "Esa no es una de las versiones guardadas de este sermón.",
+  "That recording was not chosen with Transcribe a recording.": "Esa grabación no se eligió con «Transcribir una grabación».",
+  "No sermon folder has been chosen yet.": "Todavía no se ha elegido una carpeta de sermones.",
+  "That file is not in the sermon folder.": "Ese archivo no está en la carpeta de sermones."
 };
 const ko = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "사전이 설치되어 있으면 위의 언어를 따르며, 여기서 따로 설정할 수도 있습니다. 운영 체제에 내장된 맞춤법 검사기를 사용하므로, 설치되지 않은 언어에는 밑줄이 표시되지 않습니다.",
@@ -17011,7 +17026,11 @@ const ko = {
   "Expository": "강해",
   "Fast": "빠르게",
   "Fetching the voice, {percent}%…": "음성 모델 가져오는 중, {percent}%…",
-  "Fetching the voice, 76 MB, once…": "음성 모델 가져오는 중, 76 MB, 한 번만…",
+  "Fetching the voice, {size}, once…": "음성 모델 가져오는 중, {size}, 한 번만…",
+  "Dictation voice": "받아쓰기 음성",
+  "Quicker": "빠른",
+  "Finer": "정밀한",
+  "Finer hears Chinese, Japanese and Korean far better and the rest a little; it is {fine} to fetch instead of {quick}, and about half the speed. Chinese, Japanese and Korean start on it.": "정밀한 음성은 중국어, 일본어, 한국어를 훨씬 잘 알아듣고 다른 언어도 조금 더 잘 알아듣습니다. 받는 용량은 {quick} 대신 {fine}이고 속도는 절반 정도입니다. 중국어, 일본어, 한국어는 처음부터 이 음성을 씁니다.",
   "Fifth point": "다섯째 대지",
   "File": "파일",
   "Fill in the blanks": "빈칸 채우기",
@@ -17594,7 +17613,8 @@ const ko = {
   "Saved to {path}": "{path}에 저장했습니다",
   "Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).": "저장됨. 설교는 변경 직후 자동으로 저장됩니다. 누르면 다시 저장합니다 (Ctrl+S).",
   "Saving…": "저장 중…",
-  "say “new paragraph”, “new point”, “full stop”": "“new paragraph”, “new point”, “full stop”이라고 말하세요",
+  "say {commands}": "{commands}이라고 말하세요",
+  "This voice hears {language}. English has its own, fetched the same way when English is chosen.": "이 음성은 {language}를 듣습니다. 영어에는 전용 음성이 있으며, 영어를 선택하면 같은 방식으로 받습니다.",
   "saying “{text}”": "“{text}”라고 말하기",
   "Scope": "범위",
   "Screen": "화면",
@@ -17971,7 +17991,17 @@ const ko = {
   "Zoom in": "확대",
   "Zoom in (Ctrl+plus)": "확대 (Ctrl+plus)",
   "Zoom out": "축소",
-  "Zoom out (Ctrl+minus)": "축소 (Ctrl+minus)"
+  "Zoom out (Ctrl+minus)": "축소 (Ctrl+minus)",
+  "The voice is not ready.": "음성이 아직 준비되지 않았습니다.",
+  "That file is not a picture the app can show.": "그 파일은 앱이 표시할 수 있는 그림이 아닙니다.",
+  "That is not a kind of picture the app can show.": "앱이 표시할 수 없는 종류의 그림입니다.",
+  "That is the folder the sermons are in already.": "그 폴더는 이미 설교가 들어 있는 폴더입니다.",
+  "The new folder cannot be inside the current one.": "새 폴더는 현재 폴더 안에 있을 수 없습니다.",
+  "A tag needs a name.": "태그에는 이름이 필요합니다.",
+  "That is not one of this sermon’s kept versions.": "이 설교의 보관된 버전이 아닙니다.",
+  "That recording was not chosen with Transcribe a recording.": "그 녹음은 “녹음 받아쓰기”로 선택된 것이 아닙니다.",
+  "No sermon folder has been chosen yet.": "아직 설교 폴더를 고르지 않았습니다.",
+  "That file is not in the sermon folder.": "그 파일은 설교 폴더에 없습니다."
 };
 const pt$3 = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Segue o idioma acima quando o dicionário dele está instalado, e pode ser definido à parte aqui. Usa o corretor ortográfico do sistema operacional; um idioma que não esteja instalado lá não sublinhará nada.",
@@ -18440,7 +18470,11 @@ const pt$3 = {
   "Expository": "Expositivo",
   "Fast": "Rápido",
   "Fetching the voice, {percent}%…": "Baixando a voz, {percent}%…",
-  "Fetching the voice, 76 MB, once…": "Baixando a voz, 76 MB, uma vez…",
+  "Fetching the voice, {size}, once…": "Baixando a voz, {size}, uma vez…",
+  "Dictation voice": "Voz para ditar",
+  "Quicker": "Mais rápida",
+  "Finer": "Mais fina",
+  "Finer hears Chinese, Japanese and Korean far better and the rest a little; it is {fine} to fetch instead of {quick}, and about half the speed. Chinese, Japanese and Korean start on it.": "A mais fina ouve muito melhor chinês, japonês e coreano, e um pouco melhor os demais; são {fine} para obter em vez de {quick}, a cerca de metade da velocidade. Chinês, japonês e coreano começam com ela.",
   "Fifth point": "Quinto ponto",
   "File": "Arquivo",
   "Fill in the blanks": "Preencha as lacunas",
@@ -19023,7 +19057,8 @@ const pt$3 = {
   "Saved to {path}": "Salvo em {path}",
   "Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).": "Salvo. O sermão se salva sozinho um instante após cada alteração; pressione para salvá-lo de novo (Ctrl+S).",
   "Saving…": "Salvando…",
-  "say “new paragraph”, “new point”, “full stop”": "diga “new paragraph”, “new point”, “full stop”",
+  "say {commands}": "diga {commands}",
+  "This voice hears {language}. English has its own, fetched the same way when English is chosen.": "Esta voz ouve {language}. O inglês tem a sua, obtida do mesmo modo quando o inglês é escolhido.",
   "saying “{text}”": "dizendo “{text}”",
   "Scope": "Escopo",
   "Screen": "Tela",
@@ -19400,7 +19435,17 @@ const pt$3 = {
   "Zoom in": "Ampliar",
   "Zoom in (Ctrl+plus)": "Ampliar (Ctrl+plus)",
   "Zoom out": "Reduzir",
-  "Zoom out (Ctrl+minus)": "Reduzir (Ctrl+minus)"
+  "Zoom out (Ctrl+minus)": "Reduzir (Ctrl+minus)",
+  "The voice is not ready.": "A voz não está pronta.",
+  "That file is not a picture the app can show.": "Esse ficheiro não é uma imagem que a app consiga mostrar.",
+  "That is not a kind of picture the app can show.": "Esse tipo de imagem não pode ser mostrado na app.",
+  "That is the folder the sermons are in already.": "Essa já é a pasta onde os sermões estão.",
+  "The new folder cannot be inside the current one.": "A nova pasta não pode estar dentro da atual.",
+  "A tag needs a name.": "Uma etiqueta precisa de um nome.",
+  "That is not one of this sermon’s kept versions.": "Essa não é uma das versões guardadas deste sermão.",
+  "That recording was not chosen with Transcribe a recording.": "Essa gravação não foi escolhida com «Transcrever uma gravação».",
+  "No sermon folder has been chosen yet.": "Ainda não foi escolhida uma pasta de sermões.",
+  "That file is not in the sermon folder.": "Esse ficheiro não está na pasta de sermões."
 };
 const fr$3 = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Suit la langue ci-dessus quand son dictionnaire est installé, et peut être réglée à part ici. Utilise le correcteur orthographique du système d’exploitation ; une langue qui n’y est pas installée ne soulignera rien.",
@@ -19869,7 +19914,11 @@ const fr$3 = {
   "Expository": "Expositif",
   "Fast": "Rapide",
   "Fetching the voice, {percent}%…": "Récupération de la voix, {percent} %…",
-  "Fetching the voice, 76 MB, once…": "Récupération de la voix, 76 Mo, une seule fois…",
+  "Fetching the voice, {size}, once…": "Récupération de la voix, {size}, une seule fois…",
+  "Dictation voice": "Voix de dictée",
+  "Quicker": "Plus rapide",
+  "Finer": "Plus fine",
+  "Finer hears Chinese, Japanese and Korean far better and the rest a little; it is {fine} to fetch instead of {quick}, and about half the speed. Chinese, Japanese and Korean start on it.": "La plus fine entend bien mieux le chinois, le japonais et le coréen, et un peu mieux les autres ; elle pèse {fine} à télécharger au lieu de {quick}, pour environ la moitié de la vitesse. Le chinois, le japonais et le coréen commencent avec elle.",
   "Fifth point": "Cinquième point",
   "File": "Fichier",
   "Fill in the blanks": "Texte à trous",
@@ -20452,7 +20501,8 @@ const fr$3 = {
   "Saved to {path}": "Enregistré dans {path}",
   "Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).": "Enregistré. Le sermon s’enregistre de lui-même un instant après chaque modification ; appuyez pour l’enregistrer à nouveau (Ctrl+S).",
   "Saving…": "Enregistrement…",
-  "say “new paragraph”, “new point”, “full stop”": "dites “new paragraph”, “new point”, “full stop”",
+  "say {commands}": "dites {commands}",
+  "This voice hears {language}. English has its own, fetched the same way when English is chosen.": "Cette voix entend {language}. L’anglais a la sienne, téléchargée de la même façon quand l’anglais est choisi.",
   "saying “{text}”": "en disant « {text} »",
   "Scope": "Portée",
   "Screen": "Écran",
@@ -20829,7 +20879,17 @@ const fr$3 = {
   "Zoom in": "Agrandir",
   "Zoom in (Ctrl+plus)": "Agrandir (Ctrl+plus)",
   "Zoom out": "Réduire",
-  "Zoom out (Ctrl+minus)": "Réduire (Ctrl+minus)"
+  "Zoom out (Ctrl+minus)": "Réduire (Ctrl+minus)",
+  "The voice is not ready.": "La voix n’est pas prête.",
+  "That file is not a picture the app can show.": "Ce fichier n’est pas une image que l’app peut afficher.",
+  "That is not a kind of picture the app can show.": "Ce type d’image ne peut pas être affiché dans l’app.",
+  "That is the folder the sermons are in already.": "C’est déjà le dossier où se trouvent les sermons.",
+  "The new folder cannot be inside the current one.": "Le nouveau dossier ne peut pas se trouver dans l’actuel.",
+  "A tag needs a name.": "Une étiquette a besoin d’un nom.",
+  "That is not one of this sermon’s kept versions.": "Ce n’est pas l’une des versions conservées de ce sermon.",
+  "That recording was not chosen with Transcribe a recording.": "Cet enregistrement n’a pas été choisi avec « Transcrire un enregistrement ».",
+  "No sermon folder has been chosen yet.": "Aucun dossier de sermons n’a encore été choisi.",
+  "That file is not in the sermon folder.": "Ce fichier n’est pas dans le dossier de sermons."
 };
 const de$1 = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Folgt der Sprache oben, wenn ihr Wörterbuch installiert ist, und lässt sich hier getrennt einstellen. Verwendet die Rechtschreibprüfung des Betriebssystems; eine dort nicht installierte Sprache unterstreicht nichts.",
@@ -21298,7 +21358,11 @@ const de$1 = {
   "Expository": "Auslegung",
   "Fast": "Schnell",
   "Fetching the voice, {percent}%…": "Die Stimme wird geladen, {percent} %…",
-  "Fetching the voice, 76 MB, once…": "Die Stimme wird geladen, 76 MB, einmalig…",
+  "Fetching the voice, {size}, once…": "Die Stimme wird geladen, {size}, einmalig…",
+  "Dictation voice": "Stimme fürs Diktat",
+  "Quicker": "Schneller",
+  "Finer": "Feiner",
+  "Finer hears Chinese, Japanese and Korean far better and the rest a little; it is {fine} to fetch instead of {quick}, and about half the speed. Chinese, Japanese and Korean start on it.": "Die feinere hört Chinesisch, Japanisch und Koreanisch viel besser und die übrigen etwas besser; sie lädt {fine} statt {quick} und ist etwa halb so schnell. Chinesisch, Japanisch und Koreanisch beginnen mit ihr.",
   "Fifth point": "Fünfter Punkt",
   "File": "Datei",
   "Fill in the blanks": "Lückentext",
@@ -21881,7 +21945,8 @@ const de$1 = {
   "Saved to {path}": "Gesichert in {path}",
   "Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).": "Gesichert. Die Predigt sichert sich einen Augenblick nach jeder Änderung von selbst; drücken, um sie erneut zu sichern (Ctrl+S).",
   "Saving…": "Wird gesichert…",
-  "say “new paragraph”, “new point”, “full stop”": "sagen Sie “new paragraph”, “new point”, “full stop”",
+  "say {commands}": "sagen Sie {commands}",
+  "This voice hears {language}. English has its own, fetched the same way when English is chosen.": "Diese Stimme hört {language}. Englisch hat seine eigene, die auf dieselbe Weise geladen wird, wenn Englisch gewählt ist.",
   "saying “{text}”": "mit „{text}“",
   "Scope": "Bereich",
   "Screen": "Bildschirm",
@@ -22258,7 +22323,17 @@ const de$1 = {
   "Zoom in": "Vergrößern",
   "Zoom in (Ctrl+plus)": "Vergrößern (Ctrl+plus)",
   "Zoom out": "Verkleinern",
-  "Zoom out (Ctrl+minus)": "Verkleinern (Ctrl+minus)"
+  "Zoom out (Ctrl+minus)": "Verkleinern (Ctrl+minus)",
+  "The voice is not ready.": "Die Stimme ist nicht bereit.",
+  "That file is not a picture the app can show.": "Diese Datei ist kein Bild, das die App anzeigen kann.",
+  "That is not a kind of picture the app can show.": "Diese Art Bild kann die App nicht anzeigen.",
+  "That is the folder the sermons are in already.": "Das ist bereits der Ordner, in dem die Predigten liegen.",
+  "The new folder cannot be inside the current one.": "Der neue Ordner darf nicht im bisherigen liegen.",
+  "A tag needs a name.": "Ein Tag braucht einen Namen.",
+  "That is not one of this sermon’s kept versions.": "Das ist keine der aufbewahrten Fassungen dieser Predigt.",
+  "That recording was not chosen with Transcribe a recording.": "Diese Aufnahme wurde nicht über „Eine Aufnahme transkribieren“ gewählt.",
+  "No sermon folder has been chosen yet.": "Es wurde noch kein Predigtordner gewählt.",
+  "That file is not in the sermon folder.": "Diese Datei liegt nicht im Predigtordner."
 };
 const zh = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "在已安装相应词典时跟随上方的语言，也可在此单独设置。使用操作系统自带的拼写检查；未安装的语言不会标出任何内容。",
@@ -22727,7 +22802,11 @@ const zh = {
   "Expository": "释经式",
   "Fast": "快",
   "Fetching the voice, {percent}%…": "正在获取语音模型，{percent}%…",
-  "Fetching the voice, 76 MB, once…": "正在获取语音模型，76 MB，仅此一次…",
+  "Fetching the voice, {size}, once…": "正在获取语音模型，{size}，仅此一次…",
+  "Dictation voice": "听写语音",
+  "Quicker": "更快",
+  "Finer": "更准",
+  "Finer hears Chinese, Japanese and Korean far better and the rest a little; it is {fine} to fetch instead of {quick}, and about half the speed. Chinese, Japanese and Korean start on it.": "更准的语音对中文、日语和韩语的识别好得多，对其他语言也略好；下载 {fine} 而不是 {quick}，速度约为一半。中文、日语和韩语默认使用它。",
   "Fifth point": "第五要点",
   "File": "文件",
   "Fill in the blanks": "填空",
@@ -23310,7 +23389,8 @@ const zh = {
   "Saved to {path}": "已保存到{path}",
   "Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).": "已保存。每次更改后讲章会稍后自动保存；按一下可再次保存 (Ctrl+S)。",
   "Saving…": "正在保存…",
-  "say “new paragraph”, “new point”, “full stop”": "说“new paragraph”、“new point”、“full stop”",
+  "say {commands}": "说{commands}",
+  "This voice hears {language}. English has its own, fetched the same way when English is chosen.": "这个语音听{language}。英语有自己的语音，选择英语时以同样方式获取。",
   "saying “{text}”": "说“{text}”",
   "Scope": "范围",
   "Screen": "屏幕",
@@ -23687,7 +23767,17 @@ const zh = {
   "Zoom in": "放大",
   "Zoom in (Ctrl+plus)": "放大 (Ctrl+plus)",
   "Zoom out": "缩小",
-  "Zoom out (Ctrl+minus)": "缩小 (Ctrl+minus)"
+  "Zoom out (Ctrl+minus)": "缩小 (Ctrl+minus)",
+  "The voice is not ready.": "语音尚未就绪。",
+  "That file is not a picture the app can show.": "该文件不是应用能显示的图片。",
+  "That is not a kind of picture the app can show.": "应用无法显示这种类型的图片。",
+  "That is the folder the sermons are in already.": "讲章已经在那个文件夹里了。",
+  "The new folder cannot be inside the current one.": "新文件夹不能位于当前文件夹内。",
+  "A tag needs a name.": "标签需要一个名称。",
+  "That is not one of this sermon’s kept versions.": "这不是此讲章保留的版本之一。",
+  "That recording was not chosen with Transcribe a recording.": "该录音不是通过“转写录音”选择的。",
+  "No sermon folder has been chosen yet.": "尚未选择讲章文件夹。",
+  "That file is not in the sermon folder.": "该文件不在讲章文件夹中。"
 };
 const ja = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "辞書がインストールされていれば上の言語に従い、ここで別に設定することもできます。OSに組み込まれたスペルチェックを使うため、インストールされていない言語には下線が引かれません。",
@@ -24156,7 +24246,11 @@ const ja = {
   "Expository": "講解説教",
   "Fast": "速い",
   "Fetching the voice, {percent}%…": "音声モデルを取得中、{percent}%…",
-  "Fetching the voice, 76 MB, once…": "音声モデルを取得中、76 MB、一度だけ…",
+  "Fetching the voice, {size}, once…": "音声モデルを取得中、{size}、一度だけ…",
+  "Dictation voice": "口述の音声",
+  "Quicker": "速い",
+  "Finer": "精細",
+  "Finer hears Chinese, Japanese and Korean far better and the rest a little; it is {fine} to fetch instead of {quick}, and about half the speed. Chinese, Japanese and Korean start on it.": "精細な音声は中国語・日本語・韓国語をはるかによく聞き取り、他の言語も少し良くなります。取得は {quick} ではなく {fine} で、速度は約半分です。中国語・日本語・韓国語は最初からこちらを使います。",
   "Fifth point": "第5ポイント",
   "File": "ファイル",
   "Fill in the blanks": "穴埋め",
@@ -24739,7 +24833,8 @@ const ja = {
   "Saved to {path}": "{path}に保存しました",
   "Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).": "保存済みです。説教は変更のたびに少し置いて自動で保存されます。押すともう一度保存します (Ctrl+S)。",
   "Saving…": "保存中…",
-  "say “new paragraph”, “new point”, “full stop”": "“new paragraph”、“new point”、“full stop” と言う",
+  "say {commands}": "{commands} と言う",
+  "This voice hears {language}. English has its own, fetched the same way when English is chosen.": "この音声は{language}を聞き取ります。英語には専用の音声があり、英語を選ぶと同じように取得されます。",
   "saying “{text}”": "「{text}」と発声",
   "Scope": "範囲",
   "Screen": "画面",
@@ -25116,7 +25211,17 @@ const ja = {
   "Zoom in": "拡大",
   "Zoom in (Ctrl+plus)": "拡大 (Ctrl+plus)",
   "Zoom out": "縮小",
-  "Zoom out (Ctrl+minus)": "縮小 (Ctrl+minus)"
+  "Zoom out (Ctrl+minus)": "縮小 (Ctrl+minus)",
+  "The voice is not ready.": "音声の準備ができていません。",
+  "That file is not a picture the app can show.": "そのファイルはアプリで表示できる画像ではありません。",
+  "That is not a kind of picture the app can show.": "その種類の画像はアプリで表示できません。",
+  "That is the folder the sermons are in already.": "それはすでに説教が入っているフォルダです。",
+  "The new folder cannot be inside the current one.": "新しいフォルダを現在のフォルダの中に置くことはできません。",
+  "A tag needs a name.": "タグには名前が必要です。",
+  "That is not one of this sermon’s kept versions.": "それはこの説教の保存された版ではありません。",
+  "That recording was not chosen with Transcribe a recording.": "その録音は「録音を文字起こし」で選ばれたものではありません。",
+  "No sermon folder has been chosen yet.": "説教フォルダがまだ選ばれていません。",
+  "That file is not in the sermon folder.": "そのファイルは説教フォルダにありません。"
 };
 const tl = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Sumusunod sa wikang nasa itaas kapag naka-install ang diksyunaryo nito, at maaaring itakda nang hiwalay dito. Gumagamit ng spellchecker ng operating system; ang wikang hindi naka-install doon ay walang sasalungguhitan.",
@@ -25585,7 +25690,11 @@ const tl = {
   "Expository": "Ekspositori",
   "Fast": "Mabilis",
   "Fetching the voice, {percent}%…": "Kinukuha ang boses, {percent}%…",
-  "Fetching the voice, 76 MB, once…": "Kinukuha ang boses, 76 MB, isang beses…",
+  "Fetching the voice, {size}, once…": "Kinukuha ang boses, {size}, isang beses…",
+  "Dictation voice": "Boses sa pagdidikta",
+  "Quicker": "Mas mabilis",
+  "Finer": "Mas pino",
+  "Finer hears Chinese, Japanese and Korean far better and the rest a little; it is {fine} to fetch instead of {quick}, and about half the speed. Chinese, Japanese and Korean start on it.": "Mas malinaw na naririnig ng mas pino ang Tsino, Hapon, at Koreano, at bahagyang mas malinaw ang iba; {fine} ang kukunin sa halip na {quick}, at halos kalahati ng bilis. Nagsisimula rito ang Tsino, Hapon, at Koreano.",
   "Fifth point": "Ikalimang punto",
   "File": "File",
   "Fill in the blanks": "Punan ang mga blangko",
@@ -26168,7 +26277,8 @@ const tl = {
   "Saved to {path}": "Na-save sa {path}",
   "Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).": "Na-save. Kusang nagse-save ang sermon ilang sandali matapos ang bawat pagbabago; pindutin para i-save itong muli (Ctrl+S).",
   "Saving…": "Nagse-save…",
-  "say “new paragraph”, “new point”, “full stop”": "sabihin ang “new paragraph”, “new point”, “full stop”",
+  "say {commands}": "sabihin ang {commands}",
+  "This voice hears {language}. English has its own, fetched the same way when English is chosen.": "Naririnig ng boses na ito ang {language}. May sarili ang Ingles, na kinukuha sa parehong paraan kapag Ingles ang pinili.",
   "saying “{text}”": "sinasabi ang “{text}”",
   "Scope": "Saklaw",
   "Screen": "Screen",
@@ -26545,7 +26655,17 @@ const tl = {
   "Zoom in": "I-zoom in",
   "Zoom in (Ctrl+plus)": "I-zoom in (Ctrl+plus)",
   "Zoom out": "I-zoom out",
-  "Zoom out (Ctrl+minus)": "I-zoom out (Ctrl+minus)"
+  "Zoom out (Ctrl+minus)": "I-zoom out (Ctrl+minus)",
+  "The voice is not ready.": "Hindi pa handa ang boses.",
+  "That file is not a picture the app can show.": "Hindi larawang maipapakita ng app ang file na iyon.",
+  "That is not a kind of picture the app can show.": "Hindi maipapakita ng app ang ganoong uri ng larawan.",
+  "That is the folder the sermons are in already.": "Iyon na ang folder kung nasaan ang mga sermon.",
+  "The new folder cannot be inside the current one.": "Hindi maaaring nasa loob ng kasalukuyang folder ang bagong folder.",
+  "A tag needs a name.": "Kailangan ng pangalan ang tag.",
+  "That is not one of this sermon’s kept versions.": "Hindi iyon isa sa mga itinabing bersyon ng sermong ito.",
+  "That recording was not chosen with Transcribe a recording.": "Hindi pinili ang recording na iyon sa pamamagitan ng I-transcribe ang recording.",
+  "No sermon folder has been chosen yet.": "Wala pang napipiling folder ng mga sermon.",
+  "That file is not in the sermon folder.": "Wala sa folder ng mga sermon ang file na iyon."
 };
 const id = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Mengikuti bahasa di atas bila kamusnya terpasang, dan dapat diatur terpisah di sini. Memakai pemeriksa ejaan bawaan sistem operasi; bahasa yang tidak terpasang di sana tidak akan menggarisbawahi apa pun.",
@@ -27014,7 +27134,11 @@ const id = {
   "Expository": "Ekspositori",
   "Fast": "Cepat",
   "Fetching the voice, {percent}%…": "Mengambil model suara, {percent}%…",
-  "Fetching the voice, 76 MB, once…": "Mengambil model suara, 76 MB, sekali saja…",
+  "Fetching the voice, {size}, once…": "Mengambil model suara, {size}, sekali saja…",
+  "Dictation voice": "Suara dikte",
+  "Quicker": "Lebih cepat",
+  "Finer": "Lebih halus",
+  "Finer hears Chinese, Japanese and Korean far better and the rest a little; it is {fine} to fetch instead of {quick}, and about half the speed. Chinese, Japanese and Korean start on it.": "Yang lebih halus mendengar bahasa Tionghoa, Jepang, dan Korea jauh lebih baik, dan yang lain sedikit lebih baik; unduhannya {fine} alih-alih {quick}, dengan kecepatan sekitar setengahnya. Bahasa Tionghoa, Jepang, dan Korea mulai dengannya.",
   "Fifth point": "Poin kelima",
   "File": "Berkas",
   "Fill in the blanks": "Isi titik-titik",
@@ -27597,7 +27721,8 @@ const id = {
   "Saved to {path}": "Tersimpan ke {path}",
   "Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).": "Tersimpan. Khotbah tersimpan sendiri sesaat setelah setiap perubahan; tekan untuk menyimpannya lagi (Ctrl+S).",
   "Saving…": "Menyimpan…",
-  "say “new paragraph”, “new point”, “full stop”": "ucapkan “new paragraph”, “new point”, “full stop”",
+  "say {commands}": "ucapkan {commands}",
+  "This voice hears {language}. English has its own, fetched the same way when English is chosen.": "Suara ini mendengar {language}. Bahasa Inggris punya suaranya sendiri, diunduh dengan cara yang sama saat bahasa Inggris dipilih.",
   "saying “{text}”": "mengucapkan “{text}”",
   "Scope": "Cakupan",
   "Screen": "Layar",
@@ -27974,7 +28099,17 @@ const id = {
   "Zoom in": "Perbesar",
   "Zoom in (Ctrl+plus)": "Perbesar (Ctrl+plus)",
   "Zoom out": "Perkecil",
-  "Zoom out (Ctrl+minus)": "Perkecil (Ctrl+minus)"
+  "Zoom out (Ctrl+minus)": "Perkecil (Ctrl+minus)",
+  "The voice is not ready.": "Suara belum siap.",
+  "That file is not a picture the app can show.": "Berkas itu bukan gambar yang bisa ditampilkan aplikasi.",
+  "That is not a kind of picture the app can show.": "Jenis gambar itu tidak bisa ditampilkan aplikasi.",
+  "That is the folder the sermons are in already.": "Itu sudah folder tempat khotbah berada.",
+  "The new folder cannot be inside the current one.": "Folder baru tidak boleh berada di dalam folder saat ini.",
+  "A tag needs a name.": "Tag perlu nama.",
+  "That is not one of this sermon’s kept versions.": "Itu bukan salah satu versi tersimpan dari khotbah ini.",
+  "That recording was not chosen with Transcribe a recording.": "Rekaman itu tidak dipilih lewat Transkripsikan rekaman.",
+  "No sermon folder has been chosen yet.": "Folder khotbah belum dipilih.",
+  "That file is not in the sermon folder.": "Berkas itu tidak ada di folder khotbah."
 };
 const ru = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Следует за языком выше, если его словарь установлен, и может быть задан отдельно здесь. Использует проверку орфографии операционной системы; язык, который там не установлен, ничего не подчеркнёт.",
@@ -28443,7 +28578,11 @@ const ru = {
   "Expository": "Экспозиционная",
   "Fast": "Быстро",
   "Fetching the voice, {percent}%…": "Загрузка голосовой модели, {percent}%…",
-  "Fetching the voice, 76 MB, once…": "Загрузка голосовой модели, 76 МБ, один раз…",
+  "Fetching the voice, {size}, once…": "Загрузка голосовой модели, {size}, один раз…",
+  "Dictation voice": "Голос для диктовки",
+  "Quicker": "Быстрее",
+  "Finer": "Точнее",
+  "Finer hears Chinese, Japanese and Korean far better and the rest a little; it is {fine} to fetch instead of {quick}, and about half the speed. Chinese, Japanese and Korean start on it.": "Точный голос гораздо лучше слышит китайский, японский и корейский и немного лучше остальные; он занимает {fine} вместо {quick} и работает примерно вдвое медленнее. Китайский, японский и корейский начинают с него.",
   "Fifth point": "Пятый пункт",
   "File": "Файл",
   "Fill in the blanks": "Заполнить пропуски",
@@ -29026,7 +29165,8 @@ const ru = {
   "Saved to {path}": "Сохранено в {path}",
   "Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).": "Сохранено. Проповедь сохраняется сама через мгновение после каждого изменения; нажмите, чтобы сохранить её ещё раз (Ctrl+S).",
   "Saving…": "Сохранение…",
-  "say “new paragraph”, “new point”, “full stop”": "скажите “new paragraph”, “new point”, “full stop”",
+  "say {commands}": "скажите {commands}",
+  "This voice hears {language}. English has its own, fetched the same way when English is chosen.": "Этот голос слышит {language}. У английского свой, он загружается так же, когда выбран английский.",
   "saying “{text}”": "говоря «{text}»",
   "Scope": "Область",
   "Screen": "Экран",
@@ -29403,7 +29543,17 @@ const ru = {
   "Zoom in": "Увеличить",
   "Zoom in (Ctrl+plus)": "Увеличить (Ctrl+plus)",
   "Zoom out": "Уменьшить",
-  "Zoom out (Ctrl+minus)": "Уменьшить (Ctrl+minus)"
+  "Zoom out (Ctrl+minus)": "Уменьшить (Ctrl+minus)",
+  "The voice is not ready.": "Голос ещё не готов.",
+  "That file is not a picture the app can show.": "Этот файл — не изображение, которое приложение может показать.",
+  "That is not a kind of picture the app can show.": "Приложение не может показать изображение такого типа.",
+  "That is the folder the sermons are in already.": "Это и есть папка, в которой уже лежат проповеди.",
+  "The new folder cannot be inside the current one.": "Новая папка не может находиться внутри текущей.",
+  "A tag needs a name.": "Тегу нужно имя.",
+  "That is not one of this sermon’s kept versions.": "Это не одна из сохранённых версий этой проповеди.",
+  "That recording was not chosen with Transcribe a recording.": "Эта запись не была выбрана через «Расшифровать запись».",
+  "No sermon folder has been chosen yet.": "Папка проповедей ещё не выбрана.",
+  "That file is not in the sermon folder.": "Этот файл не в папке проповедей."
 };
 const sw = {
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Hufuata lugha iliyo hapo juu kamusi yake ikiwa imesakinishwa, na inaweza kuwekwa tofauti hapa. Hutumia kikagua tahajia cha mfumo wa uendeshaji; lugha isiyosakinishwa humo haitapigia mstari chochote.",
@@ -29872,7 +30022,11 @@ const sw = {
   "Expository": "Ufafanuzi",
   "Fast": "Haraka",
   "Fetching the voice, {percent}%…": "Inapakua sauti, {percent}%…",
-  "Fetching the voice, 76 MB, once…": "Inapakua sauti, MB 76, mara moja…",
+  "Fetching the voice, {size}, once…": "Inapakua sauti, {size}, mara moja…",
+  "Dictation voice": "Sauti ya kuandikia",
+  "Quicker": "Haraka zaidi",
+  "Finer": "Bora zaidi",
+  "Finer hears Chinese, Japanese and Korean far better and the rest a little; it is {fine} to fetch instead of {quick}, and about half the speed. Chinese, Japanese and Korean start on it.": "Ile bora zaidi husikia Kichina, Kijapani na Kikorea vizuri zaidi, na nyingine kidogo zaidi; inapakuliwa {fine} badala ya {quick}, kwa kasi ya karibu nusu. Kichina, Kijapani na Kikorea huanza nayo.",
   "Fifth point": "Hoja ya tano",
   "File": "Faili",
   "Fill in the blanks": "Jaza nafasi wazi",
@@ -30455,7 +30609,8 @@ const sw = {
   "Saved to {path}": "Imehifadhiwa kwenye {path}",
   "Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).": "Imehifadhiwa. Mahubiri hujihifadhi muda mfupi baada ya kila badiliko; bonyeza kuyahifadhi tena (Ctrl+S).",
   "Saving…": "Inahifadhi…",
-  "say “new paragraph”, “new point”, “full stop”": "sema “new paragraph”, “new point”, “full stop”",
+  "say {commands}": "sema {commands}",
+  "This voice hears {language}. English has its own, fetched the same way when English is chosen.": "Sauti hii husikia {language}. Kiingereza kina yake, inayopakuliwa vivyo hivyo Kiingereza kinapochaguliwa.",
   "saying “{text}”": "ukisema “{text}”",
   "Scope": "Mawanda",
   "Screen": "Skrini",
@@ -30832,7 +30987,17 @@ const sw = {
   "Zoom in": "Kuza",
   "Zoom in (Ctrl+plus)": "Kuza (Ctrl+plus)",
   "Zoom out": "Punguza",
-  "Zoom out (Ctrl+minus)": "Punguza (Ctrl+minus)"
+  "Zoom out (Ctrl+minus)": "Punguza (Ctrl+minus)",
+  "The voice is not ready.": "Sauti haiko tayari.",
+  "That file is not a picture the app can show.": "Faili hiyo si picha ambayo programu inaweza kuonyesha.",
+  "That is not a kind of picture the app can show.": "Programu haiwezi kuonyesha aina hiyo ya picha.",
+  "That is the folder the sermons are in already.": "Hilo tayari ndilo folda ambamo mahubiri yamo.",
+  "The new folder cannot be inside the current one.": "Folda mpya haiwezi kuwa ndani ya ile ya sasa.",
+  "A tag needs a name.": "Lebo inahitaji jina.",
+  "That is not one of this sermon’s kept versions.": "Hiyo si mojawapo ya matoleo yaliyohifadhiwa ya hubiri hili.",
+  "That recording was not chosen with Transcribe a recording.": "Rekodi hiyo haikuchaguliwa kupitia Nakili rekodi.",
+  "No sermon folder has been chosen yet.": "Hakuna folda ya mahubiri iliyochaguliwa bado.",
+  "That file is not in the sermon folder.": "Faili hiyo haimo kwenye folda ya mahubiri."
 };
 const TABLES = { en: {}, es, ko, pt: pt$3, fr: fr$3, de: de$1, zh, ja, tl, id, ru, sw };
 function fill(text, vars) {
@@ -30865,6 +31030,14 @@ function translator(language) {
 const msg = (text) => text;
 const LanguageContext = reactExports$1.createContext(DEFAULT_LANGUAGE);
 const useLanguage = () => reactExports$1.useContext(LanguageContext);
+const SetLanguageContext = reactExports$1.createContext(() => {
+});
+const useSetLanguage = () => reactExports$1.useContext(SetLanguageContext);
+function LanguageRoot({ children }) {
+  const [language, setLanguage] = reactExports$1.useState(DEFAULT_LANGUAGE);
+  reactExports$1.useEffect(() => setCurrentLanguage(language), [language]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(LanguageContext.Provider, { value: language, children: /* @__PURE__ */ jsxRuntimeExports.jsx(SetLanguageContext.Provider, { value: setLanguage, children }) });
+}
 let current = DEFAULT_LANGUAGE;
 const setCurrentLanguage = (language) => {
   current = language;
@@ -31050,6 +31223,7 @@ const DEFAULT_APP_SETTINGS = {
   theme: "system",
   spellingLanguage: "en-US",
   language: DEFAULT_LANGUAGE,
+  voiceQuality: null,
   libraryCollapsed: false,
   libraryWidth: 300,
   inspectorOpen: true,
@@ -31092,6 +31266,10 @@ function safeLink(value) {
   return /^(https?:\/\/[^\s]+|mailto:[^\s@]+@[^\s]+)$/i.test(text) ? text : null;
 }
 const UNTITLED_SERMON = msg("Untitled sermon");
+function slugOf(title, fallback) {
+  const slug = Array.from(title.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-+|-+$/g, "")).slice(0, 60).join("").replace(/-+$/, "");
+  return slug || fallback;
+}
 const UNTITLED_POINT = msg("Untitled point");
 function isoDate(date = /* @__PURE__ */ new Date()) {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
@@ -31328,6 +31506,18 @@ function firstSentence(text) {
   const flat = text.replace(/\s+/g, " ").trim();
   const match = flat.match(/^.*?[.!?](?=\s|$)/);
   return (match ? match[0] : flat).trim();
+}
+function sentenceAt(text, offset2) {
+  let at2 = Math.max(0, Math.min(offset2, text.length));
+  if (at2 > 0 && /[.!?]/.test(text.charAt(at2 - 1)) && (at2 >= text.length || /\s/.test(text.charAt(at2)))) at2 -= 1;
+  const before = text.slice(0, at2);
+  const after = text.slice(at2);
+  const opening = before.match(/[.!?]\s+(?=[^.!?]*$)/);
+  const closing = after.match(/[.!?](?=\s|$)/);
+  let from2 = opening ? (opening.index ?? 0) + opening[0].length : 0;
+  const to2 = closing ? at2 + (closing.index ?? 0) + 1 : text.length;
+  while (from2 < to2 && /\s/.test(text.charAt(from2))) from2 += 1;
+  return { from: from2, to: to2 };
 }
 function keyLine(block) {
   if (block.type === "table" || block.type === "image" || block.type === "scripture") return null;
@@ -32623,11 +32813,12 @@ function imageUrl(src) {
   if (/^(data|blob|https?):/.test(src)) return src;
   return `sermon://image/${src.split("/").map(encodeURIComponent).join("/")}`;
 }
-function formatDate$3(iso, locale) {
+function formatDate$3(iso, locale, options = { year: "numeric", month: "long", day: "numeric" }) {
   if (!iso) return "";
   const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
-  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(locale, { year: "numeric", month: "long", day: "numeric" });
+  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(locale, options);
 }
+const SHORT_DATE = { year: "numeric", month: "short", day: "numeric" };
 function metaLine(sermon, locale) {
   return [sermon.primaryPassage, formatDate$3(sermon.datePreached, locale)].filter((part) => Boolean(part)).map(escapeHtml).join(" · ");
 }
@@ -32866,7 +33057,7 @@ function paceOf(words, seconds) {
   if (words < 50 || seconds < 60) return null;
   return Math.round(words / (seconds / 60));
 }
-function clock$1(seconds) {
+function clock(seconds) {
   const whole = Math.max(0, Math.floor(seconds));
   return `${Math.floor(whole / 60)}:${String(whole % 60).padStart(2, "0")}`;
 }
@@ -32997,7 +33188,7 @@ function outlineSections(sermon, options) {
   }
   return sections;
 }
-const ROMAN$1 = [
+const ROMAN = [
   [1e3, "M"],
   [900, "CM"],
   [500, "D"],
@@ -33018,7 +33209,7 @@ function numeral$1(index2, style2) {
   if (style2 === "letters") return `${String.fromCharCode(64 + (index2 - 1) % 26 + 1)}.`;
   let n2 = index2;
   let out = "";
-  for (const [value, glyph] of ROMAN$1) {
+  for (const [value, glyph] of ROMAN) {
     while (n2 >= value) {
       out += glyph;
       n2 -= value;
@@ -35489,7 +35680,7 @@ function parseExprAtom(stream) {
 }
 function nfa(expr) {
   let nfa2 = [[]];
-  connect(compile(expr, 0), node());
+  connect(compile2(expr, 0), node());
   return nfa2;
   function node() {
     return nfa2.push([]) - 1;
@@ -35499,15 +35690,15 @@ function nfa(expr) {
     nfa2[from2].push(edge2);
     return edge2;
   }
-  function connect(edges, to2) {
-    edges.forEach((edge2) => edge2.to = to2);
+  function connect(edges2, to2) {
+    edges2.forEach((edge2) => edge2.to = to2);
   }
-  function compile(expr2, from2) {
+  function compile2(expr2, from2) {
     if (expr2.type == "choice") {
-      return expr2.exprs.reduce((out, expr3) => out.concat(compile(expr3, from2)), []);
+      return expr2.exprs.reduce((out, expr3) => out.concat(compile2(expr3, from2)), []);
     } else if (expr2.type == "seq") {
       for (let i2 = 0; ; i2++) {
-        let next = compile(expr2.exprs[i2], from2);
+        let next = compile2(expr2.exprs[i2], from2);
         if (i2 == expr2.exprs.length - 1)
           return next;
         connect(next, from2 = node());
@@ -35515,29 +35706,29 @@ function nfa(expr) {
     } else if (expr2.type == "star") {
       let loop = node();
       edge(from2, loop);
-      connect(compile(expr2.expr, loop), loop);
+      connect(compile2(expr2.expr, loop), loop);
       return [edge(loop)];
     } else if (expr2.type == "plus") {
       let loop = node();
-      connect(compile(expr2.expr, from2), loop);
-      connect(compile(expr2.expr, loop), loop);
+      connect(compile2(expr2.expr, from2), loop);
+      connect(compile2(expr2.expr, loop), loop);
       return [edge(loop)];
     } else if (expr2.type == "opt") {
-      return [edge(from2)].concat(compile(expr2.expr, from2));
+      return [edge(from2)].concat(compile2(expr2.expr, from2));
     } else if (expr2.type == "range") {
       let cur = from2;
       for (let i2 = 0; i2 < expr2.min; i2++) {
         let next = node();
-        connect(compile(expr2.expr, cur), next);
+        connect(compile2(expr2.expr, cur), next);
         cur = next;
       }
       if (expr2.max == -1) {
-        connect(compile(expr2.expr, cur), cur);
+        connect(compile2(expr2.expr, cur), cur);
       } else {
         for (let i2 = expr2.min; i2 < expr2.max; i2++) {
           let next = node();
           edge(cur, next);
-          connect(compile(expr2.expr, cur), next);
+          connect(compile2(expr2.expr, cur), next);
           cur = next;
         }
       }
@@ -35557,12 +35748,12 @@ function nullFrom(nfa2, node) {
   scan(node);
   return result.sort(cmp);
   function scan(node2) {
-    let edges = nfa2[node2];
-    if (edges.length == 1 && !edges[0].term)
-      return scan(edges[0].to);
+    let edges2 = nfa2[node2];
+    if (edges2.length == 1 && !edges2[0].term)
+      return scan(edges2[0].to);
     result.push(node2);
-    for (let i2 = 0; i2 < edges.length; i2++) {
-      let { term, to: to2 } = edges[i2];
+    for (let i2 = 0; i2 < edges2.length; i2++) {
+      let { term, to: to2 } = edges2[i2];
       if (!term && result.indexOf(to2) == -1)
         scan(to2);
     }
@@ -84012,7 +84203,7 @@ function snippet(text, limit = SNIPPET) {
   const flat = text.replace(/\s+/g, " ").trim();
   return flat.length > limit ? `${flat.slice(0, limit - 1).trimEnd()}…` : flat;
 }
-const MARKS$1 = {
+const MARKS = {
   bold: msg("Bold"),
   italic: msg("Italic"),
   underline: msg("Underlined"),
@@ -84102,7 +84293,7 @@ function describe(tr2) {
   if (event === "drop") return { ...base2, label: msg("Dropped something onto the page") };
   if (event === "cut") return { ...base2, label: msg("Cut “{text}”"), vars: { text: snippet(removed) } };
   if (marks.length > 0 && inserted === "" && blocks.length === 0) {
-    const names = [...new Set(marks.map((mark) => MARKS$1[mark] ?? msg("Marked")))];
+    const names = [...new Set(marks.map((mark) => MARKS[mark] ?? msg("Marked")))];
     return { ...base2, label: msg("{marks} “{text}”"), vars: { text: snippet(removed) }, words: { marks: names } };
   }
   if (unmarks.length > 0 && inserted === "" && blocks.length === 0) {
@@ -84853,15 +85044,9 @@ function useFormatting({ editor, report, refreshActive, active }) {
     if (isSermonBlockType(textblock.type.name) || textblock.type.name === "scripture") return;
     if (from2 === to2) {
       const start = $from.start();
-      const text = textblock.textContent;
-      const offset2 = from2 - start;
-      const before = text.slice(0, offset2);
-      const after = text.slice(offset2);
-      const opening = before.match(/[.!?]\s+(?=[^.!?]*$)/);
-      const closing = after.match(/[.!?](?=\s|$)/);
-      from2 = start + (opening ? (opening.index ?? 0) + opening[0].length : 0);
-      to2 = start + (closing ? offset2 + (closing.index ?? 0) + 1 : text.length);
-      while (from2 < to2 && /\s/.test(text.charAt(from2 - start))) from2 += 1;
+      const sentence = sentenceAt(textblock.textContent, from2 - start);
+      from2 = start + sentence.from;
+      to2 = start + sentence.to;
     }
     if (from2 >= to2) return;
     let containerFrom = -1;
@@ -85538,8 +85723,9 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
         [
           {
             type: "illustration",
-            props: { heading: illustration.title, illustrationId: illustration.id },
-            content: [{ type: "text", text: illustration.body, styles: {} }]
+            props: { illustrationId: illustration.id },
+            content: [{ type: "text", text: illustration.title, styles: {} }],
+            children: [{ type: "paragraph", content: [{ type: "text", text: illustration.body, styles: {} }] }]
           }
         ],
         top,
@@ -87936,7 +88122,8 @@ function SermonEditor({
     return () => observer.disconnect();
   }, [look.paper, look.margin, look.orientation, reserve]);
   const zoom = look.zoomFit ? fitZoom : look.fontScale;
-  reactExports$1.useEffect(() => margins.place(), [plan, zoom, margins.place]);
+  const placeNotes = margins.place;
+  reactExports$1.useEffect(() => placeNotes(), [plan, zoom, placeNotes]);
   const zoomRef = reactExports$1.useRef(zoom);
   zoomRef.current = zoom;
   const [opened, setOpened] = reactExports$1.useState(() => /* @__PURE__ */ new Set());
@@ -88037,7 +88224,8 @@ function SermonEditor({
   useReferenceTab({ editor, writable, report });
   const links = useLinks({ editor, writable, report });
   const caret = useCaretBlock({ editor, stageRef });
-  reactExports$1.useEffect(() => caret.place(), [plan, zoom, caret.place]);
+  const placeCaret = caret.place;
+  reactExports$1.useEffect(() => placeCaret(), [plan, zoom, placeCaret]);
   const replaceMatches = useReplaceMatches(editor, report);
   const footnotes = useFootnotes({ editor, writable, report });
   const openFind = reactExports$1.useCallback(() => setFindOpen(true), []);
@@ -88064,23 +88252,24 @@ function SermonEditor({
     onSaveNow
   });
   const { blank, refreshBlank, applyStarter } = useStarter(editor, onBlocksChange);
+  const { insertTable, insertPicture } = insert;
   const slashEntries = reactExports$1.useMemo(
     () => slashItems({
       addBlock: blocks.addBlock,
       openLibrary: onOpenLibrary,
       toggleList: formatting.toggleList,
-      insertTable: insert.insertTable,
-      insertPicture: () => void insert.insertPicture(),
+      insertTable,
+      insertPicture: () => void insertPicture(),
       insertFootnote: footnotes.insertFootnote,
       addMarginNote: margins.addAtCaret,
       addShape: blocks.addShape,
       togglePageBreak: blocks.togglePageBreak
     }, shapes),
-    [blocks.addBlock, blocks.addShape, blocks.togglePageBreak, onOpenLibrary, formatting.toggleList, insert.insertTable, insert.insertPicture, footnotes.insertFootnote, margins.addAtCaret, shapes]
+    [blocks.addBlock, blocks.addShape, blocks.togglePageBreak, onOpenLibrary, formatting.toggleList, insertTable, insertPicture, footnotes.insertFootnote, margins.addAtCaret, shapes]
   );
   const getSlashItems = reactExports$1.useCallback(
     async (query) => filterSlashItems(slashEntries, query, t2),
-    [slashEntries]
+    [slashEntries, t2]
   );
   reactExports$1.useEffect(() => {
     const commands = {
@@ -90071,7 +90260,7 @@ function OutlinePanel({ sermon, activeId, onJump, onOpen }) {
     const counts = /* @__PURE__ */ new Map();
     for (const section of sectionsOf(sermon.blocks, void 0, t2)) if (section.point) counts.set(section.point.id, section.words);
     return counts;
-  }, [sermon.blocks]);
+  }, [sermon.blocks, t2]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "outline-panel__list", children: [
       sermon.blocks.map((block) => {
@@ -90169,11 +90358,7 @@ function useIllustrations(refreshKey = null) {
   );
   return { rows, error, add, remove };
 }
-function formatDate$2(iso, t2, locale) {
-  if (!iso) return t2("undated draft");
-  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
-  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(locale, { year: "numeric", month: "short", day: "numeric" });
-}
+const formatDate$2 = (iso, t2, locale) => iso ? formatDate$3(iso, locale, SHORT_DATE) : t2("undated draft");
 function IllustrationsPanel({
   writable,
   canInsert,
@@ -91826,13 +92011,21 @@ function ShapeSheet({ draft, onClose, onSaved }) {
 }
 function VoiceSheet({ progress, size: size2, onDownload, onClose }) {
   const t2 = useT();
+  const language = useLanguage();
+  const languageName2 = LANGUAGES.find((item) => item.code === language)?.name ?? language;
   const downloading = progress !== null;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { ariaLabel: t2("Dictation needs the voice"), onClose, className: "voice-sheet", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "voice-sheet__head", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "voice-sheet__mark", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Mic, { size: 22, strokeWidth: 1.6 }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "sheet__title", style: { margin: 0 }, children: t2("Dictation needs the voice") })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__body", children: t2("Dictation runs on this computer, so nothing you say is sent anywhere. It needs the voice once: about {size}, downloaded now and kept in the app’s own folder. Nothing else is ever fetched.", { size: size2 }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "sheet__body", children: [
+      t2("Dictation runs on this computer, so nothing you say is sent anywhere. It needs the voice once: about {size}, downloaded now and kept in the app’s own folder. Nothing else is ever fetched.", { size: size2 }),
+      language !== "en" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        " ",
+        t2("This voice hears {language}. English has its own, fetched the same way when English is chosen.", { language: languageName2 })
+      ] })
+    ] }),
     downloading && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "voice-sheet__progress", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "voice-sheet__track", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "voice-sheet__fill", style: { width: `${Math.round((progress ?? 0) * 100)}%` } }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "voice-sheet__pct", children: [
@@ -91846,11 +92039,257 @@ function VoiceSheet({ progress, size: size2, onDownload, onClose }) {
     ] })
   ] });
 }
-function clock(seconds) {
-  return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
+const SPOKEN = {
+  en: {
+    paragraph: ["new paragraph", "new line", "next paragraph"],
+    point: ["new point", "next point"],
+    marks: [
+      ["question mark", "?"],
+      ["exclamation (?:mark|point)", "!"],
+      ["semicolon", ";"],
+      ["full stop", "."],
+      ["period", "."],
+      ["comma", ","],
+      ["colon", ":"]
+    ],
+    say: ["new paragraph", "new point", "full stop"]
+  },
+  es: {
+    paragraph: ["nuevo p[aá]rr?a\\p{L}*", "nueva l[ií]nea", "punto y aparte"],
+    point: ["nuevo punto", "siguiente punto"],
+    marks: [
+      ["signo de inte\\p{L}*", "?"],
+      ["signo de exclamaci[oó]n", "!"],
+      ["signo de admiraci[oó]n", "!"],
+      ["punto y coma", ";"],
+      ["dos puntos", ":"],
+      ["punto", "."],
+      ["coma", ","]
+    ],
+    // "Punto y aparte" is what a Spanish speaker dictates; the voice also hears it far better than "nuevo párrafo".
+    say: ["punto y aparte", "nuevo punto", "punto"]
+  },
+  pt: {
+    paragraph: ["novo par[aá]\\s*(?:a\\s*)?graf\\p{L}*", "nova linha"],
+    point: ["novo ponto", "pr[oó]ximo ponto"],
+    marks: [
+      ["ponto de interroga[cç][aã]o", "?"],
+      ["ponto de exclama[cç][aã]o", "!"],
+      ["ponto e v[ií]rgula", ";"],
+      ["dois pontos", ":"],
+      ["ponto final", "."],
+      ["ponto", "."],
+      ["v[ií]rgula", ","]
+    ],
+    say: ["novo parágrafo", "novo ponto", "ponto final"]
+  },
+  fr: {
+    paragraph: ["nouveaux? paragra\\p{L}*", "nouvelle ligne", "[aà] la ligne"],
+    point: ["nouveaux? points?", "point suivant"],
+    marks: [
+      ["point d[’']interrogation", "?"],
+      ["point d[’']exclamation", "!"],
+      ["point[- ]virgule", ";"],
+      ["deux[- ]points", ":"],
+      ["point", "."],
+      ["virgule", ","]
+    ],
+    say: ["nouveau paragraphe", "nouveau point", "point"]
+  },
+  de: {
+    paragraph: ["neuer absatz", "neue zeile", "n[aä]chster absatz"],
+    point: ["neuer punkt", "n[aä]chster punkt"],
+    marks: [
+      ["fragezeichen", "?"],
+      ["ausrufezeichen", "!"],
+      ["semikolon", ";"],
+      ["strichpunkt", ";"],
+      ["doppelpunkt", ":"],
+      ["punkt", "."],
+      ["komma", ","]
+    ],
+    say: ["neuer Absatz", "neuer Punkt", "Punkt"]
+  },
+  id: {
+    paragraph: ["para\\s*graf baru", "baris baru", "alinea baru"],
+    point: ["poin baru", "point baru", "poin berikutnya"],
+    marks: [
+      ["tanda tanya", "?"],
+      ["tanda seru", "!"],
+      ["titik koma", ";"],
+      ["titik dua", ":"],
+      ["titik", "."],
+      ["koma", ","],
+      ["coma", ","]
+    ],
+    say: ["paragraf baru", "poin baru", "titik"]
+  },
+  tl: {
+    paragraph: ["bagong talata", "bagong linya", "susunod na talata"],
+    point: ["bagong punto", "susunod na punto"],
+    marks: [
+      ["tandang pananong", "?"],
+      ["tandang padamdam", "!"],
+      ["tuldok[- ]kuwit", ";"],
+      ["tutuldok", ":"],
+      ["tuldok", "."],
+      ["kuwit", ","]
+    ],
+    say: ["bagong talata", "bagong punto", "tuldok"]
+  },
+  sw: {
+    paragraph: ["aya mpya", "mstari mpya"],
+    point: ["hoja mpya", "hoja inayofuata"],
+    marks: [
+      ["alama ya kuuliza", "?"],
+      ["alama ya mshangao", "!"],
+      ["nukta mkato", ";"],
+      ["nukta mbili", ":"],
+      ["nukta", "."],
+      ["koma", ","]
+    ],
+    say: ["aya mpya", "hoja mpya", "nukta"]
+  },
+  ru: {
+    paragraph: ["новый абза\\p{L}*", "новая строка", "с новой строки", "следующий абзац"],
+    point: ["новый пункт", "следующий пункт"],
+    marks: [
+      ["вопросительный знак", "?"],
+      ["восклицательный знак", "!"],
+      ["точка с зап[ия]той", ";"],
+      ["двоеточие", ":"],
+      ["точка", "."],
+      ["зап[ия]тая", ","]
+    ],
+    say: ["новый абзац", "новый пункт", "точка"]
+  },
+  zh: {
+    cjk: true,
+    paragraph: ["新段落", "新的段落", "换行", "換行", "另起一段"],
+    point: ["新要点", "新要點", "下一个要点", "下一個要點"],
+    marks: [
+      ["问号", "？"],
+      ["問號", "？"],
+      ["感叹号", "！"],
+      ["感嘆號", "！"],
+      ["分号", "；"],
+      ["分號", "；"],
+      ["冒号", "："],
+      ["冒號", "："],
+      ["句号", "。"],
+      ["句號", "。"],
+      ["逗号", "，"],
+      ["逗號", "，"]
+    ],
+    say: ["新段落", "新要点", "句号"]
+  },
+  ja: {
+    cjk: true,
+    paragraph: ["改行", "新しい段落", "次の段落"],
+    point: ["新しいポイント", "次のポイント"],
+    marks: [
+      ["疑問符", "？"],
+      ["はてな", "？"],
+      ["感嘆符", "！"],
+      ["びっくりマーク", "！"],
+      ["セミコロン", "；"],
+      ["コロン", "："],
+      ["句点", "。"],
+      ["まる", "。"],
+      ["読点", "、"],
+      ["てん", "、"]
+    ],
+    say: ["改行", "新しいポイント", "まる"]
+  },
+  ko: {
+    paragraph: ["[새세]\\s*문[단당]", "[새세]\\s*줄", "줄\\s*바꿈", "다음\\s*문[단당]"],
+    point: ["(?:[새세]해?|3회)\\s*[대되]지", "[새세]\\s*요점", "[새세]\\s*포인트", "다음\\s*대지"],
+    marks: [
+      ["(?:물음|무음|무릎)표", "?"],
+      ["느낌표", "!"],
+      ["쌍반점", ";"],
+      ["세미콜론", ";"],
+      ["쌍점", ":"],
+      ["콜론", ":"],
+      ["마침표", "."],
+      ["[쉼심취진][^\\s표]?표", ","]
+    ],
+    say: ["새 문단", "새 대지", "마침표"]
+  }
+};
+const edges = (spoken) => spoken.cjk ? ["", ""] : ["(?<![\\p{L}\\p{N}])", "(?![\\p{L}\\p{N}])"];
+const compiled = /* @__PURE__ */ new Map();
+function compile(language) {
+  const cached = compiled.get(language);
+  if (cached) return cached;
+  const spoken = SPOKEN[language];
+  const [open2, close2] = edges(spoken);
+  const trail = "[.,!?。、，？！]?";
+  const group = (sources) => `(?:${sources.join("|")})`;
+  const result = {
+    spoken,
+    split: new RegExp(`(${open2}${group([...spoken.paragraph, ...spoken.point])}${close2}${trail})`, "iu"),
+    paragraph: new RegExp(`${open2}${group(spoken.paragraph)}${close2}${trail}\\s*`, "giu"),
+    point: new RegExp(`${open2}${group(spoken.point)}${close2}${trail}\\s*`, "giu"),
+    marks: spoken.marks.map(([source, mark]) => [new RegExp(`\\s*${open2}${source}${close2}${spoken.cjk ? "[。、，？！.,!?:;]?" : "[.,!?:;]?"}`, "giu"), mark])
+  };
+  compiled.set(language, result);
+  return result;
+}
+function spokenHints(language) {
+  const spoken = SPOKEN[language];
+  return spoken.say.map((word) => `“${word}”`).join(spoken.cjk ? "、" : ", ");
+}
+function tidySpoken(text, language = "en") {
+  const { marks, spoken } = compile(language);
+  let out = text;
+  for (const [pattern, mark] of marks) out = out.replace(pattern, mark);
+  out = out.replace(/\s+([.,?!:;。、，？！])/g, "$1");
+  out = out.replace(/[.,?!:;。、，？！]\s*(?=[.,?!:;。、，？！])/g, "");
+  if (!spoken.cjk) out = out.replace(new RegExp("([.?!])\\s*(\\p{Ll})", "gu"), (_, stop, letter) => `${stop} ${letter.toUpperCase()}`);
+  return out.replace(/\s{2,}/g, " ").trim();
+}
+function parseSpoken(text, language = "en") {
+  const { split: split2, paragraph, point } = compile(language);
+  const ops = [];
+  const only = (pattern, piece) => {
+    pattern.lastIndex = 0;
+    const hit = pattern.test(piece) && piece.replace(pattern, "").trim() === "";
+    pattern.lastIndex = 0;
+    return hit;
+  };
+  for (const piece of text.split(split2)) {
+    if (!piece) continue;
+    if (only(paragraph, piece)) ops.push({ kind: "paragraph" });
+    else if (only(point, piece)) ops.push({ kind: "point" });
+    else {
+      const words = tidySpoken(piece, language);
+      if (words) ops.push({ kind: "text", text: words });
+    }
+  }
+  return ops;
+}
+function paragraphsFromSegments(segments) {
+  const paragraphs2 = [];
+  let current2 = "";
+  let lastEnd = null;
+  for (const segment of segments) {
+    const text = segment.text.trim();
+    if (!text) continue;
+    const pause = lastEnd !== null && segment.start - lastEnd >= 1.2;
+    if (current2 && (pause || current2.length > 700)) {
+      paragraphs2.push(current2);
+      current2 = "";
+    }
+    current2 = current2 ? `${current2} ${text}` : text;
+    lastEnd = segment.end;
+  }
+  if (current2) paragraphs2.push(current2);
+  return paragraphs2;
 }
 function DictationPill({ dictation }) {
   const t2 = useT();
+  const language = useLanguage();
   const { phase, seconds, level, queued, error } = dictation;
   const bars = [0.12, 0.3, 0.5, 0.7, 0.9];
   const label = phase === "paused" ? t2("Paused") : phase === "finishing" ? t2("Finishing") : t2("Listening");
@@ -91873,66 +92312,10 @@ function DictationPill({ dictation }) {
         ]
       }
     ),
-    error ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "dictation__error selectable", children: error }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "dictation__hint", children: queued > 0 ? queued === 1 ? t2("1 phrase on the way") : t2("{n} phrases on the way", { n: queued }) : t2("say “new paragraph”, “new point”, “full stop”") }),
+    error ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "dictation__error selectable", children: error }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "dictation__hint", children: queued > 0 ? queued === 1 ? t2("1 phrase on the way") : t2("{n} phrases on the way", { n: queued }) : t2("say {commands}", { commands: spokenHints(language) }) }),
     phase === "paused" ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "dictation__button", onClick: dictation.resume, children: t2("Resume") }) : /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "dictation__button", disabled: phase !== "listening", onClick: dictation.pause, children: t2("Pause") }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "dictation__button dictation__button--done", disabled: phase === "finishing", onClick: dictation.done, children: t2("Done") })
   ] });
-}
-const PARAGRAPH = /\b(?:new paragraph|new line|next paragraph)\b[.,!?]?\s*/gi;
-const POINT = /\b(?:new point|next point)\b[.,!?]?\s*/gi;
-const MARKS = [
-  [/\s*\b(?:full stop|period)\b[.]?/gi, "."],
-  [/\s*\bcomma\b[,]?/gi, ","],
-  [/\s*\bquestion mark\b[.?]?/gi, "?"],
-  [/\s*\bexclamation (?:mark|point)\b[.!]?/gi, "!"],
-  [/\s*\bcolon\b[.:]?/gi, ":"],
-  [/\s*\bsemicolon\b[.;]?/gi, ";"]
-];
-function tidySpoken(text) {
-  let out = text;
-  for (const [pattern, mark] of MARKS) out = out.replace(pattern, mark);
-  out = out.replace(/\s+([.,?!:;])/g, "$1").replace(/([.?!])\s*([a-z])/g, (_, stop, letter) => `${stop} ${letter.toUpperCase()}`);
-  return out.replace(/\s{2,}/g, " ").trim();
-}
-function parseSpoken(text) {
-  const ops = [];
-  const pieces = text.split(/(\b(?:new paragraph|new line|next paragraph|new point|next point)\b[.,!?]?)/i);
-  for (const piece of pieces) {
-    if (!piece) continue;
-    if (PARAGRAPH.test(piece) && piece.replace(PARAGRAPH, "").trim() === "") {
-      PARAGRAPH.lastIndex = 0;
-      ops.push({ kind: "paragraph" });
-      continue;
-    }
-    PARAGRAPH.lastIndex = 0;
-    if (POINT.test(piece) && piece.replace(POINT, "").trim() === "") {
-      POINT.lastIndex = 0;
-      ops.push({ kind: "point" });
-      continue;
-    }
-    POINT.lastIndex = 0;
-    const words = tidySpoken(piece);
-    if (words) ops.push({ kind: "text", text: words });
-  }
-  return ops;
-}
-function paragraphsFromSegments(segments) {
-  const paragraphs2 = [];
-  let current2 = "";
-  let lastEnd = null;
-  for (const segment of segments) {
-    const text = segment.text.trim();
-    if (!text) continue;
-    const pause = lastEnd !== null && segment.start - lastEnd >= 1.2;
-    if (current2 && (pause || current2.length > 700)) {
-      paragraphs2.push(current2);
-      current2 = "";
-    }
-    current2 = current2 ? `${current2} ${text}` : text;
-    lastEnd = segment.end;
-  }
-  if (current2) paragraphs2.push(current2);
-  return paragraphs2;
 }
 const RATE = 16e3;
 const MIN_PHRASE = 1.5 * RATE;
@@ -92080,6 +92463,7 @@ function useDictation({ commands, writable, microphone, onMicrophone }) {
   const [queued, setQueued] = reactExports$1.useState(0);
   const [error, setError] = reactExports$1.useState(null);
   const [microphones, setMicrophones] = reactExports$1.useState([]);
+  const [size2, setSize] = reactExports$1.useState("76 MB");
   const microphoneRef = reactExports$1.useRef(microphone);
   microphoneRef.current = microphone;
   const recorder = reactExports$1.useRef(null);
@@ -92087,6 +92471,9 @@ function useDictation({ commands, writable, microphone, onMicrophone }) {
   const busy = reactExports$1.useRef(false);
   const commandsRef = reactExports$1.useRef(commands);
   commandsRef.current = commands;
+  const language = useLanguage();
+  const languageRef = reactExports$1.useRef(language);
+  languageRef.current = language;
   const phaseRef = reactExports$1.useRef(phase);
   phaseRef.current = phase;
   const drain = reactExports$1.useCallback(async () => {
@@ -92100,10 +92487,13 @@ function useDictation({ commands, writable, microphone, onMicrophone }) {
           const transcript = await window.api.transcribe(chunk);
           const target = commandsRef.current;
           if (!target) continue;
-          for (const op of parseSpoken(transcript.text)) {
+          for (const op of parseSpoken(transcript.text, languageRef.current)) {
             if (op.kind === "text") target.insertText(op.text);
             else if (op.kind === "paragraph") target.newParagraph();
-            else target.addBlock("point");
+            else {
+              target.newParagraph();
+              target.addBlock("point");
+            }
           }
         } catch (cause) {
           setError(cause instanceof Error ? cause.message : String(cause));
@@ -92174,6 +92564,7 @@ function useDictation({ commands, writable, microphone, onMicrophone }) {
     if (!writable || !commandsRef.current) return;
     setError(null);
     void window.api.voiceStatus().then((status) => {
+      setSize(status.size);
       if (status.ready || status.downloaded) void prepareThenListen();
       else setPhase("asking");
     });
@@ -92211,7 +92602,7 @@ function useDictation({ commands, writable, microphone, onMicrophone }) {
     },
     []
   );
-  return { phase, progress, seconds, level, queued, error, microphones, microphone, setMicrophone, toggle, pause, resume, done, download, dismiss };
+  return { phase, progress, seconds, level, queued, error, size: size2, microphones, microphone, setMicrophone, toggle, pause, resume, done, download, dismiss };
 }
 const AUTOSAVE_DELAY_MS = 900;
 function parseTags(text) {
@@ -92428,15 +92819,12 @@ function printOptions(sermon, settings) {
     ...settings.pageHeader && head ? { header: head } : {}
   };
 }
-function slugify(title) {
-  return title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60) || "sermon";
-}
 async function exportViewPdf(sermon, mode, handout, settings, breaks = [], notes = [], outline = DEFAULT_OUTLINE_OPTIONS, language = "en") {
   const html = renderView(sermon, mode, handout, settings, breaks, notes, outline, language);
   const suffix = mode === "handout" && handout.largePrint ? "handout-large-print" : mode;
   const result = await window.api.exportPdf(
     html,
-    `${slugify(sermon.title)}-${suffix}`,
+    `${slugOf(sermon.title, "sermon")}-${suffix}`,
     printOptions(sermon, settings)
   );
   if (result.status === "saved" && result.path) void window.api.openExported(result.path);
@@ -92532,7 +92920,7 @@ function EditorPane({
   }, []);
   const outlineShown = reactExports$1.useMemo(() => ({ ...outline, pace: pulpit.pace, length: pulpit.length }), [outline, pulpit]);
   const [machineLook, setMachineLook] = reactExports$1.useState(DEFAULT_EDITOR_SETTINGS);
-  const look = reactExports$1.useMemo(() => lookFor(draft, machineLook), [draft.look, machineLook]);
+  const look = reactExports$1.useMemo(() => lookFor({ look: draft.look }, machineLook), [draft.look, machineLook]);
   const ownLook = draft.look !== void 0;
   const [commands, setCommands] = reactExports$1.useState(null);
   const [active, setActive2] = reactExports$1.useState(IDLE_ACTIVE);
@@ -92607,7 +92995,7 @@ function EditorPane({
   const onPage = view === "write" || view === "outline";
   const previewHtml = reactExports$1.useMemo(
     () => view !== "handout" ? "" : renderView(draft, PREVIEW_MODE[view], handout, look, breaksRef.current, notesRef.current, outlineShown, language),
-    [draft, view, handout, look, outlineShown]
+    [draft, view, handout, look, outlineShown, language]
   );
   const exportPdf = reactExports$1.useCallback(async (mode) => {
     setNote(null);
@@ -92617,7 +93005,7 @@ function EditorPane({
     } catch (cause) {
       setNote(cause instanceof Error ? cause.message : String(cause));
     }
-  }, [draftRef, view, handout, look, outlineShown, t2]);
+  }, [draftRef, view, handout, look, outlineShown, language, t2]);
   const exportDocx = reactExports$1.useCallback(async (withNotes = false) => {
     setNote(null);
     try {
@@ -92635,7 +93023,7 @@ function EditorPane({
     } catch (cause) {
       setNote(cause instanceof Error ? cause.message : String(cause));
     }
-  }, [draftRef, view, handout, look, outlineShown]);
+  }, [draftRef, view, handout, look, outlineShown, language]);
   reactExports$1.useEffect(() => {
     const onKeyDown = (event) => {
       if (!(event.ctrlKey || event.metaKey)) return;
@@ -92835,7 +93223,7 @@ function EditorPane({
       ] })
     ] }),
     shapeOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(ShapeSheet, { draft, onClose: () => setShapeOpen(false), onSaved: loadShapes }),
-    (dictation.phase === "asking" || dictation.phase === "preparing") && /* @__PURE__ */ jsxRuntimeExports.jsx(VoiceSheet, { progress: dictation.phase === "preparing" ? dictation.progress ?? 0 : null, size: "76 MB", onDownload: dictation.download, onClose: dictation.dismiss }),
+    (dictation.phase === "asking" || dictation.phase === "preparing") && /* @__PURE__ */ jsxRuntimeExports.jsx(VoiceSheet, { progress: dictation.phase === "preparing" ? dictation.progress ?? 0 : null, size: dictation.size, onDownload: dictation.download, onClose: dictation.dismiss }),
     historyOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(
       HistorySheet,
       {
@@ -92916,11 +93304,7 @@ const KIND_LABELS = {
   table: msg("Table"),
   image: msg("Picture")
 };
-function formatDate$1(iso, locale) {
-  if (!iso) return "";
-  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
-  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(locale, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
-}
+const formatDate$1 = (iso, locale) => formatDate$3(iso, locale, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
 function Styled({ spans }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: spans.map((span, index2) => {
     const styles = span.styles ?? {};
@@ -93238,7 +93622,7 @@ function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, t
   const betweenPlanned = Math.max(0, targetSeconds - sections.filter((item) => item.point).reduce((sum, item) => sum + item.plannedSeconds, 0));
   const betweenHad = Math.max(0, elapsed - pointsSeconds);
   const preachedPace = paceOf(pointsWords, pointsSeconds);
-  const signed = (seconds) => `${seconds < 0 ? "−" : "+"}${clock$1(Math.abs(seconds))}`;
+  const signed = (seconds) => `${seconds < 0 ? "−" : "+"}${clock(Math.abs(seconds))}`;
   const adjusted = sections.some((item) => item.point && (bumps[item.index] ?? 0) !== 0) || targetMinutes !== null && targetMinutes !== (sermon.lengthMinutes ?? null);
   const plan = () => {
     const minutes = {};
@@ -93254,10 +93638,10 @@ function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, t
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "podium__ready-title", children: sermon.title || t2(UNTITLED_SERMON) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__ready-meta", children: [sermon.primaryPassage, formatDate$1(sermon.datePreached, localeOf(language))].filter(Boolean).join(" · ") }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "podium__end-big", children: [
-      clock$1(elapsed),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: t2("of {time}", { time: clock$1(targetSeconds) }) })
+      clock(elapsed),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: t2("of {time}", { time: clock(targetSeconds) }) })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: over ? "podium__end-over" : "podium__end-under", children: over ? t2("{time} over", { time: clock$1(-remaining) }) : t2("{time} to spare", { time: clock$1(remaining) }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: over ? "podium__end-over" : "podium__end-under", children: over ? t2("{time} over", { time: clock(-remaining) }) : t2("{time} to spare", { time: clock(remaining) }) }),
     sections.some((item) => item.point) && /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "podium__end-table", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("th", {}),
@@ -93275,16 +93659,16 @@ function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, t
               "."
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: item.heading }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "r", children: clock$1(item.plannedSeconds) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "r", children: clock$1(had[item.index]) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "r", children: clock(item.plannedSeconds) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "r", children: clock(had[item.index]) }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: `r${diff > 60 ? " bad" : diff < -60 ? " good" : ""}`, children: signed(diff) })
           ] }, item.index);
         }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "dim", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", {}),
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: t2("Before, between, and after the points") }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "r", children: clock$1(betweenPlanned) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "r", children: clock$1(betweenHad) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "r", children: clock(betweenPlanned) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "r", children: clock(betweenHad) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "r", children: signed(betweenHad - betweenPlanned) })
         ] })
       ] })
@@ -93403,7 +93787,7 @@ function Rail({ sections, current: current2, spentIn, onPick, onBump }) {
             /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", title: t2("A minute more for this point, for now"), "aria-label": t2("A minute more for this point"), onClick: () => onBump(item.index, 1), children: "+" })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__rail-track", children: /* @__PURE__ */ jsxRuntimeExports.jsx("i", { className: had > item.plannedSeconds && item.plannedSeconds > 0 ? "podium__rail-fill podium__rail-fill--over" : "podium__rail-fill", style: { width: `${fill2 * 100}%` } }) }),
-          item.index < current2 ? t2("{time} · done", { time: clock$1(had) }) : item.index === current2 ? t2("{had} of {planned}", { had: clock$1(had), planned: clock$1(item.plannedSeconds) }) : t2("{n} min", { n: Math.max(1, Math.round(item.plannedSeconds / 60)) })
+          item.index < current2 ? t2("{time} · done", { time: clock(had) }) : item.index === current2 ? t2("{had} of {planned}", { had: clock(had), planned: clock(item.plannedSeconds) }) : t2("{n} min", { n: Math.max(1, Math.round(item.plannedSeconds / 60)) })
         ] })
       ] }, item.index);
     })
@@ -93894,17 +94278,17 @@ function PodiumView({ sermon, onExit }) {
               style: { fontSize: `${settings.fontScale * 1.75}rem` },
               title: t2("Elapsed, then the sermon's length. [ and ] change the length by five minutes."),
               children: [
-                settings.clock === "remaining" ? over ? `−${clock$1(-remaining)}` : clock$1(remaining) : settings.clock === "elapsed" ? clock$1(elapsed) : "",
+                settings.clock === "remaining" ? over ? `−${clock(-remaining)}` : clock(remaining) : settings.clock === "elapsed" ? clock(elapsed) : "",
                 settings.clock !== "hidden" && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "podium__target", children: [
                   " / ",
-                  clock$1(targetSeconds)
+                  clock(targetSeconds)
                 ] }),
-                settings.clock === "elapsed" && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__remaining", children: over ? t2("{time} over", { time: clock$1(-remaining) }) : t2("{time} left", { time: clock$1(remaining) }) }),
+                settings.clock === "elapsed" && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__remaining", children: over ? t2("{time} over", { time: clock(-remaining) }) : t2("{time} left", { time: clock(remaining) }) }),
                 settings.clock === "remaining" && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__remaining", children: over ? t2("over") : t2("left") }),
                 !running && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__paused-marker", children: t2("paused") }),
                 settings.pointTiming && section && section.plannedSeconds > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: sectionOver ? "podium__chip podium__chip--over" : "podium__chip", title: t2("This point: how long it has had, of the minutes the outline planned for it"), children: [
                   pointNumber ? `${roman(pointNumber)} · ` : "",
-                  t2("{had} of {planned}", { had: clock$1(sectionSpent), planned: clock$1(section.plannedSeconds) })
+                  t2("{had} of {planned}", { had: clock(sectionSpent), planned: clock(section.plannedSeconds) })
                 ] })
               ]
             }
@@ -94635,11 +95019,7 @@ function rowMeta(hit, t2, locale) {
   const state = hit.status === "preached" ? null : hit.status === "draft" ? t2("Draft") : hit.status === "ready" ? t2("Ready") : hit.status === "archived" ? t2("Archived") : null;
   return [state, date ?? (state ? null : t2("Undated")), hit.primaryPassage].filter(Boolean).join(" · ");
 }
-function formatDate(iso, t2, locale) {
-  if (!iso) return t2("Undated");
-  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
-  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(locale, { year: "numeric", month: "short", day: "numeric" });
-}
+const formatDate = (iso, t2, locale) => iso ? formatDate$3(iso, locale, SHORT_DATE) : t2("Undated");
 const UNDATED = msg("Undated");
 function yearOf(iso) {
   return iso && /^\d{4}/.test(iso) ? iso.slice(0, 4) : UNDATED;
@@ -95476,6 +95856,11 @@ function KeyboardTab() {
     ] }) })
   ] }, group.title)) });
 }
+const VOICE_SIZE = { quick: "76 MB", fine: "238 MB" };
+const FINE_BY_DEFAULT = ["zh", "ja", "ko"];
+function voiceQualityFor(language, chosen) {
+  return chosen ?? (FINE_BY_DEFAULT.includes(language) ? "fine" : "quick");
+}
 const media = window.matchMedia("(prefers-color-scheme: dark)");
 let preference = "system";
 function paint() {
@@ -95686,7 +96071,19 @@ function PreferencesWindow({
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: t2("Language"), hint: t2("The words of the app, and the names of the books of the Bible as you type them and as the app writes them back. A reference typed in any language is read."), children: /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "field", "aria-label": t2("Language"), value: app.language, onChange: (event) => updateApp({ language: event.target.value }), children: LANGUAGES.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: entry.code, children: entry.name }, entry.code)) }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: t2("Spelling language"), hint: t2("Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything."), children: /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "field", "aria-label": t2("Spelling language"), value: app.spellingLanguage, onChange: (event) => updateApp({ spellingLanguage: event.target.value }), children: languageOptions.map((code2) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: code2, children: languageName(code2) }, code2)) }) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: t2("Spelling language"), hint: t2("Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything."), children: /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "field", "aria-label": t2("Spelling language"), value: app.spellingLanguage, onChange: (event) => updateApp({ spellingLanguage: event.target.value }), children: languageOptions.map((code2) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: code2, children: languageName(code2) }, code2)) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: t2("Dictation voice"), hint: t2("Finer hears Chinese, Japanese and Korean far better and the rest a little; it is {fine} to fetch instead of {quick}, and about half the speed. Chinese, Japanese and Korean start on it.", { fine: VOICE_SIZE.fine, quick: VOICE_SIZE.quick }), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Segmented,
+          {
+            value: voiceQualityFor(app.language, app.voiceQuality),
+            options: [
+              { value: "quick", label: t2("Quicker") },
+              { value: "fine", label: t2("Finer") }
+            ],
+            onChange: (voiceQuality) => updateApp({ voiceQuality }),
+            ariaLabel: t2("Dictation voice")
+          }
+        ) })
       ] })
     ] }),
     tab === "folder" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
@@ -95949,13 +96346,8 @@ function SeriesSheet({ onClose, onSaved }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: t2("Done") }) })
   ] });
 }
-const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"];
-const numeral = (n2) => ROMAN[n2 - 1] ?? String(n2);
-function when$1(iso, withYear, locale) {
-  if (!iso) return "";
-  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
-  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(locale, { month: "short", day: "numeric", ...withYear ? { year: "numeric" } : {} });
-}
+const numeral = (n2) => roman(n2);
+const when$1 = (iso, withYear, locale) => formatDate$3(iso ?? null, locale, { month: "short", day: "numeric", ...withYear ? { year: "numeric" } : {} });
 function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
   const t2 = useT();
   const locale = localeOf(useLanguage());
@@ -96050,11 +96442,7 @@ function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: t2("Done") }) })
   ] });
 }
-function when(iso, locale) {
-  if (!iso) return "";
-  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
-  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(locale, { year: "numeric", month: "short" });
-}
+const when = (iso, locale) => formatDate$3(iso, locale, { year: "numeric", month: "short" });
 function TagPage({ tag, onClose, onOpen, onTag, onChapter }) {
   const t2 = useT();
   const locale = localeOf(useLanguage());
@@ -96515,7 +96903,7 @@ function useSermonLifecycle() {
       setError(String(cause));
     }
   }, [refreshList]);
-  const useCloudFolder = reactExports$1.useCallback(
+  const adoptCloudFolder = reactExports$1.useCallback(
     async (provider) => {
       try {
         const result = await window.api.useCloudFolder(provider);
@@ -96590,7 +96978,7 @@ function useSermonLifecycle() {
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : String(cause));
     }
-  }, [openSermon, refreshList]);
+  }, [openSermon, refreshList, t2]);
   const transcribeRecording = reactExports$1.useCallback(async () => {
     try {
       const path = await window.api.chooseRecording();
@@ -96601,7 +96989,7 @@ function useSermonLifecycle() {
       const samples = await decodeRecording(bytes);
       const status = await window.api.voiceStatus();
       if (!status.ready) {
-        setImporting(status.downloaded ? t2("Waking the voice…") : t2("Fetching the voice, 76 MB, once…"));
+        setImporting(status.downloaded ? t2("Waking the voice…") : t2("Fetching the voice, {size}, once…", { size: status.size }));
         const off = window.api.onVoiceProgress((fraction) => setImporting(t2("Fetching the voice, {percent}%…", { percent: Math.round(fraction * 100) })));
         try {
           await window.api.prepareVoice();
@@ -96712,7 +97100,7 @@ function useSermonLifecycle() {
     refreshList,
     onSermonChanged,
     chooseFolder,
-    useCloudFolder,
+    adoptCloudFolder,
     moveLibrary,
     openSermon,
     writePlanned,
@@ -96896,7 +97284,7 @@ function App() {
     refreshList,
     onSermonChanged,
     chooseFolder,
-    useCloudFolder,
+    adoptCloudFolder,
     moveLibrary,
     openSermon,
     writePlanned,
@@ -96917,9 +97305,8 @@ function App() {
   const [prefsTab, setPrefsTab] = reactExports$1.useState("general");
   const [licenseOpen, setLicenseOpen] = reactExports$1.useState(false);
   const [formatting, setFormatting] = reactExports$1.useState(DEFAULT_APP_SETTINGS.formatting);
-  const [language, setLanguage] = reactExports$1.useState(DEFAULT_APP_SETTINGS.language);
-  reactExports$1.useEffect(() => setCurrentLanguage(language), [language]);
-  const t2 = reactExports$1.useMemo(() => translator(language), [language]);
+  const setLanguage = useSetLanguage();
+  const t2 = useT();
   const {
     sidebarFolded,
     narrow,
@@ -96952,7 +97339,7 @@ function App() {
       setFormatting(settings.formatting);
       setLanguage(settings.language);
     });
-  }, [restoreLayout]);
+  }, [restoreLayout, setLanguage]);
   const scene = document.documentElement.dataset["scene"] ?? "";
   const [scenePlayed, setScenePlayed] = reactExports$1.useState(false);
   reactExports$1.useEffect(() => {
@@ -97059,7 +97446,7 @@ function App() {
         return settings.formatting;
       });
     });
-  }, [showInspector]);
+  }, [showInspector, setLanguage]);
   if (loading) return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "app-loading", children: t2("Opening your library…") });
   const podiumLayer = podium ? /* @__PURE__ */ jsxRuntimeExports.jsx(
     PodiumView,
@@ -97099,7 +97486,7 @@ function App() {
         error,
         status: importing,
         onChooseFolder: () => void chooseFolder(),
-        onUseCloudFolder: (provider) => void useCloudFolder(provider),
+        onUseCloudFolder: (provider) => void adoptCloudFolder(provider),
         onConnectCloudFolder: (provider) => void moveLibrary(() => window.api.connectCloudFolder(provider), t2("into {provider}", { provider })),
         onDisconnectCloudFolder: () => void moveLibrary(() => window.api.disconnectCloudFolder(), t2("to the folder you chose")),
         onContinue: () => setAtDoor(false)
@@ -97109,7 +97496,7 @@ function App() {
   const notice = fileReason ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "notice notice--warn", role: "status", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "notice__message", children: fileReason }) }) : license ? /* @__PURE__ */ jsxRuntimeExports.jsx(LicenseNotice, { status: license, onChanged: setLicense, onEnterKey: () => setLicenseOpen(true) }) : null;
   const cloudHome = cloudFolders.find((cloud) => folder.path?.startsWith(cloud.path));
   const whereLine = (cloudHome ? t2("Your sermons live in {folder}, synced on your own account.") : t2("Your sermons live in {folder}.")).split("{folder}");
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(LanguageContext.Provider, { value: language, children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: shellClass, style: shellStyle, inert: podium !== null, children: [
       libraryShown && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -97289,7 +97676,7 @@ function App() {
           prefsTab,
           onClosePreferences: closePreferences,
           onChooseFolder: chooseFolder,
-          onUseCloudFolder: useCloudFolder,
+          onUseCloudFolder: adoptCloudFolder,
           onMoveLibrary: moveLibrary,
           licenseOpen,
           onLicenseOpen: setLicenseOpen,
@@ -97338,5 +97725,7 @@ export {
   normaliseTags as n,
   jsxRuntimeExports as o,
   reactExports$1 as p,
-  renameInTags as r
+  LanguageRoot as q,
+  renameInTags as r,
+  slugOf as s
 };

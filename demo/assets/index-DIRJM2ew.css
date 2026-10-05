@@ -8063,6 +8063,10 @@ select.field {
   display: flex;
 }
 
+.prefs__control > select.field {
+  max-width: 16rem;
+}
+
 .prefs__inline {
   align-items: center;
   gap: 8px;
@@ -9009,9 +9013,9 @@ select.field {
 
 .podium__stage:not(.podium__stage--cards):after {
   content: "";
-  background: linear-gradient(to bottom, transparent, var(--podium-bg, transparent));
+  background: linear-gradient(to bottom, transparent, var(--podium-bg, transparent) 4rem);
   pointer-events: none;
-  height: 6rem;
+  height: 10rem;
   position: absolute;
   bottom: 0;
   left: 0;
