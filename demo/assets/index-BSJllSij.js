@@ -15116,6 +15116,10 @@ function foldText(text) {
   return text.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
 }
 const es = {
+  "Drag to move this picture": "Arrastra para mover esta imagen",
+  "The page break, and where the picture sits in the sermon": "El salto de página, y dónde se sitúa la imagen en el sermón",
+  "That is not a recording the app can hear.": "Eso no es una grabación que la aplicación pueda oír.",
+  "ESV": "RVR1960",
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Sigue el idioma de arriba cuando su diccionario está instalado, y puede elegirse aparte aquí. Usa el corrector ortográfico del sistema operativo; un idioma que no esté instalado allí no subrayará nada.",
   "The chosen version, against today’s draft": "La versión elegida, frente al borrador de hoy",
   "The same": "Igual",
@@ -16558,9 +16562,32 @@ const es = {
   "That recording was not chosen with Transcribe a recording.": "Esa grabación no se eligió con «Transcribir una grabación».",
   "No sermon folder has been chosen yet.": "Todavía no se ha elegido una carpeta de sermones.",
   "That file is not in the sermon folder.": "Ese archivo no está en la carpeta de sermones.",
-  "That is not something the app can write.": "Eso no es algo que la aplicación pueda escribir."
+  "That is not something the app can write.": "Eso no es algo que la aplicación pueda escribir.",
+  "SermonDesk is read-only until you enter a licence key. Every sermon is still here to open, search, print, and preach.": "SermonDesk es de solo lectura hasta que introduzcas una clave de licencia. Todos los sermones siguen aquí para abrir, buscar, imprimir y predicar.",
+  "SermonDesk is read-only because the subscription has ended. Every sermon is still here to open, search, print, and preach.": "SermonDesk es de solo lectura porque la suscripción ha terminado. Todos los sermones siguen aquí para abrir, buscar, imprimir y predicar.",
+  "The sermon folder is not available right now: {path}. If it lives in a cloud folder, it may still be syncing.": "La carpeta de sermones no está disponible ahora mismo: {path}. Si está en una carpeta en la nube, puede que aún se esté sincronizando.",
+  "{path} is a whole drive, not a sermon folder. Choose the folder the sermons are in with Change…, then connect from there.": "{path} es una unidad entera, no una carpeta de sermones. Elige la carpeta donde están los sermones con Cambiar… y conecta desde ahí.",
+  "{path} is your home folder, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} es tu carpeta personal, y se movería todo lo que contiene. Elige la carpeta donde están los sermones con Cambiar… y conecta desde ahí.",
+  "{path} holds more than sermons, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} contiene más que sermones, y se movería todo lo que hay en ella. Elige la carpeta donde están los sermones con Cambiar… y conecta desde ahí.",
+  "{path} is the whole of a sync service, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} es todo un servicio de sincronización, y se movería todo lo que contiene. Elige la carpeta donde están los sermones con Cambiar… y conecta desde ahí.",
+  "There is no folder at {path}.": "No hay ninguna carpeta en {path}.",
+  "{path} already has files in it. To use that folder as it is, choose it with Change…; to move the sermons into it, empty it first.": "{path} ya tiene archivos. Para usar esa carpeta tal como está, elígela con Cambiar…; para mover los sermones a ella, vacíala primero.",
+  "The copy came up short: 1 file did not arrive whole. Nothing has been switched; both folders are as they were.": "La copia quedó incompleta: 1 archivo no llegó entero. No se ha cambiado nada; ambas carpetas están como estaban.",
+  "The copy came up short: {n} files did not arrive whole. Nothing has been switched; both folders are as they were.": "La copia quedó incompleta: {n} archivos no llegaron enteros. No se ha cambiado nada; ambas carpetas están como estaban.",
+  "Could not reach {provider}. Your key has not been changed; try again when you are online.": "No se pudo contactar con {provider}. Tu clave no ha cambiado; inténtalo de nuevo cuando estés en línea.",
+  "That licence key was not recognised. Check it for a typo and try again.": "Esa clave de licencia no se reconoció. Revisa que no tenga errores e inténtalo de nuevo.",
+  "This key is already in use on the most computers it allows. Open SermonDesk on one of them and choose “Deactivate this computer”, then try again here.": "Esta clave ya se usa en el máximo de ordenadores que permite. Abre SermonDesk en uno de ellos, elige «Desactivar este ordenador» y vuelve a intentarlo aquí.",
+  "That licence key’s subscription has ended, so it cannot be entered here. Renew it at the store, or enter another key.": "La suscripción de esa clave de licencia ha terminado, así que no puede introducirse aquí. Renuévala en la tienda o introduce otra clave.",
+  "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Esa clave de licencia se ha desactivado en la tienda, así que no puede introducirse aquí. Introduce otra clave o escríbenos.",
+  "Could not reach {provider} to free this computer. Try again when you are online.": "No se pudo contactar con {provider} para liberar este ordenador. Inténtalo de nuevo cuando estés en línea.",
+  "Could not reach {provider}: {reason}": "No se pudo contactar con {provider}: {reason}",
+  "Imported sermon": "Sermón importado"
 };
 const ko = {
+  "Drag to move this picture": "끌어서 이 그림을 옮깁니다",
+  "The page break, and where the picture sits in the sermon": "페이지 나누기와 설교에서 그림이 놓이는 자리",
+  "That is not a recording the app can hear.": "앱이 들을 수 있는 녹음이 아닙니다.",
+  "ESV": "개역개정",
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "사전이 설치되어 있으면 위의 언어를 따르며, 여기서 따로 설정할 수도 있습니다. 운영 체제에 내장된 맞춤법 검사기를 사용하므로, 설치되지 않은 언어에는 밑줄이 표시되지 않습니다.",
   "The chosen version, against today’s draft": "선택한 버전과 오늘 초안의 비교",
   "The same": "같음",
@@ -18003,9 +18030,32 @@ const ko = {
   "That recording was not chosen with Transcribe a recording.": "그 녹음은 “녹음 받아쓰기”로 선택된 것이 아닙니다.",
   "No sermon folder has been chosen yet.": "아직 설교 폴더를 고르지 않았습니다.",
   "That file is not in the sermon folder.": "그 파일은 설교 폴더에 없습니다.",
-  "That is not something the app can write.": "앱이 저장할 수 없는 내용입니다."
+  "That is not something the app can write.": "앱이 저장할 수 없는 내용입니다.",
+  "SermonDesk is read-only until you enter a licence key. Every sermon is still here to open, search, print, and preach.": "라이선스 키를 입력할 때까지 SermonDesk는 읽기 전용입니다. 모든 설교는 그대로 열고, 검색하고, 인쇄하고, 설교할 수 있습니다.",
+  "SermonDesk is read-only because the subscription has ended. Every sermon is still here to open, search, print, and preach.": "구독이 끝나 SermonDesk는 읽기 전용입니다. 모든 설교는 그대로 열고, 검색하고, 인쇄하고, 설교할 수 있습니다.",
+  "The sermon folder is not available right now: {path}. If it lives in a cloud folder, it may still be syncing.": "지금은 설교 폴더를 사용할 수 없습니다: {path}. 클라우드 폴더에 있다면 아직 동기화 중일 수 있습니다.",
+  "{path} is a whole drive, not a sermon folder. Choose the folder the sermons are in with Change…, then connect from there.": "{path}은(는) 설교 폴더가 아니라 드라이브 전체입니다. 변경…으로 설교가 있는 폴더를 고른 뒤 거기서 연결하세요.",
+  "{path} is your home folder, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path}은(는) 홈 폴더이며 그 안의 모든 것이 옮겨집니다. 변경…으로 설교가 있는 폴더를 고른 뒤 거기서 연결하세요.",
+  "{path} holds more than sermons, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path}에는 설교 외의 것도 들어 있으며 그 안의 모든 것이 옮겨집니다. 변경…으로 설교가 있는 폴더를 고른 뒤 거기서 연결하세요.",
+  "{path} is the whole of a sync service, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path}은(는) 동기화 서비스 전체이며 그 안의 모든 것이 옮겨집니다. 변경…으로 설교가 있는 폴더를 고른 뒤 거기서 연결하세요.",
+  "There is no folder at {path}.": "{path}에 폴더가 없습니다.",
+  "{path} already has files in it. To use that folder as it is, choose it with Change…; to move the sermons into it, empty it first.": "{path}에 이미 파일이 있습니다. 그 폴더를 그대로 쓰려면 변경…으로 고르고, 설교를 그리로 옮기려면 먼저 비우세요.",
+  "The copy came up short: 1 file did not arrive whole. Nothing has been switched; both folders are as they were.": "복사가 완전하지 않습니다: 파일 1개가 온전히 도착하지 않았습니다. 아무것도 바뀌지 않았으며 두 폴더 모두 그대로입니다.",
+  "The copy came up short: {n} files did not arrive whole. Nothing has been switched; both folders are as they were.": "복사가 완전하지 않습니다: 파일 {n}개가 온전히 도착하지 않았습니다. 아무것도 바뀌지 않았으며 두 폴더 모두 그대로입니다.",
+  "Could not reach {provider}. Your key has not been changed; try again when you are online.": "{provider}에 연결할 수 없습니다. 키는 바뀌지 않았으니 온라인 상태에서 다시 시도하세요.",
+  "That licence key was not recognised. Check it for a typo and try again.": "그 라이선스 키를 인식할 수 없습니다. 오타가 없는지 확인하고 다시 시도하세요.",
+  "This key is already in use on the most computers it allows. Open SermonDesk on one of them and choose “Deactivate this computer”, then try again here.": "이 키는 허용된 최대 수의 컴퓨터에서 이미 사용 중입니다. 그중 한 대에서 SermonDesk를 열어 “이 컴퓨터 비활성화”를 고른 뒤 여기서 다시 시도하세요.",
+  "That licence key’s subscription has ended, so it cannot be entered here. Renew it at the store, or enter another key.": "그 라이선스 키의 구독이 끝나 여기서는 입력할 수 없습니다. 상점에서 갱신하거나 다른 키를 입력하세요.",
+  "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "그 라이선스 키는 상점에서 꺼졌으므로 여기서는 입력할 수 없습니다. 다른 키를 입력하거나 저희에게 연락하세요.",
+  "Could not reach {provider} to free this computer. Try again when you are online.": "이 컴퓨터를 해제하기 위해 {provider}에 연결할 수 없습니다. 온라인 상태에서 다시 시도하세요.",
+  "Could not reach {provider}: {reason}": "{provider}에 연결할 수 없습니다: {reason}",
+  "Imported sermon": "가져온 설교"
 };
 const pt$3 = {
+  "Drag to move this picture": "Arraste para mover esta imagem",
+  "The page break, and where the picture sits in the sermon": "A quebra de página, e onde a imagem fica no sermão",
+  "That is not a recording the app can hear.": "Isso não é uma gravação que o aplicativo possa ouvir.",
+  "ESV": "ARA",
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Segue o idioma acima quando o dicionário dele está instalado, e pode ser definido à parte aqui. Usa o corretor ortográfico do sistema operacional; um idioma que não esteja instalado lá não sublinhará nada.",
   "The chosen version, against today’s draft": "A versão escolhida, comparada ao rascunho de hoje",
   "The same": "Igual",
@@ -19448,9 +19498,32 @@ const pt$3 = {
   "That recording was not chosen with Transcribe a recording.": "Essa gravação não foi escolhida com «Transcrever uma gravação».",
   "No sermon folder has been chosen yet.": "Ainda não foi escolhida uma pasta de sermões.",
   "That file is not in the sermon folder.": "Esse ficheiro não está na pasta de sermões.",
-  "That is not something the app can write.": "Isso não é algo que o aplicativo possa gravar."
+  "That is not something the app can write.": "Isso não é algo que o aplicativo possa gravar.",
+  "SermonDesk is read-only until you enter a licence key. Every sermon is still here to open, search, print, and preach.": "O SermonDesk é somente leitura até que você insira uma chave de licença. Todos os sermões continuam aqui para abrir, pesquisar, imprimir e pregar.",
+  "SermonDesk is read-only because the subscription has ended. Every sermon is still here to open, search, print, and preach.": "O SermonDesk é somente leitura porque a assinatura terminou. Todos os sermões continuam aqui para abrir, pesquisar, imprimir e pregar.",
+  "The sermon folder is not available right now: {path}. If it lives in a cloud folder, it may still be syncing.": "A pasta de sermões não está disponível agora: {path}. Se ela fica numa pasta na nuvem, pode ainda estar sincronizando.",
+  "{path} is a whole drive, not a sermon folder. Choose the folder the sermons are in with Change…, then connect from there.": "{path} é uma unidade inteira, não uma pasta de sermões. Escolha a pasta onde estão os sermões com Alterar… e conecte a partir dela.",
+  "{path} is your home folder, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} é a sua pasta pessoal, e tudo nela seria movido. Escolha a pasta onde estão os sermões com Alterar… e conecte a partir dela.",
+  "{path} holds more than sermons, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} guarda mais do que sermões, e tudo nela seria movido. Escolha a pasta onde estão os sermões com Alterar… e conecte a partir dela.",
+  "{path} is the whole of a sync service, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} é um serviço de sincronização inteiro, e tudo nele seria movido. Escolha a pasta onde estão os sermões com Alterar… e conecte a partir dela.",
+  "There is no folder at {path}.": "Não há nenhuma pasta em {path}.",
+  "{path} already has files in it. To use that folder as it is, choose it with Change…; to move the sermons into it, empty it first.": "{path} já tem arquivos. Para usar essa pasta como está, escolha-a com Alterar…; para mover os sermões para ela, esvazie-a primeiro.",
+  "The copy came up short: 1 file did not arrive whole. Nothing has been switched; both folders are as they were.": "A cópia ficou incompleta: 1 arquivo não chegou inteiro. Nada foi alterado; as duas pastas estão como estavam.",
+  "The copy came up short: {n} files did not arrive whole. Nothing has been switched; both folders are as they were.": "A cópia ficou incompleta: {n} arquivos não chegaram inteiros. Nada foi alterado; as duas pastas estão como estavam.",
+  "Could not reach {provider}. Your key has not been changed; try again when you are online.": "Não foi possível contatar {provider}. Sua chave não foi alterada; tente de novo quando estiver on-line.",
+  "That licence key was not recognised. Check it for a typo and try again.": "Essa chave de licença não foi reconhecida. Confira se não há erro de digitação e tente de novo.",
+  "This key is already in use on the most computers it allows. Open SermonDesk on one of them and choose “Deactivate this computer”, then try again here.": "Esta chave já está em uso no máximo de computadores que permite. Abra o SermonDesk em um deles, escolha “Desativar este computador” e tente de novo aqui.",
+  "That licence key’s subscription has ended, so it cannot be entered here. Renew it at the store, or enter another key.": "A assinatura dessa chave de licença terminou, então ela não pode ser inserida aqui. Renove-a na loja ou insira outra chave.",
+  "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Essa chave de licença foi desativada na loja, então não pode ser inserida aqui. Insira outra chave ou escreva para nós.",
+  "Could not reach {provider} to free this computer. Try again when you are online.": "Não foi possível contatar {provider} para liberar este computador. Tente de novo quando estiver on-line.",
+  "Could not reach {provider}: {reason}": "Não foi possível contatar {provider}: {reason}",
+  "Imported sermon": "Sermão importado"
 };
 const fr$3 = {
+  "Drag to move this picture": "Glisser pour déplacer cette image",
+  "The page break, and where the picture sits in the sermon": "Le saut de page, et la place de l’image dans le sermon",
+  "That is not a recording the app can hear.": "Ce n’est pas un enregistrement que l’application peut écouter.",
+  "ESV": "LSG",
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Suit la langue ci-dessus quand son dictionnaire est installé, et peut être réglée à part ici. Utilise le correcteur orthographique du système d’exploitation ; une langue qui n’y est pas installée ne soulignera rien.",
   "The chosen version, against today’s draft": "La version choisie, comparée au brouillon d’aujourd’hui",
   "The same": "Identique",
@@ -20893,9 +20966,32 @@ const fr$3 = {
   "That recording was not chosen with Transcribe a recording.": "Cet enregistrement n’a pas été choisi avec « Transcrire un enregistrement ».",
   "No sermon folder has been chosen yet.": "Aucun dossier de sermons n’a encore été choisi.",
   "That file is not in the sermon folder.": "Ce fichier n’est pas dans le dossier de sermons.",
-  "That is not something the app can write.": "Ce n’est pas quelque chose que l’application peut écrire."
+  "That is not something the app can write.": "Ce n’est pas quelque chose que l’application peut écrire.",
+  "SermonDesk is read-only until you enter a licence key. Every sermon is still here to open, search, print, and preach.": "SermonDesk est en lecture seule tant qu’une clé de licence n’a pas été saisie. Chaque sermon reste là, à ouvrir, chercher, imprimer et prêcher.",
+  "SermonDesk is read-only because the subscription has ended. Every sermon is still here to open, search, print, and preach.": "SermonDesk est en lecture seule parce que l’abonnement a pris fin. Chaque sermon reste là, à ouvrir, chercher, imprimer et prêcher.",
+  "The sermon folder is not available right now: {path}. If it lives in a cloud folder, it may still be syncing.": "Le dossier des sermons n’est pas disponible pour le moment : {path}. S’il se trouve dans un dossier cloud, il est peut-être encore en synchronisation.",
+  "{path} is a whole drive, not a sermon folder. Choose the folder the sermons are in with Change…, then connect from there.": "{path} est un disque entier, pas un dossier de sermons. Choisissez le dossier des sermons avec Changer…, puis connectez-le de là.",
+  "{path} is your home folder, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} est votre dossier personnel, et tout ce qu’il contient serait déplacé. Choisissez le dossier des sermons avec Changer…, puis connectez-le de là.",
+  "{path} holds more than sermons, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} contient plus que des sermons, et tout ce qu’il contient serait déplacé. Choisissez le dossier des sermons avec Changer…, puis connectez-le de là.",
+  "{path} is the whole of a sync service, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} est la racine d’un service de synchronisation, et tout ce qu’il contient serait déplacé. Choisissez le dossier des sermons avec Changer…, puis connectez-le de là.",
+  "There is no folder at {path}.": "Il n’y a pas de dossier à {path}.",
+  "{path} already has files in it. To use that folder as it is, choose it with Change…; to move the sermons into it, empty it first.": "{path} contient déjà des fichiers. Pour utiliser ce dossier tel quel, choisissez-le avec Changer… ; pour y déplacer les sermons, videz-le d’abord.",
+  "The copy came up short: 1 file did not arrive whole. Nothing has been switched; both folders are as they were.": "La copie est incomplète : 1 fichier n’est pas arrivé entier. Rien n’a été changé ; les deux dossiers sont tels qu’ils étaient.",
+  "The copy came up short: {n} files did not arrive whole. Nothing has been switched; both folders are as they were.": "La copie est incomplète : {n} fichiers ne sont pas arrivés entiers. Rien n’a été changé ; les deux dossiers sont tels qu’ils étaient.",
+  "Could not reach {provider}. Your key has not been changed; try again when you are online.": "Impossible de joindre {provider}. Votre clé n’a pas été modifiée ; réessayez une fois en ligne.",
+  "That licence key was not recognised. Check it for a typo and try again.": "Cette clé de licence n’a pas été reconnue. Vérifiez qu’elle ne contient pas de faute de frappe et réessayez.",
+  "This key is already in use on the most computers it allows. Open SermonDesk on one of them and choose “Deactivate this computer”, then try again here.": "Cette clé est déjà utilisée sur le nombre maximal d’ordinateurs qu’elle autorise. Ouvrez SermonDesk sur l’un d’eux, choisissez « Désactiver cet ordinateur », puis réessayez ici.",
+  "That licence key’s subscription has ended, so it cannot be entered here. Renew it at the store, or enter another key.": "L’abonnement de cette clé de licence a pris fin ; elle ne peut donc pas être saisie ici. Renouvelez-le sur la boutique, ou saisissez une autre clé.",
+  "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Cette clé de licence a été désactivée sur la boutique ; elle ne peut donc pas être saisie ici. Saisissez une autre clé, ou écrivez-nous.",
+  "Could not reach {provider} to free this computer. Try again when you are online.": "Impossible de joindre {provider} pour libérer cet ordinateur. Réessayez une fois en ligne.",
+  "Could not reach {provider}: {reason}": "Impossible de joindre {provider} : {reason}",
+  "Imported sermon": "Sermon importé"
 };
 const de$1 = {
+  "Drag to move this picture": "Ziehen, um dieses Bild zu verschieben",
+  "The page break, and where the picture sits in the sermon": "Der Seitenumbruch, und wo das Bild in der Predigt steht",
+  "That is not a recording the app can hear.": "Das ist keine Aufnahme, die die App anhören kann.",
+  "ESV": "LUT",
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Folgt der Sprache oben, wenn ihr Wörterbuch installiert ist, und lässt sich hier getrennt einstellen. Verwendet die Rechtschreibprüfung des Betriebssystems; eine dort nicht installierte Sprache unterstreicht nichts.",
   "The chosen version, against today’s draft": "Die gewählte Fassung, verglichen mit dem Entwurf von heute",
   "The same": "Gleich",
@@ -22338,9 +22434,32 @@ const de$1 = {
   "That recording was not chosen with Transcribe a recording.": "Diese Aufnahme wurde nicht über „Eine Aufnahme transkribieren“ gewählt.",
   "No sermon folder has been chosen yet.": "Es wurde noch kein Predigtordner gewählt.",
   "That file is not in the sermon folder.": "Diese Datei liegt nicht im Predigtordner.",
-  "That is not something the app can write.": "Das kann die App nicht schreiben."
+  "That is not something the app can write.": "Das kann die App nicht schreiben.",
+  "SermonDesk is read-only until you enter a licence key. Every sermon is still here to open, search, print, and preach.": "SermonDesk ist schreibgeschützt, bis ein Lizenzschlüssel eingegeben wird. Jede Predigt bleibt zum Öffnen, Suchen, Drucken und Predigen da.",
+  "SermonDesk is read-only because the subscription has ended. Every sermon is still here to open, search, print, and preach.": "SermonDesk ist schreibgeschützt, weil das Abonnement abgelaufen ist. Jede Predigt bleibt zum Öffnen, Suchen, Drucken und Predigen da.",
+  "The sermon folder is not available right now: {path}. If it lives in a cloud folder, it may still be syncing.": "Der Predigtordner ist gerade nicht verfügbar: {path}. Liegt er in einem Cloud-Ordner, wird er vielleicht noch synchronisiert.",
+  "{path} is a whole drive, not a sermon folder. Choose the folder the sermons are in with Change…, then connect from there.": "{path} ist ein ganzes Laufwerk, kein Predigtordner. Wählen Sie mit Ändern… den Ordner mit den Predigten und verbinden Sie von dort.",
+  "{path} is your home folder, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} ist Ihr Benutzerordner, und alles darin würde verschoben. Wählen Sie mit Ändern… den Ordner mit den Predigten und verbinden Sie von dort.",
+  "{path} holds more than sermons, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} enthält mehr als Predigten, und alles darin würde verschoben. Wählen Sie mit Ändern… den Ordner mit den Predigten und verbinden Sie von dort.",
+  "{path} is the whole of a sync service, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} ist der gesamte Ordner eines Sync-Dienstes, und alles darin würde verschoben. Wählen Sie mit Ändern… den Ordner mit den Predigten und verbinden Sie von dort.",
+  "There is no folder at {path}.": "Unter {path} gibt es keinen Ordner.",
+  "{path} already has files in it. To use that folder as it is, choose it with Change…; to move the sermons into it, empty it first.": "{path} enthält bereits Dateien. Um den Ordner so zu verwenden, wählen Sie ihn mit Ändern…; um die Predigten hineinzuverschieben, leeren Sie ihn zuerst.",
+  "The copy came up short: 1 file did not arrive whole. Nothing has been switched; both folders are as they were.": "Die Kopie ist unvollständig: 1 Datei ist nicht vollständig angekommen. Nichts wurde umgestellt; beide Ordner sind, wie sie waren.",
+  "The copy came up short: {n} files did not arrive whole. Nothing has been switched; both folders are as they were.": "Die Kopie ist unvollständig: {n} Dateien sind nicht vollständig angekommen. Nichts wurde umgestellt; beide Ordner sind, wie sie waren.",
+  "Could not reach {provider}. Your key has not been changed; try again when you are online.": "{provider} ist nicht erreichbar. Ihr Schlüssel wurde nicht geändert; versuchen Sie es erneut, sobald Sie online sind.",
+  "That licence key was not recognised. Check it for a typo and try again.": "Dieser Lizenzschlüssel wurde nicht erkannt. Prüfen Sie ihn auf Tippfehler und versuchen Sie es erneut.",
+  "This key is already in use on the most computers it allows. Open SermonDesk on one of them and choose “Deactivate this computer”, then try again here.": "Dieser Schlüssel wird bereits auf so vielen Computern verwendet, wie er erlaubt. Öffnen Sie SermonDesk auf einem davon, wählen Sie „Diesen Computer deaktivieren“ und versuchen Sie es hier erneut.",
+  "That licence key’s subscription has ended, so it cannot be entered here. Renew it at the store, or enter another key.": "Das Abonnement dieses Lizenzschlüssels ist abgelaufen, daher kann er hier nicht eingegeben werden. Verlängern Sie es im Shop oder geben Sie einen anderen Schlüssel ein.",
+  "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Dieser Lizenzschlüssel wurde im Shop abgeschaltet, daher kann er hier nicht eingegeben werden. Geben Sie einen anderen Schlüssel ein oder schreiben Sie uns.",
+  "Could not reach {provider} to free this computer. Try again when you are online.": "{provider} ist nicht erreichbar, um diesen Computer freizugeben. Versuchen Sie es erneut, sobald Sie online sind.",
+  "Could not reach {provider}: {reason}": "{provider} ist nicht erreichbar: {reason}",
+  "Imported sermon": "Importierte Predigt"
 };
 const zh = {
+  "Drag to move this picture": "拖动以移动此图片",
+  "The page break, and where the picture sits in the sermon": "分页符，以及图片在讲章中的位置",
+  "That is not a recording the app can hear.": "这不是应用能听取的录音。",
+  "ESV": "和合本",
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "在已安装相应词典时跟随上方的语言，也可在此单独设置。使用操作系统自带的拼写检查；未安装的语言不会标出任何内容。",
   "The chosen version, against today’s draft": "所选版本与今日草稿的对比",
   "The same": "相同",
@@ -23783,9 +23902,32 @@ const zh = {
   "That recording was not chosen with Transcribe a recording.": "该录音不是通过“转写录音”选择的。",
   "No sermon folder has been chosen yet.": "尚未选择讲章文件夹。",
   "That file is not in the sermon folder.": "该文件不在讲章文件夹中。",
-  "That is not something the app can write.": "应用无法写入这项内容。"
+  "That is not something the app can write.": "应用无法写入这项内容。",
+  "SermonDesk is read-only until you enter a licence key. Every sermon is still here to open, search, print, and preach.": "在输入许可证密钥之前，SermonDesk 为只读。每篇讲章仍可打开、搜索、打印和宣讲。",
+  "SermonDesk is read-only because the subscription has ended. Every sermon is still here to open, search, print, and preach.": "订阅已结束，SermonDesk 为只读。每篇讲章仍可打开、搜索、打印和宣讲。",
+  "The sermon folder is not available right now: {path}. If it lives in a cloud folder, it may still be syncing.": "讲章文件夹目前不可用：{path}。如果它位于云端文件夹中，可能仍在同步。",
+  "{path} is a whole drive, not a sermon folder. Choose the folder the sermons are in with Change…, then connect from there.": "{path} 是整个磁盘，不是讲章文件夹。请用“更改…”选择讲章所在的文件夹，再从那里连接。",
+  "{path} is your home folder, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} 是您的主文件夹，其中的一切都会被移动。请用“更改…”选择讲章所在的文件夹，再从那里连接。",
+  "{path} holds more than sermons, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} 中不只有讲章，其中的一切都会被移动。请用“更改…”选择讲章所在的文件夹，再从那里连接。",
+  "{path} is the whole of a sync service, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} 是整个同步服务的根文件夹，其中的一切都会被移动。请用“更改…”选择讲章所在的文件夹，再从那里连接。",
+  "There is no folder at {path}.": "{path} 处没有文件夹。",
+  "{path} already has files in it. To use that folder as it is, choose it with Change…; to move the sermons into it, empty it first.": "{path} 中已有文件。若要按原样使用该文件夹，请用“更改…”选择它；若要把讲章移入其中，请先清空它。",
+  "The copy came up short: 1 file did not arrive whole. Nothing has been switched; both folders are as they were.": "复制未完成：有 1 个文件未完整到达。未做任何切换；两个文件夹均保持原样。",
+  "The copy came up short: {n} files did not arrive whole. Nothing has been switched; both folders are as they were.": "复制未完成：有 {n} 个文件未完整到达。未做任何切换；两个文件夹均保持原样。",
+  "Could not reach {provider}. Your key has not been changed; try again when you are online.": "无法连接 {provider}。您的密钥未被更改；联网后请重试。",
+  "That licence key was not recognised. Check it for a typo and try again.": "无法识别该许可证密钥。请检查是否有输入错误后重试。",
+  "This key is already in use on the most computers it allows. Open SermonDesk on one of them and choose “Deactivate this computer”, then try again here.": "此密钥已在其允许的最多台电脑上使用。请在其中一台上打开 SermonDesk，选择“停用这台电脑”，然后在这里重试。",
+  "That licence key’s subscription has ended, so it cannot be entered here. Renew it at the store, or enter another key.": "该许可证密钥的订阅已结束，无法在此输入。请到商店续订，或输入另一个密钥。",
+  "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "该许可证密钥已在商店被停用，无法在此输入。请输入另一个密钥，或给我们写信。",
+  "Could not reach {provider} to free this computer. Try again when you are online.": "无法连接 {provider} 以释放这台电脑。联网后请重试。",
+  "Could not reach {provider}: {reason}": "无法连接 {provider}：{reason}",
+  "Imported sermon": "导入的讲章"
 };
 const ja = {
+  "Drag to move this picture": "ドラッグしてこの画像を移動",
+  "The page break, and where the picture sits in the sermon": "改ページと、説教の中で画像が置かれる場所",
+  "That is not a recording the app can hear.": "これはアプリが聞き取れる録音ではありません。",
+  "ESV": "新改訳",
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "辞書がインストールされていれば上の言語に従い、ここで別に設定することもできます。OSに組み込まれたスペルチェックを使うため、インストールされていない言語には下線が引かれません。",
   "The chosen version, against today’s draft": "選んだ版と今日の下書きの比較",
   "The same": "同じ",
@@ -25228,9 +25370,32 @@ const ja = {
   "That recording was not chosen with Transcribe a recording.": "その録音は「録音を文字起こし」で選ばれたものではありません。",
   "No sermon folder has been chosen yet.": "説教フォルダがまだ選ばれていません。",
   "That file is not in the sermon folder.": "そのファイルは説教フォルダにありません。",
-  "That is not something the app can write.": "これはアプリが書き込めるものではありません。"
+  "That is not something the app can write.": "これはアプリが書き込めるものではありません。",
+  "SermonDesk is read-only until you enter a licence key. Every sermon is still here to open, search, print, and preach.": "ライセンスキーを入力するまで SermonDesk は読み取り専用です。すべての説教はこれまでどおり開く、検索する、印刷する、説教することができます。",
+  "SermonDesk is read-only because the subscription has ended. Every sermon is still here to open, search, print, and preach.": "サブスクリプションが終了したため SermonDesk は読み取り専用です。すべての説教はこれまでどおり開く、検索する、印刷する、説教することができます。",
+  "The sermon folder is not available right now: {path}. If it lives in a cloud folder, it may still be syncing.": "説教フォルダが現在使えません: {path}。クラウドフォルダにある場合、まだ同期中かもしれません。",
+  "{path} is a whole drive, not a sermon folder. Choose the folder the sermons are in with Change…, then connect from there.": "{path} はドライブ全体で、説教フォルダではありません。「変更…」で説教のあるフォルダを選び、そこから接続してください。",
+  "{path} is your home folder, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} はホームフォルダで、その中のすべてが移動されてしまいます。「変更…」で説教のあるフォルダを選び、そこから接続してください。",
+  "{path} holds more than sermons, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} には説教以外のものも入っており、その中のすべてが移動されてしまいます。「変更…」で説教のあるフォルダを選び、そこから接続してください。",
+  "{path} is the whole of a sync service, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} は同期サービス全体で、その中のすべてが移動されてしまいます。「変更…」で説教のあるフォルダを選び、そこから接続してください。",
+  "There is no folder at {path}.": "{path} にフォルダがありません。",
+  "{path} already has files in it. To use that folder as it is, choose it with Change…; to move the sermons into it, empty it first.": "{path} にはすでにファイルがあります。そのフォルダをそのまま使うには「変更…」で選び、説教を移すには先に空にしてください。",
+  "The copy came up short: 1 file did not arrive whole. Nothing has been switched; both folders are as they were.": "コピーが不完全です: 1 個のファイルが完全に届きませんでした。何も切り替えていません。両方のフォルダは元のままです。",
+  "The copy came up short: {n} files did not arrive whole. Nothing has been switched; both folders are as they were.": "コピーが不完全です: {n} 個のファイルが完全に届きませんでした。何も切り替えていません。両方のフォルダは元のままです。",
+  "Could not reach {provider}. Your key has not been changed; try again when you are online.": "{provider} に接続できませんでした。キーは変更されていません。オンラインになってからもう一度お試しください。",
+  "That licence key was not recognised. Check it for a typo and try again.": "そのライセンスキーは認識されませんでした。入力ミスがないか確認して、もう一度お試しください。",
+  "This key is already in use on the most computers it allows. Open SermonDesk on one of them and choose “Deactivate this computer”, then try again here.": "このキーは許可された最大数のコンピューターですでに使用中です。そのうちの一台で SermonDesk を開き「このコンピューターを無効にする」を選んでから、ここでもう一度お試しください。",
+  "That licence key’s subscription has ended, so it cannot be entered here. Renew it at the store, or enter another key.": "そのライセンスキーのサブスクリプションは終了しているため、ここでは入力できません。ストアで更新するか、別のキーを入力してください。",
+  "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "そのライセンスキーはストアで無効にされているため、ここでは入力できません。別のキーを入力するか、私たちまでご連絡ください。",
+  "Could not reach {provider} to free this computer. Try again when you are online.": "このコンピューターを解放するために {provider} に接続できませんでした。オンラインになってからもう一度お試しください。",
+  "Could not reach {provider}: {reason}": "{provider} に接続できませんでした: {reason}",
+  "Imported sermon": "読み込んだ説教"
 };
 const tl = {
+  "Drag to move this picture": "I-drag para ilipat ang larawang ito",
+  "The page break, and where the picture sits in the sermon": "Ang page break, at kung saan nakalagay ang larawan sa sermon",
+  "That is not a recording the app can hear.": "Hindi iyan recording na maririnig ng app.",
+  "ESV": "MBB",
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Sumusunod sa wikang nasa itaas kapag naka-install ang diksyunaryo nito, at maaaring itakda nang hiwalay dito. Gumagamit ng spellchecker ng operating system; ang wikang hindi naka-install doon ay walang sasalungguhitan.",
   "The chosen version, against today’s draft": "Ang napiling bersyon, kumpara sa draft ngayon",
   "The same": "Pareho",
@@ -26673,9 +26838,32 @@ const tl = {
   "That recording was not chosen with Transcribe a recording.": "Hindi pinili ang recording na iyon sa pamamagitan ng I-transcribe ang recording.",
   "No sermon folder has been chosen yet.": "Wala pang napipiling folder ng mga sermon.",
   "That file is not in the sermon folder.": "Wala sa folder ng mga sermon ang file na iyon.",
-  "That is not something the app can write.": "Hindi iyan maisusulat ng app."
+  "That is not something the app can write.": "Hindi iyan maisusulat ng app.",
+  "SermonDesk is read-only until you enter a licence key. Every sermon is still here to open, search, print, and preach.": "Read-only ang SermonDesk hanggang maglagay ka ng license key. Nandito pa rin ang bawat sermon para buksan, hanapin, i-print, at ipangaral.",
+  "SermonDesk is read-only because the subscription has ended. Every sermon is still here to open, search, print, and preach.": "Read-only ang SermonDesk dahil natapos na ang subscription. Nandito pa rin ang bawat sermon para buksan, hanapin, i-print, at ipangaral.",
+  "The sermon folder is not available right now: {path}. If it lives in a cloud folder, it may still be syncing.": "Hindi available ngayon ang folder ng mga sermon: {path}. Kung nasa cloud folder ito, maaaring nagsi-sync pa.",
+  "{path} is a whole drive, not a sermon folder. Choose the folder the sermons are in with Change…, then connect from there.": "Buong drive ang {path}, hindi folder ng mga sermon. Piliin ang folder na kinaroroonan ng mga sermon gamit ang Palitan…, saka kumonekta mula roon.",
+  "{path} is your home folder, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "Home folder mo ang {path}, at malilipat ang lahat ng nasa loob nito. Piliin ang folder na kinaroroonan ng mga sermon gamit ang Palitan…, saka kumonekta mula roon.",
+  "{path} holds more than sermons, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "Higit pa sa mga sermon ang laman ng {path}, at malilipat ang lahat ng nasa loob nito. Piliin ang folder na kinaroroonan ng mga sermon gamit ang Palitan…, saka kumonekta mula roon.",
+  "{path} is the whole of a sync service, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "Buong sync service ang {path}, at malilipat ang lahat ng nasa loob nito. Piliin ang folder na kinaroroonan ng mga sermon gamit ang Palitan…, saka kumonekta mula roon.",
+  "There is no folder at {path}.": "Walang folder sa {path}.",
+  "{path} already has files in it. To use that folder as it is, choose it with Change…; to move the sermons into it, empty it first.": "May mga file na sa {path}. Para gamitin ang folder na iyon nang ganoon, piliin ito gamit ang Palitan…; para ilipat doon ang mga sermon, alisan muna ito ng laman.",
+  "The copy came up short: 1 file did not arrive whole. Nothing has been switched; both folders are as they were.": "Kulang ang kopya: 1 file ang hindi dumating nang buo. Walang binago; nasa dati ang dalawang folder.",
+  "The copy came up short: {n} files did not arrive whole. Nothing has been switched; both folders are as they were.": "Kulang ang kopya: {n} file ang hindi dumating nang buo. Walang binago; nasa dati ang dalawang folder.",
+  "Could not reach {provider}. Your key has not been changed; try again when you are online.": "Hindi maabot ang {provider}. Hindi nabago ang iyong key; subukan ulit kapag online ka na.",
+  "That licence key was not recognised. Check it for a typo and try again.": "Hindi nakilala ang license key na iyon. Tingnan kung may maling tipa at subukan ulit.",
+  "This key is already in use on the most computers it allows. Open SermonDesk on one of them and choose “Deactivate this computer”, then try again here.": "Ginagamit na ang key na ito sa pinakamaraming computer na pinapayagan nito. Buksan ang SermonDesk sa isa sa mga iyon at piliin ang “I-deactivate ang computer na ito”, saka subukan ulit dito.",
+  "That licence key’s subscription has ended, so it cannot be entered here. Renew it at the store, or enter another key.": "Natapos na ang subscription ng license key na iyon, kaya hindi ito mailalagay dito. I-renew ito sa store, o maglagay ng ibang key.",
+  "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Pinatay na sa store ang license key na iyon, kaya hindi ito mailalagay dito. Maglagay ng ibang key, o sumulat sa amin.",
+  "Could not reach {provider} to free this computer. Try again when you are online.": "Hindi maabot ang {provider} para palayain ang computer na ito. Subukan ulit kapag online ka na.",
+  "Could not reach {provider}: {reason}": "Hindi maabot ang {provider}: {reason}",
+  "Imported sermon": "Na-import na sermon"
 };
 const id = {
+  "Drag to move this picture": "Seret untuk memindahkan gambar ini",
+  "The page break, and where the picture sits in the sermon": "Pemisah halaman, dan letak gambar dalam khotbah",
+  "That is not a recording the app can hear.": "Itu bukan rekaman yang dapat didengar aplikasi.",
+  "ESV": "TB",
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Mengikuti bahasa di atas bila kamusnya terpasang, dan dapat diatur terpisah di sini. Memakai pemeriksa ejaan bawaan sistem operasi; bahasa yang tidak terpasang di sana tidak akan menggarisbawahi apa pun.",
   "The chosen version, against today’s draft": "Versi yang dipilih, dibandingkan dengan draf hari ini",
   "The same": "Sama",
@@ -28118,9 +28306,32 @@ const id = {
   "That recording was not chosen with Transcribe a recording.": "Rekaman itu tidak dipilih lewat Transkripsikan rekaman.",
   "No sermon folder has been chosen yet.": "Folder khotbah belum dipilih.",
   "That file is not in the sermon folder.": "Berkas itu tidak ada di folder khotbah.",
-  "That is not something the app can write.": "Itu bukan sesuatu yang dapat ditulis aplikasi."
+  "That is not something the app can write.": "Itu bukan sesuatu yang dapat ditulis aplikasi.",
+  "SermonDesk is read-only until you enter a licence key. Every sermon is still here to open, search, print, and preach.": "SermonDesk hanya-baca sampai Anda memasukkan kunci lisensi. Setiap khotbah tetap ada untuk dibuka, dicari, dicetak, dan dikhotbahkan.",
+  "SermonDesk is read-only because the subscription has ended. Every sermon is still here to open, search, print, and preach.": "SermonDesk hanya-baca karena langganan telah berakhir. Setiap khotbah tetap ada untuk dibuka, dicari, dicetak, dan dikhotbahkan.",
+  "The sermon folder is not available right now: {path}. If it lives in a cloud folder, it may still be syncing.": "Folder khotbah tidak tersedia saat ini: {path}. Jika berada di folder cloud, mungkin masih disinkronkan.",
+  "{path} is a whole drive, not a sermon folder. Choose the folder the sermons are in with Change…, then connect from there.": "{path} adalah seluruh drive, bukan folder khotbah. Pilih folder tempat khotbah berada dengan Ubah…, lalu hubungkan dari sana.",
+  "{path} is your home folder, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} adalah folder utama Anda, dan semua isinya akan dipindahkan. Pilih folder tempat khotbah berada dengan Ubah…, lalu hubungkan dari sana.",
+  "{path} holds more than sermons, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} berisi lebih dari khotbah, dan semua isinya akan dipindahkan. Pilih folder tempat khotbah berada dengan Ubah…, lalu hubungkan dari sana.",
+  "{path} is the whole of a sync service, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} adalah seluruh layanan sinkronisasi, dan semua isinya akan dipindahkan. Pilih folder tempat khotbah berada dengan Ubah…, lalu hubungkan dari sana.",
+  "There is no folder at {path}.": "Tidak ada folder di {path}.",
+  "{path} already has files in it. To use that folder as it is, choose it with Change…; to move the sermons into it, empty it first.": "{path} sudah berisi berkas. Untuk memakai folder itu apa adanya, pilih dengan Ubah…; untuk memindahkan khotbah ke dalamnya, kosongkan dulu.",
+  "The copy came up short: 1 file did not arrive whole. Nothing has been switched; both folders are as they were.": "Salinan tidak lengkap: 1 berkas tidak tiba utuh. Tidak ada yang diubah; kedua folder tetap seperti semula.",
+  "The copy came up short: {n} files did not arrive whole. Nothing has been switched; both folders are as they were.": "Salinan tidak lengkap: {n} berkas tidak tiba utuh. Tidak ada yang diubah; kedua folder tetap seperti semula.",
+  "Could not reach {provider}. Your key has not been changed; try again when you are online.": "Tidak dapat menghubungi {provider}. Kunci Anda tidak diubah; coba lagi saat Anda daring.",
+  "That licence key was not recognised. Check it for a typo and try again.": "Kunci lisensi itu tidak dikenali. Periksa salah ketik dan coba lagi.",
+  "This key is already in use on the most computers it allows. Open SermonDesk on one of them and choose “Deactivate this computer”, then try again here.": "Kunci ini sudah dipakai di jumlah komputer maksimal yang diizinkannya. Buka SermonDesk di salah satunya dan pilih “Nonaktifkan komputer ini”, lalu coba lagi di sini.",
+  "That licence key’s subscription has ended, so it cannot be entered here. Renew it at the store, or enter another key.": "Langganan kunci lisensi itu telah berakhir, jadi tidak dapat dimasukkan di sini. Perbarui di toko, atau masukkan kunci lain.",
+  "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Kunci lisensi itu telah dimatikan di toko, jadi tidak dapat dimasukkan di sini. Masukkan kunci lain, atau hubungi kami.",
+  "Could not reach {provider} to free this computer. Try again when you are online.": "Tidak dapat menghubungi {provider} untuk melepaskan komputer ini. Coba lagi saat Anda daring.",
+  "Could not reach {provider}: {reason}": "Tidak dapat menghubungi {provider}: {reason}",
+  "Imported sermon": "Khotbah yang diimpor"
 };
 const ru = {
+  "Drag to move this picture": "Перетащите, чтобы переместить это изображение",
+  "The page break, and where the picture sits in the sermon": "Разрыв страницы и место изображения в проповеди",
+  "That is not a recording the app can hear.": "Это не запись, которую приложение может прослушать.",
+  "ESV": "СП",
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Следует за языком выше, если его словарь установлен, и может быть задан отдельно здесь. Использует проверку орфографии операционной системы; язык, который там не установлен, ничего не подчеркнёт.",
   "The chosen version, against today’s draft": "Выбранная версия в сравнении с сегодняшним черновиком",
   "The same": "Без отличий",
@@ -29563,9 +29774,32 @@ const ru = {
   "That recording was not chosen with Transcribe a recording.": "Эта запись не была выбрана через «Расшифровать запись».",
   "No sermon folder has been chosen yet.": "Папка проповедей ещё не выбрана.",
   "That file is not in the sermon folder.": "Этот файл не в папке проповедей.",
-  "That is not something the app can write.": "Это не то, что приложение может записать."
+  "That is not something the app can write.": "Это не то, что приложение может записать.",
+  "SermonDesk is read-only until you enter a licence key. Every sermon is still here to open, search, print, and preach.": "SermonDesk работает только для чтения, пока не введён лицензионный ключ. Каждая проповедь по-прежнему здесь: её можно открыть, найти, напечатать и произнести.",
+  "SermonDesk is read-only because the subscription has ended. Every sermon is still here to open, search, print, and preach.": "SermonDesk работает только для чтения, потому что подписка закончилась. Каждая проповедь по-прежнему здесь: её можно открыть, найти, напечатать и произнести.",
+  "The sermon folder is not available right now: {path}. If it lives in a cloud folder, it may still be syncing.": "Папка проповедей сейчас недоступна: {path}. Если она в облачной папке, синхронизация, возможно, ещё идёт.",
+  "{path} is a whole drive, not a sermon folder. Choose the folder the sermons are in with Change…, then connect from there.": "{path} — это целый диск, а не папка проповедей. Выберите папку с проповедями через «Изменить…», затем подключайте оттуда.",
+  "{path} is your home folder, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} — это ваша домашняя папка, и всё в ней было бы перемещено. Выберите папку с проповедями через «Изменить…», затем подключайте оттуда.",
+  "{path} holds more than sermons, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "В {path} есть не только проповеди, и всё в ней было бы перемещено. Выберите папку с проповедями через «Изменить…», затем подключайте оттуда.",
+  "{path} is the whole of a sync service, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} — это вся папка службы синхронизации, и всё в ней было бы перемещено. Выберите папку с проповедями через «Изменить…», затем подключайте оттуда.",
+  "There is no folder at {path}.": "По пути {path} нет папки.",
+  "{path} already has files in it. To use that folder as it is, choose it with Change…; to move the sermons into it, empty it first.": "В {path} уже есть файлы. Чтобы использовать эту папку как есть, выберите её через «Изменить…»; чтобы перенести в неё проповеди, сначала очистите её.",
+  "The copy came up short: 1 file did not arrive whole. Nothing has been switched; both folders are as they were.": "Копия неполная: 1 файл пришёл не целиком. Ничего не переключено; обе папки остались как были.",
+  "The copy came up short: {n} files did not arrive whole. Nothing has been switched; both folders are as they were.": "Копия неполная: {n} файл пришёл не целиком. Ничего не переключено; обе папки остались как были.|Копия неполная: {n} файла пришли не целиком. Ничего не переключено; обе папки остались как были.|Копия неполная: {n} файлов пришли не целиком. Ничего не переключено; обе папки остались как были.",
+  "Could not reach {provider}. Your key has not been changed; try again when you are online.": "Не удалось связаться с {provider}. Ваш ключ не изменён; повторите попытку, когда будете в сети.",
+  "That licence key was not recognised. Check it for a typo and try again.": "Этот лицензионный ключ не распознан. Проверьте, нет ли опечатки, и повторите попытку.",
+  "This key is already in use on the most computers it allows. Open SermonDesk on one of them and choose “Deactivate this computer”, then try again here.": "Этот ключ уже используется на максимальном числе компьютеров. Откройте SermonDesk на одном из них, выберите «Отключить этот компьютер» и повторите попытку здесь.",
+  "That licence key’s subscription has ended, so it cannot be entered here. Renew it at the store, or enter another key.": "Подписка этого лицензионного ключа закончилась, поэтому его нельзя ввести здесь. Продлите её в магазине или введите другой ключ.",
+  "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Этот лицензионный ключ отключён в магазине, поэтому его нельзя ввести здесь. Введите другой ключ или напишите нам.",
+  "Could not reach {provider} to free this computer. Try again when you are online.": "Не удалось связаться с {provider}, чтобы освободить этот компьютер. Повторите попытку, когда будете в сети.",
+  "Could not reach {provider}: {reason}": "Не удалось связаться с {provider}: {reason}",
+  "Imported sermon": "Импортированная проповедь"
 };
 const sw = {
+  "Drag to move this picture": "Buruta kuhamisha picha hii",
+  "The page break, and where the picture sits in the sermon": "Mkato wa ukurasa, na mahali picha inakaa katika hubiri",
+  "That is not a recording the app can hear.": "Hiyo si rekodi ambayo programu inaweza kusikiliza.",
+  "ESV": "SUV",
   "Follows the language above when its dictionary is installed, and can be set apart here. Uses the spellchecker built into the operating system; a language that is not installed there will not underline anything.": "Hufuata lugha iliyo hapo juu kamusi yake ikiwa imesakinishwa, na inaweza kuwekwa tofauti hapa. Hutumia kikagua tahajia cha mfumo wa uendeshaji; lugha isiyosakinishwa humo haitapigia mstari chochote.",
   "The chosen version, against today’s draft": "Toleo lililochaguliwa, likilinganishwa na rasimu ya leo",
   "The same": "Sawa",
@@ -31008,7 +31242,26 @@ const sw = {
   "That recording was not chosen with Transcribe a recording.": "Rekodi hiyo haikuchaguliwa kupitia Nakili rekodi.",
   "No sermon folder has been chosen yet.": "Hakuna folda ya mahubiri iliyochaguliwa bado.",
   "That file is not in the sermon folder.": "Faili hiyo haimo kwenye folda ya mahubiri.",
-  "That is not something the app can write.": "Hicho si kitu ambacho programu inaweza kuandika."
+  "That is not something the app can write.": "Hicho si kitu ambacho programu inaweza kuandika.",
+  "SermonDesk is read-only until you enter a licence key. Every sermon is still here to open, search, print, and preach.": "SermonDesk ni ya kusoma tu hadi uweke ufunguo wa leseni. Kila mahubiri bado yapo ya kufungua, kutafuta, kuchapisha na kuhubiri.",
+  "SermonDesk is read-only because the subscription has ended. Every sermon is still here to open, search, print, and preach.": "SermonDesk ni ya kusoma tu kwa sababu usajili umeisha. Kila mahubiri bado yapo ya kufungua, kutafuta, kuchapisha na kuhubiri.",
+  "The sermon folder is not available right now: {path}. If it lives in a cloud folder, it may still be syncing.": "Folda ya mahubiri haipatikani kwa sasa: {path}. Ikiwa iko kwenye folda ya wingu, huenda bado inasawazishwa.",
+  "{path} is a whole drive, not a sermon folder. Choose the folder the sermons are in with Change…, then connect from there.": "{path} ni diski nzima, si folda ya mahubiri. Chagua folda yenye mahubiri kwa Badilisha…, kisha unganisha kutoka hapo.",
+  "{path} is your home folder, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} ni folda yako ya nyumbani, na kila kitu ndani yake kingehamishwa. Chagua folda yenye mahubiri kwa Badilisha…, kisha unganisha kutoka hapo.",
+  "{path} holds more than sermons, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} ina zaidi ya mahubiri, na kila kitu ndani yake kingehamishwa. Chagua folda yenye mahubiri kwa Badilisha…, kisha unganisha kutoka hapo.",
+  "{path} is the whole of a sync service, and everything in it would be moved. Choose the folder the sermons are in with Change…, then connect from there.": "{path} ni huduma nzima ya usawazishaji, na kila kitu ndani yake kingehamishwa. Chagua folda yenye mahubiri kwa Badilisha…, kisha unganisha kutoka hapo.",
+  "There is no folder at {path}.": "Hakuna folda kwenye {path}.",
+  "{path} already has files in it. To use that folder as it is, choose it with Change…; to move the sermons into it, empty it first.": "{path} tayari ina faili. Ili kutumia folda hiyo kama ilivyo, ichague kwa Badilisha…; ili kuhamisha mahubiri ndani yake, iondoe vitu kwanza.",
+  "The copy came up short: 1 file did not arrive whole. Nothing has been switched; both folders are as they were.": "Nakala haikukamilika: faili 1 haikufika nzima. Hakuna kilichobadilishwa; folda zote mbili ziko kama zilivyokuwa.",
+  "The copy came up short: {n} files did not arrive whole. Nothing has been switched; both folders are as they were.": "Nakala haikukamilika: faili {n} hazikufika nzima. Hakuna kilichobadilishwa; folda zote mbili ziko kama zilivyokuwa.",
+  "Could not reach {provider}. Your key has not been changed; try again when you are online.": "Haikuweza kufikia {provider}. Ufunguo wako haujabadilishwa; jaribu tena ukiwa mtandaoni.",
+  "That licence key was not recognised. Check it for a typo and try again.": "Ufunguo huo wa leseni haukutambuliwa. Angalia kama kuna kosa la kuandika kisha ujaribu tena.",
+  "This key is already in use on the most computers it allows. Open SermonDesk on one of them and choose “Deactivate this computer”, then try again here.": "Ufunguo huu tayari unatumika kwenye idadi ya juu ya kompyuta unazoruhusu. Fungua SermonDesk kwenye mojawapo na uchague “Zima kompyuta hii”, kisha ujaribu tena hapa.",
+  "That licence key’s subscription has ended, so it cannot be entered here. Renew it at the store, or enter another key.": "Usajili wa ufunguo huo wa leseni umeisha, kwa hivyo hauwezi kuwekwa hapa. Uhuishe dukani, au weka ufunguo mwingine.",
+  "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Ufunguo huo wa leseni umezimwa dukani, kwa hivyo hauwezi kuwekwa hapa. Weka ufunguo mwingine, au tuandikie.",
+  "Could not reach {provider} to free this computer. Try again when you are online.": "Haikuweza kufikia {provider} ili kuachilia kompyuta hii. Jaribu tena ukiwa mtandaoni.",
+  "Could not reach {provider}: {reason}": "Haikuweza kufikia {provider}: {reason}",
+  "Imported sermon": "Mahubiri yaliyoingizwa"
 };
 const TABLES = { en: {}, es, ko, pt: pt$3, fr: fr$3, de: de$1, zh, ja, tl, id, ru, sw };
 function fill(text, vars) {
@@ -31230,6 +31483,24 @@ const DEFAULT_EDITOR_SETTINGS = {
 };
 const MIN_LIBRARY_WIDTH = 260;
 const MAX_LIBRARY_WIDTH = 420;
+const DEFAULT_PODIUM_SETTINGS = {
+  theme: "dark",
+  fontScale: 1,
+  targetMinutes: 30,
+  showNotes: true,
+  reading: "manuscript",
+  rail: true,
+  pace: 130,
+  clock: "elapsed",
+  pointTiming: true,
+  nextLine: true,
+  touchBar: true,
+  keyLine: true,
+  marks: true,
+  warnFive: true,
+  warnAtTime: true,
+  warnPointOver: true
+};
 const DEFAULT_APP_SETTINGS = {
   theme: "system",
   spellingLanguage: "en-US",
@@ -32678,6 +32949,10 @@ function SetupScreen({
   ] });
 }
 const PAPERS = ["letter", "a4", "half-letter", "a5", "legal"];
+const ORIENTATIONS = ["portrait", "landscape"];
+const MARGINS = ["narrow", "normal", "wide"];
+const ORIENTATION_LABELS = { portrait: msg("Portrait"), landscape: msg("Landscape") };
+const MARGIN_LABELS = { narrow: msg("Narrow"), normal: msg("Normal"), wide: msg("Wide") };
 const SPECS = {
   letter: { label: "Letter", width: 8.5, height: 11, named: "Letter", css: "8.5in", cssHeight: "11in" },
   a4: { label: "A4", width: 210 / 25.4, height: 297 / 25.4, named: "A4", css: "210mm", cssHeight: "297mm" },
@@ -33072,11 +33347,25 @@ function clock(seconds) {
   const whole = Math.max(0, Math.floor(seconds));
   return `${Math.floor(whole / 60)}:${String(whole % 60).padStart(2, "0")}`;
 }
+const ROMAN = [
+  [1e3, "M"],
+  [900, "CM"],
+  [500, "D"],
+  [400, "CD"],
+  [100, "C"],
+  [90, "XC"],
+  [50, "L"],
+  [40, "XL"],
+  [10, "X"],
+  [9, "IX"],
+  [5, "V"],
+  [4, "IV"],
+  [1, "I"]
+];
 function roman(index2) {
-  const table = [[10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]];
   let n2 = index2;
   let out = "";
-  for (const [value, glyph] of table) {
+  for (const [value, glyph] of ROMAN) {
     while (n2 >= value) {
       out += glyph;
       n2 -= value;
@@ -33085,7 +33374,7 @@ function roman(index2) {
   return out;
 }
 const PRINT_FONT = "'Iowan Old Style', 'Palatino Linotype', Georgia, serif";
-const MARGIN_INCHES$1 = {
+const MARGIN_INCHES = {
   narrow: 0.5,
   normal: 0.75,
   wide: 1
@@ -33097,7 +33386,7 @@ function documentShell(title, styles, body, page = DEFAULT_PAGE_OPTIONS) {
 <meta charset="utf-8" />
 <title>${escapeHtml(title)}</title>
 <style>
-  @page { size: ${sheetSize(page.paper, page.orientation).pageRule}; margin: ${MARGIN_INCHES$1[page.margin]}in; }
+  @page { size: ${sheetSize(page.paper, page.orientation).pageRule}; margin: ${MARGIN_INCHES[page.margin]}in; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -33199,34 +33488,11 @@ function outlineSections(sermon, options) {
   }
   return sections;
 }
-const ROMAN = [
-  [1e3, "M"],
-  [900, "CM"],
-  [500, "D"],
-  [400, "CD"],
-  [100, "C"],
-  [90, "XC"],
-  [50, "L"],
-  [40, "XL"],
-  [10, "X"],
-  [9, "IX"],
-  [5, "V"],
-  [4, "IV"],
-  [1, "I"]
-];
-function numeral$1(index2, style2) {
+function numeral(index2, style2) {
   if (style2 === "none") return "";
   if (style2 === "arabic") return `${index2}.`;
   if (style2 === "letters") return `${String.fromCharCode(64 + (index2 - 1) % 26 + 1)}.`;
-  let n2 = index2;
-  let out = "";
-  for (const [value, glyph] of ROMAN) {
-    while (n2 >= value) {
-      out += glyph;
-      n2 -= value;
-    }
-  }
-  return `${out}.`;
+  return `${roman(index2)}.`;
 }
 const OUTLINE_TAGS = {
   scripture: msg("Scripture"),
@@ -33259,7 +33525,7 @@ function renderOutlineHtml(sermon, page, options = DEFAULT_OUTLINE_OPTIONS) {
       number += 1;
       counts.points += 1;
     }
-    const num = point ? numeral$1(number, options.numbering) : "";
+    const num = point ? numeral(number, options.numbering) : "";
     const key2 = point && options.keyLine ? keyLine(point) : null;
     const lines = section.under.filter((block) => {
       if (block.type === "scripture") return options.passages;
@@ -33431,7 +33697,7 @@ function renderHandoutHtml(sermon, options, page) {
   const size2 = options.largePrint ? "17pt" : layout === "insert" ? "9.5pt" : "11.5pt";
   const leading = options.largePrint ? "2" : layout === "insert" ? "1.4" : "1.5";
   const weight = options.largePrint ? "500" : "400";
-  const marginInches = MARGIN_INCHES$1[page?.margin ?? "normal"];
+  const marginInches = MARGIN_INCHES[page?.margin ?? "normal"];
   const sheet = sheetSize(page?.paper ?? "letter", page?.orientation);
   const twoUp = layout === "insert" && !sheet.small;
   const halfHeight = twoUp ? `${(sheet.height - 2 * marginInches) / 2 - 0.15}in` : "auto";
@@ -39916,7 +40182,7 @@ function outlineLines(blocks, numbering) {
   let points2 = 0;
   for (const block of blocks) {
     if (block.type === "table" || block.type === "image" || block.type === "freeform") continue;
-    const number = block.type === "point" ? numeral$1(++points2, numbering) : "";
+    const number = block.type === "point" ? numeral(++points2, numbering) : "";
     const summary2 = block.type === "scripture" ? firstSentence(block.text) : keyLine(block)?.spans.map((span) => span.text).join("") ?? "";
     lines.set(block.id, { numeral: number, summary: summary2.trim() });
   }
@@ -83328,117 +83594,6 @@ const footnoteInline = jo(
   { type: "footnote", propSchema: { note: { default: "" } }, content: "none" },
   { render: () => /* @__PURE__ */ jsxRuntimeExports.jsx(FootnoteMark, {}) }
 );
-const PAGE_BREAK_PROP = { default: false };
-function shellShortcut(event) {
-  if (event.key === "Escape") return true;
-  if (!(event.ctrlKey || event.metaKey)) return false;
-  const key2 = event.key.toLowerCase();
-  if (event.shiftKey) return key2 === "f" || key2 === "d";
-  return key2 === "\\" || key2 === "," || key2 === "p" || key2 === "n" || key2 === "s";
-}
-const MOVE_BLOCK_EVENT = "sermondesk:move-block";
-function moveOptions(editor, id2) {
-  const index2 = editor.document.findIndex((entry) => entry.id === id2);
-  return { up: index2 > 0, down: index2 >= 0 && index2 < editor.document.length - 1 };
-}
-const SPLIT_BLOCK_EVENT = "sermondesk:split-block";
-const JOIN_BLOCK_EVENT = "sermondesk:join-block";
-function splitHandle(editor, id2, type) {
-  return {
-    can: () => {
-      let inBody = false;
-      try {
-        const caret = editor.getTextCursorPosition().block;
-        const parent = editor.getParentBlock(caret);
-        inBody = caret.id !== id2 && parent?.id === id2;
-      } catch {
-        inBody = false;
-      }
-      const index2 = editor.document.findIndex((entry) => entry.id === id2);
-      const above = index2 > 0 ? editor.document[index2 - 1] : void 0;
-      return { split: inBody, join: above?.type === type };
-    },
-    onSplit: () => window.dispatchEvent(new CustomEvent(SPLIT_BLOCK_EVENT, { detail: { id: id2 } })),
-    onJoin: () => window.dispatchEvent(new CustomEvent(JOIN_BLOCK_EVENT, { detail: { id: id2 } }))
-  };
-}
-function moveHandle(editor, id2) {
-  return {
-    can: () => moveOptions(editor, id2),
-    onMove: (direction) => window.dispatchEvent(new CustomEvent(MOVE_BLOCK_EVENT, { detail: { id: id2, direction } }))
-  };
-}
-const ALIGN_PROP = { default: "left", values: ["left", "center", "right", "justify"] };
-const SPACING_PROPS = { lineSpacing: { default: "" }, spaceAfter: { default: "" } };
-const STYLE_PROP = { default: "" };
-const MARGIN_PROP = { default: "" };
-const IMAGE_WIDTHS = [
-  ["small", msg("Small")],
-  ["medium", msg("Medium")],
-  ["full", msg("Full width")]
-];
-function ImageFrame({
-  block,
-  editor,
-  children
-}) {
-  const t2 = useT();
-  const style2 = BLOCK_STYLES.image;
-  const align = block.props.align;
-  const textAlign = align === "center" || align === "right" ? align : void 0;
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    "div",
-    {
-      className: `sermon-block sermon-block--image sermon-block--image-${block.props.width || "full"}`,
-      style: { borderColor: style2.accent, textAlign },
-      children: [
-        block.props.pageBreak && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__pagebreak", title: t2("Starts on a new page when printed"), children: t2("Page break") }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__labelrow", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__label", style: { color: style2.accent }, children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: style2.marker }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2(style2.label) })
-          ] }),
-          editor.isEditable && /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "select",
-            {
-              className: "field sermon-block__select",
-              "aria-label": t2("Picture width"),
-              title: t2("How wide the picture sits"),
-              value: block.props.width || "full",
-              onMouseDown: (event) => event.stopPropagation(),
-              onChange: (event) => editor.updateBlock(block, { props: { width: event.target.value } }),
-              children: IMAGE_WIDTHS.map(([value, label]) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value, children: t2(label) }, value))
-            }
-          )
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "sermon-block__picture", src: imageUrl(block.props.src), alt: "", draggable: false }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__body sermon-block__body--caption", children })
-      ]
-    }
-  );
-}
-const imageBlock = ea(
-  {
-    type: "image",
-    propSchema: {
-      src: { default: "" },
-      width: { default: "full", values: ["small", "medium", "full"] },
-      align: ALIGN_PROP,
-      pageBreak: PAGE_BREAK_PROP
-    },
-    content: "inline"
-  },
-  {
-    render: ({ block, editor, contentRef }) => /* @__PURE__ */ jsxRuntimeExports.jsx(ImageFrame, { block, editor, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: contentRef }) })
-  }
-);
-const paragraphSpec = {
-  ...ai$2.paragraph,
-  config: {
-    ...ai$2.paragraph.config,
-    propSchema: { ...ai$2.paragraph.config.propSchema, style: STYLE_PROP, margin: MARGIN_PROP }
-  }
-};
 function BlockTypeMenu({
   current: current2,
   onSelect,
@@ -83475,7 +83630,7 @@ function BlockTypeMenu({
       ref,
       className: "block-type-menu",
       role: "menu",
-      "aria-label": showTypes ? t2("Change block type") : t2("Spelling"),
+      "aria-label": showTypes ? t2("Change block type") : spelling ? t2("Spelling") : t2("Block"),
       onMouseDown: (event) => event.preventDefault(),
       onKeyDown: (event) => event.stopPropagation(),
       children: [
@@ -83610,6 +83765,165 @@ function BlockTypeMenu({
     }
   );
 }
+const PAGE_BREAK_PROP = { default: false };
+function shellShortcut(event) {
+  if (event.key === "Escape") return true;
+  if (!(event.ctrlKey || event.metaKey)) return false;
+  const key2 = event.key.toLowerCase();
+  if (event.shiftKey) return key2 === "f" || key2 === "d";
+  return key2 === "\\" || key2 === "," || key2 === "p" || key2 === "n" || key2 === "s";
+}
+const MOVE_BLOCK_EVENT = "sermondesk:move-block";
+function moveOptions(editor, id2) {
+  const index2 = editor.document.findIndex((entry) => entry.id === id2);
+  return { up: index2 > 0, down: index2 >= 0 && index2 < editor.document.length - 1 };
+}
+const SPLIT_BLOCK_EVENT = "sermondesk:split-block";
+const JOIN_BLOCK_EVENT = "sermondesk:join-block";
+function splitHandle(editor, id2, type) {
+  return {
+    can: () => {
+      let inBody = false;
+      try {
+        const caret = editor.getTextCursorPosition().block;
+        const parent = editor.getParentBlock(caret);
+        inBody = caret.id !== id2 && parent?.id === id2;
+      } catch {
+        inBody = false;
+      }
+      const index2 = editor.document.findIndex((entry) => entry.id === id2);
+      const above = index2 > 0 ? editor.document[index2 - 1] : void 0;
+      return { split: inBody, join: above?.type === type };
+    },
+    onSplit: () => window.dispatchEvent(new CustomEvent(SPLIT_BLOCK_EVENT, { detail: { id: id2 } })),
+    onJoin: () => window.dispatchEvent(new CustomEvent(JOIN_BLOCK_EVENT, { detail: { id: id2 } }))
+  };
+}
+function moveHandle(editor, id2) {
+  return {
+    can: () => moveOptions(editor, id2),
+    onMove: (direction) => window.dispatchEvent(new CustomEvent(MOVE_BLOCK_EVENT, { detail: { id: id2, direction } }))
+  };
+}
+const ALIGN_PROP = { default: "left", values: ["left", "center", "right", "justify"] };
+const SPACING_PROPS = { lineSpacing: { default: "" }, spaceAfter: { default: "" } };
+const STYLE_PROP = { default: "" };
+const MARGIN_PROP = { default: "" };
+const IMAGE_WIDTHS = [
+  ["small", msg("Small")],
+  ["medium", msg("Medium")],
+  ["full", msg("Full width")]
+];
+function ImageFrame({
+  block,
+  editor,
+  children
+}) {
+  const t2 = useT();
+  const style2 = BLOCK_STYLES.image;
+  const [menuOpen, setMenuOpen] = reactExports$1.useState(false);
+  const [canMove, setCanMove] = reactExports$1.useState(null);
+  const move = editor.isEditable ? moveHandle(editor, block.id) : void 0;
+  const openMenu = () => {
+    setCanMove(move ? move.can() : null);
+    setMenuOpen(true);
+  };
+  const align = block.props.align;
+  const textAlign = align === "center" || align === "right" ? align : void 0;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      className: `sermon-block sermon-block--image sermon-block--image-${block.props.width || "full"}`,
+      style: { borderColor: style2.accent, textAlign },
+      children: [
+        block.props.pageBreak && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__pagebreak", title: t2("Starts on a new page when printed"), children: t2("Page break") }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__labelrow", children: [
+          editor.isEditable && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-block__grip", draggable: true, "data-grip": block.id, title: t2("Drag to move this picture"), "aria-hidden": "true", contentEditable: false, children: "⋮⋮" }),
+          editor.isEditable ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "button",
+            {
+              type: "button",
+              className: "sermon-block__label sermon-block__label--button",
+              style: { color: style2.accent },
+              title: t2("The page break, and where the picture sits in the sermon"),
+              "aria-haspopup": "menu",
+              "aria-expanded": menuOpen,
+              onMouseDown: (event) => event.preventDefault(),
+              onClick: () => menuOpen ? setMenuOpen(false) : openMenu(),
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: style2.marker }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2(style2.label) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-block__label-caret", "aria-hidden": "true", children: "▾" })
+              ]
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__label", style: { color: style2.accent }, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: style2.marker }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2(style2.label) })
+          ] }),
+          menuOpen && editor.isEditable && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            BlockTypeMenu,
+            {
+              current: "image",
+              showTypes: false,
+              onSelect: () => setMenuOpen(false),
+              onClose: () => setMenuOpen(false),
+              pageBreak: {
+                on: block.props.pageBreak,
+                onToggle: () => {
+                  setMenuOpen(false);
+                  editor.updateBlock(block, { props: { pageBreak: !block.props.pageBreak } });
+                }
+              },
+              move: move && canMove ? {
+                ...canMove,
+                onMove: (direction) => {
+                  setMenuOpen(false);
+                  move.onMove(direction);
+                }
+              } : null
+            }
+          ),
+          editor.isEditable && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "select",
+            {
+              className: "field sermon-block__select",
+              "aria-label": t2("Picture width"),
+              title: t2("How wide the picture sits"),
+              value: block.props.width || "full",
+              onMouseDown: (event) => event.stopPropagation(),
+              onChange: (event) => editor.updateBlock(block, { props: { width: event.target.value } }),
+              children: IMAGE_WIDTHS.map(([value, label]) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value, children: t2(label) }, value))
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "sermon-block__picture", src: imageUrl(block.props.src), alt: "", draggable: false }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__body sermon-block__body--caption", children })
+      ]
+    }
+  );
+}
+const imageBlock = ea(
+  {
+    type: "image",
+    propSchema: {
+      src: { default: "" },
+      width: { default: "full", values: ["small", "medium", "full"] },
+      align: ALIGN_PROP,
+      pageBreak: PAGE_BREAK_PROP
+    },
+    content: "inline"
+  },
+  {
+    render: ({ block, editor, contentRef }) => /* @__PURE__ */ jsxRuntimeExports.jsx(ImageFrame, { block, editor, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: contentRef }) })
+  }
+);
+const paragraphSpec = {
+  ...ai$2.paragraph,
+  config: {
+    ...ai$2.paragraph.config,
+    propSchema: { ...ai$2.paragraph.config.propSchema, style: STYLE_PROP, margin: MARGIN_PROP }
+  }
+};
 function BlockFrame({
   type,
   id: id2,
@@ -84059,7 +84373,7 @@ function ScriptureFrame({
         {
           className: "sermon-block__version selectable",
           value: block.props.translation,
-          placeholder: "ESV",
+          placeholder: t2("ESV"),
           "aria-label": t2("Version"),
           size: 6,
           readOnly: !editor.isEditable,
@@ -84611,7 +84925,6 @@ function collectParagraphs(children, level, into) {
     collectParagraphs(child.children, level + 1, into);
   }
 }
-const bodyText = flattenBody;
 function cellFromBlockNote(cell) {
   const content = Array.isArray(cell) ? cell : cell?.content;
   const spans = spansFromBlockNote(content);
@@ -84704,7 +85017,7 @@ function fromEditorBlocks(blocks) {
     const spans = typed ? bodyFirst?.inline ?? [] : ownSpans;
     const first2 = typed ? bodyFirst?.text ?? "" : plainFromInline(ownSpans);
     const rest = beneath;
-    const content = bodyText(first2, rest);
+    const content = flattenBody(first2, rest);
     const isList2 = block.type in LIST_TYPES;
     if (!content.trim() && !heading && !isList2) continue;
     const align = typed ? bodyFirst?.align : readAlignment(block.props?.["textAlignment"]);
@@ -85407,12 +85720,7 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
         const index2 = editor.document.findIndex((entry) => entry.id === top.id);
         targetId = editor.document[index2 + 1]?.id ?? targetId;
       } else if (UNTYPED.has(block.type)) {
-        editor.updateBlock(block, {
-          type,
-          props: frame(),
-          content: [],
-          children: [{ type: "paragraph", props: { textAlignment: align }, content: block.content, children: block.children ?? [] }]
-        });
+        retype(editor, block, type);
       } else if (!hasContent && !hasChildren) {
         editor.updateBlock(block, { type, props: frame() });
       } else {
@@ -89641,18 +89949,11 @@ function PaperSelect({ value, onChange, className = "field", title, disabled }) 
 }
 function OrientationSelect({ value, onChange, className = "field", title, disabled }) {
   const t2 = useT();
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { className, "aria-label": t2("Orientation"), title, value, disabled, onMouseDown: keep, onChange: (event) => onChange(event.target.value), children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "portrait", children: t2("Portrait") }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "landscape", children: t2("Landscape") })
-  ] });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className, "aria-label": t2("Orientation"), title, value, disabled, onMouseDown: keep, onChange: (event) => onChange(event.target.value), children: ORIENTATIONS.map((orientation) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: orientation, children: t2(ORIENTATION_LABELS[orientation]) }, orientation)) });
 }
 function MarginSelect({ value, onChange, className = "field", title, disabled }) {
   const t2 = useT();
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { className, "aria-label": t2("Margins"), title, value, disabled, onMouseDown: keep, onChange: (event) => onChange(event.target.value), children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "narrow", children: t2("Narrow") }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "normal", children: t2("Normal") }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "wide", children: t2("Wide") })
-  ] });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className, "aria-label": t2("Margins"), title, value, disabled, onMouseDown: keep, onChange: (event) => onChange(event.target.value), children: MARGINS.map((margin) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: margin, children: t2(MARGIN_LABELS[margin]) }, margin)) });
 }
 function PageLineSpacingSelect({ value, onChange, className = "field", title, disabled }) {
   const t2 = useT();
@@ -90254,11 +90555,7 @@ function useRelated(sermonId) {
   }, [sermonId]);
   return groups;
 }
-function whenPreached(iso, t2, locale) {
-  if (!iso) return t2("Draft");
-  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
-  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(locale, { year: "numeric", month: "short", day: "numeric" });
-}
+const whenPreached = (iso, t2, locale) => iso ? formatDate$3(iso, locale, SHORT_DATE) : t2("Draft");
 function lineFor(text) {
   const flat = text.replace(/\s+/g, " ").trim();
   return flat.length > 64 ? `${flat.slice(0, 61).trimEnd()}…` : flat;
@@ -91338,7 +91635,6 @@ function Inspector({
     )
   ] }) });
 }
-const MARGIN_INCHES = { narrow: 0.5, normal: 0.75, wide: 1 };
 function ViewPreview({ html, title, page, onOpen, onMove, onClipped }) {
   const [height, setHeight] = reactExports$1.useState(0);
   const ground = reactExports$1.useRef(null);
@@ -91409,11 +91705,7 @@ const STATUS_NAMES = {
   preached: msg("preached"),
   archived: msg("archived")
 };
-function tellingDate(iso, locale) {
-  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
-  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(locale, { year: "numeric", month: "short", day: "numeric" });
-}
-const today = () => isoDate();
+const tellingDate = (iso, locale) => formatDate$3(iso, locale, SHORT_DATE);
 const OFFERS = 6;
 function currentToken(text) {
   const at2 = text.lastIndexOf(",") + 1;
@@ -91501,7 +91793,7 @@ function PreachingLog({ draft, writable, onMeta }) {
   const t2 = useT();
   const locale = localeOf(useLanguage());
   const [adding, setAdding] = reactExports$1.useState(false);
-  const [date, setDate] = reactExports$1.useState(today);
+  const [date, setDate] = reactExports$1.useState(isoDate);
   const [church, setChurch] = reactExports$1.useState("");
   const [churches, setChurches] = reactExports$1.useState([]);
   reactExports$1.useEffect(() => {
@@ -91522,7 +91814,7 @@ function PreachingLog({ draft, writable, onMeta }) {
     keep2([...tellings.filter((entry) => !(entry.date === date && (entry.church ?? "") === named)), { date, ...named ? { church: named } : {} }]);
     setAdding(false);
     setChurch("");
-    setDate(today());
+    setDate(isoDate());
   };
   if (tellings.length === 0 && !adding) {
     return writable ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "editor-log__add link", title: t2("Note a time this was preached: the date, and where"), onClick: () => setAdding(true), children: t2("Add a preaching") }) : /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, {});
@@ -91795,9 +92087,9 @@ function blockKey(block) {
   return `${block.type}|${blockHeading(block) ?? ""}|${body}`;
 }
 function versionLabel(version, t2, locale) {
-  const today2 = /* @__PURE__ */ new Date();
+  const today = /* @__PURE__ */ new Date();
   const date = /* @__PURE__ */ new Date(`${version.date}T00:00:00`);
-  const days = Math.round((today2.setHours(0, 0, 0, 0) - date.getTime()) / 864e5);
+  const days = Math.round((today.setHours(0, 0, 0, 0) - date.getTime()) / 864e5);
   const named = days === 0 ? t2("Today") : days === 1 ? t2("Yesterday") : date.toLocaleDateString(locale, { weekday: "long", day: "numeric", month: "long" });
   return version.time ? t2("{date}, {time}", { date: named, time: version.time }) : named;
 }
@@ -91840,7 +92132,7 @@ function BlockText({ block, tone }) {
     paragraphs2.map((paragraph, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: paragraph.text }, index2))
   ] });
 }
-function HistorySheet({ draft, filePath, onRestore, onPutBack, onClose }) {
+function HistorySheet({ draft, onRestore, onPutBack, onClose }) {
   const t2 = useT();
   const locale = localeOf(useLanguage());
   const [versions, setVersions] = reactExports$1.useState(null);
@@ -92319,7 +92611,7 @@ function DictationPill({ dictation }) {
         onChange: (event) => dictation.setMicrophone(event.target.value),
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: t2("The usual microphone") }),
-          dictation.microphones.map((mic) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: mic.id, children: mic.label.replace(/\s*\([0-9a-f]{4}:[0-9a-f]{4}\)\s*$/i, "") }, mic.id))
+          dictation.microphones.map((mic) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: mic.id, children: mic.label.replace(/\s*\([0-9a-f]{4}:[0-9a-f]{4}\)\s*$/i, "") || t2("Microphone") }, mic.id))
         ]
       }
     ),
@@ -92439,7 +92731,7 @@ class Recorder {
 }
 async function listMicrophones() {
   const devices = await navigator.mediaDevices.enumerateDevices();
-  return devices.filter((device) => device.kind === "audioinput" && device.deviceId && device.deviceId !== "default" && device.deviceId !== "communications").map((device) => ({ id: device.deviceId, label: device.label || "Microphone" }));
+  return devices.filter((device) => device.kind === "audioinput" && device.deviceId && device.deviceId !== "default" && device.deviceId !== "communications").map((device) => ({ id: device.deviceId, label: device.label }));
 }
 async function preferredMicrophone() {
   try {
@@ -92898,7 +93190,7 @@ function EditorPane({
 }) {
   const t2 = useT();
   const language = useLanguage();
-  const locale = localeOf(useLanguage());
+  const locale = localeOf(language);
   const doc2 = useSermonDraft(sermon, filePath, writable, onChanged);
   const { draft, path, draftRef, pathRef } = doc2;
   const [series, setSeries] = reactExports$1.useState([]);
@@ -93239,7 +93531,6 @@ function EditorPane({
       HistorySheet,
       {
         draft,
-        filePath: path,
         onClose: () => setHistoryOpen(false),
         onRestore: (version) => {
           void window.api.keepHistory(pathRef.current, { id: draft.id, datePreached: draft.datePreached }).catch(() => null).then(() => {
@@ -93904,24 +94195,7 @@ function PodiumView({ sermon, onExit }) {
   const blocks = reactExports$1.useMemo(() => podiumBlocks(sermon), [sermon]);
   const cards = reactExports$1.useMemo(() => cardGroups(blocks), [blocks]);
   const [phase, setPhase] = reactExports$1.useState("ready");
-  const [settings, setSettings] = reactExports$1.useState({
-    theme: "dark",
-    showNotes: true,
-    fontScale: 1,
-    targetMinutes: 30,
-    reading: "manuscript",
-    rail: true,
-    pace: 130,
-    clock: "elapsed",
-    pointTiming: true,
-    nextLine: true,
-    touchBar: true,
-    keyLine: true,
-    marks: true,
-    warnFive: true,
-    warnAtTime: true,
-    warnPointOver: true
-  });
+  const [settings, setSettings] = reactExports$1.useState(DEFAULT_PODIUM_SETTINGS);
   const [showSettings, setShowSettings] = reactExports$1.useState(false);
   const [bumps, setBumps] = reactExports$1.useState({});
   const [targetMinutes, setTargetMinutes] = reactExports$1.useState(sermon.lengthMinutes ?? null);
@@ -94391,16 +94665,8 @@ const TESTAMENTS = [
   { name: msg("New Testament"), from: 40, to: 66 }
 ];
 const key = (book, chapter) => `${book}:${chapter}`;
-function monthName(iso, locale) {
-  if (!iso) return "";
-  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
-  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(locale, { year: "numeric", month: "short" });
-}
-function dayName(iso, locale) {
-  if (!iso) return "";
-  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
-  return Number.isNaN(date.getTime()) ? iso : date.toLocaleDateString(locale, { year: "numeric", month: "short", day: "numeric" });
-}
+const monthName = (iso, locale) => formatDate$3(iso, locale, { year: "numeric", month: "short" });
+const dayName = (iso, locale) => formatDate$3(iso, locale, SHORT_DATE);
 function age(iso) {
   if (!iso) return "draft";
   const months = (Date.now() - (/* @__PURE__ */ new Date(`${iso}T00:00:00`)).getTime()) / (30.44 * 864e5);
@@ -94613,7 +94879,7 @@ function CoverageSheet({ onClose, onPick, paper = "letter" }) {
 }
 function printHtml(facts, cells, plans, church, language, t2) {
   const locale = localeOf(language);
-  const esc = (s2) => s2.replace(/[&<>]/g, (c2) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c2] ?? c2);
+  const esc = escapeHtml;
   const rows = (from2, to2) => BOOKS.filter((b2) => b2.number >= from2 && b2.number <= to2).map((b2) => {
     const on3 = [...cells.values()].some((c2) => c2.book === b2.number);
     const cellsHtml = Array.from({ length: b2.chapters }, (_, i2) => {
@@ -95885,6 +96151,7 @@ function applyThemePreference(next) {
   preference = next;
   paint();
 }
+const DICTIONARY_FILE = "dictionary.json";
 function describeLicense(status, t2, locale) {
   if (!status) return t2("Checking…");
   switch (status.state) {
@@ -95902,7 +96169,7 @@ const languageNames = new Intl.DisplayNames(void 0, { type: "language", language
 function languageName(code2) {
   try {
     const name = languageNames.of(code2);
-    return name && name !== code2 ? `${name}` : code2;
+    return name && name !== code2 ? name : code2;
   } catch {
     return code2;
   }
@@ -95951,7 +96218,7 @@ function PreferencesWindow({
   const [app, setApp] = reactExports$1.useState(DEFAULT_APP_SETTINGS);
   const [editor, setEditor] = reactExports$1.useState(DEFAULT_EDITOR_SETTINGS);
   const [dictionary, setDictionary] = reactExports$1.useState(null);
-  const [podium, setPodium] = reactExports$1.useState({ theme: "dark", fontScale: 1, targetMinutes: 30, showNotes: true, reading: "manuscript", rail: true, pace: 130, clock: "elapsed", pointTiming: true, nextLine: true, touchBar: true, keyLine: true, marks: true, warnFive: true, warnAtTime: true, warnPointOver: true });
+  const [podium, setPodium] = reactExports$1.useState(DEFAULT_PODIUM_SETTINGS);
   const [lengthText, setLengthText] = reactExports$1.useState("30");
   const [paceText, setPaceText] = reactExports$1.useState("130");
   const [languages, setLanguages] = reactExports$1.useState([]);
@@ -96002,7 +96269,6 @@ function PreferencesWindow({
     const minutes = Number(lengthText.trim());
     if (lengthText.trim() === "" || !Number.isFinite(minutes)) {
       setLengthText(String(podium.targetMinutes));
-      setPaceText(String(podium.pace));
       return;
     }
     updatePodium({ targetMinutes: minutes });
@@ -96078,7 +96344,7 @@ function PreferencesWindow({
           {
             label: t2("Your own words"),
             hint: dictionaryCount ? `${dictionaryHint} ${dictionaryCount}` : dictionaryHint,
-            children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", disabled: !folder.path || !folder.exists, onClick: () => void window.api.revealSermon(`${folder.path}/dictionary.json`), children: t2("Show file") })
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", disabled: !folder.path || !folder.exists, onClick: () => void window.api.revealSermon(`${folder.path}/${DICTIONARY_FILE}`), children: t2("Show file") })
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: t2("Language"), hint: t2("The words of the app, and the names of the books of the Bible as you type them and as the app writes them back. A reference typed in any language is read."), children: /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "field", "aria-label": t2("Language"), value: app.language, onChange: (event) => updateApp({ language: event.target.value }), children: LANGUAGES.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: entry.code, children: entry.name }, entry.code)) }) }),
@@ -96274,6 +96540,16 @@ function LicenseSheet({ onChanged, onClose }) {
     ] })
   ] });
 }
+const SERIES_FILE = "series.json";
+function seriesInput(row) {
+  return {
+    id: row.id,
+    name: row.name,
+    description: row.description,
+    ...row.planned.length ? { planned: row.planned } : {},
+    ...row.retired ? { retired: true } : {}
+  };
+}
 function SeriesSheet({ onClose, onSaved }) {
   const t2 = useT();
   const [series, setSeries] = reactExports$1.useState([]);
@@ -96286,7 +96562,7 @@ function SeriesSheet({ onClose, onSaved }) {
   const persist = async (next) => {
     setSeries(next);
     try {
-      const saved = await window.api.saveSeries(next.map(({ id: id2, name, description, planned, retired }) => ({ id: id2, name, description, ...planned?.length ? { planned } : {}, ...retired ? { retired: true } : {} })));
+      const saved = await window.api.saveSeries(next.map(seriesInput));
       setSeries(saved);
       onSaved();
     } catch (cause) {
@@ -96300,7 +96576,7 @@ function SeriesSheet({ onClose, onSaved }) {
     setNewName("");
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { title: t2("Series"), ariaLabel: t2("Edit series"), onClose, children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", children: t2("Saved to {file} in your sermon folder. A series groups the sermons of a season.", { file: "series.json" }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", children: t2("Saved to {file} in your sermon folder. A series groups the sermons of a season.", { file: SERIES_FILE }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "series-sheet__list", children: [
       series.map((entry, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "series-sheet__row", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -96357,7 +96633,6 @@ function SeriesSheet({ onClose, onSaved }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: t2("Done") }) })
   ] });
 }
-const numeral = (n2) => roman(n2);
 const when$1 = (iso, withYear, locale) => formatDate$3(iso ?? null, locale, { month: "short", day: "numeric", ...withYear ? { year: "numeric" } : {} });
 function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
   const t2 = useT();
@@ -96381,7 +96656,7 @@ function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
   const planned = series?.planned ?? [];
   const persist = async (next) => {
     try {
-      const saved = await window.api.saveSeries(all.map((entry) => ({ id: entry.id, name: entry.name, description: entry.description, ...entry.retired ? { retired: true } : {}, ...entry.id === seriesId ? next.length ? { planned: next } : {} : entry.planned?.length ? { planned: entry.planned } : {} })));
+      const saved = await window.api.saveSeries(all.map((entry) => seriesInput(entry.id === seriesId ? { ...entry, planned: next } : entry)));
       setAll(saved);
       onSaved();
     } catch (cause) {
@@ -96406,7 +96681,7 @@ function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
     series?.description && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", children: series.description }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("ol", { className: "series-page__list", children: [
       preached.map((hit, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "series-page__row", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__num", children: numeral(index2 + 1) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__num", children: roman(index2 + 1) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "series-page__open", onClick: () => onOpen(hit.filePath), title: t2("Open this sermon"), children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: hit.title || t2("Untitled") }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("small", { children: [
@@ -96417,7 +96692,7 @@ function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__when", children: when$1(hit.datePreached, spansYears, locale) })
       ] }, hit.id)),
       planned.map((plan, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "series-page__row series-page__row--planned", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__num", children: numeral(preached.length + index2 + 1) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "series-page__num", children: roman(preached.length + index2 + 1) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "series-page__open", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: plan.title }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: [plan.passage, plan.date ? t2("planned for {date}", { date: when$1(plan.date, spansYears, locale) }) : t2("not yet dated")].filter(Boolean).join(" · ") })
@@ -96569,7 +96844,7 @@ function TidySheet({ onClose, onChanged }) {
   const addGroup = () => {
     const name = newGroup.trim().slice(0, 40);
     if (!name) return;
-    const stem = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "group";
+    const stem = slugOf(name, "group");
     let id2 = stem;
     for (let n2 = 2; tagsFile.groups.some((group) => group.id === id2); n2++) id2 = `${stem}-${n2}`;
     setNewGroup("");
@@ -96601,7 +96876,7 @@ function TidySheet({ onClose, onChanged }) {
   const retire = async (entry, retired) => {
     setError(null);
     try {
-      const saved = await window.api.saveSeries(series.map((row) => ({ id: row.id, name: row.name, description: row.description, ...row.planned?.length ? { planned: row.planned } : {}, ...(row.id === entry.id ? retired : row.retired) ? { retired: true } : {} })));
+      const saved = await window.api.saveSeries(series.map((row) => seriesInput(row.id === entry.id ? { ...row, retired } : row)));
       setSeries(saved);
       onChanged();
     } catch (cause) {
@@ -96963,15 +97238,7 @@ function useSermonLifecycle() {
       try {
         const { filePath } = await window.api.createSermon(plan.title, { seriesId, ...plan.passage ? { primaryPassage: plan.passage } : {} });
         const rows = await window.api.listSeries();
-        await window.api.saveSeries(
-          rows.map((row) => ({
-            id: row.id,
-            name: row.name,
-            description: row.description,
-            ...row.retired ? { retired: true } : {},
-            ...(row.id === seriesId ? row.planned.filter((entry) => entry.id !== plan.id) : row.planned).length ? { planned: row.id === seriesId ? row.planned.filter((entry) => entry.id !== plan.id) : row.planned } : {}
-          }))
-        );
+        await window.api.saveSeries(rows.map((row) => seriesInput(row.id === seriesId ? { ...row, planned: row.planned.filter((entry) => entry.id !== plan.id) } : row)));
         planned();
         await refreshList();
         await openSermon(filePath);
