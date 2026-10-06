@@ -2060,7 +2060,7 @@ div[data-type="modification"] {
 .tool-split .tool--word {
   border-radius: 6px 0 0 6px;
   min-width: 40px;
-  padding-right: 3px;
+  padding-right: 2px;
 }
 
 .tool--split-arrow {
@@ -2068,12 +2068,13 @@ div[data-type="modification"] {
   height: 44px;
   color: var(--ink-faint);
   border-radius: 0 6px 6px 0;
-  padding: 0 2px 0 1px;
+  align-items: flex-end;
+  padding: 0 3px 6.5px 0;
 }
 
 .tool--split-arrow .icon--caret {
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
   margin: 0;
 }
 
@@ -2227,6 +2228,10 @@ select.field {
 .segmented--fill .segmented__item {
   flex: 1;
   padding: 0 4px;
+}
+
+.segmented__label {
+  white-space: nowrap;
 }
 
 .segmented__item:hover:not(:disabled):not(.segmented__item--on) {
@@ -3575,16 +3580,13 @@ select.field {
 }
 
 .toolbar__group--end {
-  gap: 4px;
+  margin-left: auto;
 }
 
-.toolbar__center {
-  flex: 1;
-  justify-content: center;
-  min-width: 0;
-  padding: 0 6px;
-  display: flex;
-  overflow: hidden;
+.toolbar__views {
+  align-items: center;
+  gap: 1px;
+  display: inline-flex;
 }
 
 .toolbar__sep {
@@ -3594,28 +3596,17 @@ select.field {
   margin: 0 4px;
 }
 
-.toolbar__preach {
-  height: 28px;
-  padding: 0 12px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.toolbar__center .segmented {
-  flex: none;
-}
-
 .popover-host--word {
   align-items: center;
 }
 
 @container (max-width: 1120px) {
-  .toolbar .segmented__label {
-    display: none;
+  .toolbar .tool--fold-0 {
+    min-width: 30px;
   }
 
-  .toolbar .segmented__item {
-    padding: 0 8px;
+  .toolbar .tool--fold-0 .tool__word {
+    display: none;
   }
 }
 
@@ -3660,7 +3651,7 @@ select.field {
 }
 
 @container (max-width: 750px) {
-  .toolbar .tool--fold-2, .toolbar .tool--fold-1[aria-label="Find"] {
+  .toolbar .tool--fold-2, .toolbar .tool--fold-1[aria-label="Find"], .toolbar .tool--fold-1[aria-label="Find"] + .toolbar__sep {
     display: none;
   }
 
@@ -3671,14 +3662,6 @@ select.field {
 
 @container (max-width: 660px) {
   .toolbar .tool--fold-1 {
-    display: none;
-  }
-
-  .toolbar__preach {
-    padding: 0 9px;
-  }
-
-  .toolbar__preach-word {
     display: none;
   }
 }
@@ -3697,19 +3680,15 @@ select.field {
   .toolbar .tool--word {
     padding: 0 5px;
   }
-
-  .toolbar .segmented__item {
-    padding: 0 7px;
-  }
 }
 
 @container (max-width: 1400px) {
-  :root:not([lang="en"]):not([lang="zh"]):not([lang="ja"]):not([lang="ko"]) .toolbar .segmented__label {
-    display: none;
+  :root:not([lang="en"]):not([lang="zh"]):not([lang="ja"]):not([lang="ko"]) .toolbar .tool--fold-0 {
+    min-width: 30px;
   }
 
-  :root:not([lang="en"]):not([lang="zh"]):not([lang="ja"]):not([lang="ko"]) .toolbar .segmented__item {
-    padding: 0 8px;
+  :root:not([lang="en"]):not([lang="zh"]):not([lang="ja"]):not([lang="ko"]) .toolbar .tool--fold-0 .tool__word {
+    display: none;
   }
 }
 

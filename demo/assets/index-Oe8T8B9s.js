@@ -88978,39 +88978,6 @@ function PopoverButton({
     )
   ] });
 }
-function Segmented({
-  value,
-  options,
-  onChange,
-  ariaLabel,
-  compact = false,
-  fill: fill2 = false,
-  disabled = false,
-  keepFocus = false
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: fill2 ? "segmented segmented--fill" : "segmented", role: "tablist", "aria-label": ariaLabel, children: options.map((option) => {
-    const on3 = option.value === value;
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      "button",
-      {
-        type: "button",
-        role: "tab",
-        "aria-selected": on3,
-        className: on3 ? "segmented__item segmented__item--on" : "segmented__item",
-        title: option.title ?? (compact ? option.label : void 0),
-        "aria-label": option.label,
-        disabled: disabled || option.disabled,
-        onMouseDown: keepFocus ? (event) => event.preventDefault() : void 0,
-        onClick: () => onChange(option.value),
-        children: [
-          option.icon,
-          !compact && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "segmented__label", children: option.label })
-        ]
-      },
-      option.value
-    );
-  }) });
-}
 const CAPTIONS = {
   Sermon: msg("Sermon"),
   Library: msg("Library"),
@@ -89338,9 +89305,9 @@ function UndoRedo({
   ] });
 }
 const VIEWS = [
-  { value: "write", label: msg("Manuscript"), title: msg("Manuscript: the sermon as it is written and preached from"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { size: 14, strokeWidth: 1.7 }) },
-  { value: "outline", label: msg("Outline"), title: msg("Outline: the preacher's one-sheet, the points with their minutes"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(List, { size: 14, strokeWidth: 1.7 }) },
-  { value: "handout", label: msg("Handout"), title: msg("Handout: the congregation's copy, to print"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { size: 14, strokeWidth: 1.7 }) }
+  { value: "write", label: msg("Manuscript"), title: msg("Manuscript: the sermon as it is written and preached from"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { size: 18, strokeWidth: 1.6 }) },
+  { value: "outline", label: msg("Outline"), title: msg("Outline: the preacher's one-sheet, the points with their minutes"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(List, { size: 18, strokeWidth: 1.6 }) },
+  { value: "handout", label: msg("Handout"), title: msg("Handout: the congregation's copy, to print"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { size: 18, strokeWidth: 1.6 }) }
 ];
 function Toolbar({
   editing,
@@ -89369,16 +89336,19 @@ function Toolbar({
   const views = VIEWS.map((view2) => ({ ...view2, label: t2(view2.label), title: t2(view2.title) }));
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "cell cell--toolbar topbar toolbar", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "toolbar__group", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
           type: "button",
-          className: sidebarFolded ? "tool" : "tool tool--active",
+          className: sidebarFolded ? "tool tool--word tool--fold-0" : "tool tool--word tool--fold-0 tool--active",
           title: sidebarFolded ? keys$2(t2("Show the library (Ctrl+\\)")) : keys$2(t2("Hide the library (Ctrl+\\)")),
           "aria-label": sidebarFolded ? t2("Show the sidebar") : t2("Hide the sidebar"),
           "aria-pressed": !sidebarFolded,
           onClick: onToggleSidebar,
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx(PanelLeft, { size: 16, strokeWidth: 1.6 })
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(PanelLeft, { size: 18, strokeWidth: 1.6 }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Library") })
+          ]
         }
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
@@ -89439,6 +89409,8 @@ function Toolbar({
           }
         )
       ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ShareMenu, { view, onPrint, onExportPdf, onExportDocx }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(MoreMenu, { actions: sermon, writable: sermon.writable }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         UndoRedo,
@@ -89484,7 +89456,6 @@ function Toolbar({
           ]
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
@@ -89502,6 +89473,7 @@ function Toolbar({
           ]
         }
       ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
@@ -89517,32 +89489,84 @@ function Toolbar({
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Find") })
           ]
         }
-      )
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "toolbar__center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Segmented, { value: view, options: views, onChange: onView, ariaLabel: t2("View") }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "toolbar__group toolbar__group--end", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ShareMenu, { view, onPrint, onExportPdf, onExportDocx }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(MoreMenu, { actions: sermon, writable: sermon.writable }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "button button--primary toolbar__preach", onClick: onPreach, title: t2("Preach from a fullscreen podium screen"), "aria-label": t2("Preach"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Lectern, { size: 14, strokeWidth: 1.8 }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__preach-word", children: t2("Preach") })
-      ] }),
+      ),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "tool", title: keys$2(t2("Preferences: the folder, the look, spelling, the podium, printing, the licence (Ctrl+,)")), "aria-label": t2("Preferences"), onClick: sermon.onPreferences, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Settings, { size: 16, strokeWidth: 1.6 }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__views", role: "tablist", "aria-label": t2("View"), children: views.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
           type: "button",
-          className: inspectorOpen ? "tool tool--active" : "tool",
-          title: inspectorOpen ? t2("Hide the inspector") : t2("Show the inspector"),
-          "aria-label": t2("Inspector"),
-          "aria-pressed": inspectorOpen,
-          onClick: onToggleInspector,
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx(PanelRight, { size: 16, strokeWidth: 1.6 })
-        }
-      )
-    ] })
+          role: "tab",
+          "aria-selected": view === entry.value,
+          className: view === entry.value ? "tool tool--word tool--fold-0 tool--active" : "tool tool--word tool--fold-0",
+          title: entry.title,
+          "aria-label": entry.label,
+          onClick: () => onView(entry.value),
+          children: [
+            entry.icon,
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: entry.label })
+          ]
+        },
+        entry.value
+      )) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word tool--fold-0", onClick: onPreach, title: t2("Preach from a fullscreen podium screen"), "aria-label": t2("Preach"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Lectern, { size: 18, strokeWidth: 1.6 }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Preach") })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word tool--fold-0", title: keys$2(t2("Preferences: the folder, the look, spelling, the podium, printing, the licence (Ctrl+,)")), "aria-label": t2("Preferences"), onClick: sermon.onPreferences, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Settings, { size: 18, strokeWidth: 1.6 }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Preferences") })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "toolbar__group toolbar__group--end", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "button",
+      {
+        type: "button",
+        className: inspectorOpen ? "tool tool--word tool--fold-0 tool--active" : "tool tool--word tool--fold-0",
+        title: inspectorOpen ? t2("Hide the inspector") : t2("Show the inspector"),
+        "aria-label": t2("Inspector"),
+        "aria-pressed": inspectorOpen,
+        onClick: onToggleInspector,
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(PanelRight, { size: 18, strokeWidth: 1.6 }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Inspector") })
+        ]
+      }
+    ) })
   ] });
+}
+function Segmented({
+  value,
+  options,
+  onChange,
+  ariaLabel,
+  compact = false,
+  fill: fill2 = false,
+  disabled = false,
+  keepFocus = false
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: fill2 ? "segmented segmented--fill" : "segmented", role: "tablist", "aria-label": ariaLabel, children: options.map((option) => {
+    const on3 = option.value === value;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "button",
+      {
+        type: "button",
+        role: "tab",
+        "aria-selected": on3,
+        className: on3 ? "segmented__item segmented__item--on" : "segmented__item",
+        title: option.title ?? (compact ? option.label : void 0),
+        "aria-label": option.label,
+        disabled: disabled || option.disabled,
+        onMouseDown: keepFocus ? (event) => event.preventDefault() : void 0,
+        onClick: () => onChange(option.value),
+        children: [
+          option.icon,
+          !compact && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "segmented__label", children: option.label })
+        ]
+      },
+      option.value
+    );
+  }) });
 }
 function MarkMenu({
   label,
