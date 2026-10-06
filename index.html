@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="db3ffa0">
+<meta name="sermondesk-source" content="9a566f5">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
@@ -127,6 +127,13 @@
   @media (max-height: 560px) {
     .stage { aspect-ratio: auto; height: calc(100vh - 3rem); min-height: 0; }
   }
+  /* The caption: what the frame is, in a sentence, before anything is pressed. */
+  .note { margin-top: 0.85rem; font-size: 0.9375rem; color: var(--muted); max-width: 44rem; }
+  .note--phone, .try--phone { display: none; }
+  @media (max-width: 700px) {
+    .note--desk, .try--desk { display: none; }
+    .note--phone, .try--phone { display: inline; }
+  }
   /* The scenes: one view each, the app opened on it. */
   .scenes { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
   .scenes button {
@@ -134,6 +141,8 @@
     border: 1px solid var(--rule); background: var(--panel); color: var(--ink); cursor: pointer;
   }
   .scenes button[aria-pressed='true'] { border-color: var(--oxblood); color: var(--oxblood); }
+  .scenes__reset { margin-left: auto; color: var(--muted); }
+  .scenes__reset:hover { color: var(--ink); border-color: var(--ink); }
   .under {
     display: flex;
     flex-wrap: wrap;
@@ -211,6 +220,7 @@
   <div class="wrap">
     <a class="wordmark" href="/">Sermon<span>Desk</span></a>
     <nav>
+      <a href="#price">Price</a>
       <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
       <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
     </nav>
@@ -224,15 +234,21 @@
     <div class="stage">
       <iframe id="demo" src="demo/" title="SermonDesk, live on this page, with a demo library." loading="lazy"></iframe>
     </div>
+    <p class="note">
+      <span class="note--desk">This is the real app, running in your browser. Click anything, type anything: nothing you do here is saved, and nothing leaves this page.</span>
+      <span class="note--phone">This is the real app, running in your browser in its narrow shape. SermonDesk itself is for Windows and Mac. Nothing you do here is saved, and nothing leaves this page.</span>
+    </p>
     <div class="scenes" role="group" aria-label="Open the demo on one view">
       <button type="button" data-scene="library">Library</button>
       <button type="button" data-scene="write" aria-pressed="true">Write</button>
       <button type="button" data-scene="outline">Outline</button>
       <button type="button" data-scene="handout">Handout</button>
       <button type="button" data-scene="preach">Preach</button>
+      <button type="button" class="scenes__reset" data-reset title="Put the demo back the way it was">Start over</button>
     </div>
     <p class="under">
-      <span class="try">Try: paste a verse and watch it file itself &middot; type <b>/</b> for a point &middot; press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; press the <b>Bible map</b>, the grid beside the search</span>
+      <span class="try try--desk">Try: paste a verse and watch it file itself &middot; type <b>/</b> for a point &middot; press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; press the <b>Bible map</b>, the grid beside the search</span>
+      <span class="try try--phone">Try: press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; open the library and press a tag</span>
       <span>Windows and Mac &middot; works offline</span>
     </p>
   </div>
@@ -243,7 +259,8 @@
     <div class="word">
       <h2>Your sermons are files, in a folder you choose.</h2>
       <div>
-        <p>One readable file per sermon, in a folder you choose. Keep that folder in iCloud Drive, Google Drive, OneDrive, or Dropbox and you have backup and sync on your own account, with nothing stored by us. A file written by any version opens in every later one, and you can export every sermon as plain text at any time, no licence asked.</p>
+        <p>One readable file per sermon, in a folder you choose. Keep that folder in iCloud Drive, Google Drive, OneDrive, or Dropbox and you have backup and sync on your own account, with nothing stored by us. A file written by any version opens in every later one.</p>
+        <p>Bring the sermons you already have: a Word file imports as a sermon, its passage read from the opening line in whatever language it was written. Going the other way, print the manuscript, the outline and the handout or save them as PDF, send a sermon to Word, and export the whole library as plain text at any time, no licence asked.</p>
       </div>
     </div>
 
@@ -272,7 +289,8 @@
       <h2>Everything included.</h2>
       <div>
         <p class="price"><span class="plan"><span class="amount">$12.99</span><span class="per">a month, or</span></span><span class="plan"><span class="amount">$119.99</span><span class="per">a year</span></span></p>
-        <p>One person, up to three of their own computers. The key arrives by email the moment you pay; paste it into the app once and it works offline from then on.</p>
+        <p>One person, up to three of their own computers. The key arrives by email the moment you pay; paste it into the app once and it works offline from then on. Updates are included, and the app fetches them itself.</p>
+        <p>The demo above is the trial: everything the app does, with nothing to install. The download opens, reads, searches and prints without a key; writing and preaching from the podium start the moment the key arrives.</p>
         <!-- The checkout link at the Lemon Squeezy store, which offers the
              month and the year: the same one as CHECKOUT_URL in
              src/shared/billing.ts. -->
@@ -291,6 +309,7 @@
         <li><b>No phone or tablet version</b>, and none planned.</li>
         <li><b>No cloud of mine.</b> Your folder can live in iCloud Drive, Google Drive, OneDrive, or Dropbox, and they do the syncing.</li>
         <li><b>Twelve languages.</b> English, Spanish, Portuguese, French, German, Indonesian, Filipino, Swahili, Russian, Chinese, Japanese, and Korean, chosen in Preferences, with the books of the Bible by their own names.</li>
+        <li><b>Dictation, offline.</b> Speak the sermon in any of the twelve and it is typed as you go, with a new paragraph and a new point said in your own words. The voice is a one-time download, 76 MB, or 238 MB for the finer one, and nothing you say leaves the computer.</li>
       </ul>
     </div>
   </div>
@@ -348,7 +367,7 @@
   // mount, the page keeps its place anyway, unless the visitor scrolls it.
   (() => {
     const frame = document.getElementById('demo')
-    const chips = [...document.querySelectorAll('.scenes button')]
+    const chips = [...document.querySelectorAll('.scenes button[data-scene]')]
     let ready = false
     let hold = null
     const release = () => { hold = null }
@@ -356,6 +375,8 @@
       if (event.origin === location.origin && event.data && event.data.demoReady) ready = true
     })
     for (const event of ['wheel', 'touchmove', 'keydown']) window.addEventListener(event, release, { passive: true })
+    // A link the visitor presses, Price in the head, is a scroll they asked for.
+    document.addEventListener('click', (event) => { if (event.target.closest('a')) release() }, true)
     window.addEventListener('scroll', () => { if (hold !== null && Math.abs(window.scrollY - hold) > 1) window.scrollTo({ top: hold, behavior: 'instant' }) }, { passive: true })
     for (const chip of chips) {
       chip.addEventListener('click', () => {
@@ -367,6 +388,17 @@
         setTimeout(release, ready ? 2500 : 8000)
       })
     }
+    // Start over: the frame is opened afresh on the view that is pressed,
+    // and the demo's few sermons come back as they were. Nothing is kept
+    // between loads, so a reload is the whole reset.
+    document.querySelector('[data-reset]').addEventListener('click', (event) => {
+      event.currentTarget.blur()
+      const pressed = chips.find((chip) => chip.getAttribute('aria-pressed') === 'true')
+      ready = false
+      hold = window.scrollY
+      frame.src = 'demo/?scene=' + (pressed ? pressed.dataset.scene : 'write') + '&t=' + Date.now()
+      setTimeout(release, 8000)
+    })
   })()
 </script>
 </body>
