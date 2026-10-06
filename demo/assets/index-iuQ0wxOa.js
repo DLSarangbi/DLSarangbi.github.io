@@ -15398,7 +15398,6 @@ const es = {
   "Beside every point": "Junto a cada punto",
   "Beside the sheet": "Junto a la hoja",
   "between {from} and {to}": "entre {from} y {to}",
-  "Bible history: the chapters you have preached from": "Historial bíblico: los capítulos desde los que has predicado",
   "Bible map": "Mapa bíblico",
   "Bible map: every chapter preached from, planned, or not yet": "Mapa bíblico: cada capítulo predicado, planeado o todavía pendiente",
   "Billing": "Facturación",
@@ -15635,9 +15634,7 @@ const es = {
   "for {occasion}": "para {occasion}",
   "For the pews": "Para la congregación",
   "For the preacher: the words in": "Para el predicador: las palabras en",
-  "Forget the template {name}": "Olvidar la plantilla {name}",
   "Forget the view “{name}”": "Olvidar la vista “{name}”",
-  "Forget this template": "Olvidar esta plantilla",
   "Format": "Formato",
   "Format painter: copy this formatting to the next text you select": "Copiar formato: aplica este formato al próximo texto que selecciones",
   "Format painter: select the text to paint, or press Escape": "Copiar formato: selecciona el texto que recibirá el formato, o pulsa Escape",
@@ -16184,6 +16181,7 @@ const es = {
   "Scripture keeps its own layout": "La Escritura conserva su propia disposición",
   "Scripture on the handout": "Escritura en el folleto",
   "Search every sermon": "Buscar en todos los sermones",
+  "Search": "Buscar",
   "Search your stories": "Buscar en tus historias",
   "Second point": "Segundo punto",
   "Sentence case": "Tipo oración",
@@ -16582,7 +16580,33 @@ const es = {
   "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Esa clave de licencia se ha desactivado en la tienda, así que no puede introducirse aquí. Introduce otra clave o escríbenos.",
   "Could not reach {provider} to free this computer. Try again when you are online.": "No se pudo contactar con {provider} para liberar este ordenador. Inténtalo de nuevo cuando estés en línea.",
   "Could not reach {provider}: {reason}": "No se pudo contactar con {provider}: {reason}",
-  "Imported sermon": "Sermón importado"
+  "Imported sermon": "Sermón importado",
+  "A line under the name, saying what the template is for.": "Una línea bajo el nombre que dice para qué es la plantilla.",
+  "A new template": "Una plantilla nueva",
+  "A template needs at least one block.": "Una plantilla necesita al menos un bloque.",
+  "A template with this name exists; keeping this one replaces it.": "Ya existe una plantilla con este nombre; al guardar esta la reemplazará.",
+  "Add a block": "Añadir un bloque",
+  "Built in": "Incluidas",
+  "Copy of {name}": "Copia de {name}",
+  "Edit templates": "Editar plantillas",
+  "Edit templates…": "Editar plantillas…",
+  "Editing {name}": "Editando {name}",
+  "Hint": "Pista",
+  "In order, each with the heading it starts with. The words come later.": "En orden, cada uno con el encabezado con el que empieza. Las palabras vienen después.",
+  "Kept in {file} in your sermon folder, so they follow your sermons to every computer.": "Guardadas en {file} en tu carpeta de sermones, así siguen a tus sermones a cada computadora.",
+  "Make a copy": "Hacer una copia",
+  "Name": "Nombre",
+  "None of your own yet. Save one from a sermon, under Save, or make a copy of a built-in template below and change it.": "Aún no tienes ninguna propia. Guarda una desde un sermón, en Guardar, o haz una copia de una plantilla incluida abajo y cámbiala.",
+  "Remove? Sermons made from it are kept.": "¿Quitar? Los sermones hechos con ella se conservan.",
+  "Saved: {name}.": "Guardada: {name}.",
+  "Template name": "Nombre de la plantilla",
+  "Your templates": "Tus plantillas",
+  "Your templates: rename them, change their blocks, or start one from a built-in": "Tus plantillas: cámbiales el nombre, cambia sus bloques o empieza una desde una incluida",
+  "the template": "la plantilla",
+  "Every key": "Todas las teclas",
+  "Leave": "Salir",
+  "1 block": "1 bloque",
+  "{n} blocks": "{n} bloques"
 };
 const ko = {
   "Drag to move this picture": "끌어서 이 그림을 옮깁니다",
@@ -16867,7 +16891,6 @@ const ko = {
   "Beside every point": "모든 대지 옆에",
   "Beside the sheet": "시트 옆에",
   "between {from} and {to}": "{from}부터 {to}까지",
-  "Bible history: the chapters you have preached from": "성경 기록: 설교한 장들",
   "Bible map": "성경 지도",
   "Bible map: every chapter preached from, planned, or not yet": "성경 지도: 설교한 장, 계획한 장, 아직 안 한 장",
   "Billing": "결제",
@@ -17104,9 +17127,7 @@ const ko = {
   "for {occasion}": "{occasion}에",
   "For the pews": "회중을 위해",
   "For the preacher: the words in": "설교자를 위해: 글은",
-  "Forget the template {name}": "템플릿 {name} 지우기",
   "Forget the view “{name}”": "보기 “{name}” 지우기",
-  "Forget this template": "이 템플릿 지우기",
   "Format": "서식",
   "Format painter: copy this formatting to the next text you select": "서식 복사: 이 서식을 다음에 선택하는 글에 적용합니다",
   "Format painter: select the text to paint, or press Escape": "서식 복사: 서식을 입힐 글을 선택하거나 Escape를 누르세요",
@@ -17653,6 +17674,7 @@ const ko = {
   "Scripture keeps its own layout": "성경 본문은 고유한 배치를 유지합니다",
   "Scripture on the handout": "유인물의 성경 본문",
   "Search every sermon": "모든 설교 검색",
+  "Search": "검색",
   "Search your stories": "내 예화 검색",
   "Second point": "둘째 대지",
   "Sentence case": "문장 첫 글자 대문자",
@@ -18051,7 +18073,33 @@ const ko = {
   "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "그 라이선스 키는 상점에서 꺼졌으므로 여기서는 입력할 수 없습니다. 다른 키를 입력하거나 저희에게 연락하세요.",
   "Could not reach {provider} to free this computer. Try again when you are online.": "이 컴퓨터를 해제하기 위해 {provider}에 연결할 수 없습니다. 온라인 상태에서 다시 시도하세요.",
   "Could not reach {provider}: {reason}": "{provider}에 연결할 수 없습니다: {reason}",
-  "Imported sermon": "가져온 설교"
+  "Imported sermon": "가져온 설교",
+  "A line under the name, saying what the template is for.": "이름 아래 한 줄, 이 템플릿의 용도를 설명합니다.",
+  "A new template": "새 템플릿",
+  "A template needs at least one block.": "템플릿에는 블록이 하나 이상 필요합니다.",
+  "A template with this name exists; keeping this one replaces it.": "같은 이름의 템플릿이 있습니다. 이것을 저장하면 대체됩니다.",
+  "Add a block": "블록 추가",
+  "Built in": "기본 제공",
+  "Copy of {name}": "{name} 사본",
+  "Edit templates": "템플릿 편집",
+  "Edit templates…": "템플릿 편집…",
+  "Editing {name}": "{name} 편집 중",
+  "Hint": "힌트",
+  "In order, each with the heading it starts with. The words come later.": "순서대로, 각각 시작 제목과 함께. 내용은 나중에 씁니다.",
+  "Kept in {file} in your sermon folder, so they follow your sermons to every computer.": "설교 폴더의 {file}에 보관되어, 설교와 함께 모든 컴퓨터로 따라갑니다.",
+  "Make a copy": "사본 만들기",
+  "Name": "이름",
+  "None of your own yet. Save one from a sermon, under Save, or make a copy of a built-in template below and change it.": "아직 자신의 템플릿이 없습니다. 저장 메뉴에서 설교로부터 저장하거나, 아래 기본 제공 템플릿의 사본을 만들어 바꾸세요.",
+  "Remove? Sermons made from it are kept.": "제거할까요? 이것으로 만든 설교는 그대로 남습니다.",
+  "Saved: {name}.": "저장됨: {name}.",
+  "Template name": "템플릿 이름",
+  "Your templates": "내 템플릿",
+  "Your templates: rename them, change their blocks, or start one from a built-in": "내 템플릿: 이름 바꾸기, 블록 바꾸기, 기본 제공에서 시작하기",
+  "the template": "이 템플릿",
+  "Every key": "모든 키",
+  "Leave": "나가기",
+  "1 block": "블록 1개",
+  "{n} blocks": "블록 {n}개"
 };
 const pt$3 = {
   "Drag to move this picture": "Arraste para mover esta imagem",
@@ -18336,7 +18384,6 @@ const pt$3 = {
   "Beside every point": "Ao lado de cada ponto",
   "Beside the sheet": "Ao lado da folha",
   "between {from} and {to}": "entre {from} e {to}",
-  "Bible history: the chapters you have preached from": "Histórico bíblico: os capítulos de que você já pregou",
   "Bible map": "Mapa bíblico",
   "Bible map: every chapter preached from, planned, or not yet": "Mapa bíblico: cada capítulo já pregado, planejado ou ainda não",
   "Billing": "Cobrança",
@@ -18573,9 +18620,7 @@ const pt$3 = {
   "for {occasion}": "para {occasion}",
   "For the pews": "Para a congregação",
   "For the preacher: the words in": "Para o pregador: as palavras em",
-  "Forget the template {name}": "Esquecer o modelo {name}",
   "Forget the view “{name}”": "Esquecer a visualização “{name}”",
-  "Forget this template": "Esquecer este modelo",
   "Format": "Formatar",
   "Format painter: copy this formatting to the next text you select": "Pincel de formatação: copia esta formatação para o próximo texto que você selecionar",
   "Format painter: select the text to paint, or press Escape": "Pincel de formatação: selecione o texto a pintar, ou pressione Escape",
@@ -19122,6 +19167,7 @@ const pt$3 = {
   "Scripture keeps its own layout": "A Escritura mantém seu próprio layout",
   "Scripture on the handout": "Escritura no folheto",
   "Search every sermon": "Buscar em todos os sermões",
+  "Search": "Pesquisar",
   "Search your stories": "Buscar nas suas histórias",
   "Second point": "Segundo ponto",
   "Sentence case": "Só a primeira maiúscula",
@@ -19520,7 +19566,33 @@ const pt$3 = {
   "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Essa chave de licença foi desativada na loja, então não pode ser inserida aqui. Insira outra chave ou escreva para nós.",
   "Could not reach {provider} to free this computer. Try again when you are online.": "Não foi possível contatar {provider} para liberar este computador. Tente de novo quando estiver on-line.",
   "Could not reach {provider}: {reason}": "Não foi possível contatar {provider}: {reason}",
-  "Imported sermon": "Sermão importado"
+  "Imported sermon": "Sermão importado",
+  "A line under the name, saying what the template is for.": "Uma linha sob o nome, dizendo para que serve o modelo.",
+  "A new template": "Um modelo novo",
+  "A template needs at least one block.": "Um modelo precisa de pelo menos um bloco.",
+  "A template with this name exists; keeping this one replaces it.": "Já existe um modelo com este nome; salvar este o substitui.",
+  "Add a block": "Adicionar um bloco",
+  "Built in": "Incluídos",
+  "Copy of {name}": "Cópia de {name}",
+  "Edit templates": "Editar modelos",
+  "Edit templates…": "Editar modelos…",
+  "Editing {name}": "Editando {name}",
+  "Hint": "Dica",
+  "In order, each with the heading it starts with. The words come later.": "Em ordem, cada um com o título com que começa. As palavras vêm depois.",
+  "Kept in {file} in your sermon folder, so they follow your sermons to every computer.": "Guardados em {file} na sua pasta de sermões, por isso seguem os sermões para todos os computadores.",
+  "Make a copy": "Fazer uma cópia",
+  "Name": "Nome",
+  "None of your own yet. Save one from a sermon, under Save, or make a copy of a built-in template below and change it.": "Ainda nenhum seu. Salve um a partir de um sermão, em Salvar, ou faça uma cópia de um modelo incluído abaixo e altere-o.",
+  "Remove? Sermons made from it are kept.": "Remover? Os sermões feitos a partir dele são mantidos.",
+  "Saved: {name}.": "Salvo: {name}.",
+  "Template name": "Nome do modelo",
+  "Your templates": "Os seus modelos",
+  "Your templates: rename them, change their blocks, or start one from a built-in": "Os seus modelos: renomeie-os, altere os blocos ou comece um a partir de um incluído",
+  "the template": "o modelo",
+  "Every key": "Todas as teclas",
+  "Leave": "Sair",
+  "1 block": "1 bloco",
+  "{n} blocks": "{n} blocos"
 };
 const fr$3 = {
   "Drag to move this picture": "Glisser pour déplacer cette image",
@@ -19805,7 +19877,6 @@ const fr$3 = {
   "Beside every point": "À côté de chaque point",
   "Beside the sheet": "À côté de la feuille",
   "between {from} and {to}": "entre {from} et {to}",
-  "Bible history: the chapters you have preached from": "Historique biblique : les chapitres que vous avez prêchés",
   "Bible map": "Carte biblique",
   "Bible map: every chapter preached from, planned, or not yet": "Carte biblique : chaque chapitre prêché, prévu, ou pas encore",
   "Billing": "Facturation",
@@ -20042,9 +20113,7 @@ const fr$3 = {
   "for {occasion}": "pour {occasion}",
   "For the pews": "Pour l'assemblée",
   "For the preacher: the words in": "Pour le prédicateur : les mots en",
-  "Forget the template {name}": "Oublier le modèle {name}",
   "Forget the view “{name}”": "Oublier la vue « {name} »",
-  "Forget this template": "Oublier ce modèle",
   "Format": "Format",
   "Format painter: copy this formatting to the next text you select": "Pinceau de mise en forme : copie cette mise en forme sur le prochain texte que vous sélectionnez",
   "Format painter: select the text to paint, or press Escape": "Pinceau de mise en forme : sélectionnez le texte à peindre, ou appuyez sur Escape",
@@ -20591,6 +20660,7 @@ const fr$3 = {
   "Scripture keeps its own layout": "L’Écriture garde sa propre mise en page",
   "Scripture on the handout": "L’Écriture sur le feuillet",
   "Search every sermon": "Rechercher dans tous les sermons",
+  "Search": "Rechercher",
   "Search your stories": "Rechercher dans vos histoires",
   "Second point": "Deuxième point",
   "Sentence case": "Majuscule en début de phrase",
@@ -20989,7 +21059,33 @@ const fr$3 = {
   "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Cette clé de licence a été désactivée sur la boutique ; elle ne peut donc pas être saisie ici. Saisissez une autre clé, ou écrivez-nous.",
   "Could not reach {provider} to free this computer. Try again when you are online.": "Impossible de joindre {provider} pour libérer cet ordinateur. Réessayez une fois en ligne.",
   "Could not reach {provider}: {reason}": "Impossible de joindre {provider} : {reason}",
-  "Imported sermon": "Sermon importé"
+  "Imported sermon": "Sermon importé",
+  "A line under the name, saying what the template is for.": "Une ligne sous le nom, qui dit à quoi sert le modèle.",
+  "A new template": "Un nouveau modèle",
+  "A template needs at least one block.": "Un modèle a besoin d'au moins un bloc.",
+  "A template with this name exists; keeping this one replaces it.": "Un modèle de ce nom existe déjà ; garder celui-ci le remplacera.",
+  "Add a block": "Ajouter un bloc",
+  "Built in": "Intégrés",
+  "Copy of {name}": "Copie de {name}",
+  "Edit templates": "Modifier les modèles",
+  "Edit templates…": "Modifier les modèles…",
+  "Editing {name}": "Modification de {name}",
+  "Hint": "Indication",
+  "In order, each with the heading it starts with. The words come later.": "Dans l'ordre, chacun avec le titre par lequel il commence. Les mots viennent ensuite.",
+  "Kept in {file} in your sermon folder, so they follow your sermons to every computer.": "Conservés dans {file} dans votre dossier de sermons, ils suivent vos sermons sur chaque ordinateur.",
+  "Make a copy": "Faire une copie",
+  "Name": "Nom",
+  "None of your own yet. Save one from a sermon, under Save, or make a copy of a built-in template below and change it.": "Aucun à vous pour l'instant. Enregistrez-en un depuis un sermon, sous Enregistrer, ou copiez un modèle intégré ci-dessous et modifiez-le.",
+  "Remove? Sermons made from it are kept.": "Supprimer ? Les sermons qui en sont issus sont conservés.",
+  "Saved: {name}.": "Enregistré : {name}.",
+  "Template name": "Nom du modèle",
+  "Your templates": "Vos modèles",
+  "Your templates: rename them, change their blocks, or start one from a built-in": "Vos modèles : renommez-les, changez leurs blocs ou partez d'un modèle intégré",
+  "the template": "le modèle",
+  "Every key": "Toutes les touches",
+  "Leave": "Quitter",
+  "1 block": "1 bloc",
+  "{n} blocks": "{n} blocs"
 };
 const de$1 = {
   "Drag to move this picture": "Ziehen, um dieses Bild zu verschieben",
@@ -21274,7 +21370,6 @@ const de$1 = {
   "Beside every point": "Neben jedem Punkt",
   "Beside the sheet": "Neben dem Blatt",
   "between {from} and {to}": "zwischen {from} und {to}",
-  "Bible history: the chapters you have preached from": "Bibelverlauf: die Kapitel, aus denen Sie gepredigt haben",
   "Bible map": "Bibelkarte",
   "Bible map: every chapter preached from, planned, or not yet": "Bibelkarte: jedes Kapitel, aus dem gepredigt wurde, das geplant ist oder noch offen",
   "Billing": "Abrechnung",
@@ -21511,9 +21606,7 @@ const de$1 = {
   "for {occasion}": "für {occasion}",
   "For the pews": "Für die Gemeinde",
   "For the preacher: the words in": "Für den Prediger: der Text in",
-  "Forget the template {name}": "Die Vorlage {name} vergessen",
   "Forget the view “{name}”": "Die Ansicht „{name}“ vergessen",
-  "Forget this template": "Diese Vorlage vergessen",
   "Format": "Format",
   "Format painter: copy this formatting to the next text you select": "Formatpinsel: diese Formatierung auf den nächsten Text übertragen, den Sie markieren",
   "Format painter: select the text to paint, or press Escape": "Formatpinsel: den Text zum Übertragen markieren oder Escape drücken",
@@ -22060,6 +22153,7 @@ const de$1 = {
   "Scripture keeps its own layout": "Das Schriftwort behält sein eigenes Layout",
   "Scripture on the handout": "Schriftwort auf dem Handzettel",
   "Search every sermon": "Alle Predigten durchsuchen",
+  "Search": "Suchen",
   "Search your stories": "Ihre Geschichten durchsuchen",
   "Second point": "Zweiter Punkt",
   "Sentence case": "Groß am Satzanfang",
@@ -22458,7 +22552,33 @@ const de$1 = {
   "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Dieser Lizenzschlüssel wurde im Shop abgeschaltet, daher kann er hier nicht eingegeben werden. Geben Sie einen anderen Schlüssel ein oder schreiben Sie uns.",
   "Could not reach {provider} to free this computer. Try again when you are online.": "{provider} ist nicht erreichbar, um diesen Computer freizugeben. Versuchen Sie es erneut, sobald Sie online sind.",
   "Could not reach {provider}: {reason}": "{provider} ist nicht erreichbar: {reason}",
-  "Imported sermon": "Importierte Predigt"
+  "Imported sermon": "Importierte Predigt",
+  "A line under the name, saying what the template is for.": "Eine Zeile unter dem Namen, die sagt, wofür die Vorlage ist.",
+  "A new template": "Eine neue Vorlage",
+  "A template needs at least one block.": "Eine Vorlage braucht mindestens einen Block.",
+  "A template with this name exists; keeping this one replaces it.": "Eine Vorlage mit diesem Namen gibt es schon; diese zu behalten ersetzt sie.",
+  "Add a block": "Block hinzufügen",
+  "Built in": "Mitgeliefert",
+  "Copy of {name}": "Kopie von {name}",
+  "Edit templates": "Vorlagen bearbeiten",
+  "Edit templates…": "Vorlagen bearbeiten…",
+  "Editing {name}": "{name} bearbeiten",
+  "Hint": "Hinweis",
+  "In order, each with the heading it starts with. The words come later.": "In der Reihenfolge, jeder mit der Überschrift, mit der er beginnt. Die Worte kommen später.",
+  "Kept in {file} in your sermon folder, so they follow your sermons to every computer.": "In {file} im Predigtordner gespeichert, so folgen sie den Predigten auf jeden Computer.",
+  "Make a copy": "Kopie anlegen",
+  "Name": "Name",
+  "None of your own yet. Save one from a sermon, under Save, or make a copy of a built-in template below and change it.": "Noch keine eigene. Sichern Sie eine aus einer Predigt, unter Sichern, oder legen Sie unten eine Kopie einer mitgelieferten Vorlage an und ändern Sie sie.",
+  "Remove? Sermons made from it are kept.": "Entfernen? Daraus erstellte Predigten bleiben erhalten.",
+  "Saved: {name}.": "Gesichert: {name}.",
+  "Template name": "Name der Vorlage",
+  "Your templates": "Ihre Vorlagen",
+  "Your templates: rename them, change their blocks, or start one from a built-in": "Ihre Vorlagen: umbenennen, Blöcke ändern oder eine aus einer mitgelieferten beginnen",
+  "the template": "die Vorlage",
+  "Every key": "Jede Taste",
+  "Leave": "Verlassen",
+  "1 block": "1 Block",
+  "{n} blocks": "{n} Blöcke"
 };
 const zh = {
   "Drag to move this picture": "拖动以移动此图片",
@@ -22743,7 +22863,6 @@ const zh = {
   "Beside every point": "每个要点旁",
   "Beside the sheet": "在此表旁",
   "between {from} and {to}": "{from}至{to}",
-  "Bible history: the chapters you have preached from": "圣经历史记录：你讲过的章",
   "Bible map": "圣经地图",
   "Bible map: every chapter preached from, planned, or not yet": "圣经地图：每一章，已讲、已计划或尚未",
   "Billing": "账单",
@@ -22980,9 +23099,7 @@ const zh = {
   "for {occasion}": "为{occasion}",
   "For the pews": "给会众",
   "For the preacher: the words in": "给讲员：文字语言为",
-  "Forget the template {name}": "移除模板{name}",
   "Forget the view “{name}”": "移除视图“{name}”",
-  "Forget this template": "移除此模板",
   "Format": "格式",
   "Format painter: copy this formatting to the next text you select": "格式刷：把此格式应用到下次选中的文字",
   "Format painter: select the text to paint, or press Escape": "格式刷：选中要应用的文字，或按 Escape",
@@ -23529,6 +23646,7 @@ const zh = {
   "Scripture keeps its own layout": "经文保持自己的版式",
   "Scripture on the handout": "讲义上的经文",
   "Search every sermon": "搜索所有讲章",
+  "Search": "搜索",
   "Search your stories": "搜索你的故事",
   "Second point": "第二个要点",
   "Sentence case": "句首大写",
@@ -23927,7 +24045,33 @@ const zh = {
   "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "该许可证密钥已在商店被停用，无法在此输入。请输入另一个密钥，或给我们写信。",
   "Could not reach {provider} to free this computer. Try again when you are online.": "无法连接 {provider} 以释放这台电脑。联网后请重试。",
   "Could not reach {provider}: {reason}": "无法连接 {provider}：{reason}",
-  "Imported sermon": "导入的讲章"
+  "Imported sermon": "导入的讲章",
+  "A line under the name, saying what the template is for.": "名称下方的一行，说明此模板的用途。",
+  "A new template": "新模板",
+  "A template needs at least one block.": "模板至少需要一个区块。",
+  "A template with this name exists; keeping this one replaces it.": "已有同名模板；保留此模板将替换它。",
+  "Add a block": "添加区块",
+  "Built in": "内置",
+  "Copy of {name}": "{name} 的副本",
+  "Edit templates": "编辑模板",
+  "Edit templates…": "编辑模板…",
+  "Editing {name}": "正在编辑 {name}",
+  "Hint": "提示",
+  "In order, each with the heading it starts with. The words come later.": "按顺序排列，每个区块带有起始标题。文字稍后再写。",
+  "Kept in {file} in your sermon folder, so they follow your sermons to every computer.": "保存在讲章文件夹的 {file} 中，随讲章同步到每台电脑。",
+  "Make a copy": "创建副本",
+  "Name": "名称",
+  "None of your own yet. Save one from a sermon, under Save, or make a copy of a built-in template below and change it.": "还没有自己的模板。在“保存”下从讲章保存一个，或复制下方的内置模板并修改。",
+  "Remove? Sermons made from it are kept.": "移除？由它创建的讲章会保留。",
+  "Saved: {name}.": "已保存：{name}。",
+  "Template name": "模板名称",
+  "Your templates": "您的模板",
+  "Your templates: rename them, change their blocks, or start one from a built-in": "您的模板：重命名、更改区块，或从内置模板开始",
+  "the template": "该模板",
+  "Every key": "所有按键",
+  "Leave": "离开",
+  "1 block": "1 个区块",
+  "{n} blocks": "{n} 个区块"
 };
 const ja = {
   "Drag to move this picture": "ドラッグしてこの画像を移動",
@@ -24212,7 +24356,6 @@ const ja = {
   "Beside every point": "すべてのポイントの横に",
   "Beside the sheet": "シートの横に",
   "between {from} and {to}": "{from}から{to}まで",
-  "Bible history: the chapters you have preached from": "聖書の履歴: 説教した章",
   "Bible map": "聖書マップ",
   "Bible map: every chapter preached from, planned, or not yet": "聖書マップ: 説教した章、計画中の章、まだの章",
   "Billing": "お支払い",
@@ -24449,9 +24592,7 @@ const ja = {
   "for {occasion}": "{occasion}向け",
   "For the pews": "会衆のために",
   "For the preacher: the words in": "説教者のために: 本文の言語は",
-  "Forget the template {name}": "テンプレート {name} を削除",
   "Forget the view “{name}”": "表示「{name}」を削除",
-  "Forget this template": "このテンプレートを削除",
   "Format": "書式",
   "Format painter: copy this formatting to the next text you select": "書式のコピー: この書式を次に選択するテキストに適用します",
   "Format painter: select the text to paint, or press Escape": "書式のコピー: 適用するテキストを選択するか、Escape を押してください",
@@ -24998,6 +25139,7 @@ const ja = {
   "Scripture keeps its own layout": "聖書箇所は独自のレイアウトを保ちます",
   "Scripture on the handout": "配布資料の聖書箇所",
   "Search every sermon": "すべての説教を検索",
+  "Search": "検索",
   "Search your stories": "例話を検索",
   "Second point": "第二のポイント",
   "Sentence case": "文頭のみ大文字",
@@ -25396,7 +25538,33 @@ const ja = {
   "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "そのライセンスキーはストアで無効にされているため、ここでは入力できません。別のキーを入力するか、私たちまでご連絡ください。",
   "Could not reach {provider} to free this computer. Try again when you are online.": "このコンピューターを解放するために {provider} に接続できませんでした。オンラインになってからもう一度お試しください。",
   "Could not reach {provider}: {reason}": "{provider} に接続できませんでした: {reason}",
-  "Imported sermon": "読み込んだ説教"
+  "Imported sermon": "読み込んだ説教",
+  "A line under the name, saying what the template is for.": "名前の下の一行。このテンプレートの用途を示します。",
+  "A new template": "新しいテンプレート",
+  "A template needs at least one block.": "テンプレートには少なくとも1つのブロックが必要です。",
+  "A template with this name exists; keeping this one replaces it.": "同じ名前のテンプレートがあります。これを保存すると置き換えられます。",
+  "Add a block": "ブロックを追加",
+  "Built in": "組み込み",
+  "Copy of {name}": "{name} のコピー",
+  "Edit templates": "テンプレートを編集",
+  "Edit templates…": "テンプレートを編集…",
+  "Editing {name}": "{name} を編集中",
+  "Hint": "ヒント",
+  "In order, each with the heading it starts with. The words come later.": "順番に、それぞれ最初の見出し付きで。言葉は後から書きます。",
+  "Kept in {file} in your sermon folder, so they follow your sermons to every computer.": "説教フォルダーの {file} に保存され、説教とともにどのコンピューターにも届きます。",
+  "Make a copy": "コピーを作る",
+  "Name": "名前",
+  "None of your own yet. Save one from a sermon, under Save, or make a copy of a built-in template below and change it.": "まだ自分のものはありません。「保存」から説教を保存するか、下の組み込みテンプレートをコピーして変更してください。",
+  "Remove? Sermons made from it are kept.": "削除しますか？ これから作った説教は残ります。",
+  "Saved: {name}.": "保存しました：{name}。",
+  "Template name": "テンプレート名",
+  "Your templates": "あなたのテンプレート",
+  "Your templates: rename them, change their blocks, or start one from a built-in": "あなたのテンプレート：名前を変える、ブロックを変える、組み込みから始める",
+  "the template": "このテンプレート",
+  "Every key": "すべてのキー",
+  "Leave": "退出",
+  "1 block": "1 ブロック",
+  "{n} blocks": "{n} ブロック"
 };
 const tl = {
   "Drag to move this picture": "I-drag para ilipat ang larawang ito",
@@ -25681,7 +25849,6 @@ const tl = {
   "Beside every point": "Sa tabi ng bawat punto",
   "Beside the sheet": "Sa tabi ng sheet",
   "between {from} and {to}": "sa pagitan ng {from} at {to}",
-  "Bible history: the chapters you have preached from": "Kasaysayan sa Bibliya: ang mga kabanatang naipangaral mo na",
   "Bible map": "Mapa ng Bibliya",
   "Bible map: every chapter preached from, planned, or not yet": "Mapa ng Bibliya: bawat kabanatang naipangaral na, nakaplano, o hindi pa",
   "Billing": "Pagbabayad",
@@ -25918,9 +26085,7 @@ const tl = {
   "for {occasion}": "para sa {occasion}",
   "For the pews": "Para sa kongregasyon",
   "For the preacher: the words in": "Para sa mangangaral: ang mga salita sa",
-  "Forget the template {name}": "Kalimutan ang template na {name}",
   "Forget the view “{name}”": "Kalimutan ang view na “{name}”",
-  "Forget this template": "Kalimutan ang template na ito",
   "Format": "Format",
   "Format painter: copy this formatting to the next text you select": "Format painter: kopyahin ang format na ito sa susunod na tekstong pipiliin mo",
   "Format painter: select the text to paint, or press Escape": "Format painter: piliin ang tekstong lalagyan ng format, o pindutin ang Escape",
@@ -26467,6 +26632,7 @@ const tl = {
   "Scripture keeps its own layout": "Pinapanatili ng Kasulatan ang sarili nitong layout",
   "Scripture on the handout": "Kasulatan sa handout",
   "Search every sermon": "Hanapin sa bawat sermon",
+  "Search": "Hanapin",
   "Search your stories": "Hanapin sa mga kuwento mo",
   "Second point": "Ikalawang punto",
   "Sentence case": "Sentence case",
@@ -26865,7 +27031,33 @@ const tl = {
   "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Pinatay na sa store ang license key na iyon, kaya hindi ito mailalagay dito. Maglagay ng ibang key, o sumulat sa amin.",
   "Could not reach {provider} to free this computer. Try again when you are online.": "Hindi maabot ang {provider} para palayain ang computer na ito. Subukan ulit kapag online ka na.",
   "Could not reach {provider}: {reason}": "Hindi maabot ang {provider}: {reason}",
-  "Imported sermon": "Na-import na sermon"
+  "Imported sermon": "Na-import na sermon",
+  "A line under the name, saying what the template is for.": "Isang linya sa ilalim ng pangalan, na nagsasabi kung para saan ang template.",
+  "A new template": "Bagong template",
+  "A template needs at least one block.": "Kailangan ng template ng kahit isang block.",
+  "A template with this name exists; keeping this one replaces it.": "May template na nang ganitong pangalan; papalitan ito kapag itinago ang isang ito.",
+  "Add a block": "Magdagdag ng block",
+  "Built in": "Kasama na",
+  "Copy of {name}": "Kopya ng {name}",
+  "Edit templates": "I-edit ang mga template",
+  "Edit templates…": "I-edit ang mga template…",
+  "Editing {name}": "Ine-edit ang {name}",
+  "Hint": "Pahiwatig",
+  "In order, each with the heading it starts with. The words come later.": "Sunud-sunod, bawat isa may pamagat na panimula. Susunod na ang mga salita.",
+  "Kept in {file} in your sermon folder, so they follow your sermons to every computer.": "Nakatago sa {file} sa folder ng iyong mga sermon, kaya sumasama sa mga sermon sa bawat computer.",
+  "Make a copy": "Gumawa ng kopya",
+  "Name": "Pangalan",
+  "None of your own yet. Save one from a sermon, under Save, or make a copy of a built-in template below and change it.": "Wala pa kayong sarili. Mag-save ng isa mula sa sermon, sa I-save, o gumawa ng kopya ng kasamang template sa ibaba at baguhin ito.",
+  "Remove? Sermons made from it are kept.": "Alisin? Mananatili ang mga sermon na ginawa mula rito.",
+  "Saved: {name}.": "Na-save: {name}.",
+  "Template name": "Pangalan ng template",
+  "Your templates": "Ang iyong mga template",
+  "Your templates: rename them, change their blocks, or start one from a built-in": "Ang iyong mga template: palitan ang pangalan, baguhin ang mga block, o magsimula mula sa kasama na",
+  "the template": "ang template",
+  "Every key": "Lahat ng key",
+  "Leave": "Umalis",
+  "1 block": "1 block",
+  "{n} blocks": "{n} block"
 };
 const id = {
   "Drag to move this picture": "Seret untuk memindahkan gambar ini",
@@ -27150,7 +27342,6 @@ const id = {
   "Beside every point": "Di samping setiap poin",
   "Beside the sheet": "Di samping lembar",
   "between {from} and {to}": "antara {from} dan {to}",
-  "Bible history: the chapters you have preached from": "Riwayat Alkitab: pasal-pasal yang pernah Anda khotbahkan",
   "Bible map": "Peta Alkitab",
   "Bible map: every chapter preached from, planned, or not yet": "Peta Alkitab: setiap pasal yang sudah dikhotbahkan, direncanakan, atau belum",
   "Billing": "Penagihan",
@@ -27387,9 +27578,7 @@ const id = {
   "for {occasion}": "untuk {occasion}",
   "For the pews": "Untuk jemaat",
   "For the preacher: the words in": "Untuk pengkhotbah: kata-katanya dalam",
-  "Forget the template {name}": "Lupakan templat {name}",
   "Forget the view “{name}”": "Lupakan tampilan “{name}”",
-  "Forget this template": "Lupakan templat ini",
   "Format": "Format",
   "Format painter: copy this formatting to the next text you select": "Penyalin format: salin format ini ke teks berikutnya yang Anda pilih",
   "Format painter: select the text to paint, or press Escape": "Penyalin format: pilih teks yang akan diberi format, atau tekan Escape",
@@ -27936,6 +28125,7 @@ const id = {
   "Scripture keeps its own layout": "Firman mempertahankan tata letaknya sendiri",
   "Scripture on the handout": "Firman di selebaran",
   "Search every sermon": "Cari di setiap khotbah",
+  "Search": "Cari",
   "Search your stories": "Cari kisah Anda",
   "Second point": "Poin kedua",
   "Sentence case": "Huruf kapital awal kalimat",
@@ -28334,7 +28524,33 @@ const id = {
   "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Kunci lisensi itu telah dimatikan di toko, jadi tidak dapat dimasukkan di sini. Masukkan kunci lain, atau hubungi kami.",
   "Could not reach {provider} to free this computer. Try again when you are online.": "Tidak dapat menghubungi {provider} untuk melepaskan komputer ini. Coba lagi saat Anda daring.",
   "Could not reach {provider}: {reason}": "Tidak dapat menghubungi {provider}: {reason}",
-  "Imported sermon": "Khotbah yang diimpor"
+  "Imported sermon": "Khotbah yang diimpor",
+  "A line under the name, saying what the template is for.": "Satu baris di bawah nama, menjelaskan untuk apa templat ini.",
+  "A new template": "Templat baru",
+  "A template needs at least one block.": "Templat memerlukan setidaknya satu blok.",
+  "A template with this name exists; keeping this one replaces it.": "Templat dengan nama ini sudah ada; menyimpan yang ini akan menggantikannya.",
+  "Add a block": "Tambah blok",
+  "Built in": "Bawaan",
+  "Copy of {name}": "Salinan {name}",
+  "Edit templates": "Edit templat",
+  "Edit templates…": "Edit templat…",
+  "Editing {name}": "Mengedit {name}",
+  "Hint": "Petunjuk",
+  "In order, each with the heading it starts with. The words come later.": "Berurutan, masing-masing dengan judul awalnya. Kata-katanya menyusul.",
+  "Kept in {file} in your sermon folder, so they follow your sermons to every computer.": "Disimpan di {file} dalam folder khotbah, sehingga ikut khotbah ke setiap komputer.",
+  "Make a copy": "Buat salinan",
+  "Name": "Nama",
+  "None of your own yet. Save one from a sermon, under Save, or make a copy of a built-in template below and change it.": "Belum ada milik Anda. Simpan satu dari khotbah, di Simpan, atau buat salinan templat bawaan di bawah dan ubah.",
+  "Remove? Sermons made from it are kept.": "Hapus? Khotbah yang dibuat darinya tetap ada.",
+  "Saved: {name}.": "Tersimpan: {name}.",
+  "Template name": "Nama templat",
+  "Your templates": "Templat Anda",
+  "Your templates: rename them, change their blocks, or start one from a built-in": "Templat Anda: ganti nama, ubah bloknya, atau mulai dari templat bawaan",
+  "the template": "templat",
+  "Every key": "Semua tombol",
+  "Leave": "Keluar",
+  "1 block": "1 blok",
+  "{n} blocks": "{n} blok"
 };
 const ru = {
   "Drag to move this picture": "Перетащите, чтобы переместить это изображение",
@@ -28619,7 +28835,6 @@ const ru = {
   "Beside every point": "Рядом с каждым пунктом",
   "Beside the sheet": "Рядом с листом",
   "between {from} and {to}": "между {from} и {to}",
-  "Bible history: the chapters you have preached from": "История по Библии: главы, из которых вы проповедовали",
   "Bible map": "Карта Библии",
   "Bible map: every chapter preached from, planned, or not yet": "Карта Библии: каждая глава — проповеданная, запланированная или ещё нет",
   "Billing": "Оплата",
@@ -28856,9 +29071,7 @@ const ru = {
   "for {occasion}": "повод: {occasion}",
   "For the pews": "Для общины",
   "For the preacher: the words in": "Для проповедника: слова в",
-  "Forget the template {name}": "Забыть шаблон {name}",
   "Forget the view “{name}”": "Забыть вид «{name}»",
-  "Forget this template": "Забыть этот шаблон",
   "Format": "Формат",
   "Format painter: copy this formatting to the next text you select": "Копирование формата: применить это форматирование к следующему выделенному тексту",
   "Format painter: select the text to paint, or press Escape": "Копирование формата: выделите текст, к которому его применить, или нажмите Escape",
@@ -29405,6 +29618,7 @@ const ru = {
   "Scripture keeps its own layout": "Писание сохраняет свою вёрстку",
   "Scripture on the handout": "Писание на раздаточном листе",
   "Search every sermon": "Искать по всем проповедям",
+  "Search": "Поиск",
   "Search your stories": "Искать среди своих историй",
   "Second point": "Второй пункт",
   "Sentence case": "Как в предложении",
@@ -29803,7 +30017,33 @@ const ru = {
   "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Этот лицензионный ключ отключён в магазине, поэтому его нельзя ввести здесь. Введите другой ключ или напишите нам.",
   "Could not reach {provider} to free this computer. Try again when you are online.": "Не удалось связаться с {provider}, чтобы освободить этот компьютер. Повторите попытку, когда будете в сети.",
   "Could not reach {provider}: {reason}": "Не удалось связаться с {provider}: {reason}",
-  "Imported sermon": "Импортированная проповедь"
+  "Imported sermon": "Импортированная проповедь",
+  "A line under the name, saying what the template is for.": "Строка под названием: для чего этот шаблон.",
+  "A new template": "Новый шаблон",
+  "A template needs at least one block.": "Шаблону нужен хотя бы один блок.",
+  "A template with this name exists; keeping this one replaces it.": "Шаблон с таким названием уже есть; этот заменит его.",
+  "Add a block": "Добавить блок",
+  "Built in": "Встроенные",
+  "Copy of {name}": "Копия {name}",
+  "Edit templates": "Изменить шаблоны",
+  "Edit templates…": "Изменить шаблоны…",
+  "Editing {name}": "Правка: {name}",
+  "Hint": "Подсказка",
+  "In order, each with the heading it starts with. The words come later.": "По порядку, каждый с заголовком, с которого начинается. Слова придут потом.",
+  "Kept in {file} in your sermon folder, so they follow your sermons to every computer.": "Хранятся в {file} в папке проповедей и следуют за ними на каждый компьютер.",
+  "Make a copy": "Сделать копию",
+  "Name": "Название",
+  "None of your own yet. Save one from a sermon, under Save, or make a copy of a built-in template below and change it.": "Своих пока нет. Сохраните один из проповеди, в меню Сохранить, или сделайте копию встроенного шаблона ниже и измените её.",
+  "Remove? Sermons made from it are kept.": "Удалить? Проповеди, созданные по нему, останутся.",
+  "Saved: {name}.": "Сохранено: {name}.",
+  "Template name": "Название шаблона",
+  "Your templates": "Ваши шаблоны",
+  "Your templates: rename them, change their blocks, or start one from a built-in": "Ваши шаблоны: переименовать, изменить блоки или начать с встроенного",
+  "the template": "шаблон",
+  "Every key": "Все клавиши",
+  "Leave": "Выйти",
+  "1 block": "1 блок",
+  "{n} blocks": "{n} блок|{n} блока|{n} блоков"
 };
 const sw = {
   "Drag to move this picture": "Buruta kuhamisha picha hii",
@@ -30088,7 +30328,6 @@ const sw = {
   "Beside every point": "Kando ya kila hoja",
   "Beside the sheet": "Kando ya karatasi",
   "between {from} and {to}": "kati ya {from} na {to}",
-  "Bible history: the chapters you have preached from": "Historia ya Biblia: sura ulizohubiri kutoka",
   "Bible map": "Ramani ya Biblia",
   "Bible map: every chapter preached from, planned, or not yet": "Ramani ya Biblia: kila sura iliyohubiriwa, iliyopangwa, au bado",
   "Billing": "Malipo",
@@ -30325,9 +30564,7 @@ const sw = {
   "for {occasion}": "kwa {occasion}",
   "For the pews": "Kwa waumini",
   "For the preacher: the words in": "Kwa mhubiri: maneno kwa",
-  "Forget the template {name}": "Sahau kiolezo {name}",
   "Forget the view “{name}”": "Sahau mwonekano “{name}”",
-  "Forget this template": "Sahau kiolezo hiki",
   "Format": "Umbizo",
   "Format painter: copy this formatting to the next text you select": "Mchoraji wa umbizo: nakili umbizo hili kwenye maandishi utakayochagua baadaye",
   "Format painter: select the text to paint, or press Escape": "Mchoraji wa umbizo: chagua maandishi ya kupaka, au bonyeza Escape",
@@ -30874,6 +31111,7 @@ const sw = {
   "Scripture keeps its own layout": "Maandiko yanabaki na mpangilio wake",
   "Scripture on the handout": "Maandiko kwenye kijitabu",
   "Search every sermon": "Tafuta katika mahubiri yote",
+  "Search": "Tafuta",
   "Search your stories": "Tafuta hadithi zako",
   "Second point": "Hoja ya pili",
   "Sentence case": "Herufi kubwa mwanzoni wa sentensi",
@@ -31272,7 +31510,33 @@ const sw = {
   "That licence key has been switched off at the store, so it cannot be entered here. Enter another key, or write to us.": "Ufunguo huo wa leseni umezimwa dukani, kwa hivyo hauwezi kuwekwa hapa. Weka ufunguo mwingine, au tuandikie.",
   "Could not reach {provider} to free this computer. Try again when you are online.": "Haikuweza kufikia {provider} ili kuachilia kompyuta hii. Jaribu tena ukiwa mtandaoni.",
   "Could not reach {provider}: {reason}": "Haikuweza kufikia {provider}: {reason}",
-  "Imported sermon": "Mahubiri yaliyoingizwa"
+  "Imported sermon": "Mahubiri yaliyoingizwa",
+  "A line under the name, saying what the template is for.": "Mstari chini ya jina, unaosema kiolezo ni cha nini.",
+  "A new template": "Kiolezo kipya",
+  "A template needs at least one block.": "Kiolezo kinahitaji angalau kipande kimoja.",
+  "A template with this name exists; keeping this one replaces it.": "Kiolezo chenye jina hili kipo; kukihifadhi hiki kitakibadilisha.",
+  "Add a block": "Ongeza kipande",
+  "Built in": "Zilizojengwa ndani",
+  "Copy of {name}": "Nakala ya {name}",
+  "Edit templates": "Hariri violezo",
+  "Edit templates…": "Hariri violezo…",
+  "Editing {name}": "Inahariri {name}",
+  "Hint": "Kidokezo",
+  "In order, each with the heading it starts with. The words come later.": "Kwa mpangilio, kila kimoja na kichwa kinachoanza nacho. Maneno yanakuja baadaye.",
+  "Kept in {file} in your sermon folder, so they follow your sermons to every computer.": "Zimehifadhiwa katika {file} kwenye folda ya mahubiri, hivyo zinafuata mahubiri yako kwa kila kompyuta.",
+  "Make a copy": "Tengeneza nakala",
+  "Name": "Jina",
+  "None of your own yet. Save one from a sermon, under Save, or make a copy of a built-in template below and change it.": "Hakuna chako bado. Hifadhi kimoja kutoka hubiri, chini ya Hifadhi, au tengeneza nakala ya kiolezo kilichojengwa ndani hapa chini na ukibadilishe.",
+  "Remove? Sermons made from it are kept.": "Ondoa? Mahubiri yaliyotengenezwa kutoka kwake yanabaki.",
+  "Saved: {name}.": "Imehifadhiwa: {name}.",
+  "Template name": "Jina la kiolezo",
+  "Your templates": "Violezo vyako",
+  "Your templates: rename them, change their blocks, or start one from a built-in": "Violezo vyako: badilisha majina, badilisha vipande, au anza kimoja kutoka kilichojengwa ndani",
+  "the template": "kiolezo",
+  "Every key": "Kila kitufe",
+  "Leave": "Ondoka",
+  "1 block": "kipande 1",
+  "{n} blocks": "vipande {n}"
 };
 const TABLES = { en: {}, es, ko, pt: pt$3, fr: fr$3, de: de$1, zh, ja, tl, id, ru, sw };
 function fill(text, vars) {
@@ -32047,7 +32311,7 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
   }
   return Component;
 }
-const __iconData$_ = {
+const __iconData$$ = {
   name: "a-arrow-down",
   size: 24,
   node: [
@@ -32057,9 +32321,9 @@ const __iconData$_ = {
     ["path", { d: "M3.304 13h6.392", key: "1q3zxz" }]
   ]
 };
-__iconData$_.node;
-const AArrowDown = createLucideIcon(__iconData$_);
-const __iconData$Z = {
+__iconData$$.node;
+const AArrowDown = createLucideIcon(__iconData$$);
+const __iconData$_ = {
   name: "a-arrow-up",
   size: 24,
   node: [
@@ -32069,9 +32333,9 @@ const __iconData$Z = {
     ["path", { d: "M3.304 13h6.392", key: "1q3zxz" }]
   ]
 };
-__iconData$Z.node;
-const AArrowUp = createLucideIcon(__iconData$Z);
-const __iconData$Y = {
+__iconData$_.node;
+const AArrowUp = createLucideIcon(__iconData$_);
+const __iconData$Z = {
   name: "align-vertical-space-around",
   size: 24,
   node: [
@@ -32080,9 +32344,9 @@ const __iconData$Y = {
     ["path", { d: "M22 4H2", key: "1b7qnq" }]
   ]
 };
-__iconData$Y.node;
-const AlignVerticalSpaceAround = createLucideIcon(__iconData$Y);
-const __iconData$X = {
+__iconData$Z.node;
+const AlignVerticalSpaceAround = createLucideIcon(__iconData$Z);
+const __iconData$Y = {
   name: "arrow-down",
   size: 24,
   node: [
@@ -32090,9 +32354,9 @@ const __iconData$X = {
     ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
   ]
 };
-__iconData$X.node;
-const ArrowDown = createLucideIcon(__iconData$X);
-const __iconData$W = {
+__iconData$Y.node;
+const ArrowDown = createLucideIcon(__iconData$Y);
+const __iconData$X = {
   name: "arrow-up",
   size: 24,
   node: [
@@ -32100,9 +32364,9 @@ const __iconData$W = {
     ["path", { d: "M12 19V5", key: "x0mq9r" }]
   ]
 };
-__iconData$W.node;
-const ArrowUp = createLucideIcon(__iconData$W);
-const __iconData$V = {
+__iconData$X.node;
+const ArrowUp = createLucideIcon(__iconData$X);
+const __iconData$W = {
   name: "book-bookmark",
   size: 24,
   node: [
@@ -32123,9 +32387,9 @@ const __iconData$V = {
   ],
   aliases: ["book-marked"]
 };
-__iconData$V.node;
-const BookBookmark = createLucideIcon(__iconData$V);
-const __iconData$U = {
+__iconData$W.node;
+const BookBookmark = createLucideIcon(__iconData$W);
+const __iconData$V = {
   name: "book-open",
   size: 24,
   node: [
@@ -32139,9 +32403,9 @@ const __iconData$U = {
     ]
   ]
 };
-__iconData$U.node;
-const BookOpen = createLucideIcon(__iconData$U);
-const __iconData$T = {
+__iconData$V.node;
+const BookOpen = createLucideIcon(__iconData$V);
+const __iconData$U = {
   name: "box",
   size: 24,
   node: [
@@ -32156,22 +32420,29 @@ const __iconData$T = {
     ["path", { d: "M12 22V12", key: "d0xqtd" }]
   ]
 };
-__iconData$T.node;
-const Box$1 = createLucideIcon(__iconData$T);
-const __iconData$S = {
+__iconData$U.node;
+const Box$1 = createLucideIcon(__iconData$U);
+const __iconData$T = {
   name: "check",
   size: 24,
   node: [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]]
 };
-__iconData$S.node;
-const Check$1 = createLucideIcon(__iconData$S);
-const __iconData$R = {
+__iconData$T.node;
+const Check$1 = createLucideIcon(__iconData$T);
+const __iconData$S = {
   name: "chevron-right",
   size: 24,
   node: [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]]
 };
+__iconData$S.node;
+const ChevronRight = createLucideIcon(__iconData$S);
+const __iconData$R = {
+  name: "chevron-left",
+  size: 24,
+  node: [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]]
+};
 __iconData$R.node;
-const ChevronRight = createLucideIcon(__iconData$R);
+const ChevronLeft = createLucideIcon(__iconData$R);
 const __iconData$Q = {
   name: "cloud",
   size: 24,
@@ -32328,20 +32599,6 @@ const __iconData$G = {
 __iconData$G.node;
 const Folder = createLucideIcon(__iconData$G);
 const __iconData$F = {
-  name: "grid-3x3",
-  size: 24,
-  node: [
-    ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }],
-    ["path", { d: "M3 9h18", key: "1pudct" }],
-    ["path", { d: "M3 15h18", key: "5xshup" }],
-    ["path", { d: "M9 3v18", key: "fh3hqa" }],
-    ["path", { d: "M15 3v18", key: "14nvp0" }]
-  ],
-  aliases: ["grid", "grid-3-x-3"]
-};
-__iconData$F.node;
-const Grid3x3 = createLucideIcon(__iconData$F);
-const __iconData$E = {
   name: "image",
   size: 24,
   node: [
@@ -32350,9 +32607,9 @@ const __iconData$E = {
     ["path", { d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21", key: "1xmnt7" }]
   ]
 };
-__iconData$E.node;
-const Image = createLucideIcon(__iconData$E);
-const __iconData$D = {
+__iconData$F.node;
+const Image = createLucideIcon(__iconData$F);
+const __iconData$E = {
   name: "info",
   size: 24,
   node: [
@@ -32361,9 +32618,9 @@ const __iconData$D = {
     ["path", { d: "M12 8h.01", key: "e9boi3" }]
   ]
 };
-__iconData$D.node;
-const Info = createLucideIcon(__iconData$D);
-const __iconData$C = {
+__iconData$E.node;
+const Info = createLucideIcon(__iconData$E);
+const __iconData$D = {
   name: "key-round",
   size: 24,
   node: [
@@ -32377,9 +32634,9 @@ const __iconData$C = {
     ["circle", { cx: "16.5", cy: "7.5", r: ".5", fill: "currentColor", key: "w0ekpg" }]
   ]
 };
-__iconData$C.node;
-const KeyRound = createLucideIcon(__iconData$C);
-const __iconData$B = {
+__iconData$D.node;
+const KeyRound = createLucideIcon(__iconData$D);
+const __iconData$C = {
   name: "keyboard",
   size: 24,
   node: [
@@ -32394,9 +32651,9 @@ const __iconData$B = {
     ["rect", { width: "20", height: "16", x: "2", y: "4", rx: "2", key: "18n3k1" }]
   ]
 };
-__iconData$B.node;
-const Keyboard = createLucideIcon(__iconData$B);
-const __iconData$A = {
+__iconData$C.node;
+const Keyboard = createLucideIcon(__iconData$C);
+const __iconData$B = {
   name: "layout-template",
   size: 24,
   node: [
@@ -32405,9 +32662,9 @@ const __iconData$A = {
     ["rect", { width: "5", height: "7", x: "16", y: "14", rx: "1", key: "q5h2i8" }]
   ]
 };
-__iconData$A.node;
-const LayoutTemplate = createLucideIcon(__iconData$A);
-const __iconData$z = {
+__iconData$B.node;
+const LayoutTemplate = createLucideIcon(__iconData$B);
+const __iconData$A = {
   name: "lectern",
   size: 24,
   node: [
@@ -32423,9 +32680,9 @@ const __iconData$z = {
     ["path", { d: "M18 6V3a1 1 0 00-1-1h-3", key: "1y10qe" }]
   ]
 };
-__iconData$z.node;
-const Lectern = createLucideIcon(__iconData$z);
-const __iconData$y = {
+__iconData$A.node;
+const Lectern = createLucideIcon(__iconData$A);
+const __iconData$z = {
   name: "link-2",
   size: 24,
   node: [
@@ -32434,9 +32691,9 @@ const __iconData$y = {
     ["line", { x1: "8", x2: "16", y1: "12", y2: "12", key: "1jonct" }]
   ]
 };
-__iconData$y.node;
-const Link2 = createLucideIcon(__iconData$y);
-const __iconData$x = {
+__iconData$z.node;
+const Link2 = createLucideIcon(__iconData$z);
+const __iconData$y = {
   name: "list-indent-decrease",
   size: 24,
   node: [
@@ -32447,9 +32704,9 @@ const __iconData$x = {
   ],
   aliases: ["outdent", "indent-decrease"]
 };
-__iconData$x.node;
-const ListIndentDecrease = createLucideIcon(__iconData$x);
-const __iconData$w = {
+__iconData$y.node;
+const ListIndentDecrease = createLucideIcon(__iconData$y);
+const __iconData$x = {
   name: "list-indent-increase",
   size: 24,
   node: [
@@ -32460,9 +32717,9 @@ const __iconData$w = {
   ],
   aliases: ["indent", "indent-increase"]
 };
-__iconData$w.node;
-const ListIndentIncrease = createLucideIcon(__iconData$w);
-const __iconData$v = {
+__iconData$x.node;
+const ListIndentIncrease = createLucideIcon(__iconData$x);
+const __iconData$w = {
   name: "list-ordered",
   size: 24,
   node: [
@@ -32474,9 +32731,9 @@ const __iconData$v = {
     ["path", { d: "M6.5 20H3.4c0-1 2.6-1.925 2.6-3.5a1.5 1.5 0 0 0-2.6-1.02", key: "xtkcd5" }]
   ]
 };
-__iconData$v.node;
-const ListOrdered = createLucideIcon(__iconData$v);
-const __iconData$u = {
+__iconData$w.node;
+const ListOrdered = createLucideIcon(__iconData$w);
+const __iconData$v = {
   name: "list",
   size: 24,
   node: [
@@ -32488,9 +32745,9 @@ const __iconData$u = {
     ["path", { d: "M8 19h13", key: "m83p4d" }]
   ]
 };
-__iconData$u.node;
-const List = createLucideIcon(__iconData$u);
-const __iconData$t = {
+__iconData$v.node;
+const List = createLucideIcon(__iconData$v);
+const __iconData$u = {
   name: "lock",
   size: 24,
   node: [
@@ -32498,9 +32755,9 @@ const __iconData$t = {
     ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
   ]
 };
-__iconData$t.node;
-const Lock = createLucideIcon(__iconData$t);
-const __iconData$s = {
+__iconData$u.node;
+const Lock = createLucideIcon(__iconData$u);
+const __iconData$t = {
   name: "message-square",
   size: 24,
   node: [
@@ -32513,9 +32770,9 @@ const __iconData$s = {
     ]
   ]
 };
-__iconData$s.node;
-const MessageSquare = createLucideIcon(__iconData$s);
-const __iconData$r = {
+__iconData$t.node;
+const MessageSquare = createLucideIcon(__iconData$t);
+const __iconData$s = {
   name: "mic",
   size: 24,
   node: [
@@ -32524,9 +32781,9 @@ const __iconData$r = {
     ["rect", { x: "9", y: "2", width: "6", height: "13", rx: "3", key: "s6n7sd" }]
   ]
 };
-__iconData$r.node;
-const Mic = createLucideIcon(__iconData$r);
-const __iconData$q = {
+__iconData$s.node;
+const Mic = createLucideIcon(__iconData$s);
+const __iconData$r = {
   name: "paint-roller",
   size: 24,
   node: [
@@ -32535,9 +32792,9 @@ const __iconData$q = {
     ["rect", { width: "4", height: "6", x: "8", y: "16", rx: "1", key: "d6e7yl" }]
   ]
 };
-__iconData$q.node;
-const PaintRoller = createLucideIcon(__iconData$q);
-const __iconData$p = {
+__iconData$r.node;
+const PaintRoller = createLucideIcon(__iconData$r);
+const __iconData$q = {
   name: "panel-left",
   size: 24,
   node: [
@@ -32546,9 +32803,9 @@ const __iconData$p = {
   ],
   aliases: ["sidebar"]
 };
-__iconData$p.node;
-const PanelLeft = createLucideIcon(__iconData$p);
-const __iconData$o = {
+__iconData$q.node;
+const PanelLeft = createLucideIcon(__iconData$q);
+const __iconData$p = {
   name: "panel-right",
   size: 24,
   node: [
@@ -32556,9 +32813,9 @@ const __iconData$o = {
     ["path", { d: "M15 3v18", key: "14nvp0" }]
   ]
 };
-__iconData$o.node;
-const PanelRight = createLucideIcon(__iconData$o);
-const __iconData$n = {
+__iconData$p.node;
+const PanelRight = createLucideIcon(__iconData$p);
+const __iconData$o = {
   name: "plus",
   size: 24,
   node: [
@@ -32566,9 +32823,9 @@ const __iconData$n = {
     ["path", { d: "M12 5v14", key: "s699le" }]
   ]
 };
-__iconData$n.node;
-const Plus = createLucideIcon(__iconData$n);
-const __iconData$m = {
+__iconData$o.node;
+const Plus = createLucideIcon(__iconData$o);
+const __iconData$n = {
   name: "printer",
   size: 24,
   node: [
@@ -32583,9 +32840,9 @@ const __iconData$m = {
     ["rect", { x: "6", y: "14", width: "12", height: "8", rx: "1", key: "1ue0tg" }]
   ]
 };
-__iconData$m.node;
-const Printer = createLucideIcon(__iconData$m);
-const __iconData$l = {
+__iconData$n.node;
+const Printer = createLucideIcon(__iconData$n);
+const __iconData$m = {
   name: "redo-2",
   size: 24,
   node: [
@@ -32593,9 +32850,9 @@ const __iconData$l = {
     ["path", { d: "M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13", key: "6uklza" }]
   ]
 };
-__iconData$l.node;
-const Redo2 = createLucideIcon(__iconData$l);
-const __iconData$k = {
+__iconData$m.node;
+const Redo2 = createLucideIcon(__iconData$m);
+const __iconData$l = {
   name: "save",
   size: 24,
   node: [
@@ -32610,9 +32867,9 @@ const __iconData$k = {
     ["path", { d: "M7 3v4a1 1 0 0 0 1 1h7", key: "t51u73" }]
   ]
 };
-__iconData$k.node;
-const Save = createLucideIcon(__iconData$k);
-const __iconData$j = {
+__iconData$l.node;
+const Save = createLucideIcon(__iconData$l);
+const __iconData$k = {
   name: "scroll-text",
   size: 24,
   node: [
@@ -32628,9 +32885,9 @@ const __iconData$j = {
     ]
   ]
 };
-__iconData$j.node;
-const ScrollText = createLucideIcon(__iconData$j);
-const __iconData$i = {
+__iconData$k.node;
+const ScrollText = createLucideIcon(__iconData$k);
+const __iconData$j = {
   name: "search",
   size: 24,
   node: [
@@ -32638,9 +32895,9 @@ const __iconData$i = {
     ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
   ]
 };
-__iconData$i.node;
-const Search = createLucideIcon(__iconData$i);
-const __iconData$h = {
+__iconData$j.node;
+const Search = createLucideIcon(__iconData$j);
+const __iconData$i = {
   name: "separator-horizontal",
   size: 24,
   node: [
@@ -32649,9 +32906,9 @@ const __iconData$h = {
     ["path", { d: "m8 8 4-4 4 4", key: "2bscm2" }]
   ]
 };
-__iconData$h.node;
-const SeparatorHorizontal = createLucideIcon(__iconData$h);
-const __iconData$g = {
+__iconData$i.node;
+const SeparatorHorizontal = createLucideIcon(__iconData$i);
+const __iconData$h = {
   name: "settings",
   size: 24,
   node: [
@@ -32665,9 +32922,9 @@ const __iconData$g = {
     ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
   ]
 };
-__iconData$g.node;
-const Settings = createLucideIcon(__iconData$g);
-const __iconData$f = {
+__iconData$h.node;
+const Settings = createLucideIcon(__iconData$h);
+const __iconData$g = {
   name: "share",
   size: 24,
   node: [
@@ -32676,9 +32933,9 @@ const __iconData$f = {
     ["path", { d: "M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8", key: "1b2hhj" }]
   ]
 };
-__iconData$f.node;
-const Share = createLucideIcon(__iconData$f);
-const __iconData$e = {
+__iconData$g.node;
+const Share = createLucideIcon(__iconData$g);
+const __iconData$f = {
   name: "sliders-horizontal",
   size: 24,
   node: [
@@ -32693,8 +32950,15 @@ const __iconData$e = {
     ["path", { d: "M8 12H3", key: "a7s4jb" }]
   ]
 };
+__iconData$f.node;
+const SlidersHorizontal = createLucideIcon(__iconData$f);
+const __iconData$e = {
+  name: "square",
+  size: 24,
+  node: [["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }]]
+};
 __iconData$e.node;
-const SlidersHorizontal = createLucideIcon(__iconData$e);
+const Square = createLucideIcon(__iconData$e);
 const __iconData$d = {
   name: "star",
   size: 24,
@@ -78909,7 +79173,7 @@ const varsResolver$m = createVarsResolver((_, { grow: grow2, preventGrowOverflow
   "--group-justify": justify,
   "--group-wrap": wrap2
 } }));
-const Group$2 = factory((_props) => {
+const Group$3 = factory((_props) => {
   const props = useProps("Group", defaultProps$l, _props);
   const { classNames, className, style: style2, styles, unstyled, children, gap, align, justify, wrap: wrap2, grow: grow2, preventGrowOverflow, vars, variant, __size, mod, attributes, ...others } = props;
   const filteredChildren = filterFalsyChildren(children);
@@ -78939,9 +79203,9 @@ const Group$2 = factory((_props) => {
     children: filteredChildren
   });
 });
-Group$2.classes = Group_module_default;
-Group$2.varsResolver = varsResolver$m;
-Group$2.displayName = "@mantine/core/Group";
+Group$3.classes = Group_module_default;
+Group$3.varsResolver = varsResolver$m;
+Group$3.displayName = "@mantine/core/Group";
 const InputContext = reactExports$1.createContext({ size: "sm" });
 const InputClearButton = factory((_props) => {
   const props = useProps("InputClearButton", null, _props);
@@ -82523,7 +82787,7 @@ var z = (e4, t2, n2 = false) => {
   });
 }), _e = reactExports$1.forwardRef((e4, t2) => {
   let { className: r3, children: i2, ...a2 } = e4;
-  return ze$2(a2), /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, {
+  return ze$2(a2), /* @__PURE__ */ jsxRuntimeExports.jsx(Group$3, {
     className: r3,
     ref: t2,
     children: i2
@@ -82557,13 +82821,13 @@ var z = (e4, t2, n2 = false) => {
   });
 }), xe = reactExports$1.forwardRef((e4, t2) => {
   let { authorInfo: r3, timeString: i2, edited: a2, ...o2 } = e4, s2 = ae();
-  return ze$2(o2, false), r3 === "loading" ? /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$2, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, {
+  return ze$2(o2, false), r3 === "loading" ? /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$3, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, {
     height: 24,
     width: 24
   }), /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, {
     height: 12,
     width: 100
-  }) })] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$2, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, {
+  }) })] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$3, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, {
     src: r3.avatarUrl,
     alt: r3.username,
     radius: "xl",
@@ -82586,12 +82850,12 @@ var z = (e4, t2, n2 = false) => {
   })] });
 }), Se = reactExports$1.forwardRef((e4, t2) => {
   let { className: r3, showActions: i2, authorInfo: a2, timeString: o2, edited: s2, actions: c2, emojiPickerOpen: l2, children: d, ...f2 } = e4, { hovered: p2, ref: m2 } = useHover(), h2 = Po([t2, m2]);
-  return ze$2(f2, false), /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$2, {
+  return ze$2(f2, false), /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$3, {
     pos: "relative",
     ref: h2,
     className: r3,
     children: [
-      c2 && (i2 === true || i2 === void 0 || i2 === "hover" && p2 || l2) ? /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, {
+      c2 && (i2 === true || i2 === void 0 || i2 === "hover" && p2 || l2) ? /* @__PURE__ */ jsxRuntimeExports.jsx(Group$3, {
         style: {
           position: "absolute",
           right: 0,
@@ -82755,7 +83019,7 @@ var z = (e4, t2, n2 = false) => {
   });
 }), Fe = reactExports$1.forwardRef((e4, t2) => {
   let { className: r3, tabs: i2, defaultOpenTab: a2, openTab: o2, setOpenTab: s2, loading: c2, ...l2 } = e4;
-  return ze$2(l2), /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, {
+  return ze$2(l2), /* @__PURE__ */ jsxRuntimeExports.jsx(Group$3, {
     className: r3,
     ref: t2,
     children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Tabs, {
@@ -82844,7 +83108,7 @@ var z = (e4, t2, n2 = false) => {
   });
 }), Ue = reactExports$1.forwardRef((e4, t2) => {
   let { className: r3, children: i2, ...a2 } = e4;
-  return ze$2(a2, false), /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, {
+  return ze$2(a2, false), /* @__PURE__ */ jsxRuntimeExports.jsx(Group$3, {
     align: "center",
     gap: 0,
     className: r3,
@@ -82896,10 +83160,10 @@ var z = (e4, t2, n2 = false) => {
   });
 }), qe = reactExports$1.forwardRef((e4, t2) => {
   let { className: r3, children: i2, ...a2 } = e4;
-  return ze$2(a2), /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, {
+  return ze$2(a2), /* @__PURE__ */ jsxRuntimeExports.jsx(Group$3, {
     className: r3,
     ref: t2,
-    children: /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, {
+    children: /* @__PURE__ */ jsxRuntimeExports.jsx(Group$3, {
       className: "bn-mt-suggestion-menu-item-title",
       children: i2
     })
@@ -82910,7 +83174,7 @@ var z = (e4, t2, n2 = false) => {
   let u2 = reactExports$1.useRef(null);
   return reactExports$1.useEffect(() => {
     !u2.current || !i2 || No(u2.current, u2.current.closest(".bn-suggestion-menu, #ai-suggestion-menu")) !== "none" && u2.current.scrollIntoView({ block: "nearest" });
-  }, [i2]), /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$2, {
+  }, [i2]), /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$3, {
     gap: 0,
     className: r3,
     ref: mergeRefs(t2, u2),
@@ -82920,7 +83184,7 @@ var z = (e4, t2, n2 = false) => {
     onClick: a2,
     "aria-selected": i2 || void 0,
     children: [
-      o2.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, {
+      o2.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(Group$3, {
         className: "bn-mt-suggestion-menu-item-section",
         "data-position": "left",
         children: o2.icon
@@ -82936,7 +83200,7 @@ var z = (e4, t2, n2 = false) => {
           children: o2.subtext
         })]
       }),
-      o2.badge && /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, {
+      o2.badge && /* @__PURE__ */ jsxRuntimeExports.jsx(Group$3, {
         "data-position": "right",
         className: "bn-mt-suggestion-menu-item-section",
         children: /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, {
@@ -82948,7 +83212,7 @@ var z = (e4, t2, n2 = false) => {
   });
 }), Ye = reactExports$1.forwardRef((e4, t2) => {
   let { className: r3, children: i2, ...a2 } = e4;
-  return ze$2(a2), /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, {
+  return ze$2(a2), /* @__PURE__ */ jsxRuntimeExports.jsx(Group$3, {
     className: r3,
     ref: t2,
     children: i2
@@ -82975,11 +83239,11 @@ var z = (e4, t2, n2 = false) => {
   });
 }), Qe = reactExports$1.forwardRef((e4, t2) => {
   let { className: r3, children: i2, columns: a2, ...o2 } = e4;
-  return ze$2(o2), /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, {
+  return ze$2(o2), /* @__PURE__ */ jsxRuntimeExports.jsx(Group$3, {
     className: r3,
     style: { gridColumn: `1 / ${a2 + 1}` },
     ref: t2,
-    children: /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, {
+    children: /* @__PURE__ */ jsxRuntimeExports.jsx(Group$3, {
       className: "bn-mt-suggestion-menu-item-title",
       children: i2
     })
@@ -83333,6 +83597,7 @@ var Z = reactExports$1.forwardRef((e4, t2) => {
     children: _
   });
 };
+const SHAPES_FILE = "shapes.json";
 const BUILT_IN_SHAPES = [
   {
     id: "built-in:outline",
@@ -88449,7 +88714,7 @@ function SermonEditor({
   runningHead,
   onPages,
   shapes,
-  onRemoveShape,
+  onManageTemplates,
   onStarter
 }) {
   const isDark = useIsDark();
@@ -88770,21 +89035,22 @@ function SermonEditor({
                 /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "starter__body", children: t2("The blocks laid out with their headings, ready to fill. Or just start typing below.") }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "starter__shapes", children: [...shapes, ...BUILT_IN_SHAPES].map((shape) => {
                   const yours = !shape.id.startsWith("built-in:");
-                  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "starter__shape", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "starter__shape-pick", title: shape.hint ? t2(shape.hint) : describeShape(shape, t2), onMouseDown: (event) => event.preventDefault(), onClick: () => {
-                      applyStarter(shape);
-                      onStarter?.(shape);
-                    }, children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "starter__shape-name", children: [
-                        t2(shape.name),
-                        yours && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "starter__tag", children: t2("Yours") })
-                      ] }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "starter__shape-blocks", children: describeShape(shape, t2) })
+                  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "starter__shape", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "starter__shape-pick", title: describeShape(shape, t2), onMouseDown: (event) => event.preventDefault(), onClick: () => {
+                    applyStarter(shape);
+                    onStarter?.(shape);
+                  }, children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "starter__shape-name", children: [
+                      t2(shape.name),
+                      yours && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "starter__tag", children: t2("Yours") })
                     ] }),
-                    yours && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "starter__shape-remove", title: t2("Forget this template"), "aria-label": t2("Forget the template {name}", { name: t2(shape.name) }), onMouseDown: (event) => event.preventDefault(), onClick: () => onRemoveShape(shape.id), children: "×" })
-                  ] }, shape.id);
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "starter__shape-blocks", children: shape.hint ? t2(shape.hint) : shape.blocks.length === 1 ? t2("1 block") : t2("{n} blocks", { n: shape.blocks.length }) })
+                  ] }) }, shape.id);
                 }) }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "starter__hint", children: t2("Any sermon can be kept as a template: Save as a template, under Save.") })
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "starter__hint", children: [
+                  t2("Any sermon can be kept as a template: Save as a template, under Save."),
+                  " ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onMouseDown: (event) => event.preventDefault(), onClick: onManageTemplates, children: t2("Edit templates…") })
+                ] })
               ] }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(OutlineContext.Provider, { value: outlineValue, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
                 ht,
@@ -88988,7 +89254,8 @@ function AddBlockMenu({
   editing,
   run: run2,
   onLibrary,
-  shapes
+  shapes,
+  onManageTemplates
 }) {
   const t2 = useT();
   const items = reactExports$1.useMemo(
@@ -89021,7 +89288,7 @@ function AddBlockMenu({
       ] }),
       title: t2("Anything that can go on the page, where the caret is (or type / on the page)"),
       ariaLabel: t2("Insert"),
-      buttonClass: "tool tool--word tool--fold-3",
+      buttonClass: "tool tool--word",
       hostClass: "popover-host--word",
       disabled: !editing,
       panelClass: "block-type-menu block-menu block-menu--columns",
@@ -89048,7 +89315,13 @@ function AddBlockMenu({
             item.key
           ))
         ] }, group)) }, column)),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "block-menu__foot", children: t2("Or type / on the page for the same list") })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "block-menu__foot", children: [
+          t2("Or type / on the page for the same list"),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
+            close2();
+            onManageTemplates();
+          }, children: t2("Edit templates…") })
+        ] })
       ] })
     }
   );
@@ -89068,8 +89341,8 @@ function MoreMenu({ actions, writable }) {
       ] }),
       title: t2("This sermon: its history, a recording to transcribe, its file, and the bin"),
       ariaLabel: t2("Sermon"),
-      buttonClass: "tool tool--word tool--fold-3",
-      hostClass: "popover-host--word",
+      buttonClass: "tool tool--word",
+      hostClass: "popover-host--word toolbar__sermon",
       align: "right",
       panelClass: "menu",
       children: (close2) => {
@@ -89139,8 +89412,8 @@ function ShareMenu({
       ] }),
       title: t2("Print, or export a PDF"),
       ariaLabel: t2("Share"),
-      buttonClass: "tool tool--word tool--fold-3",
-      hostClass: "popover-host--word",
+      buttonClass: "tool tool--word",
+      hostClass: "popover-host--word toolbar__share",
       align: "right",
       panelClass: "menu share-menu",
       children: (close2) => {
@@ -89247,7 +89520,7 @@ function UndoRedo({
         "button",
         {
           type: "button",
-          className: "tool tool--word tool--fold-4",
+          className: "tool tool--word",
           title: last ? keys$2(t2("Undo: {change} (Ctrl+Z)", { change: changeLabel(last, t2) })) : t2("Nothing to undo"),
           "aria-label": t2("Undo"),
           disabled: !canUndo,
@@ -89277,7 +89550,7 @@ function UndoRedo({
         "button",
         {
           type: "button",
-          className: "tool tool--word tool--fold-4",
+          className: "tool tool--word",
           title: next ? keys$2(t2("Redo: {change} (Ctrl+Y)", { change: changeLabel(next, t2) })) : t2("Nothing to redo"),
           "aria-label": t2("Redo"),
           disabled: !canRedo,
@@ -89340,7 +89613,7 @@ function Toolbar({
         "button",
         {
           type: "button",
-          className: sidebarFolded ? "tool tool--word tool--fold-0" : "tool tool--word tool--fold-0 tool--active",
+          className: sidebarFolded ? "tool tool--word" : "tool tool--word tool--active",
           title: sidebarFolded ? keys$2(t2("Show the library (Ctrl+\\)")) : keys$2(t2("Hide the library (Ctrl+\\)")),
           "aria-label": sidebarFolded ? t2("Show the sidebar") : t2("Hide the sidebar"),
           "aria-pressed": !sidebarFolded,
@@ -89352,7 +89625,29 @@ function Toolbar({
         }
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word tool--fold-4", title: keys$2(t2("New sermon (Ctrl+N)")), "aria-label": t2("New sermon"), disabled: !sermon.writable, onClick: onCreate, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__views", role: "tablist", "aria-label": t2("View"), children: views.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          type: "button",
+          role: "tab",
+          "aria-selected": view === entry.value,
+          className: view === entry.value ? "tool tool--word tool--active" : "tool tool--word",
+          title: entry.title,
+          "aria-label": entry.label,
+          onClick: () => onView(entry.value),
+          children: [
+            entry.icon,
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: entry.label })
+          ]
+        },
+        entry.value
+      )) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word", "data-action": "preach", onClick: onPreach, title: t2("Preach from a fullscreen podium screen"), "aria-label": t2("Preach"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Lectern, { size: 18, strokeWidth: 1.6 }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Preach") })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word toolbar__new", title: keys$2(t2("New sermon (Ctrl+N)")), "aria-label": t2("New sermon"), disabled: !sermon.writable, onClick: onCreate, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(FilePlus, { size: 18, strokeWidth: 1.6 }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("New") })
       ] }),
@@ -89361,7 +89656,7 @@ function Toolbar({
           "button",
           {
             type: "button",
-            className: saveState === "dirty" || saveState === "saving" ? "tool tool--word tool--fold-4 tool--unsaved" : "tool tool--word tool--fold-4",
+            className: saveState === "dirty" || saveState === "saving" ? "tool tool--word tool--unsaved" : "tool tool--word",
             title: saveState === "dirty" ? keys$2(t2("Save now (Ctrl+S). The sermon saves itself a moment after every change; this saves it this instant.")) : saveState === "saving" ? t2("Saving…") : keys$2(t2("Saved. The sermon saves itself a moment after every change; press to save it again (Ctrl+S).")),
             "aria-label": t2("Save"),
             disabled: !sermon.writable,
@@ -89423,7 +89718,7 @@ function Toolbar({
         }
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(AddBlockMenu, { editing, run: run2, onLibrary, shapes }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(AddBlockMenu, { editing, run: run2, onLibrary, shapes, onManageTemplates: sermon.onManageTemplates }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
@@ -89478,7 +89773,7 @@ function Toolbar({
         "button",
         {
           type: "button",
-          className: "tool tool--word tool--fold-1",
+          className: "tool tool--word tool--fold-1 toolbar__find",
           title: keys$2(t2("Find in this sermon (Ctrl+F)")),
           "aria-label": t2("Find"),
           disabled: view === "handout" || !commands,
@@ -89491,29 +89786,7 @@ function Toolbar({
         }
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__views", role: "tablist", "aria-label": t2("View"), children: views.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        "button",
-        {
-          type: "button",
-          role: "tab",
-          "aria-selected": view === entry.value,
-          className: view === entry.value ? "tool tool--word tool--fold-0 tool--active" : "tool tool--word tool--fold-0",
-          title: entry.title,
-          "aria-label": entry.label,
-          onClick: () => onView(entry.value),
-          children: [
-            entry.icon,
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: entry.label })
-          ]
-        },
-        entry.value
-      )) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word tool--fold-0", onClick: onPreach, title: t2("Preach from a fullscreen podium screen"), "aria-label": t2("Preach"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Lectern, { size: 18, strokeWidth: 1.6 }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Preach") })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word tool--fold-0", title: keys$2(t2("Preferences: the folder, the look, spelling, the podium, printing, the licence (Ctrl+,)")), "aria-label": t2("Preferences"), onClick: sermon.onPreferences, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word", title: keys$2(t2("Preferences: the folder, the look, spelling, the podium, printing, the licence (Ctrl+,)")), "aria-label": t2("Preferences"), onClick: sermon.onPreferences, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Settings, { size: 18, strokeWidth: 1.6 }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Preferences") })
       ] })
@@ -89522,7 +89795,7 @@ function Toolbar({
       "button",
       {
         type: "button",
-        className: inspectorOpen ? "tool tool--word tool--fold-0 tool--active" : "tool tool--word tool--fold-0",
+        className: inspectorOpen ? "tool tool--word tool--active" : "tool tool--word",
         title: inspectorOpen ? t2("Hide the inspector") : t2("Show the inspector"),
         "aria-label": t2("Inspector"),
         "aria-pressed": inspectorOpen,
@@ -89652,7 +89925,7 @@ function MarkMenu({
     )
   ] });
 }
-function Group$1({ caption, children }) {
+function Group$2({ caption, children }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rgroup", role: "group", "aria-label": caption, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rgroup__items", children }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rgroup__caption", children: caption })
@@ -90413,7 +90686,7 @@ function HomeTab({
       /* @__PURE__ */ jsxRuntimeExports.jsx(PageLineSpacingSelect, { className: "format-bar__select", value: look.lineSpacing, title: t2("Line spacing"), onChange: (lineSpacing) => onLook({ lineSpacing }) })
     ] })
   ] });
-  const blocksGroup = /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Blocks"), children: ["point", "scripture", "illustration", "application", "reflection", "note"].map((type) => {
+  const blocksGroup = /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, { caption: t2("Blocks"), children: ["point", "scripture", "illustration", "application", "reflection", "note"].map((type) => {
     const style2 = BLOCK_STYLES[type];
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
       Large,
@@ -90430,32 +90703,32 @@ function HomeTab({
     );
   }) });
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Undo"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, { caption: t2("Undo"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2(t2("Undo (Ctrl+Z)")), label: collapsed >= FOLD_DROP_LABELS ? void 0 : t2("Undo"), disabled: !editing, onClick: () => run2((c2) => c2.undo()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Undo2, { size: 14, strokeWidth: 1.7 }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2(t2("Redo (Ctrl+Y)")), label: collapsed >= FOLD_DROP_LABELS ? void 0 : t2("Redo"), disabled: !editing, onClick: () => run2((c2) => c2.redo()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Redo2, { size: 14, strokeWidth: 1.7 }) }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    collapsed >= FOLD_TEXT ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Font"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Type, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: textRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Font"), children: textRows }),
+    collapsed >= FOLD_TEXT ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Font"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Type, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: textRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, { caption: t2("Font"), children: textRows }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    collapsed >= FOLD_PARAGRAPH ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Paragraph"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignStart, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: paragraphRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Paragraph"), children: paragraphRows }),
+    collapsed >= FOLD_PARAGRAPH ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Paragraph"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignStart, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: paragraphRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, { caption: t2("Paragraph"), children: paragraphRows }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
     blocksGroup,
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    collapsed >= FOLD_INSERT ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Insert"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow rrow--top", children: insertButtons }) }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Insert"), children: insertButtons }),
+    collapsed >= FOLD_INSERT ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Insert"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow rrow--top", children: insertButtons }) }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, { caption: t2("Insert"), children: insertButtons }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    collapsed >= FOLD_LIBRARY ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Library"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(BookBookmark, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow rrow--top", children: libraryButtons }) }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Library"), children: libraryButtons }),
+    collapsed >= FOLD_LIBRARY ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Library"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(BookBookmark, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow rrow--top", children: libraryButtons }) }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, { caption: t2("Library"), children: libraryButtons }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
     collapsed >= FOLD_EDITING ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Editing"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow rrow--top", children: [
       findButton,
       moveRows
-    ] }) }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$1, { caption: t2("Editing"), children: [
+    ] }) }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$2, { caption: t2("Editing"), children: [
       findButton,
       moveRows
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    collapsed >= FOLD_PAGE ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Page"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(ZoomIn, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: pageRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Page"), children: pageRows }),
+    collapsed >= FOLD_PAGE ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Page"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(ZoomIn, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: pageRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, { caption: t2("Page"), children: pageRows }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Show"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(PanelRight, { size: 18, strokeWidth: 1.6 }), label: t2("Outline"), title: t2("Every block on one line, to jump to"), active: panel === "outline", compact: collapsed >= FOLD_DROP_LABELS, onClick: () => onPanel("outline") }) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, { caption: t2("Show"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(PanelRight, { size: 18, strokeWidth: 1.6 }), label: t2("Outline"), title: t2("Every block on one line, to jump to"), active: panel === "outline", compact: collapsed >= FOLD_DROP_LABELS, onClick: () => onPanel("outline") }) })
   ] });
 }
 function Switch({
@@ -90490,13 +90763,13 @@ function Check({ checked, label, title, onChange }) {
 function ViewTab({ view, onView, look, onLook, handout, onHandout, outline, onOutline }) {
   const t2 = useT();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$1, { caption: t2("Views"), children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$2, { caption: t2("Views"), children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { size: 18, strokeWidth: 1.6 }), label: t2("Manuscript"), active: view === "write", onClick: () => onView("write") }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(List, { size: 18, strokeWidth: 1.6 }), label: t2("Outline"), active: view === "outline", onClick: () => onView("outline") }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { size: 18, strokeWidth: 1.6 }), label: t2("Handout"), active: view === "handout", onClick: () => onView("handout") })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Page"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, { caption: t2("Page"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(PaperSelect, { className: "format-bar__select", value: look.paper, title: t2("The sheet on screen and the sheet that prints"), onChange: (paper) => onLook({ paper }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(OrientationSelect, { className: "format-bar__select", value: look.orientation, title: t2("Upright, or turned on its side"), onChange: (orientation) => onLook({ orientation }) }),
@@ -90509,7 +90782,7 @@ function ViewTab({ view, onView, look, onLook, handout, onHandout, outline, onOu
     ] }) }),
     view === "outline" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Outline"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, { caption: t2("Outline"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { checked: outline.minutes, label: t2("Minutes"), title: t2("Minutes at 130 words a minute beside every point"), onChange: (minutes) => onOutline({ minutes }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { checked: outline.keyLine, label: t2("Key lines"), title: t2("The key line of each point under its heading"), onChange: (keyLine2) => onOutline({ keyLine: keyLine2 }) })
@@ -90519,7 +90792,7 @@ function ViewTab({ view, onView, look, onLook, handout, onHandout, outline, onOu
     ] }),
     view === "handout" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Handout"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Group$2, { caption: t2("Handout"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "select",
@@ -90949,7 +91222,7 @@ function Section({ title, children }) {
     open2 && children
   ] });
 }
-function Row$1({ label, wrap: wrap2, children }) {
+function Row$2({ label, wrap: wrap2, children }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__label", children: label ?? "" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: wrap2 ? "insp-row__body insp-row__body--wrap" : "insp-row__body", children })
@@ -90983,7 +91256,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
   const ink = typeof active.styles["textColor"] === "string" ? active.styles["textColor"] : null;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: msg("Block"), children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Type"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Type"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "select",
         {
           className: "field",
@@ -90999,7 +91272,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
           ]
         }
       ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: t2("New page"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("New page"), children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           Switch,
           {
@@ -91012,14 +91285,14 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: t2("Start on a fresh printed page") })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: t2("Order"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Order"), children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "itb-group", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { title: t2("Move this block up"), disabled: !editing || !active.canMove.up, onClick: () => run2((c2) => c2.moveCurrent("up")), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { size: 14, strokeWidth: 1.8 }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { title: t2("Move this block down"), disabled: !editing || !active.canMove.down, onClick: () => run2((c2) => c2.moveCurrent("down")), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { size: 14, strokeWidth: 1.8 }) })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: active.blockId === null ? "" : t2("Up or down one place") })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: t2("Note"), wrap: true, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Note"), wrap: true, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "button",
           {
@@ -91037,7 +91310,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint insp-row__hint--line", children: active.marginNote ? t2("This paragraph has one") : keys$2("Ctrl+Alt+M") })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: t2("Key line"), wrap: true, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Key line"), wrap: true, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "button",
           {
@@ -91056,7 +91329,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint insp-row__hint--line", children: active.keyLine ? t2("On the outline and the handout") : keys$2("Ctrl+Alt+K") })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Story"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Story"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
           type: "button",
@@ -91074,12 +91347,12 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
       ) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: msg("Text"), children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Font"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(FontSelect, { font: look.font, onChange: (font) => onLook({ font }) }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: t2("Size"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Font"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(FontSelect, { font: look.font, onChange: (font) => onLook({ font }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Size"), children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(SizeStepper, { value: sizeNow, disabled: !editing, onPick: (size2) => run2((c2) => c2.setSize(size2)), onStep: (direction) => run2((c2) => c2.stepSize(direction)) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: t2("points") })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "itb-group itb-group--fill", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "itb-group itb-group--fill", children: [
         [
           ["bold", /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: "B" }, "b"), keys$2(t2("Bold (Ctrl+B)"))],
           ["italic", /* @__PURE__ */ jsxRuntimeExports.jsx("i", { children: "I" }, "i"), keys$2(t2("Italic (Ctrl+I)"))],
@@ -91095,7 +91368,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
           /* @__PURE__ */ jsxRuntimeExports.jsx("sub", { children: "2" })
         ] }) })
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Highlight"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "swatches", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Highlight"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "swatches", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: highlight === null ? "swatch swatch--none swatch--on" : "swatch swatch--none", title: t2("No highlight"), "aria-label": t2("No highlight"), disabled: !editing, onMouseDown: (event) => event.preventDefault(), onClick: () => run2((c2) => c2.setMark("backgroundColor", null)) }),
         HIGHLIGHTS.map((name) => /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
@@ -91113,7 +91386,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
           name
         ))
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Colour"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "swatches", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Colour"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "swatches", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: ink === null ? "swatch swatch--none swatch--on" : "swatch swatch--none", title: t2("Ink colour"), "aria-label": t2("Ink colour"), disabled: !editing, onMouseDown: (event) => event.preventDefault(), onClick: () => run2((c2) => c2.setMark("textColor", null)) }),
         INK_COLORS.map((name) => /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
@@ -91131,7 +91404,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
           name
         ))
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: t2("Link"), wrap: true, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Link"), wrap: true, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "button",
           {
@@ -91151,7 +91424,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
         active.link && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", title: t2("Take the address off the words; the words stay"), disabled: !editing, onMouseDown: (event) => event.preventDefault(), onClick: () => run2((c2) => c2.setLink(null)), children: t2("Remove") }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint insp-row__hint--line", children: active.link ? shortLink(active.link) : keys$2("Ctrl+K") })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: t2("Case"), wrap: true, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Case"), wrap: true, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "select",
           {
@@ -91184,7 +91457,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
       ] })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: msg("Paragraph"), children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: t2("Style"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Style"), children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           ParagraphStyleSelect,
           {
@@ -91220,7 +91493,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
           }
         )
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Align"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Align"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         Segmented,
         {
           fill: true,
@@ -91238,7 +91511,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
           ]
         }
       ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Spacing"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Spacing"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         "select",
         {
           className: "field",
@@ -91251,7 +91524,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
           children: BLOCK_LINE_SPACINGS.map(([value, label]) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value, children: t2(label) }, value))
         }
       ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("After"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("After"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         "select",
         {
           className: "field",
@@ -91263,7 +91536,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
           children: SPACE_AFTER_OPTIONS.map(([value, label]) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value, children: t2(label) }, value))
         }
       ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("List"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "itb-group itb-group--fill", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("List"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "itb-group itb-group--fill", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { on: active.blockType === "bulletListItem", title: listable ? t2("Bulleted list") : t2("Scripture keeps its own layout"), disabled: !editing || !listable, onClick: () => run2((c2) => c2.toggleList("bulletListItem")), children: /* @__PURE__ */ jsxRuntimeExports.jsx(List, { size: 14, strokeWidth: 1.7 }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { on: active.blockType === "numberedListItem", title: listable ? t2("Numbered list") : t2("Scripture keeps its own layout"), disabled: !editing || !listable, onClick: () => run2((c2) => c2.toggleList("numberedListItem")), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ListOrdered, { size: 14, strokeWidth: 1.7 }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { title: t2("Decrease indent (Shift+Tab)"), disabled: !editing || !active.canOutdent, onClick: () => run2((c2) => c2.outdent()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ListIndentDecrease, { size: 14, strokeWidth: 1.7 }) }),
@@ -91271,29 +91544,29 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
       ] }) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: msg("Page"), children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Zoom"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stepper", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Zoom"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stepper", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2(t2("Zoom out (Ctrl+minus)")), "aria-label": t2("Zoom out"), onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, -0.1)), children: "−" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__value", title: keys$2(t2("Fit the page to the window (Ctrl+0)")), onMouseDown: (event) => event.preventDefault(), onClick: () => onLook({ zoomFit: true }), children: t2(zoomLabel(look, zoom)) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2(t2("Zoom in (Ctrl+plus)")), "aria-label": t2("Zoom in"), onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, 0.1)), children: "+" })
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Spacing"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(PageLineSpacingSelect, { value: look.lineSpacing, title: t2("Line spacing for the page"), onChange: (lineSpacing) => onLook({ lineSpacing }) }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Size"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(PaperSelect, { value: look.paper, title: t2("The sheet on screen and the sheet that prints"), onChange: (paper) => onLook({ paper }) }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Turn"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(OrientationSelect, { value: look.orientation, title: t2("Upright, or turned on its side"), onChange: (orientation) => onLook({ orientation }) }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Margins"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(MarginSelect, { value: look.margin, title: t2("The margins on screen and on paper"), onChange: (margin) => onLook({ margin }) }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: t2("Notes"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Spacing"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(PageLineSpacingSelect, { value: look.lineSpacing, title: t2("Line spacing for the page"), onChange: (lineSpacing) => onLook({ lineSpacing }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Size"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(PaperSelect, { value: look.paper, title: t2("The sheet on screen and the sheet that prints"), onChange: (paper) => onLook({ paper }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Turn"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(OrientationSelect, { value: look.orientation, title: t2("Upright, or turned on its side"), onChange: (orientation) => onLook({ orientation }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Margins"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(MarginSelect, { value: look.margin, title: t2("The margins on screen and on paper"), onChange: (margin) => onLook({ margin }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Notes"), children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: look.marginNotes, keepFocus: true, label: t2("Margin notes as cards beside the sheet; off folds them to markers"), onChange: (next) => onLook({ marginNotes: next }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: t2("Beside the sheet") })
       ] }),
       notesFolded && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "insp-warn", role: "status", children: t2("No room beside the sheet at this width, so the notes have folded to markers at their paragraphs. Hide the library or the inspector, or widen the window, and the cards come back.") }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: t2("On paper"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("On paper"), children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: look.printMarginNotes, keepFocus: true, label: t2("Print the margin notes under their paragraphs"), onChange: (next) => onLook({ printMarginNotes: next }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: t2("Notes under their paragraphs") })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: t2("Numbers"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Numbers"), children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: look.pageNumbers, keepFocus: true, label: t2("Page numbers at the foot of every sheet, on screen and on paper"), onChange: (next) => onLook({ pageNumbers: next }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: t2("At the foot of every page") })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$1, { label: t2("Header"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Header"), children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: look.pageHeader, keepFocus: true, label: t2("The title and passage at the head of every sheet, on screen and on paper"), onChange: (next) => onLook({ pageHeader: next }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: t2("Title and passage on every page") })
       ] })
@@ -92380,6 +92653,11 @@ function ShapeSheet({ draft, onClose, onSaved }) {
   const t2 = useT();
   const [name, setName] = reactExports$1.useState("");
   const [error, setError] = reactExports$1.useState(null);
+  const [names, setNames] = reactExports$1.useState([]);
+  reactExports$1.useEffect(() => {
+    void window.api.listShapes().then((shapes) => setNames(shapes.map((shape) => shape.name))).catch(() => setNames([]));
+  }, []);
+  const replaces = names.includes(name.trim());
   const preview = shapeFromSermon(draft, name || "Template", "preview");
   const keep2 = async () => {
     const trimmed = name.trim();
@@ -92401,7 +92679,7 @@ function ShapeSheet({ draft, onClose, onSaved }) {
     }
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { title: t2("Save as a template"), ariaLabel: t2("Save as a template"), onClose, children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__body", children: t2("Its blocks and their headings, none of the words, kept in the folder for the next sermon to start from.") }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", children: t2("Its blocks and their headings, none of the words, kept in the folder for the next sermon to start from.") }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "input",
       {
@@ -92416,6 +92694,7 @@ function ShapeSheet({ draft, onClose, onSaved }) {
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "shape-sheet__preview", children: preview.blocks.length > 0 ? describeShape(preview, t2) : t2("Nothing to keep yet.") }),
+    replaces && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", role: "status", children: t2("A template with this name exists; keeping this one replaces it.") }),
     error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "app-error selectable", children: error }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sheet__actions", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: t2("Cancel") }),
@@ -93281,6 +93560,7 @@ function EditorPane({
   onDelete,
   onMoved,
   onOpenPreferences,
+  onManageTemplates,
   settingsRevision,
   writable,
   inspectorOpen,
@@ -93504,7 +93784,8 @@ function EditorPane({
             doc2.discardPending();
             onDelete(pathRef.current);
           },
-          onPreferences: onOpenPreferences
+          onPreferences: onOpenPreferences,
+          onManageTemplates
         },
         onLibrary: openLibrary,
         shapes,
@@ -93591,9 +93872,7 @@ function EditorPane({
           onStarter: (shape) => {
             if (shape.id === "built-in:outline") setView("outline");
           },
-          onRemoveShape: (id2) => {
-            void window.api.saveShapes(shapes.filter((shape) => shape.id !== id2)).then(setShapes);
-          },
+          onManageTemplates,
           header: /* @__PURE__ */ jsxRuntimeExports.jsx(
             SermonHeader,
             {
@@ -93989,8 +94268,9 @@ function ReadyScreen({ sermon, sections, reading, targetMinutes, themeClass, ove
         choice.value
       )) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__ready-actions", onClick: (event) => event.stopPropagation(), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__begin", onClick: onBegin, children: t2("Begin preaching") }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__ready-settings", onClick: onSettings, title: t2("Settings (s)"), children: t2("Settings") })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--primary", onClick: onBegin, children: t2("Begin preaching") }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onSettings, title: t2("Settings (s)"), children: t2("Settings") }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onExit, title: t2("Leave podium mode (Esc)"), children: t2("Leave") })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "podium__ready-go", children: [
         beforeKey,
@@ -94021,8 +94301,7 @@ function ReadyScreen({ sermon, sections, reading, targetMinutes, themeClass, ove
         t2("every key")
       ] })
     ] }),
-    overlay,
-    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__exit", onClick: onExit, title: t2("Leave podium mode (Esc)"), children: "Esc" })
+    overlay
   ] });
 }
 function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, targetMinutes, themeClass, onUsePace, onExit }) {
@@ -94090,13 +94369,13 @@ function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, t
       beforeRate,
       /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: t2("{n} words a minute", { n: preachedPace }) }),
       afterRate,
-      preachedPace !== pace && clampPace(preachedPace) === preachedPace && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__end-button", onClick: () => onUsePace(preachedPace), children: t2("Use {n} for estimates", { n: preachedPace }) })
+      preachedPace !== pace && clampPace(preachedPace) === preachedPace && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", onClick: () => onUsePace(preachedPace), children: t2("Use {n} for estimates", { n: preachedPace }) })
     ] }),
     adjusted && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__end-keep", children: t2("Today’s minutes and length are kept as the plan, in the sermon.") }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__end-actions", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__end-button podium__end-button--primary", onClick: () => leave(true), children: t2("Mark as preached today") }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__end-button", onClick: () => leave(false), children: t2("It was a rehearsal") }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__end-button", onClick: () => onExit(), children: t2("Close without keeping") })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--primary", onClick: () => leave(true), children: t2("Mark as preached today") }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: () => leave(false), children: t2("It was a rehearsal") }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: () => onExit(), children: t2("Close without keeping") })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__ready-hint", children: t2("Nothing is written until you choose. Marking it preached sets the date and keeps today’s version in History; a rehearsal keeps today’s minutes as the plan and nothing else; closing keeps nothing.") })
   ] }) });
@@ -94109,60 +94388,72 @@ const CLOCKS = [
 function SettingsSheet({ settings, onChange, onScale }) {
   const t2 = useT();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { className: "podium__sheet", onClick: (event) => event.stopPropagation(), onTouchEnd: (event) => event.stopPropagation(), children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "podium__sheet-title", children: [
-      t2("Settings"),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__sheet-esc", children: t2("s or Esc closes") })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sheet__head", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "sheet__title", children: t2("Settings") }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sheet__head-tools", children: t2("s or Esc closes") })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__sheet-head", children: t2("Read from") }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "podium__sheet-seg", children: READINGS.map((reading) => /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: settings.reading === reading.value ? "on" : "", onClick: () => onChange({ reading: reading.value }), children: t2(reading.label) }, reading.value)) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__sheet-head", children: t2("Show") }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SheetSwitch, { label: t2("Rail"), note: t2("the points and their minutes"), on: settings.rail, onChange: (rail) => onChange({ rail }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__sheet-row", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__sheet-label", children: t2("Clock") }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "podium__sheet-seg", children: CLOCKS.map((mode) => /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: settings.clock === mode.value ? "on" : "", onClick: () => onChange({ clock: mode.value }), children: t2(mode.label) }, mode.value)) })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SheetSwitch, { label: t2("Point timing"), note: t2("this point against its plan"), on: settings.pointTiming, onChange: (pointTiming) => onChange({ pointTiming }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SheetSwitch, { label: t2("Next line"), on: settings.nextLine, onChange: (nextLine) => onChange({ nextLine }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SheetSwitch, { label: t2("Touch bar"), on: settings.touchBar, onChange: (touchBar) => onChange({ touchBar }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SheetSwitch, { label: t2("Key line"), note: t2("the accent on the sentence"), on: settings.keyLine, onChange: (keyLine2) => onChange({ keyLine: keyLine2 }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SheetSwitch, { label: t2("Delivery marks"), note: t2("highlights and inks"), on: settings.marks, onChange: (marks) => onChange({ marks }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SheetSwitch, { label: t2("Margin notes"), on: settings.showNotes, onChange: (showNotes) => onChange({ showNotes }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__sheet-head", children: t2("Warn me") }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SheetSwitch, { label: t2("5 minutes left"), note: t2("a soft pulse of the clock"), on: settings.warnFive, onChange: (warnFive) => onChange({ warnFive }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SheetSwitch, { label: t2("At time"), on: settings.warnAtTime, onChange: (warnAtTime) => onChange({ warnAtTime }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(SheetSwitch, { label: t2("A point runs over"), note: t2("the chip turns red"), on: settings.warnPointOver, onChange: (warnPointOver) => onChange({ warnPointOver }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__sheet-head", children: t2("Look") }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__sheet-row", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__sheet-label", children: t2("Theme") }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__sheet-seg", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: settings.theme === "dark" ? "on" : "", onClick: () => onChange({ theme: "dark" }), children: t2("Dark") }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: settings.theme === "light" ? "on" : "", onClick: () => onChange({ theme: "light" }), children: t2("Light") })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__sheet-row", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__sheet-label", children: t2("Text size") }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__sheet-seg podium__sheet-seg--narrow", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: () => onScale(-0.1), children: "A−" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "on", children: [
-          settings.fontScale.toFixed(1),
-          "×"
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", onClick: () => onScale(0.1), children: "A+" })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__sheet-note", children: t2("Remembered on this machine; the length, theme, text size, reading, and rail are under Preferences › Podium too. Nothing here touches the sermon.") })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sheet__body", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { title: t2("Read from"), children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__row", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__control prefs__control--fill", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Segmented, { fill: true, value: settings.reading, ariaLabel: t2("Read from"), options: READINGS.map((reading) => ({ value: reading.value, label: t2(reading.label) })), onChange: (reading) => onChange({ reading }) }) }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$1, { title: t2("Show"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Rail"), hint: t2("the points and their minutes"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: settings.rail, label: t2("Rail"), onChange: (rail) => onChange({ rail }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Clock"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Segmented, { value: settings.clock, ariaLabel: t2("Clock"), options: CLOCKS.map((mode) => ({ value: mode.value, label: t2(mode.label) })), onChange: (clock2) => onChange({ clock: clock2 }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Point timing"), hint: t2("this point against its plan"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: settings.pointTiming, label: t2("Point timing"), onChange: (pointTiming) => onChange({ pointTiming }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Next line"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: settings.nextLine, label: t2("Next line"), onChange: (nextLine) => onChange({ nextLine }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Touch bar"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: settings.touchBar, label: t2("Touch bar"), onChange: (touchBar) => onChange({ touchBar }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Key line"), hint: t2("the accent on the sentence"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: settings.keyLine, label: t2("Key line"), onChange: (keyLine2) => onChange({ keyLine: keyLine2 }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Delivery marks"), hint: t2("highlights and inks"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: settings.marks, label: t2("Delivery marks"), onChange: (marks) => onChange({ marks }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Margin notes"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: settings.showNotes, label: t2("Margin notes"), onChange: (showNotes) => onChange({ showNotes }) }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$1, { title: t2("Warn me"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("5 minutes left"), hint: t2("a soft pulse of the clock"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: settings.warnFive, label: t2("5 minutes left"), onChange: (warnFive) => onChange({ warnFive }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("At time"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: settings.warnAtTime, label: t2("At time"), onChange: (warnAtTime) => onChange({ warnAtTime }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("A point runs over"), hint: t2("the chip turns red"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: settings.warnPointOver, label: t2("A point runs over"), onChange: (warnPointOver) => onChange({ warnPointOver }) }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$1, { title: t2("Look"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Theme"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Segmented,
+          {
+            value: settings.theme,
+            ariaLabel: t2("Theme"),
+            options: [
+              { value: "dark", label: t2("Dark") },
+              { value: "light", label: t2("Light") }
+            ],
+            onChange: (theme) => onChange({ theme })
+          }
+        ) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row$1, { label: t2("Text size"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "stepper", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", "aria-label": t2("Smaller text"), onClick: () => onScale(-0.1), children: "−" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "stepper__value", children: [
+            settings.fontScale.toFixed(1),
+            "×"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", "aria-label": t2("Larger text"), onClick: () => onScale(0.1), children: "+" })
+        ] }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "prefs__about", children: t2("Remembered on this machine; the length, theme, text size, reading, and rail are under Preferences › Podium too. Nothing here touches the sermon.") })
+    ] })
   ] });
 }
-function SheetSwitch({ label, note, on: on3, onChange }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__sheet-row", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__sheet-label", children: label }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", role: "switch", "aria-checked": on3, "aria-label": label, className: on3 ? "podium__switch podium__switch--on" : "podium__switch", onClick: () => onChange(!on3) }),
-    note && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__sheet-note-inline", children: note })
+function Group$1({ title, children }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__group", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__group-title", children: title }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__box", children })
+  ] });
+}
+function Row$1({ label, hint, children }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__row", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__text", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: label }),
+      hint && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__hint", children: hint })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__control", children })
   ] });
 }
 function KeyHelp() {
   const t2 = useT();
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__help", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__help popover", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "prefs__group-title", children: t2("Every key") }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: t2("space / Enter / → / PageDown / clicker: next paragraph") }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: t2("← / Backspace / PageUp / right-click / the left edge: back") }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: t2("swipe, or the buttons at the foot, on a touchscreen") }),
@@ -94209,36 +94500,49 @@ function Rail({ sections, current: current2, spentIn, onPick, onBump }) {
 function TouchBar({ reading, rail, onPrevious, onNext, onPreviousSection, onNextSection, onScale, onReading, onRail, onSettings, onEnd }) {
   const t2 = useT();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__touch", onClick: (event) => event.stopPropagation(), onTouchEnd: (event) => event.stopPropagation(), children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__touch-button podium__touch-button--big", onClick: onPrevious, title: t2("Back (←)"), "aria-label": t2("Back"), children: "‹" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__touch-button podium__touch-button--big", onClick: onNext, title: t2("Next (space)"), "aria-label": t2("Next"), children: "›" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__touch-sep" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__touch-button", onClick: onPreviousSection, title: t2("Previous point (↑)"), "aria-label": t2("Previous point"), children: "↑" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__touch-button", onClick: onNextSection, title: t2("Next point (↓)"), "aria-label": t2("Next point"), children: "↓" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__touch-sep" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "podium__touch-button podium__touch-button--size", onClick: () => onScale(-0.1), title: t2("Smaller text (−)"), "aria-label": t2("Smaller text"), children: [
-      "A",
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "−" })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word", onClick: onPrevious, title: t2("Back (←)"), "aria-label": t2("Back"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { size: 18, strokeWidth: 1.6 }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Back") })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "podium__touch-button podium__touch-button--size podium__touch-button--sizeup", onClick: () => onScale(0.1), title: t2("Larger text (+)"), "aria-label": t2("Larger text"), children: [
-      "A",
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "+" })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word", onClick: onNext, title: t2("Next (space)"), "aria-label": t2("Next"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 18, strokeWidth: 1.6 }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Next") })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__touch-sep" }),
-    READINGS.map((choice) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "button",
-      {
-        type: "button",
-        className: reading === choice.value ? "podium__touch-button podium__touch-button--word podium__touch-button--on" : "podium__touch-button podium__touch-button--word",
-        onClick: () => onReading(choice.value),
-        title: t2(choice.hint),
-        children: t2(choice.label)
-      },
-      choice.value
-    )),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: rail ? "podium__touch-button podium__touch-button--word podium__touch-button--on" : "podium__touch-button podium__touch-button--word", onClick: onRail, title: t2("The rail (r)"), children: t2("Rail") }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__touch-sep" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__touch-button", onClick: onSettings, title: t2("Settings (s)"), "aria-label": t2("Settings"), children: "⚙" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "podium__touch-button podium__touch-button--word", onClick: onEnd, title: t2("End the sermon (Esc)"), children: t2("End") })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "podium__touch-more", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word", onClick: onPreviousSection, title: t2("Previous point (↑)"), "aria-label": t2("Previous point"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { size: 18, strokeWidth: 1.6 }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Previous point") })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word", onClick: onNextSection, title: t2("Next point (↓)"), "aria-label": t2("Next point"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { size: 18, strokeWidth: 1.6 }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Next point") })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word", onClick: () => onScale(-0.1), title: t2("Smaller text (−)"), "aria-label": t2("Smaller text"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(AArrowDown, { size: 18, strokeWidth: 1.6 }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Smaller") })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word", onClick: () => onScale(0.1), title: t2("Larger text (+)"), "aria-label": t2("Larger text"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(AArrowUp, { size: 18, strokeWidth: 1.6 }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Larger") })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Segmented, { value: reading, ariaLabel: t2("Read from"), options: READINGS.map((choice) => ({ value: choice.value, label: t2(choice.label) })), onChange: onReading }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: rail ? "tool tool--word podium__touch-rail tool--active" : "tool tool--word podium__touch-rail", "aria-pressed": rail, onClick: onRail, title: t2("The rail (r)"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(PanelLeft, { size: 18, strokeWidth: 1.6 }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Rail") })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "toolbar__sep" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word", onClick: onSettings, title: t2("Settings (s)"), "aria-label": t2("Settings"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Settings, { size: 18, strokeWidth: 1.6 }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("Settings") })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "tool tool--word", onClick: onEnd, title: t2("End the sermon (Esc)"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Square, { size: 18, strokeWidth: 1.6 }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: t2("End") })
+    ] })
   ] });
 }
 function usePodiumClock({
@@ -95768,6 +96072,7 @@ function LibraryColumn({
   openPath,
   onOpen,
   onManageSeries,
+  onManageTemplates,
   onOpenSeries,
   onOpenTag,
   onDuplicate,
@@ -95828,24 +96133,14 @@ function LibraryColumn({
             {
               className: "search__input selectable",
               value: text,
-              placeholder: scope === "stories" ? t2("Search your stories") : t2("Search every sermon"),
-              "aria-label": t2("Search every sermon"),
+              placeholder: t2("Search"),
+              "aria-label": scope === "stories" ? t2("Search your stories") : t2("Search every sermon"),
               onChange: (event) => setText(event.target.value)
             }
           ),
           text && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "search__clear", "aria-label": t2("Clear the search"), onClick: () => setText(""), children: /* @__PURE__ */ jsxRuntimeExports.jsx(X$5, { size: 13, strokeWidth: 2 }) })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
-          {
-            type: "button",
-            className: "library__more",
-            title: t2("Bible history: the chapters you have preached from"),
-            "aria-label": t2(COVERAGE_NAME),
-            onClick: onCoverage,
-            children: /* @__PURE__ */ jsxRuntimeExports.jsx(Grid3x3, { size: 16, strokeWidth: 1.8 })
-          }
-        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small library__map", title: t2("Bible map: every chapter preached from, planned, or not yet"), onClick: onCoverage, children: t2(COVERAGE_NAME) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           PopoverButton,
           {
@@ -95860,6 +96155,10 @@ function LibraryColumn({
                 close2();
                 onManageSeries();
               }, children: t2("Edit series…") }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: t2("Your templates: rename them, change their blocks, or start one from a built-in"), onClick: () => {
+                close2();
+                onManageTemplates();
+              }, children: t2("Edit templates…") }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: t2("Merge or rename tags across every sermon; retire series from this row"), onClick: () => {
                 close2();
                 onTidy();
@@ -96745,6 +97044,163 @@ function SeriesSheet({ onClose, onSaved }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: t2("Done") }) })
   ] });
 }
+const BLOCK_TYPES = ["point", "scripture", "illustration", "application", "reflection", "note"];
+function TemplatesSheet({ onClose, onSaved }) {
+  const t2 = useT();
+  const [shapes, setShapes] = reactExports$1.useState([]);
+  const [editing, setEditing] = reactExports$1.useState(null);
+  const [removing, setRemoving] = reactExports$1.useState(null);
+  const [error, setError] = reactExports$1.useState(null);
+  const [note, setNote] = reactExports$1.useState(null);
+  reactExports$1.useEffect(() => {
+    void window.api.listShapes().then(setShapes).catch(() => setShapes([]));
+  }, []);
+  const persist = async (next) => {
+    setError(null);
+    try {
+      const saved = await window.api.saveShapes(next);
+      setShapes(saved);
+      onSaved();
+      return saved;
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : String(cause));
+      return shapes;
+    }
+  };
+  const save = async () => {
+    if (!editing) return;
+    const name = editing.name.trim();
+    if (!name) {
+      setError(t2("Give the template a name."));
+      return;
+    }
+    if (editing.blocks.length === 0) {
+      setError(t2("A template needs at least one block."));
+      return;
+    }
+    const hint = editing.hint?.trim();
+    const clean2 = { id: editing.id, name, ...hint ? { hint } : {}, blocks: editing.blocks.map((block) => ({ type: block.type, heading: block.heading.trim() })) };
+    const known = shapes.some((shape) => shape.id === clean2.id);
+    await persist(known ? shapes.map((shape) => shape.id === clean2.id ? clean2 : shape) : [...shapes, clean2]);
+    setEditing(null);
+    setNote(t2("Saved: {name}.", { name }));
+  };
+  const copy2 = (shape) => {
+    setNote(null);
+    setError(null);
+    setEditing({ id: crypto.randomUUID(), name: t2("Copy of {name}", { name: t2(shape.name) }), ...shape.hint ? { hint: t2(shape.hint) } : {}, blocks: shape.blocks.map((block) => ({ type: block.type, heading: t2(block.heading) })) });
+  };
+  const patchBlock = (index2, patch) => {
+    if (!editing) return;
+    const blocks = editing.blocks.map((block, at2) => at2 === index2 ? { ...block, ...patch } : block);
+    setEditing({ ...editing, blocks });
+  };
+  const moveBlock = (index2, by) => {
+    if (!editing) return;
+    const to2 = index2 + by;
+    if (to2 < 0 || to2 >= editing.blocks.length) return;
+    const blocks = [...editing.blocks];
+    const [block] = blocks.splice(index2, 1);
+    blocks.splice(to2, 0, block);
+    setEditing({ ...editing, blocks });
+  };
+  const typeLabel = (type) => type === "note" ? t2("Note") : t2(BLOCK_STYLES[type].label);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    Sheet,
+    {
+      ariaLabel: t2("Edit templates"),
+      onClose,
+      size: "wide",
+      className: "templates",
+      strip: /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "sheet__title", children: t2("Templates") }),
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", children: t2("Kept in {file} in your sermon folder, so they follow your sermons to every computer.", { file: SHAPES_FILE }) }),
+        editing && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__group-title", children: shapes.some((shape) => shape.id === editing.id) ? t2("Editing {name}", { name: editing.name || t2("the template") }) : t2("A new template") }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__box", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__row", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__text", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: t2("Name") }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__control templates__wide", children: /* @__PURE__ */ jsxRuntimeExports.jsx("input", { className: "field selectable", value: editing.name, "aria-label": t2("Template name"), autoFocus: true, onChange: (event) => setEditing({ ...editing, name: event.target.value }) }) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__row", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__text", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: t2("Hint") }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__hint", children: t2("A line under the name, saying what the template is for.") })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__control templates__wide", children: /* @__PURE__ */ jsxRuntimeExports.jsx("input", { className: "field selectable", value: editing.hint ?? "", "aria-label": t2("Hint"), onChange: (event) => setEditing({ ...editing, hint: event.target.value }) }) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__row templates__blocks-row", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__text", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: t2("Blocks") }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__hint", children: t2("In order, each with the heading it starts with. The words come later.") })
+            ] }) }),
+            editing.blocks.map((block, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__row templates__block", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "field templates__type", "aria-label": t2("Block type"), value: block.type, onChange: (event) => patchBlock(index2, { type: event.target.value }), children: BLOCK_TYPES.map((type) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: type, children: typeLabel(type) }, type)) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("input", { className: "field selectable templates__heading", value: block.heading, placeholder: block.type === "scripture" ? t2("The passage") : t2("Heading"), "aria-label": t2("Heading"), onChange: (event) => patchBlock(index2, { heading: event.target.value }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "itb-group", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "itb", title: t2("Move up"), "aria-label": t2("Move up"), disabled: index2 === 0, onClick: () => moveBlock(index2, -1), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { size: 14, strokeWidth: 1.8 }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "itb", title: t2("Move down"), "aria-label": t2("Move down"), disabled: index2 === editing.blocks.length - 1, onClick: () => moveBlock(index2, 1), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { size: 14, strokeWidth: 1.8 }) })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => setEditing({ ...editing, blocks: editing.blocks.filter((_, at2) => at2 !== index2) }), children: t2("Remove") })
+            ] }, index2)),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__row", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__text" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__control", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", onClick: () => setEditing({ ...editing, blocks: [...editing.blocks, { type: "point", heading: "" }] }), children: t2("Add a block") }) })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sheet__actions", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: () => {
+              setEditing(null);
+              setError(null);
+            }, children: t2("Cancel") }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--primary", onClick: () => void save(), children: t2("Save") })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__group-title", children: t2("Your templates") }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__box", children: [
+            shapes.map((shape) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__row", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__text", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: shape.name }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__hint", children: shape.hint ? shape.hint : describeShape(shape, t2) })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__control", children: removing === shape.id ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "confirm-row confirm-row--inline", role: "alert", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "confirm-row__text", children: t2("Remove? Sermons made from it are kept.") }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small button--danger", onClick: () => {
+                  setRemoving(null);
+                  if (editing?.id === shape.id) setEditing(null);
+                  void persist(shapes.filter((s2) => s2.id !== shape.id));
+                }, children: t2("Remove") }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => setRemoving(null), children: t2("Keep") })
+              ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "prefs__inline", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", onClick: () => {
+                  setNote(null);
+                  setError(null);
+                  setEditing({ ...shape, blocks: shape.blocks.map((block) => ({ ...block })) });
+                }, children: t2("Edit") }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => copy2(shape), children: t2("Make a copy") }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => setRemoving(shape.id), children: t2("Remove") })
+              ] }) })
+            ] }, shape.id)),
+            shapes.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__row", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__text", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__hint", children: t2("None of your own yet. Save one from a sermon, under Save, or make a copy of a built-in template below and change it.") }) }) })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__group-title", children: t2("Built in") }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__box", children: BUILT_IN_SHAPES.map((shape) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__row", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "prefs__text", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: t2(shape.name) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__hint", children: shape.hint ? t2(shape.hint) : describeShape(shape, t2) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__control", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", onClick: () => copy2(shape), children: t2("Make a copy") }) })
+          ] }, shape.id)) })
+        ] }),
+        note && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", role: "status", children: note }),
+        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__error selectable", children: error }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: t2("Done") }) })
+      ]
+    }
+  );
+}
 const when$1 = (iso, withYear, locale) => formatDate$3(iso ?? null, locale, { month: "short", day: "numeric", ...withYear ? { year: "numeric" } : {} });
 function SeriesPage({ seriesId, onClose, onOpen, onWrite, onSaved }) {
   const t2 = useT();
@@ -97156,6 +97612,8 @@ function Sheets({
   tidyOpen,
   onTidyOpen,
   seriesOpen,
+  templatesOpen,
+  onTemplatesOpen,
   onSeriesOpen,
   onSettingsChanged,
   onOpenSermon,
@@ -97245,6 +97703,16 @@ function Sheets({
           onSettingsChanged();
         },
         onSaved: () => void onRefresh()
+      }
+    ),
+    templatesOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(
+      TemplatesSheet,
+      {
+        onClose: () => {
+          onTemplatesOpen(false);
+          onSettingsChanged();
+        },
+        onSaved: onSettingsChanged
       }
     )
   ] });
@@ -97686,6 +98154,7 @@ function App() {
     runImport
   } = useSermonLifecycle();
   const [seriesOpen, setSeriesOpen] = reactExports$1.useState(false);
+  const [templatesOpen, setTemplatesOpen] = reactExports$1.useState(false);
   const [seriesPage, setSeriesPage] = reactExports$1.useState(null);
   const [tagPage, setTagPage] = reactExports$1.useState(null);
   const [tidyOpen, setTidyOpen] = reactExports$1.useState(false);
@@ -97898,6 +98367,7 @@ function App() {
               closeDrawer();
             },
             onManageSeries: () => setSeriesOpen(true),
+            onManageTemplates: () => setTemplatesOpen(true),
             onOpenSeries: setSeriesPage,
             onOpenTag: setTagPage,
             onDuplicate: (path) => void duplicateSermon(path),
@@ -97952,6 +98422,7 @@ function App() {
           onDelete: (path) => void deleteSermon(path),
           onOpenSermon: (path) => void openSermon(path),
           onMoved: (path) => setOpen((current2) => current2 && current2.filePath !== path ? { ...current2, filePath: path } : current2),
+          onManageTemplates: () => setTemplatesOpen(true),
           onOpenPreferences: () => {
             setPrefsTab("general");
             setPrefsOpen(true);
@@ -98081,6 +98552,8 @@ function App() {
           onTidyOpen: setTidyOpen,
           seriesOpen,
           onSeriesOpen: setSeriesOpen,
+          templatesOpen,
+          onTemplatesOpen: setTemplatesOpen,
           onSettingsChanged: () => setSettingsRevision((n2) => n2 + 1),
           onLanguage: setLanguage,
           onOpenSermon: openSermon,
