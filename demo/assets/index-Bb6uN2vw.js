@@ -16141,6 +16141,7 @@ const es = {
   "Reuse one of your own stories, and see where you have told it": "Reutiliza una de tus propias historias y mira dónde la has contado",
   "Revelation": "Apocalipsis",
   "Ribbon above the page": "Cinta encima de la página",
+  "Ribbon": "Cinta",
   "Right": "Derecha",
   "Romans 8:28": "Romanos 8:28",
   "Rows and columns, as Word and Docs make them": "Filas y columnas, como las hacen Word y Docs",
@@ -17609,6 +17610,7 @@ const ko = {
   "Reuse one of your own stories, and see where you have told it": "내 예화 하나를 다시 쓰고, 어디서 들려줬는지 보기",
   "Revelation": "요한계시록",
   "Ribbon above the page": "페이지 위에 리본",
+  "Ribbon": "리본",
   "Right": "오른쪽",
   "Romans 8:28": "로마서 8:28",
   "Rows and columns, as Word and Docs make them": "Word나 Docs처럼 행과 열로",
@@ -19077,6 +19079,7 @@ const pt$3 = {
   "Reuse one of your own stories, and see where you have told it": "Reaproveite uma de suas próprias histórias e veja onde você já a contou",
   "Revelation": "Apocalipse",
   "Ribbon above the page": "Faixa de opções acima da página",
+  "Ribbon": "Faixa de opções",
   "Right": "Direita",
   "Romans 8:28": "Romanos 8:28",
   "Rows and columns, as Word and Docs make them": "Linhas e colunas, como o Word e o Docs fazem",
@@ -20545,6 +20548,7 @@ const fr$3 = {
   "Reuse one of your own stories, and see where you have told it": "Réutiliser une de vos propres histoires, et voir où vous l’avez racontée",
   "Revelation": "Apocalypse",
   "Ribbon above the page": "Ruban au-dessus de la page",
+  "Ribbon": "Ruban",
   "Right": "Droite",
   "Romans 8:28": "Romains 8.28",
   "Rows and columns, as Word and Docs make them": "Lignes et colonnes, comme les font Word et Docs",
@@ -22013,6 +22017,7 @@ const de$1 = {
   "Reuse one of your own stories, and see where you have told it": "Eine Ihrer eigenen Geschichten wiederverwenden und sehen, wo Sie sie erzählt haben",
   "Revelation": "Offenbarung",
   "Ribbon above the page": "Menüband über der Seite",
+  "Ribbon": "Menüband",
   "Right": "Rechts",
   "Romans 8:28": "Römer 8,28",
   "Rows and columns, as Word and Docs make them": "Zeilen und Spalten, wie Word und Docs sie anlegen",
@@ -23481,6 +23486,7 @@ const zh = {
   "Reuse one of your own stories, and see where you have told it": "重用你自己的故事，并查看你在哪里讲过它",
   "Revelation": "启示录",
   "Ribbon above the page": "页面上方的功能区",
+  "Ribbon": "功能区",
   "Right": "右",
   "Romans 8:28": "罗马书8:28",
   "Rows and columns, as Word and Docs make them": "行与列，像 Word 和 Docs 做的表格那样",
@@ -24949,6 +24955,7 @@ const ja = {
   "Reuse one of your own stories, and see where you have told it": "自分の例話を再利用し、どこで語ったかを確かめます",
   "Revelation": "ヨハネの黙示録",
   "Ribbon above the page": "ページの上のリボン",
+  "Ribbon": "リボン",
   "Right": "右",
   "Romans 8:28": "ローマ人への手紙 8:28",
   "Rows and columns, as Word and Docs make them": "Word や Docs と同じような行と列",
@@ -26417,6 +26424,7 @@ const tl = {
   "Reuse one of your own stories, and see where you have told it": "Gamitin muli ang isa sa mga sarili mong kuwento, at tingnan kung saan mo na ito naikuwento",
   "Revelation": "Pahayag",
   "Ribbon above the page": "Ribbon sa itaas ng pahina",
+  "Ribbon": "Ribbon",
   "Right": "Kanan",
   "Romans 8:28": "Roma 8:28",
   "Rows and columns, as Word and Docs make them": "Mga hilera at kolum, gaya ng ginagawa ng Word at Docs",
@@ -27885,6 +27893,7 @@ const id = {
   "Reuse one of your own stories, and see where you have told it": "Pakai lagi salah satu kisah Anda sendiri, dan lihat di mana Anda pernah menceritakannya",
   "Revelation": "Wahyu",
   "Ribbon above the page": "Pita di atas halaman",
+  "Ribbon": "Pita",
   "Right": "Kanan",
   "Romans 8:28": "Roma 8:28",
   "Rows and columns, as Word and Docs make them": "Baris dan kolom, seperti yang dibuat Word dan Docs",
@@ -29353,6 +29362,7 @@ const ru = {
   "Reuse one of your own stories, and see where you have told it": "Использовать одну из своих историй и увидеть, где вы её рассказывали",
   "Revelation": "Откровение",
   "Ribbon above the page": "Лента над страницей",
+  "Ribbon": "Лента",
   "Right": "Справа",
   "Romans 8:28": "Римлянам 8:28",
   "Rows and columns, as Word and Docs make them": "Строки и столбцы, как в Word и Docs",
@@ -30821,6 +30831,7 @@ const sw = {
   "Reuse one of your own stories, and see where you have told it": "Tumia tena hadithi yako mojawapo, na uone mahali ulipoisimulia",
   "Revelation": "Ufunuo",
   "Ribbon above the page": "Utepe juu ya ukurasa",
+  "Ribbon": "Utepe",
   "Right": "Kulia",
   "Romans 8:28": "Warumi 8:28",
   "Rows and columns, as Word and Docs make them": "Safu mlalo na safu wima, kama Word na Docs zinavyozitengeneza",
@@ -31969,7 +31980,7 @@ const hasA11yProp = (props) => {
 };
 const LucideContext = reactExports$1.createContext({});
 const useLucideContext = () => reactExports$1.useContext(LucideContext);
-const Icon$1 = reactExports$1.forwardRef(
+const Icon = reactExports$1.forwardRef(
   ({
     color,
     size: size2,
@@ -32024,7 +32035,7 @@ const Icon$1 = reactExports$1.forwardRef(
 function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
   const iconData = typeof iconDataOrName === "string" ? toLucideIconData(iconDataOrName, iconNode, aliases) : iconDataOrName;
   const Component = reactExports$1.forwardRef(
-    ({ className, ...props }, ref) => reactExports$1.createElement(Icon$1, {
+    ({ className, ...props }, ref) => reactExports$1.createElement(Icon, {
       ref,
       icon: iconData,
       className,
@@ -32036,7 +32047,42 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
   }
   return Component;
 }
-const __iconData$T = {
+const __iconData$_ = {
+  name: "a-arrow-down",
+  size: 24,
+  node: [
+    ["path", { d: "m14 12 4 4 4-4", key: "buelq4" }],
+    ["path", { d: "M18 16V7", key: "ty0viw" }],
+    ["path", { d: "m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16", key: "d5nyq2" }],
+    ["path", { d: "M3.304 13h6.392", key: "1q3zxz" }]
+  ]
+};
+__iconData$_.node;
+const AArrowDown = createLucideIcon(__iconData$_);
+const __iconData$Z = {
+  name: "a-arrow-up",
+  size: 24,
+  node: [
+    ["path", { d: "m14 11 4-4 4 4", key: "1pu57t" }],
+    ["path", { d: "M18 16V7", key: "ty0viw" }],
+    ["path", { d: "m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16", key: "d5nyq2" }],
+    ["path", { d: "M3.304 13h6.392", key: "1q3zxz" }]
+  ]
+};
+__iconData$Z.node;
+const AArrowUp = createLucideIcon(__iconData$Z);
+const __iconData$Y = {
+  name: "align-vertical-space-around",
+  size: 24,
+  node: [
+    ["rect", { width: "10", height: "6", x: "7", y: "9", rx: "2", key: "b1zbii" }],
+    ["path", { d: "M22 20H2", key: "1p1f7z" }],
+    ["path", { d: "M22 4H2", key: "1b7qnq" }]
+  ]
+};
+__iconData$Y.node;
+const AlignVerticalSpaceAround = createLucideIcon(__iconData$Y);
+const __iconData$X = {
   name: "arrow-down",
   size: 24,
   node: [
@@ -32044,9 +32090,9 @@ const __iconData$T = {
     ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
   ]
 };
-__iconData$T.node;
-const ArrowDown = createLucideIcon(__iconData$T);
-const __iconData$S = {
+__iconData$X.node;
+const ArrowDown = createLucideIcon(__iconData$X);
+const __iconData$W = {
   name: "arrow-up",
   size: 24,
   node: [
@@ -32054,9 +32100,9 @@ const __iconData$S = {
     ["path", { d: "M12 19V5", key: "x0mq9r" }]
   ]
 };
-__iconData$S.node;
-const ArrowUp = createLucideIcon(__iconData$S);
-const __iconData$R = {
+__iconData$W.node;
+const ArrowUp = createLucideIcon(__iconData$W);
+const __iconData$V = {
   name: "book-bookmark",
   size: 24,
   node: [
@@ -32077,9 +32123,9 @@ const __iconData$R = {
   ],
   aliases: ["book-marked"]
 };
-__iconData$R.node;
-const BookBookmark = createLucideIcon(__iconData$R);
-const __iconData$Q = {
+__iconData$V.node;
+const BookBookmark = createLucideIcon(__iconData$V);
+const __iconData$U = {
   name: "book-open",
   size: 24,
   node: [
@@ -32093,9 +32139,9 @@ const __iconData$Q = {
     ]
   ]
 };
-__iconData$Q.node;
-const BookOpen = createLucideIcon(__iconData$Q);
-const __iconData$P = {
+__iconData$U.node;
+const BookOpen = createLucideIcon(__iconData$U);
+const __iconData$T = {
   name: "box",
   size: 24,
   node: [
@@ -32110,30 +32156,30 @@ const __iconData$P = {
     ["path", { d: "M12 22V12", key: "d0xqtd" }]
   ]
 };
-__iconData$P.node;
-const Box$1 = createLucideIcon(__iconData$P);
-const __iconData$O = {
+__iconData$T.node;
+const Box$1 = createLucideIcon(__iconData$T);
+const __iconData$S = {
   name: "check",
   size: 24,
   node: [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]]
 };
-__iconData$O.node;
-const Check = createLucideIcon(__iconData$O);
-const __iconData$N = {
+__iconData$S.node;
+const Check$1 = createLucideIcon(__iconData$S);
+const __iconData$R = {
   name: "chevron-right",
   size: 24,
   node: [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]]
 };
-__iconData$N.node;
-const ChevronRight = createLucideIcon(__iconData$N);
-const __iconData$M = {
+__iconData$R.node;
+const ChevronRight = createLucideIcon(__iconData$R);
+const __iconData$Q = {
   name: "cloud",
   size: 24,
   node: [["path", { d: "M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z", key: "p7xjir" }]]
 };
-__iconData$M.node;
-const Cloud = createLucideIcon(__iconData$M);
-const __iconData$L = {
+__iconData$Q.node;
+const Cloud = createLucideIcon(__iconData$Q);
+const __iconData$P = {
   name: "cloudy",
   size: 24,
   node: [
@@ -32141,9 +32187,9 @@ const __iconData$L = {
     ["path", { d: "M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61", key: "leugyv" }]
   ]
 };
-__iconData$L.node;
-const Cloudy = createLucideIcon(__iconData$L);
-const __iconData$K = {
+__iconData$P.node;
+const Cloudy = createLucideIcon(__iconData$P);
+const __iconData$O = {
   name: "copy",
   size: 24,
   node: [
@@ -32151,9 +32197,9 @@ const __iconData$K = {
     ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
   ]
 };
-__iconData$K.node;
-const Copy = createLucideIcon(__iconData$K);
-const __iconData$J = {
+__iconData$O.node;
+const Copy = createLucideIcon(__iconData$O);
+const __iconData$N = {
   name: "download",
   size: 24,
   node: [
@@ -32162,9 +32208,9 @@ const __iconData$J = {
     ["path", { d: "m7 10 5 5 5-5", key: "brsn70" }]
   ]
 };
-__iconData$J.node;
-const Download = createLucideIcon(__iconData$J);
-const __iconData$I = {
+__iconData$N.node;
+const Download = createLucideIcon(__iconData$N);
+const __iconData$M = {
   name: "ellipsis",
   size: 24,
   node: [
@@ -32174,9 +32220,9 @@ const __iconData$I = {
   ],
   aliases: ["more-horizontal"]
 };
-__iconData$I.node;
-const Ellipsis = createLucideIcon(__iconData$I);
-const __iconData$H = {
+__iconData$M.node;
+const Ellipsis = createLucideIcon(__iconData$M);
+const __iconData$L = {
   name: "eraser",
   size: 24,
   node: [
@@ -32190,9 +32236,9 @@ const __iconData$H = {
     ["path", { d: "m5.082 11.09 8.828 8.828", key: "1wx5vj" }]
   ]
 };
-__iconData$H.node;
-const Eraser = createLucideIcon(__iconData$H);
-const __iconData$G = {
+__iconData$L.node;
+const Eraser = createLucideIcon(__iconData$L);
+const __iconData$K = {
   name: "file-down",
   size: 24,
   node: [
@@ -32208,9 +32254,9 @@ const __iconData$G = {
     ["path", { d: "m9 15 3 3 3-3", key: "1npd3o" }]
   ]
 };
-__iconData$G.node;
-const FileDown = createLucideIcon(__iconData$G);
-const __iconData$F = {
+__iconData$K.node;
+const FileDown = createLucideIcon(__iconData$K);
+const __iconData$J = {
   name: "file-plus",
   size: 24,
   node: [
@@ -32226,9 +32272,9 @@ const __iconData$F = {
     ["path", { d: "M12 18v-6", key: "17g6i2" }]
   ]
 };
-__iconData$F.node;
-const FilePlus = createLucideIcon(__iconData$F);
-const __iconData$E = {
+__iconData$J.node;
+const FilePlus = createLucideIcon(__iconData$J);
+const __iconData$I = {
   name: "file-text",
   size: 24,
   node: [
@@ -32245,9 +32291,9 @@ const __iconData$E = {
     ["path", { d: "M16 17H8", key: "z1uh3a" }]
   ]
 };
-__iconData$E.node;
-const FileText = createLucideIcon(__iconData$E);
-const __iconData$D = {
+__iconData$I.node;
+const FileText = createLucideIcon(__iconData$I);
+const __iconData$H = {
   name: "file-type",
   size: 24,
   node: [
@@ -32264,9 +32310,9 @@ const __iconData$D = {
     ["path", { d: "M9 13v-.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v.5", key: "qbrxap" }]
   ]
 };
-__iconData$D.node;
-const FileType = createLucideIcon(__iconData$D);
-const __iconData$C = {
+__iconData$H.node;
+const FileType = createLucideIcon(__iconData$H);
+const __iconData$G = {
   name: "folder",
   size: 24,
   node: [
@@ -32279,9 +32325,9 @@ const __iconData$C = {
     ]
   ]
 };
-__iconData$C.node;
-const Folder = createLucideIcon(__iconData$C);
-const __iconData$B = {
+__iconData$G.node;
+const Folder = createLucideIcon(__iconData$G);
+const __iconData$F = {
   name: "grid-3x3",
   size: 24,
   node: [
@@ -32293,9 +32339,20 @@ const __iconData$B = {
   ],
   aliases: ["grid", "grid-3-x-3"]
 };
-__iconData$B.node;
-const Grid3x3 = createLucideIcon(__iconData$B);
-const __iconData$A = {
+__iconData$F.node;
+const Grid3x3 = createLucideIcon(__iconData$F);
+const __iconData$E = {
+  name: "image",
+  size: 24,
+  node: [
+    ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", ry: "2", key: "1m3agn" }],
+    ["circle", { cx: "9", cy: "9", r: "2", key: "af1f0g" }],
+    ["path", { d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21", key: "1xmnt7" }]
+  ]
+};
+__iconData$E.node;
+const Image = createLucideIcon(__iconData$E);
+const __iconData$D = {
   name: "info",
   size: 24,
   node: [
@@ -32304,9 +32361,9 @@ const __iconData$A = {
     ["path", { d: "M12 8h.01", key: "e9boi3" }]
   ]
 };
-__iconData$A.node;
-const Info = createLucideIcon(__iconData$A);
-const __iconData$z = {
+__iconData$D.node;
+const Info = createLucideIcon(__iconData$D);
+const __iconData$C = {
   name: "key-round",
   size: 24,
   node: [
@@ -32320,9 +32377,9 @@ const __iconData$z = {
     ["circle", { cx: "16.5", cy: "7.5", r: ".5", fill: "currentColor", key: "w0ekpg" }]
   ]
 };
-__iconData$z.node;
-const KeyRound = createLucideIcon(__iconData$z);
-const __iconData$y = {
+__iconData$C.node;
+const KeyRound = createLucideIcon(__iconData$C);
+const __iconData$B = {
   name: "keyboard",
   size: 24,
   node: [
@@ -32337,9 +32394,9 @@ const __iconData$y = {
     ["rect", { width: "20", height: "16", x: "2", y: "4", rx: "2", key: "18n3k1" }]
   ]
 };
-__iconData$y.node;
-const Keyboard = createLucideIcon(__iconData$y);
-const __iconData$x = {
+__iconData$B.node;
+const Keyboard = createLucideIcon(__iconData$B);
+const __iconData$A = {
   name: "layout-template",
   size: 24,
   node: [
@@ -32348,9 +32405,9 @@ const __iconData$x = {
     ["rect", { width: "5", height: "7", x: "16", y: "14", rx: "1", key: "q5h2i8" }]
   ]
 };
-__iconData$x.node;
-const LayoutTemplate = createLucideIcon(__iconData$x);
-const __iconData$w = {
+__iconData$A.node;
+const LayoutTemplate = createLucideIcon(__iconData$A);
+const __iconData$z = {
   name: "lectern",
   size: 24,
   node: [
@@ -32366,9 +32423,9 @@ const __iconData$w = {
     ["path", { d: "M18 6V3a1 1 0 00-1-1h-3", key: "1y10qe" }]
   ]
 };
-__iconData$w.node;
-const Lectern = createLucideIcon(__iconData$w);
-const __iconData$v = {
+__iconData$z.node;
+const Lectern = createLucideIcon(__iconData$z);
+const __iconData$y = {
   name: "link-2",
   size: 24,
   node: [
@@ -32377,9 +32434,9 @@ const __iconData$v = {
     ["line", { x1: "8", x2: "16", y1: "12", y2: "12", key: "1jonct" }]
   ]
 };
-__iconData$v.node;
-const Link2 = createLucideIcon(__iconData$v);
-const __iconData$u = {
+__iconData$y.node;
+const Link2 = createLucideIcon(__iconData$y);
+const __iconData$x = {
   name: "list-indent-decrease",
   size: 24,
   node: [
@@ -32390,9 +32447,9 @@ const __iconData$u = {
   ],
   aliases: ["outdent", "indent-decrease"]
 };
-__iconData$u.node;
-const ListIndentDecrease = createLucideIcon(__iconData$u);
-const __iconData$t = {
+__iconData$x.node;
+const ListIndentDecrease = createLucideIcon(__iconData$x);
+const __iconData$w = {
   name: "list-indent-increase",
   size: 24,
   node: [
@@ -32403,9 +32460,9 @@ const __iconData$t = {
   ],
   aliases: ["indent", "indent-increase"]
 };
-__iconData$t.node;
-const ListIndentIncrease = createLucideIcon(__iconData$t);
-const __iconData$s = {
+__iconData$w.node;
+const ListIndentIncrease = createLucideIcon(__iconData$w);
+const __iconData$v = {
   name: "list-ordered",
   size: 24,
   node: [
@@ -32417,9 +32474,9 @@ const __iconData$s = {
     ["path", { d: "M6.5 20H3.4c0-1 2.6-1.925 2.6-3.5a1.5 1.5 0 0 0-2.6-1.02", key: "xtkcd5" }]
   ]
 };
-__iconData$s.node;
-const ListOrdered = createLucideIcon(__iconData$s);
-const __iconData$r = {
+__iconData$v.node;
+const ListOrdered = createLucideIcon(__iconData$v);
+const __iconData$u = {
   name: "list",
   size: 24,
   node: [
@@ -32431,9 +32488,9 @@ const __iconData$r = {
     ["path", { d: "M8 19h13", key: "m83p4d" }]
   ]
 };
-__iconData$r.node;
-const List = createLucideIcon(__iconData$r);
-const __iconData$q = {
+__iconData$u.node;
+const List = createLucideIcon(__iconData$u);
+const __iconData$t = {
   name: "lock",
   size: 24,
   node: [
@@ -32441,9 +32498,9 @@ const __iconData$q = {
     ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
   ]
 };
-__iconData$q.node;
-const Lock = createLucideIcon(__iconData$q);
-const __iconData$p = {
+__iconData$t.node;
+const Lock = createLucideIcon(__iconData$t);
+const __iconData$s = {
   name: "message-square",
   size: 24,
   node: [
@@ -32456,9 +32513,9 @@ const __iconData$p = {
     ]
   ]
 };
-__iconData$p.node;
-const MessageSquare = createLucideIcon(__iconData$p);
-const __iconData$o = {
+__iconData$s.node;
+const MessageSquare = createLucideIcon(__iconData$s);
+const __iconData$r = {
   name: "mic",
   size: 24,
   node: [
@@ -32467,9 +32524,9 @@ const __iconData$o = {
     ["rect", { x: "9", y: "2", width: "6", height: "13", rx: "3", key: "s6n7sd" }]
   ]
 };
-__iconData$o.node;
-const Mic = createLucideIcon(__iconData$o);
-const __iconData$n = {
+__iconData$r.node;
+const Mic = createLucideIcon(__iconData$r);
+const __iconData$q = {
   name: "paint-roller",
   size: 24,
   node: [
@@ -32478,9 +32535,9 @@ const __iconData$n = {
     ["rect", { width: "4", height: "6", x: "8", y: "16", rx: "1", key: "d6e7yl" }]
   ]
 };
-__iconData$n.node;
-const PaintRoller = createLucideIcon(__iconData$n);
-const __iconData$m = {
+__iconData$q.node;
+const PaintRoller = createLucideIcon(__iconData$q);
+const __iconData$p = {
   name: "panel-left",
   size: 24,
   node: [
@@ -32489,9 +32546,9 @@ const __iconData$m = {
   ],
   aliases: ["sidebar"]
 };
-__iconData$m.node;
-const PanelLeft = createLucideIcon(__iconData$m);
-const __iconData$l = {
+__iconData$p.node;
+const PanelLeft = createLucideIcon(__iconData$p);
+const __iconData$o = {
   name: "panel-right",
   size: 24,
   node: [
@@ -32499,9 +32556,9 @@ const __iconData$l = {
     ["path", { d: "M15 3v18", key: "14nvp0" }]
   ]
 };
-__iconData$l.node;
-const PanelRight = createLucideIcon(__iconData$l);
-const __iconData$k = {
+__iconData$o.node;
+const PanelRight = createLucideIcon(__iconData$o);
+const __iconData$n = {
   name: "plus",
   size: 24,
   node: [
@@ -32509,9 +32566,9 @@ const __iconData$k = {
     ["path", { d: "M12 5v14", key: "s699le" }]
   ]
 };
-__iconData$k.node;
-const Plus = createLucideIcon(__iconData$k);
-const __iconData$j = {
+__iconData$n.node;
+const Plus = createLucideIcon(__iconData$n);
+const __iconData$m = {
   name: "printer",
   size: 24,
   node: [
@@ -32526,9 +32583,9 @@ const __iconData$j = {
     ["rect", { x: "6", y: "14", width: "12", height: "8", rx: "1", key: "1ue0tg" }]
   ]
 };
-__iconData$j.node;
-const Printer = createLucideIcon(__iconData$j);
-const __iconData$i = {
+__iconData$m.node;
+const Printer = createLucideIcon(__iconData$m);
+const __iconData$l = {
   name: "redo-2",
   size: 24,
   node: [
@@ -32536,9 +32593,9 @@ const __iconData$i = {
     ["path", { d: "M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13", key: "6uklza" }]
   ]
 };
-__iconData$i.node;
-const Redo2 = createLucideIcon(__iconData$i);
-const __iconData$h = {
+__iconData$l.node;
+const Redo2 = createLucideIcon(__iconData$l);
+const __iconData$k = {
   name: "save",
   size: 24,
   node: [
@@ -32553,9 +32610,9 @@ const __iconData$h = {
     ["path", { d: "M7 3v4a1 1 0 0 0 1 1h7", key: "t51u73" }]
   ]
 };
-__iconData$h.node;
-const Save = createLucideIcon(__iconData$h);
-const __iconData$g = {
+__iconData$k.node;
+const Save = createLucideIcon(__iconData$k);
+const __iconData$j = {
   name: "scroll-text",
   size: 24,
   node: [
@@ -32571,9 +32628,9 @@ const __iconData$g = {
     ]
   ]
 };
-__iconData$g.node;
-const ScrollText = createLucideIcon(__iconData$g);
-const __iconData$f = {
+__iconData$j.node;
+const ScrollText = createLucideIcon(__iconData$j);
+const __iconData$i = {
   name: "search",
   size: 24,
   node: [
@@ -32581,9 +32638,20 @@ const __iconData$f = {
     ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
   ]
 };
-__iconData$f.node;
-const Search = createLucideIcon(__iconData$f);
-const __iconData$e = {
+__iconData$i.node;
+const Search = createLucideIcon(__iconData$i);
+const __iconData$h = {
+  name: "separator-horizontal",
+  size: 24,
+  node: [
+    ["path", { d: "m16 16-4 4-4-4", key: "3dv8je" }],
+    ["path", { d: "M3 12h18", key: "1i2n21" }],
+    ["path", { d: "m8 8 4-4 4 4", key: "2bscm2" }]
+  ]
+};
+__iconData$h.node;
+const SeparatorHorizontal = createLucideIcon(__iconData$h);
+const __iconData$g = {
   name: "settings",
   size: 24,
   node: [
@@ -32597,9 +32665,9 @@ const __iconData$e = {
     ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
   ]
 };
-__iconData$e.node;
-const Settings = createLucideIcon(__iconData$e);
-const __iconData$d = {
+__iconData$g.node;
+const Settings = createLucideIcon(__iconData$g);
+const __iconData$f = {
   name: "share",
   size: 24,
   node: [
@@ -32608,9 +32676,9 @@ const __iconData$d = {
     ["path", { d: "M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8", key: "1b2hhj" }]
   ]
 };
-__iconData$d.node;
-const Share = createLucideIcon(__iconData$d);
-const __iconData$c = {
+__iconData$f.node;
+const Share = createLucideIcon(__iconData$f);
+const __iconData$e = {
   name: "sliders-horizontal",
   size: 24,
   node: [
@@ -32625,9 +32693,9 @@ const __iconData$c = {
     ["path", { d: "M8 12H3", key: "a7s4jb" }]
   ]
 };
-__iconData$c.node;
-const SlidersHorizontal = createLucideIcon(__iconData$c);
-const __iconData$b = {
+__iconData$e.node;
+const SlidersHorizontal = createLucideIcon(__iconData$e);
+const __iconData$d = {
   name: "star",
   size: 24,
   node: [
@@ -32640,9 +32708,21 @@ const __iconData$b = {
     ]
   ]
 };
-__iconData$b.node;
-const Star = createLucideIcon(__iconData$b);
-const __iconData$a = {
+__iconData$d.node;
+const Star = createLucideIcon(__iconData$d);
+const __iconData$c = {
+  name: "table",
+  size: 24,
+  node: [
+    ["path", { d: "M12 3v18", key: "108xh3" }],
+    ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }],
+    ["path", { d: "M3 9h18", key: "1pudct" }],
+    ["path", { d: "M3 15h18", key: "5xshup" }]
+  ]
+};
+__iconData$c.node;
+const Table$1 = createLucideIcon(__iconData$c);
+const __iconData$b = {
   name: "tag",
   size: 24,
   node: [
@@ -32656,9 +32736,9 @@ const __iconData$a = {
     ["circle", { cx: "7.5", cy: "7.5", r: ".5", fill: "currentColor", key: "kqv944" }]
   ]
 };
-__iconData$a.node;
-const Tag = createLucideIcon(__iconData$a);
-const __iconData$9 = {
+__iconData$b.node;
+const Tag = createLucideIcon(__iconData$b);
+const __iconData$a = {
   name: "text-align-center",
   size: 24,
   node: [
@@ -32668,9 +32748,9 @@ const __iconData$9 = {
   ],
   aliases: ["align-center"]
 };
-__iconData$9.node;
-const TextAlignCenter = createLucideIcon(__iconData$9);
-const __iconData$8 = {
+__iconData$a.node;
+const TextAlignCenter = createLucideIcon(__iconData$a);
+const __iconData$9 = {
   name: "text-align-end",
   size: 24,
   node: [
@@ -32680,9 +32760,9 @@ const __iconData$8 = {
   ],
   aliases: ["align-right"]
 };
-__iconData$8.node;
-const TextAlignEnd = createLucideIcon(__iconData$8);
-const __iconData$7 = {
+__iconData$9.node;
+const TextAlignEnd = createLucideIcon(__iconData$9);
+const __iconData$8 = {
   name: "text-align-justify",
   size: 24,
   node: [
@@ -32692,9 +32772,9 @@ const __iconData$7 = {
   ],
   aliases: ["align-justify"]
 };
-__iconData$7.node;
-const TextAlignJustify = createLucideIcon(__iconData$7);
-const __iconData$6 = {
+__iconData$8.node;
+const TextAlignJustify = createLucideIcon(__iconData$8);
+const __iconData$7 = {
   name: "text-align-start",
   size: 24,
   node: [
@@ -32704,9 +32784,9 @@ const __iconData$6 = {
   ],
   aliases: ["text", "align-left"]
 };
-__iconData$6.node;
-const TextAlignStart = createLucideIcon(__iconData$6);
-const __iconData$5 = {
+__iconData$7.node;
+const TextAlignStart = createLucideIcon(__iconData$7);
+const __iconData$6 = {
   name: "triangle",
   size: 24,
   node: [
@@ -32716,9 +32796,9 @@ const __iconData$5 = {
     ]
   ]
 };
-__iconData$5.node;
-const Triangle = createLucideIcon(__iconData$5);
-const __iconData$4 = {
+__iconData$6.node;
+const Triangle = createLucideIcon(__iconData$6);
+const __iconData$5 = {
   name: "type",
   size: 24,
   node: [
@@ -32727,9 +32807,9 @@ const __iconData$4 = {
     ["path", { d: "M9 20h6", key: "s66wpe" }]
   ]
 };
-__iconData$4.node;
-const Type = createLucideIcon(__iconData$4);
-const __iconData$3 = {
+__iconData$5.node;
+const Type = createLucideIcon(__iconData$5);
+const __iconData$4 = {
   name: "undo-2",
   size: 24,
   node: [
@@ -32737,9 +32817,9 @@ const __iconData$3 = {
     ["path", { d: "M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11", key: "f3b9sd" }]
   ]
 };
-__iconData$3.node;
-const Undo2 = createLucideIcon(__iconData$3);
-const __iconData$2 = {
+__iconData$4.node;
+const Undo2 = createLucideIcon(__iconData$4);
+const __iconData$3 = {
   name: "wand",
   size: 24,
   node: [
@@ -32754,9 +32834,9 @@ const __iconData$2 = {
     ["path", { d: "M12.2 6.2 11 5", key: "i3da3b" }]
   ]
 };
-__iconData$2.node;
-const Wand = createLucideIcon(__iconData$2);
-const __iconData$1 = {
+__iconData$3.node;
+const Wand = createLucideIcon(__iconData$3);
+const __iconData$2 = {
   name: "wifi-off",
   size: 24,
   node: [
@@ -32769,9 +32849,9 @@ const __iconData$1 = {
     ["path", { d: "m2 2 20 20", key: "1ooewy" }]
   ]
 };
-__iconData$1.node;
-const WifiOff = createLucideIcon(__iconData$1);
-const __iconData = {
+__iconData$2.node;
+const WifiOff = createLucideIcon(__iconData$2);
+const __iconData$1 = {
   name: "x",
   size: 24,
   node: [
@@ -32779,8 +32859,20 @@ const __iconData = {
     ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
   ]
 };
+__iconData$1.node;
+const X$5 = createLucideIcon(__iconData$1);
+const __iconData = {
+  name: "zoom-in",
+  size: 24,
+  node: [
+    ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }],
+    ["line", { x1: "21", x2: "16.65", y1: "21", y2: "16.65", key: "13gj7c" }],
+    ["line", { x1: "11", x2: "11", y1: "8", y2: "14", key: "1vmskp" }],
+    ["line", { x1: "8", x2: "14", y1: "11", y2: "11", key: "durymu" }]
+  ]
+};
 __iconData.node;
-const X$5 = createLucideIcon(__iconData);
+const ZoomIn = createLucideIcon(__iconData);
 function providerIcon(provider, size2 = 22) {
   switch (provider) {
     case "iCloud Drive":
@@ -63978,7 +64070,7 @@ const oppositeSideMap = {
   bottom: "top",
   top: "bottom"
 };
-function clamp(start, value, end) {
+function clamp$1(start, value, end) {
   return max(start, min(value, end));
 }
 function evaluate(value, param) {
@@ -64900,7 +64992,7 @@ const arrow$3 = (options) => ({
     const maxPadding = min(paddingObject[maxProp], largestPossiblePadding);
     const max2 = clientSize - arrowDimensions[length] - maxPadding;
     const center = clientSize / 2 - arrowDimensions[length] / 2 + centerToReference;
-    const offset2 = clamp(minPadding, center, max2);
+    const offset2 = clamp$1(minPadding, center, max2);
     const shouldAddOffset = !middlewareData.arrow && getAlignment(placement) != null && center !== offset2 && rects.reference[length] / 2 - (center < minPadding ? minPadding : maxPadding) - arrowDimensions[length] / 2 < 0;
     const alignmentOffset = shouldAddOffset ? center < minPadding ? center - minPadding : center - max2 : 0;
     return {
@@ -65397,7 +65489,7 @@ const shift$2 = function(options) {
       const mainAxis = getOppositeAxis(crossAxis);
       let mainAxisCoord = coords[mainAxis];
       let crossAxisCoord = coords[crossAxis];
-      const clampCoord = (axis, coord) => clamp(coord + overflow[axis === "y" ? "top" : "left"], coord, coord - overflow[axis === "y" ? "bottom" : "right"]);
+      const clampCoord = (axis, coord) => clamp$1(coord + overflow[axis === "y" ? "top" : "left"], coord, coord - overflow[axis === "y" ? "bottom" : "right"]);
       if (checkMainAxis) {
         mainAxisCoord = clampCoord(mainAxis, mainAxisCoord);
       }
@@ -89487,7 +89579,7 @@ function MarkMenu({
       "button",
       {
         type: "button",
-        className: current2 ? "format-bar__button format-bar__button--active" : "format-bar__button",
+        className: current2 ? "itb itb--on" : "itb",
         title: label,
         "aria-label": label,
         "aria-haspopup": "menu",
@@ -89536,40 +89628,6 @@ function MarkMenu({
     )
   ] });
 }
-const ICON_PATHS = {
-  alignLeft: "M4 6h16M4 10h10M4 14h16M4 18h10",
-  alignCenter: "M4 6h16M7 10h10M4 14h16M7 18h10",
-  alignRight: "M4 6h16M10 10h10M4 14h16M10 18h10",
-  alignJustify: "M4 6h16M4 10h16M4 14h16M4 18h16",
-  indent: "M4 6h16M10 10h10M10 14h10M4 18h16M4 9.5l3 2.5-3 2.5",
-  outdent: "M4 6h16M10 10h10M10 14h10M4 18h16M7 9.5 4 12l3 2.5",
-  spacing: "M9 6h11M9 12h11M9 18h11M4.5 4v16M2.5 6l2-2 2 2M2.5 18l2 2 2-2",
-  painter: "M4 4h9v5H4zM13 6h4v4a2 2 0 0 1-2 2H9v8H7v-9a1 1 0 0 1 1-1h7z",
-  undo: "M8 7 4 11l4 4M4.5 11H14a4.5 4.5 0 0 1 0 9h-3",
-  redo: "m16 7 4 4-4 4M19.5 11H10a4.5 4.5 0 0 0 0 9h3",
-  find: "M15 15l5 5M4.5 10.5a6 6 0 1 0 12 0 6 6 0 1 0-12 0",
-  up: "M12 19V5M6 11l6-6 6 6",
-  down: "M12 5v14M6 13l6 6 6-6",
-  save: "M5 4h11l3 3v13H5zM8 4v5h7V4M8 20v-6h8v6",
-  pageBreak: "M6 3h12v6H6zM6 15h12v6H6zM3 12h3M9 12h2M13 12h2M18 12h3",
-  panel: "M3 4h18v16H3zM15 4v16",
-  manuscript: "M5 3h14v18H5zM8 8h8M8 12h8M8 16h5",
-  outline: "M4 6h3M10 6h10M4 12h3M10 12h10M4 18h3M10 18h10",
-  handout: "M4 3h16v18H4zM8 8h8M8 12h5M8 17h8",
-  scripture: "M12 5.5C10 4 7 4 4 5v13c3-1 6-1 8 .5 2-1.5 5-1.5 8-.5V5c-3-1-6-1-8 1.5zM12 5.5v13",
-  library: "M4 4h4v16H4zM10 4h4v16h-4zM16.5 5l3.5 1-3.5 14-3.5-1z",
-  preach: "M12 3v6M8 9h8l-1 8H9zM10 17l-1 4M14 17l1 4",
-  text: "m5 19 5.5-14h3L19 19M8 13.5h8",
-  font: "m5 19 5.5-14h3L19 19M8 13.5h8",
-  grow: "m3 18 4.5-12h2L14 18M5.5 13.5h5M16 4v6M13 7h6",
-  shrink: "m3 18 4.5-12h2L14 18M5.5 13.5h5M13 7h6",
-  clear: "M4 18h9M6.5 18 3 14.5l9-9 5 5-5.5 5.5M8.5 9l5 5",
-  picture: "M3 5h18v14H3zM3 16l5-5 4 4 3-3 6 5M16 9h.01",
-  table: "M3 5h18v14H3zM3 10h18M3 15h18M9 5v14M15 5v14"
-};
-function Icon({ name, large = false }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: large ? "ribbon__icon ribbon__icon--large" : "ribbon__icon", viewBox: "0 0 24 24", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: ICON_PATHS[name] }) });
-}
 function Group$1({ caption, children }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rgroup", role: "group", "aria-label": caption, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rgroup__items", children }),
@@ -89577,29 +89635,24 @@ function Group$1({ caption, children }) {
   ] });
 }
 const Separator = () => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rgroup__sep", "aria-hidden": "true" });
+const Caret = () => /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "icon icon--caret", viewBox: "0 0 24 24", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M6 9l6 6 6-6" }) });
 function Large({
   glyph,
   label,
   onClick,
   active = false,
   disabled = false,
-  wide = false,
   compact = false,
   title,
   accent
 }) {
   const t2 = useT();
-  const classes = [
-    "rlarge",
-    active ? "rlarge--active" : "",
-    wide && !compact ? "rlarge--wide" : "",
-    compact ? "rlarge--compact" : ""
-  ].filter(Boolean).join(" ");
+  const classes = ["tool", "tool--word", "rlarge", active ? "tool--active" : "", compact ? "rlarge--compact" : "", accent ? "rlarge--accent" : ""];
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "button",
     {
       type: "button",
-      className: classes,
+      className: classes.filter(Boolean).join(" "),
       style: accent ? { "--block-accent": accent } : void 0,
       title: compact ? t2("{label}: {hint}", { label, hint: title ?? label }) : title ?? label,
       "aria-label": label,
@@ -89609,7 +89662,7 @@ function Large({
       onClick,
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rlarge__glyph", children: glyph }),
-        !compact && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rlarge__label", children: label })
+        !compact && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tool__word", children: label })
       ]
     }
   );
@@ -89626,7 +89679,7 @@ function Small({
     "button",
     {
       type: "button",
-      className: active ? "format-bar__button format-bar__button--active" : "format-bar__button",
+      className: active ? "itb itb--on" : "itb",
       title,
       "aria-label": title,
       "aria-pressed": active || void 0,
@@ -89669,7 +89722,7 @@ function Collapsed({
         "button",
         {
           type: "button",
-          className: ["rlarge", open2 ? "rlarge--active" : "", compact ? "rlarge--compact" : ""].filter(Boolean).join(" "),
+          className: ["tool", "tool--word", "rlarge", open2 ? "tool--active" : "", compact ? "rlarge--compact" : ""].filter(Boolean).join(" "),
           title: label,
           "aria-label": label,
           "aria-haspopup": "menu",
@@ -89677,11 +89730,11 @@ function Collapsed({
           onMouseDown: (event) => event.preventDefault(),
           onClick: () => setOpen((value) => !value),
           children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rlarge__glyph", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: icon, large: true }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rlarge__label", children: compact ? "▾" : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rlarge__glyph", children: icon }),
+            !compact && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "tool__word", children: [
               label,
-              " ▾"
-            ] }) })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Caret, {})
+            ] })
           ]
         }
       ),
@@ -89722,7 +89775,7 @@ function Choice({
       "button",
       {
         type: "button",
-        className: open2 ? "format-bar__button format-bar__button--active" : "format-bar__button",
+        className: open2 ? "itb itb--on" : "itb",
         title,
         "aria-label": title,
         "aria-haspopup": "menu",
@@ -89732,7 +89785,7 @@ function Choice({
         onClick: () => setOpen((value) => !value),
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "format-bar__glyph", children: label }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rchoice__caret", "aria-hidden": "true", children: "▾" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Caret, {})
         ]
       }
     ),
@@ -89744,7 +89797,7 @@ function Choice({
           type: "button",
           role: "menuitemradio",
           "aria-checked": group.current === value,
-          className: group.current === value ? "rpop__item rpop__item--active" : "rpop__item",
+          className: group.current === value ? "menu__item rpop__item--active" : "menu__item",
           onClick: () => {
             setOpen(false);
             group.onPick(value);
@@ -89982,7 +90035,7 @@ function TablePicker({
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           Large,
           {
-            glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "table", large: true }),
+            glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Table$1, { size: 18, strokeWidth: 1.6 }),
             label: t2("Table"),
             title: t2("Rows and columns; sweep across the grid for the size"),
             compact,
@@ -90018,41 +90071,26 @@ function TablePicker({
     }
   );
 }
-const RIBBON_SCALE_MIN = 0.85;
-const RIBBON_SCALE_MAX = 1.15;
-const RIBBON_WIDTH_NARROW = 668;
-const RIBBON_WIDTH_WIDE = 1648;
-function ribbonScale(width) {
-  const t2 = (width - RIBBON_WIDTH_NARROW) / (RIBBON_WIDTH_WIDE - RIBBON_WIDTH_NARROW);
-  const scale = RIBBON_SCALE_MIN + Math.min(1, Math.max(0, t2)) * (RIBBON_SCALE_MAX - RIBBON_SCALE_MIN);
-  return Math.round(scale * 100) / 100;
-}
-const HOME_FOLDS = 7;
+const HOME_FOLDS = 8;
 const FOLD_PAGE = 1;
-const FOLD_BLOCK_LABELS = 2;
-const FOLD_EDITING = 3;
-const FOLD_LIBRARY = 4;
+const FOLD_EDITING = 2;
+const FOLD_LIBRARY = 3;
+const FOLD_INSERT = 4;
 const FOLD_DROP_LABELS = 5;
-const FOLD_PARAGRAPH = 6;
-const FOLD_TEXT = 7;
+const FOLD_BLOCK_LABELS = 6;
+const FOLD_PARAGRAPH = 7;
+const FOLD_TEXT = 8;
 function useRibbonFolding(tab, view) {
   const ribbonRef = reactExports$1.useRef(null);
   const bodyRef = reactExports$1.useRef(null);
   const [collapsed, setCollapsed] = reactExports$1.useState(0);
   const neededWidth = reactExports$1.useRef([]);
   const [width, setWidth] = reactExports$1.useState(0);
-  const [scale, setScale] = reactExports$1.useState(1);
   reactExports$1.useEffect(() => {
-    const ribbon = ribbonRef.current;
     const body = bodyRef.current;
-    if (!ribbon || !body) return;
-    const observer = new ResizeObserver(() => {
-      setScale(ribbonScale(ribbon.clientWidth));
-      setWidth(body.clientWidth);
-    });
-    observer.observe(ribbon);
+    if (!body) return;
+    const observer = new ResizeObserver(() => setWidth(body.clientWidth));
     observer.observe(body);
-    setScale(ribbonScale(ribbon.clientWidth));
     setWidth(body.clientWidth);
     return () => observer.disconnect();
   }, []);
@@ -90066,8 +90104,8 @@ function useRibbonFolding(tab, view) {
       const needed = neededWidth.current[collapsed - 1];
       if (needed !== void 0 && body.clientWidth >= needed + 8) setCollapsed(collapsed - 1);
     }
-  }, [width, scale, tab, collapsed, view]);
-  return { ribbonRef, bodyRef, collapsed, scale };
+  }, [width, tab, collapsed, view]);
+  return { ribbonRef, bodyRef, collapsed };
 }
 function HomeTab({
   editing,
@@ -90104,8 +90142,8 @@ function HomeTab({
         style2
       )),
       /* @__PURE__ */ jsxRuntimeExports.jsx(SizeList, { value: sizeNow, disabled: !editing, onPick: (size2) => run2((c2) => c2.setSize(size2)) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2(t2("Grow text (Ctrl+Shift+>)")), disabled: !editing, onClick: () => run2((c2) => c2.stepSize(1)), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "grow" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2(t2("Shrink text (Ctrl+Shift+<)")), disabled: !editing, onClick: () => run2((c2) => c2.stepSize(-1)), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "shrink" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2(t2("Grow text (Ctrl+Shift+>)")), disabled: !editing, onClick: () => run2((c2) => c2.stepSize(1)), children: /* @__PURE__ */ jsxRuntimeExports.jsx(AArrowUp, { size: 14, strokeWidth: 1.7 }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2(t2("Shrink text (Ctrl+Shift+<)")), disabled: !editing, onClick: () => run2((c2) => c2.stepSize(-1)), children: /* @__PURE__ */ jsxRuntimeExports.jsx(AArrowDown, { size: 14, strokeWidth: 1.7 }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: active.link ? keys$2(t2("Change where this link goes (Ctrl+K)")) : keys$2(t2("Link (Ctrl+K)")), active: active.link !== null, disabled: !editing, onClick: () => run2((c2) => c2.editLink()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link2, { size: 14, strokeWidth: 1.7 }) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
@@ -90167,7 +90205,7 @@ function HomeTab({
           onPick: (mode) => run2((c2) => c2.changeCase(mode))
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: t2("Clear formatting: bold, marks, and size off"), disabled: !editing, onClick: () => run2((c2) => c2.clearFormatting()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "clear" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: t2("Clear formatting: bold, marks, and size off"), disabled: !editing, onClick: () => run2((c2) => c2.clearFormatting()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Eraser, { size: 14, strokeWidth: 1.7 }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Small,
         {
@@ -90175,7 +90213,7 @@ function HomeTab({
           active: active.painting,
           disabled: !editing,
           onClick: () => run2((c2) => c2.armPainter()),
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "painter" })
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(PaintRoller, { size: 14, strokeWidth: 1.7 })
         }
       )
     ] })
@@ -90196,10 +90234,10 @@ function HomeTab({
     ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
       [
-        ["left", "alignLeft", keys$2(t2("Align left (Ctrl+L)"))],
-        ["center", "alignCenter", keys$2(t2("Centre (Ctrl+E)"))],
-        ["right", "alignRight", keys$2(t2("Align right (Ctrl+R)"))],
-        ["justify", "alignJustify", keys$2(t2("Justify (Ctrl+J)"))]
+        ["left", /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignStart, { size: 14, strokeWidth: 1.7 }, "l"), keys$2(t2("Align left (Ctrl+L)"))],
+        ["center", /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignCenter, { size: 14, strokeWidth: 1.7 }, "c"), keys$2(t2("Centre (Ctrl+E)"))],
+        ["right", /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignEnd, { size: 14, strokeWidth: 1.7 }, "r"), keys$2(t2("Align right (Ctrl+R)"))],
+        ["justify", /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignJustify, { size: 14, strokeWidth: 1.7 }, "j"), keys$2(t2("Justify (Ctrl+J)"))]
       ].map(([align, icon, title]) => /* @__PURE__ */ jsxRuntimeExports.jsx(
         Small,
         {
@@ -90207,14 +90245,14 @@ function HomeTab({
           active: active.align === align,
           disabled: !editing || !alignable,
           onClick: () => run2((c2) => c2.setAlign(align)),
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: icon })
+          children: icon
         },
         align
       )),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Choice,
         {
-          label: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "spacing" }),
+          label: /* @__PURE__ */ jsxRuntimeExports.jsx(AlignVerticalSpaceAround, { size: 14, strokeWidth: 1.7 }),
           title: active.canSpace ? t2("Line spacing and space after, for this block") : t2("Only a point or a prose block keeps its own spacing; the page sets the rest"),
           disabled: !editing || !active.canSpace,
           sections: [
@@ -90242,7 +90280,7 @@ function HomeTab({
           active: active.blockType === "bulletListItem",
           disabled: !editing || !listable,
           onClick: () => run2((c2) => c2.toggleList("bulletListItem")),
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "format-bar__glyph", children: "•" })
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(List, { size: 14, strokeWidth: 1.7 })
         }
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -90252,11 +90290,11 @@ function HomeTab({
           active: active.blockType === "numberedListItem",
           disabled: !editing || !listable,
           onClick: () => run2((c2) => c2.toggleList("numberedListItem")),
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "format-bar__glyph", children: "1." })
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(ListOrdered, { size: 14, strokeWidth: 1.7 })
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: t2("Decrease indent (Shift+Tab)"), disabled: !editing || !active.canOutdent, onClick: () => run2((c2) => c2.outdent()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "outdent" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: t2("Increase indent (Tab)"), disabled: !editing || !active.canIndent, onClick: () => run2((c2) => c2.indent()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "indent" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: t2("Decrease indent (Shift+Tab)"), disabled: !editing || !active.canOutdent, onClick: () => run2((c2) => c2.outdent()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ListIndentDecrease, { size: 14, strokeWidth: 1.7 }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: t2("Increase indent (Tab)"), disabled: !editing || !active.canIndent, onClick: () => run2((c2) => c2.indent()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ListIndentIncrease, { size: 14, strokeWidth: 1.7 }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Small,
         {
@@ -90264,7 +90302,7 @@ function HomeTab({
           active: active.pageBreak,
           disabled: !editing || !breakable,
           onClick: () => run2((c2) => c2.togglePageBreak()),
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "pageBreak" })
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(SeparatorHorizontal, { size: 14, strokeWidth: 1.7 })
         }
       )
     ] })
@@ -90277,7 +90315,7 @@ function HomeTab({
         label: t2("Move up"),
         disabled: !editing || !active.canMove.up,
         onClick: () => run2((c2) => c2.moveCurrent("up")),
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "up" })
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { size: 14, strokeWidth: 1.7 })
       }
     ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -90287,20 +90325,33 @@ function HomeTab({
         label: t2("Move down"),
         disabled: !editing || !active.canMove.down,
         onClick: () => run2((c2) => c2.moveCurrent("down")),
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "down" })
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { size: 14, strokeWidth: 1.7 })
       }
     ) })
   ] });
-  const findButton = /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "find", large: true }), label: t2("Find"), title: keys$2(t2("Find in this sermon (Ctrl+F)")), disabled: view === "handout" || !commands, onClick: () => run2((c2) => c2.toggleFind()) });
+  const findButton = /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { size: 18, strokeWidth: 1.6 }), label: t2("Find"), title: keys$2(t2("Find in this sermon (Ctrl+F)")), disabled: view === "handout" || !commands, onClick: () => run2((c2) => c2.toggleFind()) });
+  const insertButtons = /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Large,
+      {
+        glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { size: 18, strokeWidth: 1.6 }),
+        label: t2("Picture"),
+        title: t2("A picture from a file, with a caption beneath it; pictures can also be pasted or dropped onto the page"),
+        compact: collapsed >= FOLD_BLOCK_LABELS,
+        disabled: !editing,
+        onClick: () => run2((c2) => void c2.insertPicture())
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(TablePicker, { disabled: !editing, compact: collapsed >= FOLD_BLOCK_LABELS, onPick: (rows, cols) => run2((c2) => c2.insertTable(rows, cols)) })
+  ] });
   const libraryButtons = /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       Large,
       {
-        glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "library", large: true }),
+        glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(BookBookmark, { size: 18, strokeWidth: 1.6 }),
         label: t2("From library"),
         title: t2("Reuse one of your own stories, and see where you have told it"),
         accent: BLOCK_STYLES.illustration.accent,
-        wide: true,
         active: panel === "illustrations",
         onClick: () => onLibrary("browse")
       }
@@ -90308,11 +90359,10 @@ function HomeTab({
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       Large,
       {
-        glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "save", large: true }),
+        glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Save, { size: 18, strokeWidth: 1.6 }),
         label: t2("Save to library"),
         title: t2("Keep this block as a story you can find again"),
         accent: BLOCK_STYLES.illustration.accent,
-        wide: true,
         disabled: !editing || active.blockId === null,
         onClick: () => onLibrary("save")
       }
@@ -90357,34 +90407,21 @@ function HomeTab({
   }) });
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Undo"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2(t2("Undo (Ctrl+Z)")), label: collapsed >= FOLD_DROP_LABELS ? void 0 : t2("Undo"), disabled: !editing, onClick: () => run2((c2) => c2.undo()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "undo" }) }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2(t2("Redo (Ctrl+Y)")), label: collapsed >= FOLD_DROP_LABELS ? void 0 : t2("Redo"), disabled: !editing, onClick: () => run2((c2) => c2.redo()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "redo" }) }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2(t2("Undo (Ctrl+Z)")), label: collapsed >= FOLD_DROP_LABELS ? void 0 : t2("Undo"), disabled: !editing, onClick: () => run2((c2) => c2.undo()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Undo2, { size: 14, strokeWidth: 1.7 }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Small, { title: keys$2(t2("Redo (Ctrl+Y)")), label: collapsed >= FOLD_DROP_LABELS ? void 0 : t2("Redo"), disabled: !editing, onClick: () => run2((c2) => c2.redo()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Redo2, { size: 14, strokeWidth: 1.7 }) }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    collapsed >= FOLD_TEXT ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Font"), icon: "text", compact: collapsed >= FOLD_DROP_LABELS, children: textRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Font"), children: textRows }),
+    collapsed >= FOLD_TEXT ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Font"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Type, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: textRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Font"), children: textRows }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    collapsed >= FOLD_PARAGRAPH ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Paragraph"), icon: "alignLeft", compact: collapsed >= FOLD_DROP_LABELS, children: paragraphRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Paragraph"), children: paragraphRows }),
+    collapsed >= FOLD_PARAGRAPH ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Paragraph"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(TextAlignStart, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: paragraphRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Paragraph"), children: paragraphRows }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
     blocksGroup,
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$1, { caption: t2("Insert"), children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        Large,
-        {
-          glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "picture", large: true }),
-          label: t2("Picture"),
-          title: t2("A picture from a file, with a caption beneath it; pictures can also be pasted or dropped onto the page"),
-          compact: collapsed >= FOLD_BLOCK_LABELS,
-          disabled: !editing,
-          onClick: () => run2((c2) => void c2.insertPicture())
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(TablePicker, { disabled: !editing, compact: collapsed >= FOLD_BLOCK_LABELS, onPick: (rows, cols) => run2((c2) => c2.insertTable(rows, cols)) })
-    ] }),
+    collapsed >= FOLD_INSERT ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Insert"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow rrow--top", children: insertButtons }) }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Insert"), children: insertButtons }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    collapsed >= FOLD_LIBRARY ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Library"), icon: "library", compact: collapsed >= FOLD_DROP_LABELS, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow rrow--top", children: libraryButtons }) }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Library"), children: libraryButtons }),
+    collapsed >= FOLD_LIBRARY ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Library"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(BookBookmark, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow rrow--top", children: libraryButtons }) }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Library"), children: libraryButtons }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    collapsed >= FOLD_EDITING ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Editing"), icon: "find", compact: collapsed >= FOLD_DROP_LABELS, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow rrow--top", children: [
+    collapsed >= FOLD_EDITING ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Editing"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow rrow--top", children: [
       findButton,
       moveRows
     ] }) }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$1, { caption: t2("Editing"), children: [
@@ -90392,18 +90429,47 @@ function HomeTab({
       moveRows
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    collapsed >= FOLD_PAGE ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Page"), icon: "font", compact: collapsed >= FOLD_DROP_LABELS, children: pageRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Page"), children: pageRows }),
+    collapsed >= FOLD_PAGE ? /* @__PURE__ */ jsxRuntimeExports.jsx(Collapsed, { label: t2("Page"), icon: /* @__PURE__ */ jsxRuntimeExports.jsx(ZoomIn, { size: 18, strokeWidth: 1.6 }), compact: collapsed >= FOLD_DROP_LABELS, children: pageRows }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Page"), children: pageRows }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Show"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "panel", large: true }), label: t2("Outline"), title: t2("Every block on one line, to jump to"), active: panel === "outline", compact: collapsed >= FOLD_DROP_LABELS, onClick: () => onPanel("outline") }) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Show"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(PanelRight, { size: 18, strokeWidth: 1.6 }), label: t2("Outline"), title: t2("Every block on one line, to jump to"), active: panel === "outline", compact: collapsed >= FOLD_DROP_LABELS, onClick: () => onPanel("outline") }) })
+  ] });
+}
+function Switch({
+  checked,
+  onChange,
+  label,
+  disabled = false,
+  keepFocus = false
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "button",
+    {
+      type: "button",
+      role: "switch",
+      "aria-checked": checked,
+      "aria-label": label,
+      title: label,
+      className: checked ? "switch switch--on" : "switch",
+      disabled,
+      onMouseDown: keepFocus ? (event) => event.preventDefault() : void 0,
+      onClick: () => onChange(!checked),
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "switch__knob" })
+    }
+  );
+}
+function Check({ checked, label, title, onChange }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "ribbon__check", title, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked, label, keepFocus: true, onChange }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: label })
   ] });
 }
 function ViewTab({ view, onView, look, onLook, handout, onHandout, outline, onOutline }) {
   const t2 = useT();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Group$1, { caption: t2("Views"), children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "manuscript", large: true }), label: t2("Manuscript"), active: view === "write", onClick: () => onView("write") }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "outline", large: true }), label: t2("Outline"), active: view === "outline", onClick: () => onView("outline") }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "handout", large: true }), label: t2("Handout"), active: view === "handout", onClick: () => onView("handout") })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { size: 18, strokeWidth: 1.6 }), label: t2("Manuscript"), active: view === "write", onClick: () => onView("write") }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(List, { size: 18, strokeWidth: 1.6 }), label: t2("Outline"), active: view === "outline", onClick: () => onView("outline") }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Large, { glyph: /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { size: 18, strokeWidth: 1.6 }), label: t2("Handout"), active: view === "handout", onClick: () => onView("handout") })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Page"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
@@ -90412,51 +90478,45 @@ function ViewTab({ view, onView, look, onLook, handout, onHandout, outline, onOu
         /* @__PURE__ */ jsxRuntimeExports.jsx(OrientationSelect, { className: "format-bar__select", value: look.orientation, title: t2("Upright, or turned on its side"), onChange: (orientation) => onLook({ orientation }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(MarginSelect, { className: "format-bar__select", value: look.margin, title: t2("The margins on screen and on paper"), onChange: (margin) => onLook({ margin }) })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "ribbon__check", title: t2("Page numbers at the foot of every sheet, on screen and on paper"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", checked: look.pageNumbers, onChange: (event) => onLook({ pageNumbers: event.target.checked }) }),
-        t2("Page numbers")
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "ribbon__check", title: t2("The title and passage at the head of every sheet, on screen and on paper"), children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", checked: look.pageHeader, onChange: (event) => onLook({ pageHeader: event.target.checked }) }),
-        t2("Running head")
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { checked: look.pageNumbers, label: t2("Page numbers"), title: t2("Page numbers at the foot of every sheet, on screen and on paper"), onChange: (pageNumbers) => onLook({ pageNumbers }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { checked: look.pageHeader, label: t2("Running head"), title: t2("The title and passage at the head of every sheet, on screen and on paper"), onChange: (pageHeader) => onLook({ pageHeader }) })
       ] })
     ] }) }),
     view === "outline" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Outline"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "ribbon__check", title: t2("Minutes at 130 words a minute beside every point"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", checked: outline.minutes, onChange: (event) => onOutline({ minutes: event.target.checked }) }),
-          t2("Minutes")
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { checked: outline.minutes, label: t2("Minutes"), title: t2("Minutes at 130 words a minute beside every point"), onChange: (minutes) => onOutline({ minutes }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { checked: outline.keyLine, label: t2("Key lines"), title: t2("The key line of each point under its heading"), onChange: (keyLine2) => onOutline({ keyLine: keyLine2 }) })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "ribbon__check", title: t2("The key line of each point under its heading"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", checked: outline.keyLine, onChange: (event) => onOutline({ keyLine: event.target.checked }) }),
-          t2("Key lines")
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "ribbon__check", title: t2("The reflection questions, under their points"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", checked: outline.questions, onChange: (event) => onOutline({ questions: event.target.checked }) }),
-          t2("Questions")
-        ] })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rrow", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { checked: outline.questions, label: t2("Questions"), title: t2("The reflection questions, under their points"), onChange: (questions) => onOutline({ questions }) }) })
       ] }) })
     ] }),
     view === "handout" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Group$1, { caption: t2("Handout"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrows", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "ribbon__check", title: t2("Follow along, fill in the blanks, or a bulletin insert"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { className: "field field--short", "aria-label": t2("Handout layout"), value: handout.layout ?? "follow", onChange: (event) => onHandout({ layout: event.target.value }), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "follow", children: t2("Follow along") }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "blanks", children: t2("Fill in the blanks") }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "insert", children: t2("Bulletin insert") })
-        ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "ribbon__check", title: t2("17pt, double-spaced, for anyone who has stopped being able to follow along"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", checked: handout.largePrint, onChange: (event) => onHandout({ largePrint: event.target.checked }) }),
-          t2("Large print")
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "select",
+            {
+              className: "format-bar__select",
+              "aria-label": t2("Handout layout"),
+              title: t2("Follow along, fill in the blanks, or a bulletin insert"),
+              value: handout.layout ?? "follow",
+              onChange: (event) => onHandout({ layout: event.target.value }),
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "follow", children: t2("Follow along") }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "blanks", children: t2("Fill in the blanks") }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "insert", children: t2("Bulletin insert") })
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { checked: handout.largePrint, label: t2("Large print"), title: t2("17pt, double-spaced, for anyone who has stopped being able to follow along"), onChange: (largePrint) => onHandout({ largePrint }) })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "ribbon__check", title: t2("Ruled space for people to write"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", checked: handout.noteLines, onChange: (event) => onHandout({ noteLines: event.target.checked }) }),
-          t2("Note lines")
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "ribbon__check", title: t2("The sermon's footnotes as a list of sources at the end"), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "checkbox", checked: handout.sources === true, onChange: (event) => onHandout({ sources: event.target.checked }) }),
-          t2("Sources")
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "rrow", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { checked: handout.noteLines, label: t2("Note lines"), title: t2("Ruled space for people to write"), onChange: (noteLines) => onHandout({ noteLines }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { checked: handout.sources === true, label: t2("Sources"), title: t2("The sermon's footnotes as a list of sources at the end"), onChange: (sources) => onHandout({ sources }) })
         ] })
       ] }) })
     ] })
@@ -90487,52 +90547,41 @@ function Ribbon({
   };
   const [chosen, setChosen] = reactExports$1.useState("home");
   const tab = onPage ? chosen : "view";
-  const { ribbonRef, bodyRef, collapsed, scale } = useRibbonFolding(tab, view);
+  const { ribbonRef, bodyRef, collapsed } = useRibbonFolding(tab, view);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "ribbon", ref: ribbonRef, children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ribbon__tabs", role: "tablist", children: [
-      ["home", t2("Home")],
-      ["view", t2("View")]
-    ].map(([id2, label]) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "button",
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ribbon__tabs", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Segmented,
       {
-        type: "button",
-        role: "tab",
-        "aria-selected": tab === id2,
-        className: tab === id2 ? "ribbon__tab ribbon__tab--active" : "ribbon__tab",
-        onMouseDown: (event) => event.preventDefault(),
-        onClick: () => {
+        value: tab,
+        ariaLabel: t2("Ribbon"),
+        keepFocus: true,
+        options: [
+          { value: "home", label: t2("Home") },
+          { value: "view", label: t2("View") }
+        ],
+        onChange: (id2) => {
           setChosen(id2);
           if (id2 === "home" && !onPage) onView("write");
-        },
-        children: label
-      },
-      id2
-    )) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "div",
-      {
-        className: collapsed >= FOLD_DROP_LABELS ? "ribbon__body ribbon__body--tight" : "ribbon__body",
-        ref: bodyRef,
-        style: { zoom: scale },
-        children: tab === "home" ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-          HomeTab,
-          {
-            editing,
-            run: run2,
-            commands,
-            active,
-            view,
-            look,
-            onLook,
-            zoom,
-            panel,
-            onPanel,
-            onLibrary,
-            collapsed
-          }
-        ) : /* @__PURE__ */ jsxRuntimeExports.jsx(ViewTab, { view, onView, look, onLook, handout, onHandout, outline, onOutline })
+        }
       }
-    )
+    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: collapsed >= FOLD_DROP_LABELS ? "ribbon__body ribbon__body--tight" : "ribbon__body", ref: bodyRef, children: tab === "home" ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      HomeTab,
+      {
+        editing,
+        run: run2,
+        commands,
+        active,
+        view,
+        look,
+        onLook,
+        zoom,
+        panel,
+        onPanel,
+        onLibrary,
+        collapsed
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx(ViewTab, { view, onView, look, onLook, handout, onHandout, outline, onOutline }) })
   ] });
 }
 function useRelated(sermonId) {
@@ -90831,29 +90880,6 @@ ${row.source}`.toLowerCase().includes(needle)) : all;
       error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "app-error selectable illus-panel__error", children: error })
     ] })
   ] });
-}
-function Switch({
-  checked,
-  onChange,
-  label,
-  disabled = false,
-  keepFocus = false
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "button",
-    {
-      type: "button",
-      role: "switch",
-      "aria-checked": checked,
-      "aria-label": label,
-      title: label,
-      className: checked ? "switch switch--on" : "switch",
-      disabled,
-      onMouseDown: keepFocus ? (event) => event.preventDefault() : void 0,
-      onClick: () => onChange(!checked),
-      children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "switch__knob" })
-    }
-  );
 }
 const FOLDED_KEY = "sermondesk.inspector.folded";
 function readFolded() {
@@ -92058,29 +92084,90 @@ function diffSequences(before, after, key2) {
   while (j2 < b2.length) ops.push({ kind: "added", item: after[j2++] });
   return ops;
 }
-function Sheet({ title, ariaLabel, onClose, children, size: size2 = "narrow", strip, className = "" }) {
+let lastPlace = null;
+const GRIP = 48;
+const clamp = (n2, low, high) => Math.min(Math.max(n2, low), Math.max(low, high));
+function Sheet({ title, ariaLabel, onClose, children, size: size2 = "narrow", strip, className = "", floating = false }) {
+  const panel = reactExports$1.useRef(null);
+  const [place, setPlace] = reactExports$1.useState(floating ? lastPlace : null);
+  const [dragging, setDragging] = reactExports$1.useState(false);
+  const hold = reactExports$1.useRef(null);
   reactExports$1.useEffect(() => {
     const onKeyDown = (event) => {
-      if (event.key === "Escape") onClose();
+      if (event.key !== "Escape") return;
+      if (floating && event.target instanceof Node && event.target !== document.body && !panel.current?.contains(event.target)) return;
+      onClose();
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [onClose]);
+  }, [onClose, floating]);
+  reactExports$1.useEffect(() => {
+    if (floating) panel.current?.focus();
+  }, [floating]);
+  reactExports$1.useEffect(() => {
+    if (!floating) return;
+    const keep2 = () => {
+      setPlace((current2) => {
+        if (!current2 || !panel.current) return current2;
+        const box = panel.current.getBoundingClientRect();
+        const next = { x: clamp(current2.x, 0, window.innerWidth - box.width), y: clamp(current2.y, 0, window.innerHeight - GRIP) };
+        if (next.x === current2.x && next.y === current2.y) return current2;
+        lastPlace = next;
+        return next;
+      });
+    };
+    window.addEventListener("resize", keep2);
+    return () => window.removeEventListener("resize", keep2);
+  }, [floating]);
+  const takeHold = (event) => {
+    if (!floating || event.button !== 0 || !panel.current) return;
+    if (event.target instanceof Element && event.target.closest("button, select, input, textarea, a, label")) return;
+    const box = panel.current.getBoundingClientRect();
+    hold.current = { dx: event.clientX - box.left, dy: event.clientY - box.top };
+    event.currentTarget.setPointerCapture(event.pointerId);
+    setDragging(true);
+  };
+  const move = (event) => {
+    if (!hold.current || !panel.current) return;
+    const box = panel.current.getBoundingClientRect();
+    const next = {
+      x: clamp(event.clientX - hold.current.dx, 0, window.innerWidth - box.width),
+      y: clamp(event.clientY - hold.current.dy, 0, window.innerHeight - GRIP)
+    };
+    lastPlace = next;
+    setPlace(next);
+  };
+  const letGo = () => {
+    hold.current = null;
+    setDragging(false);
+  };
   const banded = size2 !== "narrow";
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__backdrop", onClick: onClose, role: "presentation", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+  const classes = [
+    "sheet",
+    size2 === "wide" ? "sheet--wide" : size2 === "full" ? "sheet--wide sheet--full" : "",
+    floating ? "sheet--floating" : "",
+    dragging ? "sheet--dragging" : "",
+    className
+  ];
+  const sheet = /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
     {
-      className: ["sheet", size2 === "wide" ? "sheet--wide" : size2 === "full" ? "sheet--wide sheet--full" : "", className].filter(Boolean).join(" "),
+      ref: panel,
+      className: classes.filter(Boolean).join(" "),
       role: "dialog",
       "aria-label": ariaLabel,
+      tabIndex: floating ? -1 : void 0,
+      style: place ? { left: place.x, top: place.y, transform: "none" } : void 0,
       onClick: (event) => event.stopPropagation(),
       children: [
         title && !banded && /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "sheet__title", children: title }),
-        banded && strip !== void 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__head", children: strip }),
+        banded && strip !== void 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__head", onPointerDown: takeHold, onPointerMove: move, onPointerUp: letGo, onPointerCancel: letGo, children: strip }),
         banded ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__body", children }) : children
       ]
     }
-  ) });
+  );
+  if (floating) return sheet;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__backdrop", onClick: onClose, role: "presentation", children: sheet });
 }
 function blockKey(block) {
   const body = block.type === "table" ? block.content : bodyParagraphs(block).map((p2) => p2.text).join("\n");
@@ -93520,7 +93607,7 @@ function EditorPane({
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-status__count", title: active.selectedWords > 0 ? t2("The words chosen, of the words in this sermon") : t2("Words in this sermon, and roughly how long it takes to preach"), children: active.selectedWords > 0 ? t2("{n} of {total} words", { n: active.selectedWords.toLocaleString(locale), total: words.toLocaleString(locale) }) : words === 0 ? t2("No words yet") : words === 1 ? t2("1 word · about {m} min", { m: minutes }) : t2("{n} words · about {m} min", { n: words.toLocaleString(locale), m: minutes }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-status__path selectable", title: path, children: path.split(/[\\/]/).pop() }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: doc2.saveState === "error" ? "editor-status__save editor-status__save--error" : "editor-status__save", role: "status", title: saveLabel, children: [
-          (doc2.saveState === "idle" || doc2.saveState === "saved") && /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { size: 12, strokeWidth: 2, "aria-hidden": "true" }),
+          (doc2.saveState === "idle" || doc2.saveState === "saved") && /* @__PURE__ */ jsxRuntimeExports.jsx(Check$1, { size: 12, strokeWidth: 2, "aria-hidden": "true" }),
           saveLabel
         ] })
       ] })
@@ -96293,7 +96380,7 @@ function PreferencesWindow({
   const manage = MANAGE_URL;
   const dictionaryHint = t2("Words added from the right-click menu are kept in dictionary.json beside the sermons, so they sync with them and reach every machine. Delete a line there to forget a word.");
   const dictionaryCount = dictionary === null ? "" : dictionary === 0 ? t2("None yet.") : dictionary === 1 ? t2("1 word so far.") : t2("{n} words so far.", { n: dictionary });
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { ariaLabel: t2("Preferences"), onClose, size: "wide", className: "prefs", strip: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__tabs", role: "tablist", "aria-label": t2("Preferences"), children: TABS.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { ariaLabel: t2("Preferences"), onClose, size: "wide", floating: true, className: "prefs", strip: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "prefs__tabs", role: "tablist", "aria-label": t2("Preferences"), children: TABS.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "button",
     {
       type: "button",
@@ -96480,7 +96567,8 @@ function PreferencesWindow({
         " ",
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "selectable", children: info.dataPath })
       ] }) : null
-    ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sheet__actions", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: t2("Done") }) })
   ] });
 }
 function LicenseSheet({ onChanged, onClose }) {
