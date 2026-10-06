@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="8bfa37b">
+<meta name="sermondesk-source" content="a687d68">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
@@ -96,8 +96,9 @@
   .head .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
   .wordmark { font-size: 1.125rem; font-weight: 500; letter-spacing: 0.01em; text-decoration: none; }
   .wordmark span { color: var(--oxblood); }
-  .head nav { display: flex; gap: 1.5rem; font-size: 0.9375rem; color: var(--muted); }
-  .head nav a { text-decoration: none; }
+  .head nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 0.9375rem; color: var(--muted); }
+  /* A link is one word to the eye: it wraps to the next line whole, never inside itself. */
+  .head nav a { text-decoration: none; white-space: nowrap; }
 
   /* The one picture. */
   .hero { padding: clamp(2rem, 6vw, 4.5rem) 0 0; }
@@ -253,7 +254,7 @@
       </span>
     </div>
     <p class="under">
-      <span class="try try--desk">Try: paste a verse and watch it file itself &middot; type <b>/</b> for a point &middot; press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; press the <b>Bible map</b>, the grid beside the search</span>
+      <span class="try try--desk">Try: paste a verse and watch it file itself &middot; type <b>/</b> for a point &middot; press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; press <b>Bible map</b>, beside the search</span>
       <span class="try try--phone">Try: press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; open the library and press a tag</span>
       <span>Windows and Mac &middot; works offline</span>
     </p>
