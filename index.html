@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="74e774f">
+<meta name="sermondesk-source" content="8bfa37b">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
@@ -141,8 +141,11 @@
     border: 1px solid var(--rule); background: var(--panel); color: var(--ink); cursor: pointer;
   }
   .scenes button[aria-pressed='true'] { border-color: var(--oxblood); color: var(--oxblood); }
-  .scenes__reset { margin-left: auto; color: var(--muted); }
-  .scenes__reset:hover { color: var(--ink); border-color: var(--ink); }
+  .scenes__end { display: flex; gap: 0.4rem; margin-left: auto; }
+  .scenes__quiet { color: var(--muted); }
+  .scenes__quiet:hover { color: var(--ink); border-color: var(--ink); }
+  /* On the whole screen the frame is the screen; the stage's own edges would only be seen as a border. */
+  .stage:fullscreen, .stage:fullscreen iframe { border: 0; border-radius: 0; background: #0b0c0e; }
   .under {
     display: flex;
     flex-wrap: wrap;
@@ -232,7 +235,7 @@
     <h1>Write the sermon <em>once.</em></h1>
     <p class="lede">A manuscript, an outline, a handout, and a podium screen from one draft, kept as plain files on your own computer. This is the app, running here with a few sermons in it.</p>
     <div class="stage">
-      <iframe id="demo" src="demo/" title="SermonDesk, live on this page, with a demo library." loading="lazy"></iframe>
+      <iframe id="demo" src="demo/" title="SermonDesk, live on this page, with a demo library." loading="lazy" allow="fullscreen" allowfullscreen></iframe>
     </div>
     <p class="note">
       <span class="note--desk">This is the real app, running in your browser. Click anything, type anything: nothing you do here is saved, and nothing leaves this page.</span>
@@ -244,7 +247,10 @@
       <button type="button" data-scene="outline">Outline</button>
       <button type="button" data-scene="handout">Handout</button>
       <button type="button" data-scene="preach">Preach</button>
-      <button type="button" class="scenes__reset" data-reset title="Put the demo back the way it was">Start over</button>
+      <span class="scenes__end">
+        <button type="button" class="scenes__quiet" data-fullscreen title="The demo on the whole screen; Esc brings the page back">Full screen</button>
+        <button type="button" class="scenes__quiet" data-reset title="Put the demo back the way it was">Start over</button>
+      </span>
     </div>
     <p class="under">
       <span class="try try--desk">Try: paste a verse and watch it file itself &middot; type <b>/</b> for a point &middot; press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; press the <b>Bible map</b>, the grid beside the search</span>
@@ -388,6 +394,20 @@
         setTimeout(release, ready ? 2500 : 8000)
       })
     }
+    // Full screen: the stage, frame and all, on the whole screen, until Esc.
+    // A browser that cannot do that, a phone's mostly, gets the demo in a
+    // tab of its own instead, on the view that is pressed.
+    const stage = document.querySelector('.stage')
+    document.querySelector('[data-fullscreen]').addEventListener('click', (event) => {
+      event.currentTarget.blur()
+      if (document.fullscreenElement) { void document.exitFullscreen(); return }
+      const pressed = chips.find((chip) => chip.getAttribute('aria-pressed') === 'true')
+      if (stage.requestFullscreen) stage.requestFullscreen().catch(() => window.open('demo/?scene=' + (pressed ? pressed.dataset.scene : 'write'), '_blank', 'noopener'))
+      else window.open('demo/?scene=' + (pressed ? pressed.dataset.scene : 'write'), '_blank', 'noopener')
+    })
+    document.addEventListener('fullscreenchange', () => {
+      document.querySelector('[data-fullscreen]').textContent = document.fullscreenElement ? 'Leave full screen' : 'Full screen'
+    })
     // Start over: the frame is opened afresh on the view that is pressed,
     // and the demo's few sermons come back as they were. Nothing is kept
     // between loads, so a reload is the whole reset.
