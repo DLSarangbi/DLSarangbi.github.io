@@ -16645,7 +16645,21 @@ const es = {
   "Made it a sub-point": "Convertido en subpunto",
   "Made it a sub-sub-point": "Convertido en sub-subpunto",
   "On a point's heading, a sub-point under the point before it": "En el encabezado de un punto, un subpunto bajo el punto anterior",
-  "And a sub-point back out to a point": "Y un subpunto de vuelta a punto"
+  "And a sub-point back out to a point": "Y un subpunto de vuelta a punto",
+  "Narrow to one of your views": "Limitar a una de tus vistas",
+  "Find a view": "Buscar una vista",
+  "No view is called that.": "Ninguna vista se llama así.",
+  "pinned": "fijada",
+  "Show {n} more": "Mostrar {n} más",
+  "Show fewer": "Mostrar menos",
+  "Churches in the preaching log": "Iglesias del registro de predicaciones",
+  "Pin to the row": "Fijar en la fila",
+  "Unpin from the row": "Quitar de la fila",
+  "Pin to the library’s row, whether or not it is live": "Fijar en la fila de la biblioteca, esté activa o no",
+  "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Una vista fijada va en la fila; en cuanto hay una fijada, las demás esperan tras una ficha Vistas",
+  "Narrow to one occasion": "Limitar a una ocasión",
+  "Find an occasion": "Buscar una ocasión",
+  "No occasion is called that.": "Ninguna ocasión se llama así."
 };
 const ko = {
   "Drag to move this picture": "끌어서 이 그림을 옮깁니다",
@@ -18177,7 +18191,21 @@ const ko = {
   "Made it a sub-point": "소대지로 바꿈",
   "Made it a sub-sub-point": "세부 대지로 바꿈",
   "On a point's heading, a sub-point under the point before it": "대지 제목에서, 앞 대지 아래의 소대지로",
-  "And a sub-point back out to a point": "소대지를 다시 대지로"
+  "And a sub-point back out to a point": "소대지를 다시 대지로",
+  "Narrow to one of your views": "내 보기 중 하나로 좁히기",
+  "Find a view": "보기 찾기",
+  "No view is called that.": "그런 이름의 보기가 없습니다.",
+  "pinned": "고정됨",
+  "Show {n} more": "{n}개 더 보기",
+  "Show fewer": "접기",
+  "Churches in the preaching log": "설교 기록의 교회",
+  "Pin to the row": "줄에 고정",
+  "Unpin from the row": "줄에서 고정 해제",
+  "Pin to the library’s row, whether or not it is live": "최근 사용 여부와 상관없이 서재 줄에 고정",
+  "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "고정한 보기는 줄에 남고, 하나라도 고정하면 나머지는 보기 칩 뒤에서 기다립니다",
+  "Narrow to one occasion": "한 행사로 좁히기",
+  "Find an occasion": "행사 찾기",
+  "No occasion is called that.": "그런 이름의 행사가 없습니다."
 };
 const pt$3 = {
   "Drag to move this picture": "Arraste para mover esta imagem",
@@ -19709,7 +19737,21 @@ const pt$3 = {
   "Made it a sub-point": "Virou um subponto",
   "Made it a sub-sub-point": "Virou um sub-subponto",
   "On a point's heading, a sub-point under the point before it": "No título de um ponto, um subponto sob o ponto anterior",
-  "And a sub-point back out to a point": "E um subponto de volta a ponto"
+  "And a sub-point back out to a point": "E um subponto de volta a ponto",
+  "Narrow to one of your views": "Restringir a uma das suas visualizações",
+  "Find a view": "Buscar uma visualização",
+  "No view is called that.": "Nenhuma visualização tem esse nome.",
+  "pinned": "fixada",
+  "Show {n} more": "Mostrar mais {n}",
+  "Show fewer": "Mostrar menos",
+  "Churches in the preaching log": "Igrejas do registro de pregações",
+  "Pin to the row": "Fixar na linha",
+  "Unpin from the row": "Desafixar da linha",
+  "Pin to the library’s row, whether or not it is live": "Fixar na linha da biblioteca, ativa ou não",
+  "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Uma visualização fixada fica na linha; assim que uma é fixada, as outras esperam atrás de uma etiqueta Visualizações",
+  "Narrow to one occasion": "Restringir a uma ocasião",
+  "Find an occasion": "Buscar uma ocasião",
+  "No occasion is called that.": "Nenhuma ocasião tem esse nome."
 };
 const fr$3 = {
   "Drag to move this picture": "Glisser pour déplacer cette image",
@@ -21241,7 +21283,21 @@ const fr$3 = {
   "Made it a sub-point": "Devenu un sous-point",
   "Made it a sub-sub-point": "Devenu un sous-sous-point",
   "On a point's heading, a sub-point under the point before it": "Sur le titre d'un point, un sous-point sous le point précédent",
-  "And a sub-point back out to a point": "Et un sous-point redevient un point"
+  "And a sub-point back out to a point": "Et un sous-point redevient un point",
+  "Narrow to one of your views": "Restreindre à l'une de vos vues",
+  "Find a view": "Trouver une vue",
+  "No view is called that.": "Aucune vue ne porte ce nom.",
+  "pinned": "épinglée",
+  "Show {n} more": "En afficher {n} de plus",
+  "Show fewer": "En afficher moins",
+  "Churches in the preaching log": "Églises du journal de prédication",
+  "Pin to the row": "Épingler à la rangée",
+  "Unpin from the row": "Détacher de la rangée",
+  "Pin to the library’s row, whether or not it is live": "Épingler à la rangée de la bibliothèque, qu'elle soit active ou non",
+  "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Une vue épinglée reste dans la rangée ; dès qu'une l'est, les autres attendent derrière une puce Vues",
+  "Narrow to one occasion": "Restreindre à une occasion",
+  "Find an occasion": "Trouver une occasion",
+  "No occasion is called that.": "Aucune occasion ne porte ce nom."
 };
 const de$1 = {
   "Drag to move this picture": "Ziehen, um dieses Bild zu verschieben",
@@ -22773,7 +22829,21 @@ const de$1 = {
   "Made it a sub-point": "Zum Unterpunkt gemacht",
   "Made it a sub-sub-point": "Zum Unter-Unterpunkt gemacht",
   "On a point's heading, a sub-point under the point before it": "Auf der Überschrift eines Punkts ein Unterpunkt unter dem Punkt davor",
-  "And a sub-point back out to a point": "Und ein Unterpunkt wieder ein Punkt"
+  "And a sub-point back out to a point": "Und ein Unterpunkt wieder ein Punkt",
+  "Narrow to one of your views": "Auf eine Ihrer Ansichten eingrenzen",
+  "Find a view": "Eine Ansicht suchen",
+  "No view is called that.": "Keine Ansicht heißt so.",
+  "pinned": "angeheftet",
+  "Show {n} more": "{n} weitere zeigen",
+  "Show fewer": "Weniger zeigen",
+  "Churches in the preaching log": "Gemeinden aus dem Predigtprotokoll",
+  "Pin to the row": "An die Leiste heften",
+  "Unpin from the row": "Von der Leiste lösen",
+  "Pin to the library’s row, whether or not it is live": "An die Leiste der Bibliothek heften, ob aktiv oder nicht",
+  "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Eine angeheftete Ansicht bleibt in der Leiste; sobald eine angeheftet ist, warten die übrigen hinter einem Ansichten-Chip",
+  "Narrow to one occasion": "Auf einen Anlass eingrenzen",
+  "Find an occasion": "Einen Anlass suchen",
+  "No occasion is called that.": "Kein Anlass heißt so."
 };
 const zh = {
   "Drag to move this picture": "拖动以移动此图片",
@@ -24305,7 +24375,21 @@ const zh = {
   "Made it a sub-point": "已设为子要点",
   "Made it a sub-sub-point": "已设为次子要点",
   "On a point's heading, a sub-point under the point before it": "在要点标题上，成为前一要点下的子要点",
-  "And a sub-point back out to a point": "子要点升回要点"
+  "And a sub-point back out to a point": "子要点升回要点",
+  "Narrow to one of your views": "限定为你的某个视图",
+  "Find a view": "查找视图",
+  "No view is called that.": "没有叫这个名字的视图。",
+  "pinned": "已固定",
+  "Show {n} more": "再显示 {n} 个",
+  "Show fewer": "收起",
+  "Churches in the preaching log": "讲道记录中的教会",
+  "Pin to the row": "固定到标签行",
+  "Unpin from the row": "从标签行取消固定",
+  "Pin to the library’s row, whether or not it is live": "固定到讲章库的标签行，无论是否活跃",
+  "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "固定的视图留在标签行；一旦有视图被固定，其余的放在“视图”标签后",
+  "Narrow to one occasion": "限定为一个场合",
+  "Find an occasion": "查找场合",
+  "No occasion is called that.": "没有叫这个名字的场合。"
 };
 const ja = {
   "Drag to move this picture": "ドラッグしてこの画像を移動",
@@ -25837,7 +25921,21 @@ const ja = {
   "Made it a sub-point": "小ポイントにしました",
   "Made it a sub-sub-point": "小々ポイントにしました",
   "On a point's heading, a sub-point under the point before it": "ポイントの見出しで、前のポイントの下の小ポイントに",
-  "And a sub-point back out to a point": "小ポイントをポイントに戻す"
+  "And a sub-point back out to a point": "小ポイントをポイントに戻す",
+  "Narrow to one of your views": "ビューの一つに絞る",
+  "Find a view": "ビューを検索",
+  "No view is called that.": "その名前のビューはありません。",
+  "pinned": "固定",
+  "Show {n} more": "あと {n} 件を表示",
+  "Show fewer": "表示を減らす",
+  "Churches in the preaching log": "説教記録の教会",
+  "Pin to the row": "行に固定",
+  "Unpin from the row": "行の固定を解除",
+  "Pin to the library’s row, whether or not it is live": "ライブラリの行に固定する（最近使っていなくても）",
+  "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "固定したビューは行に残り、一つでも固定すると残りは「ビュー」チップの中に入ります",
+  "Narrow to one occasion": "一つの行事に絞る",
+  "Find an occasion": "行事を検索",
+  "No occasion is called that.": "その名前の行事はありません。"
 };
 const tl = {
   "Drag to move this picture": "I-drag para ilipat ang larawang ito",
@@ -27369,7 +27467,21 @@ const tl = {
   "Made it a sub-point": "Ginawang sub-point",
   "Made it a sub-sub-point": "Ginawang sub-sub-point",
   "On a point's heading, a sub-point under the point before it": "Sa heading ng point, isang sub-point sa ilalim ng naunang point",
-  "And a sub-point back out to a point": "At ang sub-point pabalik sa point"
+  "And a sub-point back out to a point": "At ang sub-point pabalik sa point",
+  "Narrow to one of your views": "Limitahan sa isa sa iyong mga view",
+  "Find a view": "Maghanap ng view",
+  "No view is called that.": "Walang view na may ganyang pangalan.",
+  "pinned": "naka-pin",
+  "Show {n} more": "Ipakita pa ang {n}",
+  "Show fewer": "Ipakita nang mas kaunti",
+  "Churches in the preaching log": "Mga simbahan mula sa talaan ng pangangaral",
+  "Pin to the row": "I-pin sa hanay",
+  "Unpin from the row": "Alisin ang pin sa hanay",
+  "Pin to the library’s row, whether or not it is live": "I-pin sa hanay ng aklatan, aktibo man o hindi",
+  "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Ang naka-pin na view ay nasa hanay; kapag may naka-pin, ang iba ay naghihintay sa likod ng chip na Mga view",
+  "Narrow to one occasion": "Limitahan sa isang okasyon",
+  "Find an occasion": "Maghanap ng okasyon",
+  "No occasion is called that.": "Walang okasyon na may ganyang pangalan."
 };
 const id = {
   "Drag to move this picture": "Seret untuk memindahkan gambar ini",
@@ -28901,7 +29013,21 @@ const id = {
   "Made it a sub-point": "Dijadikan sub-poin",
   "Made it a sub-sub-point": "Dijadikan sub-sub-poin",
   "On a point's heading, a sub-point under the point before it": "Pada judul poin, menjadi sub-poin di bawah poin sebelumnya",
-  "And a sub-point back out to a point": "Dan sub-poin kembali menjadi poin"
+  "And a sub-point back out to a point": "Dan sub-poin kembali menjadi poin",
+  "Narrow to one of your views": "Batasi ke salah satu tampilan Anda",
+  "Find a view": "Cari tampilan",
+  "No view is called that.": "Tidak ada tampilan dengan nama itu.",
+  "pinned": "disematkan",
+  "Show {n} more": "Tampilkan {n} lagi",
+  "Show fewer": "Tampilkan lebih sedikit",
+  "Churches in the preaching log": "Gereja dari catatan khotbah",
+  "Pin to the row": "Sematkan ke baris",
+  "Unpin from the row": "Lepas dari baris",
+  "Pin to the library’s row, whether or not it is live": "Sematkan ke baris pustaka, aktif maupun tidak",
+  "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Tampilan yang disematkan ada di baris; begitu ada yang disematkan, yang lain menunggu di balik chip Tampilan",
+  "Narrow to one occasion": "Batasi ke satu kesempatan",
+  "Find an occasion": "Cari kesempatan",
+  "No occasion is called that.": "Tidak ada kesempatan dengan nama itu."
 };
 const ru = {
   "Drag to move this picture": "Перетащите, чтобы переместить это изображение",
@@ -30433,7 +30559,21 @@ const ru = {
   "Made it a sub-point": "Сделано подпунктом",
   "Made it a sub-sub-point": "Сделано под-подпунктом",
   "On a point's heading, a sub-point under the point before it": "На заголовке пункта — подпункт под предыдущим пунктом",
-  "And a sub-point back out to a point": "И подпункт обратно в пункт"
+  "And a sub-point back out to a point": "И подпункт обратно в пункт",
+  "Narrow to one of your views": "Сузить до одного из ваших видов",
+  "Find a view": "Найти вид",
+  "No view is called that.": "Вида с таким названием нет.",
+  "pinned": "закреплён",
+  "Show {n} more": "Показать ещё {n}",
+  "Show fewer": "Показать меньше",
+  "Churches in the preaching log": "Церкви из журнала проповедей",
+  "Pin to the row": "Закрепить в ряду",
+  "Unpin from the row": "Открепить от ряда",
+  "Pin to the library’s row, whether or not it is live": "Закрепить в ряду библиотеки, активен он или нет",
+  "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Закреплённый вид остаётся в ряду; как только один закреплён, остальные ждут за чипом «Виды»",
+  "Narrow to one occasion": "Сузить до одного повода",
+  "Find an occasion": "Найти повод",
+  "No occasion is called that.": "Повода с таким названием нет."
 };
 const sw = {
   "Drag to move this picture": "Buruta kuhamisha picha hii",
@@ -31965,7 +32105,21 @@ const sw = {
   "Made it a sub-point": "Imefanywa hoja ndogo",
   "Made it a sub-sub-point": "Imefanywa hoja ndogo zaidi",
   "On a point's heading, a sub-point under the point before it": "Kwenye kichwa cha hoja, hoja ndogo chini ya hoja iliyotangulia",
-  "And a sub-point back out to a point": "Na hoja ndogo kurudi kuwa hoja"
+  "And a sub-point back out to a point": "Na hoja ndogo kurudi kuwa hoja",
+  "Narrow to one of your views": "Finya kwa mmoja wa mionekano yako",
+  "Find a view": "Tafuta mwonekano",
+  "No view is called that.": "Hakuna mwonekano wenye jina hilo.",
+  "pinned": "umebandikwa",
+  "Show {n} more": "Onyesha {n} zaidi",
+  "Show fewer": "Onyesha chache",
+  "Churches in the preaching log": "Makanisa kutoka kwenye kumbukumbu ya mahubiri",
+  "Pin to the row": "Bandika kwenye safu",
+  "Unpin from the row": "Ondoa kwenye safu",
+  "Pin to the library’s row, whether or not it is live": "Bandika kwenye safu ya maktaba, iwe hai au la",
+  "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Mwonekano uliobandikwa hukaa kwenye safu; mmoja ukibandikwa, mingine husubiri nyuma ya kitufe cha Mionekano",
+  "Narrow to one occasion": "Finya kwa tukio moja",
+  "Find an occasion": "Tafuta tukio",
+  "No occasion is called that.": "Hakuna tukio lenye jina hilo."
 };
 const TABLES = { en: {}, es, ko, pt: pt$3, fr: fr$3, de: de$1, zh, ja, tl, id, ru, sw };
 function fill(text, vars) {
@@ -32740,7 +32894,7 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
   }
   return Component;
 }
-const __iconData$11 = {
+const __iconData$12 = {
   name: "a-arrow-down",
   size: 24,
   node: [
@@ -32750,9 +32904,9 @@ const __iconData$11 = {
     ["path", { d: "M3.304 13h6.392", key: "1q3zxz" }]
   ]
 };
-__iconData$11.node;
-const AArrowDown = createLucideIcon(__iconData$11);
-const __iconData$10 = {
+__iconData$12.node;
+const AArrowDown = createLucideIcon(__iconData$12);
+const __iconData$11 = {
   name: "a-arrow-up",
   size: 24,
   node: [
@@ -32762,9 +32916,9 @@ const __iconData$10 = {
     ["path", { d: "M3.304 13h6.392", key: "1q3zxz" }]
   ]
 };
-__iconData$10.node;
-const AArrowUp = createLucideIcon(__iconData$10);
-const __iconData$$ = {
+__iconData$11.node;
+const AArrowUp = createLucideIcon(__iconData$11);
+const __iconData$10 = {
   name: "align-vertical-space-around",
   size: 24,
   node: [
@@ -32773,9 +32927,9 @@ const __iconData$$ = {
     ["path", { d: "M22 4H2", key: "1b7qnq" }]
   ]
 };
-__iconData$$.node;
-const AlignVerticalSpaceAround = createLucideIcon(__iconData$$);
-const __iconData$_ = {
+__iconData$10.node;
+const AlignVerticalSpaceAround = createLucideIcon(__iconData$10);
+const __iconData$$ = {
   name: "arrow-down",
   size: 24,
   node: [
@@ -32783,9 +32937,9 @@ const __iconData$_ = {
     ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
   ]
 };
-__iconData$_.node;
-const ArrowDown = createLucideIcon(__iconData$_);
-const __iconData$Z = {
+__iconData$$.node;
+const ArrowDown = createLucideIcon(__iconData$$);
+const __iconData$_ = {
   name: "arrow-up",
   size: 24,
   node: [
@@ -32793,9 +32947,9 @@ const __iconData$Z = {
     ["path", { d: "M12 19V5", key: "x0mq9r" }]
   ]
 };
-__iconData$Z.node;
-const ArrowUp = createLucideIcon(__iconData$Z);
-const __iconData$Y = {
+__iconData$_.node;
+const ArrowUp = createLucideIcon(__iconData$_);
+const __iconData$Z = {
   name: "book-bookmark",
   size: 24,
   node: [
@@ -32816,9 +32970,9 @@ const __iconData$Y = {
   ],
   aliases: ["book-marked"]
 };
-__iconData$Y.node;
-const BookBookmark = createLucideIcon(__iconData$Y);
-const __iconData$X = {
+__iconData$Z.node;
+const BookBookmark = createLucideIcon(__iconData$Z);
+const __iconData$Y = {
   name: "book-open",
   size: 24,
   node: [
@@ -32832,9 +32986,9 @@ const __iconData$X = {
     ]
   ]
 };
-__iconData$X.node;
-const BookOpen = createLucideIcon(__iconData$X);
-const __iconData$W = {
+__iconData$Y.node;
+const BookOpen = createLucideIcon(__iconData$Y);
+const __iconData$X = {
   name: "box",
   size: 24,
   node: [
@@ -32849,9 +33003,9 @@ const __iconData$W = {
     ["path", { d: "M12 22V12", key: "d0xqtd" }]
   ]
 };
-__iconData$W.node;
-const Box$1 = createLucideIcon(__iconData$W);
-const __iconData$V = {
+__iconData$X.node;
+const Box$1 = createLucideIcon(__iconData$X);
+const __iconData$W = {
   name: "calendar-days",
   size: 24,
   node: [
@@ -32867,29 +33021,36 @@ const __iconData$V = {
     ["path", { d: "M16 17h.01", key: "ql8jdd" }]
   ]
 };
-__iconData$V.node;
-const CalendarDays = createLucideIcon(__iconData$V);
-const __iconData$U = {
+__iconData$W.node;
+const CalendarDays = createLucideIcon(__iconData$W);
+const __iconData$V = {
   name: "check",
   size: 24,
   node: [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]]
 };
-__iconData$U.node;
-const Check$1 = createLucideIcon(__iconData$U);
-const __iconData$T = {
+__iconData$V.node;
+const Check$1 = createLucideIcon(__iconData$V);
+const __iconData$U = {
   name: "chevron-right",
   size: 24,
   node: [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]]
 };
-__iconData$T.node;
-const ChevronRight = createLucideIcon(__iconData$T);
-const __iconData$S = {
+__iconData$U.node;
+const ChevronRight = createLucideIcon(__iconData$U);
+const __iconData$T = {
   name: "chevron-left",
   size: 24,
   node: [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]]
 };
+__iconData$T.node;
+const ChevronLeft = createLucideIcon(__iconData$T);
+const __iconData$S = {
+  name: "chevron-up",
+  size: 24,
+  node: [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]]
+};
 __iconData$S.node;
-const ChevronLeft = createLucideIcon(__iconData$S);
+const ChevronUp = createLucideIcon(__iconData$S);
 const __iconData$R = {
   name: "church",
   size: 24,
@@ -89877,14 +90038,18 @@ function PopoverButton({
   align = "left",
   active = false,
   disabled = false,
-  caret = false
+  caret = false,
+  float = false
 }) {
   const [open2, setOpen] = reactExports$1.useState(false);
   const ref = reactExports$1.useRef(null);
+  const panelRef = reactExports$1.useRef(null);
+  const [at2, setAt] = reactExports$1.useState(null);
   reactExports$1.useEffect(() => {
     if (!open2) return;
     const onMouseDown = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) setOpen(false);
+      const target = event.target;
+      if (ref.current && !ref.current.contains(target) && !(panelRef.current?.contains(target) ?? false)) setOpen(false);
     };
     const onKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -89899,6 +90064,26 @@ function PopoverButton({
       document.removeEventListener("keydown", onKeyDown, true);
     };
   }, [open2]);
+  reactExports$1.useLayoutEffect(() => {
+    if (!open2 || !float) return;
+    const host = ref.current;
+    const width = panelRef.current?.offsetWidth ?? 0;
+    if (host) {
+      const rect = host.getBoundingClientRect();
+      const wanted = align === "right" ? rect.right - width : rect.left;
+      setAt({ top: rect.bottom + 6, left: Math.max(8, Math.min(wanted, window.innerWidth - width - 8)) });
+    }
+    const away = (event) => {
+      if (event.type === "scroll" && event.target instanceof Node && (panelRef.current?.contains(event.target) ?? false)) return;
+      setOpen(false);
+    };
+    window.addEventListener("resize", away);
+    document.addEventListener("scroll", away, true);
+    return () => {
+      window.removeEventListener("resize", away);
+      document.removeEventListener("scroll", away, true);
+    };
+  }, [open2, float, align]);
   const base2 = buttonClass.split(" ")[0] ?? "tool";
   const classes = [buttonClass, open2 || active ? `${base2}--active` : ""].filter(Boolean).join(" ");
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: ["popover-host", hostClass].filter(Boolean).join(" "), ref, children: [
@@ -89920,7 +90105,7 @@ function PopoverButton({
         ]
       }
     ),
-    open2 && /* @__PURE__ */ jsxRuntimeExports.jsx(
+    open2 && !float && /* @__PURE__ */ jsxRuntimeExports.jsx(
       "div",
       {
         className: ["popover", align === "right" ? "popover--right" : "", panelClass].filter(Boolean).join(" "),
@@ -89928,6 +90113,20 @@ function PopoverButton({
         onMouseDown: (event) => event.preventDefault(),
         children: children(() => setOpen(false))
       }
+    ),
+    open2 && float && reactDomExports.createPortal(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          ref: panelRef,
+          className: ["popover popover--floating", panelClass].filter(Boolean).join(" "),
+          role: "menu",
+          style: at2 ? { top: at2.top, left: at2.left } : { visibility: "hidden" },
+          onMouseDown: (event) => event.preventDefault(),
+          children: children(() => setOpen(false))
+        }
+      ),
+      document.body
     )
   ] });
 }
@@ -96167,6 +96366,7 @@ function TagMenu({
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     PopoverButton,
     {
+      float: true,
       buttonClass: chosen ? "chip chip--on chip--menu" : "chip chip--menu",
       label: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         icon ?? /* @__PURE__ */ jsxRuntimeExports.jsx(Tag, { size: 12, strokeWidth: 1.8 }),
@@ -96233,6 +96433,7 @@ function SeriesMenu({ series, chosenId, onPick }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     PopoverButton,
     {
+      float: true,
       buttonClass: "chip chip--menu",
       label: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Folder, { size: 12, strokeWidth: 1.8 }),
@@ -96319,13 +96520,14 @@ function TagChips({
       Chip,
       {
         on: isChosen(entry.name),
+        className: pinned.some((row) => sameTag(row.name, entry.name)) ? "chip--pinned" : void 0,
         icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Tag, { size: 12, strokeWidth: 1.8 }),
         label: entry.name,
         onClick: () => toggleTag(entry.name)
       },
       entry.name
     )),
-    occasions.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: t2("Occasion"), tags: occasions, chosen: occasion || null, onPick: (name) => setOccasion(name ?? "") }),
+    occasions.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: t2("Occasion"), tags: occasions, chosen: occasion || null, onPick: (name) => setOccasion(name ?? ""), words: { narrow: t2("Narrow to one occasion"), find: t2("Find an occasion"), none: t2("No occasion is called that.") } }),
     groups.map(({ group, tags: members }) => (
       // One control for one choice: a chosen tag riding in the row as its
       // own chip is not named on the group's chip too.
@@ -96342,13 +96544,78 @@ function TagChips({
     })(), onPick: (name) => chooseTag(name, null) })
   ] });
 }
-function Filters({ book, setBook, chapter, setChapter, from: from2, setFrom, to: to2, setTo, narrowed, clearFilters, writable, canSave, viewName, setViewName, saveView, activeView, forgetView }) {
+function ViewsMenu({ views, activeId, onPick }) {
+  const t2 = useT();
+  const [needle, setNeedle] = reactExports$1.useState("");
+  const shown = needle.trim() ? views.filter((view) => view.name.toLowerCase().includes(needle.trim().toLowerCase())) : views;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    PopoverButton,
+    {
+      float: true,
+      buttonClass: "chip chip--menu",
+      label: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 12, strokeWidth: 1.8 }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip__label", children: t2("Views") }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 11, strokeWidth: 2, className: "chip__caret" })
+      ] }),
+      title: t2("Narrow to one of your views"),
+      ariaLabel: t2("Views"),
+      panelClass: "tagpick",
+      children: (close2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        views.length > FILTER_FROM && /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            className: "field selectable tagpick__find",
+            placeholder: t2("Find a view"),
+            "aria-label": t2("Find a view"),
+            value: needle,
+            autoFocus: true,
+            onChange: (event) => setNeedle(event.target.value),
+            onKeyDown: (event) => {
+              event.stopPropagation();
+              if (event.key === "Enter" && shown.length === 1) {
+                onPick(shown[0]);
+                setNeedle("");
+                close2();
+              }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tagpick__list", role: "listbox", children: [
+          shown.map((view) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "button",
+            {
+              type: "button",
+              role: "option",
+              "aria-selected": activeId === view.id,
+              className: activeId === view.id ? "tagpick__item tagpick__item--on" : "tagpick__item",
+              onClick: () => {
+                onPick(view);
+                setNeedle("");
+                close2();
+              },
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tagpick__name", children: view.name }),
+                view.pinned && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tagpick__note", children: t2("pinned") }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tagpick__count", children: view.sermonCount })
+              ]
+            },
+            view.id
+          )),
+          shown.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "tagpick__none", children: t2("No view is called that.") })
+        ] })
+      ] })
+    }
+  );
+}
+function Filters({ book, setBook, chapter, setChapter, from: from2, setFrom, to: to2, setTo, narrowed, clearFilters, writable, canSave, viewName, setViewName, saveView, activeView, forgetView, pinView }) {
   const language = useLanguage();
   const t2 = useT();
   const behindMore = (book !== "" ? 1 : 0) + (from2 || to2 ? 1 : 0);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     PopoverButton,
     {
+      float: true,
       buttonClass: "chip chip--more",
       label: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(SlidersHorizontal, { size: 12, strokeWidth: 1.8 }),
@@ -96409,6 +96676,10 @@ function Filters({ book, setBook, chapter, setChapter, from: from2, setFrom, to:
             clearFilters();
             close2();
           }, children: t2("Clear filters") }),
+          writable && activeView && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: t2("A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip"), onClick: () => {
+            void pinView(activeView.id, !activeView.pinned);
+            close2();
+          }, children: activeView.pinned ? t2("Unpin from the row") : t2("Pin to the row") }),
           writable && activeView && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => {
             void forgetView(activeView.id);
             close2();
@@ -96711,7 +96982,8 @@ function readSearch(text, names, t2) {
     [foldText(name), name],
     [foldText(t2(name)), name]
   ]);
-  for (const token of text.trim().split(/\s+/)) {
+  for (const raw of text.match(/[#@]"[^"]*"?|"[^"]*"?|\S+/g) ?? []) {
+    const token = /^[#@]"/.test(raw) ? raw[0] + raw.slice(2).replace(/"$/, "") : raw;
     if (!token) continue;
     if (token.startsWith('"') || token.startsWith("“")) {
       const bare = token.replace(/^["“]+|["”]+$/g, "");
@@ -96937,6 +97209,7 @@ function narrowingOf(query) {
   return out;
 }
 const sameNarrowing = (a2, b2) => JSON.stringify(narrowingOf(a2)) === JSON.stringify(narrowingOf(b2));
+const FOLD_KEY = "sermondesk.library.chips.folded";
 function LibraryColumn({
   openPath,
   onOpen,
@@ -96982,23 +97255,98 @@ function LibraryColumn({
     day.setFullYear(day.getFullYear() - 1);
     return isoDate(day);
   }, []);
-  const riding = series.filter((entry) => seriesId === entry.id || !entry.retired && (entry.sermonCount === 0 || entry.planned.length > 0 || entry.last !== null && entry.last >= yearAgo));
+  const riding = series.filter((entry) => seriesId === entry.id || entry.pinned || !entry.retired && (entry.sermonCount === 0 || entry.planned.length > 0 || entry.last !== null && entry.last >= yearAgo));
+  const anyPinned = views.some((view) => view.pinned === true);
+  const ridingViews = views.filter((view) => activeView?.id === view.id || (anyPinned ? view.pinned === true : views.length <= 3));
   const folded = narrowed;
+  const asSaved = (view) => ({ id: view.id, name: view.name, query: view.query, ...view.pinned ? { pinned: true } : {} });
   const saveView = async () => {
     const name = viewName.trim();
     if (!name) return;
     const next = [...views, { id: crypto.randomUUID(), name, query: narrowingOf(query), sermonCount: hits.length }];
     setViewName("");
     try {
-      setViews(await window.api.saveViews(next.map(({ id: id2, name: n2, query: q22 }) => ({ id: id2, name: n2, query: q22 }))));
+      setViews(await window.api.saveViews(next.map(asSaved)));
     } catch {
     }
   };
   const forgetView = async (id2) => {
     try {
-      setViews(await window.api.saveViews(views.filter((view) => view.id !== id2).map(({ id: i2, name, query: q22 }) => ({ id: i2, name, query: q22 }))));
+      setViews(await window.api.saveViews(views.filter((view) => view.id !== id2).map(asSaved)));
     } catch {
     }
+  };
+  const pinView = async (id2, pinned) => {
+    try {
+      setViews(await window.api.saveViews(views.map((view) => asSaved(view.id === id2 ? { ...view, pinned } : view))));
+    } catch {
+    }
+  };
+  const chipsRef = reactExports$1.useRef(null);
+  const [expanded, setExpanded] = reactExports$1.useState(() => {
+    try {
+      return localStorage.getItem(FOLD_KEY) !== "1";
+    } catch {
+      return true;
+    }
+  });
+  const toggleExpanded = () => {
+    setExpanded((open2) => {
+      try {
+        localStorage.setItem(FOLD_KEY, open2 ? "1" : "0");
+      } catch {
+      }
+      return !open2;
+    });
+  };
+  const [beyond, setBeyond] = reactExports$1.useState(0);
+  const [lineHeight, setLineHeight] = reactExports$1.useState(24);
+  const [more, setMore] = reactExports$1.useState({ left: false, right: false });
+  const countBeyond = reactExports$1.useCallback(() => {
+    const row = chipsRef.current;
+    if (!row) return;
+    const left = row.scrollLeft > 2;
+    const right = row.scrollLeft + row.clientWidth < row.scrollWidth - 2;
+    setMore((current2) => current2.left === left && current2.right === right ? current2 : { left, right });
+    const chips = [...row.children].filter((el) => el instanceof HTMLElement && !el.classList.contains("library__chips-more"));
+    if (chips.length === 0) {
+      setBeyond(0);
+      return;
+    }
+    const first2 = Math.min(...chips.map((el) => el.offsetTop));
+    setLineHeight(Math.max(24, ...chips.filter((el) => el.offsetTop <= first2 + 4).map((el) => el.offsetTop + el.offsetHeight - first2)));
+    setBeyond(chips.filter((el) => el.offsetTop > first2 + 4).length);
+  }, []);
+  reactExports$1.useLayoutEffect(countBeyond);
+  reactExports$1.useEffect(() => {
+    const row = chipsRef.current;
+    if (!row) return;
+    const observer = new ResizeObserver(countBeyond);
+    observer.observe(row);
+    row.addEventListener("scroll", countBeyond, { passive: true });
+    return () => {
+      observer.disconnect();
+      row.removeEventListener("scroll", countBeyond);
+    };
+  }, [countBeyond]);
+  const narrowingKey = `${thisWeek}:${JSON.stringify(narrowingOf(query))}`;
+  reactExports$1.useEffect(() => {
+    chipsRef.current?.scrollTo({ left: 0 });
+  }, [narrowingKey]);
+  const [searchFocused, setSearchFocused] = reactExports$1.useState(false);
+  const [pick, setPick] = reactExports$1.useState(0);
+  const lastToken = reactExports$1.useMemo(() => /(?:^|\s)([#@]\S*)$/.exec(text)?.[1] ?? "", [text]);
+  const offers = reactExports$1.useMemo(() => {
+    if (!searchFocused || !lastToken || scope === "stories") return [];
+    const key2 = foldText(lastToken.slice(1));
+    const pool = lastToken.startsWith("#") ? tags.map((row) => ({ name: row.name, count: row.sermonCount })) : churches.map((row) => ({ name: row.name, count: row.sermonCount }));
+    return pool.filter((entry) => !key2 || foldText(entry.name).startsWith(key2) || entry.name.split(/\s+/).some((part) => foldText(part).startsWith(key2))).slice(0, 8);
+  }, [searchFocused, lastToken, tags, churches, scope]);
+  const complete = (name) => {
+    const sign = lastToken[0] ?? "#";
+    const token = /\s/.test(name) ? `${sign}"${name}"` : `${sign}${name}`;
+    setText(`${text.slice(0, text.length - lastToken.length)}${token} `);
+    setPick(0);
   };
   const byYear = !hitsFor.text.trim() && hitsFor.order === "date";
   const byBook = !hitsFor.text.trim() && hitsFor.order === "book";
@@ -97015,9 +97363,45 @@ function LibraryColumn({
               placeholder: t2("Search"),
               "aria-label": scope === "stories" ? t2("Search your stories") : t2("Search every sermon"),
               title: scope === "stories" ? void 0 : t2("Words, a reference like Rom 8, #tag, @church, an occasion, or a year"),
-              onChange: (event) => setText(event.target.value)
+              onChange: (event) => {
+                setText(event.target.value);
+                setPick(0);
+              },
+              onFocus: () => setSearchFocused(true),
+              onBlur: () => setSearchFocused(false),
+              onKeyDown: (event) => {
+                if (offers.length === 0) return;
+                if (event.key === "ArrowDown") {
+                  event.preventDefault();
+                  setPick((pick + 1) % offers.length);
+                } else if (event.key === "ArrowUp") {
+                  event.preventDefault();
+                  setPick((pick - 1 + offers.length) % offers.length);
+                } else if (event.key === "Enter" || event.key === "Tab") {
+                  event.preventDefault();
+                  complete(offers[pick].name);
+                } else if (event.key === "Escape") {
+                  event.stopPropagation();
+                  setSearchFocused(false);
+                }
+              }
             }
           ),
+          offers.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "tagcomplete search__complete", role: "listbox", "aria-label": lastToken.startsWith("#") ? t2("Tags the library has") : t2("Churches in the preaching log"), children: offers.map((entry, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "li",
+            {
+              role: "option",
+              "aria-selected": index2 === pick,
+              className: index2 === pick ? "tagcomplete__item tagcomplete__item--on" : "tagcomplete__item",
+              onMouseDown: (event) => event.preventDefault(),
+              onClick: () => complete(entry.name),
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: entry.name }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tagcomplete__count", children: entry.count })
+              ]
+            },
+            entry.name
+          )) }),
           text && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "search__clear", "aria-label": t2("Clear the search"), onClick: () => setText(""), children: /* @__PURE__ */ jsxRuntimeExports.jsx(X$5, { size: 13, strokeWidth: 2 }) })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small library__map", title: t2("Bible map: every chapter preached from, planned, or not yet"), onClick: onCoverage, children: t2(COVERAGE_NAME) }),
@@ -97081,83 +97465,109 @@ function LibraryColumn({
       )
     ] }),
     scope === "stories" ? /* @__PURE__ */ jsxRuntimeExports.jsx(IllustrationsPanel, { writable, canInsert: stories.canInsert, onInsert: stories.onInsert, draft: null, refreshKey: revision, filter: text }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__chips", children: [
-        thisWeekCount > 0 && (!folded || thisWeek) && /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Chip,
-          {
-            on: thisWeek,
-            className: "chip--view",
-            icon: /* @__PURE__ */ jsxRuntimeExports.jsx(CalendarDays, { size: 12, strokeWidth: 1.8 }),
-            label: t2("This week, other years"),
-            count: thisWeekCount,
-            title: thisWeek ? t2("Back to the whole library") : t2("Sermons preached within three days of today, in other years"),
-            onClick: () => setThisWeek(!thisWeek)
-          }
-        ),
-        views.filter((view) => !folded || activeView?.id === view.id).map((view) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Chip,
-          {
-            on: activeView?.id === view.id,
-            className: "chip--view",
-            icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 12, strokeWidth: 1.8 }),
-            label: view.name,
-            count: view.sermonCount,
-            title: activeView?.id === view.id ? t2("Stop showing {name}", { name: view.name }) : t2("Show {name}, a view you saved", { name: view.name }),
-            onClick: () => activeView?.id === view.id ? clearAll() : applyView(view)
-          },
-          view.id
-        )),
-        riding.filter((entry) => !folded || seriesId === entry.id).map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Chip,
-          {
-            on: seriesId === entry.id,
-            icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Folder, { size: 12, strokeWidth: 1.8 }),
-            label: entry.name,
-            count: entry.sermonCount,
-            onClick: () => setSeriesId(seriesId === entry.id ? null : entry.id)
-          },
-          entry.id
-        )),
-        series.length > riding.length && /* @__PURE__ */ jsxRuntimeExports.jsx(SeriesMenu, { series, chosenId: seriesId, onPick: setSeriesId }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(TagChips, { tags, tagsFile, chosen, setChosen: q2.setChosen, occasions, occasion: q2.occasion, setOccasion: q2.setOccasion }),
-        churches.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(
-          TagMenu,
-          {
-            name: t2("Church"),
-            tags: churches,
-            chosen: q2.church || null,
-            onPick: (name) => q2.setChurch(name ?? ""),
-            icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Church, { size: 12, strokeWidth: 1.8 }),
-            words: { narrow: t2("Narrow to one church"), find: t2("Find a church"), none: t2("No church is called that.") }
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Filters,
-          {
-            book: q2.book,
-            setBook: q2.setBook,
-            chapter: q2.chapter,
-            setChapter: q2.setChapter,
-            from: q2.from,
-            setFrom: q2.setFrom,
-            to: q2.to,
-            setTo: q2.setTo,
-            narrowed,
-            clearFilters,
-            writable,
-            canSave,
-            viewName,
-            setViewName,
-            saveView,
-            activeView,
-            forgetView
-          }
-        ),
-        folded && /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "chip chip--more", title: t2("Clear filters"), onClick: clearFilters, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(X$5, { size: 11, strokeWidth: 2.2 }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip__label", children: t2("Clear filters") })
-        ] })
-      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: beyond > 0 && !expanded ? "library__chips library__chips--folded" : "library__chips", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          ref: chipsRef,
+          className: ["library__chips-row", more.left ? "library__chips-row--more-left" : "", more.right ? "library__chips-row--more-right" : ""].filter(Boolean).join(" "),
+          style: beyond > 0 && !expanded ? { maxHeight: lineHeight } : void 0,
+          children: [
+            thisWeekCount > 0 && (!folded || thisWeek) && /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Chip,
+              {
+                on: thisWeek,
+                className: "chip--view",
+                icon: /* @__PURE__ */ jsxRuntimeExports.jsx(CalendarDays, { size: 12, strokeWidth: 1.8 }),
+                label: t2("This week, other years"),
+                count: thisWeekCount,
+                title: thisWeek ? t2("Back to the whole library") : t2("Sermons preached within three days of today, in other years"),
+                onClick: () => setThisWeek(!thisWeek)
+              }
+            ),
+            ridingViews.filter((view) => !folded || activeView?.id === view.id).map((view) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Chip,
+              {
+                on: activeView?.id === view.id,
+                className: view.pinned ? "chip--view chip--pinned" : "chip--view",
+                icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 12, strokeWidth: 1.8 }),
+                label: view.name,
+                count: view.sermonCount,
+                title: activeView?.id === view.id ? t2("Stop showing {name}", { name: view.name }) : t2("Show {name}, a view you saved", { name: view.name }),
+                onClick: () => activeView?.id === view.id ? clearAll() : applyView(view)
+              },
+              view.id
+            )),
+            views.length > ridingViews.length && /* @__PURE__ */ jsxRuntimeExports.jsx(ViewsMenu, { views, activeId: activeView?.id ?? null, onPick: (view) => activeView?.id === view.id ? clearAll() : applyView(view) }),
+            riding.filter((entry) => !folded || seriesId === entry.id).map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Chip,
+              {
+                on: seriesId === entry.id,
+                className: entry.pinned ? "chip--pinned" : void 0,
+                icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Folder, { size: 12, strokeWidth: 1.8 }),
+                label: entry.name,
+                count: entry.sermonCount,
+                onClick: () => setSeriesId(seriesId === entry.id ? null : entry.id)
+              },
+              entry.id
+            )),
+            series.length > riding.length && /* @__PURE__ */ jsxRuntimeExports.jsx(SeriesMenu, { series, chosenId: seriesId, onPick: setSeriesId }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(TagChips, { tags, tagsFile, chosen, setChosen: q2.setChosen, occasions, occasion: q2.occasion, setOccasion: q2.setOccasion }),
+            churches.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(
+              TagMenu,
+              {
+                name: t2("Church"),
+                tags: churches,
+                chosen: q2.church || null,
+                onPick: (name) => q2.setChurch(name ?? ""),
+                icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Church, { size: 12, strokeWidth: 1.8 }),
+                words: { narrow: t2("Narrow to one church"), find: t2("Find a church"), none: t2("No church is called that.") }
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Filters,
+              {
+                book: q2.book,
+                setBook: q2.setBook,
+                chapter: q2.chapter,
+                setChapter: q2.setChapter,
+                from: q2.from,
+                setFrom: q2.setFrom,
+                to: q2.to,
+                setTo: q2.setTo,
+                narrowed,
+                clearFilters,
+                writable,
+                canSave,
+                viewName,
+                setViewName,
+                saveView,
+                activeView,
+                forgetView,
+                pinView
+              }
+            ),
+            folded && /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "chip chip--more library__chips-clear", title: t2("Clear filters"), onClick: clearFilters, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(X$5, { size: 11, strokeWidth: 2.2 }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip__label", children: t2("Clear filters") })
+            ] }),
+            beyond > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                type: "button",
+                className: "chip chip--more library__chips-more",
+                title: expanded ? t2("Show fewer") : t2("Show {n} more", { n: beyond }),
+                "aria-label": expanded ? t2("Show fewer") : t2("Show {n} more", { n: beyond }),
+                "aria-expanded": expanded,
+                onClick: toggleExpanded,
+                children: expanded ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { size: 12, strokeWidth: 2 }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "chip__label", children: [
+                  "+",
+                  beyond
+                ] })
+              }
+            )
+          ]
+        }
+      ) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         SermonList,
         {
@@ -97867,7 +98277,8 @@ function seriesInput(row) {
     name: row.name,
     description: row.description,
     ...row.planned.length ? { planned: row.planned } : {},
-    ...row.retired ? { retired: true } : {}
+    ...row.retired ? { retired: true } : {},
+    ...row.pinned ? { pinned: true } : {}
   };
 }
 function SeriesSheet({ onClose, onSaved }) {
@@ -97892,7 +98303,7 @@ function SeriesSheet({ onClose, onSaved }) {
   const add = () => {
     const name = newName.trim();
     if (!name) return;
-    void persist([...series, { id: crypto.randomUUID(), name, description: "", sermonCount: 0, last: null, planned: [], retired: false }]);
+    void persist([...series, { id: crypto.randomUUID(), name, description: "", sermonCount: 0, last: null, planned: [], retired: false, pinned: false }]);
     setNewName("");
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { title: t2("Series"), ariaLabel: t2("Edit series"), onClose, children: [
@@ -98360,6 +98771,16 @@ function TidySheet({ onClose, onChanged }) {
       setError(cause instanceof Error ? cause.message : String(cause));
     }
   };
+  const pin = async (entry, pinned) => {
+    setError(null);
+    try {
+      const saved = await window.api.saveSeries(series.map((row) => seriesInput(row.id === entry.id ? { ...row, pinned } : row)));
+      setSeries(saved);
+      onChanged();
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : String(cause));
+    }
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { title: t2("Tidy"), ariaLabel: t2("Tidy tags and series"), onClose, className: "tidy", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sheet__hint", children: t2("Renaming or merging a tag rewrites it in every sermon that carries it, and so does making one an occasion: Funeral or Advent belongs in the byline, under For, not among the tags. A group or a pin changes only how the library shows the tag. Retiring a series only takes its chip out of the row; its sermons and its page stay.") }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "tidy__heading", children: [
@@ -98486,7 +98907,22 @@ function TidySheet({ onClose, onChanged }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "tidy__heading", children: t2("Series · {n}", { n: series.length }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "tidy__list", children: [
       series.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: entry.retired ? "tidy__row tidy__row--retired" : "tidy__row", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tidy__name", children: entry.name }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "tidy__name", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              className: entry.pinned ? "tidy__pin tidy__pin--on" : "tidy__pin",
+              title: entry.pinned ? t2("Pinned to the library’s row; press to unpin") : t2("Pin to the library’s row, whether or not it is live"),
+              "aria-label": t2("Pin {name}", { name: entry.name }),
+              "aria-pressed": entry.pinned,
+              disabled: busy !== null,
+              onClick: () => void pin(entry, !entry.pinned),
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 13, strokeWidth: 1.8 })
+            }
+          ),
+          entry.name
+        ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tidy__count", children: entry.sermonCount }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tidy__acts", children: entry.retired ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => void retire(entry, false), children: t2("Bring back") }) : /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: t2("Take its chip out of the library's row; nothing else changes"), onClick: () => void retire(entry, true), children: t2("Retire") }) })
       ] }, entry.id)),

@@ -2512,6 +2512,10 @@ select.field {
   right: 0;
 }
 
+.popover--floating {
+  position: fixed;
+}
+
 .shell {
   --side: var(--c-side, 300px);
   --insp: 272px;
@@ -3089,12 +3093,87 @@ select.field {
 .library__chips {
   z-index: 3;
   border-bottom: 1px solid var(--rule);
-  flex-wrap: wrap;
   flex: none;
-  gap: 6px;
   padding: 10px 10px 9px;
-  display: flex;
   position: relative;
+}
+
+.library__chips-row {
+  flex-wrap: wrap;
+  gap: 6px;
+  display: flex;
+}
+
+.library__chips--folded {
+  padding-right: 58px;
+}
+
+.library__chips--folded .library__chips-row {
+  overflow: hidden;
+}
+
+.library__chips-row > .library__chips-more {
+  order: 1;
+}
+
+.library__chips--folded .library__chips-more {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.library__chips-row > .chip--on, .library__chips-row > .popover-host:has( > .chip--on) {
+  order: -2;
+}
+
+.library__chips-row > .chip--pinned, .library__chips-row > .library__chips-clear {
+  order: -1;
+}
+
+.shell--narrow .library__chips {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.shell--narrow .library__chips-row {
+  scrollbar-width: none;
+  flex-wrap: nowrap;
+  padding: 0 10px;
+  overflow-x: auto;
+}
+
+.shell--narrow .library__chips-row::-webkit-scrollbar {
+  display: none;
+}
+
+.shell--narrow .library__chips-row > * {
+  flex: none;
+}
+
+.shell--narrow .library__chips-row--more-right {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), #0000);
+  mask-image: linear-gradient(to right, #000 calc(100% - 32px), #0000);
+}
+
+.shell--narrow .library__chips-row--more-left {
+  -webkit-mask-image: linear-gradient(to right, #0000, #000 32px);
+  mask-image: linear-gradient(to right, #0000, #000 32px);
+}
+
+.shell--narrow .library__chips-row--more-left.library__chips-row--more-right {
+  -webkit-mask-image: linear-gradient(to right, #0000, #000 32px calc(100% - 32px), #0000);
+  mask-image: linear-gradient(to right, #0000, #000 32px calc(100% - 32px), #0000);
+}
+
+.library__row .search {
+  position: relative;
+}
+
+.search__complete {
+  min-width: 0;
+  max-width: none;
+  left: 0;
+  right: 0;
 }
 
 .library__chips--bare {
