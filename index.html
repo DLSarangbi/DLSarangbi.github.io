@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="31fae49">
+<meta name="sermondesk-source" content="82e3ce5">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
@@ -234,7 +234,7 @@
 <div class="hero">
   <div class="wrap">
     <h1>Write the sermon <em>once.</em></h1>
-    <p class="lede">A manuscript, an outline, a handout, and a podium screen from one draft, kept as plain files on your own computer. This is the app, running here with a few sermons in it.</p>
+    <p class="lede">A manuscript, an outline, a handout, and a podium screen from one draft, kept as plain files on your own computer. This is the app, running here with three years of one preacher's sermons in it, in English, Korean and Spanish.</p>
     <div class="stage">
       <iframe id="demo" src="demo/" title="SermonDesk, live on this page, with a demo library." loading="lazy" allow="fullscreen" allowfullscreen></iframe>
     </div>
@@ -244,6 +244,7 @@
     </p>
     <div class="scenes" role="group" aria-label="Open the demo on one view">
       <button type="button" data-scene="library">Library</button>
+      <button type="button" data-scene="map">Bible map</button>
       <button type="button" data-scene="write" aria-pressed="true">Manuscript</button>
       <button type="button" data-scene="outline">Outline</button>
       <button type="button" data-scene="handout">Handout</button>
@@ -254,8 +255,8 @@
       </span>
     </div>
     <p class="under">
-      <span class="try try--desk">Try: paste a verse and watch it file itself &middot; type <b>/</b> for a point &middot; press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; press <b>Bible map</b>, beside the search</span>
-      <span class="try try--phone">Try: press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; open the library and press a tag</span>
+      <span class="try try--desk">Try: paste a verse and watch it file itself &middot; type <b>/</b> for a point &middot; press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; press <b>Bible map</b> and narrow it to one church &middot; search for <b>Rom 8</b>, or for <b>은혜</b></span>
+      <span class="try try--phone">Try: press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; press <b>Bible map</b> &middot; open the library and press a tag</span>
       <span>Windows and Mac &middot; works offline</span>
     </p>
   </div>
@@ -410,7 +411,7 @@
       document.querySelector('[data-fullscreen]').textContent = document.fullscreenElement ? 'Leave full screen' : 'Full screen'
     })
     // Start over: the frame is opened afresh on the view that is pressed,
-    // and the demo's few sermons come back as they were. Nothing is kept
+    // and the demo's library comes back as it was. Nothing is kept
     // between loads, so a reload is the whole reset.
     document.querySelector('[data-reset]').addEventListener('click', (event) => {
       event.currentTarget.blur()

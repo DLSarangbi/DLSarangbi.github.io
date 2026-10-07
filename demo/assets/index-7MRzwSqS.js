@@ -32105,7 +32105,7 @@ function flattenForSearch(sermon) {
   for (const block of sermon.blocks) {
     const heading = blockHeading(block);
     if (heading) parts.push(heading);
-    const text = blockText(block);
+    const text = block.type === "table" ? block.content : bodyParagraphs(block).map((paragraph) => paragraph.text).join("\n");
     if (text) parts.push(text);
     for (const note of blockNotes(block)) if (note.trim()) parts.push(note);
     for (const note of blockMargins(block)) parts.push(note);
@@ -98205,6 +98205,7 @@ function App() {
     if (scenePlayed || !open2) return;
     setScenePlayed(true);
     if (scene === "preach") setPodium(open2.sermon);
+    if (scene === "map") setCoverageOpen(true);
     if (scene === "library" && narrow) openLibrary();
   }, [scene, scenePlayed, open2, narrow, openLibrary]);
   const [sceneView, setSceneView] = reactExports$1.useState(null);
@@ -98212,6 +98213,8 @@ function App() {
     const onScene = (event) => {
       const next = event.detail;
       if (!open2) return;
+      setCoverageOpen(next === "map");
+      if (next === "map") return;
       if (next === "preach") {
         setPodium(open2.sermon);
         return;
