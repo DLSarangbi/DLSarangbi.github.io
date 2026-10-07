@@ -3358,8 +3358,8 @@ function requireReactDomClient_production() {
       currentEntangledActionThenable = {
         status: "pending",
         value: void 0,
-        then: function(resolve) {
-          entangledListeners.push(resolve);
+        then: function(resolve2) {
+          entangledListeners.push(resolve2);
         }
       };
     }
@@ -3382,8 +3382,8 @@ function requireReactDomClient_production() {
       status: "pending",
       value: null,
       reason: null,
-      then: function(resolve) {
-        listeners.push(resolve);
+      then: function(resolve2) {
+        listeners.push(resolve2);
       }
     };
     thenable.then(
@@ -12161,9 +12161,9 @@ function requireReactDomClient_production() {
   function forceLayout(ownerDocument) {
     return ownerDocument.documentElement.clientHeight;
   }
-  function waitForImageToLoad(resolve) {
-    this.addEventListener("load", resolve);
-    this.addEventListener("error", resolve);
+  function waitForImageToLoad(resolve2) {
+    this.addEventListener("load", resolve2);
+    this.addEventListener("error", resolve2);
   }
   function startViewTransition(suspendedState, rootContainer, transitionTypes, mutationCallback, layoutCallback, afterMutationCallback, spawnedWorkCallback, passiveCallback, errorCallback) {
     var ownerDocument = 9 === rootContainer.nodeType ? rootContainer : rootContainer.ownerDocument;
@@ -12196,8 +12196,8 @@ function requireReactDomClient_production() {
           if (0 < blockingPromises.length)
             return ownerWindow = Promise.race([
               Promise.all(blockingPromises),
-              new Promise(function(resolve) {
-                return setTimeout(resolve, 500);
+              new Promise(function(resolve2) {
+                return setTimeout(resolve2, 500);
               })
             ]).then(layoutCallback, layoutCallback), (pendingNavigation ? Promise.allSettled([pendingNavigation.finished, ownerWindow]) : ownerWindow).then(afterMutationCallback, afterMutationCallback);
           layoutCallback();
@@ -13112,8 +13112,8 @@ function requireReactDomClient_production() {
           var link = resource = ownerDocument.createElement("link");
           markNodeAsHoistable(link);
           setInitialProperties(link, "link", href);
-          link._p = new Promise(function(resolve, reject) {
-            link.onload = resolve;
+          link._p = new Promise(function(resolve2, reject) {
+            link.onload = resolve2;
             link.onerror = reject;
           });
           link.addEventListener("load", function() {
@@ -13296,8 +13296,8 @@ function requireReactDomClient_production() {
           instance$274 = (hoistableRoot.ownerDocument || hoistableRoot).createElement("link");
           markNodeAsHoistable(instance$274);
           var linkInstance = instance$274;
-          linkInstance._p = new Promise(function(resolve, reject) {
-            linkInstance.onload = resolve;
+          linkInstance._p = new Promise(function(resolve2, reject) {
+            linkInstance.onload = resolve2;
             linkInstance.onerror = reject;
           });
           setInitialProperties(instance$274, "link", instance);
@@ -13434,8 +13434,8 @@ function requireReactDomClient_production() {
         instance = instance.createElement("link");
         markNodeAsHoistable(instance);
         var linkInstance = instance;
-        linkInstance._p = new Promise(function(resolve, reject) {
-          linkInstance.onload = resolve;
+        linkInstance._p = new Promise(function(resolve2, reject) {
+          linkInstance.onload = resolve2;
           linkInstance.onerror = reject;
         });
         setInitialProperties(instance, "link", props);
@@ -14073,8 +14073,8 @@ function requireReactDomClient_production() {
     function handleNavigate(event) {
       event.canIntercept && "react-transition" === event.info && event.intercept({
         handler: function() {
-          return new Promise(function(resolve) {
-            return pendingResolve = resolve;
+          return new Promise(function(resolve2) {
+            return pendingResolve = resolve2;
           });
         },
         focusReset: "manual",
@@ -15369,7 +15369,6 @@ const es = {
   "Any sermon can be kept as a template: Save as a template, under Save.": "Cualquier sermón puede guardarse como plantilla: Guardar como plantilla, dentro de Guardar.",
   "Any Sunday": "Cualquier domingo",
   "Anything that can go on the page, where the caret is (or type / on the page)": "Cualquier cosa que pueda ir en la página, donde está el cursor (o escribe / en la página)",
-  "Anywhere": "En cualquier lugar",
   "Anywhere on this computer, or a drive you plug in": "En cualquier lugar de este equipo, o en una unidad que conectes",
   "Appearance": "Apariencia",
   "Apple’s iCloud Drive on this computer": "iCloud Drive de Apple en este equipo",
@@ -15999,7 +15998,6 @@ const es = {
   "Paragraph style": "Estilo de párrafo",
   "Passage": "Pasaje",
   "Passage, dates": "Pasaje, fechas",
-  "Passage, dates, and the church": "Pasaje, fechas y la iglesia",
   "Passage, if known": "Pasaje, si se conoce",
   "Passages": "Pasajes",
   "Passages: {passages}": "Pasajes: {passages}",
@@ -16606,7 +16604,48 @@ const es = {
   "Every key": "Todas las teclas",
   "Leave": "Salir",
   "1 block": "1 bloque",
-  "{n} blocks": "{n} bloques"
+  "{n} blocks": "{n} bloques",
+  "Back to the whole library": "Volver a toda la biblioteca",
+  "By book": "Por libro",
+  "Find a church": "Buscar una iglesia",
+  "Find a series": "Buscar una serie",
+  "Narrow to one church": "Limitar a una iglesia",
+  "Narrow to one of your series": "Limitar a una de tus series",
+  "No church is called that.": "Ninguna iglesia se llama así.",
+  "No passage": "Sin pasaje",
+  "No series is called that.": "Ninguna serie se llama así.",
+  "Passage and dates": "Pasaje y fechas",
+  "Sermons preached within three days of today, in other years": "Sermones predicados a tres días de hoy, en otros años",
+  "This week, other years": "Esta semana, otros años",
+  "preached this week in other years": "predicados esta semana en otros años",
+  "retired": "retirada",
+  "You preached {passage} at {church} in {when}": "Predicaste {passage} en {church} en {when}",
+  "You preached {passage} in {when}": "Predicaste {passage} en {when}",
+  "Open that sermon": "Abrir ese sermón",
+  "preached in {year}": "predicados en {year}",
+  "Words, a reference like Rom 8, #tag, @church, an occasion, or a year": "Palabras, una referencia como Rom 8, #etiqueta, @iglesia, una ocasión o un año",
+  "Cut": "Cortar",
+  "Copy": "Copiar",
+  "Paste": "Pegar",
+  "Paste without formatting": "Pegar sin formato",
+  "Select all": "Seleccionar todo",
+  "Open the link": "Abrir el enlace",
+  "Copy the address": "Copiar la dirección",
+  "The words stay": "Las palabras se quedan",
+  "Replace the picture…": "Reemplazar la imagen…",
+  "The caption and the width stay": "El pie y el ancho se quedan",
+  "Remove the picture": "Quitar la imagen",
+  "Edit the footnote…": "Editar la nota al pie…",
+  "Replaced the picture": "Imagen reemplazada",
+  "Format the selection": "Dar formato a la selección",
+  "Sub-point": "Subpunto",
+  "Sub-sub-point": "Sub-subpunto",
+  "Level": "Nivel",
+  "Made it a point": "Convertido en punto",
+  "Made it a sub-point": "Convertido en subpunto",
+  "Made it a sub-sub-point": "Convertido en sub-subpunto",
+  "On a point's heading, a sub-point under the point before it": "En el encabezado de un punto, un subpunto bajo el punto anterior",
+  "And a sub-point back out to a point": "Y un subpunto de vuelta a punto"
 };
 const ko = {
   "Drag to move this picture": "끌어서 이 그림을 옮깁니다",
@@ -16862,7 +16901,6 @@ const ko = {
   "Any sermon can be kept as a template: Save as a template, under Save.": "어떤 설교든 템플릿으로 남길 수 있습니다. 저장 메뉴의 ‘템플릿으로 저장’을 사용하세요.",
   "Any Sunday": "일반 주일",
   "Anything that can go on the page, where the caret is (or type / on the page)": "페이지에 넣을 수 있는 모든 것을 커서 위치에 (또는 페이지에서 / 입력)",
-  "Anywhere": "어디든",
   "Anywhere on this computer, or a drive you plug in": "이 컴퓨터의 어디든, 또는 연결한 드라이브",
   "Appearance": "모양",
   "Apple’s iCloud Drive on this computer": "이 컴퓨터의 Apple iCloud Drive",
@@ -17492,7 +17530,6 @@ const ko = {
   "Paragraph style": "단락 스타일",
   "Passage": "본문",
   "Passage, dates": "본문, 날짜",
-  "Passage, dates, and the church": "본문, 날짜, 교회",
   "Passage, if known": "본문 (아는 경우)",
   "Passages": "본문",
   "Passages: {passages}": "본문: {passages}",
@@ -18099,7 +18136,48 @@ const ko = {
   "Every key": "모든 키",
   "Leave": "나가기",
   "1 block": "블록 1개",
-  "{n} blocks": "블록 {n}개"
+  "{n} blocks": "블록 {n}개",
+  "Back to the whole library": "서재 전체로 돌아가기",
+  "By book": "성경순",
+  "Find a church": "교회 찾기",
+  "Find a series": "시리즈 찾기",
+  "Narrow to one church": "교회 하나로 좁히기",
+  "Narrow to one of your series": "내 시리즈 중 하나로 좁히기",
+  "No church is called that.": "그런 이름의 교회가 없습니다.",
+  "No passage": "본문 없음",
+  "No series is called that.": "그런 이름의 시리즈가 없습니다.",
+  "Passage and dates": "본문과 날짜",
+  "Sermons preached within three days of today, in other years": "다른 해의 오늘 전후 사흘 안에 설교한 설교",
+  "This week, other years": "이번 주, 다른 해",
+  "preached this week in other years": "다른 해 이번 주에 설교함",
+  "retired": "내려옴",
+  "You preached {passage} at {church} in {when}": "{when}에 {church}에서 {passage}을(를) 설교했습니다",
+  "You preached {passage} in {when}": "{when}에 {passage}을(를) 설교했습니다",
+  "Open that sermon": "그 설교 열기",
+  "preached in {year}": "{year}년에 설교함",
+  "Words, a reference like Rom 8, #tag, @church, an occasion, or a year": "단어, 롬 8 같은 성경 구절, #태그, @교회, 행사, 또는 연도",
+  "Cut": "잘라내기",
+  "Copy": "복사",
+  "Paste": "붙여넣기",
+  "Paste without formatting": "서식 없이 붙여넣기",
+  "Select all": "모두 선택",
+  "Open the link": "링크 열기",
+  "Copy the address": "주소 복사",
+  "The words stay": "글은 그대로 남습니다",
+  "Replace the picture…": "그림 바꾸기…",
+  "The caption and the width stay": "설명과 너비는 그대로 남습니다",
+  "Remove the picture": "그림 제거",
+  "Edit the footnote…": "각주 편집…",
+  "Replaced the picture": "그림을 바꿨습니다",
+  "Format the selection": "선택한 글 서식",
+  "Sub-point": "소대지",
+  "Sub-sub-point": "세부 대지",
+  "Level": "단계",
+  "Made it a point": "대지로 바꿈",
+  "Made it a sub-point": "소대지로 바꿈",
+  "Made it a sub-sub-point": "세부 대지로 바꿈",
+  "On a point's heading, a sub-point under the point before it": "대지 제목에서, 앞 대지 아래의 소대지로",
+  "And a sub-point back out to a point": "소대지를 다시 대지로"
 };
 const pt$3 = {
   "Drag to move this picture": "Arraste para mover esta imagem",
@@ -18355,7 +18433,6 @@ const pt$3 = {
   "Any sermon can be kept as a template: Save as a template, under Save.": "Qualquer sermão pode ser guardado como modelo: Salvar como modelo, em Salvar.",
   "Any Sunday": "Qualquer domingo",
   "Anything that can go on the page, where the caret is (or type / on the page)": "Qualquer coisa que caiba na página, onde está o cursor (ou digite / na página)",
-  "Anywhere": "Em qualquer lugar",
   "Anywhere on this computer, or a drive you plug in": "Em qualquer lugar deste computador, ou numa unidade que você conecte",
   "Appearance": "Aparência",
   "Apple’s iCloud Drive on this computer": "O iCloud Drive da Apple neste computador",
@@ -18985,7 +19062,6 @@ const pt$3 = {
   "Paragraph style": "Estilo de parágrafo",
   "Passage": "Passagem",
   "Passage, dates": "Passagem, datas",
-  "Passage, dates, and the church": "Passagem, datas e a igreja",
   "Passage, if known": "Passagem, se souber",
   "Passages": "Passagens",
   "Passages: {passages}": "Passagens: {passages}",
@@ -19592,7 +19668,48 @@ const pt$3 = {
   "Every key": "Todas as teclas",
   "Leave": "Sair",
   "1 block": "1 bloco",
-  "{n} blocks": "{n} blocos"
+  "{n} blocks": "{n} blocos",
+  "Back to the whole library": "Voltar à biblioteca inteira",
+  "By book": "Por livro",
+  "Find a church": "Buscar uma igreja",
+  "Find a series": "Buscar uma série",
+  "Narrow to one church": "Restringir a uma igreja",
+  "Narrow to one of your series": "Restringir a uma das suas séries",
+  "No church is called that.": "Nenhuma igreja tem esse nome.",
+  "No passage": "Sem passagem",
+  "No series is called that.": "Nenhuma série tem esse nome.",
+  "Passage and dates": "Passagem e datas",
+  "Sermons preached within three days of today, in other years": "Sermões pregados a até três dias de hoje, em outros anos",
+  "This week, other years": "Esta semana, outros anos",
+  "preached this week in other years": "pregados esta semana em outros anos",
+  "retired": "retirada",
+  "You preached {passage} at {church} in {when}": "Você pregou {passage} em {church} em {when}",
+  "You preached {passage} in {when}": "Você pregou {passage} em {when}",
+  "Open that sermon": "Abrir esse sermão",
+  "preached in {year}": "pregados em {year}",
+  "Words, a reference like Rom 8, #tag, @church, an occasion, or a year": "Palavras, uma referência como Rm 8, #etiqueta, @igreja, uma ocasião ou um ano",
+  "Cut": "Recortar",
+  "Copy": "Copiar",
+  "Paste": "Colar",
+  "Paste without formatting": "Colar sem formatação",
+  "Select all": "Selecionar tudo",
+  "Open the link": "Abrir o link",
+  "Copy the address": "Copiar o endereço",
+  "The words stay": "As palavras ficam",
+  "Replace the picture…": "Substituir a imagem…",
+  "The caption and the width stay": "A legenda e a largura ficam",
+  "Remove the picture": "Remover a imagem",
+  "Edit the footnote…": "Editar a nota de rodapé…",
+  "Replaced the picture": "Imagem substituída",
+  "Format the selection": "Formatar a seleção",
+  "Sub-point": "Subponto",
+  "Sub-sub-point": "Sub-subponto",
+  "Level": "Nível",
+  "Made it a point": "Virou um ponto",
+  "Made it a sub-point": "Virou um subponto",
+  "Made it a sub-sub-point": "Virou um sub-subponto",
+  "On a point's heading, a sub-point under the point before it": "No título de um ponto, um subponto sob o ponto anterior",
+  "And a sub-point back out to a point": "E um subponto de volta a ponto"
 };
 const fr$3 = {
   "Drag to move this picture": "Glisser pour déplacer cette image",
@@ -19848,7 +19965,6 @@ const fr$3 = {
   "Any sermon can be kept as a template: Save as a template, under Save.": "Tout sermon peut être gardé comme modèle : Enregistrer comme modèle, sous Enregistrer.",
   "Any Sunday": "N'importe quel dimanche",
   "Anything that can go on the page, where the caret is (or type / on the page)": "Tout ce qui peut aller sur la page, là où est le curseur (ou tapez / sur la page)",
-  "Anywhere": "N'importe où",
   "Anywhere on this computer, or a drive you plug in": "N'importe où sur cet ordinateur, ou sur un disque que vous branchez",
   "Appearance": "Apparence",
   "Apple’s iCloud Drive on this computer": "iCloud Drive d'Apple sur cet ordinateur",
@@ -20478,7 +20594,6 @@ const fr$3 = {
   "Paragraph style": "Style de paragraphe",
   "Passage": "Passage",
   "Passage, dates": "Passage, dates",
-  "Passage, dates, and the church": "Passage, dates et église",
   "Passage, if known": "Passage, si connu",
   "Passages": "Passages",
   "Passages: {passages}": "Passages : {passages}",
@@ -21085,7 +21200,48 @@ const fr$3 = {
   "Every key": "Toutes les touches",
   "Leave": "Quitter",
   "1 block": "1 bloc",
-  "{n} blocks": "{n} blocs"
+  "{n} blocks": "{n} blocs",
+  "Back to the whole library": "Revenir à toute la bibliothèque",
+  "By book": "Par livre",
+  "Find a church": "Trouver une église",
+  "Find a series": "Trouver une série",
+  "Narrow to one church": "Restreindre à une église",
+  "Narrow to one of your series": "Restreindre à l'une de vos séries",
+  "No church is called that.": "Aucune église ne porte ce nom.",
+  "No passage": "Sans passage",
+  "No series is called that.": "Aucune série ne porte ce nom.",
+  "Passage and dates": "Passage et dates",
+  "Sermons preached within three days of today, in other years": "Sermons prêchés à trois jours près d'aujourd'hui, les autres années",
+  "This week, other years": "Cette semaine, les autres années",
+  "preached this week in other years": "prêchés cette semaine les autres années",
+  "retired": "retirée",
+  "You preached {passage} at {church} in {when}": "Vous avez prêché {passage} à {church} en {when}",
+  "You preached {passage} in {when}": "Vous avez prêché {passage} en {when}",
+  "Open that sermon": "Ouvrir ce sermon",
+  "preached in {year}": "prêchés en {year}",
+  "Words, a reference like Rom 8, #tag, @church, an occasion, or a year": "Des mots, une référence comme Rm 8, #étiquette, @église, une occasion ou une année",
+  "Cut": "Couper",
+  "Copy": "Copier",
+  "Paste": "Coller",
+  "Paste without formatting": "Coller sans mise en forme",
+  "Select all": "Tout sélectionner",
+  "Open the link": "Ouvrir le lien",
+  "Copy the address": "Copier l'adresse",
+  "The words stay": "Les mots restent",
+  "Replace the picture…": "Remplacer l'image…",
+  "The caption and the width stay": "La légende et la largeur restent",
+  "Remove the picture": "Retirer l'image",
+  "Edit the footnote…": "Modifier la note de bas de page…",
+  "Replaced the picture": "Image remplacée",
+  "Format the selection": "Mettre en forme la sélection",
+  "Sub-point": "Sous-point",
+  "Sub-sub-point": "Sous-sous-point",
+  "Level": "Niveau",
+  "Made it a point": "Devenu un point",
+  "Made it a sub-point": "Devenu un sous-point",
+  "Made it a sub-sub-point": "Devenu un sous-sous-point",
+  "On a point's heading, a sub-point under the point before it": "Sur le titre d'un point, un sous-point sous le point précédent",
+  "And a sub-point back out to a point": "Et un sous-point redevient un point"
 };
 const de$1 = {
   "Drag to move this picture": "Ziehen, um dieses Bild zu verschieben",
@@ -21341,7 +21497,6 @@ const de$1 = {
   "Any sermon can be kept as a template: Save as a template, under Save.": "Jede Predigt lässt sich als Vorlage behalten: Als Vorlage sichern, unter Sichern.",
   "Any Sunday": "Jeder Sonntag",
   "Anything that can go on the page, where the caret is (or type / on the page)": "Alles, was auf die Seite kann, an der Einfügemarke (oder / auf der Seite tippen)",
-  "Anywhere": "Überall",
   "Anywhere on this computer, or a drive you plug in": "Irgendwo auf diesem Computer oder auf einem angeschlossenen Laufwerk",
   "Appearance": "Darstellung",
   "Apple’s iCloud Drive on this computer": "Apples iCloud Drive auf diesem Computer",
@@ -21971,7 +22126,6 @@ const de$1 = {
   "Paragraph style": "Absatzstil",
   "Passage": "Bibelstelle",
   "Passage, dates": "Bibelstelle, Daten",
-  "Passage, dates, and the church": "Bibelstelle, Daten und Gemeinde",
   "Passage, if known": "Bibelstelle, falls bekannt",
   "Passages": "Bibelstellen",
   "Passages: {passages}": "Bibelstellen: {passages}",
@@ -22578,7 +22732,48 @@ const de$1 = {
   "Every key": "Jede Taste",
   "Leave": "Verlassen",
   "1 block": "1 Block",
-  "{n} blocks": "{n} Blöcke"
+  "{n} blocks": "{n} Blöcke",
+  "Back to the whole library": "Zurück zur ganzen Bibliothek",
+  "By book": "Nach Buch",
+  "Find a church": "Eine Gemeinde suchen",
+  "Find a series": "Eine Reihe suchen",
+  "Narrow to one church": "Auf eine Gemeinde eingrenzen",
+  "Narrow to one of your series": "Auf eine Ihrer Reihen eingrenzen",
+  "No church is called that.": "Keine Gemeinde heißt so.",
+  "No passage": "Ohne Bibelstelle",
+  "No series is called that.": "Keine Reihe heißt so.",
+  "Passage and dates": "Bibelstelle und Daten",
+  "Sermons preached within three days of today, in other years": "Predigten, die in anderen Jahren bis zu drei Tage um den heutigen Tag gehalten wurden",
+  "This week, other years": "Diese Woche, andere Jahre",
+  "preached this week in other years": "in anderen Jahren in dieser Woche gepredigt",
+  "retired": "zurückgezogen",
+  "You preached {passage} at {church} in {when}": "Sie haben {passage} in {church} im {when} gepredigt",
+  "You preached {passage} in {when}": "Sie haben {passage} im {when} gepredigt",
+  "Open that sermon": "Diese Predigt öffnen",
+  "preached in {year}": "gepredigt im Jahr {year}",
+  "Words, a reference like Rom 8, #tag, @church, an occasion, or a year": "Wörter, eine Stelle wie Röm 8, #Tag, @Gemeinde, ein Anlass oder ein Jahr",
+  "Cut": "Ausschneiden",
+  "Copy": "Kopieren",
+  "Paste": "Einfügen",
+  "Paste without formatting": "Ohne Formatierung einfügen",
+  "Select all": "Alles auswählen",
+  "Open the link": "Link öffnen",
+  "Copy the address": "Adresse kopieren",
+  "The words stay": "Die Wörter bleiben",
+  "Replace the picture…": "Bild ersetzen…",
+  "The caption and the width stay": "Bildunterschrift und Breite bleiben",
+  "Remove the picture": "Bild entfernen",
+  "Edit the footnote…": "Fußnote bearbeiten…",
+  "Replaced the picture": "Bild ersetzt",
+  "Format the selection": "Auswahl formatieren",
+  "Sub-point": "Unterpunkt",
+  "Sub-sub-point": "Unter-Unterpunkt",
+  "Level": "Ebene",
+  "Made it a point": "Zum Punkt gemacht",
+  "Made it a sub-point": "Zum Unterpunkt gemacht",
+  "Made it a sub-sub-point": "Zum Unter-Unterpunkt gemacht",
+  "On a point's heading, a sub-point under the point before it": "Auf der Überschrift eines Punkts ein Unterpunkt unter dem Punkt davor",
+  "And a sub-point back out to a point": "Und ein Unterpunkt wieder ein Punkt"
 };
 const zh = {
   "Drag to move this picture": "拖动以移动此图片",
@@ -22834,7 +23029,6 @@ const zh = {
   "Any sermon can be kept as a template: Save as a template, under Save.": "任何讲章都可以存为模板：在“保存”下选择“存为模板”。",
   "Any Sunday": "任何主日",
   "Anything that can go on the page, where the caret is (or type / on the page)": "任何可以放到页面上的内容，插在光标处（或在页面上输入 /）",
-  "Anywhere": "任何位置",
   "Anywhere on this computer, or a drive you plug in": "这台电脑上的任何位置，或插入的外接硬盘",
   "Appearance": "外观",
   "Apple’s iCloud Drive on this computer": "这台电脑上的 Apple iCloud Drive",
@@ -23464,7 +23658,6 @@ const zh = {
   "Paragraph style": "段落样式",
   "Passage": "经文",
   "Passage, dates": "经文、日期",
-  "Passage, dates, and the church": "经文、日期和教会",
   "Passage, if known": "经文（如已知）",
   "Passages": "经文",
   "Passages: {passages}": "经文：{passages}",
@@ -24071,7 +24264,48 @@ const zh = {
   "Every key": "所有按键",
   "Leave": "离开",
   "1 block": "1 个区块",
-  "{n} blocks": "{n} 个区块"
+  "{n} blocks": "{n} 个区块",
+  "Back to the whole library": "返回整个讲章库",
+  "By book": "按书卷",
+  "Find a church": "查找教会",
+  "Find a series": "查找系列",
+  "Narrow to one church": "限定为一个教会",
+  "Narrow to one of your series": "限定为你的某个系列",
+  "No church is called that.": "没有叫这个名字的教会。",
+  "No passage": "没有经文",
+  "No series is called that.": "没有叫这个名字的系列。",
+  "Passage and dates": "经文和日期",
+  "Sermons preached within three days of today, in other years": "其他年份在今天前后三天内讲过的讲章",
+  "This week, other years": "本周，其他年份",
+  "preached this week in other years": "其他年份本周讲过",
+  "retired": "已移除",
+  "You preached {passage} at {church} in {when}": "你曾于{when}在{church}讲过{passage}",
+  "You preached {passage} in {when}": "你曾于{when}讲过{passage}",
+  "Open that sermon": "打开那篇讲章",
+  "preached in {year}": "{year}年讲过",
+  "Words, a reference like Rom 8, #tag, @church, an occasion, or a year": "词语、如“罗 8”的经文引用、#标签、@教会、场合或年份",
+  "Cut": "剪切",
+  "Copy": "复制",
+  "Paste": "粘贴",
+  "Paste without formatting": "无格式粘贴",
+  "Select all": "全选",
+  "Open the link": "打开链接",
+  "Copy the address": "复制地址",
+  "The words stay": "文字保留",
+  "Replace the picture…": "替换图片…",
+  "The caption and the width stay": "说明文字和宽度保留",
+  "Remove the picture": "移除图片",
+  "Edit the footnote…": "编辑脚注…",
+  "Replaced the picture": "已替换图片",
+  "Format the selection": "设置所选文字的格式",
+  "Sub-point": "子要点",
+  "Sub-sub-point": "次子要点",
+  "Level": "层级",
+  "Made it a point": "已设为要点",
+  "Made it a sub-point": "已设为子要点",
+  "Made it a sub-sub-point": "已设为次子要点",
+  "On a point's heading, a sub-point under the point before it": "在要点标题上，成为前一要点下的子要点",
+  "And a sub-point back out to a point": "子要点升回要点"
 };
 const ja = {
   "Drag to move this picture": "ドラッグしてこの画像を移動",
@@ -24327,7 +24561,6 @@ const ja = {
   "Any sermon can be kept as a template: Save as a template, under Save.": "どの説教もテンプレートとして残せます。「保存」の中の「テンプレートとして保存」から。",
   "Any Sunday": "どの日曜日でも",
   "Anything that can go on the page, where the caret is (or type / on the page)": "ページに置けるものすべてを、カーソル位置に（またはページで / を入力）",
-  "Anywhere": "どこでも",
   "Anywhere on this computer, or a drive you plug in": "このコンピュータのどこでも、または接続したドライブ",
   "Appearance": "外観",
   "Apple’s iCloud Drive on this computer": "このコンピュータ上のAppleのiCloud Drive",
@@ -24957,7 +25190,6 @@ const ja = {
   "Paragraph style": "段落スタイル",
   "Passage": "聖書箇所",
   "Passage, dates": "聖書箇所と日付",
-  "Passage, dates, and the church": "聖書箇所、日付、教会",
   "Passage, if known": "聖書箇所(わかっていれば)",
   "Passages": "聖書箇所",
   "Passages: {passages}": "聖書箇所: {passages}",
@@ -25564,7 +25796,48 @@ const ja = {
   "Every key": "すべてのキー",
   "Leave": "退出",
   "1 block": "1 ブロック",
-  "{n} blocks": "{n} ブロック"
+  "{n} blocks": "{n} ブロック",
+  "Back to the whole library": "ライブラリ全体に戻る",
+  "By book": "書巻順",
+  "Find a church": "教会を検索",
+  "Find a series": "シリーズを検索",
+  "Narrow to one church": "一つの教会に絞る",
+  "Narrow to one of your series": "シリーズの一つに絞る",
+  "No church is called that.": "その名前の教会はありません。",
+  "No passage": "聖書箇所なし",
+  "No series is called that.": "その名前のシリーズはありません。",
+  "Passage and dates": "聖書箇所と日付",
+  "Sermons preached within three days of today, in other years": "他の年に、今日の前後三日以内に語られた説教",
+  "This week, other years": "今週、他の年",
+  "preached this week in other years": "他の年の今週に説教",
+  "retired": "非表示",
+  "You preached {passage} at {church} in {when}": "{when}に{church}で{passage}を説教しました",
+  "You preached {passage} in {when}": "{when}に{passage}を説教しました",
+  "Open that sermon": "その説教を開く",
+  "preached in {year}": "{year}年に説教",
+  "Words, a reference like Rom 8, #tag, @church, an occasion, or a year": "語句、ロマ 8 のような聖書箇所、#タグ、@教会、行事、または年",
+  "Cut": "切り取り",
+  "Copy": "コピー",
+  "Paste": "貼り付け",
+  "Paste without formatting": "書式なしで貼り付け",
+  "Select all": "すべて選択",
+  "Open the link": "リンクを開く",
+  "Copy the address": "アドレスをコピー",
+  "The words stay": "語句はそのまま残ります",
+  "Replace the picture…": "画像を差し替える…",
+  "The caption and the width stay": "キャプションと幅はそのまま",
+  "Remove the picture": "画像を削除",
+  "Edit the footnote…": "脚注を編集…",
+  "Replaced the picture": "画像を差し替えました",
+  "Format the selection": "選択範囲の書式",
+  "Sub-point": "小ポイント",
+  "Sub-sub-point": "小々ポイント",
+  "Level": "レベル",
+  "Made it a point": "ポイントにしました",
+  "Made it a sub-point": "小ポイントにしました",
+  "Made it a sub-sub-point": "小々ポイントにしました",
+  "On a point's heading, a sub-point under the point before it": "ポイントの見出しで、前のポイントの下の小ポイントに",
+  "And a sub-point back out to a point": "小ポイントをポイントに戻す"
 };
 const tl = {
   "Drag to move this picture": "I-drag para ilipat ang larawang ito",
@@ -25820,7 +26093,6 @@ const tl = {
   "Any sermon can be kept as a template: Save as a template, under Save.": "Maaaring itago ang anumang sermon bilang template: I-save bilang template, sa ilalim ng I-save.",
   "Any Sunday": "Anumang Linggo",
   "Anything that can go on the page, where the caret is (or type / on the page)": "Anumang maaaring ilagay sa pahina, sa kinaroroonan ng cursor (o i-type ang / sa pahina)",
-  "Anywhere": "Kahit saan",
   "Anywhere on this computer, or a drive you plug in": "Kahit saan sa computer na ito, o sa drive na isinaksak mo",
   "Appearance": "Anyo",
   "Apple’s iCloud Drive on this computer": "iCloud Drive ng Apple sa computer na ito",
@@ -26450,7 +26722,6 @@ const tl = {
   "Paragraph style": "Estilo ng parapo",
   "Passage": "Talata",
   "Passage, dates": "Talata, mga petsa",
-  "Passage, dates, and the church": "Talata, mga petsa, at ang simbahan",
   "Passage, if known": "Talata, kung alam",
   "Passages": "Mga talata",
   "Passages: {passages}": "Mga talata: {passages}",
@@ -27057,7 +27328,48 @@ const tl = {
   "Every key": "Lahat ng key",
   "Leave": "Umalis",
   "1 block": "1 block",
-  "{n} blocks": "{n} block"
+  "{n} blocks": "{n} block",
+  "Back to the whole library": "Bumalik sa buong aklatan",
+  "By book": "Ayon sa aklat",
+  "Find a church": "Maghanap ng simbahan",
+  "Find a series": "Maghanap ng serye",
+  "Narrow to one church": "Limitahan sa isang simbahan",
+  "Narrow to one of your series": "Limitahan sa isa sa iyong mga serye",
+  "No church is called that.": "Walang simbahang may ganyang pangalan.",
+  "No passage": "Walang talata",
+  "No series is called that.": "Walang seryeng may ganyang pangalan.",
+  "Passage and dates": "Talata at mga petsa",
+  "Sermons preached within three days of today, in other years": "Mga sermong naipangaral sa loob ng tatlong araw mula ngayon, sa ibang mga taon",
+  "This week, other years": "Ngayong linggo, ibang mga taon",
+  "preached this week in other years": "naipangaral ngayong linggo sa ibang mga taon",
+  "retired": "inalis",
+  "You preached {passage} at {church} in {when}": "Naipangaral mo ang {passage} sa {church} noong {when}",
+  "You preached {passage} in {when}": "Naipangaral mo ang {passage} noong {when}",
+  "Open that sermon": "Buksan ang sermong iyon",
+  "preached in {year}": "naipangaral noong {year}",
+  "Words, a reference like Rom 8, #tag, @church, an occasion, or a year": "Mga salita, isang sanggunian tulad ng Rom 8, #tag, @simbahan, isang okasyon, o isang taon",
+  "Cut": "I-cut",
+  "Copy": "Kopyahin",
+  "Paste": "I-paste",
+  "Paste without formatting": "I-paste nang walang format",
+  "Select all": "Piliin lahat",
+  "Open the link": "Buksan ang link",
+  "Copy the address": "Kopyahin ang address",
+  "The words stay": "Nananatili ang mga salita",
+  "Replace the picture…": "Palitan ang larawan…",
+  "The caption and the width stay": "Nananatili ang caption at ang lapad",
+  "Remove the picture": "Alisin ang larawan",
+  "Edit the footnote…": "I-edit ang footnote…",
+  "Replaced the picture": "Napalitan ang larawan",
+  "Format the selection": "I-format ang napili",
+  "Sub-point": "Sub-point",
+  "Sub-sub-point": "Sub-sub-point",
+  "Level": "Antas",
+  "Made it a point": "Ginawang point",
+  "Made it a sub-point": "Ginawang sub-point",
+  "Made it a sub-sub-point": "Ginawang sub-sub-point",
+  "On a point's heading, a sub-point under the point before it": "Sa heading ng point, isang sub-point sa ilalim ng naunang point",
+  "And a sub-point back out to a point": "At ang sub-point pabalik sa point"
 };
 const id = {
   "Drag to move this picture": "Seret untuk memindahkan gambar ini",
@@ -27313,7 +27625,6 @@ const id = {
   "Any sermon can be kept as a template: Save as a template, under Save.": "Khotbah apa pun dapat disimpan sebagai templat: Simpan sebagai templat, di bawah Simpan.",
   "Any Sunday": "Hari Minggu mana saja",
   "Anything that can go on the page, where the caret is (or type / on the page)": "Apa pun yang bisa masuk ke halaman, di posisi kursor (atau ketik / di halaman)",
-  "Anywhere": "Di mana saja",
   "Anywhere on this computer, or a drive you plug in": "Di mana saja di komputer ini, atau drive yang Anda colokkan",
   "Appearance": "Tampilan",
   "Apple’s iCloud Drive on this computer": "iCloud Drive Apple di komputer ini",
@@ -27943,7 +28254,6 @@ const id = {
   "Paragraph style": "Gaya paragraf",
   "Passage": "Bagian Alkitab",
   "Passage, dates": "Bagian Alkitab, tanggal",
-  "Passage, dates, and the church": "Bagian Alkitab, tanggal, dan gereja",
   "Passage, if known": "Bagian Alkitab, jika diketahui",
   "Passages": "Bagian Alkitab",
   "Passages: {passages}": "Bagian Alkitab: {passages}",
@@ -28550,7 +28860,48 @@ const id = {
   "Every key": "Semua tombol",
   "Leave": "Keluar",
   "1 block": "1 blok",
-  "{n} blocks": "{n} blok"
+  "{n} blocks": "{n} blok",
+  "Back to the whole library": "Kembali ke seluruh pustaka",
+  "By book": "Menurut kitab",
+  "Find a church": "Cari gereja",
+  "Find a series": "Cari seri",
+  "Narrow to one church": "Batasi ke satu gereja",
+  "Narrow to one of your series": "Batasi ke salah satu seri Anda",
+  "No church is called that.": "Tidak ada gereja dengan nama itu.",
+  "No passage": "Tanpa bagian Alkitab",
+  "No series is called that.": "Tidak ada seri dengan nama itu.",
+  "Passage and dates": "Bagian Alkitab dan tanggal",
+  "Sermons preached within three days of today, in other years": "Khotbah yang disampaikan dalam tiga hari dari tanggal hari ini, pada tahun-tahun lain",
+  "This week, other years": "Minggu ini, tahun-tahun lain",
+  "preached this week in other years": "dikhotbahkan minggu ini pada tahun-tahun lain",
+  "retired": "dikeluarkan",
+  "You preached {passage} at {church} in {when}": "Anda mengkhotbahkan {passage} di {church} pada {when}",
+  "You preached {passage} in {when}": "Anda mengkhotbahkan {passage} pada {when}",
+  "Open that sermon": "Buka khotbah itu",
+  "preached in {year}": "dikhotbahkan pada {year}",
+  "Words, a reference like Rom 8, #tag, @church, an occasion, or a year": "Kata-kata, rujukan seperti Rm 8, #tag, @gereja, sebuah kesempatan, atau sebuah tahun",
+  "Cut": "Potong",
+  "Copy": "Salin",
+  "Paste": "Tempel",
+  "Paste without formatting": "Tempel tanpa format",
+  "Select all": "Pilih semua",
+  "Open the link": "Buka tautan",
+  "Copy the address": "Salin alamatnya",
+  "The words stay": "Kata-katanya tetap",
+  "Replace the picture…": "Ganti gambar…",
+  "The caption and the width stay": "Keterangan dan lebarnya tetap",
+  "Remove the picture": "Hapus gambar",
+  "Edit the footnote…": "Sunting catatan kaki…",
+  "Replaced the picture": "Gambar diganti",
+  "Format the selection": "Format pilihan",
+  "Sub-point": "Sub-poin",
+  "Sub-sub-point": "Sub-sub-poin",
+  "Level": "Tingkat",
+  "Made it a point": "Dijadikan poin",
+  "Made it a sub-point": "Dijadikan sub-poin",
+  "Made it a sub-sub-point": "Dijadikan sub-sub-poin",
+  "On a point's heading, a sub-point under the point before it": "Pada judul poin, menjadi sub-poin di bawah poin sebelumnya",
+  "And a sub-point back out to a point": "Dan sub-poin kembali menjadi poin"
 };
 const ru = {
   "Drag to move this picture": "Перетащите, чтобы переместить это изображение",
@@ -28806,7 +29157,6 @@ const ru = {
   "Any sermon can be kept as a template: Save as a template, under Save.": "Любую проповедь можно сохранить как шаблон: «Сохранить как шаблон» в меню «Сохранить».",
   "Any Sunday": "Любое воскресенье",
   "Anything that can go on the page, where the caret is (or type / on the page)": "Всё, что можно поместить на страницу, в месте курсора (или наберите / на странице)",
-  "Anywhere": "Где угодно",
   "Anywhere on this computer, or a drive you plug in": "Где угодно на этом компьютере или на подключаемом диске",
   "Appearance": "Оформление",
   "Apple’s iCloud Drive on this computer": "iCloud Drive от Apple на этом компьютере",
@@ -29436,7 +29786,6 @@ const ru = {
   "Paragraph style": "Стиль абзаца",
   "Passage": "Отрывок",
   "Passage, dates": "Отрывок, даты",
-  "Passage, dates, and the church": "Отрывок, даты и церковь",
   "Passage, if known": "Отрывок, если известен",
   "Passages": "Отрывки",
   "Passages: {passages}": "Отрывки: {passages}",
@@ -30043,7 +30392,48 @@ const ru = {
   "Every key": "Все клавиши",
   "Leave": "Выйти",
   "1 block": "1 блок",
-  "{n} blocks": "{n} блок|{n} блока|{n} блоков"
+  "{n} blocks": "{n} блок|{n} блока|{n} блоков",
+  "Back to the whole library": "Вернуться ко всей библиотеке",
+  "By book": "По книге",
+  "Find a church": "Найти церковь",
+  "Find a series": "Найти серию",
+  "Narrow to one church": "Сузить до одной церкви",
+  "Narrow to one of your series": "Сузить до одной из ваших серий",
+  "No church is called that.": "Церкви с таким названием нет.",
+  "No passage": "Без отрывка",
+  "No series is called that.": "Серии с таким названием нет.",
+  "Passage and dates": "Отрывок и даты",
+  "Sermons preached within three days of today, in other years": "Проповеди, произнесённые в пределах трёх дней от сегодняшней даты в другие годы",
+  "This week, other years": "Эта неделя, другие годы",
+  "preached this week in other years": "проповедано на этой неделе в другие годы",
+  "retired": "убрана",
+  "You preached {passage} at {church} in {when}": "Вы проповедовали {passage} в церкви {church} в {when}",
+  "You preached {passage} in {when}": "Вы проповедовали {passage} в {when}",
+  "Open that sermon": "Открыть ту проповедь",
+  "preached in {year}": "проповедано в {year} году",
+  "Words, a reference like Rom 8, #tag, @church, an occasion, or a year": "Слова, ссылка вроде Рим 8, #тег, @церковь, событие или год",
+  "Cut": "Вырезать",
+  "Copy": "Копировать",
+  "Paste": "Вставить",
+  "Paste without formatting": "Вставить без форматирования",
+  "Select all": "Выделить всё",
+  "Open the link": "Открыть ссылку",
+  "Copy the address": "Копировать адрес",
+  "The words stay": "Слова остаются",
+  "Replace the picture…": "Заменить изображение…",
+  "The caption and the width stay": "Подпись и ширина остаются",
+  "Remove the picture": "Удалить изображение",
+  "Edit the footnote…": "Изменить сноску…",
+  "Replaced the picture": "Изображение заменено",
+  "Format the selection": "Оформить выделенное",
+  "Sub-point": "Подпункт",
+  "Sub-sub-point": "Под-подпункт",
+  "Level": "Уровень",
+  "Made it a point": "Сделано пунктом",
+  "Made it a sub-point": "Сделано подпунктом",
+  "Made it a sub-sub-point": "Сделано под-подпунктом",
+  "On a point's heading, a sub-point under the point before it": "На заголовке пункта — подпункт под предыдущим пунктом",
+  "And a sub-point back out to a point": "И подпункт обратно в пункт"
 };
 const sw = {
   "Drag to move this picture": "Buruta kuhamisha picha hii",
@@ -30299,7 +30689,6 @@ const sw = {
   "Any sermon can be kept as a template: Save as a template, under Save.": "Mahubiri yoyote yanaweza kuwekwa kama kiolezo: Hifadhi kama kiolezo, chini ya Hifadhi.",
   "Any Sunday": "Jumapili yoyote",
   "Anything that can go on the page, where the caret is (or type / on the page)": "Chochote kinachoweza kuwekwa ukurasani, mahali pa kielekezi (au andika / kwenye ukurasa)",
-  "Anywhere": "Mahali popote",
   "Anywhere on this computer, or a drive you plug in": "Mahali popote kwenye kompyuta hii, au kifaa cha kuhifadhi unachochomeka",
   "Appearance": "Mwonekano",
   "Apple’s iCloud Drive on this computer": "iCloud Drive ya Apple kwenye kompyuta hii",
@@ -30929,7 +31318,6 @@ const sw = {
   "Paragraph style": "Mtindo wa aya",
   "Passage": "Kifungu",
   "Passage, dates": "Kifungu, tarehe",
-  "Passage, dates, and the church": "Kifungu, tarehe, na kanisa",
   "Passage, if known": "Kifungu, kama kinajulikana",
   "Passages": "Vifungu",
   "Passages: {passages}": "Vifungu: {passages}",
@@ -31536,7 +31924,48 @@ const sw = {
   "Every key": "Kila kitufe",
   "Leave": "Ondoka",
   "1 block": "kipande 1",
-  "{n} blocks": "vipande {n}"
+  "{n} blocks": "vipande {n}",
+  "Back to the whole library": "Rudi kwenye maktaba yote",
+  "By book": "Kwa kitabu",
+  "Find a church": "Tafuta kanisa",
+  "Find a series": "Tafuta mfululizo",
+  "Narrow to one church": "Finya kwa kanisa moja",
+  "Narrow to one of your series": "Finya kwa mmoja wa mifululizo yako",
+  "No church is called that.": "Hakuna kanisa lenye jina hilo.",
+  "No passage": "Bila kifungu",
+  "No series is called that.": "Hakuna mfululizo wenye jina hilo.",
+  "Passage and dates": "Kifungu na tarehe",
+  "Sermons preached within three days of today, in other years": "Mahubiri yaliyohubiriwa ndani ya siku tatu za leo, katika miaka mingine",
+  "This week, other years": "Wiki hii, miaka mingine",
+  "preached this week in other years": "yaliyohubiriwa wiki hii katika miaka mingine",
+  "retired": "imeondolewa",
+  "You preached {passage} at {church} in {when}": "Ulihubiri {passage} katika {church} mnamo {when}",
+  "You preached {passage} in {when}": "Ulihubiri {passage} mnamo {when}",
+  "Open that sermon": "Fungua mahubiri hayo",
+  "preached in {year}": "yaliyohubiriwa mwaka {year}",
+  "Words, a reference like Rom 8, #tag, @church, an occasion, or a year": "Maneno, rejeo kama Rum 8, #lebo, @kanisa, tukio, au mwaka",
+  "Cut": "Kata",
+  "Copy": "Nakili",
+  "Paste": "Bandika",
+  "Paste without formatting": "Bandika bila muundo",
+  "Select all": "Chagua yote",
+  "Open the link": "Fungua kiungo",
+  "Copy the address": "Nakili anwani",
+  "The words stay": "Maneno yanabaki",
+  "Replace the picture…": "Badilisha picha…",
+  "The caption and the width stay": "Maelezo na upana vinabaki",
+  "Remove the picture": "Ondoa picha",
+  "Edit the footnote…": "Hariri tanbihi…",
+  "Replaced the picture": "Picha imebadilishwa",
+  "Format the selection": "Panga muundo wa sehemu iliyochaguliwa",
+  "Sub-point": "Hoja ndogo",
+  "Sub-sub-point": "Hoja ndogo zaidi",
+  "Level": "Ngazi",
+  "Made it a point": "Imefanywa hoja",
+  "Made it a sub-point": "Imefanywa hoja ndogo",
+  "Made it a sub-sub-point": "Imefanywa hoja ndogo zaidi",
+  "On a point's heading, a sub-point under the point before it": "Kwenye kichwa cha hoja, hoja ndogo chini ya hoja iliyotangulia",
+  "And a sub-point back out to a point": "Na hoja ndogo kurudi kuwa hoja"
 };
 const TABLES = { en: {}, es, ko, pt: pt$3, fr: fr$3, de: de$1, zh, ja, tl, id, ru, sw };
 function fill(text, vars) {
@@ -32311,7 +32740,7 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
   }
   return Component;
 }
-const __iconData$$ = {
+const __iconData$11 = {
   name: "a-arrow-down",
   size: 24,
   node: [
@@ -32321,9 +32750,9 @@ const __iconData$$ = {
     ["path", { d: "M3.304 13h6.392", key: "1q3zxz" }]
   ]
 };
-__iconData$$.node;
-const AArrowDown = createLucideIcon(__iconData$$);
-const __iconData$_ = {
+__iconData$11.node;
+const AArrowDown = createLucideIcon(__iconData$11);
+const __iconData$10 = {
   name: "a-arrow-up",
   size: 24,
   node: [
@@ -32333,9 +32762,9 @@ const __iconData$_ = {
     ["path", { d: "M3.304 13h6.392", key: "1q3zxz" }]
   ]
 };
-__iconData$_.node;
-const AArrowUp = createLucideIcon(__iconData$_);
-const __iconData$Z = {
+__iconData$10.node;
+const AArrowUp = createLucideIcon(__iconData$10);
+const __iconData$$ = {
   name: "align-vertical-space-around",
   size: 24,
   node: [
@@ -32344,9 +32773,9 @@ const __iconData$Z = {
     ["path", { d: "M22 4H2", key: "1b7qnq" }]
   ]
 };
-__iconData$Z.node;
-const AlignVerticalSpaceAround = createLucideIcon(__iconData$Z);
-const __iconData$Y = {
+__iconData$$.node;
+const AlignVerticalSpaceAround = createLucideIcon(__iconData$$);
+const __iconData$_ = {
   name: "arrow-down",
   size: 24,
   node: [
@@ -32354,9 +32783,9 @@ const __iconData$Y = {
     ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
   ]
 };
-__iconData$Y.node;
-const ArrowDown = createLucideIcon(__iconData$Y);
-const __iconData$X = {
+__iconData$_.node;
+const ArrowDown = createLucideIcon(__iconData$_);
+const __iconData$Z = {
   name: "arrow-up",
   size: 24,
   node: [
@@ -32364,9 +32793,9 @@ const __iconData$X = {
     ["path", { d: "M12 19V5", key: "x0mq9r" }]
   ]
 };
-__iconData$X.node;
-const ArrowUp = createLucideIcon(__iconData$X);
-const __iconData$W = {
+__iconData$Z.node;
+const ArrowUp = createLucideIcon(__iconData$Z);
+const __iconData$Y = {
   name: "book-bookmark",
   size: 24,
   node: [
@@ -32387,9 +32816,9 @@ const __iconData$W = {
   ],
   aliases: ["book-marked"]
 };
-__iconData$W.node;
-const BookBookmark = createLucideIcon(__iconData$W);
-const __iconData$V = {
+__iconData$Y.node;
+const BookBookmark = createLucideIcon(__iconData$Y);
+const __iconData$X = {
   name: "book-open",
   size: 24,
   node: [
@@ -32403,9 +32832,9 @@ const __iconData$V = {
     ]
   ]
 };
-__iconData$V.node;
-const BookOpen = createLucideIcon(__iconData$V);
-const __iconData$U = {
+__iconData$X.node;
+const BookOpen = createLucideIcon(__iconData$X);
+const __iconData$W = {
   name: "box",
   size: 24,
   node: [
@@ -32420,29 +32849,72 @@ const __iconData$U = {
     ["path", { d: "M12 22V12", key: "d0xqtd" }]
   ]
 };
-__iconData$U.node;
-const Box$1 = createLucideIcon(__iconData$U);
-const __iconData$T = {
+__iconData$W.node;
+const Box$1 = createLucideIcon(__iconData$W);
+const __iconData$V = {
+  name: "calendar-days",
+  size: 24,
+  node: [
+    ["path", { d: "M8 2v3", key: "1ioesn" }],
+    ["path", { d: "M16 2v3", key: "otl347" }],
+    ["rect", { x: "3", y: "3", width: "18", height: "18", rx: "2", key: "h1oib" }],
+    ["path", { d: "M3 9h18", key: "1pudct" }],
+    ["path", { d: "M8 13h.01", key: "1sbv64" }],
+    ["path", { d: "M12 13h.01", key: "y0uutt" }],
+    ["path", { d: "M16 13h.01", key: "wip0gl" }],
+    ["path", { d: "M8 17h.01", key: "p3bg7i" }],
+    ["path", { d: "M12 17h.01", key: "p32p05" }],
+    ["path", { d: "M16 17h.01", key: "ql8jdd" }]
+  ]
+};
+__iconData$V.node;
+const CalendarDays = createLucideIcon(__iconData$V);
+const __iconData$U = {
   name: "check",
   size: 24,
   node: [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]]
 };
-__iconData$T.node;
-const Check$1 = createLucideIcon(__iconData$T);
-const __iconData$S = {
+__iconData$U.node;
+const Check$1 = createLucideIcon(__iconData$U);
+const __iconData$T = {
   name: "chevron-right",
   size: 24,
   node: [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]]
 };
-__iconData$S.node;
-const ChevronRight = createLucideIcon(__iconData$S);
-const __iconData$R = {
+__iconData$T.node;
+const ChevronRight = createLucideIcon(__iconData$T);
+const __iconData$S = {
   name: "chevron-left",
   size: 24,
   node: [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]]
 };
+__iconData$S.node;
+const ChevronLeft = createLucideIcon(__iconData$S);
+const __iconData$R = {
+  name: "church",
+  size: 24,
+  node: [
+    ["path", { d: "M10 9h4", key: "u4k05v" }],
+    ["path", { d: "M12 7v5", key: "ma6bk" }],
+    ["path", { d: "M14 21v-3a2 2 0 0 0-4 0v3", key: "1rgiei" }],
+    [
+      "path",
+      {
+        d: "m18 9 3.52 2.147a1 1 0 0 1 .48.854V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6.999a1 1 0 0 1 .48-.854L6 9",
+        key: "flvdwo"
+      }
+    ],
+    [
+      "path",
+      {
+        d: "M6 21V7a1 1 0 0 1 .376-.782l5-3.999a1 1 0 0 1 1.249.001l5 4A1 1 0 0 1 18 7v14",
+        key: "a5i0n2"
+      }
+    ]
+  ]
+};
 __iconData$R.node;
-const ChevronLeft = createLucideIcon(__iconData$R);
+const Church = createLucideIcon(__iconData$R);
 const __iconData$Q = {
   name: "cloud",
   size: 24,
@@ -33614,6 +34086,8 @@ function sectionsOf(blocks, pace = SPEAKING_WORDS_PER_MINUTE, t2 = translator("e
       sections.push({
         index: sections.length,
         point: block.type === "point" ? block : null,
+        level: block.type === "point" ? block.level ?? 1 : 1,
+        label: "",
         first: index2,
         end: blocks.length,
         heading: block.type === "point" ? block.heading?.trim() || t2(UNTITLED_POINT) : t2("Before the first point"),
@@ -33622,6 +34096,11 @@ function sectionsOf(blocks, pace = SPEAKING_WORDS_PER_MINUTE, t2 = translator("e
         words: 0
       });
     }
+  });
+  const pointed = sections.filter((section) => section.point);
+  const labels = pointLabels(pointed.map((section) => section.level));
+  pointed.forEach((section, index2) => {
+    section.label = labels[index2] ?? "";
   });
   for (const section of sections) {
     section.words = blocks.slice(section.first, section.end).reduce((sum, block) => sum + (block.type === "note" ? 0 : blockWords(block)), 0);
@@ -33718,6 +34197,22 @@ const ROMAN = [
   [4, "IV"],
   [1, "I"]
 ];
+const letter = (index2) => String.fromCharCode(64 + (index2 - 1) % 26 + 1);
+function pointLabels(levels, style2 = "roman") {
+  const forms = {
+    roman: [roman, letter, String],
+    arabic: [String, (n2) => letter(n2).toLowerCase(), (n2) => roman(n2).toLowerCase()],
+    letters: [letter, String, (n2) => letter(n2).toLowerCase()]
+  };
+  const counts = [0, 0, 0];
+  return levels.map((level) => {
+    if (style2 === "none") return "";
+    const depth = Math.min(3, Math.max(1, level)) - 1;
+    counts[depth] = (counts[depth] ?? 0) + 1;
+    for (let deeper = depth + 1; deeper < 3; deeper++) counts[deeper] = 0;
+    return forms[style2][depth](counts[depth]);
+  });
+}
 function roman(index2) {
   let n2 = index2;
   let out = "";
@@ -33844,12 +34339,6 @@ function outlineSections(sermon, options) {
   }
   return sections;
 }
-function numeral(index2, style2) {
-  if (style2 === "none") return "";
-  if (style2 === "arabic") return `${index2}.`;
-  if (style2 === "letters") return `${String.fromCharCode(64 + (index2 - 1) % 26 + 1)}.`;
-  return `${roman(index2)}.`;
-}
 const OUTLINE_TAGS = {
   scripture: msg("Scripture"),
   illustration: msg("Illustration"),
@@ -33870,6 +34359,7 @@ function renderOutlineHtml(sermon, page, options = DEFAULT_OUTLINE_OPTIONS) {
   const sections = outlineSections(sermon, options);
   const compact = options.density === "compact";
   let number = 0;
+  const labels = pointLabels(sections.flatMap((section) => section.point?.type === "point" ? [section.point.level ?? 1] : []), options.numbering);
   const timing = sectionsOf(podiumBlocks(sermon), options.pace, t2);
   const counts = { points: 0, stories: 0, applications: 0, questions: 0 };
   const items = sections.map((section) => {
@@ -33881,7 +34371,8 @@ function renderOutlineHtml(sermon, page, options = DEFAULT_OUTLINE_OPTIONS) {
       number += 1;
       counts.points += 1;
     }
-    const num = point ? numeral(number, options.numbering) : "";
+    const num = point ? labels[number - 1] ? `${labels[number - 1]}.` : "" : "";
+    const level = point?.type === "point" ? point.level ?? 1 : 1;
     const key2 = point && options.keyLine ? keyLine(point) : null;
     const lines = section.under.filter((block) => {
       if (block.type === "scripture") return options.passages;
@@ -33912,7 +34403,7 @@ function renderOutlineHtml(sermon, page, options = DEFAULT_OUTLINE_OPTIONS) {
     const tools = point ? `<span class="tools" aria-hidden="true"><span class="tool" role="button" data-move="up" data-id="${escapeHtml(point.id)}" title="${t2("Move this point up, with everything under it")}">&#8593;</span><span class="tool" role="button" data-move="down" data-id="${escapeHtml(point.id)}" title="${t2("Move this point down, with everything under it")}">&#8595;</span></span>` : "";
     const minutes = options.minutes && shown > 0 ? `<span class="min${set ? " min--set" : ""}" title="${set ? t2("Planned by hand") : t2("Estimated from the words")}">${t2("{n} min", { n: shown })}</span>` : '<span class="min"></span>';
     const keyHtml = key2 ? `<p class="key${key2.marked ? "" : " key--stand-in"}">${key2.spans.map((span) => spanHtml(span, PLAIN)).join("")}</p>` : "";
-    return `<li class="item${point ? "" : " item--intro"}"${point ? ` data-open="${escapeHtml(point.id)}"` : ""}>
+    return `<li class="item${point ? "" : " item--intro"}${level > 1 ? ` item--${level}` : ""}"${point ? ` data-open="${escapeHtml(point.id)}"` : ""}>
   <span class="num">${num}</span>
   <span class="head">${heading}${tools}</span>
   ${minutes}
@@ -33955,6 +34446,10 @@ function renderOutlineHtml(sermon, page, options = DEFAULT_OUTLINE_OPTIONS) {
   .num { font-size: 1.1em; font-weight: 700; color: #7c2a2e; }
   .head { font-size: ${compact ? "1.15em" : "1.3em"}; font-weight: 700; overflow-wrap: anywhere; }
   .item--intro .head { font-size: 1em; font-weight: 600; color: #777777; font-style: italic; }
+  .item--2 { padding-left: 1.8em; border-top-style: dashed; }
+  .item--2 .head { font-size: ${compact ? "1.05em" : "1.15em"}; }
+  .item--3 { padding-left: 3.6em; border-top-style: dashed; }
+  .item--3 .head { font-size: 1em; font-weight: 600; }
   .min { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 0.72em; color: #999999; text-align: right; white-space: nowrap; }
   .min--set { color: #7c2a2e; font-weight: 600; }
   .total b { color: #1c1917; }
@@ -34015,6 +34510,7 @@ function renderHandoutHtml(sermon, options, page) {
   const ruled = options.noteLines && pointsAs !== "full" && layout !== "insert";
   const rules = (n2) => '<div class="rule"></div>'.repeat(n2);
   let pointNumber = 0;
+  const pointNums = pointLabels(rest.flatMap((block) => block.type === "point" ? [block.level ?? 1] : []), "arabic");
   const renderScripture = (block) => {
     const ref = `<h3 class="ref">${escapeHtml(block.ref)}${block.translation ? ` · ${escapeHtml(block.translation)}` : ""}</h3>`;
     if (scriptureAs === "reference") return `<section class="block scripture scripture--ref">${ref}</section>`;
@@ -34034,18 +34530,18 @@ function renderHandoutHtml(sermon, options, page) {
     }
     if (block.type === "point" && pointsAs !== "full") {
       pointNumber += 1;
-      const num2 = pointCount > 1 ? `<span class="n">${pointNumber}.</span>` : "";
+      const num2 = pointCount > 1 ? `<span class="n">${pointNums[pointNumber - 1]}.</span>` : "";
       const key2 = pointsAs === "key" ? keyLine(block) : null;
       const line = key2 ? `<p class="key">${key2.spans.map((span) => spanHtml(span, flags)).join("")}</p>` : "";
-      return `<section class="block point"${alignAttr(block)}>
+      return `<section class="block point${block.level ? ` point--${block.level}` : ""}"${alignAttr(block)}>
   <h2>${num2}${escapeHtml(heading?.trim() || t2(UNTITLED_POINT))}</h2>
   ${line}
   ${ruled ? rules(options.largePrint ? 2 : 3) : ""}
 </section>`;
     }
     if (block.type === "point") pointNumber += 1;
-    const num = block.type === "point" && pointCount > 1 ? `<span class="n">${pointNumber}.</span>` : "";
-    return `<section class="block"${alignAttr(block)}>
+    const num = block.type === "point" && pointCount > 1 ? `<span class="n">${pointNums[pointNumber - 1]}.</span>` : "";
+    return `<section class="block${block.type === "point" && block.level ? ` point--${block.level}` : ""}"${alignAttr(block)}>
   ${heading ? `<h2>${num}${headingHtml(block, flags)}</h2>` : ""}
   ${bodyHtml(block, flags)}
 </section>`;
@@ -34067,6 +34563,8 @@ function renderHandoutHtml(sermon, options, page) {
   h2 .n { color: #7c2a2e; margin-right: 0.5em; }
   .block { margin-bottom: ${options.largePrint ? "1em" : "0.6em"}; }
   .point .key { margin: 0 0 0.5em; }
+  .point--2 { margin-left: 1.5em; } .point--2 h2 { font-size: 1em; }
+  .point--3 { margin-left: 3em; } .point--3 h2 { font-size: 0.95em; }
   .lead {
     margin: 1em 0 1.4em;
     border-left: 3px solid #333333;
@@ -34354,6 +34852,7 @@ function renderManuscriptHtml(sermon, page, breaks, notes = []) {
   h1 { font-size: 1.8em; }
   .meta { margin-top: 0.4em; font-size: 0.75em; }
   h2 { font-size: 1.1em; margin: 1.2em 0 0.35em; }
+  h2[data-level='2'] { font-size: 1em; margin-left: 1.5em; } h2[data-level='3'] { font-size: 0.95em; margin-left: 3em; font-weight: 600; }
   .block { margin-bottom: 0.7em; }
   ${paged ? `.block { break-inside: auto; } h2 { break-after: auto; } p, li { orphans: 1; widows: 1; } li[data-continues] { list-style: none; }
   .page-box { position: relative; overflow: hidden; }
@@ -34405,7 +34904,7 @@ ${groupListBlocks(blocks).map((group) => {
     const inner = own ? new Map([...own].map(([index2, offsets]) => [index2, index2 === 0 ? offsets.filter((o2) => o2 > 0) : offsets])) : void 0;
     return `${start}${block.type === "note" ? " note" : ""}" data-id="${escapeHtml(block.id)}"${alignAttr(block)}>
   ${block.type === "note" ? `<div class="kind">${t2("Private note")}</div>` : ""}
-  ${heading ? `<h2${headingAlignAttr(block)}>${headingHtml(block, flags)}</h2>` : ""}
+  ${heading ? `<h2${block.type === "point" && block.level ? ` data-level="${block.level}"` : ""}${headingAlignAttr(block)}>${headingHtml(block, flags)}</h2>` : ""}
   ${bodyHtml(block, flags, inner)}
 </section>`;
   }).join("\n")}`;
@@ -40535,10 +41034,11 @@ function kindShown(type, shown) {
 const useOutline = () => reactExports$1.useContext(OutlineContext);
 function outlineLines(blocks, numbering) {
   const lines = /* @__PURE__ */ new Map();
+  const labels = pointLabels(blocks.flatMap((block) => block.type === "point" ? [block.level ?? 1] : []), numbering);
   let points2 = 0;
   for (const block of blocks) {
     if (block.type === "table" || block.type === "image" || block.type === "freeform") continue;
-    const number = block.type === "point" ? numeral(++points2, numbering) : "";
+    const number = block.type === "point" ? labels[points2++] ? `${labels[points2 - 1]}.` : "" : "";
     const summary2 = block.type === "scripture" ? firstSentence(block.text) : keyLine(block)?.spans.map((span) => span.text).join("") ?? "";
     lines.set(block.id, { numeral: number, summary: summary2.trim() });
   }
@@ -74834,7 +75334,7 @@ function deepMerge(target, source) {
   return result;
 }
 function camelToKebabCase(value) {
-  return value.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
+  return value.replace(/[A-Z]/g, (letter2) => `-${letter2.toLowerCase()}`);
 }
 function getTransformedScaledValue(value) {
   if (typeof value !== "string" || !value.includes("var(--mantine-scale)")) return value;
@@ -83597,6 +84097,19 @@ var Z = reactExports$1.forwardRef((e4, t2) => {
     children: _
   });
 };
+function SelectionBar({ formatting, active, onLink }) {
+  const t2 = useT();
+  const highlight = typeof active.styles["backgroundColor"] === "string";
+  const toggle = (on3, title, onClick, children) => /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: on3 ? "itb itb--on" : "itb", title, "aria-label": title, "aria-pressed": on3, onMouseDown: (event) => event.preventDefault(), onClick, children });
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "selection-bar", role: "toolbar", "aria-label": t2("Format the selection"), children: [
+    toggle(Boolean(active.styles["bold"]), keys$2(t2("Bold (Ctrl+B)")), () => formatting.toggleStyle("bold"), /* @__PURE__ */ jsxRuntimeExports.jsx("b", { children: "B" })),
+    toggle(Boolean(active.styles["italic"]), keys$2(t2("Italic (Ctrl+I)")), () => formatting.toggleStyle("italic"), /* @__PURE__ */ jsxRuntimeExports.jsx("i", { children: "I" })),
+    toggle(Boolean(active.styles["underline"]), keys$2(t2("Underline (Ctrl+U)")), () => formatting.toggleStyle("underline"), /* @__PURE__ */ jsxRuntimeExports.jsx("u", { children: "U" })),
+    toggle(highlight, highlight ? t2("No highlight") : t2("Highlight"), () => formatting.setMark("backgroundColor", highlight ? null : "yellow"), /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "selection-bar__swatch", "aria-hidden": "true" })),
+    toggle(false, keys$2(t2("Put a web or mail address on the words chosen (Ctrl+K)")), onLink, /* @__PURE__ */ jsxRuntimeExports.jsx(Link2, { size: 14, strokeWidth: 1.8 })),
+    toggle(false, keys$2(t2("Make the sentence at the caret the key line: what the outline and the handout carry for this point (Ctrl+Alt+K)")), () => formatting.toggleKeyLine(), /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 14, strokeWidth: 1.8 }))
+  ] });
+}
 const SHAPES_FILE = "shapes.json";
 const BUILT_IN_SHAPES = [
   {
@@ -83959,7 +84472,11 @@ function BlockTypeMenu({
   spelling = null,
   pageBreak = null,
   move = null,
-  split: split2 = null
+  split: split2 = null,
+  edit = null,
+  link = null,
+  picture = null,
+  footnote = null
 }) {
   const t2 = useT();
   const ref = reactExports$1.useRef(null);
@@ -83991,6 +84508,47 @@ function BlockTypeMenu({
       onMouseDown: (event) => event.preventDefault(),
       onKeyDown: (event) => event.stopPropagation(),
       children: [
+        edit && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "block-type-menu__move", children: [
+          ["cut", t2("Cut"), "Ctrl+X", "✂", edit.selection],
+          ["copy", t2("Copy"), "Ctrl+C", "⧉", edit.selection],
+          ["paste", t2("Paste"), "Ctrl+V", "⇩", true],
+          ["pastePlain", t2("Paste without formatting"), "Ctrl+Shift+V", "⇩", true],
+          ["selectAll", t2("Select all"), "Ctrl+A", "⬚", true]
+        ].map(([command2, label, chord, marker, enabled]) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "block-type-menu__item block-type-menu__item--plain", disabled: !enabled, onClick: () => edit.onCommand(command2), children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__marker", "aria-hidden": "true", children: marker }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__label", children: label }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__hint", children: keys$2(chord) })
+        ] }, command2)) }),
+        link && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "block-type-menu__move", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "block-type-menu__item block-type-menu__item--plain", onClick: link.onOpen, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__marker", "aria-hidden": "true", children: "↗" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__label", children: t2("Open the link") })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "block-type-menu__item block-type-menu__item--plain", onClick: link.onCopy, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__marker", "aria-hidden": "true", children: "⧉" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__label", children: t2("Copy the address") })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "block-type-menu__item block-type-menu__item--plain", onClick: link.onRemove, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__marker", "aria-hidden": "true", children: "×" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__label", children: t2("Remove link") }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__hint", children: t2("The words stay") })
+          ] })
+        ] }),
+        picture && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "block-type-menu__move", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "block-type-menu__item block-type-menu__item--plain", onClick: picture.onReplace, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__marker", "aria-hidden": "true", children: "⇄" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__label", children: t2("Replace the picture…") }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__hint", children: t2("The caption and the width stay") })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "block-type-menu__item block-type-menu__item--plain", onClick: picture.onRemove, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__marker", "aria-hidden": "true", children: "×" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__label", children: t2("Remove the picture") })
+          ] })
+        ] }),
+        footnote && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "block-type-menu__move", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", role: "menuitem", className: "block-type-menu__item block-type-menu__item--plain", onClick: footnote.onEdit, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__marker", "aria-hidden": "true", children: "¹" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block-type-menu__label", children: t2("Edit the footnote…") })
+        ] }) }),
         spelling && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "block-type-menu__spelling", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "block-type-menu__caption", children: [
             t2("Spelling:"),
@@ -84281,11 +84839,16 @@ const paragraphSpec = {
     propSchema: { ...ai$2.paragraph.config.propSchema, style: STYLE_PROP, margin: MARGIN_PROP }
   }
 };
+const SUB_POINT = msg("Sub-point");
+const SUB_SUB_POINT = msg("Sub-sub-point");
 function BlockFrame({
   type,
   id: id2,
   children,
   placeholder,
+  headingOptional = false,
+  current: current2 = false,
+  level = "",
   onChangeType,
   align = "left",
   pageBreak = false,
@@ -84317,6 +84880,7 @@ function BlockFrame({
     "div",
     {
       className: "sermon-block",
+      "data-level": level || void 0,
       style: { borderColor: style2.accent, lineHeight, marginBottom },
       "data-line-spacing": lineSpacing || void 0,
       "data-folded": folded || void 0,
@@ -84339,13 +84903,13 @@ function BlockFrame({
               onClick: () => menuOpen ? setMenuOpen(false) : openMenu(),
               children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: style2.marker }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2(style2.label) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2(level === "2" ? SUB_POINT : level === "3" ? SUB_SUB_POINT : style2.label) }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-block__label-caret", "aria-hidden": "true", children: "▾" })
               ]
             }
           ) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__label", style: { color: style2.accent }, children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: style2.marker }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2(style2.label) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2(level === "2" ? SUB_POINT : level === "3" ? SUB_SUB_POINT : style2.label) })
           ] }),
           menuOpen && onChangeType && /* @__PURE__ */ jsxRuntimeExports.jsx(
             BlockTypeMenu,
@@ -84385,7 +84949,7 @@ function BlockFrame({
             }
           )
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__heading", "data-placeholder": t2(placeholder), style: { textAlign }, children }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sermon-block__heading", "data-placeholder": t2(placeholder), "data-optional": headingOptional ? "" : void 0, "data-current": current2 ? "" : void 0, style: { textAlign }, children }),
         outline.on && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__fold", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
@@ -84454,7 +85018,7 @@ function retype(editor, block, next) {
 const pointBlock = ea(
   {
     type: "point",
-    propSchema: { align: ALIGN_PROP, pageBreak: PAGE_BREAK_PROP, style: STYLE_PROP, margin: MARGIN_PROP, minutes: { default: "" }, ...SPACING_PROPS },
+    propSchema: { align: ALIGN_PROP, pageBreak: PAGE_BREAK_PROP, style: STYLE_PROP, margin: MARGIN_PROP, minutes: { default: "" }, level: { default: "" }, ...SPACING_PROPS },
     content: "inline"
   },
   {
@@ -84464,6 +85028,7 @@ const pointBlock = ea(
         type: "point",
         id: block.id,
         placeholder: msg("What is this point?"),
+        level: block.props.level,
         align: block.props.align,
         pageBreak: block.props.pageBreak,
         lineSpacing: block.props.lineSpacing,
@@ -84477,6 +85042,22 @@ const pointBlock = ea(
     )
   }
 );
+function useCaretIn(editor, blockId2) {
+  const [current2, setCurrent] = reactExports$1.useState(false);
+  reactExports$1.useEffect(() => {
+    const read = () => {
+      try {
+        setCurrent(editor.getTextCursorPosition().block.id === blockId2);
+      } catch {
+        setCurrent(false);
+      }
+    };
+    read();
+    const off = editor.onSelectionChange(read);
+    return () => off?.();
+  }, [editor, blockId2]);
+  return current2;
+}
 function proseBlock(type) {
   return ea(
     {
@@ -84492,23 +85073,29 @@ function proseBlock(type) {
       content: "inline"
     },
     {
-      render: ({ block, editor, contentRef }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-        BlockFrame,
-        {
-          type,
-          id: block.id,
-          placeholder: msg("Heading, if it wants one"),
-          align: block.props.align,
-          pageBreak: block.props.pageBreak,
-          lineSpacing: block.props.lineSpacing,
-          spaceAfter: block.props.spaceAfter,
-          onTogglePageBreak: editor.isEditable ? () => editor.updateBlock(block, { props: { pageBreak: !block.props.pageBreak } }) : void 0,
-          onChangeType: editor.isEditable ? (next) => retype(editor, block, next) : void 0,
-          move: editor.isEditable ? moveHandle(editor, block.id) : void 0,
-          split: editor.isEditable ? splitHandle(editor, block.id, type) : void 0,
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: contentRef })
-        }
-      )
+      render: ({ block, editor, contentRef }) => /* @__PURE__ */ jsxRuntimeExports.jsx(ProseFrame, { type, block, editor, contentRef })
+    }
+  );
+}
+function ProseFrame({ type, block, editor, contentRef }) {
+  const current2 = useCaretIn(editor, block.id);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    BlockFrame,
+    {
+      type,
+      id: block.id,
+      placeholder: msg("Heading, if it wants one"),
+      headingOptional: true,
+      current: current2,
+      align: block.props.align,
+      pageBreak: block.props.pageBreak,
+      lineSpacing: block.props.lineSpacing,
+      spaceAfter: block.props.spaceAfter,
+      onTogglePageBreak: editor.isEditable ? () => editor.updateBlock(block, { props: { pageBreak: !block.props.pageBreak } }) : void 0,
+      onChangeType: editor.isEditable ? (next) => retype(editor, block, next) : void 0,
+      move: editor.isEditable ? moveHandle(editor, block.id) : void 0,
+      split: editor.isEditable ? splitHandle(editor, block.id, type) : void 0,
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: contentRef })
     }
   );
 }
@@ -85243,7 +85830,8 @@ function blocksToEditor(source) {
       spaceAfter: block.spaceAfter ? String(block.spaceAfter) : "",
       style: "",
       margin: "",
-      minutes: block.type === "point" && block.minutes ? String(block.minutes) : ""
+      minutes: block.type === "point" && block.minutes ? String(block.minutes) : "",
+      level: block.type === "point" && block.level ? String(block.level) : ""
     };
     if (block.type === "illustration" && block.illustrationId) {
       props["illustrationId"] = block.illustrationId;
@@ -85406,7 +85994,8 @@ function fromEditorBlocks(blocks) {
     };
     if (block.type === "point") {
       const minutes = clampMinutes(block.props?.["minutes"]);
-      result.push({ ...base2, ...pageBreak, ...spacing, type: "point", heading, ...headingRich, ...minutes ? { minutes } : {} });
+      const level = block.props?.["level"] === "2" ? 2 : block.props?.["level"] === "3" ? 3 : void 0;
+      result.push({ ...base2, ...pageBreak, ...spacing, type: "point", heading, ...headingRich, ...minutes ? { minutes } : {}, ...level ? { level } : {} });
     } else if (PROSE_TYPES.has(block.type)) {
       const illustrationId = String(block.props?.["illustrationId"] ?? "");
       result.push({
@@ -85453,6 +86042,7 @@ const IDLE_ACTIVE = {
   link: null,
   selectedWords: 0,
   pageBreak: false,
+  level: 1,
   canMove: { up: false, down: false },
   canIndent: false,
   canOutdent: false,
@@ -85512,6 +86102,7 @@ function useActiveState(editor, painterRef) {
         link,
         selectedWords,
         pageBreak: (container?.props ?? props)["pageBreak"] === true,
+        level: container?.type === "point" ? String(container.props["level"]) === "2" ? 2 : String(container.props["level"]) === "3" ? 3 : 1 : 1,
         canMove: { up: index2 > 0, down: index2 >= 0 && index2 < editor.document.length - 1 },
         // A heading is not a step of an outline, and a body's paragraph
         // never steps out of its block; a list item steps out of its list.
@@ -85822,17 +86413,48 @@ function useFormatting({ editor, report, refreshActive, active }) {
     const headed2 = (type) => type === "scripture" || isSermonBlockType(type);
     return { line: headed2(block.type), parent: parent && headed2(parent.type) ? parent : null, block };
   }, [editor]);
+  const pointAround = reactExports$1.useCallback(() => {
+    let block;
+    try {
+      block = editor.getTextCursorPosition().block;
+    } catch {
+      return null;
+    }
+    while (block && block.type !== "point") block = editor.getParentBlock(block);
+    return block ?? null;
+  }, [editor]);
+  const setLevel = reactExports$1.useCallback(
+    (level) => {
+      const point = pointAround();
+      if (!point) return;
+      const current2 = String(point.props["level"]) === "2" ? 2 : String(point.props["level"]) === "3" ? 3 : 1;
+      if (current2 === level) return;
+      announceChange(level === 1 ? t2("Made it a point") : level === 2 ? t2("Made it a sub-point") : t2("Made it a sub-sub-point"));
+      editor.updateBlock(point, { props: { level: level === 1 ? "" : String(level) } });
+      editor.focus();
+      report();
+      refreshActive();
+    },
+    [editor, pointAround, report, refreshActive, t2]
+  );
   const indent = reactExports$1.useCallback(() => {
-    if (framed()?.line) return;
+    const at2 = framed();
+    if (at2?.line) {
+      if (at2.block.type === "point") setLevel(Math.min(3, active.level + 1));
+      return;
+    }
     if (!editor.canNestBlock()) return;
     editor.nestBlock();
     editor.focus();
     report();
     refreshActive();
-  }, [editor, framed, report, refreshActive]);
+  }, [editor, framed, report, refreshActive, setLevel, active.level]);
   const outdent = reactExports$1.useCallback(() => {
     const at2 = framed();
-    if (at2?.line) return;
+    if (at2?.line) {
+      if (at2.block.type === "point") setLevel(Math.max(1, active.level - 1));
+      return;
+    }
     if (at2?.parent) {
       if (at2.block.type === "bulletListItem" || at2.block.type === "numberedListItem") {
         editor.updateBlock(at2.block, { type: "paragraph" });
@@ -85847,7 +86469,7 @@ function useFormatting({ editor, report, refreshActive, active }) {
     editor.focus();
     report();
     refreshActive();
-  }, [editor, framed, report, refreshActive]);
+  }, [editor, framed, report, refreshActive, setLevel, active.level]);
   const containerBlock = reactExports$1.useCallback(() => {
     let block;
     try {
@@ -85906,7 +86528,7 @@ function useFormatting({ editor, report, refreshActive, active }) {
         runs.push({ from: start, to: end, text: node.text.slice(start - pos, end - pos) });
       });
       const joined = runs.map((run2) => run2.text).join("");
-      const recased = mode === "upper" ? joined.toUpperCase() : mode === "lower" ? joined.toLowerCase() : mode === "title" ? joined.replace(new RegExp("\\p{L}[\\p{L}\\p{M}'’]*", "gu"), (word) => word[0].toUpperCase() + word.slice(1).toLowerCase()) : joined.toLowerCase().replace(new RegExp("(^|[.!?]\\s+)(\\p{L})", "gu"), (_, lead, letter) => lead + letter.toUpperCase());
+      const recased = mode === "upper" ? joined.toUpperCase() : mode === "lower" ? joined.toLowerCase() : mode === "title" ? joined.replace(new RegExp("\\p{L}[\\p{L}\\p{M}'’]*", "gu"), (word) => word[0].toUpperCase() + word.slice(1).toLowerCase()) : joined.toLowerCase().replace(new RegExp("(^|[.!?]\\s+)(\\p{L})", "gu"), (_, lead, letter2) => lead + letter2.toUpperCase());
       if (recased.length !== joined.length) return;
       let offset2 = 0;
       const edits = runs.map((run2) => {
@@ -85934,6 +86556,7 @@ function useFormatting({ editor, report, refreshActive, active }) {
       setParagraphStyle,
       insertText,
       toggleKeyLine,
+      setLevel,
       newParagraph,
       toggleList: toggleList2,
       indent,
@@ -85953,6 +86576,7 @@ function useFormatting({ editor, report, refreshActive, active }) {
       setParagraphStyle,
       insertText,
       toggleKeyLine,
+      setLevel,
       newParagraph,
       toggleList2,
       indent,
@@ -86511,6 +87135,17 @@ function useInsert({ editor, report }) {
     const src = await window.api.chooseImage();
     if (src) insertImage(src);
   }, [insertImage]);
+  const replacePicture = reactExports$1.useCallback(
+    async (blockId2) => {
+      const src = await window.api.chooseImage();
+      const block = editor.getBlock(blockId2);
+      if (!src || !block) return;
+      announceChange(t2("Replaced the picture"));
+      editor.updateBlock(block, { props: { src } });
+      report();
+    },
+    [editor, report, t2]
+  );
   const insertImageFiles = reactExports$1.useCallback(
     async (files) => {
       for (const file of files) {
@@ -86522,13 +87157,14 @@ function useInsert({ editor, report }) {
     [insertImage]
   );
   return reactExports$1.useMemo(
-    () => ({ keepLineAfterTable, insertTable, insertPicture, insertImageFiles }),
-    [keepLineAfterTable, insertTable, insertPicture, insertImageFiles]
+    () => ({ keepLineAfterTable, insertTable, insertPicture, replacePicture, insertImageFiles }),
+    [keepLineAfterTable, insertTable, insertPicture, replacePicture, insertImageFiles]
   );
 }
-function useContextMenu({ editor, writable, canMove, moveBlock, report }) {
+function useContextMenu({ editor, writable, canMove, moveBlock, removeLink: takeLinkOff, replacePicture: choosePicture, report }) {
   const [menu, setMenu] = reactExports$1.useState(null);
   const anchorRef = reactExports$1.useRef(null);
+  const markRef = reactExports$1.useRef(null);
   reactExports$1.useLayoutEffect(() => {
     const element = anchorRef.current?.querySelector(".block-type-menu");
     if (!menu || !element) return;
@@ -86546,9 +87182,14 @@ function useContextMenu({ editor, writable, canMove, moveBlock, report }) {
       const spelling = request.misspelledWord ? { word: request.misspelledWord, suggestions: request.suggestions } : null;
       const x2 = Math.max(0, request.x);
       const y2 = Math.max(0, request.y);
+      const editable = request.isEditable;
+      const selection = request.selectionText.trim().length > 0;
+      const mark = target.closest(".footnote-mark");
+      markRef.current = mark;
+      const under = { editable, selection, link: request.linkURL || null, picture: request.mediaType === "image", footnote: mark !== null };
       if (target.closest("input, textarea")) {
-        if (spelling) {
-          setMenu({ id: null, type: null, x: x2, y: y2, spelling, pageBreak: null, move: null });
+        if (editable || spelling) {
+          setMenu({ id: null, type: null, x: x2, y: y2, spelling, pageBreak: null, move: null, ...under, link: null, picture: false, footnote: false });
         }
         return;
       }
@@ -86556,7 +87197,7 @@ function useContextMenu({ editor, writable, canMove, moveBlock, report }) {
       const id2 = outer?.dataset["id"];
       const block = id2 ? editor.getBlock(id2) : void 0;
       const retypeable = !!block;
-      if (!retypeable && !spelling) return;
+      if (!retypeable && !spelling && !editable) return;
       let holder = block;
       for (let parent = holder ? editor.getParentBlock(holder) : void 0; parent; parent = editor.getParentBlock(holder)) holder = parent;
       const breakable = !!holder && !UNTYPED.has(holder.type);
@@ -86567,7 +87208,9 @@ function useContextMenu({ editor, writable, canMove, moveBlock, report }) {
         y: y2,
         spelling,
         pageBreak: breakable ? holder.props["pageBreak"] === true : null,
-        move: block ? canMove(block.id) : null
+        move: block ? canMove(block.id) : null,
+        ...under,
+        picture: under.picture || block?.type === "image"
       });
     });
   }, [editor, writable, canMove]);
@@ -86610,9 +87253,45 @@ function useContextMenu({ editor, writable, canMove, moveBlock, report }) {
     setMenu(null);
     void window.api.learnSpelling(word);
   }, []);
+  const edit = reactExports$1.useCallback((command2) => {
+    setMenu(null);
+    void window.api.edit(command2);
+  }, []);
+  const openLink = reactExports$1.useCallback(() => {
+    const href = menu?.link;
+    setMenu(null);
+    if (href) window.open(href, "_blank");
+  }, [menu]);
+  const copyLink = reactExports$1.useCallback(() => {
+    const href = menu?.link;
+    setMenu(null);
+    if (href) void navigator.clipboard.writeText(href);
+  }, [menu]);
+  const removeLink = reactExports$1.useCallback(() => {
+    setMenu(null);
+    takeLinkOff();
+  }, [takeLinkOff]);
+  const replacePicture = reactExports$1.useCallback(() => {
+    const open2 = menu;
+    setMenu(null);
+    if (open2?.id) void choosePicture(open2.id);
+  }, [menu, choosePicture]);
+  const removePicture = reactExports$1.useCallback(() => {
+    const open2 = menu;
+    setMenu(null);
+    if (!open2?.id) return;
+    const block = editor.getBlock(open2.id);
+    if (!block) return;
+    editor.removeBlocks([block]);
+    report();
+  }, [menu, editor, report]);
+  const editFootnote = reactExports$1.useCallback(() => {
+    setMenu(null);
+    markRef.current?.click();
+  }, []);
   return reactExports$1.useMemo(
-    () => ({ menu, close: close2, anchorRef, retype: retypeFromMenu, togglePageBreak, move, replaceWord, learnWord }),
-    [menu, close2, retypeFromMenu, togglePageBreak, move, replaceWord, learnWord]
+    () => ({ menu, close: close2, anchorRef, retype: retypeFromMenu, togglePageBreak, move, replaceWord, learnWord, edit, openLink, copyLink, removeLink, replacePicture, removePicture, editFootnote }),
+    [menu, close2, retypeFromMenu, togglePageBreak, move, replaceWord, learnWord, edit, openLink, copyLink, removeLink, replacePicture, removePicture, editFootnote]
   );
 }
 const VERSION_NAMES = {
@@ -88894,7 +89573,6 @@ function SermonEditor({
   const blocks = useBlockOps({ editor, writable, report, refreshActive });
   const dropLine = useBlockDrag({ writable, stageRef, moveBlockTo: blocks.moveBlockTo });
   const insert = useInsert({ editor, report });
-  const context = useContextMenu({ editor, writable, canMove: blocks.canMove, moveBlock: blocks.moveBlock, report });
   usePaste({ editor, writable, report, insertImageFiles: insert.insertImageFiles, keepLineAfterTable: insert.keepLineAfterTable });
   useHeadingKeys({ editor, writable, report, folded: (id2) => outline && !opened.has(id2) });
   useReferenceTab({ editor, writable, report });
@@ -88904,6 +89582,7 @@ function SermonEditor({
   reactExports$1.useEffect(() => placeCaret(), [plan, zoom, placeCaret]);
   const replaceMatches = useReplaceMatches(editor, report);
   const footnotes = useFootnotes({ editor, writable, report });
+  const context = useContextMenu({ editor, writable, canMove: blocks.canMove, moveBlock: blocks.moveBlock, removeLink: () => links.setLink(null), replacePicture: insert.replacePicture, report });
   const openFind = reactExports$1.useCallback(() => setFindOpen(true), []);
   useEditorShortcuts({
     hidden: hidden2,
@@ -88988,6 +89667,7 @@ function SermonEditor({
       moveSection: blocks.moveSection,
       setPointMinutes: blocks.setPointMinutes,
       toggleKeyLine: formatting.toggleKeyLine,
+      setLevel: formatting.setLevel,
       editLink: links.openCard,
       setLink: links.setLink,
       jumpTo: blocks.jumpTo,
@@ -89052,7 +89732,7 @@ function SermonEditor({
                   /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onMouseDown: (event) => event.preventDefault(), onClick: onManageTemplates, children: t2("Edit templates…") })
                 ] })
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(OutlineContext.Provider, { value: outlineValue, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              /* @__PURE__ */ jsxRuntimeExports.jsx(OutlineContext.Provider, { value: outlineValue, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 ht,
                 {
                   editor,
@@ -89069,15 +89749,18 @@ function SermonEditor({
                     report();
                     performance.measure("editor-change", { start: started });
                   },
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    bi,
-                    {
-                      triggerCharacter: "/",
-                      getItems: getSlashItems,
-                      suggestionMenuComponent: SlashMenu,
-                      onItemClick: (item) => item.run()
-                    }
-                  )
+                  children: [
+                    writable && /* @__PURE__ */ jsxRuntimeExports.jsx(Fr, { formattingToolbar: () => /* @__PURE__ */ jsxRuntimeExports.jsx(SelectionBar, { formatting, active, onLink: links.openCard }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      bi,
+                      {
+                        triggerCharacter: "/",
+                        getItems: getSlashItems,
+                        suggestionMenuComponent: SlashMenu,
+                        onItemClick: (item) => item.run()
+                      }
+                    )
+                  ]
                 }
               ) })
             ] })
@@ -89170,6 +89853,10 @@ function SermonEditor({
               onLearn: () => context.learnWord(context.menu?.spelling?.word ?? "")
             } : null,
             onSelect: context.retype,
+            edit: context.menu.editable ? { selection: context.menu.selection, onCommand: context.edit } : null,
+            link: context.menu.link ? { onOpen: context.openLink, onCopy: context.copyLink, onRemove: context.removeLink } : null,
+            picture: context.menu.picture ? { onReplace: context.replacePicture, onRemove: context.removePicture } : null,
+            footnote: context.menu.footnote ? { onEdit: context.editFootnote } : null,
             onClose: context.close,
             pageBreak: context.menu.pageBreak === null ? null : { on: context.menu.pageBreak, onToggle: context.togglePageBreak },
             move: context.menu.move ? { ...context.menu.move, onMove: context.move } : null
@@ -90928,7 +91615,11 @@ function OutlinePanel({ sermon, activeId, onJump, onOpen }) {
           "button",
           {
             type: "button",
-            className: active ? "outline-panel__item outline-panel__item--active" : "outline-panel__item",
+            className: [
+              "outline-panel__item",
+              active ? "outline-panel__item--active" : "",
+              block.type === "point" && block.level ? `outline-panel__item--${block.level}` : ""
+            ].filter(Boolean).join(" "),
             style: { "--block-accent": style2?.accent ?? "var(--ink-muted)" },
             onClick: () => onJump(block.id),
             children: [
@@ -91269,6 +91960,21 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
             RETYPE_TYPES.map((type) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: type, children: t2(BLOCK_STYLES[type].label) }, type)),
             /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "paragraph", children: t2("Plain text") }),
             shown && /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: shown, disabled: true, children: shown === "table" ? t2("Table") : t2("Picture") })
+          ]
+        }
+      ) }),
+      active.containerType === "point" && /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Level"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Segmented,
+        {
+          value: String(active.level),
+          ariaLabel: t2("Level"),
+          disabled: !editing,
+          keepFocus: true,
+          onChange: (value) => run2((c2) => c2.setLevel(Number(value))),
+          options: [
+            { value: "1", label: "I." },
+            { value: "2", label: "A." },
+            { value: "3", label: "1." }
           ]
         }
       ) }),
@@ -91636,12 +92342,12 @@ function PrintPane({
       points2.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row insp-row--top", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__label", children: t2("Points") }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row__body insp-row__body--stack", children: [
-          points2.map((section, index2) => {
+          points2.map((section) => {
             const point = section.point;
             const minutes = plannedMinutes(section);
             const estimate = Math.max(1, Math.round(section.words / Math.max(1, pace)));
             return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "timing-point", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "timing-point__num", children: roman(index2 + 1) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "timing-point__num", children: section.label }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "timing-point__title", children: section.heading }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "timing-point__note", title: section.planned ? t2("Set by hand; the words estimate {n}", { n: estimate }) : t2("An estimate, from the words"), children: section.planned ? t2("est. {n}", { n: estimate }) : t2("estimate") }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "stepper", children: [
@@ -92249,10 +92955,21 @@ function SermonHeader({
   onMeta,
   onTagText,
   onTagsSettled,
-  onTitleSettled
+  onTitleSettled,
+  onOpen
 }) {
   const t2 = useT();
   const language = useLanguage();
+  const related = useRelated(draft.id);
+  const overlap = reactExports$1.useMemo(() => {
+    if (draft.status !== "draft" && draft.status !== "ready") return null;
+    for (const group of related) {
+      if (group.kind !== "passage") continue;
+      const sermon = group.sermons.find((entry) => entry.status === "preached" && entry.datePreached);
+      if (sermon) return { subject: group.subject ?? group.label, sermon };
+    }
+    return null;
+  }, [related, draft.status]);
   const [settingDate, setSettingDate] = reactExports$1.useState(false);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "editor-header", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -92345,7 +93062,8 @@ function SermonHeader({
         )
       ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(PreachingLog, { draft, writable, onMeta })
+    /* @__PURE__ */ jsxRuntimeExports.jsx(PreachingLog, { draft, writable, onMeta }),
+    overlap && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "editor-overlap", children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", title: t2("Open that sermon"), onClick: () => onOpen(overlap.sermon.filePath), children: overlap.sermon.church ? t2("You preached {passage} at {church} in {when}", { passage: overlap.subject, church: overlap.sermon.church, when: formatDate$3(overlap.sermon.datePreached, localeOf(language), { year: "numeric", month: "long" }) }) : t2("You preached {passage} in {when}", { passage: overlap.subject, when: formatDate$3(overlap.sermon.datePreached, localeOf(language), { year: "numeric", month: "long" }) }) }) })
   ] });
 }
 function diffWords(before, after) {
@@ -92939,7 +93657,7 @@ function tidySpoken(text, language = "en") {
   for (const [pattern, mark] of marks) out = out.replace(pattern, mark);
   out = out.replace(/\s+([.,?!:;。、，？！])/g, "$1");
   out = out.replace(/[.,?!:;。、，？！]\s*(?=[.,?!:;。、，？！])/g, "");
-  if (!spoken.cjk) out = out.replace(new RegExp("([.?!])\\s*(\\p{Ll})", "gu"), (_, stop, letter) => `${stop} ${letter.toUpperCase()}`);
+  if (!spoken.cjk) out = out.replace(new RegExp("([.?!])\\s*(\\p{Ll})", "gu"), (_, stop, letter2) => `${stop} ${letter2.toUpperCase()}`);
   return out.replace(/\s{2,}/g, " ").trim();
 }
 function parseSpoken(text, language = "en") {
@@ -93244,7 +93962,7 @@ function useDictation({ commands, writable, microphone, onMicrophone }) {
     recorder.current = null;
     void current2.stop().then(async () => {
       await drain();
-      while (busy.current || queue.current.length > 0) await new Promise((resolve) => setTimeout(resolve, 100));
+      while (busy.current || queue.current.length > 0) await new Promise((resolve2) => setTimeout(resolve2, 100));
       setPhase("idle");
       setLevel(0);
     });
@@ -93884,7 +94602,8 @@ function EditorPane({
               onMeta: doc2.updateMeta,
               onTagText: doc2.setTagText,
               onTagsSettled: doc2.commitTags,
-              onTitleSettled: doc2.titleSettled
+              onTitleSettled: doc2.titleSettled,
+              onOpen: onOpenSermon
             }
           )
         },
@@ -94118,8 +94837,8 @@ function Manuscript({
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__scroll", style: { fontSize: `${scale}rem` }, children: [
     blocks.map((block, index2) => {
       const heading = blockHeading(block);
-      const numeral2 = sectionNumbers.get(index2);
-      const kind = block.type === "point" ? numeral2 ? t2("Point {n}", { n: numeral2 }) : t2("Point") : t2(KIND_LABELS[block.type] ?? "Text");
+      const numeral = sectionNumbers.get(index2);
+      const kind = block.type === "point" ? numeral ? t2("Point {n}", { n: numeral }) : t2("Point") : t2(KIND_LABELS[block.type] ?? "Text");
       const inBlock = position.block === index2;
       const one = block.type === "scripture" || block.type === "table" || block.type === "image";
       const paragraphs2 = one ? [] : displayParagraphs(block).filter((paragraph) => paragraph.text.trim() !== "");
@@ -94181,7 +94900,6 @@ function Outline({
     sections.map((section) => {
       const on3 = section.index === current2;
       const key2 = section.point ? keyLine(section.point) : null;
-      const number = section.point ? sections.filter((item) => item.point && item.index <= section.index).length : 0;
       return /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "section",
         {
@@ -94192,7 +94910,7 @@ function Outline({
             onPick(section.index);
           },
           children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__op-num", children: number ? `${roman(number)}.` : "" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__op-num", children: section.label ? `${section.label}.` : "" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "podium__op-head", children: section.heading }),
             key2 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__op-key", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Styled, { spans: key2.spans }) }),
             blocks.slice(section.first + (section.point ? 1 : 0), section.end).map((block) => {
@@ -94241,9 +94959,9 @@ function ReadyScreen({ sermon, sections, reading, targetMinutes, themeClass, ove
         points2 === 0 ? "" : points2 === 1 ? t2("1 point") : t2("{n} points", { n: points2 }),
         minutes === 0 ? "" : minutes === 1 ? t2("about 1 minute of a {target}-minute length", { target: targetMinutes }) : t2("about {n} minutes of a {target}-minute length", { n: minutes, target: targetMinutes })
       ].filter(Boolean).join(" · ") }),
-      points2 > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("ol", { className: "podium__ready-points", "aria-label": t2("The points"), children: sections.filter((item) => item.point).map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+      points2 > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("ol", { className: "podium__ready-points", "aria-label": t2("The points"), children: sections.filter((item) => item.point).map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "podium__ready-num", children: [
-          roman(index2 + 1),
+          item.label,
           "."
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__ready-head", children: item.heading }),
@@ -94343,11 +95061,11 @@ function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, t
         /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "r", children: t2("Against plan") })
       ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("tbody", { children: [
-        sections.filter((item) => item.point).map((item, index2) => {
+        sections.filter((item) => item.point).map((item) => {
           const diff = had[item.index] - item.plannedSeconds;
           return /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("td", { className: "n", children: [
-              roman(index2 + 1),
+              item.label,
               "."
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: item.heading }),
@@ -94476,13 +95194,12 @@ function Rail({ sections, current: current2, spentIn, onPick, onBump }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { className: "podium__rail", onClick: (event) => event.stopPropagation(), children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__rail-head", children: t2("The sermon") }),
     sections.map((item) => {
-      const number = item.point ? sections.filter((other) => other.point && other.index <= item.index).length : 0;
       const had = spentIn(item.index);
       const fill2 = item.plannedSeconds > 0 ? Math.min(1, had / item.plannedSeconds) : 0;
       const state = item.index === current2 ? " podium__rail-point--on" : item.index < current2 ? " podium__rail-point--done" : "";
       return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `podium__rail-point${state}`, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "podium__rail-go", onClick: () => onPick(item.index), title: t2("Go to {heading}", { heading: item.heading }), children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__rail-num", children: number ? `${roman(number)}.` : "" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__rail-num", children: item.label ? `${item.label}.` : "" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__rail-title", children: item.heading })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "podium__rail-min", children: [
@@ -94621,11 +95338,9 @@ function PodiumView({ sermon, onExit }) {
   );
   const sectionNumbers = reactExports$1.useMemo(() => {
     const numbers = /* @__PURE__ */ new Map();
-    let n2 = 0;
     for (const section2 of sections) {
       if (section2.point) {
-        n2 += 1;
-        numbers.set(section2.first, roman(n2));
+        numbers.set(section2.first, section2.label);
       }
     }
     return numbers;
@@ -94872,7 +95587,6 @@ function PodiumView({ sermon, onExit }) {
   const section = sections[sectionIndex];
   const sectionSpent = spentIn(sectionIndex);
   const sectionOver = settings.warnPointOver && section !== void 0 && section.plannedSeconds > 0 && sectionSpent > section.plannedSeconds;
-  const pointNumber = section?.point ? sections.filter((item) => item.point && item.index <= section.index).length : 0;
   const upcoming = steps[stepIndex + 1];
   const showRail = settings.rail && sections.some((item) => item.point);
   const themeClass = settings.theme === "dark" ? "podium podium--dark" : "podium podium--light";
@@ -94987,7 +95701,7 @@ function PodiumView({ sermon, onExit }) {
                 settings.clock === "remaining" && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__remaining", children: over ? t2("over") : t2("left") }),
                 !running && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "podium__paused-marker", children: t2("paused") }),
                 settings.pointTiming && section && section.plannedSeconds > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: sectionOver ? "podium__chip podium__chip--over" : "podium__chip", title: t2("This point: how long it has had, of the minutes the outline planned for it"), children: [
-                  pointNumber ? `${roman(pointNumber)} · ` : "",
+                  section.label ? `${section.label} · ` : "",
                   t2("{had} of {planned}", { had: clock(sectionSpent), planned: clock(section.plannedSeconds) })
                 ] })
               ]
@@ -95441,25 +96155,28 @@ function TagMenu({
   name,
   tags,
   chosen,
-  onPick
+  onPick,
+  icon,
+  words
 }) {
   const t2 = useT();
   const [needle, setNeedle] = reactExports$1.useState("");
   const listed = [...tags].sort((a2, b2) => a2.name.localeCompare(b2.name, void 0, { sensitivity: "base" }));
   const shown = needle.trim() ? listed.filter((tag) => tag.name.toLowerCase().includes(needle.trim().toLowerCase())) : listed;
+  const find = words?.find ?? t2("Find a {name} tag", { name: name.toLowerCase() });
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     PopoverButton,
     {
       buttonClass: chosen ? "chip chip--on chip--menu" : "chip chip--menu",
       label: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Tag, { size: 12, strokeWidth: 1.8 }),
+        icon ?? /* @__PURE__ */ jsxRuntimeExports.jsx(Tag, { size: 12, strokeWidth: 1.8 }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip__label", children: chosen ? t2("{name}: {chosen}", { name, chosen }) : name }),
         chosen ? /* @__PURE__ */ jsxRuntimeExports.jsx(X$5, { size: 11, strokeWidth: 2.2, className: "chip__x", onClick: (event) => {
           event.stopPropagation();
           onPick(null);
         } }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 11, strokeWidth: 2, className: "chip__caret" })
       ] }),
-      title: chosen ? t2("{name}: {chosen}. Press to choose another, or the × to clear.", { name, chosen }) : t2("Narrow to one of the {name} tags", { name: name.toLowerCase() }),
+      title: chosen ? t2("{name}: {chosen}. Press to choose another, or the × to clear.", { name, chosen }) : words?.narrow ?? t2("Narrow to one of the {name} tags", { name: name.toLowerCase() }),
       ariaLabel: name,
       panelClass: "tagpick",
       children: (close2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
@@ -95467,8 +96184,8 @@ function TagMenu({
           "input",
           {
             className: "field selectable tagpick__find",
-            placeholder: t2("Find a {name} tag", { name: name.toLowerCase() }),
-            "aria-label": t2("Find a {name} tag", { name: name.toLowerCase() }),
+            placeholder: find,
+            "aria-label": find,
             value: needle,
             autoFocus: true,
             onChange: (event) => setNeedle(event.target.value),
@@ -95502,7 +96219,71 @@ function TagMenu({
             },
             tag.name
           )),
-          shown.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "tagpick__none", children: t2("No tag says that.") })
+          shown.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "tagpick__none", children: words?.none ?? t2("No tag says that.") })
+        ] })
+      ] })
+    }
+  );
+}
+function SeriesMenu({ series, chosenId, onPick }) {
+  const t2 = useT();
+  const [needle, setNeedle] = reactExports$1.useState("");
+  const listed = [...series].sort((a2, b2) => Number(a2.retired) - Number(b2.retired) || (b2.last ?? "").localeCompare(a2.last ?? "") || a2.name.localeCompare(b2.name, void 0, { sensitivity: "base" }));
+  const shown = needle.trim() ? listed.filter((entry) => entry.name.toLowerCase().includes(needle.trim().toLowerCase())) : listed;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    PopoverButton,
+    {
+      buttonClass: "chip chip--menu",
+      label: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Folder, { size: 12, strokeWidth: 1.8 }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip__label", children: t2("Series") }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 11, strokeWidth: 2, className: "chip__caret" })
+      ] }),
+      title: t2("Narrow to one of your series"),
+      ariaLabel: t2("Series"),
+      panelClass: "tagpick",
+      children: (close2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        series.length > FILTER_FROM && /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "input",
+          {
+            className: "field selectable tagpick__find",
+            placeholder: t2("Find a series"),
+            "aria-label": t2("Find a series"),
+            value: needle,
+            autoFocus: true,
+            onChange: (event) => setNeedle(event.target.value),
+            onKeyDown: (event) => {
+              event.stopPropagation();
+              if (event.key === "Enter" && shown.length === 1) {
+                onPick(shown[0].id);
+                setNeedle("");
+                close2();
+              }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "tagpick__list", role: "listbox", children: [
+          shown.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "button",
+            {
+              type: "button",
+              role: "option",
+              "aria-selected": chosenId === entry.id,
+              className: chosenId === entry.id ? "tagpick__item tagpick__item--on" : "tagpick__item",
+              onClick: () => {
+                onPick(chosenId === entry.id ? null : entry.id);
+                setNeedle("");
+                close2();
+              },
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tagpick__name", children: entry.name }),
+                entry.retired && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tagpick__note", children: t2("retired") }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "tagpick__count", children: entry.sermonCount })
+              ]
+            },
+            entry.id
+          )),
+          shown.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "tagpick__none", children: t2("No series is called that.") })
         ] })
       ] })
     }
@@ -95545,7 +96326,14 @@ function TagChips({
       entry.name
     )),
     occasions.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: t2("Occasion"), tags: occasions, chosen: occasion || null, onPick: (name) => setOccasion(name ?? "") }),
-    groups.map(({ group, tags: members }) => /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: group.name, tags: members, chosen: chosenIn(group), onPick: (name) => chooseTag(name, group) }, group.id)),
+    groups.map(({ group, tags: members }) => (
+      // One control for one choice: a chosen tag riding in the row as its
+      // own chip is not named on the group's chip too.
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: group.name, tags: members, chosen: (() => {
+        const tag = chosenIn(group);
+        return tag !== null && chipTags.some((entry) => sameTag(entry.name, tag)) ? null : tag;
+      })(), onPick: (name) => chooseTag(name, group) }, group.id)
+    )),
     ungrouped.length > 0 && (groups.length > 0 || ungrouped.length > rowTags.length) && // A tag chosen that already rides in the row as its own chip is not
     // named on this one too: one control for one choice.
     /* @__PURE__ */ jsxRuntimeExports.jsx(TagMenu, { name: t2("Tags"), tags: ungrouped, chosen: (() => {
@@ -95554,10 +96342,10 @@ function TagChips({
     })(), onPick: (name) => chooseTag(name, null) })
   ] });
 }
-function Filters({ book, setBook, chapter, setChapter, from: from2, setFrom, to: to2, setTo, church, setChurch, churches, narrowed, clearFilters, writable, canSave, viewName, setViewName, saveView, activeView, forgetView }) {
+function Filters({ book, setBook, chapter, setChapter, from: from2, setFrom, to: to2, setTo, narrowed, clearFilters, writable, canSave, viewName, setViewName, saveView, activeView, forgetView }) {
   const language = useLanguage();
   const t2 = useT();
-  const behindMore = (book !== "" ? 1 : 0) + (from2 || to2 ? 1 : 0) + (church ? 1 : 0);
+  const behindMore = (book !== "" ? 1 : 0) + (from2 || to2 ? 1 : 0);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     PopoverButton,
     {
@@ -95566,7 +96354,7 @@ function Filters({ book, setBook, chapter, setChapter, from: from2, setFrom, to:
         /* @__PURE__ */ jsxRuntimeExports.jsx(SlidersHorizontal, { size: 12, strokeWidth: 1.8 }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip__label", children: behindMore > 1 ? t2("{n} more on", { n: behindMore }) : behindMore === 1 ? t2("1 more on") : t2("Passage, dates") })
       ] }),
-      title: t2("Passage, dates, and the church"),
+      title: t2("Passage and dates"),
       ariaLabel: t2("More filters"),
       active: behindMore > 0,
       panelClass: "filters",
@@ -95597,18 +96385,6 @@ function Filters({ book, setBook, chapter, setChapter, from: from2, setFrom, to:
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "filters__pair", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "date", className: "field", "aria-label": t2("From"), value: from2, onChange: (event) => setFrom(event.target.value) }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "date", className: "field", "aria-label": t2("To"), value: to2, onChange: (event) => setTo(event.target.value) })
-          ] })
-        ] }),
-        churches.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "filters__field", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "filters__label", children: t2("Preached at") }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { className: "field", "aria-label": t2("Church"), value: church, onChange: (event) => setChurch(event.target.value), children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: t2("Anywhere") }),
-            churches.map((row) => /* @__PURE__ */ jsxRuntimeExports.jsxs("option", { value: row.name, children: [
-              row.name,
-              " (",
-              row.sermonCount,
-              ")"
-            ] }, row.name))
           ] })
         ] }),
         writable && canSave && /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -95709,7 +96485,8 @@ function SermonRowMenu({ hit, x: x2, y: y2, writable, seriesName, onOpen, onReve
 function rowMeta(hit, t2, locale) {
   const date = hit.datePreached ? formatDate(hit.datePreached, t2, locale) : null;
   const state = hit.status === "preached" ? null : hit.status === "draft" ? t2("Draft") : hit.status === "ready" ? t2("Ready") : hit.status === "archived" ? t2("Archived") : null;
-  return [state, date ?? (state ? null : t2("Undated")), hit.primaryPassage].filter(Boolean).join(" · ");
+  const occasion = hit.occasion?.trim() ? t2(hit.occasion.trim()) : null;
+  return [state, date ?? (state ? null : t2("Undated")), occasion, hit.primaryPassage].filter(Boolean).join(" · ");
 }
 const formatDate = (iso, t2, locale) => iso ? formatDate$3(iso, locale, SHORT_DATE) : t2("Undated");
 const UNDATED = msg("Undated");
@@ -95733,9 +96510,10 @@ function Snippet({ text }) {
     (part, index2) => part.startsWith(SNIPPET_MARK_OPEN) && part.endsWith(SNIPPET_MARK_CLOSE) ? /* @__PURE__ */ jsxRuntimeExports.jsx("mark", { className: "hit__mark", children: part.slice(1, -1) }, index2) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: part }, index2)
   ) });
 }
-function SermonList({ hits, sermons, byYear, openPath, onOpen, writable, series, onOpenSeries, onDuplicate, onDelete, failures, header, empty: empty2 }) {
+function SermonList({ hits, sermons, byYear, byBook, openPath, onOpen, writable, series, onOpenSeries, onDuplicate, onDelete, failures, header, empty: empty2 }) {
   const t2 = useT();
-  const locale = localeOf(useLanguage());
+  const language = useLanguage();
+  const locale = localeOf(language);
   const [rowMenu, setRowMenu] = reactExports$1.useState(null);
   const [showFailures, setShowFailures] = reactExports$1.useState(false);
   const [openYears, setOpenYears] = reactExports$1.useState(() => /* @__PURE__ */ new Set());
@@ -95763,6 +96541,17 @@ function SermonList({ hits, sermons, byYear, openPath, onOpen, writable, series,
     }
     return out;
   }, [hits, byYear, totals, locale]);
+  const books = reactExports$1.useMemo(() => {
+    if (!byBook) return [];
+    const out = [];
+    for (const hit of hits) {
+      const key2 = hit.book ? String(hit.book) : "none";
+      const group = out[out.length - 1];
+      if (group && group.key === key2) group.hits.push(hit);
+      else out.push({ key: key2, label: hit.book ? bookName(hit.book, language) : t2("No passage"), hits: [hit] });
+    }
+    return out;
+  }, [hits, byBook, language, t2]);
   const rail = reactExports$1.useMemo(() => [...totals.keys()].filter((year) => year !== UNDATED).sort((a2, b2) => b2.localeCompare(a2)), [totals]);
   const hitYears = reactExports$1.useMemo(() => new Set(years.map((group) => group.year)), [years]);
   reactExports$1.useEffect(() => {
@@ -95772,7 +96561,8 @@ function SermonList({ hits, sermons, byYear, openPath, onOpen, writable, series,
       return open2;
     });
   }, [years, hitYears]);
-  const isOpen = (year) => year === UNDATED || openYears.has(year);
+  const fewHits = byYear && hits.length <= 12;
+  const isOpen = (year) => year === UNDATED || fewHits || openYears.has(year);
   const toggleYear = (year) => setOpenYears((open2) => {
     const next = new Set(open2);
     if (next.has(year)) next.delete(year);
@@ -95831,19 +96621,22 @@ function SermonList({ hits, sermons, byYear, openPath, onOpen, writable, series,
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__body", children: [
-      byYear && rail.length > 1 && /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "library__rail", "aria-label": t2("Years"), children: rail.map((year) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      byYear && rail.length > 1 && /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "library__rail", "aria-label": t2("Years"), children: rail.map((year) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "button",
         {
           type: "button",
           className: [
             "library__rail-year",
-            openYears.has(year) && hitYears.has(year) ? "library__rail-year--open" : "",
+            (openYears.has(year) || fewHits) && hitYears.has(year) ? "library__rail-year--open" : "",
             hitYears.has(year) ? "" : "library__rail-year--none"
           ].filter(Boolean).join(" "),
           title: railTitle(year, totals.get(year) ?? 0, hitYears.has(year), openYears.has(year) && hitYears.has(year), t2),
           "aria-pressed": openYears.has(year) && hitYears.has(year),
           onClick: () => jumpTo(year),
-          children: year
+          children: [
+            year,
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "library__rail-count", children: totals.get(year) ?? 0 })
+          ]
         },
         year
       )) }),
@@ -95886,22 +96679,77 @@ function SermonList({ hits, sermons, byYear, openPath, onOpen, writable, series,
             ]
           },
           group.year
+        )) : byBook ? books.map((group) => (
+          // Keyed by the first sermon, not the book: for the frame
+          // between the order changing and the hits arriving, a
+          // date-ordered list groups into the same book many times.
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "library__group-title", children: group.label }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "sermon-list", children: group.hits.map(item) })
+          ] }, group.hits[0].id)
         )) : hits.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "sermon-list", children: hits.map(item) }) }),
         hits.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "sermon-list__empty", children: empty2 })
       ] })
     ] })
   ] });
 }
+const EMPTY = { words: "", tags: [], church: null, occasion: null, year: null };
+function resolve(typed, names) {
+  const key2 = foldText(typed);
+  if (!key2) return typed;
+  const exact = names.find((name) => foldText(name) === key2);
+  if (exact) return exact;
+  const starts = names.find((name) => foldText(name).startsWith(key2));
+  if (starts) return starts;
+  const word = names.find((name) => name.split(/\s+/).some((part) => foldText(part).startsWith(key2)));
+  return word ?? typed;
+}
+function readSearch(text, names, t2) {
+  const out = { ...EMPTY, tags: [] };
+  const words = [];
+  const occasions = names.occasions.flatMap((name) => [
+    [foldText(name), name],
+    [foldText(t2(name)), name]
+  ]);
+  for (const token of text.trim().split(/\s+/)) {
+    if (!token) continue;
+    if (token.startsWith('"') || token.startsWith("“")) {
+      const bare = token.replace(/^["“]+|["”]+$/g, "");
+      if (bare) words.push(bare);
+      continue;
+    }
+    if (token.startsWith("#") && token.length > 1) {
+      out.tags.push(resolve(token.slice(1), names.tags));
+      continue;
+    }
+    if (token.startsWith("@") && token.length > 1) {
+      out.church = resolve(token.slice(1), names.churches);
+      continue;
+    }
+    if (/^(19|20)\d\d$/.test(token)) {
+      out.year = token;
+      continue;
+    }
+    const occasion = occasions.find(([key2]) => key2 === foldText(token));
+    if (occasion) {
+      out.occasion = occasion[1];
+      continue;
+    }
+    words.push(token);
+  }
+  out.words = words.join(" ");
+  return out;
+}
 const SORT_KEY = "sermondesk.library.sort";
 function readOrder() {
   try {
     const raw = localStorage.getItem(SORT_KEY);
-    return raw === "title" || raw === "edited" ? raw : "date";
+    return raw === "title" || raw === "edited" || raw === "book" ? raw : "date";
   } catch {
     return "date";
   }
 }
-function useLibraryQuery({ bookPick, revision, series, tags, occasions }) {
+function useLibraryQuery({ bookPick, revision, series, tags, occasions, churches }) {
   const language = useLanguage();
   const t2 = useT();
   const [text, setText] = reactExports$1.useState("");
@@ -95915,7 +96763,9 @@ function useLibraryQuery({ bookPick, revision, series, tags, occasions }) {
   const [to2, setTo] = reactExports$1.useState("");
   const [church, setChurch] = reactExports$1.useState("");
   const [occasion, setOccasion] = reactExports$1.useState("");
+  const [thisWeek, setThisWeek] = reactExports$1.useState(false);
   const [hits, setHits] = reactExports$1.useState([]);
+  const [hitsFor, setHitsFor] = reactExports$1.useState({ order: "date", text: "" });
   const [passage, setPassage] = reactExports$1.useState(null);
   reactExports$1.useEffect(() => {
     if (!bookPick) return;
@@ -95932,24 +96782,34 @@ function useLibraryQuery({ bookPick, revision, series, tags, occasions }) {
   reactExports$1.useEffect(() => {
     if (occasion && !occasions.some((row) => sameTag(row.name, occasion))) setOccasion("");
   }, [occasions, occasion]);
+  const spoken = reactExports$1.useMemo(() => readSearch(text, { tags: tags.map((row) => row.name), churches: churches.map((row) => row.name), occasions: occasions.map((row) => row.name) }, t2), [text, tags, churches, occasions, t2]);
+  const allTags = reactExports$1.useMemo(() => [...chosen, ...spoken.tags.filter((name) => !chosen.some((entry) => sameTag(entry, name)))], [chosen, spoken.tags]);
+  const askedChurch = church || spoken.church || "";
+  const askedOccasion = occasion || spoken.occasion || "";
+  const askedYear = !from2 && !to2 ? spoken.year : null;
   const query = reactExports$1.useMemo(() => {
     const next = {};
-    if (text.trim()) next.text = text.trim();
+    if (spoken.words) next.text = spoken.words;
     if (order !== "date") next.sort = order;
     if (scope === "drafts") next.status = "draft";
     if (scope === "preached") next.status = "preached";
     if (scope === "archived") next.status = "archived";
     if (scope === "all") next.hideArchived = true;
     if (seriesId) next.seriesId = seriesId;
-    if (chosen.length) next.tags = chosen;
-    if (occasion) next.occasion = occasion;
+    if (allTags.length) next.tags = allTags;
+    if (askedOccasion) next.occasion = askedOccasion;
     if (book !== "") next.book = book;
     if (book !== "" && chapter.trim()) next.chapter = Number(chapter);
     if (from2) next.from = from2;
     if (to2) next.to = to2;
-    if (church) next.church = church;
+    if (askedYear) {
+      next.from = `${askedYear}-01-01`;
+      next.to = `${askedYear}-12-31`;
+    }
+    if (askedChurch) next.church = askedChurch;
+    if (thisWeek) next.week = isoDate();
     return next;
-  }, [text, scope, seriesId, chosen, occasion, book, chapter, from2, to2, church, order]);
+  }, [spoken.words, scope, seriesId, allTags, askedOccasion, book, chapter, from2, to2, askedYear, askedChurch, thisWeek, order]);
   const chooseOrder = (next) => {
     setOrder(next);
     try {
@@ -95962,7 +96822,9 @@ function useLibraryQuery({ bookPick, revision, series, tags, occasions }) {
     let cancelled = false;
     const timer = setTimeout(() => {
       window.api.queryLibrary(query).then((results) => {
-        if (!cancelled) setHits(results);
+        if (cancelled) return;
+        setHits(results);
+        setHitsFor({ order: query.sort ?? "date", text: query.text ?? "" });
       }).catch(() => {
         if (!cancelled) setHits([]);
       });
@@ -95978,7 +96840,7 @@ function useLibraryQuery({ bookPick, revision, series, tags, occasions }) {
       clearTimeout(timer);
     };
   }, [query, revision, scope]);
-  const narrowed = Boolean(seriesId || chosen.length || occasion || book !== "" || from2 || to2 || church);
+  const narrowed = Boolean(seriesId || chosen.length || occasion || book !== "" || from2 || to2 || church || thisWeek);
   const clearFilters = reactExports$1.useCallback(() => {
     setSeriesId(null);
     setChosen([]);
@@ -95988,6 +96850,7 @@ function useLibraryQuery({ bookPick, revision, series, tags, occasions }) {
     setFrom("");
     setTo("");
     setChurch("");
+    setThisWeek(false);
   }, []);
   const applyView = reactExports$1.useCallback((view) => {
     const q2 = view.query;
@@ -96001,6 +96864,7 @@ function useLibraryQuery({ bookPick, revision, series, tags, occasions }) {
     setFrom(q2.from ?? "");
     setTo(q2.to ?? "");
     setChurch(q2.church ?? "");
+    setThisWeek(false);
   }, []);
   const clearAll = reactExports$1.useCallback(() => {
     setText("");
@@ -96011,19 +96875,23 @@ function useLibraryQuery({ bookPick, revision, series, tags, occasions }) {
     const parts = [];
     const seriesName = series.find((entry) => entry.id === seriesId)?.name;
     if (seriesName) parts.push(t2("in {series}", { series: seriesName }));
-    if (chosen.length) parts.push(t2("tagged {tags}", { tags: chosen.join(", ") }));
-    if (occasion) parts.push(t2("for {occasion}", { occasion }));
+    if (allTags.length) parts.push(t2("tagged {tags}", { tags: allTags.join(", ") }));
+    if (askedOccasion) parts.push(t2("for {occasion}", { occasion: askedOccasion }));
     if (book !== "") parts.push(t2("touching {passage}", { passage: chapter.trim() ? `${bookName(book, language)} ${chapter.trim()}` : bookName(book, language) }));
     if (from2 && to2) parts.push(t2("between {from} and {to}", { from: from2, to: to2 }));
     else if (from2) parts.push(t2("since {from}", { from: from2 }));
     else if (to2) parts.push(t2("before {to}", { to: to2 }));
-    if (church) parts.push(t2("preached at {church}", { church }));
-    if (text.trim()) parts.push(passage ? t2("touching {passage}, or saying so", { passage }) : t2("saying “{text}”", { text: text.trim() }));
+    else if (askedYear) parts.push(t2("preached in {year}", { year: askedYear }));
+    if (askedChurch) parts.push(t2("preached at {church}", { church: askedChurch }));
+    if (thisWeek) parts.push(t2("preached this week in other years"));
+    if (spoken.words) parts.push(passage ? t2("touching {passage}, or saying so", { passage }) : t2("saying “{text}”", { text: spoken.words }));
     const n2 = hits.length;
     const head = scope === "drafts" ? n2 === 0 ? t2("No drafts") : n2 === 1 ? t2("1 draft") : t2("{n} drafts", { n: n2 }) : scope === "preached" ? n2 === 0 ? t2("No preached sermons") : n2 === 1 ? t2("1 preached sermon") : t2("{n} preached sermons", { n: n2 }) : scope === "archived" ? n2 === 0 ? t2("No archived sermons") : n2 === 1 ? t2("1 archived sermon") : t2("{n} archived sermons", { n: n2 }) : n2 === 0 ? t2("No sermons") : n2 === 1 ? t2("1 sermon") : t2("{n} sermons", { n: n2 });
     return parts.length ? `${head} ${parts.join(", ")}` : head;
-  }, [hits.length, series, seriesId, chosen, occasion, book, chapter, from2, to2, church, text, passage, scope, language, t2]);
+  }, [hits.length, series, seriesId, allTags, askedOccasion, book, chapter, from2, to2, askedYear, askedChurch, thisWeek, spoken.words, passage, scope, language, t2]);
   return {
+    thisWeek,
+    setThisWeek,
     text,
     setText,
     scope,
@@ -96047,6 +96915,7 @@ function useLibraryQuery({ bookPick, revision, series, tags, occasions }) {
     occasion,
     setOccasion,
     hits,
+    hitsFor,
     query,
     narrowed,
     clearFilters,
@@ -96095,17 +96964,26 @@ function LibraryColumn({
   const [failures, setFailures] = reactExports$1.useState([]);
   const [views, setViews] = reactExports$1.useState([]);
   const [viewName, setViewName] = reactExports$1.useState("");
+  const [thisWeekCount, setThisWeekCount] = reactExports$1.useState(0);
   reactExports$1.useEffect(() => {
+    void window.api.queryLibrary({ week: isoDate(), hideArchived: true, limit: 1e3 }).then((rows) => setThisWeekCount(rows.length)).catch(() => setThisWeekCount(0));
     void window.api.getLibraryStatus().then((state) => setFailures(state.failures)).catch(() => setFailures([]));
     void window.api.listViews().then(setViews).catch(() => setViews([]));
     void window.api.listChurches().then(setChurches).catch(() => setChurches([]));
     void window.api.readTags().then(setTagsFile).catch(() => setTagsFile(EMPTY_TAGS));
     void window.api.listOccasions().then(setOccasions).catch(() => setOccasions([]));
   }, [revision]);
-  const q2 = useLibraryQuery({ bookPick, revision, series, tags, occasions });
-  const { text, setText, scope, setScope, order, chooseOrder, seriesId, setSeriesId, chosen, hits, query, narrowed, clearFilters, applyView, clearAll, sentence } = q2;
-  const activeView = reactExports$1.useMemo(() => views.find((view) => sameNarrowing(view.query, query)) ?? null, [views, query]);
-  const canSave = Object.keys(narrowingOf(query)).length > 0 && activeView === null;
+  const q2 = useLibraryQuery({ bookPick, revision, series, tags, occasions, churches });
+  const { text, setText, scope, setScope, order, chooseOrder, seriesId, setSeriesId, chosen, hits, hitsFor, query, narrowed, clearFilters, applyView, clearAll, sentence, thisWeek, setThisWeek } = q2;
+  const activeView = reactExports$1.useMemo(() => thisWeek ? null : views.find((view) => sameNarrowing(view.query, query)) ?? null, [views, query, thisWeek]);
+  const canSave = !thisWeek && Object.keys(narrowingOf(query)).length > 0 && activeView === null;
+  const yearAgo = reactExports$1.useMemo(() => {
+    const day = /* @__PURE__ */ new Date();
+    day.setFullYear(day.getFullYear() - 1);
+    return isoDate(day);
+  }, []);
+  const riding = series.filter((entry) => seriesId === entry.id || !entry.retired && (entry.sermonCount === 0 || entry.planned.length > 0 || entry.last !== null && entry.last >= yearAgo));
+  const folded = narrowed;
   const saveView = async () => {
     const name = viewName.trim();
     if (!name) return;
@@ -96122,7 +97000,8 @@ function LibraryColumn({
     } catch {
     }
   };
-  const byYear = !text.trim() && order === "date";
+  const byYear = !hitsFor.text.trim() && hitsFor.order === "date";
+  const byBook = !hitsFor.text.trim() && hitsFor.order === "book";
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "cell cell--side-body library", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__top", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__row", children: [
@@ -96135,6 +97014,7 @@ function LibraryColumn({
               value: text,
               placeholder: t2("Search"),
               "aria-label": scope === "stories" ? t2("Search your stories") : t2("Search every sermon"),
+              title: scope === "stories" ? void 0 : t2("Words, a reference like Rom 8, #tag, @church, an occasion, or a year"),
               onChange: (event) => setText(event.target.value)
             }
           ),
@@ -96202,7 +97082,19 @@ function LibraryColumn({
     ] }),
     scope === "stories" ? /* @__PURE__ */ jsxRuntimeExports.jsx(IllustrationsPanel, { writable, canInsert: stories.canInsert, onInsert: stories.onInsert, draft: null, refreshKey: revision, filter: text }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__chips", children: [
-        views.map((view) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        thisWeekCount > 0 && (!folded || thisWeek) && /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Chip,
+          {
+            on: thisWeek,
+            className: "chip--view",
+            icon: /* @__PURE__ */ jsxRuntimeExports.jsx(CalendarDays, { size: 12, strokeWidth: 1.8 }),
+            label: t2("This week, other years"),
+            count: thisWeekCount,
+            title: thisWeek ? t2("Back to the whole library") : t2("Sermons preached within three days of today, in other years"),
+            onClick: () => setThisWeek(!thisWeek)
+          }
+        ),
+        views.filter((view) => !folded || activeView?.id === view.id).map((view) => /* @__PURE__ */ jsxRuntimeExports.jsx(
           Chip,
           {
             on: activeView?.id === view.id,
@@ -96215,7 +97107,7 @@ function LibraryColumn({
           },
           view.id
         )),
-        series.filter((entry) => !entry.retired || seriesId === entry.id).map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        riding.filter((entry) => !folded || seriesId === entry.id).map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx(
           Chip,
           {
             on: seriesId === entry.id,
@@ -96226,7 +97118,19 @@ function LibraryColumn({
           },
           entry.id
         )),
+        series.length > riding.length && /* @__PURE__ */ jsxRuntimeExports.jsx(SeriesMenu, { series, chosenId: seriesId, onPick: setSeriesId }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(TagChips, { tags, tagsFile, chosen, setChosen: q2.setChosen, occasions, occasion: q2.occasion, setOccasion: q2.setOccasion }),
+        churches.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(
+          TagMenu,
+          {
+            name: t2("Church"),
+            tags: churches,
+            chosen: q2.church || null,
+            onPick: (name) => q2.setChurch(name ?? ""),
+            icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Church, { size: 12, strokeWidth: 1.8 }),
+            words: { narrow: t2("Narrow to one church"), find: t2("Find a church"), none: t2("No church is called that.") }
+          }
+        ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           Filters,
           {
@@ -96238,9 +97142,6 @@ function LibraryColumn({
             setFrom: q2.setFrom,
             to: q2.to,
             setTo: q2.setTo,
-            church: q2.church,
-            setChurch: q2.setChurch,
-            churches,
             narrowed,
             clearFilters,
             writable,
@@ -96251,7 +97152,11 @@ function LibraryColumn({
             activeView,
             forgetView
           }
-        )
+        ),
+        folded && /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "chip chip--more", title: t2("Clear filters"), onClick: clearFilters, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(X$5, { size: 11, strokeWidth: 2.2 }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip__label", children: t2("Clear filters") })
+        ] })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         SermonList,
@@ -96259,6 +97164,7 @@ function LibraryColumn({
           hits,
           sermons,
           byYear,
+          byBook,
           openPath,
           onOpen,
           writable,
@@ -96276,6 +97182,7 @@ function LibraryColumn({
             /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { className: "library__sort", "aria-label": t2("Sort"), title: t2("The order of the list"), value: order, onChange: (event) => chooseOrder(event.target.value), children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "date", children: t2("Newest first") }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "title", children: t2("By title") }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "book", children: t2("By book") }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "edited", children: t2("Last edited") })
             ] })
           ] }),
@@ -96486,6 +97393,8 @@ const GROUPS = [
       { does: msg("Small"), chord: "Ctrl+Alt+S" },
       { does: msg("Indent a paragraph or a list item"), chord: "Tab" },
       { does: msg("Outdent it"), chord: "Shift+Tab" },
+      { does: msg("On a point's heading, a sub-point under the point before it"), chord: "Tab" },
+      { does: msg("And a sub-point back out to a point"), chord: "Shift+Tab" },
       { does: msg("A link on the words chosen"), chord: "Ctrl+K" },
       { does: msg("A footnote at the caret"), chord: "Ctrl+Alt+F" },
       { does: msg("The key line: the sentence the outline and the handout carry"), chord: "Ctrl+Alt+K" },
@@ -96983,7 +97892,7 @@ function SeriesSheet({ onClose, onSaved }) {
   const add = () => {
     const name = newName.trim();
     if (!name) return;
-    void persist([...series, { id: crypto.randomUUID(), name, description: "", sermonCount: 0, planned: [], retired: false }]);
+    void persist([...series, { id: crypto.randomUUID(), name, description: "", sermonCount: 0, last: null, planned: [], retired: false }]);
     setNewName("");
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Sheet, { title: t2("Series"), ariaLabel: t2("Edit series"), onClose, children: [

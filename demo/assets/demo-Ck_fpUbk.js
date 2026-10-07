@@ -1,4 +1,4 @@
-import { S as SERMON_FILE_VERSION, s as slugOf, L as LANGUAGES, B as BOOK_NAMES, f as foldText, D as DEFAULT_LANGUAGE, a as formatRange, b as LAST_VERSE_SENTINEL, c as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, d as forgetInTags, e as bookByNumber, g as DEFAULT_EDITOR_SETTINGS, h as BOOKS, i as flattenForSearch, j as SNIPPET_MARK_OPEN, k as SNIPPET_MARK_CLOSE, l as applyThemePreference, m as clientExports, o as jsxRuntimeExports, p as reactExports, A as App } from "./index-7MRzwSqS.js";
+import { S as SERMON_FILE_VERSION, s as slugOf, L as LANGUAGES, B as BOOK_NAMES, f as foldText, D as DEFAULT_LANGUAGE, a as formatRange, b as LAST_VERSE_SENTINEL, c as DEFAULT_APP_SETTINGS, n as normaliseTags, r as renameInTags, d as forgetInTags, e as bookByNumber, g as DEFAULT_EDITOR_SETTINGS, h as BOOKS, i as flattenForSearch, j as SNIPPET_MARK_OPEN, k as SNIPPET_MARK_CLOSE, l as applyThemePreference, m as clientExports, o as jsxRuntimeExports, p as reactExports, A as App } from "./index-C3mqLmBQ.js";
 const series$1 = [{ "id": "series-letters", "name": "Summer in the Letters", "description": "Galatians, Romans, and 1 Peter, one Sunday each, then Ephesians and James to close the summer", "planned": [{ "id": "plan-eph", "title": "Seated With Him", "passage": "Ephesians 2:1-10", "inDays": 5 }, { "id": "plan-jas", "title": "Doers of the Word", "passage": "James 1:19-27", "inDays": 12 }] }, { "id": "series-beginning", "name": "In the Beginning", "description": "Genesis 1 to 22 in eight Sundays: the world made, the garden lost, a brother killed, a flood, a tower, a call, and a knife held back" }, { "id": "series-advent-luke", "name": "Advent in Luke", "description": "Zechariah, Mary, Elizabeth, and the shepherds: the first two chapters of Luke, a Sunday each, and the night itself" }, { "id": "series-i-am", "name": '요한복음의 일곱 "나는"', "description": '예수님께서 "나는 ~이니"라고 하신 일곱 말씀을 한 주일에 하나씩, 한어 예배에서' }, { "id": "series-psalms", "retired": true, "name": "Songs for the Road", "description": "Eight psalms for a summer: the ones people reach for at the bedside, in the car, and at the graveside" }, { "id": "series-comfort", "retired": true, "name": "Comfort, Comfort", "description": "Advent in Isaiah: four promises read in the dark, and the Word made flesh on Christmas Eve" }, { "id": "series-mount", "retired": true, "name": "The Sermon on the Mount", "description": 'Matthew 5 to 7 in seven Sundays: the blessings, salt and light, the six "but I say to you", the prayer, the treasure, and the two houses' }, { "id": "series-romans", "retired": true, "name": "Romans, Start to Finish", "description": "Paul's letter a Sunday at a time, from the first greeting to the last, through a winter and a spring" }];
 const tags = { "groups": [{ "id": "theme", "name": "Theme", "tags": ["faithfulness", "hope", "grace", "suffering", "providence", "prayer", "forgiveness", "generosity", "justice", "rest", "fear", "love"] }, { "id": "kind", "name": "Kind", "tags": ["parables", "witness", "narrative", "psalm", "prophecy", "wisdom", "letters"] }, { "id": "language", "name": "Language", "tags": ["korean", "spanish"] }], "pinned": [] };
 const illustrations$1 = [{ "id": "story-septembers", "title": "Thirty-one Septembers", "body": 'A teacher of thirty-one years: "Every September they are new, even when I am not."', "source": "A conversation after a funeral", "tags": ["faithfulness"], "daysAgo": 20 }, { "id": "story-nets", "title": "The mended nets", "body": "The fisherman who mended nets every evening, whether or not the day had caught anything.", "source": "My grandfather", "tags": ["hope", "work"], "daysAgo": 100 }, { "id": "story-seed-catalogue", "title": "The seed catalogue in January", "body": "The seed catalogue arrives when the ground is iron, and my mother orders anyway, every year, with the snow still on the garden.", "source": "My mother", "tags": ["hope", "faithfulness"], "daysAgo": 230 }, { "id": "story-sourdough", "title": "The sourdough starter", "body": `A neighbour has fed the same starter every morning for twenty-two years, bake or no bake. "It doesn't know whether today is a baking day. It only knows whether it was fed."`, "source": "Next door, over the fence", "tags": ["faithfulness"], "daysAgo": 340 }, { "id": "story-wrong-bus", "title": "The wrong bus", "body": "A six-year-old asleep on the wrong bus, and the driver who finished his route, then drove the whole of it again with one passenger, until a woman on a corner started running.", "source": "A parishioner, after church", "tags": ["grace"], "daysAgo": 570 }, { "id": "story-late-train", "title": "The fourth train", "body": "My father waited on the platform through three trains that were not hers, and stood up again for the fourth exactly as he had for the first.", "source": "My own family", "tags": ["hope"], "daysAgo": 320 }, { "id": "story-hymnal", "title": "Grandmother's hymnal", "body": 'Her hymnal had a pencilled date beside every hymn sung at a funeral she went to, forty years of them. Beside "It Is Well" there were eleven.', "source": "Her bookshelf, the week we cleared the house", "tags": ["suffering", "hope"], "daysAgo": 980 }, { "id": "story-ladder", "title": "The borrowed ladder", "body": "A ladder lent for a weekend came back on Monday with the cracked rung replaced, and no mention of it.", "source": "A neighbour", "tags": ["generosity"], "daysAgo": 330 }, { "id": "story-snow", "title": "Snow on the roofs", "body": "The morning after the snow, every roof on the street was the same colour, the big houses and the small, the mended and the ones that leaked.", "source": "A walk in January", "tags": ["grace"], "daysAgo": 990 }, { "id": "story-violin", "title": "The violin in the case", "body": "A violin left in its case for a year is not kept safe. It is out of tune, the strings gone dull, and it has to be played back into itself.", "source": "A music teacher in the congregation", "tags": ["faithfulness"], "daysAgo": 400 }, { "id": "story-dawn-prayer", "title": "할머니의 새벽 기도", "body": '외할머니는 사십 년 동안 새벽 다섯 시에 교회 문을 여셨다. 눈이 와도, 아무도 오지 않는 날에도. "누가 오느냐가 아니라 누가 계시느냐의 문제지."', "source": "외할머니", "tags": ["prayer", "faithfulness"], "daysAgo": 60 }, { "id": "story-kimjang", "title": "김장하는 날", "body": "김장은 혼자 하는 일이 아니다. 배추 백 포기를 절이고 양념을 버무리는 하루, 온 식구와 이웃이 모여야 겨울이 준비된다.", "source": "어머니 댁, 해마다 십일월", "tags": ["love"], "daysAgo": 345 }, { "id": "story-long-table", "title": "La mesa larga", "body": 'En la casa de su abuela siempre había una silla más que personas en la familia. "Por si alguien llega", decía, y alguien siempre llegaba.', "source": "Una hermana de Nueva Esperanza", "tags": ["generosity", "grace"], "daysAgo": 720 }];
@@ -275,6 +275,18 @@ function ranges(sermon) {
   const refs = [sermon.primaryPassage ?? "", ...sermon.blocks.map((block) => block.type === "scripture" ? block.ref : "")];
   return refs.flatMap((ref) => ref ? parseReference(ref) : []);
 }
+const headline = (sermon) => sermon.primaryPassage ? parseReference(sermon.primaryPassage)[0] ?? null : null;
+function byBook(a, b) {
+  const ra = headline(a);
+  const rb = headline(b);
+  if (!ra || !rb) return Number(ra === null) - Number(rb === null);
+  return ra.book - rb.book || ra.chapterStart - rb.chapterStart;
+}
+function dayOfYear(iso) {
+  const date = /* @__PURE__ */ new Date(`${iso}T00:00:00`);
+  const start = new Date(date.getFullYear(), 0, 1);
+  return Math.round((date.getTime() - start.getTime()) / 864e5) + 1;
+}
 const words = (sermon) => flattenForSearch(sermon).toLowerCase();
 function wordStart(term, flags = "iu") {
   return new RegExp(`(?<![\\p{L}\\p{N}])${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`, flags);
@@ -296,12 +308,20 @@ function query(q) {
   const terms = text ? text.split(/\s+/) : [];
   const asked = text ? parseReference(text) : [];
   const rows = [...sermons.entries()].filter(([, s]) => q.status ? s.status === q.status : q.hideArchived ? s.status !== "archived" : true).filter(([, s]) => q.church ? (s.preachings ?? []).some((p) => p.church?.toLowerCase() === q.church.toLowerCase()) : true).filter(([, s]) => q.seriesId === null ? s.seriesId === null : q.seriesId !== void 0 ? s.seriesId === q.seriesId : true).filter(([, s]) => [...q.tag ? [q.tag] : [], ...q.tags ?? []].every((wanted) => s.tags.some((tag) => tag.toLowerCase() === wanted.toLowerCase()))).filter(([, s]) => q.occasion?.trim() ? (s.occasion ?? "").toLowerCase() === q.occasion.trim().toLowerCase() : true).filter(([, s]) => q.from ? (s.datePreached ?? "") >= q.from : true).filter(([, s]) => q.to ? (s.datePreached ?? "") <= q.to && s.datePreached !== null : true).filter(([, s]) => {
+    if (!q.week) return true;
+    if (!s.datePreached || s.datePreached >= `${q.week.slice(0, 4)}-01-01`) return false;
+    const gap = Math.abs(dayOfYear(s.datePreached) - dayOfYear(q.week));
+    return gap <= 3 || gap >= 362;
+  }).filter(([, s]) => {
     if (q.book === void 0) return true;
     return ranges(s).some((r) => r.book === q.book && (q.chapter === void 0 || r.chapterStart <= q.chapter && r.chapterEnd >= q.chapter));
   });
-  const order = (list) => q.sort === "title" ? [...list].sort(([, a], [, b]) => a.title.localeCompare(b.title, void 0, { sensitivity: "base" })) : q.sort === "edited" ? [...list].sort(([, a], [, b]) => b.updatedAt.localeCompare(a.updatedAt)) : [...list].sort(([, a], [, b]) => byDate(a, b));
+  const order = (list) => q.sort === "title" ? [...list].sort(([, a], [, b]) => a.title.localeCompare(b.title, void 0, { sensitivity: "base" })) : q.sort === "edited" ? [...list].sort(([, a], [, b]) => b.updatedAt.localeCompare(a.updatedAt)) : q.sort === "book" ? [...list].sort(([, a], [, b]) => byBook(a, b) || byDate(a, b)) : [...list].sort(([, a], [, b]) => byDate(a, b));
   const hit = ([path, s], withSnippet) => ({
     ...summary(s, path),
+    book: headline(s)?.book ?? null,
+    chapter: headline(s)?.chapterStart ?? null,
+    occasion: s.occasion ?? null,
     seriesId: s.seriesId,
     ...withSnippet && terms.length ? { snippet: snippet(s, terms) } : {}
   });
@@ -317,7 +337,14 @@ function related(sermonId) {
   const [, self] = entry;
   const groups = [];
   const seen = /* @__PURE__ */ new Set([sermonId]);
-  const row = (path, s) => ({ id: s.id, title: s.title, filePath: path, datePreached: s.datePreached, status: s.status });
+  const row = (path, s) => ({
+    id: s.id,
+    title: s.title,
+    filePath: path,
+    datePreached: s.datePreached,
+    status: s.status,
+    church: [...s.preachings ?? []].reverse().find((telling) => telling.church)?.church ?? null
+  });
   const others = [...sermons.entries()].filter(([, s]) => s.id !== sermonId).sort(([, a], [, b]) => byDate(a, b));
   const take = (list) => {
     const out = [];
@@ -336,14 +363,14 @@ function related(sermonId) {
       if (chapters.has(`${range.book}`)) continue;
       chapters.add(`${range.book}`);
       const list = take(others.filter(([, s]) => ranges(s).some((r) => r.book === range.book)));
-      if (list.length) groups.push({ kind: "passage", label: `Also in ${name}`, sermons: list });
+      if (list.length) groups.push({ kind: "passage", label: `Also in ${name}`, subject: name, sermons: list });
       continue;
     }
     for (let chapter = range.chapterStart; chapter <= Math.min(range.chapterEnd, range.chapterStart + 11); chapter++) {
       if (chapters.has(`${range.book}:${chapter}`)) continue;
       chapters.add(`${range.book}:${chapter}`);
       const list = take(others.filter(([, s]) => ranges(s).some((r) => r.book === range.book && r.chapterStart <= chapter && r.chapterEnd >= chapter)));
-      if (list.length) groups.push({ kind: "passage", label: `Also in ${name} ${chapter}`, sermons: list });
+      if (list.length) groups.push({ kind: "passage", label: `Also in ${name} ${chapter}`, subject: `${name} ${chapter}`, sermons: list });
     }
   }
   const told = new Set(self.blocks.flatMap((block) => "illustrationId" in block && block.illustrationId ? [block.illustrationId] : []));
@@ -360,20 +387,20 @@ function related(sermonId) {
   return groups;
 }
 function coverage() {
-  const byBook = /* @__PURE__ */ new Map();
+  const byBook2 = /* @__PURE__ */ new Map();
   for (const sermon of sermons.values()) {
     for (const range of ranges(sermon)) {
       const total = bookByNumber(range.book)?.chapters ?? 0;
       if (!total) continue;
-      const entry = byBook.get(range.book) ?? { sermons: /* @__PURE__ */ new Set(), chapters: /* @__PURE__ */ new Set(), last: null };
+      const entry = byBook2.get(range.book) ?? { sermons: /* @__PURE__ */ new Set(), chapters: /* @__PURE__ */ new Set(), last: null };
       entry.sermons.add(sermon.id);
       for (let chapter = Math.max(1, range.chapterStart); chapter <= Math.min(range.chapterEnd, total); chapter++) entry.chapters.add(chapter);
       if (sermon.datePreached && (!entry.last || sermon.datePreached > entry.last)) entry.last = sermon.datePreached;
-      byBook.set(range.book, entry);
+      byBook2.set(range.book, entry);
     }
   }
-  return BOOKS.filter((book) => byBook.has(book.number)).map((book) => {
-    const entry = byBook.get(book.number);
+  return BOOKS.filter((book) => byBook2.has(book.number)).map((book) => {
+    const entry = byBook2.get(book.number);
     return { book: book.number, sermons: entry.sermons.size, chapters: [...entry.chapters].sort((a, b) => a - b), last: entry.last };
   });
 }
@@ -430,7 +457,16 @@ function coverageMap(church) {
     church
   };
 }
-const seriesRows = () => series.map((entry) => ({ ...entry, planned: clone(entry.planned ?? []), retired: entry.retired === true, sermonCount: [...sermons.values()].filter((s) => s.seriesId === entry.id).length })).sort((a, b) => a.name.localeCompare(b.name));
+const seriesRows = () => series.map((entry) => {
+  const own = [...sermons.values()].filter((s) => s.seriesId === entry.id);
+  return {
+    ...entry,
+    planned: clone(entry.planned ?? []),
+    retired: entry.retired === true,
+    sermonCount: own.length,
+    last: own.reduce((latest, s) => s.datePreached && (!latest || s.datePreached > latest) ? s.datePreached : latest, null)
+  };
+}).sort((a, b) => a.name.localeCompare(b.name));
 const tagRows = () => {
   const counts = /* @__PURE__ */ new Map();
   for (const sermon of sermons.values()) for (const tag of sermon.tags) counts.set(tag.toLowerCase(), (counts.get(tag.toLowerCase()) ?? 0) + 1);
@@ -634,6 +670,31 @@ const demoApi = {
     return { ...appSettings };
   },
   listSpellingLanguages: async () => [],
+  // The editing commands, as a browser can run them: cut, copy and select
+  // all are the page's own; a paste reads the clipboard, with the visitor's
+  // leave, and hands it to the editor as a paste.
+  edit: async (command) => {
+    if (command === "selectAll" || command === "cut" || command === "copy") {
+      document.execCommand(command);
+      return;
+    }
+    const target = document.activeElement;
+    if (!(target instanceof HTMLElement)) return;
+    const transfer = new DataTransfer();
+    try {
+      if (command === "pastePlain") transfer.setData("text/plain", await navigator.clipboard.readText());
+      else {
+        for (const item of await navigator.clipboard.read()) {
+          for (const type of item.types) {
+            if (type === "text/plain" || type === "text/html") transfer.setData(type, await (await item.getType(type)).text());
+          }
+        }
+      }
+    } catch {
+      return;
+    }
+    target.dispatchEvent(new ClipboardEvent("paste", { clipboardData: transfer, bubbles: true, cancelable: true }));
+  },
   listFonts: async () => ["Palatino Linotype", "Georgia", "Times New Roman", "Garamond", "Calibri", "Arial"],
   listHistory: async () => [],
   readHistory: async () => {
@@ -675,7 +736,16 @@ const demoApi = {
       const editable = Boolean(target?.closest('[contenteditable="true"], input, textarea'));
       if (!editable) return;
       event.preventDefault();
-      callback({ x: event.clientX, y: event.clientY, misspelledWord: "", suggestions: [], isEditable: true });
+      callback({
+        x: event.clientX,
+        y: event.clientY,
+        misspelledWord: "",
+        suggestions: [],
+        isEditable: true,
+        selectionText: window.getSelection()?.toString() ?? "",
+        linkURL: target?.closest("a")?.getAttribute("href") ?? "",
+        mediaType: target?.closest("img") ? "image" : "none"
+      });
     };
     document.addEventListener("contextmenu", listener);
     return () => document.removeEventListener("contextmenu", listener);
