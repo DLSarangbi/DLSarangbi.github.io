@@ -16659,7 +16659,11 @@ const es = {
   "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Una vista fijada va en la fila; en cuanto hay una fijada, las demás esperan tras una ficha Vistas",
   "Narrow to one occasion": "Limitar a una ocasión",
   "Find an occasion": "Buscar una ocasión",
-  "No occasion is called that.": "Ninguna ocasión se llama así."
+  "No occasion is called that.": "Ninguna ocasión se llama así.",
+  "The page stopped": "La página se detuvo",
+  "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Tu sermón se guarda mientras escribes, así que nada de lo escrito se pierde. Ábrelo de nuevo, o vuelve a la biblioteca.",
+  "Open it again": "Abrirlo de nuevo",
+  "Back to the library": "Volver a la biblioteca"
 };
 const ko = {
   "Drag to move this picture": "끌어서 이 그림을 옮깁니다",
@@ -18205,7 +18209,11 @@ const ko = {
   "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "고정한 보기는 줄에 남고, 하나라도 고정하면 나머지는 보기 칩 뒤에서 기다립니다",
   "Narrow to one occasion": "한 행사로 좁히기",
   "Find an occasion": "행사 찾기",
-  "No occasion is called that.": "그런 이름의 행사가 없습니다."
+  "No occasion is called that.": "그런 이름의 행사가 없습니다.",
+  "The page stopped": "페이지가 멈췄습니다",
+  "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "설교는 입력하는 대로 저장되므로 쓴 내용은 사라지지 않습니다. 다시 열거나 서재로 돌아가세요.",
+  "Open it again": "다시 열기",
+  "Back to the library": "서재로 돌아가기"
 };
 const pt$3 = {
   "Drag to move this picture": "Arraste para mover esta imagem",
@@ -19751,7 +19759,11 @@ const pt$3 = {
   "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Uma visualização fixada fica na linha; assim que uma é fixada, as outras esperam atrás de uma etiqueta Visualizações",
   "Narrow to one occasion": "Restringir a uma ocasião",
   "Find an occasion": "Buscar uma ocasião",
-  "No occasion is called that.": "Nenhuma ocasião tem esse nome."
+  "No occasion is called that.": "Nenhuma ocasião tem esse nome.",
+  "The page stopped": "A página parou",
+  "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Seu sermão é salvo enquanto você escreve, então nada do que foi escrito se perde. Abra-o de novo, ou volte à biblioteca.",
+  "Open it again": "Abrir de novo",
+  "Back to the library": "Voltar à biblioteca"
 };
 const fr$3 = {
   "Drag to move this picture": "Glisser pour déplacer cette image",
@@ -21297,7 +21309,11 @@ const fr$3 = {
   "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Une vue épinglée reste dans la rangée ; dès qu'une l'est, les autres attendent derrière une puce Vues",
   "Narrow to one occasion": "Restreindre à une occasion",
   "Find an occasion": "Trouver une occasion",
-  "No occasion is called that.": "Aucune occasion ne porte ce nom."
+  "No occasion is called that.": "Aucune occasion ne porte ce nom.",
+  "The page stopped": "La page s’est arrêtée",
+  "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Votre sermon est enregistré au fil de la frappe, rien de ce qui est écrit n’est perdu. Rouvrez-le, ou revenez à la bibliothèque.",
+  "Open it again": "Le rouvrir",
+  "Back to the library": "Revenir à la bibliothèque"
 };
 const de$1 = {
   "Drag to move this picture": "Ziehen, um dieses Bild zu verschieben",
@@ -22843,7 +22859,11 @@ const de$1 = {
   "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Eine angeheftete Ansicht bleibt in der Leiste; sobald eine angeheftet ist, warten die übrigen hinter einem Ansichten-Chip",
   "Narrow to one occasion": "Auf einen Anlass eingrenzen",
   "Find an occasion": "Einen Anlass suchen",
-  "No occasion is called that.": "Kein Anlass heißt so."
+  "No occasion is called that.": "Kein Anlass heißt so.",
+  "The page stopped": "Die Seite ist stehen geblieben",
+  "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Ihre Predigt wird beim Schreiben gespeichert, nichts Geschriebenes geht verloren. Öffnen Sie sie erneut oder gehen Sie zurück zur Bibliothek.",
+  "Open it again": "Erneut öffnen",
+  "Back to the library": "Zurück zur Bibliothek"
 };
 const zh = {
   "Drag to move this picture": "拖动以移动此图片",
@@ -24389,7 +24409,11 @@ const zh = {
   "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "固定的视图留在标签行；一旦有视图被固定，其余的放在“视图”标签后",
   "Narrow to one occasion": "限定为一个场合",
   "Find an occasion": "查找场合",
-  "No occasion is called that.": "没有叫这个名字的场合。"
+  "No occasion is called that.": "没有叫这个名字的场合。",
+  "The page stopped": "页面已停止",
+  "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "讲章会在你输入时自动保存，已写的内容不会丢失。重新打开它，或返回讲章库。",
+  "Open it again": "重新打开",
+  "Back to the library": "返回讲章库"
 };
 const ja = {
   "Drag to move this picture": "ドラッグしてこの画像を移動",
@@ -25935,7 +25959,11 @@ const ja = {
   "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "固定したビューは行に残り、一つでも固定すると残りは「ビュー」チップの中に入ります",
   "Narrow to one occasion": "一つの行事に絞る",
   "Find an occasion": "行事を検索",
-  "No occasion is called that.": "その名前の行事はありません。"
+  "No occasion is called that.": "その名前の行事はありません。",
+  "The page stopped": "ページが停止しました",
+  "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "説教は入力のたびに保存されるので、書いた内容は失われません。もう一度開くか、ライブラリに戻ってください。",
+  "Open it again": "もう一度開く",
+  "Back to the library": "ライブラリに戻る"
 };
 const tl = {
   "Drag to move this picture": "I-drag para ilipat ang larawang ito",
@@ -27481,7 +27509,11 @@ const tl = {
   "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Ang naka-pin na view ay nasa hanay; kapag may naka-pin, ang iba ay naghihintay sa likod ng chip na Mga view",
   "Narrow to one occasion": "Limitahan sa isang okasyon",
   "Find an occasion": "Maghanap ng okasyon",
-  "No occasion is called that.": "Walang okasyon na may ganyang pangalan."
+  "No occasion is called that.": "Walang okasyon na may ganyang pangalan.",
+  "The page stopped": "Huminto ang pahina",
+  "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Nase-save ang iyong sermon habang nagta-type ka, kaya walang nawawala sa naisulat. Buksan itong muli, o bumalik sa aklatan.",
+  "Open it again": "Buksang muli",
+  "Back to the library": "Bumalik sa aklatan"
 };
 const id = {
   "Drag to move this picture": "Seret untuk memindahkan gambar ini",
@@ -29027,7 +29059,11 @@ const id = {
   "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Tampilan yang disematkan ada di baris; begitu ada yang disematkan, yang lain menunggu di balik chip Tampilan",
   "Narrow to one occasion": "Batasi ke satu kesempatan",
   "Find an occasion": "Cari kesempatan",
-  "No occasion is called that.": "Tidak ada kesempatan dengan nama itu."
+  "No occasion is called that.": "Tidak ada kesempatan dengan nama itu.",
+  "The page stopped": "Halaman berhenti",
+  "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Khotbah Anda tersimpan saat Anda mengetik, jadi tidak ada tulisan yang hilang. Buka lagi, atau kembali ke pustaka.",
+  "Open it again": "Buka lagi",
+  "Back to the library": "Kembali ke pustaka"
 };
 const ru = {
   "Drag to move this picture": "Перетащите, чтобы переместить это изображение",
@@ -30573,7 +30609,11 @@ const ru = {
   "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Закреплённый вид остаётся в ряду; как только один закреплён, остальные ждут за чипом «Виды»",
   "Narrow to one occasion": "Сузить до одного повода",
   "Find an occasion": "Найти повод",
-  "No occasion is called that.": "Повода с таким названием нет."
+  "No occasion is called that.": "Повода с таким названием нет.",
+  "The page stopped": "Страница остановилась",
+  "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Проповедь сохраняется по мере набора, так что написанное не потеряно. Откройте её снова или вернитесь в библиотеку.",
+  "Open it again": "Открыть снова",
+  "Back to the library": "Вернуться в библиотеку"
 };
 const sw = {
   "Drag to move this picture": "Buruta kuhamisha picha hii",
@@ -32119,7 +32159,11 @@ const sw = {
   "A pinned view rides in the row; once any is pinned, the rest wait behind a Views chip": "Mwonekano uliobandikwa hukaa kwenye safu; mmoja ukibandikwa, mingine husubiri nyuma ya kitufe cha Mionekano",
   "Narrow to one occasion": "Finya kwa tukio moja",
   "Find an occasion": "Tafuta tukio",
-  "No occasion is called that.": "Hakuna tukio lenye jina hilo."
+  "No occasion is called that.": "Hakuna tukio lenye jina hilo.",
+  "The page stopped": "Ukurasa umesimama",
+  "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Mahubiri yako huhifadhiwa unapoandika, kwa hivyo hakuna ulichoandika kinachopotea. Yafungue tena, au urudi kwenye maktaba.",
+  "Open it again": "Fungua tena",
+  "Back to the library": "Rudi kwenye maktaba"
 };
 const TABLES = { en: {}, es, ko, pt: pt$3, fr: fr$3, de: de$1, zh, ja, tl, id, ru, sw };
 function fill(text, vars) {
@@ -32894,7 +32938,7 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
   }
   return Component;
 }
-const __iconData$12 = {
+const __iconData$13 = {
   name: "a-arrow-down",
   size: 24,
   node: [
@@ -32904,9 +32948,9 @@ const __iconData$12 = {
     ["path", { d: "M3.304 13h6.392", key: "1q3zxz" }]
   ]
 };
-__iconData$12.node;
-const AArrowDown = createLucideIcon(__iconData$12);
-const __iconData$11 = {
+__iconData$13.node;
+const AArrowDown = createLucideIcon(__iconData$13);
+const __iconData$12 = {
   name: "a-arrow-up",
   size: 24,
   node: [
@@ -32916,9 +32960,9 @@ const __iconData$11 = {
     ["path", { d: "M3.304 13h6.392", key: "1q3zxz" }]
   ]
 };
-__iconData$11.node;
-const AArrowUp = createLucideIcon(__iconData$11);
-const __iconData$10 = {
+__iconData$12.node;
+const AArrowUp = createLucideIcon(__iconData$12);
+const __iconData$11 = {
   name: "align-vertical-space-around",
   size: 24,
   node: [
@@ -32927,9 +32971,9 @@ const __iconData$10 = {
     ["path", { d: "M22 4H2", key: "1b7qnq" }]
   ]
 };
-__iconData$10.node;
-const AlignVerticalSpaceAround = createLucideIcon(__iconData$10);
-const __iconData$$ = {
+__iconData$11.node;
+const AlignVerticalSpaceAround = createLucideIcon(__iconData$11);
+const __iconData$10 = {
   name: "arrow-down",
   size: 24,
   node: [
@@ -32937,9 +32981,9 @@ const __iconData$$ = {
     ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
   ]
 };
-__iconData$$.node;
-const ArrowDown = createLucideIcon(__iconData$$);
-const __iconData$_ = {
+__iconData$10.node;
+const ArrowDown = createLucideIcon(__iconData$10);
+const __iconData$$ = {
   name: "arrow-up",
   size: 24,
   node: [
@@ -32947,9 +32991,9 @@ const __iconData$_ = {
     ["path", { d: "M12 19V5", key: "x0mq9r" }]
   ]
 };
-__iconData$_.node;
-const ArrowUp = createLucideIcon(__iconData$_);
-const __iconData$Z = {
+__iconData$$.node;
+const ArrowUp = createLucideIcon(__iconData$$);
+const __iconData$_ = {
   name: "book-bookmark",
   size: 24,
   node: [
@@ -32970,9 +33014,9 @@ const __iconData$Z = {
   ],
   aliases: ["book-marked"]
 };
-__iconData$Z.node;
-const BookBookmark = createLucideIcon(__iconData$Z);
-const __iconData$Y = {
+__iconData$_.node;
+const BookBookmark = createLucideIcon(__iconData$_);
+const __iconData$Z = {
   name: "book-open",
   size: 24,
   node: [
@@ -32986,9 +33030,9 @@ const __iconData$Y = {
     ]
   ]
 };
-__iconData$Y.node;
-const BookOpen = createLucideIcon(__iconData$Y);
-const __iconData$X = {
+__iconData$Z.node;
+const BookOpen = createLucideIcon(__iconData$Z);
+const __iconData$Y = {
   name: "box",
   size: 24,
   node: [
@@ -33003,9 +33047,9 @@ const __iconData$X = {
     ["path", { d: "M12 22V12", key: "d0xqtd" }]
   ]
 };
-__iconData$X.node;
-const Box$1 = createLucideIcon(__iconData$X);
-const __iconData$W = {
+__iconData$Y.node;
+const Box$1 = createLucideIcon(__iconData$Y);
+const __iconData$X = {
   name: "calendar-days",
   size: 24,
   node: [
@@ -33021,37 +33065,37 @@ const __iconData$W = {
     ["path", { d: "M16 17h.01", key: "ql8jdd" }]
   ]
 };
-__iconData$W.node;
-const CalendarDays = createLucideIcon(__iconData$W);
-const __iconData$V = {
+__iconData$X.node;
+const CalendarDays = createLucideIcon(__iconData$X);
+const __iconData$W = {
   name: "check",
   size: 24,
   node: [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]]
 };
-__iconData$V.node;
-const Check$1 = createLucideIcon(__iconData$V);
-const __iconData$U = {
+__iconData$W.node;
+const Check$1 = createLucideIcon(__iconData$W);
+const __iconData$V = {
   name: "chevron-right",
   size: 24,
   node: [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]]
 };
-__iconData$U.node;
-const ChevronRight = createLucideIcon(__iconData$U);
-const __iconData$T = {
+__iconData$V.node;
+const ChevronRight = createLucideIcon(__iconData$V);
+const __iconData$U = {
   name: "chevron-left",
   size: 24,
   node: [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]]
 };
-__iconData$T.node;
-const ChevronLeft = createLucideIcon(__iconData$T);
-const __iconData$S = {
+__iconData$U.node;
+const ChevronLeft = createLucideIcon(__iconData$U);
+const __iconData$T = {
   name: "chevron-up",
   size: 24,
   node: [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]]
 };
-__iconData$S.node;
-const ChevronUp = createLucideIcon(__iconData$S);
-const __iconData$R = {
+__iconData$T.node;
+const ChevronUp = createLucideIcon(__iconData$T);
+const __iconData$S = {
   name: "church",
   size: 24,
   node: [
@@ -33074,16 +33118,16 @@ const __iconData$R = {
     ]
   ]
 };
-__iconData$R.node;
-const Church = createLucideIcon(__iconData$R);
-const __iconData$Q = {
+__iconData$S.node;
+const Church = createLucideIcon(__iconData$S);
+const __iconData$R = {
   name: "cloud",
   size: 24,
   node: [["path", { d: "M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z", key: "p7xjir" }]]
 };
-__iconData$Q.node;
-const Cloud = createLucideIcon(__iconData$Q);
-const __iconData$P = {
+__iconData$R.node;
+const Cloud = createLucideIcon(__iconData$R);
+const __iconData$Q = {
   name: "cloudy",
   size: 24,
   node: [
@@ -33091,9 +33135,9 @@ const __iconData$P = {
     ["path", { d: "M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61", key: "leugyv" }]
   ]
 };
-__iconData$P.node;
-const Cloudy = createLucideIcon(__iconData$P);
-const __iconData$O = {
+__iconData$Q.node;
+const Cloudy = createLucideIcon(__iconData$Q);
+const __iconData$P = {
   name: "copy",
   size: 24,
   node: [
@@ -33101,9 +33145,9 @@ const __iconData$O = {
     ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
   ]
 };
-__iconData$O.node;
-const Copy = createLucideIcon(__iconData$O);
-const __iconData$N = {
+__iconData$P.node;
+const Copy = createLucideIcon(__iconData$P);
+const __iconData$O = {
   name: "download",
   size: 24,
   node: [
@@ -33112,9 +33156,9 @@ const __iconData$N = {
     ["path", { d: "m7 10 5 5 5-5", key: "brsn70" }]
   ]
 };
-__iconData$N.node;
-const Download = createLucideIcon(__iconData$N);
-const __iconData$M = {
+__iconData$O.node;
+const Download = createLucideIcon(__iconData$O);
+const __iconData$N = {
   name: "ellipsis",
   size: 24,
   node: [
@@ -33124,9 +33168,9 @@ const __iconData$M = {
   ],
   aliases: ["more-horizontal"]
 };
-__iconData$M.node;
-const Ellipsis = createLucideIcon(__iconData$M);
-const __iconData$L = {
+__iconData$N.node;
+const Ellipsis = createLucideIcon(__iconData$N);
+const __iconData$M = {
   name: "eraser",
   size: 24,
   node: [
@@ -33140,9 +33184,9 @@ const __iconData$L = {
     ["path", { d: "m5.082 11.09 8.828 8.828", key: "1wx5vj" }]
   ]
 };
-__iconData$L.node;
-const Eraser = createLucideIcon(__iconData$L);
-const __iconData$K = {
+__iconData$M.node;
+const Eraser = createLucideIcon(__iconData$M);
+const __iconData$L = {
   name: "file-down",
   size: 24,
   node: [
@@ -33158,9 +33202,9 @@ const __iconData$K = {
     ["path", { d: "m9 15 3 3 3-3", key: "1npd3o" }]
   ]
 };
-__iconData$K.node;
-const FileDown = createLucideIcon(__iconData$K);
-const __iconData$J = {
+__iconData$L.node;
+const FileDown = createLucideIcon(__iconData$L);
+const __iconData$K = {
   name: "file-plus",
   size: 24,
   node: [
@@ -33176,9 +33220,9 @@ const __iconData$J = {
     ["path", { d: "M12 18v-6", key: "17g6i2" }]
   ]
 };
-__iconData$J.node;
-const FilePlus = createLucideIcon(__iconData$J);
-const __iconData$I = {
+__iconData$K.node;
+const FilePlus = createLucideIcon(__iconData$K);
+const __iconData$J = {
   name: "file-text",
   size: 24,
   node: [
@@ -33195,9 +33239,9 @@ const __iconData$I = {
     ["path", { d: "M16 17H8", key: "z1uh3a" }]
   ]
 };
-__iconData$I.node;
-const FileText = createLucideIcon(__iconData$I);
-const __iconData$H = {
+__iconData$J.node;
+const FileText = createLucideIcon(__iconData$J);
+const __iconData$I = {
   name: "file-type",
   size: 24,
   node: [
@@ -33214,9 +33258,9 @@ const __iconData$H = {
     ["path", { d: "M9 13v-.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v.5", key: "qbrxap" }]
   ]
 };
-__iconData$H.node;
-const FileType = createLucideIcon(__iconData$H);
-const __iconData$G = {
+__iconData$I.node;
+const FileType = createLucideIcon(__iconData$I);
+const __iconData$H = {
   name: "folder",
   size: 24,
   node: [
@@ -33229,9 +33273,9 @@ const __iconData$G = {
     ]
   ]
 };
-__iconData$G.node;
-const Folder = createLucideIcon(__iconData$G);
-const __iconData$F = {
+__iconData$H.node;
+const Folder = createLucideIcon(__iconData$H);
+const __iconData$G = {
   name: "image",
   size: 24,
   node: [
@@ -33240,9 +33284,9 @@ const __iconData$F = {
     ["path", { d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21", key: "1xmnt7" }]
   ]
 };
-__iconData$F.node;
-const Image = createLucideIcon(__iconData$F);
-const __iconData$E = {
+__iconData$G.node;
+const Image = createLucideIcon(__iconData$G);
+const __iconData$F = {
   name: "info",
   size: 24,
   node: [
@@ -33251,9 +33295,9 @@ const __iconData$E = {
     ["path", { d: "M12 8h.01", key: "e9boi3" }]
   ]
 };
-__iconData$E.node;
-const Info = createLucideIcon(__iconData$E);
-const __iconData$D = {
+__iconData$F.node;
+const Info = createLucideIcon(__iconData$F);
+const __iconData$E = {
   name: "key-round",
   size: 24,
   node: [
@@ -33267,9 +33311,9 @@ const __iconData$D = {
     ["circle", { cx: "16.5", cy: "7.5", r: ".5", fill: "currentColor", key: "w0ekpg" }]
   ]
 };
-__iconData$D.node;
-const KeyRound = createLucideIcon(__iconData$D);
-const __iconData$C = {
+__iconData$E.node;
+const KeyRound = createLucideIcon(__iconData$E);
+const __iconData$D = {
   name: "keyboard",
   size: 24,
   node: [
@@ -33284,9 +33328,9 @@ const __iconData$C = {
     ["rect", { width: "20", height: "16", x: "2", y: "4", rx: "2", key: "18n3k1" }]
   ]
 };
-__iconData$C.node;
-const Keyboard = createLucideIcon(__iconData$C);
-const __iconData$B = {
+__iconData$D.node;
+const Keyboard = createLucideIcon(__iconData$D);
+const __iconData$C = {
   name: "layout-template",
   size: 24,
   node: [
@@ -33295,9 +33339,9 @@ const __iconData$B = {
     ["rect", { width: "5", height: "7", x: "16", y: "14", rx: "1", key: "q5h2i8" }]
   ]
 };
-__iconData$B.node;
-const LayoutTemplate = createLucideIcon(__iconData$B);
-const __iconData$A = {
+__iconData$C.node;
+const LayoutTemplate = createLucideIcon(__iconData$C);
+const __iconData$B = {
   name: "lectern",
   size: 24,
   node: [
@@ -33313,9 +33357,9 @@ const __iconData$A = {
     ["path", { d: "M18 6V3a1 1 0 00-1-1h-3", key: "1y10qe" }]
   ]
 };
-__iconData$A.node;
-const Lectern = createLucideIcon(__iconData$A);
-const __iconData$z = {
+__iconData$B.node;
+const Lectern = createLucideIcon(__iconData$B);
+const __iconData$A = {
   name: "link-2",
   size: 24,
   node: [
@@ -33324,9 +33368,9 @@ const __iconData$z = {
     ["line", { x1: "8", x2: "16", y1: "12", y2: "12", key: "1jonct" }]
   ]
 };
-__iconData$z.node;
-const Link2 = createLucideIcon(__iconData$z);
-const __iconData$y = {
+__iconData$A.node;
+const Link2 = createLucideIcon(__iconData$A);
+const __iconData$z = {
   name: "list-indent-decrease",
   size: 24,
   node: [
@@ -33337,9 +33381,9 @@ const __iconData$y = {
   ],
   aliases: ["outdent", "indent-decrease"]
 };
-__iconData$y.node;
-const ListIndentDecrease = createLucideIcon(__iconData$y);
-const __iconData$x = {
+__iconData$z.node;
+const ListIndentDecrease = createLucideIcon(__iconData$z);
+const __iconData$y = {
   name: "list-indent-increase",
   size: 24,
   node: [
@@ -33350,9 +33394,9 @@ const __iconData$x = {
   ],
   aliases: ["indent", "indent-increase"]
 };
-__iconData$x.node;
-const ListIndentIncrease = createLucideIcon(__iconData$x);
-const __iconData$w = {
+__iconData$y.node;
+const ListIndentIncrease = createLucideIcon(__iconData$y);
+const __iconData$x = {
   name: "list-ordered",
   size: 24,
   node: [
@@ -33364,9 +33408,9 @@ const __iconData$w = {
     ["path", { d: "M6.5 20H3.4c0-1 2.6-1.925 2.6-3.5a1.5 1.5 0 0 0-2.6-1.02", key: "xtkcd5" }]
   ]
 };
-__iconData$w.node;
-const ListOrdered = createLucideIcon(__iconData$w);
-const __iconData$v = {
+__iconData$x.node;
+const ListOrdered = createLucideIcon(__iconData$x);
+const __iconData$w = {
   name: "list",
   size: 24,
   node: [
@@ -33378,9 +33422,9 @@ const __iconData$v = {
     ["path", { d: "M8 19h13", key: "m83p4d" }]
   ]
 };
-__iconData$v.node;
-const List = createLucideIcon(__iconData$v);
-const __iconData$u = {
+__iconData$w.node;
+const List = createLucideIcon(__iconData$w);
+const __iconData$v = {
   name: "lock",
   size: 24,
   node: [
@@ -33388,9 +33432,9 @@ const __iconData$u = {
     ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
   ]
 };
-__iconData$u.node;
-const Lock = createLucideIcon(__iconData$u);
-const __iconData$t = {
+__iconData$v.node;
+const Lock = createLucideIcon(__iconData$v);
+const __iconData$u = {
   name: "message-square",
   size: 24,
   node: [
@@ -33403,9 +33447,9 @@ const __iconData$t = {
     ]
   ]
 };
-__iconData$t.node;
-const MessageSquare = createLucideIcon(__iconData$t);
-const __iconData$s = {
+__iconData$u.node;
+const MessageSquare = createLucideIcon(__iconData$u);
+const __iconData$t = {
   name: "mic",
   size: 24,
   node: [
@@ -33414,9 +33458,9 @@ const __iconData$s = {
     ["rect", { x: "9", y: "2", width: "6", height: "13", rx: "3", key: "s6n7sd" }]
   ]
 };
-__iconData$s.node;
-const Mic = createLucideIcon(__iconData$s);
-const __iconData$r = {
+__iconData$t.node;
+const Mic = createLucideIcon(__iconData$t);
+const __iconData$s = {
   name: "paint-roller",
   size: 24,
   node: [
@@ -33425,9 +33469,9 @@ const __iconData$r = {
     ["rect", { width: "4", height: "6", x: "8", y: "16", rx: "1", key: "d6e7yl" }]
   ]
 };
-__iconData$r.node;
-const PaintRoller = createLucideIcon(__iconData$r);
-const __iconData$q = {
+__iconData$s.node;
+const PaintRoller = createLucideIcon(__iconData$s);
+const __iconData$r = {
   name: "panel-left",
   size: 24,
   node: [
@@ -33436,9 +33480,9 @@ const __iconData$q = {
   ],
   aliases: ["sidebar"]
 };
-__iconData$q.node;
-const PanelLeft = createLucideIcon(__iconData$q);
-const __iconData$p = {
+__iconData$r.node;
+const PanelLeft = createLucideIcon(__iconData$r);
+const __iconData$q = {
   name: "panel-right",
   size: 24,
   node: [
@@ -33446,9 +33490,9 @@ const __iconData$p = {
     ["path", { d: "M15 3v18", key: "14nvp0" }]
   ]
 };
-__iconData$p.node;
-const PanelRight = createLucideIcon(__iconData$p);
-const __iconData$o = {
+__iconData$q.node;
+const PanelRight = createLucideIcon(__iconData$q);
+const __iconData$p = {
   name: "plus",
   size: 24,
   node: [
@@ -33456,9 +33500,9 @@ const __iconData$o = {
     ["path", { d: "M12 5v14", key: "s699le" }]
   ]
 };
-__iconData$o.node;
-const Plus = createLucideIcon(__iconData$o);
-const __iconData$n = {
+__iconData$p.node;
+const Plus = createLucideIcon(__iconData$p);
+const __iconData$o = {
   name: "printer",
   size: 24,
   node: [
@@ -33473,9 +33517,9 @@ const __iconData$n = {
     ["rect", { x: "6", y: "14", width: "12", height: "8", rx: "1", key: "1ue0tg" }]
   ]
 };
-__iconData$n.node;
-const Printer = createLucideIcon(__iconData$n);
-const __iconData$m = {
+__iconData$o.node;
+const Printer = createLucideIcon(__iconData$o);
+const __iconData$n = {
   name: "redo-2",
   size: 24,
   node: [
@@ -33483,9 +33527,9 @@ const __iconData$m = {
     ["path", { d: "M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13", key: "6uklza" }]
   ]
 };
-__iconData$m.node;
-const Redo2 = createLucideIcon(__iconData$m);
-const __iconData$l = {
+__iconData$n.node;
+const Redo2 = createLucideIcon(__iconData$n);
+const __iconData$m = {
   name: "save",
   size: 24,
   node: [
@@ -33500,9 +33544,9 @@ const __iconData$l = {
     ["path", { d: "M7 3v4a1 1 0 0 0 1 1h7", key: "t51u73" }]
   ]
 };
-__iconData$l.node;
-const Save = createLucideIcon(__iconData$l);
-const __iconData$k = {
+__iconData$m.node;
+const Save = createLucideIcon(__iconData$m);
+const __iconData$l = {
   name: "scroll-text",
   size: 24,
   node: [
@@ -33518,9 +33562,9 @@ const __iconData$k = {
     ]
   ]
 };
-__iconData$k.node;
-const ScrollText = createLucideIcon(__iconData$k);
-const __iconData$j = {
+__iconData$l.node;
+const ScrollText = createLucideIcon(__iconData$l);
+const __iconData$k = {
   name: "search",
   size: 24,
   node: [
@@ -33528,9 +33572,9 @@ const __iconData$j = {
     ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
   ]
 };
-__iconData$j.node;
-const Search = createLucideIcon(__iconData$j);
-const __iconData$i = {
+__iconData$k.node;
+const Search = createLucideIcon(__iconData$k);
+const __iconData$j = {
   name: "separator-horizontal",
   size: 24,
   node: [
@@ -33539,9 +33583,9 @@ const __iconData$i = {
     ["path", { d: "m8 8 4-4 4 4", key: "2bscm2" }]
   ]
 };
-__iconData$i.node;
-const SeparatorHorizontal = createLucideIcon(__iconData$i);
-const __iconData$h = {
+__iconData$j.node;
+const SeparatorHorizontal = createLucideIcon(__iconData$j);
+const __iconData$i = {
   name: "settings",
   size: 24,
   node: [
@@ -33555,9 +33599,9 @@ const __iconData$h = {
     ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
   ]
 };
-__iconData$h.node;
-const Settings = createLucideIcon(__iconData$h);
-const __iconData$g = {
+__iconData$i.node;
+const Settings = createLucideIcon(__iconData$i);
+const __iconData$h = {
   name: "share",
   size: 24,
   node: [
@@ -33566,9 +33610,9 @@ const __iconData$g = {
     ["path", { d: "M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8", key: "1b2hhj" }]
   ]
 };
-__iconData$g.node;
-const Share = createLucideIcon(__iconData$g);
-const __iconData$f = {
+__iconData$h.node;
+const Share = createLucideIcon(__iconData$h);
+const __iconData$g = {
   name: "sliders-horizontal",
   size: 24,
   node: [
@@ -33583,16 +33627,16 @@ const __iconData$f = {
     ["path", { d: "M8 12H3", key: "a7s4jb" }]
   ]
 };
-__iconData$f.node;
-const SlidersHorizontal = createLucideIcon(__iconData$f);
-const __iconData$e = {
+__iconData$g.node;
+const SlidersHorizontal = createLucideIcon(__iconData$g);
+const __iconData$f = {
   name: "square",
   size: 24,
   node: [["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }]]
 };
-__iconData$e.node;
-const Square = createLucideIcon(__iconData$e);
-const __iconData$d = {
+__iconData$f.node;
+const Square = createLucideIcon(__iconData$f);
+const __iconData$e = {
   name: "star",
   size: 24,
   node: [
@@ -33605,9 +33649,9 @@ const __iconData$d = {
     ]
   ]
 };
-__iconData$d.node;
-const Star = createLucideIcon(__iconData$d);
-const __iconData$c = {
+__iconData$e.node;
+const Star = createLucideIcon(__iconData$e);
+const __iconData$d = {
   name: "table",
   size: 24,
   node: [
@@ -33617,9 +33661,9 @@ const __iconData$c = {
     ["path", { d: "M3 15h18", key: "5xshup" }]
   ]
 };
-__iconData$c.node;
-const Table$1 = createLucideIcon(__iconData$c);
-const __iconData$b = {
+__iconData$d.node;
+const Table$1 = createLucideIcon(__iconData$d);
+const __iconData$c = {
   name: "tag",
   size: 24,
   node: [
@@ -33633,8 +33677,20 @@ const __iconData$b = {
     ["circle", { cx: "7.5", cy: "7.5", r: ".5", fill: "currentColor", key: "kqv944" }]
   ]
 };
+__iconData$c.node;
+const Tag = createLucideIcon(__iconData$c);
+const __iconData$b = {
+  name: "text-align-end",
+  size: 24,
+  node: [
+    ["path", { d: "M21 5H3", key: "1fi0y6" }],
+    ["path", { d: "M21 12H9", key: "dn1m92" }],
+    ["path", { d: "M21 19H7", key: "4cu937" }]
+  ],
+  aliases: ["align-right"]
+};
 __iconData$b.node;
-const Tag = createLucideIcon(__iconData$b);
+const TextAlignEnd = createLucideIcon(__iconData$b);
 const __iconData$a = {
   name: "text-align-center",
   size: 24,
@@ -33648,18 +33704,6 @@ const __iconData$a = {
 __iconData$a.node;
 const TextAlignCenter = createLucideIcon(__iconData$a);
 const __iconData$9 = {
-  name: "text-align-end",
-  size: 24,
-  node: [
-    ["path", { d: "M21 5H3", key: "1fi0y6" }],
-    ["path", { d: "M21 12H9", key: "dn1m92" }],
-    ["path", { d: "M21 19H7", key: "4cu937" }]
-  ],
-  aliases: ["align-right"]
-};
-__iconData$9.node;
-const TextAlignEnd = createLucideIcon(__iconData$9);
-const __iconData$8 = {
   name: "text-align-justify",
   size: 24,
   node: [
@@ -33669,9 +33713,9 @@ const __iconData$8 = {
   ],
   aliases: ["align-justify"]
 };
-__iconData$8.node;
-const TextAlignJustify = createLucideIcon(__iconData$8);
-const __iconData$7 = {
+__iconData$9.node;
+const TextAlignJustify = createLucideIcon(__iconData$9);
+const __iconData$8 = {
   name: "text-align-start",
   size: 24,
   node: [
@@ -33681,9 +33725,9 @@ const __iconData$7 = {
   ],
   aliases: ["text", "align-left"]
 };
-__iconData$7.node;
-const TextAlignStart = createLucideIcon(__iconData$7);
-const __iconData$6 = {
+__iconData$8.node;
+const TextAlignStart = createLucideIcon(__iconData$8);
+const __iconData$7 = {
   name: "triangle",
   size: 24,
   node: [
@@ -33693,8 +33737,26 @@ const __iconData$6 = {
     ]
   ]
 };
+__iconData$7.node;
+const Triangle = createLucideIcon(__iconData$7);
+const __iconData$6 = {
+  name: "triangle-alert",
+  size: 24,
+  node: [
+    [
+      "path",
+      {
+        d: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3",
+        key: "wmoenq"
+      }
+    ],
+    ["path", { d: "M12 9v4", key: "juzpu7" }],
+    ["path", { d: "M12 17h.01", key: "p32p05" }]
+  ],
+  aliases: ["alert-triangle"]
+};
 __iconData$6.node;
-const Triangle = createLucideIcon(__iconData$6);
+const TriangleAlert = createLucideIcon(__iconData$6);
 const __iconData$5 = {
   name: "type",
   size: 24,
@@ -78824,6 +78886,7 @@ function useTransition({ duration, exitDuration, timingFunction, mounted, onEnte
     window.clearTimeout(transitionTimeoutRef.current);
     window.clearTimeout(delayTimeoutRef.current);
     cancelAnimationFrame(rafRef.current);
+    rafRef.current = -1;
   }
   const handleStateChange = (shouldMount) => {
     clearAllTimeouts();
@@ -78835,19 +78898,23 @@ function useTransition({ duration, exitDuration, timingFunction, mounted, onEnte
       typeof preHandler === "function" && preHandler();
       typeof handler === "function" && handler();
       setStatus(shouldMount ? "entered" : "exited");
-    } else rafRef.current = requestAnimationFrame(() => {
-      ReactDOM.flushSync(() => {
-        setStatus(shouldMount ? "pre-entering" : "pre-exiting");
+    } else {
+      const frame = requestAnimationFrame(() => {
+        ReactDOM.flushSync(() => {
+          setStatus(shouldMount ? "pre-entering" : "pre-exiting");
+        });
+        if (rafRef.current !== frame) return;
+        rafRef.current = requestAnimationFrame(() => {
+          typeof preHandler === "function" && preHandler();
+          setStatus(shouldMount ? "entering" : "exiting");
+          transitionTimeoutRef.current = window.setTimeout(() => {
+            typeof handler === "function" && handler();
+            setStatus(shouldMount ? "entered" : "exited");
+          }, newTransitionDuration);
+        });
       });
-      rafRef.current = requestAnimationFrame(() => {
-        typeof preHandler === "function" && preHandler();
-        setStatus(shouldMount ? "entering" : "exiting");
-        transitionTimeoutRef.current = window.setTimeout(() => {
-          typeof handler === "function" && handler();
-          setStatus(shouldMount ? "entered" : "exited");
-        }, newTransitionDuration);
-      });
-    });
+      rafRef.current = frame;
+    }
   };
   const handleTransitionWithDelay = (shouldMount) => {
     clearAllTimeouts();
@@ -79351,6 +79418,7 @@ const defaultProps$p = {
   hideDetached: true,
   preventPositionChangeWhenVisible: true,
   clickOutsideEvents: ["mousedown", "touchstart"],
+  clickOutsideCapture: false,
   zIndex: getDefaultZIndex("popover"),
   __staticSelector: "Popover",
   width: "max-content"
@@ -79361,7 +79429,7 @@ const varsResolver$s = createVarsResolver((_, { radius, shadow }) => ({ dropdown
 } }));
 function Popover(_props) {
   const props = useProps("Popover", defaultProps$p, _props);
-  const { children, position, offset: offset2, onPositionChange, opened, transitionProps, onExitTransitionEnd, onEnterTransitionEnd, width, middlewares, withArrow, arrowSize, arrowOffset, arrowRadius, arrowPosition, unstyled, classNames, styles, closeOnClickOutside, withinPortal, portalProps, closeOnEscape: closeOnEscape2, clickOutsideEvents, trapFocus, onClose, onDismiss, onOpen, onChange, zIndex, radius, shadow, id: id2, defaultOpened, __staticSelector, withRoles, disabled, returnFocus, variant, keepMounted, keepMountedMode, vars, floatingStrategy, withOverlay, overlayProps, hideDetached, attributes, preventPositionChangeWhenVisible, ...others } = props;
+  const { children, position, offset: offset2, onPositionChange, opened, transitionProps, onExitTransitionEnd, onEnterTransitionEnd, width, middlewares, withArrow, arrowSize, arrowOffset, arrowRadius, arrowPosition, unstyled, classNames, styles, closeOnClickOutside, withinPortal, portalProps, closeOnEscape: closeOnEscape2, clickOutsideEvents, clickOutsideCapture, trapFocus, onClose, onDismiss, onOpen, onChange, zIndex, radius, shadow, id: id2, defaultOpened, __staticSelector, withRoles, disabled, returnFocus, variant, keepMounted, keepMountedMode, vars, floatingStrategy, withOverlay, overlayProps, hideDetached, attributes, preventPositionChangeWhenVisible, ...others } = props;
   const getStyles = useStyles({
     name: __staticSelector,
     props,
@@ -79409,7 +79477,7 @@ function Popover(_props) {
       popover.onClose();
       onDismiss?.();
     }
-  }, clickOutsideEvents, [targetNode, dropdownNode]);
+  }, clickOutsideEvents, [targetNode, dropdownNode], true, clickOutsideCapture);
   const reference = reactExports$1.useCallback((node) => {
     setTargetNode(node);
     popover.floating.refs.setReference(node);
@@ -81257,6 +81325,7 @@ const Divider = factory((_props) => {
       withLabel: !!label
     }, mod],
     role: "separator",
+    "aria-orientation": orientation,
     ...getStyles("root"),
     ...others,
     children: label && /* @__PURE__ */ jsxRuntimeExports.jsx(Box, {
@@ -82675,7 +82744,7 @@ function getDefaultMiddlewares(middlewares) {
 }
 function getTooltipMiddlewares(settings) {
   const middlewaresOptions = getDefaultMiddlewares(settings.middlewares);
-  const middlewares = [offset(settings.offset)];
+  const middlewares = [offset(settings.offset), hide()];
   if (middlewaresOptions.shift) middlewares.push(shift(typeof middlewaresOptions.shift === "boolean" ? { padding: 8 } : {
     padding: 8,
     ...middlewaresOptions.shift
@@ -82691,14 +82760,19 @@ function getTooltipMiddlewares(settings) {
 }
 function useTooltip(settings) {
   const [uncontrolledOpened, setUncontrolledOpened] = reactExports$1.useState(settings.defaultOpened);
-  const opened = typeof settings.opened === "boolean" ? settings.opened : uncontrolledOpened;
+  const controlled = typeof settings.opened === "boolean";
+  const opened = !settings.disabled && (controlled ? settings.opened : uncontrolledOpened);
+  reactExports$1.useEffect(() => {
+    if (settings.disabled) setUncontrolledOpened(false);
+  }, [settings.disabled]);
   const withinGroup = reactExports$1.use(TooltipGroupContext).withinGroup;
   const uid = useId$1();
+  const env = useMantineEnv();
   const onChange = reactExports$1.useCallback((_opened) => {
     setUncontrolledOpened(_opened);
     if (_opened) setCurrentId(uid);
   }, [uid]);
-  const { x: x2, y: y2, context, refs, placement, middlewareData: { arrow: { x: arrowX, y: arrowY } = {} } } = useFloating({
+  const { x: x2, y: y2, context, refs, placement, middlewareData: { arrow: { x: arrowX, y: arrowY } = {}, hide: hideData } } = useFloating({
     strategy: settings.strategy,
     placement: settings.position,
     open: opened,
@@ -82709,7 +82783,7 @@ function useTooltip(settings) {
   const { delay: groupDelay, currentId, setCurrentId } = useDelayGroup(context, { id: uid });
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useHover$1(context, {
-      enabled: settings.events?.hover,
+      enabled: !settings.disabled && settings.events?.hover,
       delay: withinGroup ? groupDelay : {
         open: settings.openDelay,
         close: settings.closeDelay
@@ -82718,7 +82792,7 @@ function useTooltip(settings) {
       handleClose: settings.interactive ? safePolygon() : null
     }),
     useFocus(context, {
-      enabled: settings.events?.focus,
+      enabled: !settings.disabled && settings.events?.focus,
       visibleOnly: true
     }),
     useRole(context, { role: "tooltip" }),
@@ -82743,7 +82817,8 @@ function useTooltip(settings) {
     getReferenceProps,
     isGroupPhase,
     opened,
-    placement
+    placement,
+    referenceHidden: settings.hideDetached && env !== "test" ? hideData?.referenceHidden : false
   };
 }
 const defaultProps$3 = {
@@ -82769,7 +82844,8 @@ const defaultProps$3 = {
     flip: true,
     shift: true,
     inline: false
-  }
+  },
+  hideDetached: true
 };
 const varsResolver$3 = createVarsResolver((theme, { radius, color, variant, autoContrast }) => {
   const colors = theme.variantColorResolver({
@@ -82786,7 +82862,7 @@ const varsResolver$3 = createVarsResolver((theme, { radius, color, variant, auto
 });
 const Tooltip = factory((_props) => {
   const props = useProps("Tooltip", defaultProps$3, _props);
-  const { children, position, refProp, label, openDelay, closeDelay, onPositionChange, opened, defaultOpened, withinPortal, radius, color, classNames, styles, unstyled, style: style2, className, withArrow, arrowSize, arrowOffset, arrowRadius, arrowPosition, offset: offset2, transitionProps, multiline, events, interactive, zIndex, disabled, onClick, onMouseEnter, onMouseLeave, inline: inline2, variant, keepMounted, vars, portalProps, mod, floatingStrategy, middlewares, autoContrast, attributes, target, ref, ...others } = props;
+  const { children, position, refProp, label, openDelay, closeDelay, onPositionChange, opened, defaultOpened, withinPortal, radius, color, classNames, styles, unstyled, style: style2, className, withArrow, arrowSize, arrowOffset, arrowRadius, arrowPosition, offset: offset2, transitionProps, multiline, events, interactive, zIndex, disabled, onClick, onMouseEnter, onMouseLeave, inline: inline2, variant, keepMounted, vars, portalProps, mod, floatingStrategy, middlewares, autoContrast, attributes, target, hideDetached, ref, ...others } = props;
   const { dir } = useDirection();
   const arrowRef = reactExports$1.useRef(null);
   const tooltip = useTooltip({
@@ -82796,6 +82872,7 @@ const Tooltip = factory((_props) => {
     onPositionChange,
     opened,
     defaultOpened,
+    disabled,
     events,
     interactive,
     arrowRef,
@@ -82803,7 +82880,8 @@ const Tooltip = factory((_props) => {
     offset: typeof offset2 === "number" ? offset2 + (withArrow ? arrowSize / 2 : 0) : offset2,
     inline: inline2,
     strategy: floatingStrategy,
-    middlewares
+    middlewares,
+    hideDetached
   });
   reactExports$1.useEffect(() => {
     const targetNode = target instanceof HTMLElement ? target : typeof target === "string" ? document.querySelector(target) : target?.current || null;
@@ -82862,7 +82940,8 @@ const Tooltip = factory((_props) => {
               ...mergeStyles2,
               zIndex,
               top: tooltip.y ?? 0,
-              left: tooltip.x ?? 0
+              left: tooltip.x ?? 0,
+              ...tooltip.referenceHidden ? { display: "none" } : null
             }
           }),
           children: [label, /* @__PURE__ */ jsxRuntimeExports.jsx(FloatingArrow, {
@@ -82912,7 +82991,8 @@ const Tooltip = factory((_props) => {
             ...mergeStyles2,
             zIndex,
             top: tooltip.y ?? 0,
-            left: tooltip.x ?? 0
+            left: tooltip.x ?? 0,
+            ...tooltip.referenceHidden ? { display: "none" } : null
           }
         }),
         children: [label, /* @__PURE__ */ jsxRuntimeExports.jsx(FloatingArrow, {
@@ -85000,8 +85080,8 @@ const paragraphSpec = {
     propSchema: { ...ai$2.paragraph.config.propSchema, style: STYLE_PROP, margin: MARGIN_PROP }
   }
 };
-const SUB_POINT = msg("Sub-point");
-const SUB_SUB_POINT = msg("Sub-sub-point");
+const SUB_POINT$1 = msg("Sub-point");
+const SUB_SUB_POINT$1 = msg("Sub-sub-point");
 function BlockFrame({
   type,
   id: id2,
@@ -85064,13 +85144,13 @@ function BlockFrame({
               onClick: () => menuOpen ? setMenuOpen(false) : openMenu(),
               children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: style2.marker }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2(level === "2" ? SUB_POINT : level === "3" ? SUB_SUB_POINT : style2.label) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2(level === "2" ? SUB_POINT$1 : level === "3" ? SUB_SUB_POINT$1 : style2.label) }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-block__label-caret", "aria-hidden": "true", children: "▾" })
               ]
             }
           ) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "sermon-block__label", style: { color: style2.accent }, children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: style2.marker }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2(level === "2" ? SUB_POINT : level === "3" ? SUB_SUB_POINT : style2.label) })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2(level === "2" ? SUB_POINT$1 : level === "3" ? SUB_SUB_POINT$1 : style2.label) })
           ] }),
           menuOpen && onChangeType && /* @__PURE__ */ jsxRuntimeExports.jsx(
             BlockTypeMenu,
@@ -90044,7 +90124,6 @@ function PopoverButton({
   const [open2, setOpen] = reactExports$1.useState(false);
   const ref = reactExports$1.useRef(null);
   const panelRef = reactExports$1.useRef(null);
-  const [at2, setAt] = reactExports$1.useState(null);
   reactExports$1.useEffect(() => {
     if (!open2) return;
     const onMouseDown = (event) => {
@@ -90067,12 +90146,16 @@ function PopoverButton({
   reactExports$1.useLayoutEffect(() => {
     if (!open2 || !float) return;
     const host = ref.current;
-    const width = panelRef.current?.offsetWidth ?? 0;
-    if (host) {
-      const rect = host.getBoundingClientRect();
-      const wanted = align === "right" ? rect.right - width : rect.left;
-      setAt({ top: rect.bottom + 6, left: Math.max(8, Math.min(wanted, window.innerWidth - width - 8)) });
-    }
+    const panel = panelRef.current;
+    if (!host || !panel) return;
+    const width = panel.offsetWidth;
+    const rect = host.getBoundingClientRect();
+    const wanted = align === "right" ? rect.right - width : rect.left;
+    panel.style.top = `${rect.bottom + 6}px`;
+    panel.style.left = `${Math.max(8, Math.min(wanted, window.innerWidth - width - 8))}px`;
+  });
+  reactExports$1.useLayoutEffect(() => {
+    if (!open2 || !float) return;
     const away = (event) => {
       if (event.type === "scroll" && event.target instanceof Node && (panelRef.current?.contains(event.target) ?? false)) return;
       setOpen(false);
@@ -90083,7 +90166,11 @@ function PopoverButton({
       window.removeEventListener("resize", away);
       document.removeEventListener("scroll", away, true);
     };
-  }, [open2, float, align]);
+  }, [open2, float]);
+  const keepFocus = (event) => {
+    if (event.target instanceof Element && event.target.closest('input, select, textarea, [contenteditable="true"]')) return;
+    event.preventDefault();
+  };
   const base2 = buttonClass.split(" ")[0] ?? "tool";
   const classes = [buttonClass, open2 || active ? `${base2}--active` : ""].filter(Boolean).join(" ");
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: ["popover-host", hostClass].filter(Boolean).join(" "), ref, children: [
@@ -90110,7 +90197,7 @@ function PopoverButton({
       {
         className: ["popover", align === "right" ? "popover--right" : "", panelClass].filter(Boolean).join(" "),
         role: "menu",
-        onMouseDown: (event) => event.preventDefault(),
+        onMouseDown: keepFocus,
         children: children(() => setOpen(false))
       }
     ),
@@ -90121,8 +90208,7 @@ function PopoverButton({
           ref: panelRef,
           className: ["popover popover--floating", panelClass].filter(Boolean).join(" "),
           role: "menu",
-          style: at2 ? { top: at2.top, left: at2.left } : { visibility: "hidden" },
-          onMouseDown: (event) => event.preventDefault(),
+          onMouseDown: keepFocus,
           children: children(() => setOpen(false))
         }
       ),
@@ -91767,7 +91853,7 @@ function Ribbon({
     ) : /* @__PURE__ */ jsxRuntimeExports.jsx(ViewTab, { view, onView, look, onLook, handout, onHandout, outline, onOutline }) })
   ] });
 }
-function useRelated(sermonId) {
+function useRelated(sermonId, savedAt) {
   const [groups, setGroups] = reactExports$1.useState([]);
   reactExports$1.useEffect(() => {
     let cancelled = false;
@@ -91784,7 +91870,7 @@ function useRelated(sermonId) {
       cancelled = true;
       stop();
     };
-  }, [sermonId]);
+  }, [sermonId, savedAt]);
   return groups;
 }
 const whenPreached = (iso, t2, locale) => iso ? formatDate$3(iso, locale, SHORT_DATE) : t2("Draft");
@@ -91792,10 +91878,12 @@ function lineFor(text) {
   const flat = text.replace(/\s+/g, " ").trim();
   return flat.length > 64 ? `${flat.slice(0, 61).trimEnd()}…` : flat;
 }
+const SUB_POINT = msg("Sub-point");
+const SUB_SUB_POINT = msg("Sub-sub-point");
 function OutlinePanel({ sermon, activeId, onJump, onOpen }) {
   const t2 = useT();
   const language = useLanguage();
-  const related = useRelated(sermon.id);
+  const related = useRelated(sermon.id, sermon.updatedAt);
   const wordsByPoint = reactExports$1.useMemo(() => {
     const counts = /* @__PURE__ */ new Map();
     for (const section of sectionsOf(sermon.blocks, void 0, t2)) if (section.point) counts.set(section.point.id, section.words);
@@ -91825,7 +91913,7 @@ function OutlinePanel({ sermon, activeId, onJump, onOpen }) {
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "outline-panel__marker", "aria-hidden": "true", children: style2?.marker ?? "¶" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "outline-panel__line", children: line }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "outline-panel__kind", children: [
-                style2 ? t2(style2.label) : t2("Plain text"),
+                block.type === "point" && block.level === 2 ? t2(SUB_POINT) : block.type === "point" && block.level === 3 ? t2(SUB_SUB_POINT) : style2 ? t2(style2.label) : t2("Plain text"),
                 words !== void 0 && ` · ${words === 1 ? t2("1 word") : t2("{n} words", { n: words.toLocaleString(localeOf(language)) })}`,
                 notes.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "outline-panel__note", title: notes.join("\n"), children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { size: 10, strokeWidth: 2 }),
@@ -93159,7 +93247,7 @@ function SermonHeader({
 }) {
   const t2 = useT();
   const language = useLanguage();
-  const related = useRelated(draft.id);
+  const related = useRelated(draft.id, draft.updatedAt);
   const overlap = reactExports$1.useMemo(() => {
     if (draft.status !== "draft" && draft.status !== "ready") return null;
     for (const group of related) {
@@ -96660,7 +96748,7 @@ function Filters({ book, setBook, chapter, setChapter, from: from2, setFrom, to:
             className: "filters__field filters__save",
             onSubmit: (event) => {
               event.preventDefault();
-              void saveView().then(close2);
+              void saveView();
             },
             children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "filters__label", children: t2("Save this view") }),
@@ -97609,6 +97697,44 @@ function LibraryColumn({
       )
     ] })
   ] });
+}
+const STOPPED = msg("The page stopped");
+const SAVED = msg("Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.");
+const AGAIN = msg("Open it again");
+const BACK = msg("Back to the library");
+class Boundary extends reactExports$1.Component {
+  state = { error: null };
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+  componentDidCatch(error, info) {
+    console.error("The page stopped:", error, info.componentStack);
+  }
+  componentDidUpdate(previous) {
+    if (this.state.error && previous.resetKey !== this.props.resetKey) this.setState({ error: null });
+  }
+  render() {
+    const { error } = this.state;
+    if (!error) return this.props.children;
+    const { t: t2, onReopen, onClose } = this.props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "cell cell--toolbar topbar" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "cell cell--main", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "app-empty page-fault", role: "alert", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-empty__mark", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TriangleAlert, { size: 28, strokeWidth: 1.5 }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "app-empty__title", children: t2(STOPPED) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "app-empty__hint", children: t2(SAVED) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "page-fault__actions", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--primary", onClick: onReopen, children: t2(AGAIN) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: onClose, children: t2(BACK) })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "page-fault__detail selectable", children: error.message })
+      ] }) })
+    ] });
+  }
+}
+function PageBoundary(props) {
+  const t2 = useT();
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Boundary, { ...props, t: t2 });
 }
 const SIZES = [8, 9, 10, 10.5, 11, 12, 13, 13.2, 14, 16, 18, 20, 21.6, 24, 28, 30, 36];
 const INDENTS = [
@@ -99512,7 +99638,6 @@ function App() {
   const setLanguage = useSetLanguage();
   const t2 = useT();
   const {
-    sidebarFolded,
     narrow,
     drawerOpen,
     inspectorShown,
@@ -99520,7 +99645,6 @@ function App() {
     shellClass,
     shellStyle,
     restore: restoreLayout,
-    foldSidebar,
     toggleLibrary,
     openLibrary,
     closeDrawer,
@@ -99753,57 +99877,70 @@ function App() {
         }
       ),
       open2 ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-        EditorPane,
+        PageBoundary,
         {
-          sermon: open2.sermon,
-          filePath: open2.filePath,
-          onChanged: onSermonChanged,
-          onPreach: (current2, path) => {
-            setOpen({ sermon: current2, filePath: path });
-            if (!preachable) {
-              setLicenseOpen(true);
-              return;
-            }
-            setPodium(current2);
+          resetKey: `${open2.sermon.id}:${reopened}`,
+          onReopen: () => {
+            void openSermon(open2.filePath).then(() => setReopened((n2) => n2 + 1));
           },
-          onDuplicate: (path) => void duplicateSermon(path),
-          onDelete: (path) => void deleteSermon(path),
-          onOpenSermon: (path) => void openSermon(path),
-          onMoved: (path) => setOpen((current2) => current2 && current2.filePath !== path ? { ...current2, filePath: path } : current2),
-          onManageTemplates: () => setTemplatesOpen(true),
-          onOpenPreferences: () => {
-            setPrefsTab("general");
-            setPrefsOpen(true);
+          onClose: () => {
+            setOpen(null);
+            openLibrary();
           },
-          settingsRevision,
-          writable: editable,
-          inspectorOpen: inspectorShown,
-          onInspector: showInspector,
-          onCommands: setCommands,
-          notice,
-          update: updateShown,
-          onUpdateLater: () => setUpdateLater(true),
-          sidebarFolded: !libraryShown,
-          onToggleSidebar: toggleLibrary,
-          onFocusMode: toggleFocus,
-          initialView: scene === "outline" || scene === "handout" ? scene : void 0,
-          sceneView,
-          formatting,
-          onCreate: () => void createSermon(),
-          onTranscribe: () => void transcribeRecording()
-        },
-        `${open2.sermon.id}:${reopened}`
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            EditorPane,
+            {
+              sermon: open2.sermon,
+              filePath: open2.filePath,
+              onChanged: onSermonChanged,
+              onPreach: (current2, path) => {
+                setOpen({ sermon: current2, filePath: path });
+                if (!preachable) {
+                  setLicenseOpen(true);
+                  return;
+                }
+                setPodium(current2);
+              },
+              onDuplicate: (path) => void duplicateSermon(path),
+              onDelete: (path) => void deleteSermon(path),
+              onOpenSermon: (path) => void openSermon(path),
+              onMoved: (path) => setOpen((current2) => current2 && current2.filePath !== path ? { ...current2, filePath: path } : current2),
+              onManageTemplates: () => setTemplatesOpen(true),
+              onOpenPreferences: () => {
+                setPrefsTab("general");
+                setPrefsOpen(true);
+              },
+              settingsRevision,
+              writable: editable,
+              inspectorOpen: inspectorShown,
+              onInspector: showInspector,
+              onCommands: setCommands,
+              notice,
+              update: updateShown,
+              onUpdateLater: () => setUpdateLater(true),
+              sidebarFolded: !libraryShown,
+              onToggleSidebar: toggleLibrary,
+              onFocusMode: toggleFocus,
+              initialView: scene === "outline" || scene === "handout" ? scene : void 0,
+              sceneView,
+              formatting,
+              onCreate: () => void createSermon(),
+              onTranscribe: () => void transcribeRecording()
+            },
+            `${open2.sermon.id}:${reopened}`
+          )
+        }
       ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "cell cell--toolbar topbar", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
               type: "button",
-              className: sidebarFolded ? "tool" : "tool tool--active",
-              title: sidebarFolded ? keys$2(t2("Show the library (Ctrl+\\)")) : keys$2(t2("Hide the library (Ctrl+\\)")),
-              "aria-label": sidebarFolded ? t2("Show the sidebar") : t2("Hide the sidebar"),
-              "aria-pressed": !sidebarFolded,
-              onClick: () => foldSidebar(!sidebarFolded),
+              className: libraryShown ? "tool tool--active" : "tool",
+              title: libraryShown ? keys$2(t2("Hide the library (Ctrl+\\)")) : keys$2(t2("Show the library (Ctrl+\\)")),
+              "aria-label": libraryShown ? t2("Hide the sidebar") : t2("Show the sidebar"),
+              "aria-pressed": libraryShown,
+              onClick: toggleLibrary,
               children: /* @__PURE__ */ jsxRuntimeExports.jsx(PanelLeft, { size: 16, strokeWidth: 1.6 })
             }
           ),
