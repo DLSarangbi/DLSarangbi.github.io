@@ -1979,6 +1979,12 @@ div[data-type="modification"] {
   font-size: 12px;
 }
 
+.button--on, .button--on:hover:not(:disabled) {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+  color: var(--ink);
+}
+
 .tool {
   min-width: 30px;
   height: 28px;
@@ -5832,6 +5838,17 @@ select.field {
   cursor: grabbing;
 }
 
+.sermon-block__minutes {
+  font-family: var(--font-sans);
+  color: var(--ink-faint);
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+  margin-left: auto;
+  padding-left: .75rem;
+  font-size: 11px;
+}
+
 .sermon-block__numeral {
   font-family: var(--font-serif);
   color: var(--accent);
@@ -8526,6 +8543,8 @@ select.field {
 .podium__timer {
   font-variant-numeric: tabular-nums;
   opacity: .75;
+  white-space: nowrap;
+  flex: none;
   align-items: baseline;
   gap: .5em;
   font-weight: 600;
@@ -8563,8 +8582,8 @@ select.field {
 }
 
 .podium__stage {
-  justify-content: center;
-  align-items: center;
+  justify-content: safe center;
+  align-items: safe center;
   padding: 2rem 4rem;
   display: flex;
   overflow-y: auto;
@@ -8643,8 +8662,7 @@ select.field {
   line-height: 1.5;
   display: flex;
   position: absolute;
-  bottom: 4rem;
-  right: 2.5rem;
+  inset: auto 2.5rem 4rem auto;
 }
 
 .podium__help p {
@@ -8937,8 +8955,35 @@ select.field {
   font-weight: 600;
 }
 
+.podium--sheet .podium__ready {
+  padding-right: calc(26rem + clamp(1rem, 3vw, 2rem));
+}
+
+.podium--sheet .podium__ready-choices {
+  justify-content: center;
+  align-self: stretch;
+}
+
+.podium--sheet .podium__choice {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  max-width: 16rem;
+}
+
+@media (max-width: 1116px) {
+  .podium--sheet .podium__ready-choices {
+    flex-direction: column;
+    gap: .6rem;
+  }
+
+  .podium--sheet .podium__choice {
+    max-width: none;
+  }
+}
+
 @media (max-width: 700px) {
-  .podium__ready {
+  .podium__ready, .podium--sheet .podium__ready {
     padding: 1.25rem 1rem;
   }
 
@@ -9316,6 +9361,20 @@ select.field {
     padding: 1.25rem 1.25rem 40vh;
     font-size: 1.25rem !important;
   }
+
+  .podium__op {
+    grid-template-columns: 1.8em 1fr;
+  }
+
+  .podium__op-line {
+    flex-direction: column;
+    gap: .1em;
+  }
+
+  .podium__op-tag {
+    width: auto;
+    padding-top: .2em;
+  }
 }
 
 .podium__touch {
@@ -9497,6 +9556,13 @@ select.field {
   flex: 1;
 }
 
+@media (max-width: 700px) {
+  .podium__sheet {
+    border-left: 0;
+    width: 100%;
+  }
+}
+
 .podium__end {
   text-align: center;
   font-family: var(--font-sans);
@@ -9618,12 +9684,43 @@ select.field {
   font-size: .85rem;
 }
 
+.podium__end-back {
+  opacity: .8;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: .6rem;
+  margin-top: 1.2rem;
+  font-size: .85rem;
+  display: flex;
+}
+
 .preview {
   background-color: var(--ground);
   flex: 1;
   min-height: 0;
   padding: 28px 40px 48px;
   overflow-y: auto;
+}
+
+.preview__edge {
+  pointer-events: none;
+  border-top: 1px dashed #b9b3aa;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.preview__edge-label {
+  font-family: var(--font-sans);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #a39d94;
+  font-size: 10px;
+  font-weight: 600;
+  position: absolute;
+  top: 3px;
+  right: 8px;
 }
 
 .preview__sheet {
@@ -9634,6 +9731,7 @@ select.field {
   background-color: #fff;
   border-radius: 2px;
   margin: 0 auto;
+  position: relative;
   box-shadow: 0 1px 2px #0000001a, 0 14px 40px #00000029;
 }
 

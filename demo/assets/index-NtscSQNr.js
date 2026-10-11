@@ -15555,7 +15555,9 @@ const es = {
   "Enter your licence key": "Introduce tu clave de licencia",
   "Epiphany": "Epifanía",
   "Esc closes": "Esc cierra",
-  "Esc: finish, to the summary": "Esc: terminar, al resumen",
+  "Esc: finish, to the summary; from there, back to the sermon": "Esc: terminar, al resumen; desde allí, volver al sermón",
+  "Back to the sermon": "Volver al sermón",
+  "Esc does the same. The clock has kept counting.": "Esc hace lo mismo. El reloj ha seguido contando.",
   "est. {n}": "est. {n}",
   "estimate": "estimación",
   "Estimated from the words": "Estimado a partir de las palabras",
@@ -16260,7 +16262,6 @@ const es = {
   "Split into a new {kind} here": "Dividir aquí en un nuevo {kind}",
   "Split the {kind} in two": "Dividir el {kind} en dos",
   "Split the point here: this line and the rest become a new point": "Dividir el punto aquí: esta línea y lo que sigue pasan a ser un punto nuevo",
-  "Start on a fresh printed page": "Empezar en una página impresa nueva",
   "Start on a new page": "Empezar en una página nueva",
   "Start this block on a fresh printed page (Ctrl+Enter)": "Empezar este bloque en una página impresa nueva (Ctrl+Enter)",
   "Start this block on a new page when printed": "Empezar este bloque en una página nueva al imprimir",
@@ -16473,7 +16474,6 @@ const es = {
   "Untitled series": "Serie sin título",
   "Untitled sermon": "Sermón sin título",
   "Untitled view": "Vista sin título",
-  "Up or down one place": "Un lugar arriba o abajo",
   "Update {style} to match this paragraph: its size, alignment, and spacing become the style's": "Actualizar {style} según este párrafo: su tamaño, alineación y espaciado pasan a ser los del estilo",
   "UPPERCASE": "MAYÚSCULAS",
   "Upright, or turned on its side": "En vertical o de lado",
@@ -16663,7 +16663,17 @@ const es = {
   "The page stopped": "La página se detuvo",
   "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Tu sermón se guarda mientras escribes, así que nada de lo escrito se pierde. Ábrelo de nuevo, o vuelve a la biblioteca.",
   "Open it again": "Abrirlo de nuevo",
-  "Back to the library": "Volver a la biblioteca"
+  "Back to the library": "Volver a la biblioteca",
+  "Marks": "Marcas",
+  "Clear": "Limpiar",
+  "Paint": "Pintar",
+  "Lines": "Líneas",
+  "A fresh sheet": "Una hoja nueva",
+  "One place": "Un lugar",
+  "Prints on 1 sheet": "Se imprime en 1 hoja",
+  "Prints on {n} sheets": "Se imprime en {n} hojas",
+  "Sheet {n}": "Hoja {n}",
+  "The sheets this handout prints on, at this paper and these margins": "Las hojas en que se imprime este folleto, con este papel y estos márgenes"
 };
 const ko = {
   "Drag to move this picture": "끌어서 이 그림을 옮깁니다",
@@ -17105,7 +17115,9 @@ const ko = {
   "Enter your licence key": "라이선스 키 입력",
   "Epiphany": "주현절",
   "Esc closes": "Esc로 닫기",
-  "Esc: finish, to the summary": "Esc: 마치고 요약으로",
+  "Esc: finish, to the summary; from there, back to the sermon": "Esc: 마치고 요약으로; 거기서 설교로 돌아가기",
+  "Back to the sermon": "설교로 돌아가기",
+  "Esc does the same. The clock has kept counting.": "Esc도 같습니다. 시계는 계속 가고 있었습니다.",
   "est. {n}": "예상 {n}",
   "estimate": "예상",
   "Estimated from the words": "단어 수로 어림함",
@@ -17810,7 +17822,6 @@ const ko = {
   "Split into a new {kind} here": "여기서 새 {kind}(으)로 나누기",
   "Split the {kind} in two": "{kind}을(를) 둘로 나누기",
   "Split the point here: this line and the rest become a new point": "여기서 대지 나누기: 이 줄부터 끝까지 새 대지가 됩니다",
-  "Start on a fresh printed page": "새 인쇄 페이지에서 시작",
   "Start on a new page": "새 페이지에서 시작",
   "Start this block on a fresh printed page (Ctrl+Enter)": "이 블록을 새 인쇄 페이지에서 시작 (Ctrl+Enter)",
   "Start this block on a new page when printed": "인쇄할 때 이 블록을 새 페이지에서 시작",
@@ -18023,7 +18034,6 @@ const ko = {
   "Untitled series": "제목 없는 시리즈",
   "Untitled sermon": "제목 없는 설교",
   "Untitled view": "제목 없는 보기",
-  "Up or down one place": "한 칸 위로 또는 아래로",
   "Update {style} to match this paragraph: its size, alignment, and spacing become the style's": "{style} 스타일을 이 단락에 맞게 업데이트: 이 단락의 크기, 정렬, 간격이 스타일의 값이 됩니다",
   "UPPERCASE": "대문자",
   "Upright, or turned on its side": "세로, 또는 가로",
@@ -18213,7 +18223,17 @@ const ko = {
   "The page stopped": "페이지가 멈췄습니다",
   "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "설교는 입력하는 대로 저장되므로 쓴 내용은 사라지지 않습니다. 다시 열거나 서재로 돌아가세요.",
   "Open it again": "다시 열기",
-  "Back to the library": "서재로 돌아가기"
+  "Back to the library": "서재로 돌아가기",
+  "Marks": "서식",
+  "Clear": "지우기",
+  "Paint": "복사",
+  "Lines": "줄 간격",
+  "A fresh sheet": "새 쪽에서",
+  "One place": "한 칸",
+  "Prints on 1 sheet": "1장에 인쇄됩니다",
+  "Prints on {n} sheets": "{n}장에 인쇄됩니다",
+  "Sheet {n}": "{n}장",
+  "The sheets this handout prints on, at this paper and these margins": "이 종이와 여백으로 이 유인물이 인쇄되는 장수"
 };
 const pt$3 = {
   "Drag to move this picture": "Arraste para mover esta imagem",
@@ -18655,7 +18675,9 @@ const pt$3 = {
   "Enter your licence key": "Insira sua chave de licença",
   "Epiphany": "Epifania",
   "Esc closes": "Esc fecha",
-  "Esc: finish, to the summary": "Esc: encerrar, para o resumo",
+  "Esc: finish, to the summary; from there, back to the sermon": "Esc: encerrar, para o resumo; de lá, voltar ao sermão",
+  "Back to the sermon": "Voltar ao sermão",
+  "Esc does the same. The clock has kept counting.": "Esc faz o mesmo. O relógio continuou a contar.",
   "est. {n}": "est. {n}",
   "estimate": "estimativa",
   "Estimated from the words": "Estimado pelas palavras",
@@ -19360,7 +19382,6 @@ const pt$3 = {
   "Split into a new {kind} here": "Dividir aqui em um novo {kind}",
   "Split the {kind} in two": "Dividir o {kind} em dois",
   "Split the point here: this line and the rest become a new point": "Dividir o ponto aqui: esta linha e o restante viram um novo ponto",
-  "Start on a fresh printed page": "Começar em uma nova página impressa",
   "Start on a new page": "Começar em uma nova página",
   "Start this block on a fresh printed page (Ctrl+Enter)": "Começar este bloco em uma nova página impressa (Ctrl+Enter)",
   "Start this block on a new page when printed": "Começar este bloco em uma nova página ao imprimir",
@@ -19573,7 +19594,6 @@ const pt$3 = {
   "Untitled series": "Série sem título",
   "Untitled sermon": "Sermão sem título",
   "Untitled view": "Visualização sem título",
-  "Up or down one place": "Uma posição para cima ou para baixo",
   "Update {style} to match this paragraph: its size, alignment, and spacing become the style's": "Atualizar {style} conforme este parágrafo: o tamanho, o alinhamento e o espaçamento dele passam a ser os do estilo",
   "UPPERCASE": "MAIÚSCULAS",
   "Upright, or turned on its side": "Em pé, ou deitada de lado",
@@ -19763,7 +19783,17 @@ const pt$3 = {
   "The page stopped": "A página parou",
   "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Seu sermão é salvo enquanto você escreve, então nada do que foi escrito se perde. Abra-o de novo, ou volte à biblioteca.",
   "Open it again": "Abrir de novo",
-  "Back to the library": "Voltar à biblioteca"
+  "Back to the library": "Voltar à biblioteca",
+  "Marks": "Marcas",
+  "Clear": "Limpar",
+  "Paint": "Pintar",
+  "Lines": "Linhas",
+  "A fresh sheet": "Uma folha nova",
+  "One place": "Uma posição",
+  "Prints on 1 sheet": "Imprime em 1 folha",
+  "Prints on {n} sheets": "Imprime em {n} folhas",
+  "Sheet {n}": "Folha {n}",
+  "The sheets this handout prints on, at this paper and these margins": "As folhas em que este folheto imprime, com este papel e estas margens"
 };
 const fr$3 = {
   "Drag to move this picture": "Glisser pour déplacer cette image",
@@ -20205,7 +20235,9 @@ const fr$3 = {
   "Enter your licence key": "Saisissez votre clé de licence",
   "Epiphany": "Épiphanie",
   "Esc closes": "Esc ferme",
-  "Esc: finish, to the summary": "Esc : terminer, vers le résumé",
+  "Esc: finish, to the summary; from there, back to the sermon": "Esc : terminer, vers le résumé ; de là, retour au sermon",
+  "Back to the sermon": "Retour au sermon",
+  "Esc does the same. The clock has kept counting.": "Esc fait de même. L’horloge a continué de compter.",
   "est. {n}": "env. {n}",
   "estimate": "estimation",
   "Estimated from the words": "Estimé d'après les mots",
@@ -20910,7 +20942,6 @@ const fr$3 = {
   "Split into a new {kind} here": "Scinder ici : la suite devient un nouveau {kind}",
   "Split the {kind} in two": "Scinder le {kind} en deux",
   "Split the point here: this line and the rest become a new point": "Scinder le point ici : cette ligne et la suite deviennent un nouveau point",
-  "Start on a fresh printed page": "Commencer sur une nouvelle page imprimée",
   "Start on a new page": "Commencer sur une nouvelle page",
   "Start this block on a fresh printed page (Ctrl+Enter)": "Commencer ce bloc sur une nouvelle page imprimée (Ctrl+Enter)",
   "Start this block on a new page when printed": "Commencer ce bloc sur une nouvelle page à l’impression",
@@ -21123,7 +21154,6 @@ const fr$3 = {
   "Untitled series": "Série sans titre",
   "Untitled sermon": "Sermon sans titre",
   "Untitled view": "Vue sans titre",
-  "Up or down one place": "Une place vers le haut ou vers le bas",
   "Update {style} to match this paragraph: its size, alignment, and spacing become the style's": "Mettre à jour {style} d’après ce paragraphe : sa taille, son alignement et ses espacements deviennent ceux du style",
   "UPPERCASE": "MAJUSCULES",
   "Upright, or turned on its side": "Debout, ou couchée sur le côté",
@@ -21313,7 +21343,17 @@ const fr$3 = {
   "The page stopped": "La page s’est arrêtée",
   "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Votre sermon est enregistré au fil de la frappe, rien de ce qui est écrit n’est perdu. Rouvrez-le, ou revenez à la bibliothèque.",
   "Open it again": "Le rouvrir",
-  "Back to the library": "Revenir à la bibliothèque"
+  "Back to the library": "Revenir à la bibliothèque",
+  "Marks": "Marques",
+  "Clear": "Effacer",
+  "Paint": "Reproduire",
+  "Lines": "Lignes",
+  "A fresh sheet": "Une nouvelle feuille",
+  "One place": "D’une place",
+  "Prints on 1 sheet": "S’imprime sur 1 feuille",
+  "Prints on {n} sheets": "S’imprime sur {n} feuilles",
+  "Sheet {n}": "Feuille {n}",
+  "The sheets this handout prints on, at this paper and these margins": "Les feuilles sur lesquelles ce feuillet s’imprime, avec ce papier et ces marges"
 };
 const de$1 = {
   "Drag to move this picture": "Ziehen, um dieses Bild zu verschieben",
@@ -21755,7 +21795,9 @@ const de$1 = {
   "Enter your licence key": "Geben Sie Ihren Lizenzschlüssel ein",
   "Epiphany": "Epiphanias",
   "Esc closes": "Esc schließt",
-  "Esc: finish, to the summary": "Esc: beenden, zur Zusammenfassung",
+  "Esc: finish, to the summary; from there, back to the sermon": "Esc: beenden, zur Zusammenfassung; von dort zurück zur Predigt",
+  "Back to the sermon": "Zurück zur Predigt",
+  "Esc does the same. The clock has kept counting.": "Esc tut dasselbe. Die Uhr ist weitergelaufen.",
   "est. {n}": "ca. {n}",
   "estimate": "Schätzung",
   "Estimated from the words": "Aus den Wörtern geschätzt",
@@ -22460,7 +22502,6 @@ const de$1 = {
   "Split into a new {kind} here": "Hier teilen; ab hier beginnt ein neuer Block: {kind}",
   "Split the {kind} in two": "{kind} in zwei teilen",
   "Split the point here: this line and the rest become a new point": "Den Punkt hier teilen: Diese Zeile und der Rest werden ein neuer Punkt",
-  "Start on a fresh printed page": "Auf einer neuen gedruckten Seite beginnen",
   "Start on a new page": "Auf einer neuen Seite beginnen",
   "Start this block on a fresh printed page (Ctrl+Enter)": "Diesen Block auf einer neuen gedruckten Seite beginnen (Ctrl+Enter)",
   "Start this block on a new page when printed": "Diesen Block beim Drucken auf einer neuen Seite beginnen",
@@ -22673,7 +22714,6 @@ const de$1 = {
   "Untitled series": "Reihe ohne Titel",
   "Untitled sermon": "Predigt ohne Titel",
   "Untitled view": "Ansicht ohne Titel",
-  "Up or down one place": "Eine Stelle nach oben oder unten",
   "Update {style} to match this paragraph: its size, alignment, and spacing become the style's": "{style} an diesen Absatz anpassen: seine Größe, Ausrichtung und Abstände werden die des Stils",
   "UPPERCASE": "GROSSBUCHSTABEN",
   "Upright, or turned on its side": "Hochkant oder quer",
@@ -22863,7 +22903,17 @@ const de$1 = {
   "The page stopped": "Die Seite ist stehen geblieben",
   "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Ihre Predigt wird beim Schreiben gespeichert, nichts Geschriebenes geht verloren. Öffnen Sie sie erneut oder gehen Sie zurück zur Bibliothek.",
   "Open it again": "Erneut öffnen",
-  "Back to the library": "Zurück zur Bibliothek"
+  "Back to the library": "Zurück zur Bibliothek",
+  "Marks": "Format",
+  "Clear": "Löschen",
+  "Paint": "Übertragen",
+  "Lines": "Zeilen",
+  "A fresh sheet": "Ein neues Blatt",
+  "One place": "Eine Stelle",
+  "Prints on 1 sheet": "Druckt auf 1 Blatt",
+  "Prints on {n} sheets": "Druckt auf {n} Blätter",
+  "Sheet {n}": "Blatt {n}",
+  "The sheets this handout prints on, at this paper and these margins": "Die Blätter, auf die dieses Handout bei diesem Papier und diesen Rändern druckt"
 };
 const zh = {
   "Drag to move this picture": "拖动以移动此图片",
@@ -23305,7 +23355,9 @@ const zh = {
   "Enter your licence key": "输入你的许可证密钥",
   "Epiphany": "主显节",
   "Esc closes": "Esc 关闭",
-  "Esc: finish, to the summary": "Esc：结束，到总结",
+  "Esc: finish, to the summary; from there, back to the sermon": "Esc：结束，到总结；在那里按 Esc 回到讲道",
+  "Back to the sermon": "回到讲道",
+  "Esc does the same. The clock has kept counting.": "按 Esc 也一样。计时一直在继续。",
   "est. {n}": "约{n}",
   "estimate": "估算",
   "Estimated from the words": "按字数估算",
@@ -24010,7 +24062,6 @@ const zh = {
   "Split into a new {kind} here": "在此拆分为新的{kind}",
   "Split the {kind} in two": "将{kind}一分为二",
   "Split the point here: this line and the rest become a new point": "在此拆分要点：这一行及其后的内容成为一个新要点",
-  "Start on a fresh printed page": "打印时从新一页开始",
   "Start on a new page": "从新一页开始",
   "Start this block on a fresh printed page (Ctrl+Enter)": "打印时此区块从新一页开始 (Ctrl+Enter)",
   "Start this block on a new page when printed": "打印时此区块从新一页开始",
@@ -24223,7 +24274,6 @@ const zh = {
   "Untitled series": "无标题系列",
   "Untitled sermon": "无标题讲章",
   "Untitled view": "无标题视图",
-  "Up or down one place": "上移或下移一位",
   "Update {style} to match this paragraph: its size, alignment, and spacing become the style's": "更新{style}以匹配此段落：其字号、对齐和间距将成为该样式的设置",
   "UPPERCASE": "全部大写",
   "Upright, or turned on its side": "竖向，或横向",
@@ -24413,7 +24463,17 @@ const zh = {
   "The page stopped": "页面已停止",
   "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "讲章会在你输入时自动保存，已写的内容不会丢失。重新打开它，或返回讲章库。",
   "Open it again": "重新打开",
-  "Back to the library": "返回讲章库"
+  "Back to the library": "返回讲章库",
+  "Marks": "格式",
+  "Clear": "清除",
+  "Paint": "格式刷",
+  "Lines": "行距",
+  "A fresh sheet": "新的一页",
+  "One place": "一个位置",
+  "Prints on 1 sheet": "打印在 1 张纸上",
+  "Prints on {n} sheets": "打印在 {n} 张纸上",
+  "Sheet {n}": "第 {n} 张",
+  "The sheets this handout prints on, at this paper and these margins": "以此纸张和页边距，这份讲道单打印所需的张数"
 };
 const ja = {
   "Drag to move this picture": "ドラッグしてこの画像を移動",
@@ -24855,7 +24915,9 @@ const ja = {
   "Enter your licence key": "ライセンスキーを入力",
   "Epiphany": "顕現日",
   "Esc closes": "Escで閉じる",
-  "Esc: finish, to the summary": "Esc: 終了してまとめへ",
+  "Esc: finish, to the summary; from there, back to the sermon": "Esc: 終了してまとめへ。そこから説教に戻る",
+  "Back to the sermon": "説教に戻る",
+  "Esc does the same. The clock has kept counting.": "Esc でも同じです。時計は進み続けていました。",
   "est. {n}": "推定 {n}",
   "estimate": "見積もり",
   "Estimated from the words": "語数からの推定",
@@ -25560,7 +25622,6 @@ const ja = {
   "Split into a new {kind} here": "ここで新しい{kind}に分割",
   "Split the {kind} in two": "{kind}を二つに分割",
   "Split the point here: this line and the rest become a new point": "ここでポイントを分割します。この行以降が新しいポイントになります",
-  "Start on a fresh printed page": "印刷時に新しいページから始める",
   "Start on a new page": "新しいページから始める",
   "Start this block on a fresh printed page (Ctrl+Enter)": "このブロックを印刷時に新しいページから始めます (Ctrl+Enter)",
   "Start this block on a new page when printed": "印刷時にこのブロックを新しいページから始めます",
@@ -25773,7 +25834,6 @@ const ja = {
   "Untitled series": "無題のシリーズ",
   "Untitled sermon": "無題の説教",
   "Untitled view": "無題のビュー",
-  "Up or down one place": "1つ上または下へ",
   "Update {style} to match this paragraph: its size, alignment, and spacing become the style's": "{style} をこの段落に合わせて更新：サイズ、配置、間隔がスタイルの設定になります",
   "UPPERCASE": "大文字",
   "Upright, or turned on its side": "縦向き、または横向き",
@@ -25963,7 +26023,17 @@ const ja = {
   "The page stopped": "ページが停止しました",
   "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "説教は入力のたびに保存されるので、書いた内容は失われません。もう一度開くか、ライブラリに戻ってください。",
   "Open it again": "もう一度開く",
-  "Back to the library": "ライブラリに戻る"
+  "Back to the library": "ライブラリに戻る",
+  "Marks": "書式",
+  "Clear": "クリア",
+  "Paint": "書式コピー",
+  "Lines": "行間",
+  "A fresh sheet": "新しいページ",
+  "One place": "1つ分",
+  "Prints on 1 sheet": "1枚に印刷",
+  "Prints on {n} sheets": "{n}枚に印刷",
+  "Sheet {n}": "{n}枚目",
+  "The sheets this handout prints on, at this paper and these margins": "この用紙と余白でこの配布資料が印刷される枚数"
 };
 const tl = {
   "Drag to move this picture": "I-drag para ilipat ang larawang ito",
@@ -26405,7 +26475,9 @@ const tl = {
   "Enter your licence key": "Ilagay ang iyong licence key",
   "Epiphany": "Epipanya",
   "Esc closes": "Isinasara ng Esc",
-  "Esc: finish, to the summary": "Esc: tapusin, sa buod",
+  "Esc: finish, to the summary; from there, back to the sermon": "Esc: tapusin, sa buod; mula roon, balik sa sermon",
+  "Back to the sermon": "Balik sa sermon",
+  "Esc does the same. The clock has kept counting.": "Ganoon din ang Esc. Tuloy ang bilang ng orasan.",
   "est. {n}": "tinatayang {n}",
   "estimate": "pagtaya",
   "Estimated from the words": "Tinantiya mula sa mga salita",
@@ -27110,7 +27182,6 @@ const tl = {
   "Split into a new {kind} here": "Hatiin sa bagong {kind} dito",
   "Split the {kind} in two": "Hatiin sa dalawa ang {kind}",
   "Split the point here: this line and the rest become a new point": "Hatiin ang punto dito: ang linyang ito at ang mga susunod ay magiging bagong punto",
-  "Start on a fresh printed page": "Magsimula sa bagong naka-print na pahina",
   "Start on a new page": "Magsimula sa bagong pahina",
   "Start this block on a fresh printed page (Ctrl+Enter)": "Simulan ang block na ito sa bagong naka-print na pahina (Ctrl+Enter)",
   "Start this block on a new page when printed": "Simulan ang block na ito sa bagong pahina kapag naka-print",
@@ -27323,7 +27394,6 @@ const tl = {
   "Untitled series": "Seryeng walang pamagat",
   "Untitled sermon": "Sermong walang pamagat",
   "Untitled view": "View na walang pamagat",
-  "Up or down one place": "Pataas o pababa ng isang puwesto",
   "Update {style} to match this paragraph: its size, alignment, and spacing become the style's": "I-update ang {style} para tumugma sa parapong ito: ang laki, alignment, at espasyo nito ang magiging sa estilo",
   "UPPERCASE": "MALALAKING TITIK",
   "Upright, or turned on its side": "Patayo, o nakahiga",
@@ -27513,7 +27583,17 @@ const tl = {
   "The page stopped": "Huminto ang pahina",
   "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Nase-save ang iyong sermon habang nagta-type ka, kaya walang nawawala sa naisulat. Buksan itong muli, o bumalik sa aklatan.",
   "Open it again": "Buksang muli",
-  "Back to the library": "Bumalik sa aklatan"
+  "Back to the library": "Bumalik sa aklatan",
+  "Marks": "Format",
+  "Clear": "Burahin",
+  "Paint": "Kopyahin",
+  "Lines": "Mga linya",
+  "A fresh sheet": "Bagong pahina",
+  "One place": "Isang puwesto",
+  "Prints on 1 sheet": "Naka-print sa 1 pahina",
+  "Prints on {n} sheets": "Naka-print sa {n} pahina",
+  "Sheet {n}": "Pahina {n}",
+  "The sheets this handout prints on, at this paper and these margins": "Ang mga pahinang ipi-print ng handout na ito, sa papel at mga margin na ito"
 };
 const id = {
   "Drag to move this picture": "Seret untuk memindahkan gambar ini",
@@ -27955,7 +28035,9 @@ const id = {
   "Enter your licence key": "Masukkan kunci lisensi Anda",
   "Epiphany": "Epifani",
   "Esc closes": "Esc menutup",
-  "Esc: finish, to the summary": "Esc: selesai, ke ringkasan",
+  "Esc: finish, to the summary; from there, back to the sermon": "Esc: selesai, ke ringkasan; dari sana, kembali ke khotbah",
+  "Back to the sermon": "Kembali ke khotbah",
+  "Esc does the same. The clock has kept counting.": "Esc juga sama. Jam terus berjalan.",
   "est. {n}": "perk. {n}",
   "estimate": "perkiraan",
   "Estimated from the words": "Diperkirakan dari jumlah kata",
@@ -28660,7 +28742,6 @@ const id = {
   "Split into a new {kind} here": "Pisahkan menjadi {kind} baru di sini",
   "Split the {kind} in two": "Pisahkan {kind} menjadi dua",
   "Split the point here: this line and the rest become a new point": "Pisahkan poin di sini: baris ini dan selanjutnya menjadi poin baru",
-  "Start on a fresh printed page": "Mulai di halaman cetak baru",
   "Start on a new page": "Mulai di halaman baru",
   "Start this block on a fresh printed page (Ctrl+Enter)": "Mulai blok ini di halaman cetak baru (Ctrl+Enter)",
   "Start this block on a new page when printed": "Mulai blok ini di halaman baru saat dicetak",
@@ -28873,7 +28954,6 @@ const id = {
   "Untitled series": "Seri tanpa judul",
   "Untitled sermon": "Khotbah tanpa judul",
   "Untitled view": "Tampilan tanpa judul",
-  "Up or down one place": "Naik atau turun satu tempat",
   "Update {style} to match this paragraph: its size, alignment, and spacing become the style's": "Perbarui {style} agar sesuai paragraf ini: ukuran, perataan, dan spasinya menjadi milik gaya itu",
   "UPPERCASE": "HURUF BESAR",
   "Upright, or turned on its side": "Tegak, atau direbahkan",
@@ -29063,7 +29143,17 @@ const id = {
   "The page stopped": "Halaman berhenti",
   "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Khotbah Anda tersimpan saat Anda mengetik, jadi tidak ada tulisan yang hilang. Buka lagi, atau kembali ke pustaka.",
   "Open it again": "Buka lagi",
-  "Back to the library": "Kembali ke pustaka"
+  "Back to the library": "Kembali ke pustaka",
+  "Marks": "Format",
+  "Clear": "Hapus",
+  "Paint": "Salin",
+  "Lines": "Baris",
+  "A fresh sheet": "Lembar baru",
+  "One place": "Satu tempat",
+  "Prints on 1 sheet": "Tercetak pada 1 lembar",
+  "Prints on {n} sheets": "Tercetak pada {n} lembar",
+  "Sheet {n}": "Lembar {n}",
+  "The sheets this handout prints on, at this paper and these margins": "Lembar yang dipakai selebaran ini saat dicetak, dengan kertas dan margin ini"
 };
 const ru = {
   "Drag to move this picture": "Перетащите, чтобы переместить это изображение",
@@ -29505,7 +29595,9 @@ const ru = {
   "Enter your licence key": "Введите лицензионный ключ",
   "Epiphany": "Богоявление",
   "Esc closes": "Esc закрывает",
-  "Esc: finish, to the summary": "Esc: завершить, к итогам",
+  "Esc: finish, to the summary; from there, back to the sermon": "Esc: завершить, к итогам; оттуда — назад к проповеди",
+  "Back to the sermon": "Назад к проповеди",
+  "Esc does the same. The clock has kept counting.": "Esc делает то же. Часы продолжали идти.",
   "est. {n}": "ок. {n}",
   "estimate": "оценка",
   "Estimated from the words": "Оценка по числу слов",
@@ -30210,7 +30302,6 @@ const ru = {
   "Split into a new {kind} here": "Разделить здесь на новый {kind}",
   "Split the {kind} in two": "Разделить {kind} на две части",
   "Split the point here: this line and the rest become a new point": "Разделить пункт здесь: эта строка и всё после неё станут новым пунктом",
-  "Start on a fresh printed page": "Начать с новой печатной страницы",
   "Start on a new page": "Начать с новой страницы",
   "Start this block on a fresh printed page (Ctrl+Enter)": "Начать этот блок с новой печатной страницы (Ctrl+Enter)",
   "Start this block on a new page when printed": "Начинать этот блок с новой страницы при печати",
@@ -30423,7 +30514,6 @@ const ru = {
   "Untitled series": "Серия без названия",
   "Untitled sermon": "Проповедь без названия",
   "Untitled view": "Вид без названия",
-  "Up or down one place": "На одно место вверх или вниз",
   "Update {style} to match this paragraph: its size, alignment, and spacing become the style's": "Обновить {style} по этому абзацу: его размер, выравнивание и интервалы станут стилем",
   "UPPERCASE": "ПРОПИСНЫЕ",
   "Upright, or turned on its side": "Вертикально или на боку",
@@ -30613,7 +30703,17 @@ const ru = {
   "The page stopped": "Страница остановилась",
   "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Проповедь сохраняется по мере набора, так что написанное не потеряно. Откройте её снова или вернитесь в библиотеку.",
   "Open it again": "Открыть снова",
-  "Back to the library": "Вернуться в библиотеку"
+  "Back to the library": "Вернуться в библиотеку",
+  "Marks": "Оформление",
+  "Clear": "Очистить",
+  "Paint": "По образцу",
+  "Lines": "Строки",
+  "A fresh sheet": "Новый лист",
+  "One place": "На одну позицию",
+  "Prints on 1 sheet": "Печатается на 1 листе",
+  "Prints on {n} sheets": "Печатается на {n} листах",
+  "Sheet {n}": "Лист {n}",
+  "The sheets this handout prints on, at this paper and these margins": "Листы, на которых печатается этот раздаточный лист при этой бумаге и этих полях"
 };
 const sw = {
   "Drag to move this picture": "Buruta kuhamisha picha hii",
@@ -31055,7 +31155,9 @@ const sw = {
   "Enter your licence key": "Ingiza ufunguo wako wa leseni",
   "Epiphany": "Epifania",
   "Esc closes": "Esc hufunga",
-  "Esc: finish, to the summary": "Esc: maliza, hadi muhtasari",
+  "Esc: finish, to the summary; from there, back to the sermon": "Esc: maliza, hadi muhtasari; kutoka hapo, rudi kwenye mahubiri",
+  "Back to the sermon": "Rudi kwenye mahubiri",
+  "Esc does the same. The clock has kept counting.": "Esc hufanya vivyo hivyo. Saa imeendelea kuhesabu.",
   "est. {n}": "takr. {n}",
   "estimate": "kadirio",
   "Estimated from the words": "Imekadiriwa kutokana na maneno",
@@ -31760,7 +31862,6 @@ const sw = {
   "Split into a new {kind} here": "Gawanya kuwa {kind} mpya hapa",
   "Split the {kind} in two": "Gawanya {kind} katika sehemu mbili",
   "Split the point here: this line and the rest become a new point": "Gawanya hoja hapa: mstari huu na vinavyofuata vinakuwa hoja mpya",
-  "Start on a fresh printed page": "Anza kwenye ukurasa mpya uliochapishwa",
   "Start on a new page": "Anza kwenye ukurasa mpya",
   "Start this block on a fresh printed page (Ctrl+Enter)": "Anza kipande hiki kwenye ukurasa mpya uliochapishwa (Ctrl+Enter)",
   "Start this block on a new page when printed": "Anza kipande hiki kwenye ukurasa mpya kinapochapishwa",
@@ -31973,7 +32074,6 @@ const sw = {
   "Untitled series": "Mfululizo bila kichwa",
   "Untitled sermon": "Mahubiri bila kichwa",
   "Untitled view": "Mwonekano bila kichwa",
-  "Up or down one place": "Juu au chini nafasi moja",
   "Update {style} to match this paragraph: its size, alignment, and spacing become the style's": "Sasisha {style} ilingane na aya hii: ukubwa, mpangilio, na nafasi yake vinakuwa vya mtindo huo",
   "UPPERCASE": "HERUFI KUBWA",
   "Upright, or turned on its side": "Wima, au imelazwa ubavu",
@@ -32163,7 +32263,17 @@ const sw = {
   "The page stopped": "Ukurasa umesimama",
   "Your sermon is saved as you type, so nothing written is lost. Open it again, or go back to the library.": "Mahubiri yako huhifadhiwa unapoandika, kwa hivyo hakuna ulichoandika kinachopotea. Yafungue tena, au urudi kwenye maktaba.",
   "Open it again": "Fungua tena",
-  "Back to the library": "Rudi kwenye maktaba"
+  "Back to the library": "Rudi kwenye maktaba",
+  "Marks": "Umbizo",
+  "Clear": "Futa",
+  "Paint": "Nakili",
+  "Lines": "Mistari",
+  "A fresh sheet": "Ukurasa mpya",
+  "One place": "Nafasi moja",
+  "Prints on 1 sheet": "Huchapishwa kwenye karatasi 1",
+  "Prints on {n} sheets": "Huchapishwa kwenye karatasi {n}",
+  "Sheet {n}": "Karatasi {n}",
+  "The sheets this handout prints on, at this paper and these margins": "Karatasi ambazo kijitabu hiki huchapishwa kwazo, kwa karatasi hii na pambizo hizi"
 };
 const TABLES = { en: {}, es, ko, pt: pt$3, fr: fr$3, de: de$1, zh, ja, tl, id, ru, sw };
 function fill(text, vars) {
@@ -32484,6 +32594,10 @@ function stepTextSize(from2, direction) {
 }
 function tableText(rows) {
   return rows.map((row) => row.map((cell) => cell.text).join("	")).join("\n");
+}
+function preachedAt(sermon, home) {
+  const telling = sermon.datePreached ? (sermon.preachings ?? []).find((entry) => entry.date === sermon.datePreached && entry.church?.trim()) : void 0;
+  return telling?.church?.trim() || home?.trim() || "";
 }
 const OCCASIONS = [msg("Funeral"), msg("Wedding"), msg("Baptism"), msg("Dedication"), msg("Communion"), msg("Advent"), msg("Christmas"), msg("Epiphany"), msg("Lent"), msg("Good Friday"), msg("Easter"), msg("Pentecost"), msg("Thanksgiving")];
 const DEFAULT_VISIBILITY = {
@@ -34850,9 +34964,11 @@ function renderHandoutHtml(sermon, options, page) {
   .half h2 { margin: 0.6em 0 0.15em; }
   .half .block { margin-bottom: 0.3em; }
   .half .questions { margin-top: 0.8em; padding-top: 0.5em; }
-  .half .col { min-width: 0; }
+  .half .col { min-width: 0; min-height: 0; }
+  .half .col--notes { display: flex; flex-direction: column; }
   .half .notes { margin-top: 0.6em; }
-  .half .rule { height: 1.6em; }
+  .half .col--notes .notes { flex: 1 1 auto; min-height: 0; overflow: hidden; }
+  .half .rule { height: 1.6em; flex: none; }
   @media print { .foot { position: fixed; bottom: 0; left: 0; right: 0; } }`;
   const questionItems = questions.flatMap((block) => reflectionQuestions(block)).map((paragraph) => {
     const spans = paragraph.inline?.length ? paragraph.inline : [{ text: paragraph.text }];
@@ -34900,17 +35016,17 @@ ${(() => {
     })()}
 ${questionsHtml}`;
     const column2 = `${scriptures.map(renderScripture).join("\n")}
-${options.noteLines || scriptures.length === 0 ? `<section class="notes"><div class="notes-label">${t2("Notes")}</div>${rules(scriptures.length === 0 ? 8 : 4)}</section>` : ""}`;
-    const half = `<div class="half"><div class="col">${column1}</div><div class="col">${column2}</div></div>`;
+${options.noteLines || scriptures.length === 0 ? `<section class="notes"><div class="notes-label">${t2("Notes")}</div>${rules(twoUp ? 24 : scriptures.length === 0 ? 8 : 4)}</section>` : ""}`;
+    const half = `<div class="half"><div class="col">${column1}</div><div class="col col--notes">${column2}</div></div>`;
     body = twoUp ? `${half}
 ${half}` : half;
   } else if (layout === "blanks") {
     const sheet2 = mainHtml(flagsFor(true));
-    const answers = mainHtml(plain);
+    const answers = sheet2.includes('class="gap"') ? `
+<section class="answers"><div class="kicker">${t2("For the preacher: the words in")}</div>${mainHtml(plain)}</section>` : "";
     body = `${headerHtml}
 ${sheet2}
-${footHtml2}
-<section class="answers"><div class="kicker">${t2("For the preacher: the words in")}</div>${answers}</section>`;
+${footHtml2}${answers}`;
   } else {
     body = `${headerHtml}
 ${mainHtml(plain)}
@@ -41246,7 +41362,7 @@ class PluginKey {
 const ALL_SHOWN = { keyLine: true, passages: true, stories: true, applications: true, questions: true };
 const OutlineContext = reactExports$1.createContext({ on: false, open: /* @__PURE__ */ new Set(), toggle: () => {
 }, openAt: () => {
-}, lines: /* @__PURE__ */ new Map(), shown: ALL_SHOWN, density: "comfortable" });
+}, lines: /* @__PURE__ */ new Map(), minutes: /* @__PURE__ */ new Map(), moveSection: null, shown: ALL_SHOWN, density: "comfortable" });
 function kindShown(type, shown) {
   if (type === "scripture") return shown.passages;
   if (type === "illustration") return shown.stories;
@@ -41268,7 +41384,7 @@ function outlineLines(blocks, numbering) {
   return lines;
 }
 const KIND = "application/x-sermondesk-block";
-function useBlockDrag({ writable, stageRef, moveBlockTo }) {
+function useBlockDrag({ writable, stageRef, moveBlockTo, snap = null }) {
   const [line, setLine] = reactExports$1.useState(null);
   reactExports$1.useEffect(() => {
     if (!writable) return;
@@ -41294,7 +41410,13 @@ function useBlockDrag({ writable, stageRef, moveBlockTo }) {
       const rect = outer.getBoundingClientRect();
       const origin = stage.getBoundingClientRect().top;
       const before = event.clientY < rect.top + rect.height / 2;
-      return { top: (before ? rect.top : rect.bottom) - origin + stage.scrollTop, targetId: id2, position: before ? "before" : "after" };
+      const asked = { targetId: id2, position: before ? "before" : "after" };
+      const landing = snap ? snap(dragging ?? "", asked.targetId, asked.position) : asked;
+      if (!landing) return null;
+      const anchor = landing.targetId === id2 ? outer : stage.querySelector(`.bn-editor > .bn-block-group > .bn-block-outer[data-id="${landing.targetId}"]`);
+      if (!anchor) return null;
+      const box = anchor.getBoundingClientRect();
+      return { top: (landing.position === "before" ? box.top : box.bottom) - origin + stage.scrollTop, targetId: landing.targetId, position: landing.position };
     };
     const onDragOver = (event) => {
       if (!dragging || !event.dataTransfer?.types.includes(KIND)) return;
@@ -41328,7 +41450,7 @@ function useBlockDrag({ writable, stageRef, moveBlockTo }) {
       window.removeEventListener("drop", onDrop, true);
       window.removeEventListener("dragend", onDragEnd, true);
     };
-  }, [writable, stageRef, moveBlockTo]);
+  }, [writable, stageRef, moveBlockTo, snap]);
   return line;
 }
 const MATCH = "find-match";
@@ -85152,6 +85274,7 @@ function BlockFrame({
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { "aria-hidden": "true", children: style2.marker }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2(level === "2" ? SUB_POINT$1 : level === "3" ? SUB_SUB_POINT$1 : style2.label) })
           ] }),
+          outline.on && outline.minutes.has(id2) && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sermon-block__minutes", title: outline.minutes.get(id2).set ? t2("Planned by hand") : t2("Estimated from the words"), contentEditable: false, children: outline.minutes.get(id2).text }),
           menuOpen && onChangeType && /* @__PURE__ */ jsxRuntimeExports.jsx(
             BlockTypeMenu,
             {
@@ -85172,7 +85295,8 @@ function BlockFrame({
                 ...canMove,
                 onMove: (direction) => {
                   setMenuOpen(false);
-                  move.onMove(direction);
+                  if (outline.on && type === "point" && outline.moveSection) outline.moveSection(id2, direction);
+                  else move.onMove(direction);
                 }
               } : null,
               split: split2 && canSplit2 ? {
@@ -87038,6 +87162,67 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
     },
     [editor, moveBlock, refreshActive]
   );
+  const sectionRange = reactExports$1.useCallback(
+    (index2) => {
+      const top = editor.document;
+      if (top[index2]?.type !== "point") return { start: index2, end: index2 + 1 };
+      let end = index2 + 1;
+      while (end < top.length && top[end].type !== "point") end += 1;
+      return { start: index2, end };
+    },
+    [editor]
+  );
+  const sectionAround = reactExports$1.useCallback(
+    (index2) => {
+      const top = editor.document;
+      let start = index2;
+      while (start > 0 && top[start].type !== "point") start -= 1;
+      return top[start]?.type === "point" ? sectionRange(start) : { start: index2, end: index2 + 1 };
+    },
+    [editor, sectionRange]
+  );
+  const sectionLanding = reactExports$1.useCallback(
+    (draggedId, targetId, position) => {
+      const top = editor.document;
+      const from2 = top.findIndex((block) => block.id === draggedId);
+      const at2 = top.findIndex((block) => block.id === targetId);
+      if (from2 < 0 || at2 < 0) return null;
+      if (top[from2].type !== "point") return { targetId, position };
+      const dragged = sectionRange(from2);
+      if (at2 >= dragged.start && at2 < dragged.end) return null;
+      const landing = sectionAround(at2);
+      return position === "before" ? { targetId: top[landing.start].id, position: "before" } : { targetId: top[landing.end - 1].id, position: "after" };
+    },
+    [editor, sectionRange, sectionAround]
+  );
+  const moveSectionTo = reactExports$1.useCallback(
+    (id2, targetId, position) => {
+      if (!writable || id2 === targetId) return;
+      const top = editor.document;
+      const from2 = top.findIndex((block) => block.id === id2);
+      if (from2 < 0) return;
+      if (top[from2].type !== "point") {
+        moveBlockTo(id2, targetId, position);
+        return;
+      }
+      const landing = sectionLanding(id2, targetId, position);
+      if (!landing) return;
+      const range = sectionRange(from2);
+      const ids = top.slice(range.start, range.end).map((block) => block.id);
+      const moving = ids.map((blockId2) => editor.getBlock(blockId2)).filter((block) => Boolean(block));
+      const heading = (top[from2].content ?? []).map((span) => span.text ?? "").join("");
+      announceChange(heading.trim() ? t2("Moved “{text}”", { text: snippet(heading, 28) }) : t2("Moved a block"));
+      editor.transact(() => {
+        editor.removeBlocks(ids);
+        editor.insertBlocks(moving, landing.targetId, landing.position);
+      });
+      editor.setTextCursorPosition(id2, "start");
+      editor.focus();
+      report();
+      refreshActive();
+    },
+    [editor, writable, moveBlockTo, sectionLanding, sectionRange, t2, report, refreshActive]
+  );
   const moveSection = reactExports$1.useCallback(
     (id2, direction) => {
       if (!writable) return;
@@ -87306,6 +87491,8 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
       moveCurrent,
       moveBlockTo,
       moveSection,
+      sectionLanding,
+      moveSectionTo,
       setPointMinutes,
       togglePageBreak,
       insertSermonBlocks,
@@ -87316,7 +87503,7 @@ function useBlockOps({ editor, writable, report, refreshActive }) {
       insertIllustration,
       blockAsIllustration
     }),
-    [undo2, redo2, undoMany, redoMany, addBlock, setBlockType2, canMove, moveBlock, moveCurrent, moveBlockTo, moveSection, setPointMinutes, togglePageBreak, insertSermonBlocks, addShape, splitBlock2, joinBlockAbove, jumpTo, insertIllustration, blockAsIllustration]
+    [undo2, redo2, undoMany, redoMany, addBlock, setBlockType2, canMove, moveBlock, moveCurrent, moveBlockTo, moveSection, sectionLanding, moveSectionTo, setPointMinutes, togglePageBreak, insertSermonBlocks, addShape, splitBlock2, joinBlockAbove, jumpTo, insertIllustration, blockAsIllustration]
   );
 }
 function useInsert({ editor, report }) {
@@ -89723,14 +89910,46 @@ function SermonEditor({
   const zoomRef = reactExports$1.useRef(zoom);
   zoomRef.current = zoom;
   const [opened, setOpened] = reactExports$1.useState(() => /* @__PURE__ */ new Set());
-  const toggleOpened = reactExports$1.useCallback((id2) => {
-    setOpened((current2) => {
-      const next = new Set(current2);
-      if (next.has(id2)) next.delete(id2);
-      else next.add(id2);
-      return next;
-    });
-  }, []);
+  const caretToHeading = reactExports$1.useCallback(
+    (id2) => {
+      let block;
+      try {
+        block = editor.getTextCursorPosition().block;
+      } catch {
+        return;
+      }
+      if (block.id === id2) return;
+      let top = block;
+      for (let parent = editor.getParentBlock(top); parent; parent = editor.getParentBlock(top)) top = parent;
+      if (top.id !== id2) return;
+      editor.setTextCursorPosition(id2, "end");
+    },
+    [editor]
+  );
+  const toggleOpened = reactExports$1.useCallback(
+    (id2) => {
+      if (opened.has(id2)) caretToHeading(id2);
+      setOpened((current2) => {
+        const next = new Set(current2);
+        if (next.has(id2)) next.delete(id2);
+        else next.add(id2);
+        return next;
+      });
+    },
+    [opened, caretToHeading]
+  );
+  reactExports$1.useEffect(() => {
+    if (!outline) return;
+    let block;
+    try {
+      block = editor.getTextCursorPosition().block;
+    } catch {
+      return;
+    }
+    let top = block;
+    for (let parent = editor.getParentBlock(top); parent; parent = editor.getParentBlock(top)) top = parent;
+    if (top.id !== block.id && !opened.has(top.id)) editor.setTextCursorPosition(top.id, "end");
+  }, [outline, editor, opened]);
   const openAt = reactExports$1.useCallback(
     (id2, text) => {
       setOpened((current2) => new Set(current2).add(id2));
@@ -89756,18 +89975,6 @@ function SermonEditor({
       });
     },
     [editor]
-  );
-  const outlineValue = reactExports$1.useMemo(
-    () => ({
-      on: outline,
-      open: opened,
-      toggle: toggleOpened,
-      openAt,
-      lines: outlineLines(sermon.blocks, outlineOptions.numbering),
-      shown: { keyLine: outlineOptions.keyLine, passages: outlineOptions.passages, stories: outlineOptions.stories, applications: outlineOptions.applications, questions: outlineOptions.questions },
-      density: outlineOptions.density
-    }),
-    [outline, opened, toggleOpened, openAt, sermon.blocks, outlineOptions]
   );
   reactExports$1.useEffect(() => {
     if (!hidden2) remeasure(editor.prosemirrorView);
@@ -89812,7 +90019,38 @@ function SermonEditor({
   const formatting = useFormatting({ editor, report, refreshActive, active });
   const { painting, armPainter } = useFormatPainter({ editor, painterRef, report, refreshActive });
   const blocks = useBlockOps({ editor, writable, report, refreshActive });
-  const dropLine = useBlockDrag({ writable, stageRef, moveBlockTo: blocks.moveBlockTo });
+  const movePointOrBlock = reactExports$1.useCallback(
+    (id2, direction) => {
+      if (outline && editor.getBlock(id2)?.type === "point") blocks.moveSection(id2, direction);
+      else blocks.moveBlock(id2, direction);
+    },
+    [outline, editor, blocks]
+  );
+  const dropLine = useBlockDrag({ writable, stageRef, moveBlockTo: outline ? blocks.moveSectionTo : blocks.moveBlockTo, snap: outline ? blocks.sectionLanding : null });
+  const outlineMinutes = reactExports$1.useMemo(() => {
+    const minutes = /* @__PURE__ */ new Map();
+    if (!outline || !outlineOptions.minutes) return minutes;
+    for (const section of sectionsOf(podiumBlocks(sermon), outlineOptions.pace, t2)) {
+      if (!section.point) continue;
+      const shown = plannedMinutes(section);
+      if (shown > 0) minutes.set(section.point.id, { text: t2("{n} min", { n: shown }), set: section.point.type === "point" && Boolean(section.point.minutes) });
+    }
+    return minutes;
+  }, [outline, outlineOptions.minutes, outlineOptions.pace, sermon, t2]);
+  const outlineValue = reactExports$1.useMemo(
+    () => ({
+      on: outline,
+      open: opened,
+      toggle: toggleOpened,
+      openAt,
+      lines: outlineLines(sermon.blocks, outlineOptions.numbering),
+      minutes: outlineMinutes,
+      moveSection: blocks.moveSection,
+      shown: { keyLine: outlineOptions.keyLine, passages: outlineOptions.passages, stories: outlineOptions.stories, applications: outlineOptions.applications, questions: outlineOptions.questions },
+      density: outlineOptions.density
+    }),
+    [outline, opened, toggleOpened, openAt, sermon.blocks, outlineOptions, outlineMinutes, blocks]
+  );
   const insert = useInsert({ editor, report });
   usePaste({ editor, writable, report, insertImageFiles: insert.insertImageFiles, keepLineAfterTable: insert.keepLineAfterTable });
   useHeadingKeys({ editor, writable, report, folded: (id2) => outline && !opened.has(id2) });
@@ -89823,7 +90061,7 @@ function SermonEditor({
   reactExports$1.useEffect(() => placeCaret(), [plan, zoom, placeCaret]);
   const replaceMatches = useReplaceMatches(editor, report);
   const footnotes = useFootnotes({ editor, writable, report });
-  const context = useContextMenu({ editor, writable, canMove: blocks.canMove, moveBlock: blocks.moveBlock, removeLink: () => links.setLink(null), replacePicture: insert.replacePicture, report });
+  const context = useContextMenu({ editor, writable, canMove: blocks.canMove, moveBlock: movePointOrBlock, removeLink: () => links.setLink(null), replacePicture: insert.replacePicture, report });
   const openFind = reactExports$1.useCallback(() => setFindOpen(true), []);
   useEditorShortcuts({
     hidden: hidden2,
@@ -92276,14 +92514,14 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
             onChange: () => run2((c2) => c2.togglePageBreak())
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: t2("Start on a fresh printed page") })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: t2("A fresh sheet") })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Order"), children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "itb-group", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { title: t2("Move this block up"), disabled: !editing || !active.canMove.up, onClick: () => run2((c2) => c2.moveCurrent("up")), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { size: 14, strokeWidth: 1.8 }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { title: t2("Move this block down"), disabled: !editing || !active.canMove.down, onClick: () => run2((c2) => c2.moveCurrent("down")), children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { size: 14, strokeWidth: 1.8 }) })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: active.blockId === null ? "" : t2("Up or down one place") })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: active.blockId === null ? "" : t2("One place") })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Note"), wrap: true, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -92417,34 +92655,56 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
         active.link && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", title: t2("Take the address off the words; the words stay"), disabled: !editing, onMouseDown: (event) => event.preventDefault(), onClick: () => run2((c2) => c2.setLink(null)), children: t2("Remove") }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint insp-row__hint--line", children: active.link ? shortLink(active.link) : keys$2("Ctrl+K") })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Case"), wrap: true, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Case"), wrap: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "select",
+        {
+          className: "field",
+          "aria-label": t2("Change case of the selected words"),
+          value: "",
+          disabled: !editing,
+          onMouseDown: (event) => event.stopPropagation(),
+          onChange: (event) => {
+            const mode = event.target.value;
+            if (mode) run2((c2) => c2.changeCase(mode));
+          },
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: t2("Change case…") }),
+            CASE_MODES.map(([mode, label]) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: mode, children: t2(label) }, mode))
+          ]
+        }
+      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Marks"), wrap: true, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "select",
+          "button",
           {
-            className: "field",
-            "aria-label": t2("Change case of the selected words"),
-            value: "",
+            type: "button",
+            className: "button button--small",
+            title: t2("Clear formatting: bold, marks, and size off"),
             disabled: !editing,
-            onMouseDown: (event) => event.stopPropagation(),
-            onChange: (event) => {
-              const mode = event.target.value;
-              if (mode) run2((c2) => c2.changeCase(mode));
-            },
+            onMouseDown: (event) => event.preventDefault(),
+            onClick: () => run2((c2) => c2.clearFormatting()),
             children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: t2("Change case…") }),
-              CASE_MODES.map(([mode, label]) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: mode, children: t2(label) }, mode))
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Eraser, { size: 13, strokeWidth: 1.7 }),
+              " ",
+              t2("Clear")
             ]
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Toggle, { title: t2("Clear formatting: bold, marks, and size off"), disabled: !editing, onClick: () => run2((c2) => c2.clearFormatting()), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Eraser, { size: 14, strokeWidth: 1.7 }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Toggle,
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "button",
           {
-            on: active.painting,
+            type: "button",
+            className: active.painting ? "button button--small button--on" : "button button--small",
             title: active.painting ? t2("Format painter: select the text to paint, or press Escape") : t2("Format painter: copy this formatting to the next text you select"),
+            "aria-pressed": active.painting,
             disabled: !editing,
+            onMouseDown: (event) => event.preventDefault(),
             onClick: () => run2((c2) => c2.armPainter()),
-            children: /* @__PURE__ */ jsxRuntimeExports.jsx(PaintRoller, { size: 14, strokeWidth: 1.7 })
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(PaintRoller, { size: 13, strokeWidth: 1.7 }),
+              " ",
+              t2("Paint")
+            ]
           }
         )
       ] })
@@ -92542,8 +92802,8 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__value", title: keys$2(t2("Fit the page to the window (Ctrl+0)")), onMouseDown: (event) => event.preventDefault(), onClick: () => onLook({ zoomFit: true }), children: t2(zoomLabel(look, zoom)) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2(t2("Zoom in (Ctrl+plus)")), "aria-label": t2("Zoom in"), onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, 0.1)), children: "+" })
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Spacing"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(PageLineSpacingSelect, { value: look.lineSpacing, title: t2("Line spacing for the page"), onChange: (lineSpacing) => onLook({ lineSpacing }) }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Size"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(PaperSelect, { value: look.paper, title: t2("The sheet on screen and the sheet that prints"), onChange: (paper) => onLook({ paper }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Lines"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(PageLineSpacingSelect, { value: look.lineSpacing, title: t2("Line spacing for the page"), onChange: (lineSpacing) => onLook({ lineSpacing }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Paper"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(PaperSelect, { value: look.paper, title: t2("The sheet on screen and the sheet that prints"), onChange: (paper) => onLook({ paper }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Turn"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(OrientationSelect, { value: look.orientation, title: t2("Upright, or turned on its side"), onChange: (orientation) => onLook({ orientation }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Margins"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(MarginSelect, { value: look.margin, title: t2("The margins on screen and on paper"), onChange: (margin) => onLook({ margin }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Notes"), children: [
@@ -92836,7 +93096,7 @@ function PrintPane({
         ] })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__label", children: t2("Size") }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__label", children: t2("Paper") }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "insp-row__body", children: /* @__PURE__ */ jsxRuntimeExports.jsx(PaperSelect, { value: look.paper, onChange: (paper) => onLook({ paper }) }) })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "insp-row", children: [
@@ -92951,8 +93211,10 @@ function Inspector({
     )
   ] }) });
 }
-function ViewPreview({ html, title, page, onOpen, onMove, onClipped }) {
+function ViewPreview({ html, title, page, onOpen, onMove, onClipped, onSheets }) {
+  const t2 = useT();
   const [height, setHeight] = reactExports$1.useState(0);
+  const [edges2, setEdges] = reactExports$1.useState([]);
   const ground = reactExports$1.useRef(null);
   const [scale, setScale] = reactExports$1.useState(1);
   const sheet = sheetSize(page.paper, page.orientation);
@@ -92979,6 +93241,30 @@ function ViewPreview({ html, title, page, onOpen, onMove, onClipped }) {
       setHeight(measured);
       if (ground.current && ground.current.scrollTop > measured) ground.current.scrollTop = 0;
       onClipped?.([...doc2.querySelectorAll(".half")].some((half) => half.scrollHeight > half.clientHeight + 2));
+      const printable = (sheet.height - 2 * MARGIN_INCHES[page.margin]) * 96;
+      const sheetOf = (y2) => Math.floor(y2 / printable);
+      let shift2 = 0;
+      let bottomMost = 0;
+      for (const element of [...doc2.body.children]) {
+        if (element.classList.contains("foot")) continue;
+        let top = element.offsetTop + shift2;
+        const extent = element.offsetHeight;
+        if (element.classList.contains("answers") && top % printable !== 0) {
+          const next = (sheetOf(top) + 1) * printable;
+          shift2 += next - top;
+          top = next;
+        }
+        const keepsWhole = element.classList.contains("questions") || element.classList.contains("half");
+        if (keepsWhole && extent <= printable && sheetOf(top) !== sheetOf(top + extent - 1)) {
+          const next = (sheetOf(top) + 1) * printable;
+          shift2 += next - top;
+          top = next;
+        }
+        bottomMost = Math.max(bottomMost, top + extent);
+      }
+      const sheets = Math.max(1, Math.ceil(bottomMost / printable));
+      onSheets?.(sheets);
+      setEdges(Array.from({ length: sheets - 1 }, (_, index2) => MARGIN_INCHES[page.margin] * 96 + (index2 + 1) * printable));
       doc2.addEventListener("click", (click) => {
         const target = click.target;
         if (!target || typeof target.closest !== "function") return;
@@ -92994,7 +93280,7 @@ function ViewPreview({ html, title, page, onOpen, onMove, onClipped }) {
         if (line?.dataset["open"]) onOpen?.(line.dataset["open"]);
       });
     },
-    [onOpen, onMove, onClipped]
+    [onOpen, onMove, onClipped, onSheets, sheet.height, page.margin]
   );
   const style2 = {
     "--paper-width": sheet.cssWidth,
@@ -93002,17 +93288,20 @@ function ViewPreview({ html, title, page, onOpen, onMove, onClipped }) {
     "--page-margin": `${MARGIN_INCHES[page.margin]}in`,
     zoom: scale
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "preview", ref: ground, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "preview__sheet", style: style2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "iframe",
-    {
-      className: "preview__frame",
-      title,
-      srcDoc: html,
-      style: height ? { height } : void 0,
-      sandbox: "allow-same-origin",
-      onLoad: measure
-    }
-  ) }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "preview", ref: ground, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "preview__sheet", style: style2, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "iframe",
+      {
+        className: "preview__frame",
+        title,
+        srcDoc: html,
+        style: height ? { height } : void 0,
+        sandbox: "allow-same-origin",
+        onLoad: measure
+      }
+    ),
+    edges2.map((top, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "preview__edge", style: { top }, "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "preview__edge-label", children: t2("Sheet {n}", { n: index2 + 2 }) }) }, top))
+  ] }) });
 }
 const STATUSES = ["draft", "ready", "preached", "archived"];
 const STATUS_NAMES = {
@@ -94499,7 +94788,7 @@ function renderView(sermon, mode, handout, settings, breaks = [], notes = [], ou
     leading: pageLeading(settings.lineSpacing),
     styles: settings.styles,
     marginNotes: settings.printMarginNotes,
-    church: settings.church,
+    church: preachedAt(sermon, settings.church),
     footer: settings.footer,
     language
   };
@@ -94609,6 +94898,7 @@ function EditorPane({
   reactExports$1.useEffect(() => remember("handout", handout), [handout]);
   reactExports$1.useEffect(() => remember("outline", outline), [outline]);
   const [clipped, setClipped] = reactExports$1.useState(false);
+  const [sheets, setSheets] = reactExports$1.useState(1);
   const [pulpit, setPulpit] = reactExports$1.useState({ pace: 130, length: 30 });
   reactExports$1.useEffect(() => {
     void window.api.getPodiumSettings().then((settings) => setPulpit({ pace: settings.pace, length: settings.targetMinutes }));
@@ -94645,9 +94935,13 @@ function EditorPane({
     void window.api.listSeries().then(setSeries);
   }, [settingsRevision]);
   reactExports$1.useEffect(() => window.api.onLibraryChanged(() => void window.api.listSeries().then(setSeries)), []);
+  const shellPath = reactExports$1.useRef(filePath);
+  shellPath.current = filePath;
+  const movedRef = reactExports$1.useRef(onMoved);
+  movedRef.current = onMoved;
   reactExports$1.useEffect(() => {
-    if (path !== filePath) onMoved?.(path);
-  }, [path, filePath, onMoved]);
+    if (path !== shellPath.current) movedRef.current?.(path);
+  }, [path]);
   reactExports$1.useEffect(() => {
     if (!writable || sermon.blocks.length > 0) return;
     const field = doc2.titleField.current;
@@ -94901,6 +95195,7 @@ function EditorPane({
         {
           html: previewHtml,
           onClipped: setClipped,
+          onSheets: setSheets,
           title: t2("{view} preview", { view: t2(VIEW_LABELS[view]) }),
           page: { paper: look.paper, orientation: look.orientation, margin: look.margin },
           onOpen: (id2) => {
@@ -94913,6 +95208,7 @@ function EditorPane({
       (dictation.phase === "listening" || dictation.phase === "paused" || dictation.phase === "finishing") && /* @__PURE__ */ jsxRuntimeExports.jsx(DictationPill, { dictation }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("footer", { className: "editor-status", children: [
         view === "write" && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-status__page", title: t2("The page the caret is on, of the pages the sermon makes"), children: t2("Page {p} of {q}", { p: pages.page, q: pages.pages }) }),
+        view === "handout" && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-status__page", title: t2("The sheets this handout prints on, at this paper and these margins"), children: sheets === 1 ? t2("Prints on 1 sheet") : t2("Prints on {n} sheets", { n: sheets }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-status__count", title: active.selectedWords > 0 ? t2("The words chosen, of the words in this sermon") : t2("Words in this sermon, and roughly how long it takes to preach"), children: active.selectedWords > 0 ? t2("{n} of {total} words", { n: active.selectedWords.toLocaleString(locale), total: words.toLocaleString(locale) }) : words === 0 ? t2("No words yet") : words === 1 ? t2("1 word · about {m} min", { m: minutes }) : t2("{n} words · about {m} min", { n: words.toLocaleString(locale), m: minutes }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-status__path selectable", title: path, children: path.split(/[\\/]/).pop() }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: doc2.saveState === "error" ? "editor-status__save editor-status__save--error" : "editor-status__save", role: "status", title: saveLabel, children: [
@@ -95235,6 +95531,7 @@ function ReadyScreen({ sermon, sections, reading, targetMinutes, themeClass, ove
   const language = useLanguage();
   const minutes = speakingMinutes(countWords(sermon));
   const points2 = sections.filter((item) => item.point).length;
+  const planned = plannedTotal(sections);
   const [beforeKey, afterKey] = t2("Or press {key}, the remote, or the chosen card again.").split("{key}");
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `${themeClass} podium--ready`, role: "presentation", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "podium__ready", onClick: onBegin, children: [
@@ -95244,7 +95541,7 @@ function ReadyScreen({ sermon, sections, reading, targetMinutes, themeClass, ove
         sermon.primaryPassage,
         formatDate$1(sermon.datePreached, localeOf(language)),
         points2 === 0 ? "" : points2 === 1 ? t2("1 point") : t2("{n} points", { n: points2 }),
-        minutes === 0 ? "" : minutes === 1 ? t2("about 1 minute of a {target}-minute length", { target: targetMinutes }) : t2("about {n} minutes of a {target}-minute length", { n: minutes, target: targetMinutes })
+        points2 > 0 && planned > 0 ? t2("{planned} min of {length}", { planned, length: targetMinutes }) : minutes === 0 ? "" : minutes === 1 ? t2("about 1 minute of a {target}-minute length", { target: targetMinutes }) : t2("about {n} minutes of a {target}-minute length", { n: minutes, target: targetMinutes })
       ].filter(Boolean).join(" · ") }),
       points2 > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("ol", { className: "podium__ready-points", "aria-label": t2("The points"), children: sections.filter((item) => item.point).map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "podium__ready-num", children: [
@@ -95309,7 +95606,7 @@ function ReadyScreen({ sermon, sections, reading, targetMinutes, themeClass, ove
     overlay
   ] });
 }
-function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, targetMinutes, themeClass, onUsePace, onExit }) {
+function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, targetMinutes, themeClass, onUsePace, onResume, onExit }) {
   const t2 = useT();
   const language = useLanguage();
   const remaining = targetSeconds - elapsed;
@@ -95381,6 +95678,10 @@ function EndCard({ sermon, sections, had, elapsed, targetSeconds, pace, bumps, t
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--primary", onClick: () => leave(true), children: t2("Mark as preached today") }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: () => leave(false), children: t2("It was a rehearsal") }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button", onClick: () => onExit(), children: t2("Close without keeping") })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "podium__end-back", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", onClick: onResume, children: t2("Back to the sermon") }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: t2("Esc does the same. The clock has kept counting.") })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "podium__ready-hint", children: t2("Nothing is written until you choose. Marking it preached sets the date and keeps today’s version in History; a rehearsal keeps today’s minutes as the plan and nothing else; closing keeps nothing.") })
   ] }) });
@@ -95473,7 +95774,7 @@ function KeyHelp() {
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: t2("p: pause timer") }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: t2("[ / ]: sermon length, five minutes at a time") }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: t2("?: this sheet") }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: t2("Esc: finish, to the summary") })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: t2("Esc: finish, to the summary; from there, back to the sermon") })
   ] });
 }
 function Rail({ sections, current: current2, spentIn, onPick, onBump }) {
@@ -95780,7 +96081,7 @@ function PodiumView({ sermon, onExit }) {
         return;
       }
       if (phase === "ended") {
-        if (event.key === "Escape") onExit();
+        if (event.key === "Escape") setPhase("preaching");
         return;
       }
       if (showSettings) {
@@ -95893,6 +96194,7 @@ function PodiumView({ sermon, onExit }) {
         targetMinutes,
         themeClass,
         onUsePace: (pace) => changeSettings({ pace }),
+        onResume: () => setPhase("preaching"),
         onExit
       }
     );
@@ -95905,7 +96207,7 @@ function PodiumView({ sermon, onExit }) {
         sections,
         reading: settings.reading,
         targetMinutes: targetMinutes ?? settings.targetMinutes,
-        themeClass,
+        themeClass: `${themeClass}${showSettings ? " podium--sheet" : ""}`,
         overlay: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
           help,
           sheet
