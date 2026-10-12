@@ -9643,6 +9643,15 @@ select.field {
   flex: 1;
 }
 
+.podium__sheet .prefs__row {
+  flex-wrap: wrap;
+}
+
+.podium__sheet .prefs__text {
+  overflow-wrap: normal;
+  flex: 9rem;
+}
+
 @media (max-width: 700px) {
   .podium__sheet {
     border-left: 0;
