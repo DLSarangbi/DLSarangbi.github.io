@@ -4862,6 +4862,26 @@ select.field {
   font-style: italic;
 }
 
+.illus-panel__use-go {
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.illus-panel__use-go:hover .illus-panel__use-title, .illus-panel__use-go:focus-visible .illus-panel__use-title {
+  text-decoration: underline;
+}
+
 .illus-panel__use-title {
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -5809,6 +5829,14 @@ select.field {
   line-height: 2;
 }
 
+.bn-block:has( > .react-renderer > .bn-block-content > .sermon-block[data-space-after="0.5"]) {
+  margin-bottom: calc(.25rem + .5em);
+}
+
+.bn-block:has( > .react-renderer > .bn-block-content > .sermon-block[data-space-after="1"]) {
+  margin-bottom: calc(.25rem + 1em);
+}
+
 .page-stage[data-outline] .bn-block:has( > .react-renderer > .bn-block-content > .sermon-block[data-folded]) > .bn-block-group {
   display: none;
 }
@@ -6216,6 +6244,10 @@ select.field {
 
 .page .bn-block-content {
   padding: var(--st-body-before, 0) 0 var(--st-body-after, 12px);
+}
+
+.page .bn-block-content[data-content-type="paragraph"] {
+  text-align: var(--st-body-align, left);
 }
 
 .page .bn-block-content[data-style="quote"] > .bn-inline-content, .page .bn-block-content[data-style="quote"] .sermon-block__body {
@@ -7860,6 +7892,10 @@ select.field {
   background-color: var(--surface-sunken);
 }
 
+.history__block--changed p {
+  white-space: pre-wrap;
+}
+
 .history__block--removed {
   color: #7f1d1d;
   background-color: #fee2e2;
@@ -7902,6 +7938,45 @@ select.field {
   position: absolute;
   top: 6px;
   right: -2px;
+}
+
+@media (max-width: 700px) {
+  .history__body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    min-height: 0;
+  }
+
+  .history__list {
+    max-height: 11rem;
+  }
+
+  .history__text {
+    max-height: calc(100dvh - 24rem);
+    padding: 12px 14px;
+  }
+
+  .history__bar {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+
+  .history__bar > .button, .history__confirm {
+    margin-left: 0;
+  }
+
+  .history__confirm {
+    flex-wrap: wrap;
+  }
+
+  .history__block--removed {
+    padding-right: 12px;
+  }
+
+  .history__putback {
+    margin: 0 0 10px;
+    position: static;
+  }
 }
 
 .shape-sheet__name {

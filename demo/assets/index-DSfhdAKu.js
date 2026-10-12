@@ -15747,6 +15747,7 @@ const es = {
   "Keep mine": "Conservar el mío",
   "Keep them in sync": "Mantenerlos sincronizados",
   "Keep this block as a story you can find again": "Guardar este bloque como una historia que puedas volver a encontrar",
+  "Only a story, an application, or plain text can be kept as a story": "Solo una historia, una aplicación o texto simple puede guardarse como historia",
   "Keeps its own look": "Conserva su propia apariencia",
   "Key line": "Frase clave",
   "Key lines": "Frases clave",
@@ -17307,6 +17308,7 @@ const ko = {
   "Keep mine": "내 것 유지",
   "Keep them in sync": "동기화 유지",
   "Keep this block as a story you can find again": "이 블록을 다시 찾을 수 있는 예화로 보관",
+  "Only a story, an application, or plain text can be kept as a story": "예화, 적용, 일반 텍스트만 예화로 보관할 수 있습니다",
   "Keeps its own look": "고유한 모양을 유지합니다",
   "Key line": "핵심 문장",
   "Key lines": "핵심 문장",
@@ -18867,6 +18869,7 @@ const pt$3 = {
   "Keep mine": "Manter o meu",
   "Keep them in sync": "Mantê-los sincronizados",
   "Keep this block as a story you can find again": "Guardar este bloco como uma história que você pode encontrar de novo",
+  "Only a story, an application, or plain text can be kept as a story": "Só uma história, uma aplicação ou texto simples pode ser guardado como história",
   "Keeps its own look": "Mantém a própria aparência",
   "Key line": "Frase-chave",
   "Key lines": "Frases-chave",
@@ -20427,6 +20430,7 @@ const fr$3 = {
   "Keep mine": "Garder le mien",
   "Keep them in sync": "Les garder synchronisés",
   "Keep this block as a story you can find again": "Garder ce bloc comme une histoire à retrouver",
+  "Only a story, an application, or plain text can be kept as a story": "Seuls une histoire, une application ou du texte brut peuvent être gardés comme histoire",
   "Keeps its own look": "Garde sa propre apparence",
   "Key line": "Phrase clé",
   "Key lines": "Phrases clés",
@@ -21987,6 +21991,7 @@ const de$1 = {
   "Keep mine": "Meine behalten",
   "Keep them in sync": "Synchron halten",
   "Keep this block as a story you can find again": "Diesen Block als Geschichte aufbewahren, die Sie wiederfinden können",
+  "Only a story, an application, or plain text can be kept as a story": "Nur eine Geschichte, eine Anwendung oder reiner Text lässt sich als Geschichte aufbewahren",
   "Keeps its own look": "Behält die eigene Darstellung",
   "Key line": "Kernsatz",
   "Key lines": "Kernsätze",
@@ -23547,6 +23552,7 @@ const zh = {
   "Keep mine": "保留我的",
   "Keep them in sync": "保持同步",
   "Keep this block as a story you can find again": "把这个区块保存为可再次找到的故事",
+  "Only a story, an application, or plain text can be kept as a story": "只有故事、应用或纯文本可以保存为故事",
   "Keeps its own look": "保持自己的外观",
   "Key line": "关键句",
   "Key lines": "关键句",
@@ -25107,6 +25113,7 @@ const ja = {
   "Keep mine": "自分の版を残す",
   "Keep them in sync": "同期を保つ",
   "Keep this block as a story you can find again": "このブロックを例話として保存し、あとで見つけられるようにします",
+  "Only a story, an application, or plain text can be kept as a story": "例話として保存できるのは、例話、適用、プレーンテキストだけです",
   "Keeps its own look": "独自の外観を保つ",
   "Key line": "キーセンテンス",
   "Key lines": "キーセンテンス",
@@ -26667,6 +26674,7 @@ const tl = {
   "Keep mine": "Panatilihin ang akin",
   "Keep them in sync": "Panatilihing naka-sync",
   "Keep this block as a story you can find again": "I-save ang block na ito bilang kuwentong mahahanap mo muli",
+  "Only a story, an application, or plain text can be kept as a story": "Kuwento, aplikasyon, o simpleng teksto lamang ang maaaring i-save bilang kuwento",
   "Keeps its own look": "Pinapanatili ang sariling anyo",
   "Key line": "Pangunahing pangungusap",
   "Key lines": "Mga pangunahing pangungusap",
@@ -28227,6 +28235,7 @@ const id = {
   "Keep mine": "Pertahankan milik saya",
   "Keep them in sync": "Jaga agar tetap sinkron",
   "Keep this block as a story you can find again": "Simpan blok ini sebagai kisah yang dapat Anda temukan lagi",
+  "Only a story, an application, or plain text can be kept as a story": "Hanya kisah, penerapan, atau teks biasa yang dapat disimpan sebagai kisah",
   "Keeps its own look": "Mempertahankan tampilannya sendiri",
   "Key line": "Kalimat kunci",
   "Key lines": "Kalimat kunci",
@@ -29787,6 +29796,7 @@ const ru = {
   "Keep mine": "Оставить мою версию",
   "Keep them in sync": "Синхронизировать их",
   "Keep this block as a story you can find again": "Сохранить этот блок как историю, которую можно найти снова",
+  "Only a story, an application, or plain text can be kept as a story": "Как историю можно сохранить только историю, применение или простой текст",
   "Keeps its own look": "Со своим оформлением",
   "Key line": "Ключевая фраза",
   "Key lines": "Ключевые фразы",
@@ -31347,6 +31357,7 @@ const sw = {
   "Keep mine": "Weka yangu",
   "Keep them in sync": "Ziweke zikisawazishwa",
   "Keep this block as a story you can find again": "Weka kipande hiki kama hadithi unayoweza kuipata tena",
+  "Only a story, an application, or plain text can be kept as a story": "Hadithi, matumizi, au maandishi ya kawaida pekee ndiyo yanaweza kuwekwa kama hadithi",
   "Keeps its own look": "Huweka mwonekano wake",
   "Key line": "Sentensi muhimu",
   "Key lines": "Sentensi muhimu",
@@ -85238,14 +85249,14 @@ function BlockFrame({
   };
   const textAlign = align === "center" || align === "right" || align === "justify" ? align : void 0;
   const lineHeight = lineSpacing ? Number(lineSpacing) : void 0;
-  const marginBottom = spaceAfter ? `calc(0.25rem + ${Number(spaceAfter)}em)` : void 0;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
     {
       className: "sermon-block",
       "data-level": level || void 0,
-      style: { borderColor: style2.accent, lineHeight, marginBottom },
+      style: { borderColor: style2.accent, lineHeight },
       "data-line-spacing": lineSpacing || void 0,
+      "data-space-after": spaceAfter || void 0,
       "data-folded": folded || void 0,
       "data-off-sheet": outline.on && !onSheet ? "" : void 0,
       children: [
@@ -92235,7 +92246,8 @@ function IllustrationsPanel({
   onInsert,
   draft,
   refreshKey,
-  filter = ""
+  filter = "",
+  onOpen
 }) {
   const t2 = useT();
   const language = useLanguage();
@@ -92331,10 +92343,18 @@ ${row.source}`.toLowerCase().includes(needle)) : all;
             ),
             /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => setRemoving(null), children: t2("Keep it") })
           ] }),
-          open2 && /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "illus-panel__uses", children: row.uses.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "illus-panel__use illus-panel__use--none", children: t2("This one has not been preached yet.") }) : row.uses.map((use) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "illus-panel__use", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "illus-panel__use-title", children: use.sermonTitle }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "illus-panel__use-date", children: formatDate$2(use.datePreached, t2, localeOf(language)) })
-          ] }, use.sermonId)) })
+          open2 && /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "illus-panel__uses", children: row.uses.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "illus-panel__use illus-panel__use--none", children: t2("This one has not been preached yet.") }) : row.uses.map((use) => (
+            // Where it was told opens that sermon, as the Outline
+            // tab's related rows do: the next question after "has
+            // this congregation heard it" is "what did I say".
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "illus-panel__use", children: onOpen ? /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "button", className: "illus-panel__use-go", title: t2("Open {title}", { title: use.sermonTitle }), onClick: () => onOpen(use.filePath), children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "illus-panel__use-title", children: use.sermonTitle }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "illus-panel__use-date", children: formatDate$2(use.datePreached, t2, localeOf(language)) })
+            ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "illus-panel__use-title", children: use.sermonTitle }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "illus-panel__use-date", children: formatDate$2(use.datePreached, t2, localeOf(language)) })
+            ] }) }, use.sermonId)
+          )) })
         ] }, row.id);
       }),
       rows.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("li", { className: "outline-panel__empty", children: needle ? t2("No story says that.") : t2("No illustrations saved yet. Add the first one below, or put the caret in an illustration block and press Save to library.") })
@@ -92460,7 +92480,7 @@ function Toggle({ on: on3, title, disabled, onClick, children }) {
     }
   );
 }
-function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, notesFolded, onLibrary }) {
+function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, notesFolded, onLibrary, ownLook, onOwnLook }) {
   const t2 = useT();
   const sizeNow = sizeUnderCaret(active.styles);
   const isScripture = active.containerType === "scripture";
@@ -92468,6 +92488,7 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
   const typeValue = shown ?? (RETYPE_TYPES.includes(active.containerType) ? active.containerType : "paragraph");
   const breakable = active.blockId !== null && !["paragraph", "bulletListItem", "numberedListItem"].includes(active.containerType);
   const listable = !isScripture && active.blockId !== null;
+  const storyLike = active.blockId !== null && ["illustration", "application", "freeform", "paragraph"].includes(active.containerType);
   const highlight = typeof active.styles["backgroundColor"] === "string" ? active.styles["backgroundColor"] : null;
   const ink = typeof active.styles["textColor"] === "string" ? active.styles["textColor"] : null;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
@@ -92565,8 +92586,8 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
         {
           type: "button",
           className: "button button--small",
-          title: t2("Keep this block as a story you can find again"),
-          disabled: !editing || active.blockId === null,
+          title: storyLike ? t2("Keep this block as a story you can find again") : t2("Only a story, an application, or plain text can be kept as a story"),
+          disabled: !editing || !storyLike,
           onMouseDown: (event) => event.preventDefault(),
           onClick: () => onLibrary("save"),
           children: [
@@ -92578,7 +92599,6 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
       ) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: msg("Text"), children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Font"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(FontSelect, { font: look.font, onChange: (font) => onLook({ font }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Size"), children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(SizeStepper, { value: sizeNow, disabled: !editing, onPick: (size2) => run2((c2) => c2.setSize(size2)), onStep: (direction) => run2((c2) => c2.stepSize(direction)) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint", children: t2("points") })
@@ -92797,14 +92817,32 @@ function FormatPane({ editing, run: run2, commands, active, look, onLook, zoom, 
       ] }) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: msg("Page"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("This sermon"), wrap: true, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: ownLook, keepFocus: true, label: t2("Keeps its own look"), onChange: onOwnLook }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "insp-row__hint insp-row__hint--line", children: ownLook ? t2("Its type, paper, and styles travel in its file") : t2("Follows this computer's look") })
+      ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Zoom"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "stepper", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2(t2("Zoom out (Ctrl+minus)")), "aria-label": t2("Zoom out"), onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, -0.1)), children: "−" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__value", title: keys$2(t2("Fit the page to the window (Ctrl+0)")), onMouseDown: (event) => event.preventDefault(), onClick: () => onLook({ zoomFit: true }), children: t2(zoomLabel(look, zoom)) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "stepper__step", title: keys$2(t2("Zoom in (Ctrl+plus)")), "aria-label": t2("Zoom in"), onMouseDown: (event) => event.preventDefault(), onClick: () => onLook(zoomStep(zoom, 0.1)), children: "+" })
       ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Font"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(FontSelect, { font: look.font, onChange: (font) => onLook({ font }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Lines"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(PageLineSpacingSelect, { value: look.lineSpacing, title: t2("Line spacing for the page"), onChange: (lineSpacing) => onLook({ lineSpacing }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Paper"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(PaperSelect, { value: look.paper, title: t2("The sheet on screen and the sheet that prints"), onChange: (paper) => onLook({ paper }) }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Turn"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(OrientationSelect, { value: look.orientation, title: t2("Upright, or turned on its side"), onChange: (orientation) => onLook({ orientation }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Turn"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Segmented,
+        {
+          value: look.orientation,
+          onChange: (orientation) => onLook({ orientation }),
+          ariaLabel: t2("Orientation"),
+          fill: true,
+          keepFocus: true,
+          options: [
+            { value: "portrait", label: t2("Portrait") },
+            { value: "landscape", label: t2("Landscape") }
+          ]
+        }
+      ) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Row$2, { label: t2("Margins"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(MarginSelect, { value: look.margin, title: t2("The margins on screen and on paper"), onChange: (margin) => onLook({ margin }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Row$2, { label: t2("Notes"), children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Switch, { checked: look.marginNotes, keepFocus: true, label: t2("Margin notes as cards beside the sheet; off folds them to markers"), onChange: (next) => onLook({ marginNotes: next }) }),
@@ -93196,7 +93234,7 @@ function Inspector({
         ]
       }
     ) }),
-    current2 === "format" && /* @__PURE__ */ jsxRuntimeExports.jsx(FormatPane, { editing, run: run2, commands, active, look, onLook, zoom, notesFolded, onLibrary }),
+    current2 === "format" && /* @__PURE__ */ jsxRuntimeExports.jsx(FormatPane, { editing, run: run2, commands, active, look, onLook, zoom, notesFolded, onLibrary, ownLook, onOwnLook }),
     current2 === "print" && /* @__PURE__ */ jsxRuntimeExports.jsx(PrintPane, { view, look, onLook, ownLook, onOwnLook, handout, onHandout, outline, onOutline, onExportPdf, onPrint, sermon, run: run2, pace, onPace, defaultLength, onLength, clipped }),
     current2 === "outline" && /* @__PURE__ */ jsxRuntimeExports.jsx(OutlinePanel, { sermon, activeId, onJump, onOpen: onOpenSermon }),
     current2 === "illustrations" && /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -93206,7 +93244,8 @@ function Inspector({
         canInsert: stories.canInsert,
         onInsert: stories.onInsert,
         draft: stories.draft,
-        refreshKey: stories.refreshKey
+        refreshKey: stories.refreshKey,
+        onOpen: onOpenSermon
       }
     )
   ] }) });
@@ -93766,9 +93805,11 @@ function blockKey(block) {
 }
 function versionLabel(version, t2, locale) {
   const today = /* @__PURE__ */ new Date();
-  const date = /* @__PURE__ */ new Date(`${version.date}T00:00:00`);
+  const day = version.time ? version.date : version.worked ?? version.date;
+  const date = /* @__PURE__ */ new Date(`${day}T00:00:00`);
+  const thisYear = date.getFullYear() === today.getFullYear();
   const days = Math.round((today.setHours(0, 0, 0, 0) - date.getTime()) / 864e5);
-  const named = days === 0 ? t2("Today") : days === 1 ? t2("Yesterday") : date.toLocaleDateString(locale, { weekday: "long", day: "numeric", month: "long" });
+  const named = days === 0 ? t2("Today") : days === 1 ? t2("Yesterday") : date.toLocaleDateString(locale, { weekday: "long", day: "numeric", month: "long", ...thisYear ? {} : { year: "numeric" } });
   return version.time ? t2("{date}, {time}", { date: named, time: version.time }) : named;
 }
 function bodyOf(block) {
@@ -93832,13 +93873,19 @@ function HistorySheet({ draft, onRestore, onPutBack, onClose }) {
     setVersion(null);
     window.api.readHistory({ id: draft.id }, chosen.path).then(setVersion).catch((cause) => setError(String(cause)));
   }, [chosen, draft.id]);
-  const ops = reactExports$1.useMemo(() => version ? diffSequences(version.blocks, draft.blocks, blockKey) : [], [version, draft.blocks]);
+  const ops = reactExports$1.useMemo(() => version ? diffSequences(version.blocks, draft.blocks, (block) => block.id) : [], [version, draft.blocks]);
   const items = reactExports$1.useMemo(() => {
+    const was = new Map((version?.blocks ?? []).map((block) => [block.id, block]));
+    const now = new Map(draft.blocks.map((block) => [block.id, block]));
     const out = [];
     for (let i2 = 0; i2 < ops.length; i2 += 1) {
       const op = ops[i2];
       const next = ops[i2 + 1];
-      if (op.kind === "removed" && next?.kind === "added" && next.item.type === op.item.type) {
+      if (op.kind === "same") {
+        const before = was.get(op.item.id);
+        if (before && blockKey(before) !== blockKey(op.item)) out.push({ kind: "changed", before, after: op.item });
+        else out.push({ kind: "same", block: op.item });
+      } else if (op.kind === "removed" && next?.kind === "added" && next.item.type === op.item.type && !now.has(op.item.id) && !was.has(next.item.id)) {
         out.push({ kind: "changed", before: op.item, after: next.item });
         i2 += 1;
       } else {
@@ -93846,7 +93893,7 @@ function HistorySheet({ draft, onRestore, onPutBack, onClose }) {
       }
     }
     return out;
-  }, [ops]);
+  }, [ops, version, draft.blocks]);
   const changed = items.filter((item) => item.kind !== "same").length;
   let lastCurrentId = null;
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -97854,7 +97901,7 @@ function LibraryColumn({
         }
       )
     ] }),
-    scope === "stories" ? /* @__PURE__ */ jsxRuntimeExports.jsx(IllustrationsPanel, { writable, canInsert: stories.canInsert, onInsert: stories.onInsert, draft: null, refreshKey: revision, filter: text }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    scope === "stories" ? /* @__PURE__ */ jsxRuntimeExports.jsx(IllustrationsPanel, { writable, canInsert: stories.canInsert, onOpen, onInsert: stories.onInsert, draft: null, refreshKey: revision, filter: text }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: beyond > 0 && !expanded ? "library__chips library__chips--folded" : "library__chips", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "div",
         {
