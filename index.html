@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="c203d57">
+<meta name="sermondesk-source" content="163ad26">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
@@ -222,7 +222,9 @@
   .amount small { font-family: var(--sans); font-size: 0.9375rem; color: var(--muted); margin-left: 0.4rem; }
   .amount + .amount { font-size: 1.75rem; margin-top: 0.4rem; }
   .pricebox ul { padding-left: 1.1rem; margin: 0.9rem 0 0; color: var(--muted); font-size: 0.9375rem; }
-  .pricebox .downloads { margin-top: 1.1rem; }
+  /* The purchase on its own line; the app itself, free to read with, as the smaller pair under it. */
+  .price__acts { display: flex; flex-direction: column; align-items: flex-start; gap: 0.8rem; margin-top: 1.2rem; }
+  .downloads--small .button { padding: 0.4rem 0.8rem; font-size: 0.875rem; }
   .keep { font-family: var(--serif); font-size: 1.5rem; line-height: 1.3; margin-bottom: 0.6rem; }
 
   /* What's new: the latest entries, in the app's own words. */
@@ -249,6 +251,8 @@
   @media (max-width: 760px) {
     .week, .cards, .two, .price, .faq, .small, .sunday__pair { grid-template-columns: minmax(0, 1fr); }
     .head nav { margin-left: 0; }
+    /* On a phone the hero's pair is a screen away; the head's would only repeat it. */
+    .head .downloads { display: none; }
   }
   @media (prefers-reduced-motion: no-preference) {
     .button, .head nav a { transition: border-color 120ms, color 120ms; }
@@ -325,11 +329,11 @@
     <p class="lead">Full screen, large type, the clock. Read from the manuscript, the outline, or one card a screen; the paragraph you are on is lit, and nothing leaves the screen mid-sentence. Space, or the remote, goes on.</p>
     <div class="sunday__pair">
       <figure>
-        <div class="shot"><img src="img/ready.jpg" alt="The ready screen before preaching: the title, the points with their minutes, and the three ways to read" width="1600" height="1000" loading="lazy"></div>
+        <div class="shot"><img src="img/ready.jpg" alt="The ready screen before preaching: the title, the points with their minutes, and the three ways to read" width="1000" height="625" loading="lazy"></div>
         <figcaption class="caption">Before the first word: the points with their minutes, and the three ways to read.</figcaption>
       </figure>
       <figure>
-        <div class="shot"><img src="img/podium.jpg" alt="The podium screen: the sermon in large type on black, the paragraph being read lit, the clock and the next point at the foot" width="1600" height="1000" loading="lazy"></div>
+        <div class="shot"><img src="img/podium.jpg" alt="The podium screen: the sermon in large type on black, the paragraph being read lit, the clock counting at the top" width="1240" height="775" loading="lazy"></div>
         <figcaption class="caption">The manuscript, the paragraph you are on lit, the clock counting toward the length you set.</figcaption>
       </figure>
     </div>
@@ -387,7 +391,7 @@
         <p>Keep the folder in iCloud Drive, Google Drive, OneDrive or Dropbox. Open SermonDesk on your other computer and press Use. Nothing is stored by us.</p>
       </div>
       <div class="card">
-        <h3>If you stop paying, you keep every sermon</h3>
+        <h3>Yours if you stop paying</h3>
         <p>The app goes read-only. Open, search and print all of it for as long as you own the computer. A subscription buys writing and preaching, never access to what you wrote.</p>
       </div>
     </div>
@@ -448,10 +452,12 @@
           <li>The key arrives by email the moment you pay. Paste it in once; it works offline from then on.</li>
           <li>Updates are included, and the app fetches them itself.</li>
         </ul>
-        <div class="downloads">
-          <a class="button button--primary" href="https://sarangbi.lemonsqueezy.com/checkout/buy/58a09bd1-6ce5-48c1-bd92-9d39316682b8">Get SermonDesk</a>
-          <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
-          <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
+        <div class="price__acts">
+          <a class="button button--primary" href="https://sarangbi.lemonsqueezy.com/checkout/buy/58a09bd1-6ce5-48c1-bd92-9d39316682b8">Subscribe</a>
+          <div class="downloads downloads--small">
+            <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
+            <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
+          </div>
         </div>
       </div>
       <div>
