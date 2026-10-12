@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="2325951">
+<meta name="sermondesk-source" content="565a0a1">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
@@ -163,11 +163,6 @@
   @media (max-width: 700px) and (orientation: portrait) { .stage { aspect-ratio: 9 / 14; } }
   @media (max-height: 560px) { .stage { aspect-ratio: auto; height: calc(100vh - 3rem); min-height: 0; } }
   .note { margin-top: 0.85rem; font-size: 0.9375rem; color: var(--muted); max-width: 44rem; }
-  .note--phone { display: none; }
-  @media (max-width: 700px) {
-    .note--desk { display: none; }
-    .note--phone { display: inline; }
-  }
   .scenes { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-top: 0.85rem; }
   .scenes__label { font-size: 0.875rem; color: var(--muted); margin-right: 0.3rem; }
   .scenes__sep { width: 1px; height: 1.4rem; background: var(--rule); margin: 0 0.35rem; }
@@ -184,10 +179,7 @@
   .under__label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--oxblood); }
   .try { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; }
   .try b { font-weight: 600; color: var(--ink); }
-  .try--phone { display: none; }
   @media (max-width: 700px) {
-    .try--desk { display: none; }
-    .try--phone { display: grid; }
     .scenes__sep { display: none; }
     .scenes__end { margin-left: 0; width: 100%; }
   }
@@ -334,10 +326,7 @@
     <div class="stage">
       <iframe id="demo" src="demo/" title="SermonDesk, live on this page, with a demo library." loading="lazy" allow="fullscreen" allowfullscreen></iframe>
     </div>
-    <p class="note">
-      <span class="note--desk">Click anything, type anything: nothing you do here is saved, and nothing leaves this page.</span>
-      <span class="note--phone">The app in its narrow shape. SermonDesk itself is for Windows and Mac. Nothing you do here is saved, and nothing leaves this page.</span>
-    </p>
+    <p class="note">Click anything, type anything: nothing you do here is saved, and nothing leaves this page.</p>
     <!-- The chips open the demo on a view: the sermon's four forms in the
          order of the week, then the two places that hold every sermon. The
          page's own two controls stand apart at the right. -->
@@ -357,15 +346,10 @@
     </div>
     <div class="under">
       <p class="under__label">Try</p>
-      <ul class="try try--desk">
+      <ul class="try">
         <li>Paste a verse and watch it file itself.</li>
         <li>Press <b>Outline</b>, then <b>Handout</b>.</li>
         <li>Press <b>Bible map</b> and narrow it to one church.</li>
-      </ul>
-      <ul class="try try--phone">
-        <li>Press <b>Outline</b>, then <b>Handout</b>.</li>
-        <li>Press <b>Preach</b>, then <b>Begin preaching</b>.</li>
-        <li>Press <b>Bible map</b>.</li>
       </ul>
     </div>
   </div>
@@ -496,7 +480,7 @@
       <details><summary>Can I bring the sermons I already have?</summary><p>A Word file imports as a sermon, its passage read from the opening line in whatever language it was written. A whole folder, as Google Takeout delivers it, imports in one go. Going the other way, print or save PDFs, send a sermon to Word, or export the whole library as plain text at any time, with no key asked.</p></details>
       <details><summary>Does anything leave my computer?</summary><p>Nothing from your sermons, ever. The app makes two kinds of request: one checks your subscription, one checks for a new version. No analytics, no crash reports, no tracking.</p></details>
       <details><summary>Does dictation send my voice anywhere?</summary><p>No. The voice is a one-time download, 76 MB or 238 MB for the finer one, and it listens on your own machine in any of the fifteen languages.</p></details>
-      <details><summary>What happens if I cancel?</summary><p>Everything keeps working to the end of the period you paid for. Then the app goes read-only: every sermon still opens, searches, prints and preaches.</p></details>
+      <details><summary>What happens if I cancel?</summary><p>Everything keeps working to the end of the period you paid for. Then the app goes read-only: every sermon still opens, searches and prints, and the podium waits for a subscription again.</p></details>
       <details><summary>How do I change a card or recover a key?</summary><p>From <a href="https://sarangbi.lemonsqueezy.com/billing">the billing page</a>, the one your receipt links. Payments are processed by Lemon Squeezy, our merchant of record, whose name appears on your statement.</p></details>
       <details><summary>How do I reach you?</summary><p>Email <a href="mailto:davislor@sarangbi.co">davislor@sarangbi.co</a>. SermonDesk is new and keeps changing; if a change gets in your way, say so.</p></details>
     </div>
