@@ -7,11 +7,12 @@ Do not edit this repository by hand. Change `site/` in the source repository and
 The page's facts are not typed by hand. `scripts/site-build.mjs` writes the
 languages (as the app names them, in its order, and their count in words),
 the version, and the latest release notes into the page at deploy, from the
-app's source, so the page says what the app says. Its six pictures are
+app's source, so the page says what the app says. Its ten pictures are
 taken from the built app with the demo library by `scripts/site-shots.mjs`,
-which the release workflow runs on its Mac job; the publish job commits
-them under `site/img/` on main and deploys the site, so they are always
-of the version that is out. Run the script by hand only for a look between
-releases. The verifier refuses a page that offers one machine's download
+and its film, thirteen seconds of the app in each theme, by
+`scripts/site-film.mjs`; the release workflow runs both on its Mac job, and
+the publish job commits them under `site/img/` and `site/media/` on main
+and deploys the site, so they are always of the version that is out. Run
+the scripts by hand only for a look between releases. The verifier refuses a page that offers one machine's download
 without the other's, uses a word the app has retired, or counts the
 languages by hand.

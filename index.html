@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="6535398">
+<meta name="sermondesk-source" content="c203d57">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
@@ -140,6 +140,9 @@
   .lightbox[hidden] { display: none; }
   .lightbox img { max-width: 100%; max-height: 100%; width: auto; height: auto; border-radius: 8px; box-shadow: 0 40px 80px rgb(0 0 0 / 0.6); }
   .shot--light { background: var(--card); }
+  /* The hero's film: a video where the still was, the lens and the zoom not over it. */
+  .shot--film { cursor: default; }
+  .shot video { display: block; width: 100%; height: auto; }
   .caption { font-size: 0.875rem; color: var(--faint); margin-top: 0.6rem; }
   .hero figure { margin: 2rem 0 0; }
 
@@ -532,6 +535,36 @@
 
 <!-- The lens and the full-width view of a picture. Without this the
      pictures are still pictures. -->
+<!-- The film in the hero: thirteen seconds of the app in the theme the page
+     is in, made by scripts/site-film.mjs from the app as released. The page
+     works without this: the still stays for a viewer who asked for less
+     motion, for one saving data, and wherever the film does not load. -->
+<script>
+  (() => {
+    const shot = document.querySelector('.hero .shot')
+    const still = shot && shot.querySelector('picture')
+    if (!still || !matchMedia('(prefers-reduced-motion: no-preference)').matches) return
+    if (navigator.connection && navigator.connection.saveData) return
+    const video = document.createElement('video')
+    if (!video.canPlayType('video/mp4')) return
+    const dark = matchMedia('(prefers-color-scheme: dark)')
+    video.muted = true; video.loop = true; video.autoplay = true; video.playsInline = true
+    video.setAttribute('muted', ''); video.setAttribute('playsinline', '')
+    video.width = 1600; video.height = 1000
+    video.setAttribute('aria-label', 'Thirteen seconds of the app: a verse pasted into the manuscript files itself as a scripture block, then the same draft as the outline, the handout, the ready screen and the podium')
+    const set = () => {
+      video.poster = dark.matches ? 'img/manuscript-dark.jpg' : 'img/manuscript.jpg'
+      video.src = dark.matches ? 'media/sermon-dark.mp4' : 'media/sermon-light.mp4'
+      video.play().catch(() => {})
+    }
+    set()
+    dark.addEventListener('change', set)
+    still.replaceWith(video)
+    shot.classList.add('shot--film')
+    const caption = shot.parentNode.querySelector('.caption')
+    if (caption) caption.textContent = 'The week in one loop: a verse pasted into the manuscript files itself; then the outline, the handout, and the screen you preach from.'
+  })()
+</script>
 <script>
   (() => {
     const shots = [...document.querySelectorAll('.shot')].filter((shot) => shot.querySelector('img'))
