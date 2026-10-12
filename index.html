@@ -8,10 +8,10 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="2372a1a">
+<meta name="sermondesk-source" content="5de08a2">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -35,9 +35,10 @@
 
 <style>
   /*
-    The page is the app's own materials, token for token: the surfaces,
-    the inks, the oxblood accent and the fonts of src/renderer/src/styles/
-    tokens.css, lifted the same way in the dark. It is laid out as a week:
+    The page is the app's own materials: the surfaces, the inks, the
+    oxblood accent and the fonts of src/renderer/src/styles/tokens.css. In
+    the dark it keeps a warm charcoal rather than the app's black, a
+    choice made for the page. It is laid out as a week:
     the promise, the four forms a sermon takes, the app itself to try,
     then what is yours, the library, the languages, the price, what is
     new, and the questions people ask. The languages, the voice sizes and
@@ -63,13 +64,13 @@
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: #0c0a09; --card: #1c1917; --panel: #171412; --ink: #f5f5f4; --muted: #a8a29e; --faint: #78716c;
-      --rule: #292524; --frame: #33302d; --oxblood: color-mix(in srgb, #7c2a2e 55%, #ffffff); --on-oxblood: #1c1917; color-scheme: dark;
+      --paper: #141311; --card: #1c1a18; --panel: #232120; --ink: #ece7df; --muted: #a9a49b; --faint: #7b7770;
+      --rule: #2e2b28; --frame: #3a3632; --oxblood: #d9a3a3; --on-oxblood: #1b1211; --tint: #2a1f1e; color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
-    --paper: #0c0a09; --card: #1c1917; --panel: #171412; --ink: #f5f5f4; --muted: #a8a29e; --faint: #78716c;
-    --rule: #292524; --frame: #33302d; --oxblood: color-mix(in srgb, #7c2a2e 55%, #ffffff); --on-oxblood: #1c1917; color-scheme: dark;
+    --paper: #141311; --card: #1c1a18; --panel: #232120; --ink: #ece7df; --muted: #a9a49b; --faint: #7b7770;
+    --rule: #2e2b28; --frame: #3a3632; --oxblood: #d9a3a3; --on-oxblood: #1b1211; --tint: #2a1f1e; color-scheme: dark;
   }
   * { box-sizing: border-box; }
   body {
@@ -149,12 +150,14 @@
   @media (max-width: 700px) and (orientation: portrait) { .stage { aspect-ratio: 9 / 14; } }
   @media (max-height: 560px) { .stage { aspect-ratio: auto; height: calc(100vh - 3rem); min-height: 0; } }
   .note { margin-top: 0.85rem; font-size: 0.9375rem; color: var(--muted); max-width: 44rem; }
-  .note--phone, .try--phone { display: none; }
+  .note--phone { display: none; }
   @media (max-width: 700px) {
-    .note--desk, .try--desk { display: none; }
-    .note--phone, .try--phone { display: inline; }
+    .note--desk { display: none; }
+    .note--phone { display: inline; }
   }
-  .scenes { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
+  .scenes { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-top: 0.85rem; }
+  .scenes__label { font-size: 0.875rem; color: var(--muted); margin-right: 0.3rem; }
+  .scenes__sep { width: 1px; height: 1.4rem; background: var(--rule); margin: 0 0.35rem; }
   .scenes button {
     font: inherit; font-size: 0.875rem; padding: 0.35rem 0.8rem; border-radius: 999px;
     border: 1px solid var(--rule); background: var(--card); color: var(--ink); cursor: pointer;
@@ -164,8 +167,17 @@
   .scenes__quiet { color: var(--muted); }
   .scenes__quiet:hover { color: var(--ink); border-color: var(--ink); }
   .stage:fullscreen, .stage:fullscreen iframe { border: 0; border-radius: 0; background: #0b0c0e; }
-  .under { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; margin-top: 0.85rem; font-size: 0.9375rem; color: var(--muted); }
-  .under b { font-weight: 600; color: var(--ink); }
+  .under { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 1rem; margin-top: 1rem; font-size: 0.9375rem; color: var(--muted); }
+  .under__label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--oxblood); }
+  .try { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; }
+  .try b { font-weight: 600; color: var(--ink); }
+  .try--phone { display: none; }
+  @media (max-width: 700px) {
+    .try--desk { display: none; }
+    .try--phone { display: grid; }
+    .scenes__sep { display: none; }
+    .scenes__end { margin-left: 0; width: 100%; }
+  }
 
   /* Yours: three cards. */
   .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
@@ -209,7 +221,6 @@
   .small { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; font-size: 0.9375rem; color: var(--muted); }
   .small h3 { font-family: var(--sans); font-size: 0.9375rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
   .small p + p { margin-top: 0.5rem; }
-  .addr { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9375rem; }
   footer { padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--rule); font-size: 0.8125rem; color: var(--faint); }
 
   @media (max-width: 760px) {
@@ -300,23 +311,36 @@
       <span class="note--desk">Click anything, type anything: nothing you do here is saved, and nothing leaves this page.</span>
       <span class="note--phone">The app in its narrow shape. SermonDesk itself is for Windows and Mac. Nothing you do here is saved, and nothing leaves this page.</span>
     </p>
+    <!-- The chips open the demo on a view: the sermon's four forms in the
+         order of the week, then the two places that hold every sermon. The
+         page's own two controls stand apart at the right. -->
     <div class="scenes" role="group" aria-label="Open the demo on one view">
-      <button type="button" data-scene="library">Library</button>
-      <button type="button" data-scene="map">Bible map</button>
+      <span class="scenes__label">Open the demo on</span>
       <button type="button" data-scene="write" aria-pressed="true">Manuscript</button>
       <button type="button" data-scene="outline">Outline</button>
       <button type="button" data-scene="handout">Handout</button>
       <button type="button" data-scene="preach">Preach</button>
+      <span class="scenes__sep" aria-hidden="true"></span>
+      <button type="button" data-scene="library">Library</button>
+      <button type="button" data-scene="map">Bible map</button>
       <span class="scenes__end">
         <button type="button" class="scenes__quiet" data-fullscreen title="The demo on the whole screen; Esc brings the page back">Full screen</button>
         <button type="button" class="scenes__quiet" data-reset title="Put the demo back the way it was">Start over</button>
       </span>
     </div>
-    <p class="under">
-      <span class="try try--desk">Try: paste a verse and watch it file itself &middot; type <b>/</b> for a point &middot; press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; press <b>Bible map</b> and narrow it to one church &middot; search for <b>Rom 8</b>, for <b>은혜</b>, or for <b>#hope @grace easter</b></span>
-      <span class="try try--phone">Try: press <b>Outline</b>, then <b>Handout</b> &middot; press <b>Preach</b> &middot; press <b>Bible map</b> &middot; open the library and press a tag</span>
-      <span>Windows and Mac &middot; works offline</span>
-    </p>
+    <div class="under">
+      <p class="under__label">Try</p>
+      <ul class="try try--desk">
+        <li>Paste a verse and watch it file itself.</li>
+        <li>Press <b>Outline</b>, then <b>Handout</b>.</li>
+        <li>Press <b>Bible map</b> and narrow it to one church.</li>
+      </ul>
+      <ul class="try try--phone">
+        <li>Press <b>Outline</b>, then <b>Handout</b>.</li>
+        <li>Press <b>Preach</b>, then <b>Begin preaching</b>.</li>
+        <li>Press <b>Bible map</b>.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -447,7 +471,7 @@
       <details><summary>Does dictation send my voice anywhere?</summary><p>No. The voice is a one-time download, 76 MB or 238 MB for the finer one, and it listens on your own machine in any of the fifteen languages.</p></details>
       <details><summary>What happens if I cancel?</summary><p>Everything keeps working to the end of the period you paid for. Then the app goes read-only: every sermon still opens, searches, prints and preaches.</p></details>
       <details><summary>How do I change a card or recover a key?</summary><p>From <a href="https://sarangbi.lemonsqueezy.com/billing">the billing page</a>, the one your receipt links. Payments are processed by Lemon Squeezy, our merchant of record, whose name appears on your statement.</p></details>
-      <details><summary>How do I reach you?</summary><p>Email <span class="addr">davislor@sarangbi.co</span>. SermonDesk is new and keeps changing; if a change gets in your way, say so.</p></details>
+      <details><summary>How do I reach you?</summary><p>Email <a href="mailto:davislor@sarangbi.co">davislor@sarangbi.co</a>. SermonDesk is new and keeps changing; if a change gets in your way, say so.</p></details>
     </div>
   </div>
 </section>
@@ -470,7 +494,7 @@
       </div>
       <div>
         <h3>Contact</h3>
-        <p>Built and supported by Sarangbi. Email <span class="addr">davislor@sarangbi.co</span>.</p>
+        <p>Built and supported by Sarangbi. Email <a href="mailto:davislor@sarangbi.co">davislor@sarangbi.co</a>.</p>
       </div>
     </div>
   </div>
