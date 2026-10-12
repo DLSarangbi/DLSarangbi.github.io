@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="2df2eb8">
+<meta name="sermondesk-source" content="daf40c1">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
@@ -114,6 +114,7 @@
   .head nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1.25rem; font-size: 0.9375rem; margin-left: auto; }
   .head nav a { color: var(--muted); white-space: nowrap; }
   .head nav a:hover { color: var(--ink); text-decoration: none; }
+  .head .button { padding: 0.4rem 0.8rem; font-size: 0.875rem; }
 
   /* The promise, and the one picture. */
   .hero { padding: clamp(2rem, 5vw, 3.5rem) 0 0; border-top: 0; }
@@ -127,8 +128,20 @@
   .caption { font-size: 0.875rem; color: var(--faint); margin-top: 0.6rem; }
   .hero figure { margin: 2rem 0 0; }
 
-  /* The week: four forms of one sermon. */
-  .week { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.5rem; }
+  /* The week: three forms across, the fourth on its own band below. */
+  .week { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 1.5rem; }
+  picture { display: block; }
+
+  /* Sunday: the podium's own dark, whatever the page is, so the page goes
+     light, light, light, dark, light. Its tokens are set here, not read
+     from the theme. */
+  .sunday {
+    --paper: #141311; --card: #1c1a18; --ink: #ece7df; --muted: #a9a49b; --faint: #7b7770; --rule: #2e2b28; --frame: #3a3632; --oxblood: #d9a3a3;
+    background: var(--paper); color: var(--ink); border-top: 0;
+  }
+  .sunday .shot { box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.8); }
+  .sunday__pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; }
+  .sunday__pair figure { margin: 0; }
   .day h3 { font-family: var(--serif); font-weight: 500; font-size: 1.375rem; margin: 0.75rem 0 0.25rem; }
   .day h3 small { font-family: var(--sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--oxblood); margin-right: 0.6rem; }
   .day p { color: var(--muted); font-size: 1rem; }
@@ -224,7 +237,7 @@
   footer { padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--rule); font-size: 0.8125rem; color: var(--faint); }
 
   @media (max-width: 760px) {
-    .week, .cards, .two, .price, .faq, .small { grid-template-columns: minmax(0, 1fr); }
+    .week, .cards, .two, .price, .faq, .small, .sunday__pair { grid-template-columns: minmax(0, 1fr); }
     .head nav { margin-left: 0; }
   }
   @media (prefers-reduced-motion: no-preference) {
@@ -263,8 +276,8 @@
       <a class="try-link" href="#try">Or try it in your browser first</a>
     </div>
     <figure>
-      <div class="shot"><img src="img/podium.jpg" alt="The podium screen: the sermon in large type on black, the paragraph being read lit, the clock and the next point at the foot" width="1600" height="1000"></div>
-      <figcaption class="caption">Sunday. The manuscript at the podium, the paragraph you are on lit, the clock counting toward the length you set.</figcaption>
+      <div class="shot shot--light"><picture><source srcset="img/manuscript-dark.jpg" media="(prefers-color-scheme: dark)"><img src="img/manuscript.jpg" alt="The app: the library of sermons at the left, the manuscript page in the middle, the Format panel at the right" width="1600" height="1000"></picture></div>
+      <figcaption class="caption">The library, the page, and the Format panel. One window, every sermon you have written in it.</figcaption>
     </figure>
   </div>
 </section>
@@ -276,25 +289,39 @@
     <p class="lead">Nothing is copied from one place to another. Each form is the same sermon, shown for the day it is needed.</p>
     <div class="week">
       <article class="day">
-        <div class="shot shot--light"><img src="img/manuscript.jpg" alt="The manuscript page beside the library and the Format panel" width="1600" height="1000" loading="lazy"></div>
+        <div class="shot shot--light"><picture><source srcset="img/manuscript-dark.jpg" media="(prefers-color-scheme: dark)"><img src="img/manuscript.jpg" alt="The manuscript page beside the library and the Format panel" width="1600" height="1000" loading="lazy"></picture></div>
         <h3><small>Tuesday</small>The manuscript</h3>
         <p>Type Romans 8:28 and the verse files itself under its reference. Points number themselves, a story you have told before is one press away, and the page saves as you write.</p>
       </article>
       <article class="day">
-        <div class="shot shot--light"><img src="img/outline.jpg" alt="The outline: the points with their minutes and key lines on one sheet" width="1600" height="1000" loading="lazy"></div>
+        <div class="shot shot--light"><picture><source srcset="img/outline-dark.jpg" media="(prefers-color-scheme: dark)"><img src="img/outline.jpg" alt="The outline: the points with their minutes and key lines on one sheet" width="1600" height="1000" loading="lazy"></picture></div>
         <h3><small>Friday</small>The outline</h3>
         <p>The points with their minutes, the key line under each, the passages in full. One sheet to carry, and the minutes say where the sermon runs long.</p>
       </article>
       <article class="day">
-        <div class="shot shot--light"><img src="img/handout.jpg" alt="The handout: the points with blanks for the congregation, laid out on one sheet" width="1600" height="1000" loading="lazy"></div>
+        <div class="shot shot--light"><picture><source srcset="img/handout-dark.jpg" media="(prefers-color-scheme: dark)"><img src="img/handout.jpg" alt="The handout: the points with blanks for the congregation, laid out on one sheet" width="1600" height="1000" loading="lazy"></picture></div>
         <h3><small>Saturday</small>The handout</h3>
         <p>The congregation's copy, with blanks to fill or the key lines in full, and the questions to take home at the end. Print it, or save it as a PDF for the bulletin.</p>
       </article>
-      <article class="day">
+    </div>
+  </div>
+</section>
+
+<!-- Sunday on its own band, dark whatever the page is: the podium wears its own dark. -->
+<section class="sunday" id="sunday">
+  <div class="wrap">
+    <p class="eyebrow">Sunday</p>
+    <h2>At the podium.</h2>
+    <p class="lead">Full screen, large type, the clock. Read from the manuscript, the outline, or one card a screen; the paragraph you are on is lit, and nothing leaves the screen mid-sentence. Space, or the remote, goes on.</p>
+    <div class="sunday__pair">
+      <figure>
         <div class="shot"><img src="img/ready.jpg" alt="The ready screen before preaching: the title, the points with their minutes, and the three ways to read" width="1600" height="1000" loading="lazy"></div>
-        <h3><small>Sunday</small>The podium</h3>
-        <p>Full screen, large type, the clock. Read from the manuscript, the outline, or one card a screen. Space or the remote goes on, and nothing leaves the screen mid-sentence.</p>
-      </article>
+        <figcaption class="caption">Before the first word: the points with their minutes, and the three ways to read.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="img/podium.jpg" alt="The podium screen: the sermon in large type on black, the paragraph being read lit, the clock and the next point at the foot" width="1600" height="1000" loading="lazy"></div>
+        <figcaption class="caption">The manuscript, the paragraph you are on lit, the clock counting toward the length you set.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -374,7 +401,7 @@
       <p>Tags complete as you type, so a slip of the shift key never makes a twin. What a sermon is for, a funeral, a wedding, Easter, is a word in the byline with its own chip.</p>
       <p>And the map of the whole canon shows the chapters you have preached and the books you never have.</p>
     </div>
-    <div class="shot shot--light"><img src="img/map.jpg" alt="The Bible map: every chapter of the Bible as a cell, the preached ones filled, with counts per book" width="1600" height="1000" loading="lazy"></div>
+    <div class="shot shot--light"><picture><source srcset="img/map-dark.jpg" media="(prefers-color-scheme: dark)"><img src="img/map.jpg" alt="The Bible map: every chapter of the Bible as a cell, the preached ones filled, with counts per book" width="1600" height="1000" loading="lazy"></picture></div>
   </div>
 </section>
 
