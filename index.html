@@ -3,244 +3,301 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SermonDesk: Sermon manager for preachers</title>
-<meta name="description" content="An offline sermon manager for preachers. Write once and get a manuscript, an outline, a podium screen, and a handout. Every sermon stays a plain file on your own computer.">
+<title>SermonDesk: Write the sermon once</title>
+<meta name="description" content="SermonDesk for Mac and Windows: write the sermon once and get the manuscript, the outline, the handout, and the podium screen from one draft. Plain files on your own computer, offline.">
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="6a2feaa">
+<meta name="sermondesk-source" content="0951139">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#F4F3EF" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#121311" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F6F4EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SermonDesk">
 <meta property="og:url" content="https://sarangbi.co/">
-<meta property="og:title" content="SermonDesk: Sermon manager for preachers">
-<meta property="og:description" content="Write the sermon once and get a manuscript, an outline, a podium screen, and a handout. Every sermon stays a plain file on your own computer, offline.">
+<meta property="og:title" content="SermonDesk: Write the sermon once">
+<meta property="og:description" content="For Mac and Windows. One draft becomes the manuscript, the outline, the handout, and the podium screen. Plain files on your own computer, offline.">
 <meta property="og:image" content="https://sarangbi.co/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SermonDesk: write the sermon once.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SermonDesk: Sermon manager for preachers">
-<meta name="twitter:description" content="Write the sermon once and get a manuscript, an outline, a podium screen, and a handout. Every sermon stays a plain file on your own computer, offline.">
+<meta name="twitter:title" content="SermonDesk: Write the sermon once">
+<meta name="twitter:description" content="For Mac and Windows. One draft becomes the manuscript, the outline, the handout, and the podium screen. Plain files on your own computer, offline.">
 <meta name="twitter:image" content="https://sarangbi.co/og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Source+Sans+3:wght@400;600&display=swap">
 
 <style>
   /*
-    One picture and few words. The app is the page's only image; everything
-    else is a sentence that says something the window cannot: where the files
-    live, what happens when you stop paying, what it costs, what it does not do.
+    The page is built of the app's own materials: the paper, the oxblood,
+    the serif for what is said and the sans for what is pressed. It is laid
+    out as a week: the promise, the four forms a sermon takes, the app
+    itself to try, then what is yours, the library, the languages, the
+    price, what is new, and the questions people ask. The languages and
+    the release notes are written in by scripts/site-build.mjs from the
+    source at deploy, so the page cannot say twelve when there are more.
   */
   :root {
-    --paper:   #F4F3EF;
-    --panel:   #ECEBE5;
-    --ink:     #1A1B18;
-    --muted:   #62635C;
-    --faint:   #9A9B92;
-    --rule:    #DAD9D0;
+    --paper:   #F6F4EF;
+    --card:    #FFFDF9;
+    --panel:   #ECEAE3;
+    --ink:     #1D1C19;
+    --muted:   #625F58;
+    --faint:   #9A978F;
+    --rule:    #DEDBD2;
+    --frame:   #CFCBC0;
     --oxblood: #7C2A2E;
+    --on-oxblood: #FFFFFF;
+    --tint:    #F0E4E2;
     --serif: "Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
-    --sans: "Inter", "Segoe UI", system-ui, sans-serif;
+    --sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
     --gutter: clamp(1.25rem, 5vw, 4rem);
+    color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper:   #121311;
-      --panel:   #1B1C19;
-      --ink:     #E9E8E2;
-      --muted:   #A09F97;
-      --faint:   #6C6D65;
-      --rule:    #2C2D29;
-      --oxblood: #CF7F82;
+      --paper: #141311; --card: #1C1A18; --panel: #232120; --ink: #ECE7DF; --muted: #A9A49B; --faint: #7B7770;
+      --rule: #2E2B28; --frame: #3A3632; --oxblood: #D9A3A3; --on-oxblood: #1B1211; --tint: #2A1F1E; color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
-    --paper:   #121311;
-    --panel:   #1B1C19;
-    --ink:     #E9E8E2;
-    --muted:   #A09F97;
-    --faint:   #6C6D65;
-    --rule:    #2C2D29;
-    --oxblood: #CF7F82;
+    --paper: #141311; --card: #1C1A18; --panel: #232120; --ink: #ECE7DF; --muted: #A9A49B; --faint: #7B7770;
+    --rule: #2E2B28; --frame: #3A3632; --oxblood: #D9A3A3; --on-oxblood: #1B1211; --tint: #2A1F1E; color-scheme: dark;
   }
-
   * { box-sizing: border-box; }
   body {
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font-family: var(--serif);
-    font-size: 1.125rem;
+    font-family: var(--sans);
+    font-size: 1.0625rem;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
-  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  a:hover { color: var(--oxblood); }
+  a { color: var(--oxblood); text-decoration: none; }
+  a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
   :focus-visible { outline: 2px solid var(--oxblood); outline-offset: 3px; }
   h1, h2, h3, p { margin: 0; }
-  h1, h2, h3 { font-weight: 400; text-wrap: balance; letter-spacing: -0.015em; }
+  h1, h2 { font-family: var(--serif); font-weight: 400; text-wrap: balance; letter-spacing: -0.015em; }
+  img { max-width: 100%; height: auto; display: block; }
+  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 var(--gutter); }
+  section { padding: clamp(2.5rem, 6vw, 4.5rem) 0; border-top: 1px solid var(--rule); }
+  .eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--oxblood); margin-bottom: 0.6rem; }
+  h2 { font-size: clamp(1.9rem, 4vw, 2.75rem); line-height: 1.1; margin-bottom: 0.6rem; }
+  .lead { font-size: 1.125rem; color: var(--muted); max-width: 36em; margin-bottom: 1.6rem; }
+  p { max-width: 38em; }
 
-  .wrap { max-width: 78rem; margin: 0 auto; padding: 0 var(--gutter); }
-  .narrow { max-width: 38rem; }
+  /* The buttons: both machines, always, side by side. */
+  .button {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    padding: 0.6rem 1.1rem; border-radius: 8px; border: 1px solid var(--frame);
+    background: var(--card); color: var(--ink); font-weight: 600; font-size: 0.9375rem; white-space: nowrap;
+  }
+  .button:hover { text-decoration: none; border-color: var(--faint); }
+  .button--primary { background: var(--oxblood); color: var(--on-oxblood); border-color: var(--oxblood); }
+  .button--primary:hover { filter: brightness(1.08); }
+  .downloads { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
-  /* The head: a name, a price, a download. */
-  .head { padding: 1.5rem 0; }
-  .head .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
-  .wordmark { font-size: 1.125rem; font-weight: 500; letter-spacing: 0.01em; text-decoration: none; }
+  /* The head: a name, the page's places, the two downloads. */
+  .head { padding: 1.25rem 0 0.75rem; }
+  .head .wrap { display: flex; align-items: center; gap: 0.75rem 1.5rem; flex-wrap: wrap; }
+  .wordmark { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); }
   .wordmark span { color: var(--oxblood); }
-  .head nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 0.9375rem; color: var(--muted); }
-  /* A link is one word to the eye: it wraps to the next line whole, never inside itself. */
-  .head nav a { text-decoration: none; white-space: nowrap; }
+  .head nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1.25rem; font-size: 0.9375rem; margin-left: auto; }
+  .head nav a { color: var(--muted); white-space: nowrap; }
+  .head nav a:hover { color: var(--ink); text-decoration: none; }
 
-  /* The one picture. */
-  .hero { padding: clamp(2rem, 6vw, 4.5rem) 0 0; }
-  .hero h1 { font-size: clamp(2.25rem, 5.5vw, 3.75rem); line-height: 1.05; max-width: 16ch; }
+  /* The promise, and the one picture. */
+  .hero { padding: clamp(2rem, 5vw, 3.5rem) 0 0; border-top: 0; }
+  .hero h1 { font-size: clamp(2.6rem, 7vw, 4.75rem); line-height: 1.02; max-width: 14ch; }
   .hero h1 em { font-style: italic; color: var(--oxblood); }
-  .hero .lede { margin-top: 1rem; font-size: 1.1875rem; color: var(--muted); max-width: 44rem; }
+  .hero .lede { margin-top: 1.1rem; font-size: clamp(1.125rem, 2.1vw, 1.375rem); color: var(--muted); max-width: 36em; }
+  .hero .acts { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; margin-top: 1.5rem; }
+  .hero .acts .try-link { font-size: 0.9375rem; }
+  .shot { border: 1px solid var(--frame); border-radius: 8px; overflow: hidden; background: #0e0c0b; box-shadow: 0 30px 60px -30px rgb(29 28 25 / 0.5), 0 1px 3px rgb(29 28 25 / 0.08); }
+  .shot--light { background: var(--card); }
+  .caption { font-size: 0.875rem; color: var(--faint); margin-top: 0.6rem; }
+  .hero figure { margin: 2rem 0 0; }
+
+  /* The week: four forms of one sermon. */
+  .week { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.5rem; }
+  .day h3 { font-family: var(--serif); font-weight: 500; font-size: 1.375rem; margin: 0.75rem 0 0.25rem; }
+  .day h3 small { font-family: var(--sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--oxblood); margin-right: 0.6rem; }
+  .day p { color: var(--muted); font-size: 1rem; }
+
+  /* The app itself, on the page. */
   .stage {
     position: relative;
-    margin-top: 2.25rem;
+    margin-top: 0.5rem;
     aspect-ratio: 16 / 10;
-    /* Never taller than the screen it is on, less room for the words above. */
     max-height: calc(100vh - 7rem);
     min-height: 18rem;
     border: 1px solid var(--rule);
-    border-radius: 6px;
+    border-radius: 8px;
     background: var(--panel);
     box-shadow: 0 40px 70px -40px rgb(26 27 24 / 0.5), 0 1px 3px rgb(26 27 24 / 0.08);
     overflow: hidden;
   }
   .stage iframe { display: block; width: 100%; height: 100%; border: 0; }
-  /* On a phone held upright the app folds to one column and the stage
-     stands tall to hold it, the way the screen is shaped; held sideways,
-     or on any short window, the stage takes what height there is. */
-  @media (max-width: 700px) and (orientation: portrait) {
-    .stage { aspect-ratio: 9 / 14; }
-  }
-  @media (max-height: 560px) {
-    .stage { aspect-ratio: auto; height: calc(100vh - 3rem); min-height: 0; }
-  }
-  /* The caption: what the frame is, in a sentence, before anything is pressed. */
+  @media (max-width: 700px) and (orientation: portrait) { .stage { aspect-ratio: 9 / 14; } }
+  @media (max-height: 560px) { .stage { aspect-ratio: auto; height: calc(100vh - 3rem); min-height: 0; } }
   .note { margin-top: 0.85rem; font-size: 0.9375rem; color: var(--muted); max-width: 44rem; }
   .note--phone, .try--phone { display: none; }
   @media (max-width: 700px) {
     .note--desk, .try--desk { display: none; }
     .note--phone, .try--phone { display: inline; }
   }
-  /* The scenes: one view each, the app opened on it. */
   .scenes { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
   .scenes button {
     font: inherit; font-size: 0.875rem; padding: 0.35rem 0.8rem; border-radius: 999px;
-    border: 1px solid var(--rule); background: var(--panel); color: var(--ink); cursor: pointer;
+    border: 1px solid var(--rule); background: var(--card); color: var(--ink); cursor: pointer;
   }
   .scenes button[aria-pressed='true'] { border-color: var(--oxblood); color: var(--oxblood); }
   .scenes__end { display: flex; gap: 0.4rem; margin-left: auto; }
   .scenes__quiet { color: var(--muted); }
   .scenes__quiet:hover { color: var(--ink); border-color: var(--ink); }
-  /* On the whole screen the frame is the screen; the stage's own edges would only be seen as a border. */
   .stage:fullscreen, .stage:fullscreen iframe { border: 0; border-radius: 0; background: #0b0c0e; }
-  .under {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.5rem 2rem;
-    margin-top: 0.85rem;
-    font-size: 0.9375rem;
-    color: var(--muted);
+  .under { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; margin-top: 0.85rem; font-size: 0.9375rem; color: var(--muted); }
+  .under b { font-weight: 600; color: var(--ink); }
+
+  /* Yours: three cards. */
+  .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 1.1rem 1.1rem 1.25rem; }
+  .card h3 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; margin-bottom: 0.35rem; }
+  .card p { font-size: 0.9375rem; color: var(--muted); }
+
+  .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: center; }
+  .two p + p { margin-top: 0.8rem; }
+
+  /* The languages, as the app names them. */
+  .langs { display: flex; flex-wrap: wrap; gap: 0.5rem 0.6rem; margin: 0; padding: 0; list-style: none; }
+  .langs li { padding: 0.35rem 0.75rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--card); font-size: 0.9375rem; }
+
+  /* The price, beside the promise that outlasts it. */
+  .price { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: start; }
+  .pricebox { background: var(--card); border: 1px solid var(--rule); border-radius: 12px; padding: 1.5rem; }
+  .amount { font-family: var(--serif); font-size: 3rem; line-height: 1; }
+  .amount small { font-family: var(--sans); font-size: 0.9375rem; color: var(--muted); margin-left: 0.4rem; }
+  .amount + .amount { font-size: 1.75rem; margin-top: 0.4rem; }
+  .pricebox ul { padding-left: 1.1rem; margin: 0.9rem 0 0; color: var(--muted); font-size: 0.9375rem; }
+  .pricebox .downloads { margin-top: 1.1rem; }
+  .keep { font-family: var(--serif); font-size: 1.5rem; line-height: 1.3; margin-bottom: 0.6rem; }
+
+  /* What's new: the latest entries, in the app's own words. */
+  .release { border-left: 3px solid var(--oxblood); padding-left: 1rem; margin-bottom: 1.25rem; }
+  .release h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .release h3 span { color: var(--faint); font-weight: 400; margin-left: 0.5rem; }
+  .release ul { margin: 0; padding-left: 1.1rem; font-size: 0.9375rem; color: var(--muted); }
+  .release li + li { margin-top: 0.15rem; }
+  .release__more { list-style: none; margin-left: -1.1rem; color: var(--faint); }
+
+  /* Good to know. */
+  .faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem 2rem; }
+  .faq details { border-top: 1px solid var(--rule); padding: 0.6rem 0; }
+  .faq summary { cursor: pointer; font-weight: 600; font-size: 1rem; list-style: none; display: flex; justify-content: space-between; gap: 0.75rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; color: var(--faint); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin: 0.5rem 0 0.15rem; font-size: 0.9375rem; color: var(--muted); }
+  .small { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; font-size: 0.9375rem; color: var(--muted); }
+  .small h3 { font-family: var(--sans); font-size: 0.9375rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+  .small p + p { margin-top: 0.5rem; }
+  .addr { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9375rem; }
+  footer { padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--rule); font-size: 0.8125rem; color: var(--faint); }
+
+  @media (max-width: 760px) {
+    .week, .cards, .two, .price, .faq, .small { grid-template-columns: minmax(0, 1fr); }
+    .head nav { margin-left: 0; }
   }
-  .under b { font-weight: 500; color: var(--ink); }
-
-  /* The words: one column, wide rules, nothing boxed. */
-  .words { padding: clamp(4rem, 9vw, 7rem) 0 0; }
-  .word {
-    display: grid;
-    grid-template-columns: minmax(0, 18rem) minmax(0, 38rem);
-    column-gap: clamp(2rem, 6vw, 6rem);
-    row-gap: 0.75rem;
-    padding: clamp(2rem, 4vw, 3rem) 0;
-    border-top: 1px solid var(--rule);
-  }
-  .word h2 { font-size: clamp(1.5rem, 2.6vw, 1.875rem); line-height: 1.2; }
-  .word p { color: var(--muted); }
-  .word p + p { margin-top: 0.85rem; }
-  .word ul { margin: 0; padding: 0; list-style: none; color: var(--muted); }
-  .word li { padding: 0.55rem 0; border-top: 1px solid var(--rule); }
-  .word li:first-child { border-top: 0; padding-top: 0; }
-  .word li b { color: var(--ink); font-weight: 500; }
-  @media (max-width: 800px) { .word { grid-template-columns: minmax(0, 1fr); } }
-
-  /* The price: two numbers, two buttons, no tiers. */
-  .price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1.5rem; font-variant-numeric: tabular-nums; }
-  .price .amount { font-size: clamp(1.75rem, 3.5vw, 2.5rem); line-height: 1.1; color: var(--ink); }
-  .price .plan { display: inline-flex; align-items: baseline; gap: 0.5rem; white-space: nowrap; }
-  .price .per { color: var(--muted); }
-  .buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
-  .button {
-    display: inline-block;
-    padding: 0.7rem 1.2rem;
-    border: 1px solid var(--oxblood);
-    border-radius: 4px;
-    background: var(--oxblood);
-    color: #FBFBF8;
-    font-family: var(--sans);
-    font-size: 0.9375rem;
-    font-weight: 500;
-    text-decoration: none;
-  }
-  .button:hover { color: #FBFBF8; filter: brightness(1.08); }
-  .button--quiet { background: transparent; color: var(--ink); border-color: var(--rule); }
-  .button--quiet:hover { color: var(--ink); border-color: var(--ink); filter: none; }
-  /* Three buttons on a phone wrap two-and-one, which orphans the last; stacked full-width they read as a list. */
-  @media (max-width: 480px) { .buttons .button { flex: 1 1 100%; text-align: center; } }
-
-  /* The policies: the same words as ever, set smaller, at the end. */
-  .policies { padding: clamp(3rem, 7vw, 5rem) 0 4rem; font-size: 0.9375rem; }
-  .policies .word { padding-top: 0; border-top: 0; }
-  .policies h3 { font-size: 1.0625rem; font-weight: 500; margin: 1.75rem 0 0.4rem; scroll-margin-top: 2rem; }
-  .policies h3:first-child { margin-top: 0; }
-  .policies p { color: var(--muted); }
-  .policies p + p { margin-top: 0.6rem; }
-  footer { padding: 0 0 4rem; color: var(--faint); font-size: 0.875rem; text-align: center; }
-
   @media (prefers-reduced-motion: no-preference) {
-    .hero > .wrap > * { animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) backwards; }
-    .hero > .wrap > :nth-child(2) { animation-delay: 0.05s; }
-    .hero > .wrap > :nth-child(3) { animation-delay: 0.1s; }
-    @keyframes rise { from { opacity: 0; transform: translateY(0.5rem); } to { opacity: 1; transform: none; } }
+    .button, .head nav a { transition: border-color 120ms, color 120ms; }
   }
 </style>
 </head>
-
 <body>
+
 <header class="head">
   <div class="wrap">
-    <a class="wordmark" href="/">Sermon<span>Desk</span></a>
-    <nav>
+    <a class="wordmark" href="https://sarangbi.co/">Sermon<span>Desk</span></a>
+    <nav aria-label="Page">
+      <a href="#week">Features</a>
+      <a href="#try">Try it</a>
       <a href="#price">Price</a>
-      <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
-      <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
+      <a href="#new">What's new</a>
+      <a href="#faq">Help</a>
     </nav>
+    <div class="downloads">
+      <a class="button" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
+      <a class="button" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
+    </div>
   </div>
 </header>
 
-<div class="hero">
+<section class="hero">
   <div class="wrap">
     <h1>Write the sermon <em>once.</em></h1>
-    <p class="lede">A manuscript, an outline, a handout, and a podium screen from one draft, kept as plain files on your own computer. This is the app, running here with three years of one preacher's sermons in it, in English, Korean and Spanish.</p>
+    <p class="lede">One draft becomes the manuscript you write from, the outline you check on Friday, the handout you print on Saturday, and the screen you preach from on Sunday. Plain files, on your own computer, in your own folder. For Mac and Windows.</p>
+    <div class="acts">
+      <div class="downloads">
+        <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
+        <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
+      </div>
+      <a class="try-link" href="#try">Or try it in your browser first</a>
+    </div>
+    <figure>
+      <div class="shot"><img src="img/podium.jpg" alt="The podium screen: the sermon in large type on black, the paragraph being read lit, the clock and the next point at the foot" width="1600" height="1000"></div>
+      <figcaption class="caption">Sunday. The manuscript at the podium, the paragraph you are on lit, the clock counting toward the length you set.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="week">
+  <div class="wrap">
+    <p class="eyebrow">One draft, four forms</p>
+    <h2>The week, in one app.</h2>
+    <p class="lead">Nothing is copied from one place to another. Each form is the same sermon, shown for the day it is needed.</p>
+    <div class="week">
+      <article class="day">
+        <div class="shot shot--light"><img src="img/manuscript.jpg" alt="The manuscript page beside the library and the Format panel" width="1600" height="1000" loading="lazy"></div>
+        <h3><small>Tuesday</small>The manuscript</h3>
+        <p>Type Romans 8:28 and the verse files itself under its reference. Points number themselves, a story you have told before is one press away, and the page saves as you write.</p>
+      </article>
+      <article class="day">
+        <div class="shot shot--light"><img src="img/outline.jpg" alt="The outline: the points with their minutes and key lines on one sheet" width="1600" height="1000" loading="lazy"></div>
+        <h3><small>Friday</small>The outline</h3>
+        <p>The points with their minutes, the key line under each, the passages in full. One sheet to carry, and the minutes say where the sermon runs long.</p>
+      </article>
+      <article class="day">
+        <div class="shot shot--light"><img src="img/handout.jpg" alt="The handout: the points with blanks for the congregation, laid out on one sheet" width="1600" height="1000" loading="lazy"></div>
+        <h3><small>Saturday</small>The handout</h3>
+        <p>The congregation's copy, with blanks to fill or the key lines in full, and the questions to take home at the end. Print it, or save it as a PDF for the bulletin.</p>
+      </article>
+      <article class="day">
+        <div class="shot"><img src="img/ready.jpg" alt="The ready screen before preaching: the title, the points with their minutes, and the three ways to read" width="1600" height="1000" loading="lazy"></div>
+        <h3><small>Sunday</small>The podium</h3>
+        <p>Full screen, large type, the clock. Read from the manuscript, the outline, or one card a screen. Space or the remote goes on, and nothing leaves the screen mid-sentence.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="try">
+  <div class="wrap">
+    <p class="eyebrow">Nothing to install</p>
+    <h2>Try the real thing, here.</h2>
+    <p class="lead">This is the app, running in your browser with three years of one preacher's sermons in it, in English, Korean and Spanish.</p>
     <div class="stage">
       <iframe id="demo" src="demo/" title="SermonDesk, live on this page, with a demo library." loading="lazy" allow="fullscreen" allowfullscreen></iframe>
     </div>
     <p class="note">
-      <span class="note--desk">This is the real app, running in your browser. Click anything, type anything: nothing you do here is saved, and nothing leaves this page.</span>
-      <span class="note--phone">This is the real app, running in your browser in its narrow shape. SermonDesk itself is for Windows and Mac. Nothing you do here is saved, and nothing leaves this page.</span>
+      <span class="note--desk">Click anything, type anything: nothing you do here is saved, and nothing leaves this page.</span>
+      <span class="note--phone">The app in its narrow shape. SermonDesk itself is for Windows and Mac. Nothing you do here is saved, and nothing leaves this page.</span>
     </p>
     <div class="scenes" role="group" aria-label="Open the demo on one view">
       <button type="button" data-scene="library">Library</button>
@@ -260,103 +317,172 @@
       <span>Windows and Mac &middot; works offline</span>
     </p>
   </div>
-</div>
+</section>
 
-<main class="words">
+<section id="yours">
   <div class="wrap">
-    <div class="word">
-      <h2>Your sermons are files, in a folder you choose.</h2>
-      <div>
-        <p>One readable file per sermon, in a folder you choose. Keep that folder in iCloud Drive, Google Drive, OneDrive, or Dropbox and you have backup and sync on your own account, with nothing stored by us. A file written by any version opens in every later one.</p>
-        <p>Bring the sermons you already have: a Word file imports as a sermon, its passage read from the opening line in whatever language it was written. Going the other way, print the manuscript, the outline and the handout or save them as PDF, send a sermon to Word, and export the whole library as plain text at any time, no licence asked.</p>
+    <p class="eyebrow">Your sermons are yours</p>
+    <h2>Files in a folder, not records in a service.</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>One readable file per sermon</h3>
+        <p>In a folder you choose. A file written by any version opens in every later one, and you can read it without the app.</p>
       </div>
-    </div>
-
-    <div class="word">
-      <h2>The library knows what a passage is.</h2>
-      <div>
-        <p>Type Romans 8 and get every sermon that touched it, even one that quoted a single verse. Open a sermon and see what else touches its chapter, where else you told that story, and the rest of its series. A map of the whole canon shows the chapters you have preached and the books you never have.</p>
+      <div class="card">
+        <h3>Synced on your own account</h3>
+        <p>Keep the folder in iCloud Drive, Google Drive, OneDrive or Dropbox. Open SermonDesk on your other computer and press Use. Nothing is stored by us.</p>
       </div>
-    </div>
-
-    <div class="word">
-      <h2>Fifty tags do not become a wall.</h2>
-      <div>
-        <p>Tags complete as you type them, so a slip of the shift key never makes a twin. Put them in groups and each group is one chip in the library, opening to a short list with counts: pick one from each and the groups combine. What a sermon is for, a funeral, a wedding, Easter, is a word in the byline rather than a tag, with its own chip. And a tag is a place: press one and see every sermon that carries it in the order they were preached, the tags that travel with it, and the chapters it came from.</p>
+      <div class="card">
+        <h3>If you stop paying, you keep every sermon</h3>
+        <p>The app goes read-only. Open, search and print all of it for as long as you own the computer. A subscription buys writing and preaching, never access to what you wrote.</p>
       </div>
-    </div>
-
-    <div class="word">
-      <h2>If you stop paying, you keep every sermon.</h2>
-      <div>
-        <p>The app goes read only. Open, search, and print all of it, for as long as you own the computer. A subscription buys the ability to write and to preach from the podium, never access to what you already wrote.</p>
-      </div>
-    </div>
-
-    <div class="word" id="price">
-      <h2>Everything included.</h2>
-      <div>
-        <p class="price"><span class="plan"><span class="amount">$12.99</span><span class="per">a month, or</span></span><span class="plan"><span class="amount">$119.99</span><span class="per">a year</span></span></p>
-        <p>One person, up to three of their own computers. The key arrives by email the moment you pay; paste it into the app once and it works offline from then on. Updates are included, and the app fetches them itself.</p>
-        <p>The demo above is the trial: everything the app does, with nothing to install. The download opens, reads, searches and prints without a key; writing and preaching from the podium start the moment the key arrives.</p>
-        <!-- The checkout link at the Lemon Squeezy store, which offers the
-             month and the year: the same one as CHECKOUT_URL in
-             src/shared/billing.ts. -->
-        <div class="buttons">
-          <a class="button" href="https://sarangbi.lemonsqueezy.com/checkout/buy/58a09bd1-6ce5-48c1-bd92-9d39316682b8">Get SermonDesk</a>
-          <a class="button button--quiet" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
-          <a class="button button--quiet" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="word">
-      <h2>Good to know.</h2>
-      <ul>
-        <li><b>The Mac version needs Apple Silicon</b>: an M1 or later.</li>
-        <li><b>Windows and Mac today.</b> A tablet version is on the list for later; there are no plans for a phone.</li>
-        <li><b>Your sermons on every computer you use.</b> Keep your folder in iCloud Drive, Google Drive, OneDrive, or Dropbox. Install that service on your other computer, open SermonDesk there, and press Use. The service keeps them in step. Nothing is stored by us.</li>
-        <li><b>Twelve languages.</b> English, Spanish, Portuguese, French, German, Indonesian, Filipino, Swahili, Russian, Chinese, Japanese, and Korean, chosen in Preferences, with the books of the Bible by their own names.</li>
-        <li><b>Dictation, offline.</b> Speak the sermon in any of the twelve and it is typed as you go, with a new paragraph and a new point said in your own words. The voice is a one-time download, 76 MB, or 238 MB for the finer one, and nothing you say leaves the computer.</li>
-      </ul>
     </div>
   </div>
-</main>
+</section>
 
-<section class="policies" id="policies">
+<section id="library">
+  <div class="wrap two">
+    <div>
+      <p class="eyebrow">The library</p>
+      <h2>It knows what a passage is.</h2>
+      <p>Type <b>Romans 8</b> and get every sermon that touched it, even one that quoted a single verse. Open a sermon and see what else touches its chapter, where else you told that story, and the rest of its series.</p>
+      <p>Tags complete as you type, so a slip of the shift key never makes a twin. What a sermon is for, a funeral, a wedding, Easter, is a word in the byline with its own chip.</p>
+      <p>And the map of the whole canon shows the chapters you have preached and the books you never have.</p>
+    </div>
+    <div class="shot shot--light"><img src="img/map.jpg" alt="The Bible map: every chapter of the Bible as a cell, the preached ones filled, with counts per book" width="1600" height="1000" loading="lazy"></div>
+  </div>
+</section>
+
+<section id="languages">
   <div class="wrap">
-    <div class="word">
-      <h2>Terms and privacy: the short version.</h2>
+    <p class="eyebrow">Fifteen languages</p>
+    <h2>In your language, with the Bible's own book names.</h2>
+    <p class="lead">Every word of the app, the sixty-six books as your Bible names them, and dictation that hears "new paragraph" in your words. Chosen in Settings.</p>
+    <ul class="langs">
+      <li lang="en">English</li>
+      <li lang="es">Español</li>
+      <li lang="pt">Português</li>
+      <li lang="fr">Français</li>
+      <li lang="de">Deutsch</li>
+      <li lang="id">Bahasa Indonesia</li>
+      <li lang="tl">Filipino</li>
+      <li lang="vi">Tiếng Việt</li>
+      <li lang="sw">Kiswahili</li>
+      <li lang="ru">Русский</li>
+      <li lang="uk">Українська</li>
+      <li lang="zh">简体中文</li>
+      <li lang="zh-Hant">繁體中文</li>
+      <li lang="ja">日本語</li>
+      <li lang="ko">한국어</li>
+    </ul>
+  </div>
+</section>
+
+<!-- A note from the maker goes here, in the maker's own words, when it is
+     written: why it exists, who it was first for, what is promised. -->
+
+<section id="price">
+  <div class="wrap">
+    <p class="eyebrow">Price</p>
+    <h2>Everything included.</h2>
+    <div class="price">
+      <div class="pricebox">
+        <p class="amount">$12.99<small>a month</small></p>
+        <p class="amount">$119.99<small>a year</small></p>
+        <ul>
+          <li>One person, up to three of their own computers.</li>
+          <li>The key arrives by email the moment you pay. Paste it in once; it works offline from then on.</li>
+          <li>Updates are included, and the app fetches them itself.</li>
+        </ul>
+        <div class="downloads">
+          <a class="button button--primary" href="https://sarangbi.lemonsqueezy.com/checkout/buy/58a09bd1-6ce5-48c1-bd92-9d39316682b8">Get SermonDesk</a>
+          <a class="button" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
+          <a class="button" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
+        </div>
+      </div>
       <div>
-        <h3 id="refunds">Billing</h3>
-        <p>Change a card, recover a lost key, or cancel from the billing page linked in your receipt. If you cancel, everything keeps working until the end of the period you paid for.</p>
+        <p class="keep">The demo is the trial, and the download is free to read with.</p>
+        <p>The download opens, reads, searches and prints without a key. Writing and preaching from the podium start the moment the key arrives. Cancel from the billing page in your receipt; everything keeps working to the end of the period you paid for.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <h3 id="privacy">Privacy</h3>
+<section id="new">
+  <div class="wrap">
+    <p class="eyebrow">What's new</p>
+    <h2>Updated often, in plain words.</h2>
+    <p class="lead">The latest is 0.4.5. Each release says what changed, for the pastor who sees the update line and wonders.</p>
+    <div class="release">
+      <h3>0.4.5 <span>12 October 2026</span></h3>
+      <ul>
+        <li>A label at the podium keeps its word whole.</li>
+      </ul>
+    </div>
+    <div class="release">
+      <h3>0.4.4 <span>11 October 2026</span></h3>
+      <ul>
+        <li>Three more languages.</li>
+        <li>A sermon written right to left reads so.</li>
+        <li>Two words that served two things.</li>
+        <li>One window, whatever it holds.</li>
+        <li>The Inspector is called Format.</li>
+        <li class="release__more">and four more</li>
+      </ul>
+    </div>
+    <p><a href="https://github.com/DLSarangbi/sermondesk-releases/releases">Every release, with its notes</a></p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="eyebrow">Good to know</p>
+    <h2>Questions people ask.</h2>
+    <div class="faq">
+      <details><summary>Which computers?</summary><p>Windows 10 and 11, and Macs with Apple silicon, an M1 or later. A tablet version is on the list for later; there are no plans for a phone.</p></details>
+      <details><summary>Where do my sermons live?</summary><p>In a folder you choose, one readable file each. Keep that folder in iCloud Drive, Google Drive, OneDrive or Dropbox to have them on every computer you use.</p></details>
+      <details><summary>Can I bring the sermons I already have?</summary><p>A Word file imports as a sermon, its passage read from the opening line in whatever language it was written. A whole folder, as Google Takeout delivers it, imports in one go. Going the other way, print or save PDFs, send a sermon to Word, or export the whole library as plain text at any time, with no key asked.</p></details>
+      <details><summary>Does anything leave my computer?</summary><p>Nothing from your sermons, ever. The app makes two kinds of request: one checks your subscription, one checks for a new version. No analytics, no crash reports, no tracking.</p></details>
+      <details><summary>Does dictation send my voice anywhere?</summary><p>No. The voice is a one-time download, 76 MB or 238 MB for the finer one, and it listens on your own machine in any of the fifteen languages.</p></details>
+      <details><summary>What happens if I cancel?</summary><p>Everything keeps working to the end of the period you paid for. Then the app goes read-only: every sermon still opens, searches, prints and preaches.</p></details>
+      <details><summary>How do I change a card or recover a key?</summary><p>From the billing page linked in your receipt. Payments are processed by Lemon Squeezy, our merchant of record, whose name appears on your statement.</p></details>
+      <details><summary>How do I reach you?</summary><p>Email <span class="addr">davislor@sarangbi.co</span>. SermonDesk is new and keeps changing; if a change gets in your way, say so.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="terms">
+  <div class="wrap">
+    <p class="eyebrow">Terms and privacy</p>
+    <h2>The short version.</h2>
+    <div class="small">
+      <div>
+        <h3>Privacy</h3>
         <p>Your sermons are written to your own disk and never uploaded, read, or transmitted. They are not backed up by us either. That is the other side of the same promise.</p>
-        <p>The app makes two kinds of network request: one checks your licence, one checks for a new version. Neither sends anything from your sermons. No analytics, no crash reporting, no tracking.</p>
         <p>When you buy, Lemon Squeezy handles your name, email, and payment details under their own privacy policy. We receive your name, email, and what you bought, and use them to send your key and reach you about the software. We do not sell or share them.</p>
-
-        <h3 id="terms">Terms</h3>
+      </div>
+      <div>
+        <h3>Terms</h3>
         <p>A subscription lets one person write with SermonDesk on up to three of their own computers.</p>
         <p>The software is provided as is, without warranty.</p>
         <p>SermonDesk is new, and it will keep changing. If a change gets in your way, tell us.</p>
-
-        <h3 id="contact">Contact</h3>
-        <p>Built and supported by Sarangbi. Email <a href="mailto:davislor@sarangbi.co">davislor@sarangbi.co</a>.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>Built and supported by Sarangbi. Email <span class="addr">davislor@sarangbi.co</span>.</p>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <p>&copy; 2026 Sarangbi &middot; Payments are processed by Lemon Squeezy, our merchant of record, whose name appears on your receipt and card statement.</p>
-  </div>
+  <div class="wrap">© 2026 Sarangbi · Payments are processed by Lemon Squeezy, our merchant of record, whose name appears on your receipt and card statement.</div>
 </footer>
+
 <!-- The page works without this. With it, a Mac reads its own name first;
      both links stay, since a pastor may be fetching for the other machine.
      Browsers do not say whether a Mac is Intel or Apple Silicon, so the
-     words above say it instead. -->
+     words under Good to know say it instead. -->
 <script>
   (function () {
     var mac = /^Mac/.test(navigator.platform) || /Macintosh/.test(navigator.userAgent);
@@ -383,7 +509,6 @@
       if (event.origin === location.origin && event.data && event.data.demoReady) ready = true
     })
     for (const event of ['wheel', 'touchmove', 'keydown']) window.addEventListener(event, release, { passive: true })
-    // A link the visitor presses, Price in the head, is a scroll they asked for.
     document.addEventListener('click', (event) => { if (event.target.closest('a')) release() }, true)
     window.addEventListener('scroll', () => { if (hold !== null && Math.abs(window.scrollY - hold) > 1) window.scrollTo({ top: hold, behavior: 'instant' }) }, { passive: true })
     for (const chip of chips) {
@@ -396,9 +521,6 @@
         setTimeout(release, ready ? 2500 : 8000)
       })
     }
-    // Full screen: the stage, frame and all, on the whole screen, until Esc.
-    // A browser that cannot do that, a phone's mostly, gets the demo in a
-    // tab of its own instead, on the view that is pressed.
     const stage = document.querySelector('.stage')
     document.querySelector('[data-fullscreen]').addEventListener('click', (event) => {
       event.currentTarget.blur()
@@ -410,9 +532,6 @@
     document.addEventListener('fullscreenchange', () => {
       document.querySelector('[data-fullscreen]').textContent = document.fullscreenElement ? 'Leave full screen' : 'Full screen'
     })
-    // Start over: the frame is opened afresh on the view that is pressed,
-    // and the demo's library comes back as it was. Nothing is kept
-    // between loads, so a reload is the whole reset.
     document.querySelector('[data-reset]').addEventListener('click', (event) => {
       event.currentTarget.blur()
       const pressed = chips.find((chip) => chip.getAttribute('aria-pressed') === 'true')
