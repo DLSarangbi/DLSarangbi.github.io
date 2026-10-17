@@ -2840,6 +2840,20 @@ select.field {
   overflow-y: auto;
 }
 
+.welcome__language {
+  top: calc(var(--topbar-h) + 10px);
+  color: var(--ink-muted);
+  align-items: center;
+  gap: 6px;
+  display: inline-flex;
+  position: absolute;
+  right: 20px;
+}
+
+.welcome__language .field {
+  width: auto;
+}
+
 .welcome__body {
   flex-direction: column;
   gap: 22px;
@@ -3591,6 +3605,12 @@ select.field {
   text-underline-offset: 2px;
   cursor: pointer;
   text-decoration: underline;
+}
+
+p.library__failures-summary {
+  cursor: default;
+  margin: 0;
+  text-decoration: none;
 }
 
 .dark .library__failures-summary {
@@ -5342,11 +5362,19 @@ select.field {
 }
 
 .editor-status__save {
+  min-width: 0;
   color: var(--ink-faint);
-  flex: none;
+  flex: 0 auto;
   align-items: center;
   gap: 4px;
   display: inline-flex;
+}
+
+.editor-status__word {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .editor-status__save > svg {

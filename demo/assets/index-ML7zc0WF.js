@@ -16872,7 +16872,21 @@ const es = {
   "Prints on 1 sheet": "Se imprime en 1 hoja",
   "Prints on {n} sheets": "Se imprime en {n} hojas",
   "Sheet {n}": "Hoja {n}",
-  "The sheets this handout prints on, at this paper and these margins": "Las hojas en que se imprime este folleto, con este papel y estos márgenes"
+  "The sheets this handout prints on, at this paper and these margins": "Las hojas en que se imprime este folleto, con este papel y estos márgenes",
+  "If something goes wrong": "Si algo sale mal",
+  "The log": "El registro",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "Lo que hizo la aplicación y cuándo, para que un informe pueda decir dónde falló. Nada de lo que contiene sale de este equipo a menos que tú lo envíes.",
+  "Show the log": "Mostrar el registro",
+  "Something to report": "Algo que informar",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "Un mensaje nuevo a {email}, con la versión y el sistema ya rellenados. Cuenta qué hiciste justo antes y adjunta el registro si puedes.",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "No se pudo guardar el sermón en su carpeta. Tus palabras se conservan en este equipo y se guardarán allí en cuanto lo permita.",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "No se pudo guardar el sermón en su carpeta, y tampoco se pudo conservar una copia en este equipo. Deja la ventana abierta y revisa la carpeta.",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "«{title}» no se pudo guardar en su carpeta la última vez. Tus palabras se conservan en este equipo.",
+  "Open it": "Abrirlo",
+  "Discard": "Descartar",
+  "That copy is no longer on this computer.": "Esa copia ya no está en este equipo.",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 sermón está en iCloud y aún no en este Mac; se está descargando.",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} sermones están en iCloud y aún no en este Mac; se están descargando."
 };
 const ko = {
   "Drag to move this picture": "끌어서 이 그림을 옮깁니다",
@@ -18421,7 +18435,21 @@ const ko = {
   "Prints on 1 sheet": "1장에 인쇄됩니다",
   "Prints on {n} sheets": "{n}장에 인쇄됩니다",
   "Sheet {n}": "{n}장",
-  "The sheets this handout prints on, at this paper and these margins": "이 종이와 여백으로 이 유인물이 인쇄되는 장수"
+  "The sheets this handout prints on, at this paper and these margins": "이 종이와 여백으로 이 유인물이 인쇄되는 장수",
+  "If something goes wrong": "문제가 생겼을 때",
+  "The log": "로그",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "앱이 무엇을 언제 했는지 기록한 것으로, 어디서 잘못됐는지 알릴 수 있습니다. 직접 보내지 않는 한 그 내용은 이 컴퓨터 밖으로 나가지 않습니다.",
+  "Show the log": "로그 보기",
+  "Something to report": "알릴 것이 있을 때",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "{email} 앞으로 새 메일을 엽니다. 버전과 시스템은 미리 적혀 있습니다. 바로 전에 무엇을 했는지 적고, 가능하면 로그를 첨부하세요.",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "설교를 폴더에 저장하지 못했습니다. 쓴 글은 이 컴퓨터에 보관되며, 폴더가 허락하는 대로 그곳에 저장됩니다.",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "설교를 폴더에 저장하지 못했고, 이 컴퓨터에 사본을 남기지도 못했습니다. 창을 닫지 말고 폴더를 확인하세요.",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "지난번에 “{title}”을(를) 폴더에 저장하지 못했습니다. 쓴 글은 이 컴퓨터에 보관되어 있습니다.",
+  "Open it": "열기",
+  "Discard": "버리기",
+  "That copy is no longer on this computer.": "그 사본은 이제 이 컴퓨터에 없습니다.",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "설교 1편이 iCloud에만 있고 아직 이 Mac에는 없습니다. 가져오는 중입니다.",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "설교 {n}편이 iCloud에만 있고 아직 이 Mac에는 없습니다. 가져오는 중입니다."
 };
 const pt$3 = {
   "Drag to move this picture": "Arraste para mover esta imagem",
@@ -19970,7 +19998,21 @@ const pt$3 = {
   "Prints on 1 sheet": "Imprime em 1 folha",
   "Prints on {n} sheets": "Imprime em {n} folhas",
   "Sheet {n}": "Folha {n}",
-  "The sheets this handout prints on, at this paper and these margins": "As folhas em que este folheto imprime, com este papel e estas margens"
+  "The sheets this handout prints on, at this paper and these margins": "As folhas em que este folheto imprime, com este papel e estas margens",
+  "If something goes wrong": "Se algo der errado",
+  "The log": "O registro",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "O que o aplicativo fez e quando, para que um relato possa dizer onde deu errado. Nada disso sai deste computador a menos que você envie.",
+  "Show the log": "Mostrar o registro",
+  "Something to report": "Algo a relatar",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "Uma nova mensagem para {email}, com a versão e o sistema já preenchidos. Conte o que você fez logo antes e anexe o registro se puder.",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "Não foi possível salvar o sermão na sua pasta. Suas palavras ficam guardadas neste computador e serão salvas lá assim que a pasta permitir.",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "Não foi possível salvar o sermão na sua pasta, nem guardar uma cópia neste computador. Deixe a janela aberta e verifique a pasta.",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "“{title}” não pôde ser salvo na sua pasta da última vez. Suas palavras ficam guardadas neste computador.",
+  "Open it": "Abrir",
+  "Discard": "Descartar",
+  "That copy is no longer on this computer.": "Essa cópia já não está neste computador.",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 sermão está no iCloud e ainda não neste Mac; está sendo baixado.",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} sermões estão no iCloud e ainda não neste Mac; estão sendo baixados."
 };
 const fr$3 = {
   "Drag to move this picture": "Glisser pour déplacer cette image",
@@ -21519,7 +21561,21 @@ const fr$3 = {
   "Prints on 1 sheet": "S’imprime sur 1 feuille",
   "Prints on {n} sheets": "S’imprime sur {n} feuilles",
   "Sheet {n}": "Feuille {n}",
-  "The sheets this handout prints on, at this paper and these margins": "Les feuilles sur lesquelles ce feuillet s’imprime, avec ce papier et ces marges"
+  "The sheets this handout prints on, at this paper and these margins": "Les feuilles sur lesquelles ce feuillet s’imprime, avec ce papier et ces marges",
+  "If something goes wrong": "Si quelque chose ne va pas",
+  "The log": "Le journal",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "Ce que l’application a fait et quand, pour qu’un signalement puisse dire où cela a mal tourné. Rien de ce qu’il contient ne quitte cet ordinateur, sauf si vous l’envoyez.",
+  "Show the log": "Afficher le journal",
+  "Something to report": "Quelque chose à signaler",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "Un nouveau message à {email}, avec la version et le système déjà renseignés. Dites ce que vous faisiez juste avant, et joignez le journal si vous le pouvez.",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "Le sermon n’a pas pu être enregistré dans son dossier. Vos mots sont gardés sur cet ordinateur et y seront enregistrés dès que le dossier le permettra.",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "Le sermon n’a pas pu être enregistré dans son dossier, et aucune copie n’a pu être gardée sur cet ordinateur. Laissez la fenêtre ouverte et vérifiez le dossier.",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "« {title} » n’a pas pu être enregistré dans son dossier la dernière fois. Vos mots sont gardés sur cet ordinateur.",
+  "Open it": "L’ouvrir",
+  "Discard": "Abandonner",
+  "That copy is no longer on this computer.": "Cette copie n’est plus sur cet ordinateur.",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 sermon est dans iCloud et pas encore sur ce Mac ; il est en cours de récupération.",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} sermons sont dans iCloud et pas encore sur ce Mac ; ils sont en cours de récupération."
 };
 const de$1 = {
   "Drag to move this picture": "Ziehen, um dieses Bild zu verschieben",
@@ -23068,7 +23124,21 @@ const de$1 = {
   "Prints on 1 sheet": "Druckt auf 1 Blatt",
   "Prints on {n} sheets": "Druckt auf {n} Blätter",
   "Sheet {n}": "Blatt {n}",
-  "The sheets this handout prints on, at this paper and these margins": "Die Blätter, auf die dieses Handout bei diesem Papier und diesen Rändern druckt"
+  "The sheets this handout prints on, at this paper and these margins": "Die Blätter, auf die dieses Handout bei diesem Papier und diesen Rändern druckt",
+  "If something goes wrong": "Wenn etwas schiefgeht",
+  "The log": "Das Protokoll",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "Was die App wann getan hat, damit eine Meldung sagen kann, wo es schiefging. Nichts davon verlässt diesen Rechner, es sei denn, Sie senden es.",
+  "Show the log": "Protokoll anzeigen",
+  "Something to report": "Etwas zu melden",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "Eine neue Nachricht an {email}, Version und System schon eingetragen. Sagen Sie, was Sie kurz davor getan haben, und hängen Sie das Protokoll an, wenn Sie können.",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "Die Predigt konnte nicht in ihrem Ordner gesichert werden. Ihre Worte bleiben auf diesem Rechner und werden dort gesichert, sobald der Ordner es zulässt.",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "Die Predigt konnte nicht in ihrem Ordner gesichert werden, und auch keine Kopie konnte auf diesem Rechner behalten werden. Lassen Sie das Fenster offen und prüfen Sie den Ordner.",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "„{title}“ konnte beim letzten Mal nicht in ihrem Ordner gesichert werden. Ihre Worte sind auf diesem Rechner aufbewahrt.",
+  "Open it": "Öffnen",
+  "Discard": "Verwerfen",
+  "That copy is no longer on this computer.": "Diese Kopie ist nicht mehr auf diesem Rechner.",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 Predigt liegt in iCloud und noch nicht auf diesem Mac; sie wird geholt.",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} Predigten liegen in iCloud und noch nicht auf diesem Mac; sie werden geholt."
 };
 const zh = {
   "Drag to move this picture": "拖动以移动此图片",
@@ -24617,7 +24687,21 @@ const zh = {
   "Prints on 1 sheet": "打印在 1 张纸上",
   "Prints on {n} sheets": "打印在 {n} 张纸上",
   "Sheet {n}": "第 {n} 张",
-  "The sheets this handout prints on, at this paper and these margins": "以此纸张和页边距，这份讲义打印所需的张数"
+  "The sheets this handout prints on, at this paper and these margins": "以此纸张和页边距，这份讲义打印所需的张数",
+  "If something goes wrong": "如果出了问题",
+  "The log": "日志",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "应用做了什么、何时做的，以便报告时能说明问题出在哪里。其中的内容不会离开这台电脑，除非你自己发送。",
+  "Show the log": "显示日志",
+  "Something to report": "有问题要反映",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "新建一封发给 {email} 的邮件，版本和系统已填好。说说出问题前你在做什么，能附上日志更好。",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "讲章无法保存到它的文件夹。你的文字已留在这台电脑上，文件夹一旦允许就会保存过去。",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "讲章无法保存到它的文件夹，也无法在这台电脑上留下副本。请不要关闭窗口，检查一下文件夹。",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "上次“{title}”无法保存到它的文件夹。你的文字已留在这台电脑上。",
+  "Open it": "打开",
+  "Discard": "丢弃",
+  "That copy is no longer on this computer.": "这台电脑上已经没有那份副本了。",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 篇讲章在 iCloud 上，尚未下载到这台 Mac；正在获取。",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} 篇讲章在 iCloud 上，尚未下载到这台 Mac；正在获取。"
 };
 const ja = {
   "Drag to move this picture": "ドラッグしてこの画像を移動",
@@ -26166,7 +26250,21 @@ const ja = {
   "Prints on 1 sheet": "1枚に印刷",
   "Prints on {n} sheets": "{n}枚に印刷",
   "Sheet {n}": "{n}枚目",
-  "The sheets this handout prints on, at this paper and these margins": "この用紙と余白でこの配布資料が印刷される枚数"
+  "The sheets this handout prints on, at this paper and these margins": "この用紙と余白でこの配布資料が印刷される枚数",
+  "If something goes wrong": "問題が起きたとき",
+  "The log": "ログ",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "アプリが何をいつ行ったかの記録です。報告の際に、どこで問題が起きたかを伝えられます。送信しない限り、内容がこのコンピュータの外に出ることはありません。",
+  "Show the log": "ログを表示",
+  "Something to report": "報告したいこと",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "{email} 宛ての新しいメールを開きます。バージョンとシステムはあらかじめ記入されています。直前に何をしていたかを書き、できればログを添付してください。",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "説教をフォルダに保存できませんでした。言葉はこのコンピュータに保管され、フォルダが許し次第そこへ保存されます。",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "説教をフォルダに保存できず、このコンピュータに控えを残すこともできませんでした。ウィンドウを閉じずに、フォルダを確認してください。",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "前回、「{title}」をフォルダに保存できませんでした。言葉はこのコンピュータに保管されています。",
+  "Open it": "開く",
+  "Discard": "破棄",
+  "That copy is no longer on this computer.": "その控えはもうこのコンピュータにありません。",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 件の説教が iCloud にあり、まだこの Mac にはありません。取得しています。",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} 件の説教が iCloud にあり、まだこの Mac にはありません。取得しています。"
 };
 const tl = {
   "Drag to move this picture": "I-drag para ilipat ang larawang ito",
@@ -27715,7 +27813,21 @@ const tl = {
   "Prints on 1 sheet": "Naka-print sa 1 pahina",
   "Prints on {n} sheets": "Naka-print sa {n} pahina",
   "Sheet {n}": "Pahina {n}",
-  "The sheets this handout prints on, at this paper and these margins": "Ang mga pahinang ipi-print ng handout na ito, sa papel at mga margin na ito"
+  "The sheets this handout prints on, at this paper and these margins": "Ang mga pahinang ipi-print ng handout na ito, sa papel at mga margin na ito",
+  "If something goes wrong": "Kung may mali",
+  "The log": "Ang log",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "Ang ginawa ng app at kung kailan, para masabi ng ulat kung saan nagkamali. Walang laman nito ang lalabas sa computer na ito maliban kung ipadala mo.",
+  "Show the log": "Ipakita ang log",
+  "Something to report": "May iuulat",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "Bagong mensahe sa {email}, nakalagay na ang bersyon at ang sistema. Sabihin kung ano ang ginawa mo bago iyon, at ilakip ang log kung kaya mo.",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "Hindi na-save ang sermon sa folder nito. Nakatago ang mga salita mo sa computer na ito at mase-save doon sa sandaling pumayag ang folder.",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "Hindi na-save ang sermon sa folder nito, at wala ring kopyang naitago sa computer na ito. Iwanang bukas ang window at tingnan ang folder.",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "Hindi na-save ang “{title}” sa folder nito noong huli. Nakatago ang mga salita mo sa computer na ito.",
+  "Open it": "Buksan",
+  "Discard": "Itapon",
+  "That copy is no longer on this computer.": "Wala na sa computer na ito ang kopyang iyon.",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 sermon ang nasa iCloud at wala pa sa Mac na ito; kinukuha na.",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} sermon ang nasa iCloud at wala pa sa Mac na ito; kinukuha na."
 };
 const id = {
   "Drag to move this picture": "Seret untuk memindahkan gambar ini",
@@ -29264,7 +29376,21 @@ const id = {
   "Prints on 1 sheet": "Tercetak pada 1 lembar",
   "Prints on {n} sheets": "Tercetak pada {n} lembar",
   "Sheet {n}": "Lembar {n}",
-  "The sheets this handout prints on, at this paper and these margins": "Lembar yang dipakai selebaran ini saat dicetak, dengan kertas dan margin ini"
+  "The sheets this handout prints on, at this paper and these margins": "Lembar yang dipakai selebaran ini saat dicetak, dengan kertas dan margin ini",
+  "If something goes wrong": "Jika ada yang tidak beres",
+  "The log": "Log",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "Apa yang dilakukan aplikasi dan kapan, supaya laporan bisa menyebutkan di mana kesalahannya. Tidak ada isinya yang keluar dari komputer ini kecuali Anda mengirimkannya.",
+  "Show the log": "Tampilkan log",
+  "Something to report": "Ada yang perlu dilaporkan",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "Pesan baru ke {email}, dengan versi dan sistem sudah terisi. Ceritakan apa yang Anda lakukan sesaat sebelumnya, dan lampirkan log jika bisa.",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "Khotbah tidak dapat disimpan ke foldernya. Kata-kata Anda disimpan di komputer ini dan akan disimpan ke sana begitu folder itu mengizinkan.",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "Khotbah tidak dapat disimpan ke foldernya, dan salinannya pun tidak dapat disimpan di komputer ini. Biarkan jendela terbuka dan periksa foldernya.",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "“{title}” tidak dapat disimpan ke foldernya terakhir kali. Kata-kata Anda tersimpan di komputer ini.",
+  "Open it": "Buka",
+  "Discard": "Buang",
+  "That copy is no longer on this computer.": "Salinan itu sudah tidak ada di komputer ini.",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 khotbah ada di iCloud dan belum di Mac ini; sedang diambil.",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} khotbah ada di iCloud dan belum di Mac ini; sedang diambil."
 };
 const ru = {
   "Drag to move this picture": "Перетащите, чтобы переместить это изображение",
@@ -30813,7 +30939,21 @@ const ru = {
   "Prints on 1 sheet": "Печатается на 1 листе",
   "Prints on {n} sheets": "Печатается на {n} листах",
   "Sheet {n}": "Лист {n}",
-  "The sheets this handout prints on, at this paper and these margins": "Листы, на которых печатается этот раздаточный лист при этой бумаге и этих полях"
+  "The sheets this handout prints on, at this paper and these margins": "Листы, на которых печатается этот раздаточный лист при этой бумаге и этих полях",
+  "If something goes wrong": "Если что-то пошло не так",
+  "The log": "Журнал",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "Что и когда делало приложение, чтобы в сообщении можно было указать, где произошёл сбой. Ничего из него не покидает этот компьютер, пока вы сами его не отправите.",
+  "Show the log": "Показать журнал",
+  "Something to report": "Есть что сообщить",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "Новое письмо на {email}, версия и система уже указаны. Расскажите, что вы делали перед этим, и приложите журнал, если сможете.",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "Проповедь не удалось сохранить в её папку. Ваши слова сохранены на этом компьютере и будут записаны туда, как только папка это позволит.",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "Проповедь не удалось сохранить в её папку, и копию на этом компьютере тоже не удалось сохранить. Не закрывайте окно и проверьте папку.",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "«{title}» в прошлый раз не удалось сохранить в её папку. Ваши слова сохранены на этом компьютере.",
+  "Open it": "Открыть",
+  "Discard": "Удалить",
+  "That copy is no longer on this computer.": "Этой копии больше нет на этом компьютере.",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 проповедь находится в iCloud и ещё не на этом Mac; она загружается.",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} проповедь находится в iCloud и ещё не на этом Mac; она загружается.|{n} проповеди находятся в iCloud и ещё не на этом Mac; они загружаются.|{n} проповедей находятся в iCloud и ещё не на этом Mac; они загружаются."
 };
 const sw = {
   "Drag to move this picture": "Buruta kuhamisha picha hii",
@@ -32362,7 +32502,21 @@ const sw = {
   "Prints on 1 sheet": "Huchapishwa kwenye karatasi 1",
   "Prints on {n} sheets": "Huchapishwa kwenye karatasi {n}",
   "Sheet {n}": "Karatasi {n}",
-  "The sheets this handout prints on, at this paper and these margins": "Karatasi ambazo kijitabu hiki huchapishwa kwazo, kwa karatasi hii na pambizo hizi"
+  "The sheets this handout prints on, at this paper and these margins": "Karatasi ambazo kijitabu hiki huchapishwa kwazo, kwa karatasi hii na pambizo hizi",
+  "If something goes wrong": "Kama kuna tatizo",
+  "The log": "Kumbukumbu",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "Yale programu ilifanya na wakati gani, ili ripoti iweze kusema mahali ilipoharibika. Hakuna kilichomo kinachotoka kwenye kompyuta hii isipokuwa ukikituma.",
+  "Show the log": "Onyesha kumbukumbu",
+  "Something to report": "Jambo la kuripoti",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "Ujumbe mpya kwa {email}, toleo na mfumo tayari vimejazwa. Sema ulichofanya kabla tu ya hapo, na ambatisha kumbukumbu ukiweza.",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "Mahubiri hayakuweza kuhifadhiwa kwenye folda yake. Maneno yako yamewekwa kwenye kompyuta hii na yatahifadhiwa huko mara folda itakaporuhusu.",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "Mahubiri hayakuweza kuhifadhiwa kwenye folda yake, na nakala pia haikuweza kuwekwa kwenye kompyuta hii. Acha dirisha wazi na uangalie folda.",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "“{title}” hayakuweza kuhifadhiwa kwenye folda yake mara ya mwisho. Maneno yako yamewekwa kwenye kompyuta hii.",
+  "Open it": "Yafungue",
+  "Discard": "Yatupe",
+  "That copy is no longer on this computer.": "Nakala hiyo haipo tena kwenye kompyuta hii.",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "Mahubiri 1 yako kwenye iCloud na bado hayapo kwenye Mac hii; yanaletwa.",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "Mahubiri {n} yako kwenye iCloud na bado hayapo kwenye Mac hii; yanaletwa."
 };
 const vi$2 = {
   " · in {group}": " · trong {group}",
@@ -33911,7 +34065,21 @@ const vi$2 = {
   "Keyboard shortcuts…": "Phím tắt…",
   "Show or hide the Format panel": "Hiện hoặc ẩn bảng Định dạng",
   "What's new": "Có gì mới",
-  "Write to us": "Viết thư cho chúng tôi"
+  "Write to us": "Viết thư cho chúng tôi",
+  "If something goes wrong": "Nếu có gì trục trặc",
+  "The log": "Nhật ký",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "Ứng dụng đã làm gì và khi nào, để báo cáo có thể nói rõ lỗi xảy ra ở đâu. Không có gì trong đó rời khỏi máy tính này trừ khi bạn gửi đi.",
+  "Show the log": "Hiện nhật ký",
+  "Something to report": "Có điều cần báo",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "Một thư mới gửi tới {email}, đã điền sẵn phiên bản và hệ thống. Hãy kể bạn vừa làm gì ngay trước đó, và đính kèm nhật ký nếu được.",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "Không lưu được bài giảng vào thư mục của nó. Lời của bạn được giữ trên máy tính này và sẽ được lưu vào đó ngay khi thư mục cho phép.",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "Không lưu được bài giảng vào thư mục của nó, và cũng không giữ được bản sao trên máy tính này. Hãy để cửa sổ mở và kiểm tra thư mục.",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "Lần trước không lưu được “{title}” vào thư mục của nó. Lời của bạn được giữ trên máy tính này.",
+  "Open it": "Mở",
+  "Discard": "Bỏ",
+  "That copy is no longer on this computer.": "Bản sao đó không còn trên máy tính này.",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 bài giảng đang ở trên iCloud và chưa có trên máy Mac này; đang tải về.",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} bài giảng đang ở trên iCloud và chưa có trên máy Mac này; đang tải về."
 };
 const uk = {
   " · in {group}": " · у групі «{group}»",
@@ -35460,7 +35628,21 @@ const uk = {
   "Keyboard shortcuts…": "Сполучення клавіш…",
   "Show or hide the Format panel": "Показати або сховати панель «Формат»",
   "What's new": "Що нового",
-  "Write to us": "Напишіть нам"
+  "Write to us": "Напишіть нам",
+  "If something goes wrong": "Якщо щось пішло не так",
+  "The log": "Журнал",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "Що й коли робив застосунок, щоб у повідомленні можна було вказати, де стався збій. Ніщо з нього не залишає цей комп’ютер, доки ви самі його не надішлете.",
+  "Show the log": "Показати журнал",
+  "Something to report": "Є що повідомити",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "Новий лист на {email}, версію та систему вже вказано. Розкажіть, що ви робили перед цим, і долучіть журнал, якщо зможете.",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "Проповідь не вдалося зберегти в її теку. Ваші слова збережено на цьому комп’ютері, і їх буде записано туди, щойно тека це дозволить.",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "Проповідь не вдалося зберегти в її теку, і копію на цьому комп’ютері теж не вдалося зберегти. Не закривайте вікно й перевірте теку.",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "«{title}» минулого разу не вдалося зберегти в її теку. Ваші слова збережено на цьому комп’ютері.",
+  "Open it": "Відкрити",
+  "Discard": "Видалити",
+  "That copy is no longer on this computer.": "Цієї копії вже немає на цьому комп’ютері.",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 проповідь є в iCloud і ще не на цьому Mac; її завантажують.",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} проповідь є в iCloud і ще не на цьому Mac; її завантажують.|{n} проповіді є в iCloud і ще не на цьому Mac; їх завантажують.|{n} проповідей є в iCloud і ще не на цьому Mac; їх завантажують."
 };
 const zhHant = {
   "Drag to move this picture": "拖曳以移動此圖片",
@@ -37009,7 +37191,21 @@ const zhHant = {
   "Prints on 1 sheet": "列印在 1 張紙上",
   "Prints on {n} sheets": "列印在 {n} 張紙上",
   "Sheet {n}": "第 {n} 張",
-  "The sheets this handout prints on, at this paper and these margins": "以此紙張和頁邊距，這份講義列印所需的張數"
+  "The sheets this handout prints on, at this paper and these margins": "以此紙張和頁邊距，這份講義列印所需的張數",
+  "If something goes wrong": "如果出了問題",
+  "The log": "記錄檔",
+  "What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it.": "應用程式做了什麼、何時做的，讓回報時能說明問題出在哪裡。其中的內容不會離開這台電腦，除非你自己寄出。",
+  "Show the log": "顯示記錄檔",
+  "Something to report": "有問題要回報",
+  "A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.": "新增一封寄給 {email} 的郵件，版本與系統已填好。說說出問題前你在做什麼，能附上記錄檔更好。",
+  "The sermon could not be saved to its folder. Your words are kept on this computer and will be saved there as soon as it allows.": "講章無法儲存到它的資料夾。你的文字已留在這台電腦上，資料夾一允許就會儲存過去。",
+  "The sermon could not be saved to its folder, and no copy could be kept on this computer. Leave the window open and check the folder.": "講章無法儲存到它的資料夾，也無法在這台電腦上留下副本。請不要關閉視窗，檢查一下資料夾。",
+  "“{title}” could not be saved to its folder last time. Your words are kept on this computer.": "上次「{title}」無法儲存到它的資料夾。你的文字已留在這台電腦上。",
+  "Open it": "開啟",
+  "Discard": "捨棄",
+  "That copy is no longer on this computer.": "這台電腦上已經沒有那份副本了。",
+  "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 篇講章在 iCloud 上，尚未下載到這台 Mac；正在取得。",
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} 篇講章在 iCloud 上，尚未下載到這台 Mac；正在取得。"
 };
 const TABLES = { en: {}, es, ko, pt: pt$3, fr: fr$3, de: de$1, zh, "zh-Hant": zhHant, ja, tl, id, vi: vi$2, ru, uk, sw };
 function fill(text, vars) {
@@ -37259,6 +37455,10 @@ const DEFAULT_APP_SETTINGS = {
   inspectorOpen: true,
   formatting: "inspector"
 };
+function ipcMessage(cause) {
+  const text = cause instanceof Error ? cause.message : String(cause);
+  return text.replace(/^Error invoking remote method '[^']*': (?:[A-Za-z]*Error: )?/, "");
+}
 function canWrite(status) {
   return status.state === "active" || status.state === "stale";
 }
@@ -37788,7 +37988,7 @@ function createLucideIcon(iconDataOrName, iconNode = [], aliases = []) {
   }
   return Component;
 }
-const __iconData$13 = {
+const __iconData$14 = {
   name: "a-arrow-down",
   size: 24,
   node: [
@@ -37798,9 +37998,9 @@ const __iconData$13 = {
     ["path", { d: "M3.304 13h6.392", key: "1q3zxz" }]
   ]
 };
-__iconData$13.node;
-const AArrowDown = createLucideIcon(__iconData$13);
-const __iconData$12 = {
+__iconData$14.node;
+const AArrowDown = createLucideIcon(__iconData$14);
+const __iconData$13 = {
   name: "a-arrow-up",
   size: 24,
   node: [
@@ -37810,9 +38010,9 @@ const __iconData$12 = {
     ["path", { d: "M3.304 13h6.392", key: "1q3zxz" }]
   ]
 };
-__iconData$12.node;
-const AArrowUp = createLucideIcon(__iconData$12);
-const __iconData$11 = {
+__iconData$13.node;
+const AArrowUp = createLucideIcon(__iconData$13);
+const __iconData$12 = {
   name: "align-vertical-space-around",
   size: 24,
   node: [
@@ -37821,9 +38021,9 @@ const __iconData$11 = {
     ["path", { d: "M22 4H2", key: "1b7qnq" }]
   ]
 };
-__iconData$11.node;
-const AlignVerticalSpaceAround = createLucideIcon(__iconData$11);
-const __iconData$10 = {
+__iconData$12.node;
+const AlignVerticalSpaceAround = createLucideIcon(__iconData$12);
+const __iconData$11 = {
   name: "arrow-down",
   size: 24,
   node: [
@@ -37831,9 +38031,9 @@ const __iconData$10 = {
     ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
   ]
 };
-__iconData$10.node;
-const ArrowDown = createLucideIcon(__iconData$10);
-const __iconData$$ = {
+__iconData$11.node;
+const ArrowDown = createLucideIcon(__iconData$11);
+const __iconData$10 = {
   name: "arrow-up",
   size: 24,
   node: [
@@ -37841,9 +38041,9 @@ const __iconData$$ = {
     ["path", { d: "M12 19V5", key: "x0mq9r" }]
   ]
 };
-__iconData$$.node;
-const ArrowUp = createLucideIcon(__iconData$$);
-const __iconData$_ = {
+__iconData$10.node;
+const ArrowUp = createLucideIcon(__iconData$10);
+const __iconData$$ = {
   name: "book-bookmark",
   size: 24,
   node: [
@@ -37864,9 +38064,9 @@ const __iconData$_ = {
   ],
   aliases: ["book-marked"]
 };
-__iconData$_.node;
-const BookBookmark = createLucideIcon(__iconData$_);
-const __iconData$Z = {
+__iconData$$.node;
+const BookBookmark = createLucideIcon(__iconData$$);
+const __iconData$_ = {
   name: "book-open",
   size: 24,
   node: [
@@ -37880,9 +38080,9 @@ const __iconData$Z = {
     ]
   ]
 };
-__iconData$Z.node;
-const BookOpen = createLucideIcon(__iconData$Z);
-const __iconData$Y = {
+__iconData$_.node;
+const BookOpen = createLucideIcon(__iconData$_);
+const __iconData$Z = {
   name: "box",
   size: 24,
   node: [
@@ -37897,9 +38097,9 @@ const __iconData$Y = {
     ["path", { d: "M12 22V12", key: "d0xqtd" }]
   ]
 };
-__iconData$Y.node;
-const Box$1 = createLucideIcon(__iconData$Y);
-const __iconData$X = {
+__iconData$Z.node;
+const Box$1 = createLucideIcon(__iconData$Z);
+const __iconData$Y = {
   name: "calendar-days",
   size: 24,
   node: [
@@ -37915,37 +38115,37 @@ const __iconData$X = {
     ["path", { d: "M16 17h.01", key: "ql8jdd" }]
   ]
 };
-__iconData$X.node;
-const CalendarDays = createLucideIcon(__iconData$X);
-const __iconData$W = {
+__iconData$Y.node;
+const CalendarDays = createLucideIcon(__iconData$Y);
+const __iconData$X = {
   name: "check",
   size: 24,
   node: [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]]
 };
-__iconData$W.node;
-const Check$1 = createLucideIcon(__iconData$W);
-const __iconData$V = {
+__iconData$X.node;
+const Check$1 = createLucideIcon(__iconData$X);
+const __iconData$W = {
   name: "chevron-right",
   size: 24,
   node: [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]]
 };
-__iconData$V.node;
-const ChevronRight = createLucideIcon(__iconData$V);
-const __iconData$U = {
+__iconData$W.node;
+const ChevronRight = createLucideIcon(__iconData$W);
+const __iconData$V = {
   name: "chevron-left",
   size: 24,
   node: [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]]
 };
-__iconData$U.node;
-const ChevronLeft = createLucideIcon(__iconData$U);
-const __iconData$T = {
+__iconData$V.node;
+const ChevronLeft = createLucideIcon(__iconData$V);
+const __iconData$U = {
   name: "chevron-up",
   size: 24,
   node: [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]]
 };
-__iconData$T.node;
-const ChevronUp = createLucideIcon(__iconData$T);
-const __iconData$S = {
+__iconData$U.node;
+const ChevronUp = createLucideIcon(__iconData$U);
+const __iconData$T = {
   name: "church",
   size: 24,
   node: [
@@ -37968,16 +38168,16 @@ const __iconData$S = {
     ]
   ]
 };
-__iconData$S.node;
-const Church = createLucideIcon(__iconData$S);
-const __iconData$R = {
+__iconData$T.node;
+const Church = createLucideIcon(__iconData$T);
+const __iconData$S = {
   name: "cloud",
   size: 24,
   node: [["path", { d: "M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z", key: "p7xjir" }]]
 };
-__iconData$R.node;
-const Cloud = createLucideIcon(__iconData$R);
-const __iconData$Q = {
+__iconData$S.node;
+const Cloud = createLucideIcon(__iconData$S);
+const __iconData$R = {
   name: "cloudy",
   size: 24,
   node: [
@@ -37985,9 +38185,9 @@ const __iconData$Q = {
     ["path", { d: "M21.832 9A3 3 0 0 0 19 7h-2.207a5.5 5.5 0 0 0-10.72.61", key: "leugyv" }]
   ]
 };
-__iconData$Q.node;
-const Cloudy = createLucideIcon(__iconData$Q);
-const __iconData$P = {
+__iconData$R.node;
+const Cloudy = createLucideIcon(__iconData$R);
+const __iconData$Q = {
   name: "copy",
   size: 24,
   node: [
@@ -37995,9 +38195,9 @@ const __iconData$P = {
     ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
   ]
 };
-__iconData$P.node;
-const Copy = createLucideIcon(__iconData$P);
-const __iconData$O = {
+__iconData$Q.node;
+const Copy = createLucideIcon(__iconData$Q);
+const __iconData$P = {
   name: "download",
   size: 24,
   node: [
@@ -38006,9 +38206,9 @@ const __iconData$O = {
     ["path", { d: "m7 10 5 5 5-5", key: "brsn70" }]
   ]
 };
-__iconData$O.node;
-const Download = createLucideIcon(__iconData$O);
-const __iconData$N = {
+__iconData$P.node;
+const Download = createLucideIcon(__iconData$P);
+const __iconData$O = {
   name: "ellipsis",
   size: 24,
   node: [
@@ -38018,9 +38218,9 @@ const __iconData$N = {
   ],
   aliases: ["more-horizontal"]
 };
-__iconData$N.node;
-const Ellipsis = createLucideIcon(__iconData$N);
-const __iconData$M = {
+__iconData$O.node;
+const Ellipsis = createLucideIcon(__iconData$O);
+const __iconData$N = {
   name: "eraser",
   size: 24,
   node: [
@@ -38034,9 +38234,9 @@ const __iconData$M = {
     ["path", { d: "m5.082 11.09 8.828 8.828", key: "1wx5vj" }]
   ]
 };
-__iconData$M.node;
-const Eraser = createLucideIcon(__iconData$M);
-const __iconData$L = {
+__iconData$N.node;
+const Eraser = createLucideIcon(__iconData$N);
+const __iconData$M = {
   name: "file-down",
   size: 24,
   node: [
@@ -38052,9 +38252,9 @@ const __iconData$L = {
     ["path", { d: "m9 15 3 3 3-3", key: "1npd3o" }]
   ]
 };
-__iconData$L.node;
-const FileDown = createLucideIcon(__iconData$L);
-const __iconData$K = {
+__iconData$M.node;
+const FileDown = createLucideIcon(__iconData$M);
+const __iconData$L = {
   name: "file-plus",
   size: 24,
   node: [
@@ -38070,9 +38270,9 @@ const __iconData$K = {
     ["path", { d: "M12 18v-6", key: "17g6i2" }]
   ]
 };
-__iconData$K.node;
-const FilePlus = createLucideIcon(__iconData$K);
-const __iconData$J = {
+__iconData$L.node;
+const FilePlus = createLucideIcon(__iconData$L);
+const __iconData$K = {
   name: "file-text",
   size: 24,
   node: [
@@ -38089,9 +38289,9 @@ const __iconData$J = {
     ["path", { d: "M16 17H8", key: "z1uh3a" }]
   ]
 };
-__iconData$J.node;
-const FileText = createLucideIcon(__iconData$J);
-const __iconData$I = {
+__iconData$K.node;
+const FileText = createLucideIcon(__iconData$K);
+const __iconData$J = {
   name: "file-type",
   size: 24,
   node: [
@@ -38108,9 +38308,9 @@ const __iconData$I = {
     ["path", { d: "M9 13v-.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v.5", key: "qbrxap" }]
   ]
 };
-__iconData$I.node;
-const FileType = createLucideIcon(__iconData$I);
-const __iconData$H = {
+__iconData$J.node;
+const FileType = createLucideIcon(__iconData$J);
+const __iconData$I = {
   name: "folder",
   size: 24,
   node: [
@@ -38123,8 +38323,19 @@ const __iconData$H = {
     ]
   ]
 };
+__iconData$I.node;
+const Folder = createLucideIcon(__iconData$I);
+const __iconData$H = {
+  name: "globe",
+  size: 24,
+  node: [
+    ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+    ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
+    ["path", { d: "M2 12h20", key: "9i4pu4" }]
+  ]
+};
 __iconData$H.node;
-const Folder = createLucideIcon(__iconData$H);
+const Globe = createLucideIcon(__iconData$H);
 const __iconData$G = {
   name: "image",
   size: 24,
@@ -38731,7 +38942,9 @@ function SetupScreen({
   onUseCloudFolder,
   onConnectCloudFolder,
   onDisconnectCloudFolder,
-  onContinue
+  onContinue,
+  language,
+  onLanguage
 }) {
   const t2 = useT();
   const missing = folder?.path && !folder.exists;
@@ -38741,6 +38954,10 @@ function SetupScreen({
   const providers = [...CLOUD_PROVIDERS.filter((p2) => found2.has(p2)), ...CLOUD_PROVIDERS.filter((p2) => !found2.has(p2))];
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "welcome", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "topbar topbar--bare", "aria-hidden": "true" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "welcome__language", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Globe, { size: 14, strokeWidth: 1.6, "aria-hidden": "true" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("select", { className: "field", "aria-label": t2("Language"), value: language, onChange: (event) => onLanguage(event.target.value), children: LANGUAGES.map((entry) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: entry.code, children: entry.name }, entry.code)) })
+    ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "welcome__body", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "welcome__hero", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "welcome__mark", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { size: 32, strokeWidth: 1.5 }) }),
@@ -99475,7 +99692,7 @@ function useSermonDraft(sermon, filePath, writable, onChanged) {
       setSaveState("saved");
       onChanged();
     } catch (cause) {
-      setSaveMessage(cause instanceof Error ? cause.message : String(cause));
+      setSaveMessage(ipcMessage(cause));
       setSaveState("error");
     }
   }, [onChanged]);
@@ -100019,7 +100236,7 @@ function EditorPane({
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-status__count", title: active.selectedWords > 0 ? t2("The words chosen, of the words in this sermon") : t2("Words in this sermon, and roughly how long it takes to preach"), children: active.selectedWords > 0 ? t2("{n} of {total} words", { n: active.selectedWords.toLocaleString(locale), total: words.toLocaleString(locale) }) : words === 0 ? t2("No words yet") : words === 1 ? t2("1 word · about {m} min", { m: minutes }) : t2("{n} words · about {m} min", { n: words.toLocaleString(locale), m: minutes }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: doc2.saveState === "error" ? "editor-status__save editor-status__save--error" : "editor-status__save", role: "status", title: saveLabel, children: [
           (doc2.saveState === "idle" || doc2.saveState === "saved") && /* @__PURE__ */ jsxRuntimeExports.jsx(Check$1, { size: 12, strokeWidth: 2, "aria-hidden": "true" }),
-          saveLabel
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "editor-status__word", children: saveLabel })
         ] })
       ] })
     ] }),
@@ -101148,6 +101365,7 @@ function PodiumView({ sermon, onExit }) {
 }
 const CHECKOUT_URL = "https://sarangbi.lemonsqueezy.com/checkout/buy/58a09bd1-6ce5-48c1-bd92-9d39316682b8";
 const MANAGE_URL = "https://sarangbi.lemonsqueezy.com/billing";
+const SUPPORT_EMAIL = "davislor@sarangbi.co";
 const open = (url) => {
   if (url) window.open(url, "_blank", "noopener");
 };
@@ -101179,6 +101397,62 @@ function LicenseNotice({ status, onChanged, onEnterKey }) {
       actions.includes("manage") && MANAGE_URL && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", onClick: () => open(MANAGE_URL), children: t2("Manage subscription") }),
       actions.includes("check-again") && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link", disabled: busy, onClick: () => void checkAgain(), children: busy ? t2("Checking…") : t2("Check again") }),
       actions.includes("enter-key") && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "link link--strong", onClick: onEnterKey, children: t2("Enter key…") })
+    ] }),
+    error && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-error selectable", children: error })
+  ] });
+}
+function RecoveryNotice({ refreshKey, onOpen }) {
+  const t2 = useT();
+  const [rows, setRows] = reactExports$1.useState([]);
+  const [error, setError] = reactExports$1.useState(null);
+  const [busy, setBusy] = reactExports$1.useState(false);
+  reactExports$1.useEffect(() => {
+    let live = true;
+    void window.api.listRecoveries().then((found2) => {
+      if (live) setRows(found2);
+    }).catch(() => void 0);
+    return () => {
+      live = false;
+    };
+  }, [refreshKey]);
+  const done = reactExports$1.useCallback((id2) => {
+    setRows((current2) => current2.filter((row) => row.id !== id2));
+    setError(null);
+  }, []);
+  const first2 = rows[0];
+  if (!first2) return null;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "notice notice--warn", role: "alert", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Save, { size: 14, strokeWidth: 1.7 }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "notice__message", children: t2("“{title}” could not be saved to its folder last time. Your words are kept on this computer.", { title: first2.title }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "notice__actions", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          className: "button button--small",
+          disabled: busy,
+          onClick: () => {
+            void window.api.dropRecovery(first2.id).then(() => done(first2.id)).catch((cause) => setError(ipcMessage(cause)));
+          },
+          children: t2("Discard")
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          className: "button button--small button--primary",
+          disabled: busy,
+          onClick: () => {
+            setBusy(true);
+            void window.api.restoreRecovery(first2.id).then((result) => {
+              done(first2.id);
+              onOpen(result.filePath);
+            }).catch((cause) => setError(ipcMessage(cause))).finally(() => setBusy(false));
+          },
+          children: t2("Open it")
+        }
+      )
     ] }),
     error && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "app-error selectable", children: error })
   ] });
@@ -101975,7 +102249,7 @@ function Snippet({ text }) {
     (part, index2) => part.startsWith(SNIPPET_MARK_OPEN) && part.endsWith(SNIPPET_MARK_CLOSE) ? /* @__PURE__ */ jsxRuntimeExports.jsx("mark", { className: "hit__mark", children: part.slice(1, -1) }, index2) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: part }, index2)
   ) });
 }
-function SermonList({ hits, sermons, byYear, byBook, openPath, onOpen, writable, series, onOpenSeries, onDuplicate, onDelete, failures, header, empty: empty2 }) {
+function SermonList({ hits, sermons, byYear, byBook, openPath, onOpen, writable, series, onOpenSeries, onDuplicate, onDelete, failures, evicted, header, empty: empty2 }) {
   const t2 = useT();
   const language = useLanguage();
   const locale = localeOf(language);
@@ -102107,6 +102381,7 @@ function SermonList({ hits, sermons, byYear, byBook, openPath, onOpen, writable,
       )) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__list", children: [
         header,
+        evicted.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "library__failures", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "library__failures-summary", children: evicted.length === 1 ? t2("1 sermon is in iCloud and not on this Mac yet; it is being fetched.") : t2("{n} sermons are in iCloud and not on this Mac yet; they are being fetched.", { n: evicted.length }) }) }),
         failures.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__failures", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "library__failures-summary", onClick: () => setShowFailures((open2) => !open2), children: failures.length === 1 ? t2("1 file could not be read") : t2("{n} files could not be read", { n: failures.length }) }),
           showFailures && /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "library__failures-list", children: failures.map((failure) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "library__failures-item", children: [
@@ -102431,12 +102706,19 @@ function LibraryColumn({
   const [churches, setChurches] = reactExports$1.useState([]);
   const [occasions, setOccasions] = reactExports$1.useState([]);
   const [failures, setFailures] = reactExports$1.useState([]);
+  const [evicted, setEvicted] = reactExports$1.useState([]);
   const [views, setViews] = reactExports$1.useState([]);
   const [viewName, setViewName] = reactExports$1.useState("");
   const [thisWeekCount, setThisWeekCount] = reactExports$1.useState(0);
   reactExports$1.useEffect(() => {
     void window.api.queryLibrary({ week: isoDate(), hideArchived: true, limit: 1e3 }).then((rows) => setThisWeekCount(rows.length)).catch(() => setThisWeekCount(0));
-    void window.api.getLibraryStatus().then((state) => setFailures(state.failures)).catch(() => setFailures([]));
+    void window.api.getLibraryStatus().then((state) => {
+      setFailures(state.failures);
+      setEvicted(state.evicted);
+    }).catch(() => {
+      setFailures([]);
+      setEvicted([]);
+    });
     void window.api.listViews().then(setViews).catch(() => setViews([]));
     void window.api.listChurches().then(setChurches).catch(() => setChurches([]));
     void window.api.readTags().then(setTagsFile).catch(() => setTagsFile(EMPTY_TAGS));
@@ -102787,6 +103069,7 @@ function LibraryColumn({
           onDuplicate,
           onDelete,
           failures,
+          evicted,
           header: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "library__order", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "library__count", children: [
               hits.length > 0 || text || narrowed || scope !== "all" ? sentence : "",
@@ -102825,6 +103108,8 @@ class Boundary extends reactExports$1.Component {
   }
   componentDidCatch(error, info) {
     console.error("The page stopped:", error, info.componentStack);
+    const where = (info.componentStack ?? "").trim().split("\n").slice(0, 3).map((line) => line.trim()).join(" < ");
+    window.api.report(`The page stopped: ${error.message}${where ? ` (${where})` : ""}`);
   }
   componentDidUpdate(previous) {
     if (this.state.error && previous.resetKey !== this.props.resetKey) this.setState({ error: null });
@@ -103344,6 +103629,10 @@ function PreferencesWindow({
             ariaLabel: t2("Dictation voice")
           }
         ) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Group, { title: t2("If something goes wrong"), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: t2("The log"), hint: t2("What the app did and when, so a report can say where it went wrong. Nothing in it leaves this computer unless you send it."), children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", onClick: () => void window.api.showLog(), children: t2("Show the log") }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: t2("Something to report"), hint: t2("A new message to {email}, with the version and the system filled in. Say what you did just before, and attach the log if you can.", { email: SUPPORT_EMAIL }), children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small", onClick: () => void window.api.writeToUs(), children: t2("Write to us") }) })
       ] })
     ] }),
     tab === "folder" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
@@ -104398,7 +104687,7 @@ function useSermonLifecycle() {
         } catch {
         }
       }
-    }).catch((cause) => setError(String(cause))).finally(() => setLoading(false));
+    }).catch((cause) => setError(ipcMessage(cause))).finally(() => setLoading(false));
   }, [refreshList]);
   const chooseFolder = reactExports$1.useCallback(async () => {
     try {
@@ -104408,7 +104697,7 @@ function useSermonLifecycle() {
       setOpen(null);
       await refreshList();
     } catch (cause) {
-      setError(String(cause));
+      setError(ipcMessage(cause));
     }
   }, [refreshList]);
   const adoptCloudFolder = reactExports$1.useCallback(
@@ -104420,7 +104709,7 @@ function useSermonLifecycle() {
         setOpen(null);
         await refreshList();
       } catch (cause) {
-        setError(String(cause));
+        setError(ipcMessage(cause));
       }
     },
     [refreshList]
@@ -104772,6 +105061,7 @@ function App() {
   const [licenseOpen, setLicenseOpen] = reactExports$1.useState(false);
   const [formatting, setFormatting] = reactExports$1.useState(DEFAULT_APP_SETTINGS.formatting);
   const setLanguage = useSetLanguage();
+  const language = useLanguage();
   const t2 = useT();
   const {
     narrow,
@@ -104965,11 +105255,19 @@ function App() {
         onUseCloudFolder: (provider) => void adoptCloudFolder(provider),
         onConnectCloudFolder: (provider) => void moveLibrary(() => window.api.connectCloudFolder(provider), t2("into {provider}", { provider })),
         onDisconnectCloudFolder: () => void moveLibrary(() => window.api.disconnectCloudFolder(), t2("to the folder you chose")),
-        onContinue: () => setAtDoor(false)
+        onContinue: () => setAtDoor(false),
+        language,
+        onLanguage: (code2) => {
+          setLanguage(code2);
+          void window.api.setAppSettings({ language: code2 });
+        }
       }
     );
   }
-  const notice = fileReason ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "notice notice--warn", role: "status", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "notice__message", children: fileReason }) }) : license ? /* @__PURE__ */ jsxRuntimeExports.jsx(LicenseNotice, { status: license, onChanged: setLicense, onEnterKey: () => setLicenseOpen(true) }) : null;
+  const notice = /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    fileReason ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "notice notice--warn", role: "status", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "notice__message", children: fileReason }) }) : license ? /* @__PURE__ */ jsxRuntimeExports.jsx(LicenseNotice, { status: license, onChanged: setLicense, onEnterKey: () => setLicenseOpen(true) }) : null,
+    /* @__PURE__ */ jsxRuntimeExports.jsx(RecoveryNotice, { refreshKey: folder.path, onOpen: (path) => void openSermon(path) })
+  ] });
   const cloudHome = cloudFolders.find((cloud) => folder.path?.startsWith(cloud.path));
   const whereLine = (cloudHome ? t2("Your sermons live in {folder}, synced on your own account.") : t2("Your sermons live in {folder}.")).split("{folder}");
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
