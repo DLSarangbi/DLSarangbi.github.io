@@ -16886,7 +16886,9 @@ const es = {
   "Discard": "Descartar",
   "That copy is no longer on this computer.": "Esa copia ya no está en este equipo.",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 sermón está en iCloud y aún no en este Mac; se está descargando.",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} sermones están en iCloud y aún no en este Mac; se están descargando."
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} sermones están en iCloud y aún no en este Mac; se están descargando.",
+  "SermonDesk no longer asks for a subscription.": "SermonDesk ya no pide una suscripción.",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "Todos los sermones, y el púlpito, son tuyos y lo seguirán siendo. La aplicación ya no se comunica con la tienda."
 };
 const ko = {
   "Drag to move this picture": "끌어서 이 그림을 옮깁니다",
@@ -18449,7 +18451,9 @@ const ko = {
   "Discard": "버리기",
   "That copy is no longer on this computer.": "그 사본은 이제 이 컴퓨터에 없습니다.",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "설교 1편이 iCloud에만 있고 아직 이 Mac에는 없습니다. 가져오는 중입니다.",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "설교 {n}편이 iCloud에만 있고 아직 이 Mac에는 없습니다. 가져오는 중입니다."
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "설교 {n}편이 iCloud에만 있고 아직 이 Mac에는 없습니다. 가져오는 중입니다.",
+  "SermonDesk no longer asks for a subscription.": "SermonDesk는 더 이상 구독을 요구하지 않습니다.",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "모든 설교와 강단은 그대로 간직하실 수 있습니다. 앱은 더 이상 상점에 연결하지 않습니다."
 };
 const pt$3 = {
   "Drag to move this picture": "Arraste para mover esta imagem",
@@ -20012,7 +20016,9 @@ const pt$3 = {
   "Discard": "Descartar",
   "That copy is no longer on this computer.": "Essa cópia já não está neste computador.",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 sermão está no iCloud e ainda não neste Mac; está sendo baixado.",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} sermões estão no iCloud e ainda não neste Mac; estão sendo baixados."
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} sermões estão no iCloud e ainda não neste Mac; estão sendo baixados.",
+  "SermonDesk no longer asks for a subscription.": "O SermonDesk não pede mais uma assinatura.",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "Todos os sermões, e o púlpito, são seus para sempre. O aplicativo não entra mais em contato com a loja."
 };
 const fr$3 = {
   "Drag to move this picture": "Glisser pour déplacer cette image",
@@ -21575,7 +21581,9 @@ const fr$3 = {
   "Discard": "Abandonner",
   "That copy is no longer on this computer.": "Cette copie n’est plus sur cet ordinateur.",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 sermon est dans iCloud et pas encore sur ce Mac ; il est en cours de récupération.",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} sermons sont dans iCloud et pas encore sur ce Mac ; ils sont en cours de récupération."
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} sermons sont dans iCloud et pas encore sur ce Mac ; ils sont en cours de récupération.",
+  "SermonDesk no longer asks for a subscription.": "SermonDesk ne demande plus d’abonnement.",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "Chaque sermon, et la chaire, sont à vous pour toujours. L’application ne contacte plus la boutique."
 };
 const de$1 = {
   "Drag to move this picture": "Ziehen, um dieses Bild zu verschieben",
@@ -23138,7 +23146,9 @@ const de$1 = {
   "Discard": "Verwerfen",
   "That copy is no longer on this computer.": "Diese Kopie ist nicht mehr auf diesem Rechner.",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 Predigt liegt in iCloud und noch nicht auf diesem Mac; sie wird geholt.",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} Predigten liegen in iCloud und noch nicht auf diesem Mac; sie werden geholt."
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} Predigten liegen in iCloud und noch nicht auf diesem Mac; sie werden geholt.",
+  "SermonDesk no longer asks for a subscription.": "SermonDesk verlangt kein Abonnement mehr.",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "Jede Predigt, und die Kanzel, gehören Ihnen und bleiben es. Die App nimmt keinen Kontakt mehr zum Shop auf."
 };
 const zh = {
   "Drag to move this picture": "拖动以移动此图片",
@@ -24701,7 +24711,9 @@ const zh = {
   "Discard": "丢弃",
   "That copy is no longer on this computer.": "这台电脑上已经没有那份副本了。",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 篇讲章在 iCloud 上，尚未下载到这台 Mac；正在获取。",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} 篇讲章在 iCloud 上，尚未下载到这台 Mac；正在获取。"
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} 篇讲章在 iCloud 上，尚未下载到这台 Mac；正在获取。",
+  "SermonDesk no longer asks for a subscription.": "SermonDesk 不再要求订阅。",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "每篇讲章和讲台都永远属于你。应用不再联系商店。"
 };
 const ja = {
   "Drag to move this picture": "ドラッグしてこの画像を移動",
@@ -26264,7 +26276,9 @@ const ja = {
   "Discard": "破棄",
   "That copy is no longer on this computer.": "その控えはもうこのコンピュータにありません。",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 件の説教が iCloud にあり、まだこの Mac にはありません。取得しています。",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} 件の説教が iCloud にあり、まだこの Mac にはありません。取得しています。"
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} 件の説教が iCloud にあり、まだこの Mac にはありません。取得しています。",
+  "SermonDesk no longer asks for a subscription.": "SermonDesk はもうサブスクリプションを求めません。",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "すべての説教と講壇は、ずっとあなたのものです。アプリはもうストアに接続しません。"
 };
 const tl = {
   "Drag to move this picture": "I-drag para ilipat ang larawang ito",
@@ -27827,7 +27841,9 @@ const tl = {
   "Discard": "Itapon",
   "That copy is no longer on this computer.": "Wala na sa computer na ito ang kopyang iyon.",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 sermon ang nasa iCloud at wala pa sa Mac na ito; kinukuha na.",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} sermon ang nasa iCloud at wala pa sa Mac na ito; kinukuha na."
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} sermon ang nasa iCloud at wala pa sa Mac na ito; kinukuha na.",
+  "SermonDesk no longer asks for a subscription.": "Hindi na humihingi ng subscription ang SermonDesk.",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "Sa iyo na habang-buhay ang bawat sermon, at ang pulpito. Hindi na kumokonekta ang app sa store."
 };
 const id = {
   "Drag to move this picture": "Seret untuk memindahkan gambar ini",
@@ -29390,7 +29406,9 @@ const id = {
   "Discard": "Buang",
   "That copy is no longer on this computer.": "Salinan itu sudah tidak ada di komputer ini.",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 khotbah ada di iCloud dan belum di Mac ini; sedang diambil.",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} khotbah ada di iCloud dan belum di Mac ini; sedang diambil."
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} khotbah ada di iCloud dan belum di Mac ini; sedang diambil.",
+  "SermonDesk no longer asks for a subscription.": "SermonDesk tidak lagi meminta langganan.",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "Setiap khotbah, dan mimbar, tetap milik Anda selamanya. Aplikasi tidak lagi menghubungi toko."
 };
 const ru = {
   "Drag to move this picture": "Перетащите, чтобы переместить это изображение",
@@ -30953,7 +30971,9 @@ const ru = {
   "Discard": "Удалить",
   "That copy is no longer on this computer.": "Этой копии больше нет на этом компьютере.",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 проповедь находится в iCloud и ещё не на этом Mac; она загружается.",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} проповедь находится в iCloud и ещё не на этом Mac; она загружается.|{n} проповеди находятся в iCloud и ещё не на этом Mac; они загружаются.|{n} проповедей находятся в iCloud и ещё не на этом Mac; они загружаются."
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} проповедь находится в iCloud и ещё не на этом Mac; она загружается.|{n} проповеди находятся в iCloud и ещё не на этом Mac; они загружаются.|{n} проповедей находятся в iCloud и ещё не на этом Mac; они загружаются.",
+  "SermonDesk no longer asks for a subscription.": "SermonDesk больше не просит подписку.",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "Все проповеди и кафедра остаются вашими навсегда. Приложение больше не обращается в магазин."
 };
 const sw = {
   "Drag to move this picture": "Buruta kuhamisha picha hii",
@@ -32516,7 +32536,9 @@ const sw = {
   "Discard": "Yatupe",
   "That copy is no longer on this computer.": "Nakala hiyo haipo tena kwenye kompyuta hii.",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "Mahubiri 1 yako kwenye iCloud na bado hayapo kwenye Mac hii; yanaletwa.",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "Mahubiri {n} yako kwenye iCloud na bado hayapo kwenye Mac hii; yanaletwa."
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "Mahubiri {n} yako kwenye iCloud na bado hayapo kwenye Mac hii; yanaletwa.",
+  "SermonDesk no longer asks for a subscription.": "SermonDesk haiombi tena usajili.",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "Kila hubiri, na mimbari, ni yako ya kudumu. Programu haiwasiliani tena na duka."
 };
 const vi$2 = {
   " · in {group}": " · trong {group}",
@@ -34079,7 +34101,9 @@ const vi$2 = {
   "Discard": "Bỏ",
   "That copy is no longer on this computer.": "Bản sao đó không còn trên máy tính này.",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 bài giảng đang ở trên iCloud và chưa có trên máy Mac này; đang tải về.",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} bài giảng đang ở trên iCloud và chưa có trên máy Mac này; đang tải về."
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} bài giảng đang ở trên iCloud và chưa có trên máy Mac này; đang tải về.",
+  "SermonDesk no longer asks for a subscription.": "SermonDesk không còn yêu cầu đăng ký nữa.",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "Mọi bài giảng, và bục giảng, là của bạn mãi mãi. Ứng dụng không còn liên hệ với cửa hàng nữa."
 };
 const uk = {
   " · in {group}": " · у групі «{group}»",
@@ -35642,7 +35666,9 @@ const uk = {
   "Discard": "Видалити",
   "That copy is no longer on this computer.": "Цієї копії вже немає на цьому комп’ютері.",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 проповідь є в iCloud і ще не на цьому Mac; її завантажують.",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} проповідь є в iCloud і ще не на цьому Mac; її завантажують.|{n} проповіді є в iCloud і ще не на цьому Mac; їх завантажують.|{n} проповідей є в iCloud і ще не на цьому Mac; їх завантажують."
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} проповідь є в iCloud і ще не на цьому Mac; її завантажують.|{n} проповіді є в iCloud і ще не на цьому Mac; їх завантажують.|{n} проповідей є в iCloud і ще не на цьому Mac; їх завантажують.",
+  "SermonDesk no longer asks for a subscription.": "SermonDesk більше не просить підписки.",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "Усі проповіді й кафедра лишаються вашими назавжди. Застосунок більше не звертається до магазину."
 };
 const zhHant = {
   "Drag to move this picture": "拖曳以移動此圖片",
@@ -37205,7 +37231,9 @@ const zhHant = {
   "Discard": "捨棄",
   "That copy is no longer on this computer.": "這台電腦上已經沒有那份副本了。",
   "1 sermon is in iCloud and not on this Mac yet; it is being fetched.": "1 篇講章在 iCloud 上，尚未下載到這台 Mac；正在取得。",
-  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} 篇講章在 iCloud 上，尚未下載到這台 Mac；正在取得。"
+  "{n} sermons are in iCloud and not on this Mac yet; they are being fetched.": "{n} 篇講章在 iCloud 上，尚未下載到這台 Mac；正在取得。",
+  "SermonDesk no longer asks for a subscription.": "SermonDesk 不再要求訂閱。",
+  "Every sermon, and the podium, is yours to keep. The app no longer contacts the store.": "每篇講章和講台都永遠屬於你。應用程式不再聯絡商店。"
 };
 const TABLES = { en: {}, es, ko, pt: pt$3, fr: fr$3, de: de$1, zh, "zh-Hant": zhHant, ja, tl, id, vi: vi$2, ru, uk, sw };
 function fill(text, vars) {
@@ -37459,13 +37487,16 @@ function ipcMessage(cause) {
   const text = cause instanceof Error ? cause.message : String(cause);
   return text.replace(/^Error invoking remote method '[^']*': (?:[A-Za-z]*Error: )?/, "");
 }
-function canWrite(status) {
+const SUNSET = false;
+function canWrite(status, sunset = SUNSET) {
+  if (sunset) return true;
   return status.state === "active" || status.state === "stale";
 }
-function canPreach(status) {
-  return canWrite(status);
+function canPreach(status, sunset = SUNSET) {
+  return canWrite(status, sunset);
 }
-function licenseMessage(status, t2 = translator("en")) {
+function licenseMessage(status, t2 = translator("en"), sunset = SUNSET) {
+  if (sunset) return null;
   switch (status.state) {
     case "unlicensed":
       return t2("Enter a subscription key to write and to preach. Every sermon already here still opens, searches, and prints.");
@@ -37477,8 +37508,8 @@ function licenseMessage(status, t2 = translator("en")) {
       return null;
   }
 }
-function bannerActions(status, links) {
-  if (status.state === "active") return [];
+function bannerActions(status, links, sunset = SUNSET) {
+  if (sunset || status.state === "active") return [];
   const actions = [];
   actions.push("subscribe");
   if (status.lastCheckedAt) {
@@ -103768,7 +103799,8 @@ function PreferencesWindow({
         /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: t2("Footer line"), hint: t2("At the foot of every handout: a website, a service time, a verse."), children: /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "text", className: "field", "aria-label": t2("Handout footer"), placeholder: t2("gracefellowship.org"), value: editor.footer, onChange: (event) => updateEditor({ footer: event.target.value }) }) })
       ] })
     ] }),
-    tab === "licence" && /* @__PURE__ */ jsxRuntimeExports.jsxs(Group, { title: t2("Subscription"), children: [
+    tab === "licence" && SUNSET,
+    tab === "licence" && !SUNSET && /* @__PURE__ */ jsxRuntimeExports.jsxs(Group, { title: t2("Subscription"), children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: describeLicense(license, t2, localeOf(language)), hint: keyed ? t2("A key works on up to three computers.") : t2("Writing and preaching need a key; reading, searching, and printing never do."), children: !keyed && /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small button--primary", onClick: onEnterKey, children: t2("Enter key…") }) }),
       keyed && /* @__PURE__ */ jsxRuntimeExports.jsx(Row, { label: t2("This computer"), hint: confirmingDeactivate ? t2("Deactivate? The key is freed for another machine, and writing here needs a key again. Every sermon stays.") : t2("Free the key for another computer."), children: confirmingDeactivate ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "prefs__inline", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", className: "button button--small button--danger", disabled: busy, onClick: () => void deactivate(), children: busy ? t2("Deactivating…") : t2("Deactivate") }),
