@@ -85,14 +85,14 @@
   .downloads { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
   /* The head: a name, the page's places, the two downloads. */
-  .head { padding: 1.25rem 0 0.75rem; }
-  .head .wrap { display: flex; align-items: center; gap: 0.75rem 1.5rem; flex-wrap: wrap; }
+  .head { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+  .head .wrap { display: flex; align-items: center; gap: 1rem 2rem; }
   .wordmark { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); }
   .wordmark span { color: var(--oxblood); }
-  .head nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1.25rem; font-size: 0.9375rem; margin-left: auto; }
+  .head nav { display: flex; gap: 1.75rem; font-size: 0.9375rem; margin-left: auto; }
   .head nav a { color: var(--muted); white-space: nowrap; }
   .head nav a:hover { color: var(--ink); text-decoration: none; }
-  .head .button { padding: 0.4rem 0.8rem; font-size: 0.875rem; }
+  .head .button { padding: 0.45rem 0.9rem; font-size: 0.875rem; }
 
   /* The promise, and the one picture. */
   .hero { padding: clamp(2rem, 5vw, 3.5rem) 0 0; border-top: 0; }
@@ -187,6 +187,7 @@
   .card p { font-size: 0.9375rem; color: var(--muted); }
 
   .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: center; }
+  .library__figure { margin: 2rem 0 0; }
   .two p + p { margin-top: 0.8rem; }
 
   /* The languages, as the app names them. */
@@ -228,9 +229,9 @@
 
   @media (max-width: 760px) {
     .week, .cards, .two, .price, .faq, .small, .sunday__pair { grid-template-columns: minmax(0, 1fr); }
-    .head nav { margin-left: 0; }
+    .head nav { margin-left: 0; gap: 1rem; }
     /* On a phone the hero's pair is a screen away; the head's would only repeat it. */
-    .head .downloads { display: none; }
+    .head__download { display: none; }
   }
   @media (prefers-reduced-motion: no-preference) {
     .button, .head nav a { transition: border-color 120ms, color 120ms; }
@@ -257,82 +258,65 @@
       <a href="./#week">Features</a>
       <a href="./#try">Try it</a>
       <a href="./#price">Price</a>
-      <a href="./#new">What's new</a>
-      <a href="./#faq">Questions</a>
       <a href="help.html">Help</a>
     </nav>
-    <div class="downloads">
-      <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
-      <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
-    </div>
+    <a class="button button--primary head__download" href="./#download">Download</a>
   </div>
 </header>
 <main class="wrap guide">
 <h1>SermonDesk help</h1>
-<p>Thank you for trying this early. You will find things I have not, and I want to hear about them.</p>
+<p>How to install SermonDesk, where your sermons are kept, how the subscription works, and what to do if something goes wrong. Questions and reports go to <a href="mailto:davislor@sarangbi.co">davislor@sarangbi.co</a>.</p>
 <hr>
 <h2>Installing on Windows</h2>
 <ol>
-<li>Press <strong>Download for Windows</strong> at <a href="https://sarangbi.co">https://sarangbi.co</a>. It fetches the newest installer straight away; the same file is also listed at <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest">https://github.com/DLSarangbi/sermondesk-releases/releases/latest</a>.</li>
-<li>Run it. The installer is signed, and the publisher shown is Davis Lor, which is me.</li>
+<li>Click <strong>Download for Windows</strong> at <a href="https://sarangbi.co">https://sarangbi.co</a>. The newest installer downloads straight away; the same file is listed at <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest">https://github.com/DLSarangbi/sermondesk-releases/releases/latest</a>.</li>
+<li>Run it. The installer is signed, and the publisher shown is Davis Lor.</li>
 </ol>
-<p>If Windows still shows a blue <strong>Windows protected your PC</strong> box, it is SmartScreen weighing a signature it has not seen often yet; <strong>More info</strong>, then <strong>Run anyway</strong> gets past it, and I would like to hear that it happened. Anything else, any warning naming a different publisher, stop and write to me.</p>
+<p>If Windows shows a blue <strong>Windows protected your PC</strong> box, it is Windows being cautious about a new app: click <strong>More info</strong>, then <strong>Run anyway</strong>. If the warning names a publisher other than Davis Lor, stop and contact us.</p>
 <h2>Installing on a Mac</h2>
-<p>It needs a Mac with Apple Silicon: an M1 or later, which is every Mac sold since late 2020, running macOS 13 or newer. (The dictation engine has no build for Intel Macs, so there is no Intel version; an Intel Mac refuses the download with its own message rather than installing an app whose Dictate button could never work.)</p>
+<p>SermonDesk needs a Mac with an Apple chip (M1 or later, which means a Mac sold since late 2020) running macOS 13 or newer. Older Intel Macs are not supported: the download says so rather than installing an app whose Dictate button could never work.</p>
 <ol>
-<li>Press <strong>Download for Mac</strong> at <a href="https://sarangbi.co">https://sarangbi.co</a>. It fetches the newest disk image straight away; the same file is also listed at <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest">https://github.com/DLSarangbi/sermondesk-releases/releases/latest</a>.</li>
-<li>Open the downloaded <code>SermonDesk.dmg</code> and drag SermonDesk into the Applications folder beside it. Then eject the disk image and open SermonDesk from Applications, or from Launchpad.</li>
-<li>The first time, macOS says the app was downloaded from the internet and asks whether you are sure. Press <strong>Open</strong>. The app is signed and notarized by Apple, and the developer named is Davis Lor, which is me.</li>
+<li>Click <strong>Download for Mac</strong> at <a href="https://sarangbi.co">https://sarangbi.co</a>. The newest disk image downloads straight away; the same file is listed at <a href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest">https://github.com/DLSarangbi/sermondesk-releases/releases/latest</a>.</li>
+<li>Open the downloaded file, <code>SermonDesk.dmg</code>, and drag SermonDesk into the Applications folder shown beside it. Then open SermonDesk from Applications or Launchpad.</li>
+<li>The first time, macOS says the app was downloaded from the internet and asks whether to open it. Click <strong>Open</strong>. Apple has checked the app, and the developer named is Davis Lor.</li>
 </ol>
-<p>If the Mac instead says the app is <em>damaged</em>, or that Apple <em>could not check it for malicious software</em>, stop and write to me: that means something went wrong on my side, not yours, and I want to know. The first time you press <strong>Dictate</strong>, macOS asks whether SermonDesk may use the microphone, and says in that dialog exactly what happens to your voice: it stays on the computer.</p>
-<h2>The first thing you will be asked</h2>
-<p>Where your sermons should live. <strong>Choose iCloud Drive, Google Drive, OneDrive, or Dropbox if you use one</strong>: your sermons are then backed up and synced across your machines on your own account, with nothing stored by me. The welcome screen shows each service as a card; the ones set up on your computer are live, and one click makes a SermonDesk folder inside. A plain folder of your own is always there too.</p>
-<p>The app opens in your computer's own language when it is one of the fourteen it speaks, and in English otherwise; the welcome screen has a language menu in its corner, so the first thing you can change is the words you are reading. If you do not use any of those, any folder works. Everything is a plain file either way. Every time the app opens it shows this screen again, with your folder named and <strong>Continue</strong> beside it, so you can go straight in or change where the sermons live first: <strong>Connect</strong> beside a service found on your computer moves your sermons into it, <strong>Disconnect</strong> moves them back out to a folder you choose, and <strong>Use</strong> switches to a SermonDesk folder already synced there, as on a second computer. The old folder goes to the Recycle Bin, or the Trash on a Mac, not away. The same is under Settings, then Folder.</p>
+<p>If the Mac says the app is <em>damaged</em>, or that Apple <em>could not check it for malicious software</em>, something went wrong on our side: stop and contact us. The first time you click <strong>Dictate</strong>, macOS asks whether SermonDesk may use the microphone and says in that dialog exactly what happens to your voice: it stays on the computer.</p>
+<h2>The first launch</h2>
+<p>The app asks where your sermons should be kept. <strong>Choose iCloud Drive, Google Drive, OneDrive or Dropbox if you use one</strong>: your sermons are then backed up and synced across your computers on your own account, with nothing stored by us. The welcome screen shows each service you have set up on your computer, and one click makes a SermonDesk folder inside it. An ordinary folder on your computer works too.</p>
+<p>The app opens in your computer’s language when it is one of the fourteen it speaks, and in English otherwise. The welcome screen has a language menu in its corner. Every launch shows this screen again, with your folder named, so you can continue or change the folder first.</p>
 <h2>More than one computer</h2>
 <p>Say you write on a Mac and preach from a Windows laptop.</p>
 <ol>
-<li>On the Mac, put your sermons in Dropbox, or iCloud Drive, Google Drive, or OneDrive. SermonDesk offers this at the welcome screen.</li>
-<li>On the laptop, install Dropbox and sign in. Your sermons arrive by themselves.</li>
-<li>Open SermonDesk on the laptop and press <strong>Use</strong> beside Dropbox.</li>
+<li>On the Mac, keep your sermons in Dropbox, iCloud Drive, Google Drive or OneDrive. SermonDesk offers this at the welcome screen.</li>
+<li>On the laptop, install the same service and sign in. Your sermons arrive by themselves.</li>
+<li>Open SermonDesk on the laptop and click <strong>Use</strong> beside the service.</li>
 </ol>
-<p>That's it. Write on any of them, and the others have it.</p>
-<p>One thing to set on each computer: keep the folder downloaded. iCloud Drive's Optimise Mac Storage, and OneDrive's Files On-Demand on Windows, may leave only a placeholder of a sermon on the computer to free space. The app lists such a sermon as in iCloud and asks for it back when it starts, but at a church without wifi it is not there to read. In the Finder, right-click the SermonDesk folder and choose Keep Downloaded; in Windows Explorer, right-click it and choose Always keep on this device.</p>
+<p>Write on any of them, and the others have it.</p>
+<p>One setting matters on each computer: make sure the folder is actually downloaded. To save space, iCloud Drive and OneDrive can keep some files online only, leaving a stand-in on the computer. The app lists such a sermon as in iCloud and asks for it back when it starts, but at a church without wifi it is not there to read. In the Finder, right-click the SermonDesk folder and choose <strong>Keep Downloaded</strong>; in OneDrive, choose <strong>Always keep on this device</strong>.</p>
 <h2>Your subscription key</h2>
-<p>Writing needs a subscription key. Click <strong>Enter key…</strong> in the notice above the page, paste it in, and that is the whole setup: it is checked once online and then works offline. Preaching from the podium needs it too. Everything else, opening, searching, and printing, never needs the key at all. If you have no key, <strong>Buy a key</strong> in the same notice opens the checkout in your browser, and the key arrives by email a moment after you pay. If you were sent a discount code with this guide, it goes in at checkout.</p>
-<p>Your key works on up to <strong>three computers</strong> — your desk, your laptop, wherever you write. If you ever need to move it off a machine, open Settings (its button on the toolbar, or Ctrl+comma; ⌘, on a Mac), go to Subscription, and choose <strong>Deactivate this computer</strong>, which frees a slot for the next one.</p>
+<p>Writing needs a subscription key, a short code that arrives by email when you subscribe. Click <strong>Enter key…</strong> in the notice above the page and paste the key in. It is checked once online and then works offline. Preaching from the podium needs it too. Everything else, opening, searching and printing, never needs the key. If you have no key, <strong>Buy a key</strong> in the same notice opens the checkout in your browser, and the key arrives by email.</p>
+<p>Your key works on up to <strong>three computers</strong>: your desk, your laptop, wherever you write. To move it off a computer, open Settings (its button on the toolbar, or Ctrl+comma; ⌘, on a Mac), go to Subscription and choose <strong>Deactivate this computer</strong>, which frees a slot for the next one.</p>
 <h2>What is in it</h2>
 <ul>
-<li>Write sermons in blocks: point, scripture, story, application, reflection, private note</li>
-<li>Quote scripture from the Bible you already read: paste a copied verse and it is filed with its reference and version filled in, or type one in with <code>/scripture</code></li>
-<li>Search everything you have ever written, find every sermon touching a passage, and keep a saved search for the ones you come back to</li>
+<li>Sermons written in blocks: point, scripture, story, application, reflection, private note</li>
+<li>Scripture from the Bible you already read: paste a copied verse and it is filed with its reference and version, or add one from the Insert menu</li>
+<li>Search across everything you have written, every sermon touching a passage, and saved searches for the ones you return to</li>
 <li>A preaching log on every sermon: each time it was preached, where, and how long it ran, written by the podium when you mark it preached</li>
-<li>Preach from a fullscreen podium screen with a timer</li>
-<li>Print handouts, including a <strong>large-print</strong> preset for anyone who has stopped being able to follow along</li>
-<li>Stories, a place for the stories you tell, which says where you have already told each one</li>
-<li><strong>Import your existing sermons</strong> from Word files, or a whole folder of Google Docs exported through Takeout. Headings become points, bold and italic survive, and everything arrives as drafts for you to look over</li>
-</ul>
-<h2>What is not in it yet</h2>
-<ul>
-<li>The Mac version is new. It passes every check the Windows version passes, on a real Apple Silicon Mac, and is signed and notarized by Apple; but it shipped before anyone had written a whole sermon in it. Windows has had more hands on it. If the Mac does anything the Windows version would not, that is exactly the report I want.</li>
-<li>Nothing has been through a real Sunday yet except my own testing.</li>
+<li>Preaching in full screen with a clock</li>
+<li>Printed handouts, including a <strong>large-print</strong> layout for readers who need it</li>
+<li>Stories, a place for the stories you tell, which shows where you have already told each one</li>
+<li><strong>Import of your existing sermons</strong> from Word files, or a whole folder exported from Google Docs. Headings become points, bold and italic survive, and everything arrives as drafts to look over</li>
 </ul>
 <h2>Your sermons are yours</h2>
-<p>Every sermon is a plain, readable file in the folder you chose. You can open one in Notepad, or TextEdit, right now and read it. If this app disappears tomorrow, or you decide you hate it, nothing of yours is trapped: the files are just there.</p>
-<p>Nothing is uploaded. Nothing is sent anywhere. On its own, the app makes two kinds of network request, both of which can fail without affecting anything: a subscription check when it starts, and an update check when it starts and every six hours while it stays open. One more happens only when you ask for it: the first time you press Dictate, the voice model is fetched and kept. Spelling uses the checker built into Windows, or into macOS, so it needs nothing from the network. Go offline and nothing changes for a month. Every request, and what is in it, is on the privacy page at <a href="https://sarangbi.co/privacy.html">https://sarangbi.co/privacy.html</a>.</p>
-<h2>What would help most</h2>
-<p>Not bug lists: <em>situations</em>. The things worth hearing about:</p>
-<ul>
-<li><strong>Anything you lost.</strong> A sentence, a block, a whole sermon. This matters more than everything else combined. Tell me what you did immediately before.</li>
-<li><strong>Anything at the podium.</strong> The podium is the part that cannot fail. If it did anything strange mid-sermon, I want to know exactly what.</li>
-<li><strong>Anything you expected to be there and wasn't</strong>, especially something your old software did that you miss.</li>
-<li><strong>The handout.</strong> If you printed one, did it look like something you would hand to a congregation?</li>
-</ul>
-<p>Rough notes are fine. "I tried to X and gave up" is a genuinely useful report. Send it all to <a href="mailto:davislor@sarangbi.co">davislor@sarangbi.co</a>, or just reply to the message this guide came with.</p>
+<p>Every sermon is an ordinary file in the folder you chose, and you can open and read it with any text editor, such as Notepad or TextEdit. Nothing of yours is locked in: the files are simply there.</p>
+<p>Nothing is uploaded. The app connects to the internet for two things only, and neither matters if it fails: a subscription check when it starts, and an update check when it starts and every six hours while it stays open. One more happens only when you ask for it: the first time you click Dictate, what the app needs to understand speech is downloaded and kept. Spelling uses the checker built into your computer. The privacy page at <a href="https://sarangbi.co/privacy.html">https://sarangbi.co/privacy.html</a> lists every request.</p>
 <h2>If something goes wrong</h2>
-<p>Your sermons are on disk in the folder you chose: that is always the first reassurance. Nothing the app does can take them away, and nothing it stores elsewhere matters.</p>
-<p>The app keeps a search index separately from your sermons. If search ever behaves oddly, closing and reopening the app rebuilds that index from your files.</p>
-<p>If a save ever fails, because the folder is read-only or a sync service is holding the file, the line under the page says so and your words are kept on this computer; they go into the folder with the next save that succeeds, and if you had closed the app, the next launch offers them above the page.</p>
-<p>The app also keeps a log of what it did and when, with nothing of your sermons in it, and it never leaves your computer unless you send it. Settings, then General, has <strong>Show the log</strong> at the bottom, and <strong>Write to us</strong> beside it, which opens a message with the version and your system already filled in. Say what you did just before, and attach the log if you can.</p>
+<p>Your sermons are on disk in the folder you chose. Nothing the app does can take them away, and nothing it stores elsewhere matters.</p>
+<p>To search quickly, the app keeps its own list of your sermons. If search ever behaves oddly, close and reopen the app and the list is rebuilt from your files.</p>
+<p>If a save fails, because the folder cannot be written to or a sync service is holding the file, the line under the page says so, and your text is kept safely on this computer. It is written to the folder with the next save that succeeds, and if you had closed the app, the next launch offers it above the page.</p>
+<p>The app also keeps a log of what it did and when, with nothing of your sermons in it, and it never leaves your computer unless you send it. Settings, then General, has <strong>Show the log</strong> at the bottom and <strong>Contact us</strong> beside it, which opens a message with the version and your system already filled in. Describe what you did just before, and attach the log if you can.</p>
+<h2>Reports</h2>
+<p>The reports that help most are situations, not lists: anything you lost, with what you did just before; anything at the podium that behaved strangely mid-sermon; anything you expected to find and did not; and whether a printed handout looked like something you would hand to a congregation. Rough notes are fine. Email <a href="mailto:davislor@sarangbi.co">davislor@sarangbi.co</a>.</p>
 </main>
 <footer>
   <div class="wrap">© 2026 Sarangbi · <a href="help.html">Help</a> · <a href="privacy.html">Privacy</a> · Payments are processed by Lemon Squeezy, our merchant of record, whose name appears on your receipt and card statement.</div>

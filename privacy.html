@@ -85,14 +85,14 @@
   .downloads { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
   /* The head: a name, the page's places, the two downloads. */
-  .head { padding: 1.25rem 0 0.75rem; }
-  .head .wrap { display: flex; align-items: center; gap: 0.75rem 1.5rem; flex-wrap: wrap; }
+  .head { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+  .head .wrap { display: flex; align-items: center; gap: 1rem 2rem; }
   .wordmark { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); }
   .wordmark span { color: var(--oxblood); }
-  .head nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1.25rem; font-size: 0.9375rem; margin-left: auto; }
+  .head nav { display: flex; gap: 1.75rem; font-size: 0.9375rem; margin-left: auto; }
   .head nav a { color: var(--muted); white-space: nowrap; }
   .head nav a:hover { color: var(--ink); text-decoration: none; }
-  .head .button { padding: 0.4rem 0.8rem; font-size: 0.875rem; }
+  .head .button { padding: 0.45rem 0.9rem; font-size: 0.875rem; }
 
   /* The promise, and the one picture. */
   .hero { padding: clamp(2rem, 5vw, 3.5rem) 0 0; border-top: 0; }
@@ -187,6 +187,7 @@
   .card p { font-size: 0.9375rem; color: var(--muted); }
 
   .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: center; }
+  .library__figure { margin: 2rem 0 0; }
   .two p + p { margin-top: 0.8rem; }
 
   /* The languages, as the app names them. */
@@ -228,9 +229,9 @@
 
   @media (max-width: 760px) {
     .week, .cards, .two, .price, .faq, .small, .sunday__pair { grid-template-columns: minmax(0, 1fr); }
-    .head nav { margin-left: 0; }
+    .head nav { margin-left: 0; gap: 1rem; }
     /* On a phone the hero's pair is a screen away; the head's would only repeat it. */
-    .head .downloads { display: none; }
+    .head__download { display: none; }
   }
   @media (prefers-reduced-motion: no-preference) {
     .button, .head nav a { transition: border-color 120ms, color 120ms; }
@@ -257,36 +258,31 @@
       <a href="./#week">Features</a>
       <a href="./#try">Try it</a>
       <a href="./#price">Price</a>
-      <a href="./#new">What's new</a>
-      <a href="./#faq">Questions</a>
       <a href="help.html">Help</a>
     </nav>
-    <div class="downloads">
-      <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
-      <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
-    </div>
+    <a class="button button--primary head__download" href="./#download">Download</a>
   </div>
 </header>
 <main class="wrap guide">
 <h1>Privacy</h1>
-<p>SermonDesk is written to keep your sermons on your own computer, and this page says exactly what leaves it, what stays, and what we never do. This is the whole of it; there is no longer version.</p>
+<p>SermonDesk is written to keep your sermons on your own computer, and this page says exactly what leaves it, what stays, and what we never do. This is the whole of it.</p>
 <h2>What leaves your computer</h2>
-<p>Every request the app makes, and what is in it.</p>
+<p>Everything the app sends over the internet, and what is in it.</p>
 <ul>
-<li><strong>The subscription check.</strong> When the app starts, and at most once a day after that, it sends your subscription key and the name of this computer, as the computer calls itself, to Lemon Squeezy, and reads back whether the subscription is current. Entering a key and deactivating a computer are the same request. Nothing about your sermons goes with it, and the app carries on for thirty days without an answer.</li>
-<li><strong>The update check.</strong> When the app starts, and every six hours while it stays open, it asks GitHub whether a newer version is out, and downloads it quietly if so. GitHub sees what any website sees of a visitor: an address and the time.</li>
-<li><strong>The voice, when you ask for it.</strong> The first time you press Dictate, or choose the finer voice, the app fetches the voice model from Hugging Face, 76 MB or 238 MB, and keeps it. After that, dictation and transcription run on this computer, and nothing you say leaves it.</li>
-<li><strong>A spelling dictionary, on an older Windows.</strong> On macOS, and on Windows 10 and later, the app uses the spellchecker built into the system and fetches nothing. On an older Windows, Chromium fetches a dictionary for your language from Google's servers the first time.</li>
+<li><strong>The subscription check.</strong> When the app starts, and at most once a day after that, it sends your subscription key and the name of this computer (the name the computer gives itself) to Lemon Squeezy, the company that handles payments, and reads back whether the subscription is current. Entering a key and deactivating a computer are the same request. Nothing about your sermons goes with it, and the app carries on for thirty days without an answer.</li>
+<li><strong>The update check.</strong> When the app starts, and every six hours while it stays open, it asks GitHub, where the app’s releases are kept, whether a newer version is out, and downloads it in the background if so. GitHub sees what any website sees of a visitor: an internet address and the time.</li>
+<li><strong>The voice, when you ask for it.</strong> The first time you click Dictate, or choose the more accurate voice, the app downloads what it needs to understand speech from Hugging Face, a site that hosts such files, 76 MB or 238 MB, and keeps it. After that, dictation runs on this computer, and nothing you say leaves it.</li>
+<li><strong>A spelling dictionary, on an older Windows.</strong> On a Mac, and on Windows 10 and later, the app uses the spellchecker built into the system and downloads nothing. On an older Windows, the app’s browser engine downloads a dictionary for your language from Google the first time.</li>
 <li><strong>When you buy.</strong> The checkout is Lemon Squeezy's page, in your own browser, under their privacy policy. We receive your name, your email and what you bought, and use them to send your key and to reach you about the software. We do not sell or share them.</li>
-<li><strong>When you write to us.</strong> Write to us opens your own mail program with a message to us and the version in its subject. What you send, the log included, is your choice.</li>
+<li><strong>When you contact us.</strong> Contact us opens your own mail program with a message to us and the version in its subject. What you send, the log included, is your choice.</li>
 </ul>
 <p>That is the whole list. The app has no account to sign in to, sends no usage statistics, sends no crash reports, and never sends a word of a sermon anywhere.</p>
 <h2>What stays on your computer</h2>
 <ul>
-<li><strong>Your sermons</strong>, as plain files in the folder you chose, and nowhere else. If that folder is in iCloud Drive, Google Drive, OneDrive or Dropbox, that service syncs it on your own account; we hold nothing.</li>
-<li><strong>The app's own data</strong>, in the folder Settings names at the foot of its window: your settings, the search index built from your sermons, the store's last answer about your subscription, sealed to this computer, and the voice model once fetched.</li>
-<li><strong>The log</strong>: what the app did and when, for the day something goes wrong. It never holds a sermon's words or your key, and it leaves this computer only if you send it.</li>
-<li><strong>A kept copy</strong>, when a save to your folder fails: the sermon as it was, under the app's data, until the folder takes it or you discard it.</li>
+<li><strong>Your sermons</strong>, as ordinary files in the folder you chose, and nowhere else. If that folder is in iCloud Drive, Google Drive, OneDrive or Dropbox, that service copies it between your computers on your own account; we hold nothing.</li>
+<li><strong>The app’s own data</strong>, in the folder named at the foot of the Settings window: your settings, the list it keeps to search your sermons quickly, the store’s last answer about your subscription (locked to this computer), and the speech files once downloaded.</li>
+<li><strong>The log</strong>: what the app did and when, for when something goes wrong. It never holds a sermon's words or your key, and it leaves this computer only if you send it.</li>
+<li><strong>A kept copy</strong>, when saving to your folder fails: the sermon as it was, kept with the app’s data until it can be saved to the folder or you discard it.</li>
 </ul>
 <h2>Contact</h2>
 <p>Questions about any of this: <a href="mailto:davislor@sarangbi.co">davislor@sarangbi.co</a>.</p>

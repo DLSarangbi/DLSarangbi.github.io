@@ -1,4 +1,4 @@
-import { l as applyThemePreference, I as IS_MAC, m as clientExports, o as jsxRuntimeExports, p as reactExports, q as LanguageRoot, A as App } from "./index-BCzk26vk.js";
+import { m as applyThemePreference, I as IS_MAC, u as describe, o as clientExports, p as jsxRuntimeExports, q as reactExports, v as LanguageRoot, A as App } from "./index-EJcOZAUd.js";
 applyThemePreference("system");
 if (IS_MAC) document.documentElement.classList.add("mac");
 window.addEventListener("error", (event) => {
@@ -6,7 +6,7 @@ window.addEventListener("error", (event) => {
 });
 window.addEventListener("unhandledrejection", (event) => {
   const reason = event.reason;
-  window.api?.report?.(`Unhandled: ${reason instanceof Error ? reason.message : String(reason)}`);
+  window.api?.report?.(`Unhandled: ${describe(reason)}`);
 });
 const container = document.getElementById("root");
 if (!container) throw new Error("Root element missing from index.html");

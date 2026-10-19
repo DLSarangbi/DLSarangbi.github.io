@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://sarangbi.co/">
 <!-- Stamped with the source commit by deploy-site.yml, which then waits for
      the live site to show it. Left as "source" in the repository. -->
-<meta name="sermondesk-source" content="d784c35">
+<meta name="sermondesk-source" content="48dcbab">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
@@ -107,14 +107,14 @@
   .downloads { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
   /* The head: a name, the page's places, the two downloads. */
-  .head { padding: 1.25rem 0 0.75rem; }
-  .head .wrap { display: flex; align-items: center; gap: 0.75rem 1.5rem; flex-wrap: wrap; }
+  .head { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+  .head .wrap { display: flex; align-items: center; gap: 1rem 2rem; }
   .wordmark { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); }
   .wordmark span { color: var(--oxblood); }
-  .head nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1.25rem; font-size: 0.9375rem; margin-left: auto; }
+  .head nav { display: flex; gap: 1.75rem; font-size: 0.9375rem; margin-left: auto; }
   .head nav a { color: var(--muted); white-space: nowrap; }
   .head nav a:hover { color: var(--ink); text-decoration: none; }
-  .head .button { padding: 0.4rem 0.8rem; font-size: 0.875rem; }
+  .head .button { padding: 0.45rem 0.9rem; font-size: 0.875rem; }
 
   /* The promise, and the one picture. */
   .hero { padding: clamp(2rem, 5vw, 3.5rem) 0 0; border-top: 0; }
@@ -209,6 +209,7 @@
   .card p { font-size: 0.9375rem; color: var(--muted); }
 
   .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; align-items: center; }
+  .library__figure { margin: 2rem 0 0; }
   .two p + p { margin-top: 0.8rem; }
 
   /* The languages, as the app names them. */
@@ -250,9 +251,9 @@
 
   @media (max-width: 760px) {
     .week, .cards, .two, .price, .faq, .small, .sunday__pair { grid-template-columns: minmax(0, 1fr); }
-    .head nav { margin-left: 0; }
+    .head nav { margin-left: 0; gap: 1rem; }
     /* On a phone the hero's pair is a screen away; the head's would only repeat it. */
-    .head .downloads { display: none; }
+    .head__download { display: none; }
   }
   @media (prefers-reduced-motion: no-preference) {
     .button, .head nav a { transition: border-color 120ms, color 120ms; }
@@ -268,23 +269,18 @@
       <a href="#week">Features</a>
       <a href="#try">Try it</a>
       <a href="#price">Price</a>
-      <a href="#new">What's new</a>
-      <a href="#faq">Questions</a>
       <a href="help.html">Help</a>
     </nav>
-    <div class="downloads">
-      <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
-      <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
-    </div>
+    <a class="button button--primary head__download" href="#download">Download</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
     <h1>Write the sermon <em>once.</em></h1>
-    <p class="lede">One draft becomes the manuscript you write from, the outline you check on Friday, the handout you print on Saturday, and the screen you preach from on Sunday. Plain files, on your own computer, in your own folder. For Mac and Windows.</p>
+    <p class="lede">One draft becomes the manuscript you write from, the outline you check on Friday, the handout you print on Saturday, and the screen you preach from on Sunday. Your sermons are saved on your own computer, as ordinary files in a folder you choose. For Mac and Windows.</p>
     <div class="acts">
-      <div class="downloads">
+      <div class="downloads" id="download">
         <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk-Setup.exe" data-download="windows">Download for Windows</a>
         <a class="button button--primary" href="https://github.com/DLSarangbi/sermondesk-releases/releases/latest/download/SermonDesk.dmg" data-download="mac">Download for Mac</a>
       </div>
@@ -292,7 +288,7 @@
     </div>
     <figure>
       <div class="shot shot--light"><picture><source srcset="img/manuscript-dark.jpg" media="(prefers-color-scheme: dark)"><img src="img/manuscript.jpg" alt="The app: the library of sermons at the left, the manuscript page in the middle, the Format panel at the right" width="1600" height="1000"></picture></div>
-      <figcaption class="caption">The library, the page, and the Format panel. One window, every sermon you have written in it.</figcaption>
+      <figcaption class="caption">The library, the page and the Format panel, in one window.</figcaption>
     </figure>
   </div>
 </section>
@@ -301,22 +297,22 @@
   <div class="wrap">
     <p class="eyebrow">One draft, four forms</p>
     <h2>The week, in one app.</h2>
-    <p class="lead">Nothing is copied from one place to another. Each form is the same sermon, shown for the day it is needed.</p>
+    <p class="lead">You write it once. The outline, the handout and the podium screen are made from the same draft, so nothing is copied or retyped.</p>
     <div class="week">
       <article class="day">
         <div class="shot shot--light"><picture><source srcset="img/manuscript-dark.jpg" media="(prefers-color-scheme: dark)"><img src="img/manuscript.jpg" alt="The manuscript page beside the library and the Format panel" width="1600" height="1000" loading="lazy"></picture></div>
         <h3><small>Tuesday</small>The manuscript</h3>
-        <p>Type Romans 8:28 and the verse files itself under its reference. Points number themselves, a story you have told before is one press away, and the page saves as you write.</p>
+        <p>Type Romans 8:28 and the verse is filed under its reference. Points are numbered for you, a story you have told before is a click away, and your work is saved as you type.</p>
       </article>
       <article class="day">
         <div class="shot shot--light"><picture><source srcset="img/outline-dark.jpg" media="(prefers-color-scheme: dark)"><img src="img/outline.jpg" alt="The outline: the points with their minutes and key lines on one sheet" width="1600" height="1000" loading="lazy"></picture></div>
         <h3><small>Friday</small>The outline</h3>
-        <p>The points with their minutes, the key line under each, the passages in full. One sheet to carry, and the minutes say where the sermon runs long.</p>
+        <p>Your points with their minutes, one key sentence under each, and the Bible passages written out, all on one sheet. The minutes show you where the sermon runs long.</p>
       </article>
       <article class="day">
         <div class="shot shot--light"><picture><source srcset="img/handout-dark.jpg" media="(prefers-color-scheme: dark)"><img src="img/handout.jpg" alt="The handout: the points with blanks for the congregation, laid out on one sheet" width="1600" height="1000" loading="lazy"></picture></div>
         <h3><small>Saturday</small>The handout</h3>
-        <p>The congregation's copy, with blanks to fill or the key lines in full, and the questions to take home at the end. Print it, or save it as a PDF for the bulletin.</p>
+        <p>A copy for the congregation, with blanks to fill in or the key sentences written out, and questions at the end. Print it, or save it to go in the bulletin.</p>
       </article>
     </div>
   </div>
@@ -327,25 +323,61 @@
   <div class="wrap">
     <p class="eyebrow">Sunday</p>
     <h2>At the podium.</h2>
-    <p class="lead">Full screen, large type, the clock. Read from the manuscript, the outline, or one card a screen; the paragraph you are on is lit, and nothing leaves the screen mid-sentence. Space, or the remote, goes on.</p>
+    <p class="lead">Your sermon fills the screen in large type, with a clock. Read the full text, the outline, or one section at a time. The paragraph you are reading is highlighted, no sentence is cut off at the edge, and the space bar or a remote clicker moves you on.</p>
     <div class="sunday__pair">
       <figure>
         <div class="shot"><img src="img/ready.jpg" alt="The ready screen before preaching: the title, the points with their minutes, and the three ways to read" width="1000" height="625" loading="lazy"></div>
-        <figcaption class="caption">Before the first word: the points with their minutes, and the three ways to read.</figcaption>
+        <figcaption class="caption">Before you begin: your points with their minutes, and the three ways to read.</figcaption>
       </figure>
       <figure>
         <div class="shot"><img src="img/podium.jpg" alt="The podium screen: the sermon in large type on black, the paragraph being read lit, the clock counting at the top" width="1240" height="775" loading="lazy"></div>
-        <figcaption class="caption">The manuscript, the paragraph you are on lit, the clock counting toward the length you set.</figcaption>
+        <figcaption class="caption">Preaching from the full text: the paragraph you are on highlighted, the clock counting toward the length you set.</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
+<section id="library">
+  <div class="wrap">
+    <p class="eyebrow">The library</p>
+    <h2>Every sermon you have written, found by what it is about.</h2>
+    <p class="lead">Every sermon you have written is in one list, and the search understands Bible references.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>By passage</h3>
+        <p>Type <b>Rom 8</b> and every sermon that touched Romans 8 is listed first, even one that quoted a single verse. You can narrow the list the same way by a word, a tag, a church, an occasion or a year.</p>
+      </div>
+      <div class="card">
+        <h3>Related sermons</h3>
+        <p>Open a sermon and see the other sermons on the same chapter, the other times you told the same story, and the rest of its series, each a click away.</p>
+      </div>
+      <div class="card">
+        <h3>Organised your way</h3>
+        <p>Group sermons into series, tag them, mark what each is for (a funeral, a wedding, Easter), and keep a record of where and when each was preached. Save the searches you use often.</p>
+      </div>
+    </div>
+    <figure class="library__figure">
+      <div class="shot shot--light"><picture><source srcset="img/library-dark.jpg" media="(prefers-color-scheme: dark)"><img src="img/library.jpg" alt="The app with Rom 8 typed into the library’s search: the sermons touching Romans 8 listed at the left, one of them open, and the Outline tab at the right listing the sermons related to it" width="1600" height="1000" loading="lazy"></picture></div>
+      <figcaption class="caption">Rom 8 typed at the left: the sermons touching Romans 8. At the right, the sermons related to the open one: the same chapter, the same story, the same series.</figcaption>
+    </figure>
+  </div>
+</section>
+<section id="map">
+  <div class="wrap two">
+    <div>
+      <p class="eyebrow">The Bible map</p>
+      <h2>The whole Bible on one page.</h2>
+      <p>Every chapter of the Bible is a small square: coloured where you have preached from it, fading as the years pass, outlined where a planned sermon will cover it, and dark where you never have. One line across the top shows the whole Bible, Genesis 1 to Revelation 22.</p>
+      <p>Click a square to see your sermons on that chapter, or a book name to see the whole book. Choose a church to see what that congregation has heard. The map prints on one page.</p>
+    </div>
+    <div class="shot shot--light"><picture><source srcset="img/map-dark.jpg" media="(prefers-color-scheme: dark)"><img src="img/map.jpg" alt="The Bible map: every chapter of the Bible as a cell, the preached ones filled, with counts per book" width="1600" height="1000" loading="lazy"></picture></div>
+  </div>
+</section>
 <section id="try">
   <div class="wrap">
     <p class="eyebrow">Nothing to install</p>
-    <h2>Try the real thing, here.</h2>
-    <p class="lead">This is the app, running in your browser with three years of one preacher's sermons in it, in English, Korean and Spanish.</p>
+    <h2>Try it in your browser.</h2>
+    <p class="lead">This is the app itself, running in your browser with three years of one preacher’s sermons, in English, Korean, Spanish and Japanese.</p>
     <div class="stage">
       <iframe id="demo" src="demo/" title="SermonDesk, live on this page, with a demo library." loading="lazy" allow="fullscreen" allowfullscreen></iframe>
     </div>
@@ -370,9 +402,9 @@
     <div class="under">
       <p class="under__label">Try</p>
       <ul class="try">
-        <li>Paste a verse and watch it file itself.</li>
-        <li>Press <b>Outline</b>, then <b>Handout</b>.</li>
-        <li>Press <b>Bible map</b> and narrow it to one church.</li>
+        <li>Paste a verse and see it filed under its reference.</li>
+        <li>Click <b>Outline</b>, then <b>Handout</b>.</li>
+        <li>Click <b>Bible map</b> and filter it by church.</li>
       </ul>
     </div>
   </div>
@@ -381,42 +413,30 @@
 <section id="yours">
   <div class="wrap">
     <p class="eyebrow">Your sermons are yours</p>
-    <h2>Files in a folder, not records in a service.</h2>
+    <h2>Your sermons stay on your computer.</h2>
     <div class="cards">
       <div class="card">
-        <h3>One readable file per sermon</h3>
-        <p>In a folder you choose. A file written by any version opens in every later one, and you can read it without the app.</p>
+        <h3>One file per sermon</h3>
+        <p>Saved in a folder you choose, like any document. A sermon you write today will open in every future version, and you can read the file even without SermonDesk.</p>
       </div>
       <div class="card">
-        <h3>Synced on your own account</h3>
-        <p>Keep the folder in iCloud Drive, Google Drive, OneDrive or Dropbox. Open SermonDesk on your other computer and press Use. Nothing is stored by us.</p>
+        <h3>On all your computers</h3>
+        <p>Keep the folder in iCloud Drive, Google Drive, OneDrive or Dropbox, and your sermons appear on your other computer too. We never store them.</p>
       </div>
       <div class="card">
-        <h3>Yours if you stop paying</h3>
-        <p>The app goes read-only. Open, search and print all of it for as long as you own the computer. A subscription buys writing and preaching, never access to what you wrote.</p>
+        <h3>Still yours if you stop paying</h3>
+        <p>You can still open, search and print every sermon for as long as you own the computer; only writing and the podium wait for a subscription. The subscription pays for writing and preaching, never for access to what you wrote.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="library">
-  <div class="wrap two">
-    <div>
-      <p class="eyebrow">The library</p>
-      <h2>It knows what a passage is.</h2>
-      <p>Type <b>Romans 8</b> and get every sermon that touched it, even one that quoted a single verse. Open a sermon and see what else touches its chapter, where else you told that story, and the rest of its series.</p>
-      <p>Tags complete as you type, so a slip of the shift key never makes a twin. What a sermon is for, a funeral, a wedding, Easter, is a word in the byline with its own chip.</p>
-      <p>And the map of the whole canon shows the chapters you have preached and the books you never have.</p>
-    </div>
-    <div class="shot shot--light"><picture><source srcset="img/map-dark.jpg" media="(prefers-color-scheme: dark)"><img src="img/map.jpg" alt="The Bible map: every chapter of the Bible as a cell, the preached ones filled, with counts per book" width="1600" height="1000" loading="lazy"></picture></div>
-  </div>
-</section>
 
 <section id="languages">
   <div class="wrap">
     <p class="eyebrow">Fifteen languages</p>
-    <h2>In your language, with the Bible's own book names.</h2>
-    <p class="lead">Every word of the app, the sixty-six books as your Bible names them, and dictation that hears "new paragraph" in your words. Chosen in Settings.</p>
+    <h2>In your language, with the Bible’s own book names.</h2>
+    <p class="lead">Every word of the app, the names of the books of the Bible as your Bible spells them, and dictation that understands "new paragraph" in your language. Choose it in Settings.</p>
     <ul class="langs">
       <li lang="en">English</li>
       <li lang="es">Español</li>
@@ -454,8 +474,8 @@
         <p class="amount">$119.99<small>a year</small></p>
         <ul>
           <li>One person, up to three of their own computers.</li>
-          <li>The key arrives by email the moment you pay. Paste it in once; it works offline from then on.</li>
-          <li>Updates are included, and the app fetches them itself.</li>
+          <li>Your key, a short code, arrives by email the moment you pay. Enter it once; the app works without the internet from then on.</li>
+          <li>Updates are included and install themselves.</li>
         </ul>
         <div class="price__acts">
           <a class="button button--primary" href="https://sarangbi.lemonsqueezy.com/checkout/buy/58a09bd1-6ce5-48c1-bd92-9d39316682b8">Start writing</a>
@@ -466,8 +486,8 @@
         </div>
       </div>
       <div>
-        <p class="keep">The demo is the trial. The download is free. The key is what you pay for.</p>
-        <p>The download opens, reads, searches and prints without a key. Writing and preaching from the podium start the moment the key arrives. Cancel any time from <a href="https://sarangbi.lemonsqueezy.com/billing">the billing page</a>, which your receipt links to. The month or year you paid for runs to its end, and then the app goes read-only, with every sermon still yours.</p>
+        <p class="keep">The demo is the trial, the download is free, and the key is what you pay for.</p>
+        <p>Without a key, the app opens, searches and prints your sermons. Writing and preaching start the moment your key arrives. Cancel any time from <a href="https://sarangbi.lemonsqueezy.com/billing">the billing page</a> linked in your receipt; the month or year you paid for runs to its end, and after that you can still open, search and print every sermon.</p>
       </div>
     </div>
   </div>
@@ -475,9 +495,9 @@
 
 <section id="new">
   <div class="wrap">
-    <p class="eyebrow">What's new</p>
-    <h2>What changed lately.</h2>
-    <p class="lead">The latest is 0.4.6. Every release explains what it brought, in the words the update line uses, and the app fetches it itself.</p>
+    <p class="eyebrow">What’s new</p>
+    <h2>Recent changes.</h2>
+    <p class="lead">The latest version is 0.4.6. Every release says what it brought, and the app installs it itself.</p>
     <div class="release">
       <h3>0.4.6 <span>17 October 2026</span></h3>
       <ul>
@@ -502,16 +522,16 @@
 <section id="faq">
   <div class="wrap">
     <p class="eyebrow">Good to know</p>
-    <h2>Questions people ask.</h2>
+    <h2>Common questions.</h2>
     <div class="faq">
-      <details><summary>Which computers?</summary><p>Windows 10 and 11, and Macs with Apple silicon, an M1 or later, running macOS 13 or newer. A tablet version is on the list for later.</p></details>
-      <details><summary>Where do my sermons live?</summary><p>In a folder you choose, one readable file each. Keep that folder in iCloud Drive, Google Drive, OneDrive or Dropbox to have them on every computer you use.</p></details>
-      <details><summary>Can I bring the sermons I already have?</summary><p>Yes. Open a Word file and it becomes a sermon, with its passage picked up from the first line, whatever language it was written in. A whole folder, like the one Google Takeout gives you, comes in at once. Nothing is locked in, either: print, save a PDF, send a sermon back to Word, or export the whole library as plain text, with or without a key.</p></details>
-      <details><summary>Does anything leave my computer?</summary><p>Nothing from your sermons, ever. The app makes two kinds of request: one checks your subscription, one checks for a new version. No analytics, no crash reports, no tracking.</p></details>
-      <details><summary>Is dictation private?</summary><p>Yes. Nothing you say leaves your computer. The first time you dictate, the app downloads a speech model once, 76 MB, or 238 MB for the finer one, and from then on it listens offline, in any of the fifteen languages.</p></details>
-      <details><summary>What happens if I cancel?</summary><p>The month or year you paid for runs to its end. Then the app goes read-only: every sermon still opens, searches and prints, and the podium waits for a subscription again.</p></details>
-      <details><summary>How do I change a card or recover a key?</summary><p>From <a href="https://sarangbi.lemonsqueezy.com/billing">the billing page</a>, which your receipt links to. Payments are processed by Lemon Squeezy, our merchant of record, whose name appears on your statement.</p></details>
-      <details><summary>How do I reach you?</summary><p>Email <a href="mailto:davislor@sarangbi.co">davislor@sarangbi.co</a>.</p></details>
+      <details><summary>Which computers?</summary><p>Windows 10 and 11, and Macs with an Apple chip (M1 or later, which means Macs sold since late 2020) running macOS 13 or newer. A tablet version is planned.</p></details>
+      <details><summary>Where are my sermons kept?</summary><p>In a folder you choose, one file each. Keep that folder in iCloud Drive, Google Drive, OneDrive or Dropbox to have them on every computer you use.</p></details>
+      <details><summary>Can I import the sermons I already have?</summary><p>Yes. Open a Word file and it becomes a sermon, with its Bible passage picked up from the first line, whatever language it was written in. A whole folder imports at once, including one exported from Google Docs. Nothing is locked in: you can print, save as PDF, send a sermon back to Word, or export everything as plain text, with or without a key.</p></details>
+      <details><summary>Does anything leave my computer?</summary><p>Nothing from your sermons, ever. The app connects to the internet for two things only: to check your subscription and to check for a new version. No tracking of any kind.</p></details>
+      <details><summary>Is dictation private?</summary><p>Yes. Nothing you say leaves your computer. The first time you dictate, the app downloads what it needs to understand speech, once (76 MB, or 238 MB for the more accurate option), and from then on it listens without the internet, in any of the fifteen languages.</p></details>
+      <details><summary>What happens if I cancel?</summary><p>The month or year you paid for runs to its end. Then you can still open, search and print every sermon; writing and the podium wait for a subscription again.</p></details>
+      <details><summary>How do I change my card or find my key again?</summary><p>From <a href="https://sarangbi.lemonsqueezy.com/billing">the billing page</a> linked in your receipt. Payments are handled by Lemon Squeezy, whose name appears on your statement.</p></details>
+      <details><summary>How do I contact you?</summary><p>Email <a href="mailto:davislor@sarangbi.co">davislor@sarangbi.co</a>.</p></details>
     </div>
   </div>
 </section>
@@ -523,16 +543,16 @@
     <div class="small">
       <div>
         <h3>Privacy</h3>
-        <p>Your sermons are written to your own disk and never uploaded, read, or transmitted. They are not backed up by us either. That is the other side of the same promise.</p>
+        <p>Your sermons are saved on your own computer and never uploaded, read or sent anywhere. We do not back them up either.</p>
         <p>When you buy, Lemon Squeezy handles your name, email, and payment details under their own privacy policy. We receive your name, email, and what you bought, and use them to send your key and reach you about the software. We do not sell or share them.</p>
-        <p>Every request the app makes, and what stays on your computer: <a href="privacy.html">the privacy page</a>.</p>
+        <p>Everything the app sends and everything it keeps: <a href="privacy.html">the privacy page</a>.</p>
       </div>
       <div>
         <h3>Terms</h3>
         <p>A subscription lets one person write with SermonDesk on up to three of their own computers.</p>
-        <p>There are no refunds. Cancel any time from the billing page, and the month or year you paid for runs to its end; after it the app is read-only, and every sermon is still yours.</p>
+        <p>There are no refunds. Cancel any time from the billing page; the month or year you paid for runs to its end, and after that you can still open, search and print every sermon.</p>
         <p>The software is provided as is, without warranty.</p>
-        <p>SermonDesk is new, and it will keep changing. If a change gets in your way, tell us.</p>
+        <p>SermonDesk will keep changing. If a change gets in your way, tell us.</p>
       </div>
       <div>
         <h3>Contact</h3>
