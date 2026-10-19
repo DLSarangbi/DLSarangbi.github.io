@@ -16863,7 +16863,7 @@ const es = {
   "A soft pulse of the clock": "Un suave pulso del reloj",
   "The chip turns red": "La etiqueta se vuelve roja",
   "Rail (r)": "Barra lateral (r)",
-  "Uses this computer’s settings": "Usa los ajustes de este equipo"
+  "Uses this computer’s settings": "Ajustes de este equipo"
 };
 const ko = {
   "Drag to move this picture": "끌어서 이 그림 이동",
@@ -19943,7 +19943,7 @@ const pt$3 = {
   "A soft pulse of the clock": "Uma pulsação suave do relógio",
   "The chip turns red": "A etiqueta fica vermelha",
   "Rail (r)": "Barra lateral (r)",
-  "Uses this computer’s settings": "Usa as configurações deste computador"
+  "Uses this computer’s settings": "Configurações do computador"
 };
 const fr$3 = {
   "Drag to move this picture": "Glissez pour déplacer cette image",
@@ -21483,7 +21483,7 @@ const fr$3 = {
   "A soft pulse of the clock": "Une douce pulsation de l’horloge",
   "The chip turns red": "La pastille devient rouge",
   "Rail (r)": "Le rail (r)",
-  "Uses this computer’s settings": "Utilise les réglages de cet ordinateur"
+  "Uses this computer’s settings": "Réglages de cet ordinateur"
 };
 const de$1 = {
   "Drag to move this picture": "Ziehen, um dieses Bild zu verschieben",
@@ -23023,7 +23023,7 @@ const de$1 = {
   "A soft pulse of the clock": "Ein sanftes Pulsieren der Uhr",
   "The chip turns red": "Der Chip wird rot",
   "Rail (r)": "Leiste (r)",
-  "Uses this computer’s settings": "Verwendet die Einstellungen dieses Computers"
+  "Uses this computer’s settings": "Einstellungen des Computers"
 };
 const zh = {
   "Drag to move this picture": "拖动以移动此图片",
@@ -27643,7 +27643,7 @@ const tl = {
   "A soft pulse of the clock": "Isang mahinang pintig ng orasan",
   "The chip turns red": "Nagiging pula ang chip",
   "Rail (r)": "Ang rail (r)",
-  "Uses this computer’s settings": "Ginagamit ang mga setting ng computer na ito"
+  "Uses this computer’s settings": "Setting ng computer na ito"
 };
 const id = {
   "Drag to move this picture": "Seret untuk memindahkan gambar ini",
@@ -29183,7 +29183,7 @@ const id = {
   "A soft pulse of the clock": "Denyut lembut pada jam",
   "The chip turns red": "Label berubah merah",
   "Rail (r)": "Lajur (r)",
-  "Uses this computer’s settings": "Memakai pengaturan komputer ini"
+  "Uses this computer’s settings": "Pengaturan komputer ini"
 };
 const ru = {
   "Drag to move this picture": "Перетащите, чтобы переместить это изображение",
@@ -30692,7 +30692,7 @@ const ru = {
   "One place at a time": "По одному месту за раз",
   "This paragraph has a note": "У этого абзаца есть заметка",
   "Default colour": "Цвет по умолчанию",
-  "Formatting": "Форматирование",
+  "Formatting": "Оформление",
   "Keeps its own formatting": "Сохраняет собственное форматирование",
   "As cards beside the page": "Карточками рядом со страницей",
   "Open series ›": "Открыть серию ›",
@@ -30723,7 +30723,7 @@ const ru = {
   "A soft pulse of the clock": "Мягкая пульсация часов",
   "The chip turns red": "Значок становится красным",
   "Rail (r)": "Боковая панель (r)",
-  "Uses this computer’s settings": "Использует настройки этого компьютера"
+  "Uses this computer’s settings": "Настройки этого компьютера"
 };
 const sw = {
   "Drag to move this picture": "Buruta kuhamisha picha hii",
@@ -32263,7 +32263,7 @@ const sw = {
   "A soft pulse of the clock": "Mpigo laini wa saa",
   "The chip turns red": "Kibao kinageuka chekundu",
   "Rail (r)": "Upau (r)",
-  "Uses this computer’s settings": "Inatumia mipangilio ya kompyuta hii"
+  "Uses this computer’s settings": "Mipangilio ya kompyuta hii"
 };
 const vi$2 = {
   " · in {group}": " · trong {group}",
@@ -35343,7 +35343,7 @@ const uk = {
   "A soft pulse of the clock": "Легка пульсація годинника",
   "The chip turns red": "Позначка стає червоною",
   "Rail (r)": "Бічна панель (r)",
-  "Uses this computer’s settings": "Використовує налаштування цього комп’ютера"
+  "Uses this computer’s settings": "Налаштування цього комп’ютера"
 };
 const zhHant = {
   "Drag to move this picture": "拖曳以移動此圖片",
