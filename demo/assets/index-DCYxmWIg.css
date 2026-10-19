@@ -8747,6 +8747,7 @@ p.library__failures-summary {
 
 .podium__help {
   min-width: 22rem;
+  max-width: min(34rem, 45vw);
   font-family: var(--font-sans);
   color: var(--ink);
   cursor: default;

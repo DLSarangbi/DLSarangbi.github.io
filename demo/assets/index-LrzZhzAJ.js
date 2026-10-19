@@ -1,4 +1,4 @@
-import { m as applyThemePreference, I as IS_MAC, u as describe, o as clientExports, p as jsxRuntimeExports, q as reactExports, v as LanguageRoot, A as App } from "./index-Cf2CT0_J.js";
+import { m as applyThemePreference, I as IS_MAC, u as describe, o as clientExports, p as jsxRuntimeExports, q as reactExports, v as LanguageRoot, A as App } from "./index-BUSe4upV.js";
 applyThemePreference("system");
 if (IS_MAC) document.documentElement.classList.add("mac");
 window.addEventListener("error", (event) => {
