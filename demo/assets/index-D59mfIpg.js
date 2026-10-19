@@ -1,6 +1,9 @@
-import { m as applyThemePreference, I as IS_MAC, u as describe, o as clientExports, p as jsxRuntimeExports, q as reactExports, v as LanguageRoot, A as App } from "./index-BUSe4upV.js";
+import { o as applyThemePreference, I as IS_MAC, m as fontFaceCss, F as FONT_SCHEME_BASE, v as describe, p as clientExports, q as jsxRuntimeExports, u as reactExports, w as LanguageRoot, A as App } from "./index-cH_LXvgM.js";
 applyThemePreference("system");
 if (IS_MAC) document.documentElement.classList.add("mac");
+const faces = document.createElement("style");
+faces.textContent = fontFaceCss(FONT_SCHEME_BASE);
+document.head.appendChild(faces);
 window.addEventListener("error", (event) => {
   window.api?.report?.(`${event.message} (${event.filename.split("/").pop() ?? ""}:${event.lineno})`);
 });
